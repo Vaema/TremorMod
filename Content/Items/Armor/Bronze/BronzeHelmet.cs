@@ -1,17 +1,17 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Armor.Bronze
-{
+namespace TremorMod.Content.Items.Armor.Bronze;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class BronzeHelmet : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 
 			Item.width = 32;
@@ -26,8 +26,8 @@ namespace TremorMod.Content.Items.Armor.Bronze
 		{
 			// DisplayName.SetDefault("Bronze Helmet");
 			// Tooltip.SetDefault("6% increased melee critical strike chance");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Summons a Rotating Sword to fight for you");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Summons a Rotating Sword to fight for you");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -41,8 +41,8 @@ namespace TremorMod.Content.Items.Armor.Bronze
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "8% increased damage";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "8% increased damage";
 			player.GetDamage(DamageClass.Melee) += 0.08f;
 			player.GetDamage(DamageClass.Magic) += 0.08f;
 			player.GetDamage(DamageClass.Ranged) += 0.08f;
@@ -61,4 +61,3 @@ namespace TremorMod.Content.Items.Armor.Bronze
 			recipe.Register();
 		}
 	}
-}

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -8,9 +8,9 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Utilities;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items.Armor.Omnikron
-{	
-    [AutoloadEquip(EquipType.Head)]
+namespace TremorMod.Content.Items.Armor.Omnikron;
+	
+[AutoloadEquip(EquipType.Head)]
 	public class OmnikronHeadgear : ModItem
 	{
 		public static LocalizedText SetBonusText { get; private set; }  
@@ -29,20 +29,20 @@ namespace TremorMod.Content.Items.Armor.Omnikron
 			//DisplayName.SetDefault("Omnikron Headgear");
 			//Tooltip.SetDefault("Increases max health and mana by 100");            
 			SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Calls ancient soul to protect you");
-        }
+    }
 
-        public override void ModifyTooltips(List<TooltipLine> tooltips)
+    public override void ModifyTooltips(List<TooltipLine> tooltips)
+    {
+        foreach (var tooltip in tooltips)
         {
-            foreach (var tooltip in tooltips)
+            if (tooltip.Mod == "Terraria" && tooltip.Name == "ItemName")
             {
-                if (tooltip.Mod == "Terraria" && tooltip.Name == "ItemName")
-                {
-                    tooltip.OverrideColor = new Color(238, 194, 73);
-                }
+                tooltip.OverrideColor = new Color(238, 194, 73);
             }
         }
+    }
 
-        public override bool IsArmorSet(Item head, Item body, Item legs)
+    public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
 			return body.type == ModContent.ItemType<OmnikronBreastplate>() && legs.type == ModContent.ItemType<OmnikronGreaves>();
 		}
@@ -50,7 +50,7 @@ namespace TremorMod.Content.Items.Armor.Omnikron
 		public override void UpdateArmorSet(Player player)
 		{
 			player.setBonus = SetBonusText.Value;
-            player.setBonus = "Calls ancient soul to protect you";
+        player.setBonus = "Calls ancient soul to protect you";
 			player.AddBuff(ModContent.BuffType<Omnibuff>(), 2);
 			if (Math.Abs(player.velocity.X) + Math.Abs(player.velocity.Y) > 1f && !player.rocketFrame) // Makes sure the player is actually moving
 			{
@@ -86,4 +86,3 @@ namespace TremorMod.Content.Items.Armor.Omnikron
 			recipe.Register();
 		}
 	}
-}

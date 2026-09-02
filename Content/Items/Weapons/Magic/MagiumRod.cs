@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -8,8 +8,8 @@ using TremorMod.Content.Projectiles;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Materials.OreAndBar;
 
-namespace TremorMod.Content.Items.Weapons.Magic
-{
+namespace TremorMod.Content.Items.Weapons.Magic;
+
 	public class MagiumRod : ModItem
 	{
 		public override void SetDefaults()
@@ -87,8 +87,8 @@ namespace TremorMod.Content.Items.Weapons.Magic
 			{
 				num146++;
 			}
-            IEntitySource projectileSource = player.GetSource_ItemUse(Item);
-            for (int num147 = 0; num147 < num146; num147++)
+        IEntitySource projectileSource = player.GetSource_ItemUse(Item);
+        for (int num147 = 0; num147 < num146; num147++)
 			{
 				float num148 = num78;
 				float num149 = num79;
@@ -101,7 +101,7 @@ namespace TremorMod.Content.Items.Weapons.Magic
 				num149 *= num80;
 				float x4 = vector2.X;
 				float y4 = vector2.Y;
-                Projectile.NewProjectile(projectileSource, new Vector2(x4, y4), new Vector2(num148, num149), ModContent.ProjectileType<MagiumRodPro>(), num73, num74, i, 0f, 0f);
+            Projectile.NewProjectile(projectileSource, new Vector2(x4, y4), new Vector2(num148, num149), ModContent.ProjectileType<MagiumRodPro>(), num73, num74, i, 0f, 0f);
 			}
 			return false;
 		}
@@ -117,4 +117,3 @@ namespace TremorMod.Content.Items.Weapons.Magic
 			recipe.Register();
 		}
 	}
-}

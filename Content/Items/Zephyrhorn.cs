@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items
-{
+namespace TremorMod.Content.Items;
+
 	public class Zephyrhorn : ModItem
 	{
 		public override void SetDefaults()
@@ -27,4 +27,3 @@ namespace TremorMod.Content.Items
 			player.AddBuff(ModContent.BuffType<ZephyrhornBuff>(), 2);
 		}
 	}
-}

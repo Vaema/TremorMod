@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Materials
-{
+namespace TremorMod.Content.Items.Materials;
+
 	public class JungleAlloy : ModItem
 	{
 		public override void SetStaticDefaults()
@@ -21,4 +21,3 @@ namespace TremorMod.Content.Items.Materials
 			Item.rare = 3;
 		}
 	}
-}

@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.Coral
-{
+namespace TremorMod.Content.Items.Armor.Coral;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class CoralGreaves : ModItem
 	{
@@ -34,4 +34,3 @@ namespace TremorMod.Content.Items.Armor.Coral
 		}
 
 	}
-}

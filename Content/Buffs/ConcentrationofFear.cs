@@ -2,8 +2,8 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Buffs
-{
+namespace TremorMod.Content.Buffs;
+
 	public class ConcentrationofFear : ModBuff
 	{
 		public override void SetStaticDefaults()
@@ -19,8 +19,7 @@ namespace TremorMod.Content.Buffs
 			player.GetCritChance(DamageClass.Generic) += 5;
 			player.GetAttackSpeed(DamageClass.Melee) += 0.15f;
 			player.GetKnockback(DamageClass.Summon) += 0.5f;
-            player.statDefense += 15;
+        player.statDefense += 15;
 			player.moveSpeed += 0.15f;
 		}
 	}
-}

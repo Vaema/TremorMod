@@ -7,8 +7,8 @@ using TremorMod.Content.Tiles;
 using TremorMod;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.BossSumonItems
-{
+namespace TremorMod.Content.Items.BossSumonItems;
+
 	public class RainStaff : ModItem
 	{
 		const float RainTimeInMinuts = 15; // Кол-во минут
@@ -36,8 +36,8 @@ namespace TremorMod.Content.Items.BossSumonItems
 			//Tooltip.SetDefault("Allows you to call and revoke precipitation");
 		}
 
-        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) 
-        {
+    public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) 
+    {
 			if (Main.raining)
 				Main.raining = false;
 
@@ -61,4 +61,3 @@ namespace TremorMod.Content.Items.BossSumonItems
 			recipe.Register();
 		}
 	}
-}

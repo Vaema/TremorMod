@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Biomes.Ice.Items
-{
+namespace TremorMod.Content.Biomes.Ice.Items;
+
 	public class GlacierWood : ModItem
 	{
 		public override void SetDefaults()
@@ -42,4 +42,3 @@ namespace TremorMod.Content.Biomes.Ice.Items
 			recipe2.Register();
 		}
 	}
-}

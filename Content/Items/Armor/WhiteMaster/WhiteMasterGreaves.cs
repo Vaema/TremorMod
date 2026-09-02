@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,8 +8,8 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Utilities;
 using TremorMod;
 
-namespace TremorMod.Content.Items.Armor.WhiteMaster
-{
+namespace TremorMod.Content.Items.Armor.WhiteMaster;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class WhiteMasterGreaves : ModItem
 	{
@@ -43,9 +43,9 @@ namespace TremorMod.Content.Items.Armor.WhiteMaster
 			var critIncreases = new[]
 			{
 				new[]{player.statLifeMax2, 10},
-				new[]{400, 15},
-				new[]{300, 20},
-				new[]{200, 25},
+				[400, 15],
+				[300, 20],
+				[200, 25],
 			};
 			foreach (int[] increase in critIncreases)
 			{
@@ -54,17 +54,16 @@ namespace TremorMod.Content.Items.Armor.WhiteMaster
 			}
 		}
 
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<BrokenHeroArmorplate>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<NovaLeggings>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<Aquamarine>(), 6);
-            recipe.AddIngredient(ModContent.ItemType<SoulofFight>(), 8);
-            recipe.AddIngredient(ModContent.ItemType<Phantaplasm>(), 4);
-            //recipe.SetResult(this);
-            recipe.AddTile(412);
-            recipe.Register();
-        }
+    public override void AddRecipes()
+    {
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ModContent.ItemType<BrokenHeroArmorplate>(), 1);
+        recipe.AddIngredient(ModContent.ItemType<NovaLeggings>(), 1);
+        recipe.AddIngredient(ModContent.ItemType<Aquamarine>(), 6);
+        recipe.AddIngredient(ModContent.ItemType<SoulofFight>(), 8);
+        recipe.AddIngredient(ModContent.ItemType<Phantaplasm>(), 4);
+        //recipe.SetResult(this);
+        recipe.AddTile(412);
+        recipe.Register();
     }
 }

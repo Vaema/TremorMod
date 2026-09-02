@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using System.Linq;
@@ -6,8 +6,8 @@ using Terraria.ID;
 using Terraria.DataStructures;
 using TremorMod.Content.NPCs.Bosses.NovaPillar.Items;
 
-namespace TremorMod.Content.Items.Armor.Nova
-{
+namespace TremorMod.Content.Items.Armor.Nova;
+
 	[AutoloadEquip(EquipType.Wings)]
 	public class NovaWings : ModItem
 	{
@@ -23,8 +23,8 @@ namespace TremorMod.Content.Items.Armor.Nova
 		{
 			//DisplayName.SetDefault("Nova Wings");
 			//Tooltip.SetDefault("Allows flight and slow fall");
-            ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(334, 15f, 1f);
-        }
+        ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(334, 15f, 1f);
+    }
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
@@ -62,4 +62,3 @@ namespace TremorMod.Content.Items.Armor.Nova
 			recipe.Register();
 		}
 	}
-}

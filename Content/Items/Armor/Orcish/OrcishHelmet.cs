@@ -1,10 +1,10 @@
-using Terraria;
+ï»¿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.Localization;
 
-namespace TremorMod.Content.Items.Armor.Orcish
-{
+namespace TremorMod.Content.Items.Armor.Orcish;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class OrcishHelmet : ModItem
 	{
@@ -28,8 +28,8 @@ namespace TremorMod.Content.Items.Armor.Orcish
 
 		public override void UpdateEquip(Player player)
 		{
-            player.GetDamage(DamageClass.Melee) += 0.07f;   // +7% ê áëèæíåìó óðîíó
-        }
+        player.GetDamage(DamageClass.Melee) += 0.07f;   // +7% Ãª Ã¡Ã«Ã¨Ã¦Ã­Ã¥Ã¬Ã³ Ã³Ã°Ã®Ã­Ã³
+    }
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
@@ -38,9 +38,8 @@ namespace TremorMod.Content.Items.Armor.Orcish
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = Language.GetTextValue("Increased maximum defense by 2");
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = Language.GetTextValue("Increased maximum defense by 2");
 			player.statDefense += 2;
 		}
 	}
-}

@@ -1,10 +1,10 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Weapons.Ranged
-{
+namespace TremorMod.Content.Items.Weapons.Ranged;
+
 	public class StartrooperFlameburstPistol : ModItem
 	{
 		public override void SetDefaults()
@@ -34,16 +34,15 @@ namespace TremorMod.Content.Items.Weapons.Ranged
 			// Tooltip.SetDefault("Uses bullets as ammo");
 		}
 
-        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-        {
-            type = ProjectileID.DD2FlameBurstTowerT2Shot;
-            Projectile.NewProjectile(source, position, velocity, type, damage, knockback, player.whoAmI);
-            return false;
-        }
+    public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    {
+        type = ProjectileID.DD2FlameBurstTowerT2Shot;
+        Projectile.NewProjectile(source, position, velocity, type, damage, knockback, player.whoAmI);
+        return false;
+    }
 
-        public override Vector2? HoldoutOffset()
+    public override Vector2? HoldoutOffset()
 		{
 			return new Vector2(-2, 2);
 		}
 	}
-}

@@ -1,12 +1,12 @@
-using Terraria;
+п»їusing Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Materials
-{
+namespace TremorMod.Content.Items.Materials;
+
 	public class SteelBar : ModItem
 	{
 		public override void SetDefaults()
@@ -25,26 +25,25 @@ namespace TremorMod.Content.Items.Materials
 			Item.consumable = true;
 		}
 
-        /*public override void SetStaticDefaults()
+    /*public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Steel Bar");
 			Tooltip.SetDefault("");
 		}*/
 
-        public override void AddRecipes()
-        {
-            Recipe recipe1 = CreateRecipe();
-            recipe1.AddIngredient(ItemID.IronBar, 2);
-            recipe1.AddIngredient(ModContent.ItemType<Charcoal>(), 2);
-            recipe1.AddTile(ModContent.TileType<BlastFurnaceTile>()); // Здесь нужно использовать плитку, а не предмет
-            recipe1.Register();
+    public override void AddRecipes()
+    {
+        Recipe recipe1 = CreateRecipe();
+        recipe1.AddIngredient(ItemID.IronBar, 2);
+        recipe1.AddIngredient(ModContent.ItemType<Charcoal>(), 2);
+        recipe1.AddTile(ModContent.TileType<BlastFurnaceTile>()); // Г‡Г¤ГҐГ±Гј Г­ГіГ¦Г­Г® ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ ГІГј ГЇГ«ГЁГІГЄГі, Г  Г­ГҐ ГЇГ°ГҐГ¤Г¬ГҐГІ
+        recipe1.Register();
 
-            Recipe recipe2 = CreateRecipe();
-            recipe2.AddIngredient(ItemID.LeadBar, 2);
-            recipe2.AddIngredient(ModContent.ItemType<Charcoal>(), 2);
-            recipe2.AddTile(ModContent.TileType<BlastFurnaceTile>()); // Аналогично
-            recipe2.Register();
-        }
-
+        Recipe recipe2 = CreateRecipe();
+        recipe2.AddIngredient(ItemID.LeadBar, 2);
+        recipe2.AddIngredient(ModContent.ItemType<Charcoal>(), 2);
+        recipe2.AddTile(ModContent.TileType<BlastFurnaceTile>()); // ГЂГ­Г Г«Г®ГЈГЁГ·Г­Г®
+        recipe2.Register();
     }
+
 }

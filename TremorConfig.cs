@@ -1,35 +1,33 @@
-using Terraria.ModLoader;
+п»їusing System.ComponentModel;
 using Terraria.ModLoader.Config;
-using System.ComponentModel;
 
-namespace TremorMod
+namespace TremorMod;
+
+public class TremorConfig : ModConfig
 {
-    public class TremorConfig : ModConfig
-    {
-        public override ConfigScope Mode => ConfigScope.ServerSide; // Доступно для сервера и одиночной игры
+    public override ConfigScope Mode => ConfigScope.ServerSide;
 
-        [Header("$Mods.TremorMod.Config.BuffSettings")] // Локализованный заголовок
+    [Header("$Mods.TremorMod.Config.BuffSettings")]
 
-        [DefaultValue(false)] // По умолчанию НЕ совместимы
-        [LabelKey("$Mods.TremorMod.Config.AllowHealthBuffsTogether")]
-        [TooltipKey("$Mods.TremorMod.Config.AllowHealthBuffsTogetherTooltip")]
-        public bool AllowHealthBuffsTogether;
+    [DefaultValue(false)]
+    [LabelKey("$Mods.TremorMod.Config.AllowHealthBuffsTogether")]
+    [TooltipKey("$Mods.TremorMod.Config.AllowHealthBuffsTogetherTooltip")]
+    public bool AllowHealthBuffsTogether;
 
-        [DefaultValue(false)] // По умолчанию НЕ совместимы
-        [LabelKey("$Mods.TremorMod.Config.AllowManaBuffsTogether")]
-        [TooltipKey("$Mods.TremorMod.Config.AllowManaBuffsTogetherTooltip")]
-        public bool AllowManaBuffsTogether;
+    [DefaultValue(false)]
+    [LabelKey("$Mods.TremorMod.Config.AllowManaBuffsTogether")]
+    [TooltipKey("$Mods.TremorMod.Config.AllowManaBuffsTogetherTooltip")]
+    public bool AllowManaBuffsTogether;
 
-        [Header("$Mods.TremorMod.Config.CreateSettings")] 
+    [Header("$Mods.TremorMod.Config.CreateSettings")]
 
-        [DefaultValue(true)] // новый рецепт Зенита включен по умолчанию
-        [LabelKey("$Mods.TremorMod.Config.AllowZenithRecipeChange")]
-        [TooltipKey("$Mods.TremorMod.Config.AllowZenithRecipeChangeTooltip")]
-        public bool AllowZenithRecipeChange;
+    [DefaultValue(true)]
+    [LabelKey("$Mods.TremorMod.Config.AllowZenithRecipeChange")]
+    [TooltipKey("$Mods.TremorMod.Config.AllowZenithRecipeChangeTooltip")]
+    public bool AllowZenithRecipeChange;
 
-        [DefaultValue(false)] 
-        [LabelKey("$Mods.TremorMod.Config.Disablingspawn")]
-        [TooltipKey("$Mods.TremorMod.Config.DisablingspawnTooltip")]
-        public bool DisablingspawnAvengerPhobosDeimos;
-    }
+    [DefaultValue(false)]
+    [LabelKey("$Mods.TremorMod.Config.Disablingspawn")]
+    [TooltipKey("$Mods.TremorMod.Config.DisablingspawnTooltip")]
+    public bool DisablingspawnAvengerPhobosDeimos;
 }

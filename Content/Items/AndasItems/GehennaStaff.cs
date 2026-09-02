@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+п»їusing Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -6,8 +6,8 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Items.AndasItems
-{
+namespace TremorMod.Content.Items.AndasItems;
+
 	public class GehennaStaff : ModItem
 	{
 		public override void SetDefaults()
@@ -30,27 +30,26 @@ namespace TremorMod.Content.Items.AndasItems
 			Item.useTurn = false;
 
 		}
-        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-        {
-            player.channel = true;
-            return true;
-        }
+    public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    {
+        player.channel = true;
+        return true;
+    }
 
-        /*public override void SetStaticDefaults()
+    /*public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Gehenna Staff");
 			Tooltip.SetDefault("Summons a controllable inferno rift that rapidly shoots molten bolts at nearby enemies");
 		}*/
 
-        public override void ModifyTooltips(List<TooltipLine> tooltips)
+    public override void ModifyTooltips(List<TooltipLine> tooltips)
+    {
+        foreach (var tooltip in tooltips)
         {
-            foreach (var tooltip in tooltips)
+            // ГЊГҐГ­ГїГҐГ¬ Г¶ГўГҐГІ ГІГҐГЄГ±ГІГ  Г¤Г«Гї Г­Г Г§ГўГ Г­ГЁГї ГЇГ°ГҐГ¤Г¬ГҐГІГ 
+            if (tooltip.Mod == "Terraria" && tooltip.Name == "ItemName")
             {
-                // Меняем цвет текста для названия предмета
-                if (tooltip.Mod == "Terraria" && tooltip.Name == "ItemName")
-                {
-                    tooltip.OverrideColor = new Color(238, 194, 73); // Цвет золота
-                }
+                tooltip.OverrideColor = new Color(238, 194, 73); // Г–ГўГҐГІ Г§Г®Г«Г®ГІГ 
             }
         }
     }

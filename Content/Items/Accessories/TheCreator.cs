@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class TheCreator : ModItem
 	{
 		public override void SetDefaults()
@@ -61,4 +61,3 @@ namespace TremorMod.Content.Items.Accessories
 			recipe1.Register();
 		}
 	}
-}

@@ -1,12 +1,12 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles.Minions
-{
+namespace TremorMod.Content.Projectiles.Minions;
+
 	public class StarfishPro : ModProjectile
-    {
+{
 		public override void SetDefaults()
 		{
 			Projectile.netImportant = true;
@@ -22,14 +22,14 @@ namespace TremorMod.Content.Projectiles.Minions
 			Projectile.penetrate = -1;
 			Projectile.timeLeft = 18000;
 			Projectile.ignoreWater = true;
-                        Projectile.tileCollide = false;
-                        ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
+                    Projectile.tileCollide = false;
+                    ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 		}
 
 		public override void SetStaticDefaults()
 		{
 		  // DisplayName.SetDefault("StarfishPro");
-       
+   
 		}
 
 		public override bool OnTileCollide(Vector2 oldVelocity)
@@ -42,7 +42,6 @@ namespace TremorMod.Content.Projectiles.Minions
 				{
 					Projectile.velocity.Y = oldVelocity.Y;
 				}
-      return false;
+  return false;
 		}
 	}
-}

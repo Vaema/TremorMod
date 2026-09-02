@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class NecromancerArmor : ModItem
 	{
 		public override void SetDefaults()
@@ -26,9 +26,9 @@ namespace TremorMod.Content.Items.Accessories
 		public override void UpdateEquip(Player player)
 		{
 			player.GetDamage(DamageClass.Summon) += 0.18f;
-            player.GetKnockback(DamageClass.Summon) += 0.2f;
-        }
-        public override void AddRecipes()
+        player.GetKnockback(DamageClass.Summon) += 0.2f;
+    }
+    public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<HardArmor>(), 1);
@@ -41,4 +41,3 @@ namespace TremorMod.Content.Items.Accessories
 		}
 
 	}
-}

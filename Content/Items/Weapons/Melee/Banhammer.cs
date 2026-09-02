@@ -1,11 +1,11 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Weapons.Melee
-{
+namespace TremorMod.Content.Items.Weapons.Melee;
+
 	public class Banhammer : ModItem
 	{
 		public override void SetDefaults()
@@ -25,27 +25,27 @@ namespace TremorMod.Content.Items.Weapons.Melee
 			Item.UseSound = SoundID.Item1;
 			Item.tileBoost = +3;
 			Item.value = 520000;
-            Item.DamageType = DamageClass.Melee;
-        }
+        Item.DamageType = DamageClass.Melee;
+    }
 
-        /*public override void SetStaticDefaults()
+    /*public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Banhammer");
 			Tooltip.SetDefault("");
 		}*/
 
-        public override void ModifyTooltips(List<TooltipLine> tooltips)
+    public override void ModifyTooltips(List<TooltipLine> tooltips)
+    {
+        foreach (var line in tooltips)
         {
-            foreach (var line in tooltips)
+            if (line.Name == "ItemName") // ÃˆÃ§Ã¬Ã¥Ã­Ã¿Ã¥Ã¬ Ã¶Ã¢Ã¥Ã² Ã­Ã Ã§Ã¢Ã Ã­Ã¨Ã¿ Ã¯Ã°Ã¥Ã¤Ã¬Ã¥Ã²Ã 
             {
-                if (line.Name == "ItemName") // Èçìåíÿåì öâåò íàçâàíèÿ ïðåäìåòà
-                {
-                    line.OverrideColor = new Color(238, 194, 73);
-                }
+                line.OverrideColor = new Color(238, 194, 73);
             }
         }
+    }
 
-        public override void MeleeEffects(Player player, Rectangle hitbox)
+    public override void MeleeEffects(Player player, Rectangle hitbox)
 		{
 			if (Main.rand.NextBool(2))
 			{
@@ -53,4 +53,3 @@ namespace TremorMod.Content.Items.Weapons.Melee
 			}
 		}
 	}
-}

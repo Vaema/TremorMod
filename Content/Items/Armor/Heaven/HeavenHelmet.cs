@@ -1,16 +1,16 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 
-namespace TremorMod.Content.Items.Armor.Heaven
-{
+namespace TremorMod.Content.Items.Armor.Heaven;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class HeavenHelmet : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 
 			Item.width = 32;
@@ -25,8 +25,8 @@ namespace TremorMod.Content.Items.Armor.Heaven
 		{
 			// DisplayName.SetDefault("Heaven Helmet");
 			// Tooltip.SetDefault("Increases ranged critical strike chance by 12");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Grants immunity to most debuffs");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Grants immunity to most debuffs");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -40,8 +40,8 @@ namespace TremorMod.Content.Items.Armor.Heaven
 
 		public override void UpdateArmorSet(Player p)
 		{
-            p.setBonus = SetBonusText.Value;
-            p.setBonus = "Grants immunity to most debuffs";
+        p.setBonus = SetBonusText.Value;
+        p.setBonus = "Grants immunity to most debuffs";
 			p.buffImmune[44] = true; //Frostburn
 			p.buffImmune[46] = true; //Chilled
 			p.buffImmune[47] = true; //Frozen
@@ -66,4 +66,3 @@ namespace TremorMod.Content.Items.Armor.Heaven
 		}
 
 	}
-}

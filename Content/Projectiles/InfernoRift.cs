@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.Xna.Framework;
@@ -17,8 +17,8 @@ using Terraria.ModLoader;
 using Filters = Terraria.Graphics.Effects.Filters;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class InfernoRift : ModProjectile
 	{
 		const int ShootRate = 20; 
@@ -36,9 +36,9 @@ namespace TremorMod.Content.Projectiles
 			Projectile.width = 38;
 			Projectile.height = 38;
 			Projectile.scale = 1.1f;
-            Projectile.aiStyle = 0; // Например, стиль взрыва
-            AIType = ProjectileID.Grenade; // Ссылается на поведение другого снаряда
-            Projectile.friendly = true;
+        Projectile.aiStyle = 0; // ГЌГ ГЇГ°ГЁГ¬ГҐГ°, Г±ГІГЁГ«Гј ГўГ§Г°Г»ГўГ 
+        AIType = ProjectileID.Grenade; // Г‘Г±Г»Г«Г ГҐГІГ±Гї Г­Г  ГЇГ®ГўГҐГ¤ГҐГ­ГЁГҐ Г¤Г°ГіГЈГ®ГЈГ® Г±Г­Г Г°ГїГ¤Г 
+        Projectile.friendly = true;
 			Projectile.hostile = false;
 			Projectile.tileCollide = true;
 			Projectile.ignoreWater = true;
@@ -48,12 +48,12 @@ namespace TremorMod.Content.Projectiles
 			ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 		}
 
-        /*public override void SetStaticDefaults()
+    /*public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Inferno Rift");
 		}*/
 
-        /*public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+    /*public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
 		{
 			Vector2 drawOrigin = new Vector2(Main.projectileTexture[projectile.type].Width * 0.5f, projectile.height * 0.5f);
 			for (int k = 0; k < projectile.oldPos.Length; k++)
@@ -63,50 +63,50 @@ namespace TremorMod.Content.Projectiles
 			}
 			return true;
 		}*/
-        public override void OnKill(int timeLeft)
+    public override void OnKill(int timeLeft)
+    {
+        for (int k = 0; k < 5; k++)
         {
-            for (int k = 0; k < 5; k++)
-            {
-                int dust = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 6, Projectile.oldVelocity.X * 0.1f, Projectile.oldVelocity.Y * 0.1f);
-            }
-            SoundEngine.PlaySound(SoundID.Item109, Projectile.position); // Заменено Main.PlaySound
+            int dust = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 6, Projectile.oldVelocity.X * 0.1f, Projectile.oldVelocity.Y * 0.1f);
         }
+        SoundEngine.PlaySound(SoundID.Item109, Projectile.position); // Г‡Г Г¬ГҐГ­ГҐГ­Г® Main.PlaySound
+    }
 
-        void Shoot()
+    void Shoot()
+    {
+        if (--TimeToShoot <= 0)
         {
-            if (--TimeToShoot <= 0)
+            TimeToShoot = ShootRate;
+            if (ShootType == -1)
+                ShootType = ModContent.ProjectileType<AdamantiteBolt>(); // Г“ГЄГ Г¦ГЁГІГҐ Г°ГҐГ Г«ГјГ­Г»Г© ГІГЁГЇ
+
+            float nearestNPCDist = ShootDistance;
+            int nearestNPC = -1;
+
+            foreach (NPC npc in Main.npc)
             {
-                TimeToShoot = ShootRate;
-                if (ShootType == -1)
-                    ShootType = ModContent.ProjectileType<AdamantiteBolt>(); // Укажите реальный тип
+                if (!npc.active || npc.friendly || npc.lifeMax <= 5)
+                    continue;
 
-                float nearestNPCDist = ShootDistance;
-                int nearestNPC = -1;
-
-                foreach (NPC npc in Main.npc)
+                if ((nearestNPCDist == -1 || npc.Distance(Projectile.Center) < nearestNPCDist) &&
+                    Collision.CanHitLine(Projectile.Center, 16, 16, npc.Center, 16, 16))
                 {
-                    if (!npc.active || npc.friendly || npc.lifeMax <= 5)
-                        continue;
-
-                    if ((nearestNPCDist == -1 || npc.Distance(Projectile.Center) < nearestNPCDist) &&
-                        Collision.CanHitLine(Projectile.Center, 16, 16, npc.Center, 16, 16))
-                    {
-                        nearestNPCDist = npc.Distance(Projectile.Center);
-                        nearestNPC = npc.whoAmI;
-                    }
+                    nearestNPCDist = npc.Distance(Projectile.Center);
+                    nearestNPC = npc.whoAmI;
                 }
-
-                if (nearestNPC == -1)
-                    return;
-
-                Vector2 velocity = Helper.VelocityToPoint(Projectile.Center, Main.npc[nearestNPC].Center, ShootSpeed);
-                IEntitySource source = Projectile.GetSource_FromThis();
-                Projectile.NewProjectile(source, Projectile.Center, velocity, ShootType, ShootDamage, ShootKnockback, Projectile.owner);
             }
+
+            if (nearestNPC == -1)
+                return;
+
+            Vector2 velocity = Helper.VelocityToPoint(Projectile.Center, Main.npc[nearestNPC].Center, ShootSpeed);
+            IEntitySource source = Projectile.GetSource_FromThis();
+            Projectile.NewProjectile(source, Projectile.Center, velocity, ShootType, ShootDamage, ShootKnockback, Projectile.owner);
         }
+    }
 
 
-        public override void AI()
+    public override void AI()
 		{
 			Shoot();
 			Projectile.ai[1] = 1;
@@ -202,4 +202,3 @@ namespace TremorMod.Content.Projectiles
 			}
 		}
 	}
-}

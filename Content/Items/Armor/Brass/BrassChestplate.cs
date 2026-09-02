@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 
-namespace TremorMod.Content.Items.Armor.Brass
-{
+namespace TremorMod.Content.Items.Armor.Brass;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class BrassChestplate : ModItem
 	{
@@ -31,11 +31,10 @@ namespace TremorMod.Content.Items.Armor.Brass
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<BrassBar>(), 18);
-            recipe.AddIngredient(ItemID.Cog, 16);
+        recipe.AddIngredient(ModContent.ItemType<BrassBar>(), 18);
+        recipe.AddIngredient(ItemID.Cog, 16);
 			//recipe.SetResult(this);
 			recipe.AddTile(134);
 			recipe.Register();
 		}
 	}
-}

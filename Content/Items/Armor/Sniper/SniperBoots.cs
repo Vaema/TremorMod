@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.Sniper
-{
+namespace TremorMod.Content.Items.Armor.Sniper;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class SniperBoots : ModItem
 	{
@@ -31,4 +31,3 @@ namespace TremorMod.Content.Items.Armor.Sniper
 			player.moveSpeed -= 0.20f;
 		}
 	}
-}

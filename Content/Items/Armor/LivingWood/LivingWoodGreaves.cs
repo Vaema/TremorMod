@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.LivingWood
-{
+namespace TremorMod.Content.Items.Armor.LivingWood;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class LivingWoodGreaves : ModItem
 	{
@@ -39,4 +39,3 @@ namespace TremorMod.Content.Items.Armor.LivingWood
 		}
 
 	}
-}

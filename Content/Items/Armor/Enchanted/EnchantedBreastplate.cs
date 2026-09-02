@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.Enchanted
-{
+namespace TremorMod.Content.Items.Armor.Enchanted;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class EnchantedBreastplate : ModItem
 	{
@@ -28,4 +28,3 @@ namespace TremorMod.Content.Items.Armor.Enchanted
 			player.statLifeMax2 += 20;
 		}
 	}
-}

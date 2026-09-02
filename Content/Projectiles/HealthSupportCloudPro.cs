@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class HealthSupportCloudPro : ModProjectile
-    {
+{
 		public override void SetDefaults()
 		{
 			Projectile.width = 40;
@@ -27,4 +27,3 @@ namespace TremorMod.Content.Projectiles
 			target.HealEffect(newLife);
 		}
 	}
-}

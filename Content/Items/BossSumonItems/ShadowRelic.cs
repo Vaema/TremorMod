@@ -1,15 +1,15 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.NPCs.Bosses.WallofShadows;
 
-namespace TremorMod.Content.Items.BossSumonItems
-{
+namespace TremorMod.Content.Items.BossSumonItems;
+
 	public class ShadowRelic : ModItem
 	{
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 14;
 			Item.height = 26;
@@ -45,26 +45,26 @@ namespace TremorMod.Content.Items.BossSumonItems
 				//{
 				for (int i = 0; i < 200; ++i)
 				{
-                    if (Main.npc[i].type == NPCID.Dryad && NPC.downedPlantBoss)
-                    {
-                        SpawnShadowWall(Item.position);
-                        //Main.npc[i].StrikeNPC(9999, 10f, -Main.npc[i].direction, false, false, false);
-                        Item.active = false;
-                        Item.type = 0;
-                        // item.name = ""; 
-                        Item.stack = 0;
-                        Main.NewText("The shadows are gathering around you...", 42, 10, 74);
-                    }
+                if (Main.npc[i].type == NPCID.Dryad && NPC.downedPlantBoss)
+                {
+                    SpawnShadowWall(Item.position);
+                    //Main.npc[i].StrikeNPC(9999, 10f, -Main.npc[i].direction, false, false, false);
+                    Item.active = false;
+                    Item.type = 0;
+                    // item.name = ""; 
+                    Item.stack = 0;
+                    Main.NewText("The shadows are gathering around you...", 42, 10, 74);
                 }
-                //}
             }
+            //}
+        }
 		}
 
 		public void SpawnShadowWall(Vector2 pos)
 		{
-            if (pos.Y / 16.0 < (Main.maxTilesY - 205) || Main.netMode == 1)
+        if (pos.Y / 16.0 < (Main.maxTilesY - 205) || Main.netMode == 1)
 
-                return;
+            return;
 			int num1 = Player.FindClosest(pos, 16, 16);
 			int num2 = 1;
 			if (pos.X / 16.0 > (Main.maxTilesX / 2))
@@ -110,4 +110,3 @@ namespace TremorMod.Content.Items.BossSumonItems
 		}
 
 	}
-}

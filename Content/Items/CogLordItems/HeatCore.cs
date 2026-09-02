@@ -4,8 +4,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.CogLordItems
-{
+namespace TremorMod.Content.Items.CogLordItems;
+
 	public class HeatCore : ModItem
 	{
 		const int ShootType = ProjectileID.HeatRay; // Тип выстрела
@@ -29,65 +29,64 @@ namespace TremorMod.Content.Items.CogLordItems
 			Item.accessory = true;
 		}
 
-        /*public override void SetStaticDefaults()
+    /*public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Heat Core");
 			Tooltip.SetDefault("Shoots rays at nearby enemies");
 		}*/
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
+    public override void UpdateAccessory(Player player, bool hideVisual)
+    {
+        if (--TimeToShoot <= 0)
         {
-            if (--TimeToShoot <= 0)
+            TimeToShoot = ShootRate;
+            int Target = GetTarget(player);
+            if (Target != -1) Shoot(player, Target, GetDamage(player));
+        }
+    }
+
+    int GetTarget(Player player)
+    {
+        int Target = -1;
+        for (int k = 0; k < Main.npc.Length; k++)
+        {
+            if (Main.npc[k].active && Main.npc[k].lifeMax > 5 && !Main.npc[k].dontTakeDamage && !Main.npc[k].friendly &&
+                Main.npc[k].Distance(player.Center) <= ShootRange &&
+                Collision.CanHitLine(player.Center, 4, 4, Main.npc[k].Center, 4, 4))
             {
-                TimeToShoot = ShootRate;
-                int Target = GetTarget(player);
-                if (Target != -1) Shoot(player, Target, GetDamage(player));
+                Target = k;
+                break;
             }
         }
+        return Target;
+    }
 
-        int GetTarget(Player player)
+    int GetDamage(Player player)
+    {
+        // Получение множителей урона для всех типов
+        float magicMultiplier = player.GetDamage(DamageClass.Magic).Additive;
+        float meleeMultiplier = player.GetDamage(DamageClass.Melee).Additive;
+        float minionMultiplier = player.GetDamage(DamageClass.Summon).Additive;
+        float rangedMultiplier = player.GetDamage(DamageClass.Ranged).Additive;
+
+        // Суммирование всех типов урона
+        return (int)(10 * (magicMultiplier + meleeMultiplier + minionMultiplier + rangedMultiplier)) + 15;
+    }
+
+
+    void Shoot(Player player, int Target, int Damage)
+    {
+        // Создание источника для снаряда
+        var source = player.GetSource_FromThis();
+
+        Vector2 velocity = Helper.VelocityToPoint(player.Center, Main.npc[Target].Center, ShootSpeed);
+        for (int l = 0; l < ShootCount; l++)
         {
-            int Target = -1;
-            for (int k = 0; k < Main.npc.Length; k++)
-            {
-                if (Main.npc[k].active && Main.npc[k].lifeMax > 5 && !Main.npc[k].dontTakeDamage && !Main.npc[k].friendly &&
-                    Main.npc[k].Distance(player.Center) <= ShootRange &&
-                    Collision.CanHitLine(player.Center, 4, 4, Main.npc[k].Center, 4, 4))
-                {
-                    Target = k;
-                    break;
-                }
-            }
-            return Target;
-        }
+            velocity.X += Main.rand.Next(-spread, spread + 1) * spreadMult;
+            velocity.Y += Main.rand.Next(-spread, spread + 1) * spreadMult;
 
-        int GetDamage(Player player)
-        {
-            // Получение множителей урона для всех типов
-            float magicMultiplier = player.GetDamage(DamageClass.Magic).Additive;
-            float meleeMultiplier = player.GetDamage(DamageClass.Melee).Additive;
-            float minionMultiplier = player.GetDamage(DamageClass.Summon).Additive;
-            float rangedMultiplier = player.GetDamage(DamageClass.Ranged).Additive;
-
-            // Суммирование всех типов урона
-            return (int)(10 * (magicMultiplier + meleeMultiplier + minionMultiplier + rangedMultiplier)) + 15;
-        }
-
-
-        void Shoot(Player player, int Target, int Damage)
-        {
-            // Создание источника для снаряда
-            var source = player.GetSource_FromThis();
-
-            Vector2 velocity = Helper.VelocityToPoint(player.Center, Main.npc[Target].Center, ShootSpeed);
-            for (int l = 0; l < ShootCount; l++)
-            {
-                velocity.X += Main.rand.Next(-spread, spread + 1) * spreadMult;
-                velocity.Y += Main.rand.Next(-spread, spread + 1) * spreadMult;
-
-                // Использование источника вместо float
-                int i = Projectile.NewProjectile(source, player.Center.X, player.Center.Y, velocity.X, velocity.Y, ShootType, Damage, ShootKN, player.whoAmI);
-            }
+            // Использование источника вместо float
+            int i = Projectile.NewProjectile(source, player.Center.X, player.Center.Y, velocity.X, velocity.Y, ShootType, Damage, ShootKN, player.whoAmI);
         }
     }
 }

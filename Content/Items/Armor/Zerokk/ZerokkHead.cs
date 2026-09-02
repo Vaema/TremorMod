@@ -1,8 +1,8 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.Zerokk
-{
+namespace TremorMod.Content.Items.Armor.Zerokk;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class ZerokkHead : ModItem
 	{
@@ -33,4 +33,3 @@ namespace TremorMod.Content.Items.Armor.Zerokk
 			player.armorEffectDrawShadowLokis = true; //маленькие тени
 		}
 	}
-}

@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Buffs
-{
+namespace TremorMod.Content.Buffs;
+
 	public class ReinforcedHeart : ModBuff
 	{
 		public override void SetStaticDefaults()
@@ -18,4 +18,3 @@ namespace TremorMod.Content.Buffs
 			player.statLifeMax2 += 100;
 		}
 	}
-}

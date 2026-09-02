@@ -17,8 +17,8 @@ using TremorMod.Content.Items.Bag;
 using TremorMod.Utilities;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.NPCs.Bosses.Motherboard
-{
+namespace TremorMod.Content.NPCs.Bosses.Motherboard;
+
 	// has two stages
 	// some other bosses do
 	// the possibility to factor that exists
@@ -223,8 +223,8 @@ namespace TremorMod.Content.NPCs.Bosses.Motherboard
 
 		public override void AdjustHead(Motherboard boss)
 		{
-            TextureAssets.NpcHeadBoss[boss.headTexture] = ModContent.Request<Texture2D>("TremorMod/Content/NPCs/Bosses/Motherboard/Motherboard_Head_Boss");
-        }
+        TextureAssets.NpcHeadBoss[boss.headTexture] = ModContent.Request<Texture2D>("TremorMod/Content/NPCs/Bosses/Motherboard/Motherboard_Head_Boss");
+    }
 
 		public override void AI(Motherboard boss)
 		{
@@ -268,12 +268,12 @@ namespace TremorMod.Content.NPCs.Bosses.Motherboard
 
 		public override int FrameOffset => 3;
 
-        public override void AdjustHead(Motherboard boss)
-        {
-            TextureAssets.NpcHeadBoss[boss.headTexture] = ModContent.Request<Texture2D>("TremorMod/Content/NPCs/Bosses/Motherboard/Motherboard_Head_Boss");
-        }
+    public override void AdjustHead(Motherboard boss)
+    {
+        TextureAssets.NpcHeadBoss[boss.headTexture] = ModContent.Request<Texture2D>("TremorMod/Content/NPCs/Bosses/Motherboard/Motherboard_Head_Boss");
+    }
 
-        public override void Start(Motherboard boss)
+    public override void Start(Motherboard boss)
 		{
 			_clampers = new List<int>
 			{
@@ -497,16 +497,16 @@ namespace TremorMod.Content.NPCs.Bosses.Motherboard
 			stage = stage0;
 		}
 
-        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float bossLifeScale, float balance)
-        {
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.625f * bossLifeScale);
-            NPC.damage = (int)(NPC.damage * 0.6f);
-        }
+    public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float bossLifeScale, float balance)
+    {
+        NPC.lifeMax = (int)(NPC.lifeMax * 0.625f * bossLifeScale);
+        NPC.damage = (int)(NPC.damage * 0.6f);
+    }
 
-        public override void HitEffect(NPC.HitInfo hit)
+    public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
-            if (NPC.life <= 0)
+        int hitDirection = hit.HitDirection;
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
 				{
@@ -516,11 +516,11 @@ namespace TremorMod.Content.NPCs.Bosses.Motherboard
 				const int goreAmount = 4;
 				for (int i = 0; i < goreAmount; i++)
 				{
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("MotherboardGore1").Type, 1f);
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("MotherboardGore2").Type, 1f);
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("MotherboardGore3").Type, 1f);
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("MotherboardGore4").Type, 1f);
-                }
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("MotherboardGore1").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("MotherboardGore2").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("MotherboardGore3").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("MotherboardGore4").Type, 1f);
+            }
 			}
 		}
 
@@ -651,59 +651,58 @@ namespace TremorMod.Content.NPCs.Bosses.Motherboard
 			stage.AI(this);
 		}
 
-        public override void OnKill()
-        {
-            TremorSpawnEnemys.downedMotherboard = true;
-        }
-
-        // // ?? Doesn't seem to fix much
-        // public override void SendExtraAI(BinaryWriter writer)
-        // {
-        //	writer.Write(_appearTime);
-        //	writer.Write(AIStage);
-        //	writer.Write(_signalDrones.Count);
-        //	foreach (int drone in _signalDrones)
-        //	{
-        //		writer.Write(drone);
-        //	}
-        //	writer.Write(_lastSignalDrone);
-        //	writer.Write(_shootNow);
-        //	writer.Write(_timeToNextDrone);
-        //	writer.Write(_timeToShoot);
-        //	writer.Write(_timeToLaser);
-        //	writer.Write(_currentFrame);
-        //	writer.Write(_timeToAnimation);
-        //	writer.Write(_clampers.Count);
-        //	foreach (int clamper in _clampers)
-        //	{
-        //		writer.Write(clamper);
-        //	}
-        //	writer.Write(_secondShootTime);
-        // }
-
-        // public override void ReceiveExtraAI(BinaryReader reader)
-        // {
-        //	_appearTime = reader.ReadInt32();
-        //	AIStage = reader.ReadInt32();
-        //	int c = reader.ReadInt32();
-        //	_signalDrones = new List<int>();
-        //	for (int i = 0; i < c; i++)
-        //	{
-        //		_signalDrones[i] = reader.ReadInt32();
-        //	}
-        //	_lastSignalDrone = reader.ReadInt32();
-        //	_shootNow = reader.ReadBoolean();
-        //	_timeToNextDrone = reader.ReadInt32();
-        //	_timeToShoot = reader.ReadInt32();
-        //	_timeToLaser = reader.ReadInt32();
-        //	_currentFrame = reader.ReadInt32();
-        //	_timeToAnimation = reader.ReadInt32();
-        //	c = reader.ReadInt32();
-        //	for (int i = 0; i < c; i++)
-        //	{
-        //		_clampers[i] = reader.ReadInt32();
-        //	}
-        //	_secondShootTime = reader.ReadInt32();
-        // }
+    public override void OnKill()
+    {
+        TremorSpawnEnemys.downedMotherboard = true;
     }
+
+    // // ?? Doesn't seem to fix much
+    // public override void SendExtraAI(BinaryWriter writer)
+    // {
+    //	writer.Write(_appearTime);
+    //	writer.Write(AIStage);
+    //	writer.Write(_signalDrones.Count);
+    //	foreach (int drone in _signalDrones)
+    //	{
+    //		writer.Write(drone);
+    //	}
+    //	writer.Write(_lastSignalDrone);
+    //	writer.Write(_shootNow);
+    //	writer.Write(_timeToNextDrone);
+    //	writer.Write(_timeToShoot);
+    //	writer.Write(_timeToLaser);
+    //	writer.Write(_currentFrame);
+    //	writer.Write(_timeToAnimation);
+    //	writer.Write(_clampers.Count);
+    //	foreach (int clamper in _clampers)
+    //	{
+    //		writer.Write(clamper);
+    //	}
+    //	writer.Write(_secondShootTime);
+    // }
+
+    // public override void ReceiveExtraAI(BinaryReader reader)
+    // {
+    //	_appearTime = reader.ReadInt32();
+    //	AIStage = reader.ReadInt32();
+    //	int c = reader.ReadInt32();
+    //	_signalDrones = new List<int>();
+    //	for (int i = 0; i < c; i++)
+    //	{
+    //		_signalDrones[i] = reader.ReadInt32();
+    //	}
+    //	_lastSignalDrone = reader.ReadInt32();
+    //	_shootNow = reader.ReadBoolean();
+    //	_timeToNextDrone = reader.ReadInt32();
+    //	_timeToShoot = reader.ReadInt32();
+    //	_timeToLaser = reader.ReadInt32();
+    //	_currentFrame = reader.ReadInt32();
+    //	_timeToAnimation = reader.ReadInt32();
+    //	c = reader.ReadInt32();
+    //	for (int i = 0; i < c; i++)
+    //	{
+    //		_clampers[i] = reader.ReadInt32();
+    //	}
+    //	_secondShootTime = reader.ReadInt32();
+    // }
 }

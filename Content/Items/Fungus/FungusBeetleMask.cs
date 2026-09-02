@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Fungus
-{
+namespace TremorMod.Content.Items.Fungus;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class FungusBeetleMask : ModItem
 	{
@@ -22,4 +22,3 @@ namespace TremorMod.Content.Items.Fungus
 			Tooltip.SetDefault("");
 		}*/
 	}
-}

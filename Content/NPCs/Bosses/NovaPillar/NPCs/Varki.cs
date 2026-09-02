@@ -8,8 +8,8 @@ using TremorMod.Content.Projectiles;
 using Terraria.DataStructures;
 using TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles;
 
-namespace TremorMod.Content.NPCs.Bosses.NovaPillar.NPCs
-{
+namespace TremorMod.Content.NPCs.Bosses.NovaPillar.NPCs;
+
 	public class Varki : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -62,70 +62,70 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.NPCs
 			NovaAnimation();
 		}
 
-        /*public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
-        {
-            // Используем ModContent.Request для получения текстуры
-            Texture2D glowMask = ModContent.Request<Texture2D>("NPCs/Bosses/NovaPillar/NPCs/Varki_GlowMask").Value;
-            TremorUtils.DrawNPCGlowMask(spriteBatch, NPC, glowMask);
-        }*/
+    /*public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+    {
+        // Используем ModContent.Request для получения текстуры
+        Texture2D glowMask = ModContent.Request<Texture2D>("NPCs/Bosses/NovaPillar/NPCs/Varki_GlowMask").Value;
+        TremorUtils.DrawNPCGlowMask(spriteBatch, NPC, glowMask);
+    }*/
 
-        public override void HitEffect(NPC.HitInfo hit)
+    public override void HitEffect(NPC.HitInfo hit)
+    {
+        if (NPC.life <= 0)
         {
-            if (NPC.life <= 0)
+            if (NovaHandler.ShieldStrength > 0)
             {
-                if (NovaHandler.ShieldStrength > 0)
+                int parentIndex = NPC.FindFirstNPC(ModContent.NPCType<NovaPillar>());
+                if (parentIndex != -1)
                 {
-                    int parentIndex = NPC.FindFirstNPC(ModContent.NPCType<NovaPillar>());
-                    if (parentIndex != -1)
-                    {
-                        NPC parent = Main.npc[parentIndex];
+                    NPC parent = Main.npc[parentIndex];
 
-                        Vector2 Velocity = Helper.VelocityToPoint(NPC.Center, parent.Center, 20);
+                    Vector2 Velocity = Helper.VelocityToPoint(NPC.Center, parent.Center, 20);
 
-                        Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center, Velocity, ModContent.ProjectileType<CogLordLaser>(), 1, 1f);
-                    }
-                }
-
-                for (int i = 0; i < 5; i++)
-                {
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, 57, Main.rand.NextFloat(-3f, 3f), Main.rand.NextFloat(-3f, 3f));
-                }
-
-                for (int i = 0; i < 2; i++)
-                {
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("VarkiGore1").Type, 1f);
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("VarkiGore2").Type, 1f);
-                }
-
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("VarkiGore3").Type, 1f);
-
-                for (int k = 0; k < 7; k++)
-                {
-                    Vector2 Vector = new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101));
-                    Vector.Normalize();
-                    Vector *= Main.rand.Next(10, 201) * 0.01f;
-
-                    int i = Projectile.NewProjectile(NPC.GetSource_Death(), NPC.position, Vector, ModContent.ProjectileType<NovaAlchemistCloud>(), 20, 1f, Main.myPlayer, 0f, Main.rand.Next(-45, 1));
-                    Main.projectile[i].friendly = false;
+                    Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center, Velocity, ModContent.ProjectileType<CogLordLaser>(), 1, 1f);
                 }
             }
-        }
 
-        public override void OnKill()
-        {
-            base.OnKill();
-            int pillarIndex = NPC.FindFirstNPC(ModContent.NPCType<NovaPillar>());
-            if (pillarIndex != -1)
+            for (int i = 0; i < 5; i++)
             {
-                NPC pillar = Main.npc[pillarIndex];
-                if (pillar != null && pillar.ModNPC is NovaPillar novaPillar)
-                {
-                    novaPillar.OnEnemyKilled();
-                }
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, 57, Main.rand.NextFloat(-3f, 3f), Main.rand.NextFloat(-3f, 3f));
+            }
+
+            for (int i = 0; i < 2; i++)
+            {
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("VarkiGore1").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("VarkiGore2").Type, 1f);
+            }
+
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("VarkiGore3").Type, 1f);
+
+            for (int k = 0; k < 7; k++)
+            {
+                Vector2 Vector = new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101));
+                Vector.Normalize();
+                Vector *= Main.rand.Next(10, 201) * 0.01f;
+
+                int i = Projectile.NewProjectile(NPC.GetSource_Death(), NPC.position, Vector, ModContent.ProjectileType<NovaAlchemistCloud>(), 20, 1f, Main.myPlayer, 0f, Main.rand.Next(-45, 1));
+                Main.projectile[i].friendly = false;
             }
         }
+    }
 
-        void NovaAnimation()
+    public override void OnKill()
+    {
+        base.OnKill();
+        int pillarIndex = NPC.FindFirstNPC(ModContent.NPCType<NovaPillar>());
+        if (pillarIndex != -1)
+        {
+            NPC pillar = Main.npc[pillarIndex];
+            if (pillar != null && pillar.ModNPC is NovaPillar novaPillar)
+            {
+                novaPillar.OnEnemyKilled();
+            }
+        }
+    }
+
+    void NovaAnimation()
 		{
 			if (--TimeToAnimation <= 0)
 			{
@@ -141,4 +141,3 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.NPCs
 			return new Rectangle(0, NPC.frame.Height * (Number - 1), NPC.frame.Width, NPC.frame.Height);
 		}
 	}
-}

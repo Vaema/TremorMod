@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.CogLordItems
-{
+namespace TremorMod.Content.Items.CogLordItems;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class CogLordMask : ModItem
 	{
@@ -23,4 +23,3 @@ namespace TremorMod.Content.Items.CogLordItems
 		}*/
 
 	}
-}

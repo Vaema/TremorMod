@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
@@ -9,8 +9,8 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Placeable.Banners;
 using TremorMod.Content.Items.Vanity;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class Geerd : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -32,26 +32,26 @@ namespace TremorMod.Content.NPCs
 			NPC.npcSlots = 1f;
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath17;
-            NPC.value = Item.buyPrice(0, 3, 0, 0);
-            // banner = npc.type;
-            // Todo: bannerItem = mod.ItemType("GeerdBanner");
-        }
+        NPC.value = Item.buyPrice(0, 3, 0, 0);
+        // banner = npc.type;
+        // Todo: bannerItem = mod.ItemType("GeerdBanner");
+    }
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GreenPuzzleFragment>(), 25));
-        }
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GreenPuzzleFragment>(), 25));
+    }
 
-        public override void HitEffect(NPC.HitInfo hit)
+    public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 60; k++)
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 5, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("GeerdGore").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("GeerdGore").Type, 1f);
 
 			}
 			else
@@ -68,4 +68,3 @@ namespace TremorMod.Content.NPCs
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 			=> spawnInfo.SpawnTileY < Main.rockLayer && NPC.downedBoss3 && Main.dayTime ? 0.005f : 0f;
 	}
-}

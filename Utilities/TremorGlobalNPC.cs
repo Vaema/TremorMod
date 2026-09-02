@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using TremorMod.Content.Dusts;
 
-namespace TremorMod.Utilities
-{
+namespace TremorMod.Utilities;
+
 	public class TremorGlobalNPC : GlobalNPC
 	{
 		public override bool InstancePerEntity => true;
@@ -50,4 +50,3 @@ namespace TremorMod.Utilities
 			}
 		}
 	}
-}

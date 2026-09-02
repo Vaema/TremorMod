@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
 using TremorMod.Content.Items.Bag;
@@ -14,8 +14,8 @@ using TremorMod.Content.Items.Crystal;
 using TremorMod.Content.Items;
 using TremorMod;
 
-namespace TremorMod.Content.Items.Bag
-{
+namespace TremorMod.Content.Items.Bag;
+
 	public class BrutalliskBag : ModItem
 	{
 		public override void SetDefaults()
@@ -39,19 +39,18 @@ namespace TremorMod.Content.Items.Bag
 			return true;
 		}
 
-        public override void ModifyItemLoot(ItemLoot itemLoot)
-        {
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<BrutalliskMask>(), 7));
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<LightningStaff>(), 4));
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Awakening>(), 4));
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<SnakeDevourer>(), 4));
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<QuetzalcoatlStave>(), 4));
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<TreasureGlaive>(), 4));
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<FallenSnake>(), 4));
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<StrangeEgg>(), 5));
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<BrutalliskTrophy>(), 10));
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Aquamarine>(), 1, 25, 30));
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<BrutalliskCrystal>(), 1));
-        }
+    public override void ModifyItemLoot(ItemLoot itemLoot)
+    {
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<BrutalliskMask>(), 7));
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<LightningStaff>(), 4));
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Awakening>(), 4));
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<SnakeDevourer>(), 4));
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<QuetzalcoatlStave>(), 4));
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<TreasureGlaive>(), 4));
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<FallenSnake>(), 4));
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<StrangeEgg>(), 5));
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<BrutalliskTrophy>(), 10));
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Aquamarine>(), 1, 25, 30));
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<BrutalliskCrystal>(), 1));
     }
 }

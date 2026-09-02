@@ -1,17 +1,17 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.Orichalcum
-{
+namespace TremorMod.Content.Items.Armor.Orichalcum;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class OrichalcumVisage : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 22;
 			Item.height = 26;
@@ -24,8 +24,8 @@ namespace TremorMod.Content.Items.Armor.Orichalcum
 		{
 			//DisplayName.SetDefault("Orichalcum Visage");
 			//Tooltip.SetDefault("20% increased alchemical damage");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("16% increased alchemical critical strike chance and flower petals will fall on your target for extra damage");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("16% increased alchemical critical strike chance and flower petals will fall on your target for extra damage");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -39,8 +39,8 @@ namespace TremorMod.Content.Items.Armor.Orichalcum
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Flower petals will fall on your target for extra damage\n" +
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Flower petals will fall on your target for extra damage\n" +
 			"16% increased alchemical critical strike chance";
 			player.GetModPlayer<MPlayer>().alchemicalCrit += 16;
 			player.onHitPetal = true;
@@ -55,4 +55,3 @@ namespace TremorMod.Content.Items.Armor.Orichalcum
 			recipe.Register();
 		}
 	}
-}

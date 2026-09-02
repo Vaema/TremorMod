@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class CthulhuBlood : ModItem
 	{
 		public override void SetDefaults()
@@ -30,4 +30,3 @@ namespace TremorMod.Content.Items.Accessories
 			player.GetModPlayer<MPlayer>().alchemicalCrit += 25;
 		}
 	}
-}

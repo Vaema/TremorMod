@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Materials
-{
+namespace TremorMod.Content.Items.Materials;
+
 	public class Opal : ModItem
 	{
 		public override void SetDefaults()
@@ -35,4 +35,3 @@ namespace TremorMod.Content.Items.Materials
 			recipe.Register();
 		}
 	}
-}

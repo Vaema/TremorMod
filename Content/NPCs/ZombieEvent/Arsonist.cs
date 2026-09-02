@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
@@ -9,8 +9,8 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Placeable.Banners;
 using TremorMod.Content.Items.Vanity;
 
-namespace TremorMod.Content.NPCs.ZombieEvent
-{
+namespace TremorMod.Content.NPCs.ZombieEvent;
+
 
 	public class Arsonist : ModNPC
 	{
@@ -55,31 +55,31 @@ namespace TremorMod.Content.NPCs.ZombieEvent
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
-            if (NPC.life <= 0)
+        int hitDirection = hit.HitDirection;
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
 				{
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				}
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DeadlingHead1").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DeadlingLeg").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DeadlingArm").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DeadlingHead1").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DeadlingLeg").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DeadlingArm").Type, 1f);
 				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DeadlingLeg").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DeadlingArm").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DeadlingArm").Type, 1f);
 			}
 		}
 
-        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
+    public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
+    {
+        if (Main.rand.NextBool())
         {
-            if (Main.rand.NextBool())
-            {
-                target.AddBuff(BuffID.Darkness, 60); 
-            }
+            target.AddBuff(BuffID.Darkness, 60); 
         }
+    }
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
 			if (Main.netMode != 1)
 			{
 				int centerX = (int)(NPC.position.X + NPC.width / 2) / 16;
@@ -91,5 +91,4 @@ namespace TremorMod.Content.NPCs.ZombieEvent
 				};
 			}
 		}
-    }
 }

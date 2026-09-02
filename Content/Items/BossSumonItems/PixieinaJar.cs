@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.NPCs.Bosses.PixieQueen;
 
-namespace TremorMod.Content.Items.BossSumonItems
-{
+namespace TremorMod.Content.Items.BossSumonItems;
+
 	public class PixieinaJar : ModItem
 	{
 		public override void SetDefaults()
@@ -53,4 +53,3 @@ namespace TremorMod.Content.Items.BossSumonItems
 			recipe.Register();
 		}
 	}
-}

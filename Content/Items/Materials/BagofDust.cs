@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Materials
-{
+namespace TremorMod.Content.Items.Materials;
+
 	public class BagofDust : ModItem
 	{
 		public override void SetDefaults()
@@ -20,4 +20,3 @@ namespace TremorMod.Content.Items.Materials
 			Tooltip.SetDefault("Used for crafting bags with a variety of dust");
 		}*/
 	}
-}

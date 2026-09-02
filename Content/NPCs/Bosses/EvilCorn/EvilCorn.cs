@@ -15,8 +15,8 @@ using TremorMod.Content.Items.Vanity;
 3 состояние - после полёта на несколько секунд зарывается в землю - после чего резко оттуда выпрыгивает нанося большой урон.
 */
 
-namespace TremorMod.Content.NPCs.Bosses.EvilCorn
-{
+namespace TremorMod.Content.NPCs.Bosses.EvilCorn;
+
 	[AutoloadBossHead]
 	public class EvilCorn : ModNPC
 	{
@@ -68,11 +68,11 @@ namespace TremorMod.Content.NPCs.Bosses.EvilCorn
 			NPC.DeathSound = SoundID.NPCDeath1;
 			NPC.boss = true;
 			NPC.value = Item.buyPrice(0, 3, 25, 0);
-            Music = MusicLoader.GetMusicSlot("TremorMod/Content/Music/EvilCorn");
-        }
-        #region "ТУТ ЕЩЕ НАСТРОЙКИ"
-        // ТУТ ЕЩЕ НАСТРОЙКИ !!!
-        const int damage0 = 20; // Урон в первом состоянии
+        Music = MusicLoader.GetMusicSlot("TremorMod/Content/Music/EvilCorn");
+    }
+    #region "ТУТ ЕЩЕ НАСТРОЙКИ"
+    // ТУТ ЕЩЕ НАСТРОЙКИ !!!
+    const int damage0 = 20; // Урон в первом состоянии
 		const int defense0 = 2; // Броня в первом состоянии
 		const int damage1 = 10; // Урон во втором состоянии
 		const int defense1 = 4; // Броня во втором состоянии
@@ -80,10 +80,10 @@ namespace TremorMod.Content.NPCs.Bosses.EvilCorn
 		const int defense2 = 3; // Броня в 3 состоянии
 		const int damage3 = 30; // Урон в 4 состоянии
 		const int defense3 = 4; // Броня в 4 состоянии
-        #endregion
+    #endregion
 
-        #region "Вылёт попкорна при ударе"
-        public override void OnHitByItem(Player player, Item item, NPC.HitInfo hit, int damageDone)
+    #region "Вылёт попкорна при ударе"
+    public override void OnHitByItem(Player player, Item item, NPC.HitInfo hit, int damageDone)
 		{
 			if (Main.rand.NextBool(2))
 				Item.NewItem(NPC.GetSource_FromThis(), NPC.position, NPC.Size, Mod.Find<ModItem>("Popcorn").Type);
@@ -675,5 +675,4 @@ namespace TremorMod.Content.NPCs.Bosses.EvilCorn
 				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("CornGore4").Type, 1f);
 			}
 		}       
-    }
 }

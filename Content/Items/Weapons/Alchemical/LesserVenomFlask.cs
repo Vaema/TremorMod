@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
@@ -6,15 +6,15 @@ using TremorMod.Content.Projectiles;
 using TremorMod.Content.Buffs;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Weapons.Alchemical
-{
+namespace TremorMod.Content.Items.Weapons.Alchemical;
+
 	public class LesserVenomFlask : ModItem
-    {
+{
 
 		public override void SetDefaults()
 		{
-            Item.DamageType = TremorMod.alchemicalDamage ?? DamageClass.Generic;
-            Item.crit = 4;
+        Item.DamageType = TremorMod.alchemicalDamage ?? DamageClass.Generic;
+        Item.crit = 4;
 			Item.damage = 22;
 			//item.thrown = true;
 			Item.width = 26;
@@ -43,42 +43,42 @@ namespace TremorMod.Content.Items.Weapons.Alchemical
 "Clouds deal damage to enemies and poison them"); */
 		}
 
-        public override void PickAmmo(Item weapon, Player player, ref int type, ref float speed, ref StatModifier damage, ref float knockback)
+    public override void PickAmmo(Item weapon, Player player, ref int type, ref float speed, ref StatModifier damage, ref float knockback)
+    {
+        type = ModContent.ProjectileType<PurpleCloudPro>();
+    }
+
+    public override void UpdateInventory(Player player)
+    {
+        MPlayer modPlayer = MPlayer.GetModPlayer(player);
+        if (modPlayer.novaHelmet)
         {
-            type = ModContent.ProjectileType<PurpleCloudPro>();
+            Item.autoReuse = true;
+        }
+        if (!modPlayer.novaHelmet)
+        {
+            Item.autoReuse = false;
         }
 
-        public override void UpdateInventory(Player player)
+        if (player.FindBuffIndex(ModContent.BuffType<LongFuseBuff>()) != -1)
         {
-            MPlayer modPlayer = MPlayer.GetModPlayer(player);
-            if (modPlayer.novaHelmet)
-            {
-                Item.autoReuse = true;
-            }
-            if (!modPlayer.novaHelmet)
-            {
-                Item.autoReuse = false;
-            }
-
-            if (player.FindBuffIndex(ModContent.BuffType<LongFuseBuff>()) != -1)
-            {
-                Item.shootSpeed = 11f;
-            }
-            if (player.FindBuffIndex(ModContent.BuffType<LongFuseBuff>()) < 1)
-            {
-                Item.shootSpeed = 8f;
-            }
-            if (modPlayer.core)
-            {
-                Item.autoReuse = true;
-            }
-            if (!modPlayer.core)
-            {
-                Item.autoReuse = false;
-            }
+            Item.shootSpeed = 11f;
         }
+        if (player.FindBuffIndex(ModContent.BuffType<LongFuseBuff>()) < 1)
+        {
+            Item.shootSpeed = 8f;
+        }
+        if (modPlayer.core)
+        {
+            Item.autoReuse = true;
+        }
+        if (!modPlayer.core)
+        {
+            Item.autoReuse = false;
+        }
+    }
 
-        public override void AddRecipes()
+    public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe(40);
 			recipe.AddIngredient(ItemID.Bottle, 1);
@@ -89,4 +89,3 @@ namespace TremorMod.Content.Items.Weapons.Alchemical
 		}
 
 	}
-}

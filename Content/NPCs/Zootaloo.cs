@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -14,8 +14,8 @@ using TremorMod.Content.Items.Weapons.Magic;
 using TremorMod.Content.Items.Placeable.Banners;
 using TremorMod.Content.Items.Vanity;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class Zootaloo : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -42,24 +42,24 @@ namespace TremorMod.Content.NPCs
 			// Todo: bannerItem = mod.ItemType("ZootalooBanner");
 		}
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<LightBulb>(), 3, 1, 3));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Gloomstone>(), 3, 5, 13));
-        }
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<LightBulb>(), 3, 1, 3));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Gloomstone>(), 3, 5, 13));
+    }
 
-        public override void HitEffect(NPC.HitInfo hit)
+    public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 44, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ZootalooGore1").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ZootalooGore2").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ZootalooGore2").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ZootalooGore1").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ZootalooGore2").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ZootalooGore2").Type, 1f);
 			}
 			else
 			{
@@ -71,4 +71,3 @@ namespace TremorMod.Content.NPCs
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 			=> Helper.NormalSpawn(spawnInfo) && Helper.NoZoneAllowWater(spawnInfo) && !Main.dayTime && spawnInfo.SpawnTileY < Main.worldSurface ? 0.01f : 0f;
 	}
-}

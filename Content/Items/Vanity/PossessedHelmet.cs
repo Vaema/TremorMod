@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Vanity
-{
+namespace TremorMod.Content.Items.Vanity;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class PossessedHelmet : ModItem
 	{
@@ -26,4 +26,3 @@ namespace TremorMod.Content.Items.Vanity
 			return body.type == ModContent.ItemType<PossessedChestplate>() && legs.type == ModContent.ItemType<PossessedGreaves>();
 		}
 	}
-}

@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles.Bottled;
 
-namespace TremorMod.Content.Items.Placeable.Bottled
-{
+namespace TremorMod.Content.Items.Placeable.Bottled;
+
 	public class BottledSoulOfLight : ModItem
 	{
 		public override void SetDefaults()
@@ -47,4 +47,3 @@ namespace TremorMod.Content.Items.Placeable.Bottled
 			player.moveSpeed += 0.5f;
 		}
 	}
-}

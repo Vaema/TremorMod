@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Armor.Raven
-{
+namespace TremorMod.Content.Items.Armor.Raven;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class RavenBreastplate : ModItem
 	{
@@ -28,7 +28,7 @@ namespace TremorMod.Content.Items.Armor.Raven
 		{
 			player.GetDamage(DamageClass.Melee) += 0.08f;
 			player.GetCritChance(DamageClass.Melee) += 5;
-        }
+    }
 
 		public override void AddRecipes()
 		{
@@ -40,13 +40,12 @@ namespace TremorMod.Content.Items.Armor.Raven
 			recipe.AddTile(16);
 			recipe.Register();
 
-            Recipe recipe1 = CreateRecipe();
-            recipe1.AddIngredient(ItemID.MoltenBreastplate);
+        Recipe recipe1 = CreateRecipe();
+        recipe1.AddIngredient(ItemID.MoltenBreastplate);
 			recipe1.AddIngredient(ItemID.LeadBar, 8);
-            recipe1.AddIngredient(ModContent.ItemType<RavenFeather>(), 12);
-            //recipe1.SetResult(this);
+        recipe1.AddIngredient(ModContent.ItemType<RavenFeather>(), 12);
+        //recipe1.SetResult(this);
 			recipe1.AddTile(16);
-            recipe1.Register();
-        }
+        recipe1.Register();
+    }
 	}
-}

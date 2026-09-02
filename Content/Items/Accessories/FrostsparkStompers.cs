@@ -1,9 +1,9 @@
-using Terraria;
+ï»¿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Accessories 
-{
+namespace TremorMod.Content.Items.Accessories; 
+
 	public class FrostsparkStompers : ModItem
 	{
 		public override void SetDefaults()
@@ -35,11 +35,10 @@ namespace TremorMod.Content.Items.Accessories
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(5000, 1); // Âìåñòî 1862
-            recipe.AddIngredient(ModContent.ItemType<RockStompers>(), 1);
+			recipe.AddIngredient(5000, 1); // Ã‚Ã¬Ã¥Ã±Ã²Ã® 1862
+        recipe.AddIngredient(ModContent.ItemType<RockStompers>(), 1);
 			//recipe.SetResult(this);
 			recipe.AddTile(114);
 			recipe.Register();
 		}
 	}
-}

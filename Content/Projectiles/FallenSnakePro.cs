@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class FallenSnakePro : ModProjectile
 	{
 		public override void SetDefaults()
@@ -31,12 +31,11 @@ namespace TremorMod.Content.Projectiles
 			return true;
 		}
 
-        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
+    public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
+    {
+        if (Main.rand.Next(10) == 0)
         {
-            if (Main.rand.Next(10) == 0)
-            {
-                target.AddBuff(BuffID.Midas, 280); 
-            }
+            target.AddBuff(BuffID.Midas, 280); 
         }
+    }
 	}
-}

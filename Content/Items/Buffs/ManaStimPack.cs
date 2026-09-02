@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -7,8 +7,8 @@ using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Materials.OreAndBar;
 
-namespace TremorMod.Content.Items.Buffs
-{
+namespace TremorMod.Content.Items.Buffs;
+
 	public class ManaStimPack : ModItem
 	{
 		public override void SetDefaults()
@@ -56,4 +56,3 @@ namespace TremorMod.Content.Items.Buffs
 			recipe.Register();
 		}
 	}
-}

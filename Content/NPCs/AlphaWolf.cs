@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
@@ -9,8 +9,8 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Placeable.Banners;
 using TremorMod.Content.Items.Vanity;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class AlphaWolf : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -27,40 +27,40 @@ namespace TremorMod.Content.NPCs
 			NPC.knockBackResist = 0.6f;
 			NPC.width = 76;
 			NPC.height = 38;
-            AnimationType = 525;
-            NPC.aiStyle = 26;
+        AnimationType = 525;
+        NPC.aiStyle = 26;
 			NPC.npcSlots = 1f;
 			NPC.HitSound = SoundID.NPCHit6;
 			NPC.DeathSound = SoundID.NPCDeath5;
 			NPC.value = Item.buyPrice(0, 0, 4, 0);
-            Banner = NPC.type;
-            BannerItem = ModContent.ItemType<AlphaWolfBanner>();
-            ItemID.Sets.KillsToBanner[BannerItem] = 50;
-        }
+        Banner = NPC.type;
+        BannerItem = ModContent.ItemType<AlphaWolfBanner>();
+        ItemID.Sets.KillsToBanner[BannerItem] = 50;
+    }
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WolfPelt>(), 2, 2, 3));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FurHat>(), 25));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AlphaClaw>(), 1));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FurCoat>(), 25));
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WolfPelt>(), 2, 2, 3));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FurHat>(), 25));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AlphaClaw>(), 1));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FurCoat>(), 25));
 
-        }
+    }
 
-        public override void HitEffect(NPC.HitInfo hit)
+    public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
 				for(int i = 0; i < 2; ++i)
 				{
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("WolfGore1").Type, 1f);
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AlphaWolfGore1").Type, 1f);
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AlphaWolfGore2").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("WolfGore1").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AlphaWolfGore1").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AlphaWolfGore2").Type, 1f);
 				}
 			}
 		}
@@ -70,4 +70,3 @@ namespace TremorMod.Content.NPCs
 			return Helper.NormalSpawn(spawnInfo) && Helper.NoZoneAllowWater(spawnInfo) && spawnInfo.Player.ZoneSnow && !Main.dayTime && spawnInfo.SpawnTileY < Main.worldSurface ? 0.08f : 0f;
 		}
 	}
-}

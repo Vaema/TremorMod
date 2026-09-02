@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.DesertExplorer
-{
+namespace TremorMod.Content.Items.Armor.DesertExplorer;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class DesertExplorerBreastplate : ModItem
 	{
@@ -32,4 +32,3 @@ namespace TremorMod.Content.Items.Armor.DesertExplorer
 			player.GetDamage(DamageClass.Throwing) += 0.35f;
 		}
 	}
-}

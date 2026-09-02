@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Armor.Bronze
-{
+namespace TremorMod.Content.Items.Armor.Bronze;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class BronzeGreaves : ModItem
 	{
@@ -38,4 +38,3 @@ namespace TremorMod.Content.Items.Armor.Bronze
 			recipe.Register();
 		}
 	}
-}

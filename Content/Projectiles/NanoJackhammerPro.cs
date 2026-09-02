@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 
 	public class NanoJackhammerPro : ModProjectile
 	{
@@ -26,4 +26,3 @@ namespace TremorMod.Content.Projectiles
 			DisplayName.SetDefault("Nano Jackhammer");
 		}*/
 	}
-}

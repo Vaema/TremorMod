@@ -1,12 +1,12 @@
-using System;
+﻿using System;
 using Terraria.Audio;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Weapons.Ranged
-{
+namespace TremorMod.Content.Items.Weapons.Ranged;
+
 	public class CorruptorGun : ModItem
 	{
 		public override void SetDefaults()
@@ -36,19 +36,18 @@ namespace TremorMod.Content.Items.Weapons.Ranged
 			//Tooltip.SetDefault("Spends bullets and fires small corruptors");
 		}
 
-        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-        {
-            Vector2 muzzleOffset = Vector2.Normalize(velocity) * 25f;
-            position += muzzleOffset;
+    public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    {
+        Vector2 muzzleOffset = Vector2.Normalize(velocity) * 25f;
+        position += muzzleOffset;
 
-            Projectile.NewProjectile(source, position, velocity, ProjectileID.TinyEater, damage, knockback, player.whoAmI);
+        Projectile.NewProjectile(source, position, velocity, ProjectileID.TinyEater, damage, knockback, player.whoAmI);
 
-            return false;
-        }
+        return false;
+    }
 
-        public override Vector2? HoldoutOffset()
-        {
-            return Vector2.Zero;
-        }
+    public override Vector2? HoldoutOffset()
+    {
+        return Vector2.Zero;
     }
 }

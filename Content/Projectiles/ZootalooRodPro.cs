@@ -5,8 +5,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class ZootalooRodPro : ModProjectile
 	{
 		public override void SetDefaults()
@@ -69,14 +69,13 @@ namespace TremorMod.Content.Projectiles
 			return false;
 		}
 
-        public override void OnKill(int timeLeft)
-        {
-            IEntitySource source = Projectile.GetSource_FromThis();
-            Vector2 position = Projectile.Center;
-            Vector2 velocity = Vector2.Zero; // т.к. у вас (0f, 0f)
+    public override void OnKill(int timeLeft)
+    {
+        IEntitySource source = Projectile.GetSource_FromThis();
+        Vector2 position = Projectile.Center;
+        Vector2 velocity = Vector2.Zero; // т.к. у вас (0f, 0f)
 
-            Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<SporeExplosion>(),
-            Projectile.damage, Projectile.knockBack, Projectile.owner);
-        }
+        Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<SporeExplosion>(),
+        Projectile.damage, Projectile.knockBack, Projectile.owner);
     }
 }

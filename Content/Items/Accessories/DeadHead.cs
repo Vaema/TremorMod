@@ -1,12 +1,12 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class DeadHead : ModItem
 	{
 		public override void SetDefaults()
@@ -43,14 +43,14 @@ namespace TremorMod.Content.Items.Accessories
 
 			player.GetDamage(DamageClass.Summon) += 0.04f;
 
-            MPlayer modPlayer = player.GetModPlayer<MPlayer>();
-            modPlayer.alchemicalDamage += 0.04f;
-            modPlayer.alchemicalCrit += 4;
+        MPlayer modPlayer = player.GetModPlayer<MPlayer>();
+        modPlayer.alchemicalDamage += 0.04f;
+        modPlayer.alchemicalCrit += 4;
 
 
-            player.moveSpeed += 0.15f;
+        player.moveSpeed += 0.15f;
 			player.maxRunSpeed += 0.15f;
-        }
+    }
 
 		public override void AddRecipes()
 		{
@@ -66,4 +66,3 @@ namespace TremorMod.Content.Items.Accessories
 			recipe.Register();
 		}
 	}
-}

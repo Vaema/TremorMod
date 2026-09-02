@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles;
 using TremorMod.Content.Items;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class Bloodshed : ModItem
 	{
 		public override void SetDefaults()
@@ -30,12 +30,12 @@ namespace TremorMod.Content.Items.Accessories
 		{
 			player.statManaMax2 += 60;
 			player.statLifeMax2 += 60;
-            player.GetCritChance(DamageClass.Melee) += 10;
-            player.GetCritChance(DamageClass.Magic) += 10;
-            player.GetDamage(DamageClass.Summon) += 0.13f;
-            player.GetDamage(DamageClass.Magic) += 0.13f;
-            player.GetDamage(DamageClass.Melee) += 0.13f;
-        }
+        player.GetCritChance(DamageClass.Melee) += 10;
+        player.GetCritChance(DamageClass.Magic) += 10;
+        player.GetDamage(DamageClass.Summon) += 0.13f;
+        player.GetDamage(DamageClass.Magic) += 0.13f;
+        player.GetDamage(DamageClass.Melee) += 0.13f;
+    }
 
 		public override void AddRecipes()
 		{
@@ -49,4 +49,3 @@ namespace TremorMod.Content.Items.Accessories
 			recipe.Register();
 		}
 	}
-}

@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class AlchemistGlove : ModItem
 	{
 		/*public override bool CanEquipAccessory(Player player, int slot)
@@ -40,9 +40,8 @@ namespace TremorMod.Content.Items.Accessories
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-            MPlayer modPlayer = player.GetModPlayer<MPlayer>();
-            player.AddBuff(ModContent.BuffType<AlchemistGloveBuff>(), 2);
-            modPlayer.glove = true;
-        }
+        MPlayer modPlayer = player.GetModPlayer<MPlayer>();
+        player.AddBuff(ModContent.BuffType<AlchemistGloveBuff>(), 2);
+        modPlayer.glove = true;
+    }
 	}
-}

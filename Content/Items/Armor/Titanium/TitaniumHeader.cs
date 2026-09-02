@@ -1,16 +1,16 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 
-namespace TremorMod.Content.Items.Armor.Titanium
-{
+namespace TremorMod.Content.Items.Armor.Titanium;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class TitaniumHeader : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 24;
 			Item.height = 24;
@@ -23,9 +23,9 @@ namespace TremorMod.Content.Items.Armor.Titanium
 		{
 			// DisplayName.SetDefault("Titanium Header");
 			// Tooltip.SetDefault("24% increased thrown damage");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases thrown weapon velocity and briefly become invulnerable after striking an enemy");
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases thrown weapon velocity and briefly become invulnerable after striking an enemy");
 
-        }
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -39,8 +39,8 @@ namespace TremorMod.Content.Items.Armor.Titanium
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Increases thrown weapon velocity and briefly become invulnerable after striking an enemy";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Increases thrown weapon velocity and briefly become invulnerable after striking an enemy";
 			player.ThrownVelocity += 0.25f;
 			player.onHitDodge = true;
 		}
@@ -59,4 +59,3 @@ namespace TremorMod.Content.Items.Armor.Titanium
 			recipe.Register();
 		}
 	}
-}

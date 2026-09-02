@@ -1,12 +1,12 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.NPCs.Bosses.NovaPillar.Items;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class NovaRing : ModItem
 	{
 		public override void SetDefaults()
@@ -42,4 +42,3 @@ namespace TremorMod.Content.Items.Accessories
 			recipe.Register();
 		}
 	}
-}

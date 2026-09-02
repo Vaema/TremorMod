@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
@@ -6,8 +6,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace TremorMod.Content.Tiles.GloomstoneTiles
-{
+namespace TremorMod.Content.Tiles.GloomstoneTiles;
+
 	public class GloomstoneDoorOpen : ModTile
 	{
 		public override void SetStaticDefaults()
@@ -23,7 +23,7 @@ namespace TremorMod.Content.Tiles.GloomstoneTiles
 			TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile, 1, 0);
 			TileObjectData.newTile.UsesCustomCanPlace = true;
 			TileObjectData.newTile.LavaDeath = true;
-			TileObjectData.newTile.CoordinateHeights = new[]{ 16, 16, 16 };
+			TileObjectData.newTile.CoordinateHeights = [16, 16, 16];
 			TileObjectData.newTile.CoordinateWidth = 16;
 			TileObjectData.newTile.CoordinatePadding = 2;
 			TileObjectData.newTile.StyleHorizontal = true;
@@ -58,7 +58,7 @@ namespace TremorMod.Content.Tiles.GloomstoneTiles
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
 			TileID.Sets.HousingWalls[Type] = true; //needed for non-solid blocks to count as walls
 			AddMapEntry(new Color(8,91,146), CreateMapEntryName());
-			AdjTiles = new int[] { TileID.OpenDoor };
+			AdjTiles = [TileID.OpenDoor];
 			TileID.Sets.CloseDoorID[Type] = ModContent.TileType<GloomstoneDoorClosed>();
 		}
 
@@ -67,4 +67,3 @@ namespace TremorMod.Content.Tiles.GloomstoneTiles
 			num = 1;
 		}
 	}
-}

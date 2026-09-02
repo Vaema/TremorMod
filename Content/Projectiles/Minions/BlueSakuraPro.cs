@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+п»їusing Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,13 +6,13 @@ using TremorMod.Content;
 using TremorMod;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Projectiles.Minions
-{
-	public class BlueSakuraPro : ModProjectile
-    {
-        private int attackCooldown = 0;
+namespace TremorMod.Content.Projectiles.Minions;
 
-        public override void SetDefaults()
+	public class BlueSakuraPro : ModProjectile
+{
+    private int attackCooldown = 0;
+
+    public override void SetDefaults()
 		{
 			 Projectile.netImportant = true;
 			 Projectile.CloneDefaults(388);
@@ -25,8 +25,8 @@ namespace TremorMod.Content.Projectiles.Minions
 			 Projectile.penetrate = -1;
 			 Projectile.timeLeft = 18000;
 			 Projectile.ignoreWater = true;
-             Projectile.tileCollide = false;
-             ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
+         Projectile.tileCollide = false;
+         ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 		}
 
 		public override void SetStaticDefaults()
@@ -34,104 +34,103 @@ namespace TremorMod.Content.Projectiles.Minions
 			//DisplayName.SetDefault("Blue Sakura");			       
 		}
 
-        public override bool OnTileCollide(Vector2 oldVelocity)
+    public override bool OnTileCollide(Vector2 oldVelocity)
+    {
+        if (Projectile.velocity.X != oldVelocity.X)
         {
-            if (Projectile.velocity.X != oldVelocity.X)
-            {
-                Projectile.velocity.X = oldVelocity.X;
-            }
-            if (Projectile.velocity.Y != oldVelocity.Y)
-            {
-                Projectile.velocity.Y = oldVelocity.Y;
-            }
-            return false;
+            Projectile.velocity.X = oldVelocity.X;
+        }
+        if (Projectile.velocity.Y != oldVelocity.Y)
+        {
+            Projectile.velocity.Y = oldVelocity.Y;
+        }
+        return false;
+    }
+
+    public override void AI()
+    {
+        this.Projectile.rotation = this.Projectile.velocity.ToRotation();
+
+        if (Main.rand.NextBool(8))
+        {
+            Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 41, Projectile.velocity.X * 0.9f, Projectile.velocity.Y * 0.9f);
         }
 
-        public override void AI()
+        Player player = Main.player[Projectile.owner];
+
+        // ГЏГ°Г®ГўГҐГ°ГЄГ , Г ГЄГІГЁГўГҐГ­ Г«ГЁ ГЇГЁГІГ®Г¬ГҐГ¶
+        if (!player.active || player.dead || !player.HasBuff(ModContent.BuffType<BlueSakuraBuff>()))
         {
-            this.Projectile.rotation = this.Projectile.velocity.ToRotation();
+            Projectile.Kill();
+            return;
+        }
 
-            if (Main.rand.NextBool(8))
+        // ГЏГ°ГЁГўГїГ§ГЄГ  ГЄ ГЁГЈГ°Г®ГЄГі
+        Vector2 targetPosition = player.Center + new Vector2(0f, -48f);
+        float speed = 10f;
+        Vector2 direction = targetPosition - Projectile.Center;
+        float distance = direction.Length();
+
+        if (distance > 2000f) // Г…Г±Г«ГЁ ГЇГЁГІГ®Г¬ГҐГ¶ Г±Г«ГЁГёГЄГ®Г¬ Г¤Г Г«ГҐГЄГ®, ГІГҐГ«ГҐГЇГ®Г°ГІГЁГ°ГіГҐГ¬
+        {
+            Projectile.Center = player.Center;
+        }
+        else if (distance > 10f)
+        {
+            direction.Normalize();
+            direction *= speed;
+            Projectile.velocity = (Projectile.velocity * 20f + direction) / 21f;
+        }
+        else
+        {
+            Projectile.velocity *= 0.95f; // Г‡Г Г¬ГҐГ¤Г«ГҐГ­ГЁГҐ
+        }
+
+        NPC target = FindTarget();
+        if (target != null)
+        {
+            Vector2 attackDirection = target.Center - Projectile.Center;
+            attackDirection.Normalize();
+            attackDirection *= speed * 2; // Г“ГўГҐГ«ГЁГ·ГЁГўГ ГҐГ¬ Г±ГЄГ®Г°Г®Г±ГІГј Г¤Г«Гї Г°Г»ГўГЄГ 
+            Projectile.velocity = attackDirection;
+
+            // ГЏГ°Г®ГўГҐГ°ГїГҐГ¬ Г°Г Г±Г±ГІГ®ГїГ­ГЁГҐ Г¤Г® Г¶ГҐГ«ГЁ
+            if (Vector2.Distance(Projectile.Center, target.Center) < 50f && attackCooldown <= 0)
             {
-                Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 41, Projectile.velocity.X * 0.9f, Projectile.velocity.Y * 0.9f);
-            }
-
-            Player player = Main.player[Projectile.owner];
-
-            // Проверка, активен ли питомец
-            if (!player.active || player.dead || !player.HasBuff(ModContent.BuffType<BlueSakuraBuff>()))
-            {
-                Projectile.Kill();
-                return;
-            }
-
-            // Привязка к игроку
-            Vector2 targetPosition = player.Center + new Vector2(0f, -48f);
-            float speed = 10f;
-            Vector2 direction = targetPosition - Projectile.Center;
-            float distance = direction.Length();
-
-            if (distance > 2000f) // Если питомец слишком далеко, телепортируем
-            {
-                Projectile.Center = player.Center;
-            }
-            else if (distance > 10f)
-            {
-                direction.Normalize();
-                direction *= speed;
-                Projectile.velocity = (Projectile.velocity * 20f + direction) / 21f;
-            }
-            else
-            {
-                Projectile.velocity *= 0.95f; // Замедление
-            }
-
-            NPC target = FindTarget();
-            if (target != null)
-            {
-                Vector2 attackDirection = target.Center - Projectile.Center;
-                attackDirection.Normalize();
-                attackDirection *= speed * 2; // Увеличиваем скорость для рывка
-                Projectile.velocity = attackDirection;
-
-                // Проверяем расстояние до цели
-                if (Vector2.Distance(Projectile.Center, target.Center) < 50f && attackCooldown <= 0)
+                int damage = Projectile.damage; // Г“Г°Г®Г­ ГЇГЁГІГ®Г¬Г¶Г 
+                NPC.HitInfo hitInfo = new NPC.HitInfo
                 {
-                    int damage = Projectile.damage; // Урон питомца
-                    NPC.HitInfo hitInfo = new NPC.HitInfo
-                    {
-                        Damage = damage,
-                        Knockback = 0f,
-                        HitDirection = 0,
-                        Crit = false
-                    };
-                    // Наносим урон и проходим сквозь врага
-                    target.StrikeNPC(hitInfo);
-                    attackCooldown = 30; // Устанавливаем таймер на 30 тиков (полсекунды)
-                }
-            }
-
-            if (attackCooldown > 0)
-            {
-                attackCooldown--; // Уменьшаем таймер
+                    Damage = damage,
+                    Knockback = 0f,
+                    HitDirection = 0,
+                    Crit = false
+                };
+                // ГЌГ Г­Г®Г±ГЁГ¬ ГіГ°Г®Г­ ГЁ ГЇГ°Г®ГµГ®Г¤ГЁГ¬ Г±ГЄГўГ®Г§Гј ГўГ°Г ГЈГ 
+                target.StrikeNPC(hitInfo);
+                attackCooldown = 30; // Г“Г±ГІГ Г­Г ГўГ«ГЁГўГ ГҐГ¬ ГІГ Г©Г¬ГҐГ° Г­Г  30 ГІГЁГЄГ®Гў (ГЇГ®Г«Г±ГҐГЄГіГ­Г¤Г»)
             }
         }
 
-        private NPC FindTarget()
+        if (attackCooldown > 0)
         {
-            NPC closestNPC = null;
-            float closestDistance = 500f; // Радиус поиска врагов
-
-            foreach (NPC npc in Main.npc)
-            {
-                if (npc.CanBeChasedBy(this) && Vector2.Distance(Projectile.Center, npc.Center) < closestDistance)
-                {
-                    closestNPC = npc;
-                    closestDistance = Vector2.Distance(Projectile.Center, npc.Center);
-                }
-            }
-
-            return closestNPC;
+            attackCooldown--; // Г“Г¬ГҐГ­ГјГёГ ГҐГ¬ ГІГ Г©Г¬ГҐГ°
         }
+    }
+
+    private NPC FindTarget()
+    {
+        NPC closestNPC = null;
+        float closestDistance = 500f; // ГђГ Г¤ГЁГіГ± ГЇГ®ГЁГ±ГЄГ  ГўГ°Г ГЈГ®Гў
+
+        foreach (NPC npc in Main.npc)
+        {
+            if (npc.CanBeChasedBy(this) && Vector2.Distance(Projectile.Center, npc.Center) < closestDistance)
+            {
+                closestNPC = npc;
+                closestDistance = Vector2.Distance(Projectile.Center, npc.Center);
+            }
+        }
+
+        return closestNPC;
     }
 }

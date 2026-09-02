@@ -1,73 +1,72 @@
-using System;
+п»їusing System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles.Minions
+namespace TremorMod.Content.Projectiles.Minions;
+
+public class AntiqueStavePro : ModProjectile
 {
-    public class AntiqueStavePro : ModProjectile
+    public override void SetStaticDefaults()
     {
-        public override void SetStaticDefaults()
+        // Г“Г±ГІГ Г­Г®ГўГЁГІГҐ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГЄГ Г¤Г°Г®Гў Г Г­ГЁГ¬Г Г¶ГЁГЁ Г¤Г«Гї Г±Г­Г Г°ГїГ¤Г 
+        Main.projFrames[Projectile.type] = 1;
+
+        // ГЌГ Г§ГўГ Г­ГЁГҐ Г±Г­Г Г°ГїГ¤Г  (Г®ГЇГ¶ГЁГ®Г­Г Г«ГјГ­Г®, ГҐГ±Г«ГЁ ГІГ°ГҐГЎГіГҐГІГ±Гї)
+        // DisplayName.SetDefault("Antique Soul");
+    }
+
+    public override void SetDefaults()
+    {
+        Projectile.width = 30;
+        Projectile.height = 30;
+        Projectile.hostile = false;
+        Projectile.friendly = false;
+        Projectile.ignoreWater = true;
+        Projectile.timeLeft = 900;
+        Projectile.penetrate = -1;
+        Projectile.tileCollide = true;
+        Projectile.sentry = true;
+
+        // Г‚ГЄГ«ГѕГ·ГҐГ­ГЁГҐ ГґГіГ­ГЄГ¶ГЁГЁ ГЇГ°ГЁГ¶ГҐГ«ГЁГўГ Г­ГЁГї Г¬ГЁГ­ГјГ®Г­Г®Гў
+        ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
+    }
+
+    public override void AI()
+    {
+        for (int i = 0; i < 200; i++)
         {
-            // Установите количество кадров анимации для снаряда
-            Main.projFrames[Projectile.type] = 1;
+            NPC target = Main.npc[i];
 
-            // Название снаряда (опционально, если требуется)
-            // DisplayName.SetDefault("Antique Soul");
-        }
+            float shootToX = target.position.X + target.width * 0.5f - Projectile.Center.X;
+            float shootToY = target.position.Y + target.height * 0.5f - Projectile.Center.Y;
+            float distance = (float)Math.Sqrt(shootToX * shootToX + shootToY * shootToY);
 
-        public override void SetDefaults()
-        {
-            Projectile.width = 30;
-            Projectile.height = 30;
-            Projectile.hostile = false;
-            Projectile.friendly = false;
-            Projectile.ignoreWater = true;
-            Projectile.timeLeft = 900;
-            Projectile.penetrate = -1;
-            Projectile.tileCollide = true;
-            Projectile.sentry = true;
-
-            // Включение функции прицеливания миньонов
-            ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
-        }
-
-        public override void AI()
-        {
-            for (int i = 0; i < 200; i++)
+            if (distance < 520f && !target.friendly && target.active)
             {
-                NPC target = Main.npc[i];
-
-                float shootToX = target.position.X + target.width * 0.5f - Projectile.Center.X;
-                float shootToY = target.position.Y + target.height * 0.5f - Projectile.Center.Y;
-                float distance = (float)Math.Sqrt(shootToX * shootToX + shootToY * shootToY);
-
-                if (distance < 520f && !target.friendly && target.active)
+                if (Projectile.ai[0] > 35f) // Г‡Г Г¤ГҐГ°Г¦ГЄГ  Гў 35 ГЄГ Г¤Г°Г®Гў (ГЇГ°ГЁГ¬ГҐГ°Г­Г® 0.58 Г±ГҐГЄГіГ­Г¤Г»)
                 {
-                    if (Projectile.ai[0] > 35f) // Задержка в 35 кадров (примерно 0.58 секунды)
-                    {
-                        distance = 1.6f / distance;
-                        shootToX *= distance * 3;
-                        shootToY *= distance * 3;
-                        int damage = 30;
+                    distance = 1.6f / distance;
+                    shootToX *= distance * 3;
+                    shootToY *= distance * 3;
+                    int damage = 30;
 
-                        // Используем корректный источник
-                        Projectile.NewProjectile(
-                            Projectile.GetSource_FromAI(),
-                            Projectile.Center.X,
-                            Projectile.Center.Y,
-                            shootToX,
-                            shootToY,
-                            122, // Тип снаряда
-                            damage,
-                            0,
-                            Main.myPlayer
-                        );
+                    // Г€Г±ГЇГ®Г«ГјГ§ГіГҐГ¬ ГЄГ®Г°Г°ГҐГЄГІГ­Г»Г© ГЁГ±ГІГ®Г·Г­ГЁГЄ
+                    Projectile.NewProjectile(
+                        Projectile.GetSource_FromAI(),
+                        Projectile.Center.X,
+                        Projectile.Center.Y,
+                        shootToX,
+                        shootToY,
+                        122, // Г’ГЁГЇ Г±Г­Г Г°ГїГ¤Г 
+                        damage,
+                        0,
+                        Main.myPlayer
+                    );
 
-                        Projectile.ai[0] = 0f;
-                    }
-                    Projectile.ai[0] += 1f;
+                    Projectile.ai[0] = 0f;
                 }
+                Projectile.ai[0] += 1f;
             }
         }
     }

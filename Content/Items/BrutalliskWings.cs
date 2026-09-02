@@ -1,4 +1,4 @@
-using System.Linq;
+﻿using System.Linq;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,8 +6,8 @@ using Terraria.DataStructures;
 using TremorMod.Content.Items.Materials.OreAndBar;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items
-{
+namespace TremorMod.Content.Items;
+
 	[AutoloadEquip(EquipType.Wings)]
 	public class BrutalliskWings : ModItem
 	{
@@ -27,8 +27,8 @@ namespace TremorMod.Content.Items
 		{
 			// DisplayName.SetDefault("Brutallisk Wings");
 			// Tooltip.SetDefault("Allows flight and slow fall");
-            ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(290, 10f, 1f);
-        }
+        ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(290, 10f, 1f);
+    }
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
@@ -51,4 +51,3 @@ namespace TremorMod.Content.Items
 			acceleration *= 4.5f;
 		}
 	}
-}

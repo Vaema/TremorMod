@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,8 +6,8 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Projectiles.Minions;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items.Weapons.Summon
-{
+namespace TremorMod.Content.Items.Weapons.Summon;
+
 	public class CrabStaff : ModItem
 	{
 		public override void SetDefaults()
@@ -36,21 +36,21 @@ namespace TremorMod.Content.Items.Weapons.Summon
 			//Tooltip.SetDefault("Summons a little crab to fight for you.");
 		}
 
-        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockBack)
-        {
-            return player.altFunctionUse != 2;
-        }
+    public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockBack)
+    {
+        return player.altFunctionUse != 2;
+    }
 
-        public override bool? UseItem(Player player)
+    public override bool? UseItem(Player player)
+    {
+        if (player.altFunctionUse == 2)
         {
-            if (player.altFunctionUse == 2)
-            {
-                player.MinionNPCTargetAim(true);
-            }
-            return base.UseItem(player);
+            player.MinionNPCTargetAim(true);
         }
+        return base.UseItem(player);
+    }
 
-        public override void AddRecipes()
+    public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Coral, 16);
@@ -62,4 +62,3 @@ namespace TremorMod.Content.Items.Weapons.Summon
 			recipe.Register();
 		}
 	}
-}

@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class GoldenStar : ModItem
 	{
 
@@ -46,4 +46,3 @@ namespace TremorMod.Content.Items.Accessories
 		}
 
 	}
-}

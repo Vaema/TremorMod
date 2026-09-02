@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -12,8 +12,8 @@ using TremorMod.Content.Items.Weapons.Magic;
 using TremorMod.Content.Items.Placeable.Banners;
 using TremorMod.Content.Items.Vanity;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class GrayRaven : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -37,36 +37,35 @@ namespace TremorMod.Content.NPCs
 			AnimationType = 301;
 		}
 
-        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
+    public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
+    {
+        if (Main.rand.NextBool())
         {
-            if (Main.rand.NextBool())
-            {
-                target.AddBuff(BuffID.Bleeding, 60);
-            }
+            target.AddBuff(BuffID.Bleeding, 60);
         }
+    }
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RavenFeather>(), 1, 1, 3));
-        }
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RavenFeather>(), 1, 1, 3));
+    }
 
-        public override void HitEffect(NPC.HitInfo hit)
+    public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("GrayRavenGore1").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("GrayRavenGore1").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("GrayRavenGore2").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("GrayRavenGore3").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("GrayRavenGore1").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("GrayRavenGore1").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("GrayRavenGore2").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("GrayRavenGore3").Type, 1f);
 			}
 		}
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 			=> Helper.NoZoneAllowWater(spawnInfo) && Main.hardMode && spawnInfo.SpawnTileY > Main.rockLayer ? 0.01f : 0f;
 	}
-}

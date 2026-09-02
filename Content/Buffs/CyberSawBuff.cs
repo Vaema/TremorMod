@@ -1,14 +1,14 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles.Minions;
 using TremorMod.Content;
 
-namespace TremorMod.Content.Buffs
+namespace TremorMod.Content.Buffs;
+
+public class CyberSawBuff : ModBuff
 {
-    public class CyberSawBuff : ModBuff
-    {
-        public override void SetStaticDefaults()
+    public override void SetStaticDefaults()
 		{
 			//DisplayName.SetDefault("Cyber Saw");
 			//Description.SetDefault("The cyber saw will fight for you");
@@ -16,25 +16,24 @@ namespace TremorMod.Content.Buffs
 			Main.buffNoTimeDisplay[Type] = true;
 		}
 
-        public override void Update(Player player, ref int buffIndex)
+    public override void Update(Player player, ref int buffIndex)
+    {
+        //TremorPlayer modPlayer = player.GetModPlayer<TremorPlayer>();
+
+        /*if (player.ownedProjectileCounts[ModContent.ProjectileType<CyberStaffPro>()] > 0)
         {
-            //TremorPlayer modPlayer = player.GetModPlayer<TremorPlayer>();
+            modPlayer.cyberMinion = true; 
+        }*/
 
-            /*if (player.ownedProjectileCounts[ModContent.ProjectileType<CyberStaffPro>()] > 0)
-            {
-                modPlayer.cyberMinion = true; 
-            }*/
-
-            /*if (!modPlayer.cyberMinion)
-            {
-                player.DelBuff(buffIndex);
-                buffIndex = -1;
-            }*/
-            
-            {
-                player.buffTime[buffIndex] = 18000;
-            }
+        /*if (!modPlayer.cyberMinion)
+        {
+            player.DelBuff(buffIndex);
+            buffIndex = -1;
+        }*/
+        
+        {
+            player.buffTime[buffIndex] = 18000;
         }
-
     }
+
 }

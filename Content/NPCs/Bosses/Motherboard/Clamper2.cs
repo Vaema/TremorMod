@@ -3,8 +3,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.NPCs.Bosses.Motherboard
-{
+namespace TremorMod.Content.NPCs.Bosses.Motherboard;
+
 	public class Clamper2 : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -35,4 +35,3 @@ namespace TremorMod.Content.NPCs.Bosses.Motherboard
 			Lighting.AddLight(NPC.Center, Color.OrangeRed.ToVector3() * 0.01333f);
 		}
 	}
-}

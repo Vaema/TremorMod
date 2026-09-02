@@ -1,10 +1,10 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Weapons.Magic
-{
+namespace TremorMod.Content.Items.Weapons.Magic;
+
 	public class RocketWand : ModItem
 	{
 		public override void SetDefaults()
@@ -17,8 +17,8 @@ namespace TremorMod.Content.Items.Weapons.Magic
 			Item.height = 55;
 			Item.useTime = 20;
 			Item.mana = 9;
-            Item.shoot = 134;
-            Item.useAnimation = 50;
+        Item.shoot = 134;
+        Item.useAnimation = 50;
 			Item.useStyle = 5;
 			Item.shootSpeed = 10f;
 			Item.staff[Item.type] = true;
@@ -35,4 +35,3 @@ namespace TremorMod.Content.Items.Weapons.Magic
 			// Tooltip.SetDefault("Causes missiles to fall from the sky");
 		}
 	}
-}

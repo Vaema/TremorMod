@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -11,8 +11,8 @@ using TremorMod.Content.Items.Vanity;
 using TremorMod.Content.Items.Placeable;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.NPCs.Bosses.FrostKing
-{
+namespace TremorMod.Content.NPCs.Bosses.FrostKing;
+
 	[AutoloadBossHead]
 	public class FrostKing : ModNPC
 	{
@@ -48,11 +48,11 @@ namespace TremorMod.Content.NPCs.Bosses.FrostKing
 		{
 			if (NPC.life <= 0)
 			{
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FrostKingGore1").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FrostKingGore2").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FrostKingGore3").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FrostKingGore3").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FrostKingGore4").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FrostKingGore1").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FrostKingGore2").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FrostKingGore3").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FrostKingGore3").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FrostKingGore4").Type, 1f);
 			}
 		}
 
@@ -73,13 +73,13 @@ namespace TremorMod.Content.NPCs.Bosses.FrostKing
 			set { NPC.position = value - new Vector2(NPC.width / 2, NPC.height / 2); }
 		}
 
-        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float bossLifeScale, float balance)
-        {
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.625f * bossLifeScale);
-            NPC.damage = (int)(NPC.damage * 0.6f);
-        }
+    public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float bossLifeScale, float balance)
+    {
+        NPC.lifeMax = (int)(NPC.lifeMax * 0.625f * bossLifeScale);
+        NPC.damage = (int)(NPC.damage * 0.6f);
+    }
 
-        private void findNewLocalTargetPos()
+    private void findNewLocalTargetPos()
 		{
 			float a = Main.rand.Next(0, (int)(Math.PI) * 200) / 100f;
 			float r = Main.rand.Next(0, 5000) / 100f;
@@ -138,18 +138,18 @@ namespace TremorMod.Content.NPCs.Bosses.FrostKing
 						}
 						else
 						{
-                            for (int i = 0; i < 30; i++)
-                            {
-                                float angle = Main.rand.Next(0, (int)(Math.PI) * 200) / 100f;
-                                Vector2 velocity = new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle)) * 25;
+                        for (int i = 0; i < 30; i++)
+                        {
+                            float angle = Main.rand.Next(0, (int)(Math.PI) * 200) / 100f;
+                            Vector2 velocity = new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle)) * 25;
 
-                                IEntitySource source = Main.player[Main.myPlayer].GetSource_FromThis();
-                                Vector2 position = new Vector2(bossCenter.X - 90, bossCenter.Y + 7);
+                            IEntitySource source = Main.player[Main.myPlayer].GetSource_FromThis();
+                            Vector2 position = new Vector2(bossCenter.X - 90, bossCenter.Y + 7);
 
-                                Projectile.NewProjectile(source, position, velocity, 349, 20, 5);
-                            }
+                            Projectile.NewProjectile(source, position, velocity, 349, 20, 5);
                         }
                     }
+                }
 					else
 					{
 						mode = 0;
@@ -174,16 +174,16 @@ namespace TremorMod.Content.NPCs.Bosses.FrostKing
 						}
 						else
 						{
-                            Vector2 shootPos = bossCenter + new Vector2(88, 32);
-                            float angle = (float)Math.Atan2(targetPos.Y - shootPos.Y, targetPos.X - shootPos.X)
-                                          + Main.rand.Next((int)(Math.PI * -100f), (int)(Math.PI * 100f)) / 3600f;
-                            Vector2 velocity = new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle)) * 20;
-                            IEntitySource source = Main.player[Main.myPlayer].GetSource_FromThis();
-                            Projectile.NewProjectile(source, shootPos, velocity, 348, 40, 5);
-                            atackTimer = 1;
+                        Vector2 shootPos = bossCenter + new Vector2(88, 32);
+                        float angle = (float)Math.Atan2(targetPos.Y - shootPos.Y, targetPos.X - shootPos.X)
+                                      + Main.rand.Next((int)(Math.PI * -100f), (int)(Math.PI * 100f)) / 3600f;
+                        Vector2 velocity = new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle)) * 20;
+                        IEntitySource source = Main.player[Main.myPlayer].GetSource_FromThis();
+                        Projectile.NewProjectile(source, shootPos, velocity, 348, 40, 5);
+                        atackTimer = 1;
 
-                        }
                     }
+                }
 					else
 					{
 						mode = 0;
@@ -208,18 +208,18 @@ namespace TremorMod.Content.NPCs.Bosses.FrostKing
 						}
 						else
 						{
-                            Vector2 shootPos = bossCenter + new Vector2(-90, 25);
-                            IEntitySource source = Main.player[Main.myPlayer].GetSource_FromThis(); // Èñòî÷íèê ñíàðÿäà
+                        Vector2 shootPos = bossCenter + new Vector2(-90, 25);
+                        IEntitySource source = Main.player[Main.myPlayer].GetSource_FromThis(); // ÃˆÃ±Ã²Ã®Ã·Ã­Ã¨Ãª Ã±Ã­Ã Ã°Ã¿Ã¤Ã 
 
-                            Projectile.NewProjectile(source, shootPos, new Vector2(-20, 0), 464, 40, 5);
+                        Projectile.NewProjectile(source, shootPos, new Vector2(-20, 0), 464, 40, 5);
 
-                            shootPos = bossCenter + new Vector2(90, 25);
-                            Projectile.NewProjectile(source, shootPos, new Vector2(20, 0), 464, 40, 5);
+                        shootPos = bossCenter + new Vector2(90, 25);
+                        Projectile.NewProjectile(source, shootPos, new Vector2(20, 0), 464, 40, 5);
 
-                            atackTimer = 3;
+                        atackTimer = 3;
 
-                        }
                     }
+                }
 					else
 					{
 						mode = 0;
@@ -302,20 +302,19 @@ namespace TremorMod.Content.NPCs.Bosses.FrostKing
 			NPC.frame.Y = frameHeight * frame + 2;
 		}
 
-        public override void OnKill()
-        {
-            TremorSpawnEnemys.downedFrostKing = true;
-        }
+    public override void OnKill()
+    {
+        TremorSpawnEnemys.downedFrostKing = true;
+    }
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FrostKingTrophy>(), 10));
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FrostKingTrophy>(), 10));
 
-            npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<FrostKingMask>(), 7));
+        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<FrostKingMask>(), 7));
 
-            npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<FrostoneOre>(), 1, 24, 42));
+        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<FrostoneOre>(), 1, 24, 42));
 
-            npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<FrostKingBag>(), 1));
-        }
+        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<FrostKingBag>(), 1));
     }
 }

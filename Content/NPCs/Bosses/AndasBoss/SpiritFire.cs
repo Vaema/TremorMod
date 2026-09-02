@@ -16,8 +16,8 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Filters = Terraria.Graphics.Effects.Filters;
 
-namespace TremorMod.Content.NPCs.Bosses.AndasBoss
-{
+namespace TremorMod.Content.NPCs.Bosses.AndasBoss;
+
 	public class SpiritFire : ModProjectile
 	{
 		/*public override void SetStaticDefaults()
@@ -106,4 +106,3 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss
 			return false;
 		}
 	}
-}

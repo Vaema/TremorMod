@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class JungleWrath : ModItem
 	{
 		public override void SetDefaults()
@@ -26,8 +26,8 @@ namespace TremorMod.Content.Items.Accessories
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
 			player.GetDamage(DamageClass.Magic) += 0.06f;
-            player.GetDamage(DamageClass.Summon) += 0.06f;
-        }
+        player.GetDamage(DamageClass.Summon) += 0.06f;
+    }
 
 		public override void AddRecipes()
 		{
@@ -40,4 +40,3 @@ namespace TremorMod.Content.Items.Accessories
 			recipe.Register();
 		}
 	}
-}

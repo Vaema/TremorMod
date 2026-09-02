@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.Reaper
-{
+namespace TremorMod.Content.Items.Armor.Reaper;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class ReaperGreaves : ModItem
 	{
@@ -29,4 +29,3 @@ namespace TremorMod.Content.Items.Armor.Reaper
 			player.GetModPlayer<MPlayer>().alchemicalDamage += 0.15f;
 		}
 	}
-}

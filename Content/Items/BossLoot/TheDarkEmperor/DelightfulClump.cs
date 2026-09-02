@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.BossLoot.TheDarkEmperor
-{
+namespace TremorMod.Content.Items.BossLoot.TheDarkEmperor;
+
 	public class DelightfulClump : ModItem
 	{
 		public override void SetDefaults()
@@ -31,4 +31,3 @@ namespace TremorMod.Content.Items.BossLoot.TheDarkEmperor
 			player.GetCritChance(DamageClass.Throwing) += 5;
 		}
 	}
-}

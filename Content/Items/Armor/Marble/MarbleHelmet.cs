@@ -3,13 +3,13 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Armor.Marble
-{
+namespace TremorMod.Content.Items.Armor.Marble;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class MarbleHelmet : ModItem
 	{
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 
 			Item.defense = 2;
@@ -23,7 +23,7 @@ namespace TremorMod.Content.Items.Armor.Marble
 		{
 			// DisplayName.SetDefault("Marble Helmet");
 			// Tooltip.SetDefault("10% increased throwing velocity");
-        }
+    }
 
 		public override void UpdateEquip(Player p)
 		{
@@ -49,4 +49,3 @@ namespace TremorMod.Content.Items.Armor.Marble
 			recipe.Register();
 		}
 	}
-}

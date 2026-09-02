@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.NPCsDrop
-{
+namespace TremorMod.Content.Items.NPCsDrop;
+
 	public class SharkRage : ModItem
 	{
 		public override void SetDefaults()
@@ -34,4 +34,3 @@ namespace TremorMod.Content.Items.NPCsDrop
 		}*/	
 
 	}
-}

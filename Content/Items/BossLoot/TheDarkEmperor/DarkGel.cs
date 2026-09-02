@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.BossLoot.TheDarkEmperor
-{
+namespace TremorMod.Content.Items.BossLoot.TheDarkEmperor;
+
 	public class DarkGel : ModItem
 	{
 		public override void SetDefaults()
@@ -20,4 +20,3 @@ namespace TremorMod.Content.Items.BossLoot.TheDarkEmperor
 			//Tooltip.SetDefault("");
 		}
 	}
-}

@@ -1,7 +1,7 @@
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 
-namespace TremorMod.Content.Buffs
-{
+namespace TremorMod.Content.Buffs;
+
 	public class FlaskExpansionBuff : ModBuff
 	{
 		public override void SetStaticDefaults()
@@ -10,4 +10,3 @@ namespace TremorMod.Content.Buffs
 			//Description.SetDefault("Increased size of alchemical clouds");
 		}
 	}
-}

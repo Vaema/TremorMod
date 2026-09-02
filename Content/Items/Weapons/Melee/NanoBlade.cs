@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+п»їusing Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 
-namespace TremorMod.Content.Items.Weapons.Melee
-{
+namespace TremorMod.Content.Items.Weapons.Melee;
+
 	public class NanoBlade : ModItem
 	{
 		public override void SetDefaults()
@@ -26,18 +26,18 @@ namespace TremorMod.Content.Items.Weapons.Melee
 			Item.autoReuse = true;
 		}
 
-        /*public override void SetStaticDefaults()
+    /*public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Nano Blade");
 			Tooltip.SetDefault("");
 		}*/
 
-        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
-        {
-            target.AddBuff(BuffID.Electrified, 1200); // Накладывает эффект "Электризован"
-        }
+    public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
+    {
+        target.AddBuff(BuffID.Electrified, 1200); // ГЌГ ГЄГ«Г Г¤Г»ГўГ ГҐГІ ГЅГґГґГҐГЄГІ "ГќГ«ГҐГЄГІГ°ГЁГ§Г®ГўГ Г­"
+    }
 
-        public override void MeleeEffects(Player player, Rectangle hitbox)
+    public override void MeleeEffects(Player player, Rectangle hitbox)
 		{
 			int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 59);
 		}
@@ -52,4 +52,3 @@ namespace TremorMod.Content.Items.Weapons.Melee
 			recipe.Register();
 		}
 	}
-}

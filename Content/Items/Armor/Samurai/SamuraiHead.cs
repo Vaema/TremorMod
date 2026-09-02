@@ -1,17 +1,17 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.Samurai
-{
+namespace TremorMod.Content.Items.Armor.Samurai;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class SamuraiHead : ModItem
 	{
 
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override bool AltFunctionUse(Player player)
+    public override bool AltFunctionUse(Player player)
 		{
 			return true;
 		}
@@ -27,10 +27,10 @@ namespace TremorMod.Content.Items.Armor.Samurai
 
 		public override void SetStaticDefaults()
 		{
-            //DisplayName.SetDefault("Samurai Helmet");
-            //Tooltip.SetDefault("9% increased damage");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Greatly increased life regeneration!");
-        }
+        //DisplayName.SetDefault("Samurai Helmet");
+        //Tooltip.SetDefault("9% increased damage");
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Greatly increased life regeneration!");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -43,11 +43,10 @@ namespace TremorMod.Content.Items.Armor.Samurai
 		}
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Greatly increased life regeneration!";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Greatly increased life regeneration!";
 			player.crimsonRegen = true;
 
 		}
 
 	}
-}

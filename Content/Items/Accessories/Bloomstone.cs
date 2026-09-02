@@ -1,9 +1,9 @@
-using Terraria;
+п»їusing Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class Bloomstone : ModItem
 	{
 
@@ -24,8 +24,7 @@ namespace TremorMod.Content.Items.Accessories
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{	
-            player.AddBuff(BuffID.Shine, 600); // Бафф длится 10 секунд (600 тиков)
+        player.AddBuff(BuffID.Shine, 600); // ГЃГ ГґГґ Г¤Г«ГЁГІГ±Гї 10 Г±ГҐГЄГіГ­Г¤ (600 ГІГЁГЄГ®Гў)
 			player.AddBuff(BuffID.NightOwl, 600);			
 		}
 	}
-}

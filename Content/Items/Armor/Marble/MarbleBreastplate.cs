@@ -3,8 +3,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Armor.Marble
-{
+namespace TremorMod.Content.Items.Armor.Marble;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class MarbleBreastplate : ModItem
 	{
@@ -38,4 +38,3 @@ namespace TremorMod.Content.Items.Armor.Marble
 			recipe.Register();
 		}
 	}
-}

@@ -24,8 +24,8 @@ using TremorMod.Content.Items.Weapons.Melee;
 using TremorMod.Content.Items.Weapons.Throwing;
 using TremorMod.Content.Items.Bag;
 
-namespace TremorMod.Content.NPCs.Bosses.Trinity
-{
+namespace TremorMod.Content.NPCs.Bosses.Trinity;
+
 	[AutoloadBossHead]
 	public class SoulofHope : ModNPC
 	{
@@ -311,78 +311,77 @@ namespace TremorMod.Content.NPCs.Bosses.Trinity
 			}
 		}
 
-        public override void OnKill()
+    public override void OnKill()
+    {
+        if (!NPC.AnyNPCs(ModContent.NPCType<SoulofTruth>()) && !NPC.AnyNPCs(ModContent.NPCType<SoulofTrust>()))
         {
-            if (!NPC.AnyNPCs(ModContent.NPCType<SoulofTruth>()) && !NPC.AnyNPCs(ModContent.NPCType<SoulofTrust>()))
+            if (Main.rand.NextFloat() < 0.3f)
             {
-                if (Main.rand.NextFloat() < 0.3f)
+                Item.NewItem(NPC.GetSource_Loot(), NPC.position, ModContent.ItemType<Banhammer>());
+                Item.NewItem(NPC.GetSource_Loot(), NPC.position, ModContent.ItemType<BestNightmare>());
+            }
+
+            if (Main.rand.NextFloat() < 0.7f)
+            {
+                Item.NewItem(NPC.GetSource_Loot(), NPC.position, ModContent.ItemType<TrinityBag3>());
+            }
+
+            TremorSpawnEnemys.TrinityKillCount++;
+
+            bool spawnAngelite = !TremorSpawnEnemys.spawnedAngelite;
+            bool spawnCollapsium = !TremorSpawnEnemys.spawnedCollapsium;
+
+            if (spawnAngelite || spawnCollapsium)
+            {
+                if (spawnAngelite)
                 {
-                    Item.NewItem(NPC.GetSource_Loot(), NPC.position, ModContent.ItemType<Banhammer>());
-                    Item.NewItem(NPC.GetSource_Loot(), NPC.position, ModContent.ItemType<BestNightmare>());
+                    SpawnOre(ModContent.TileType<AngeliteOreTile>(), "This world has been enlightened with Angelite!", new Color(0, 191, 255));
+                    TremorSpawnEnemys.spawnedAngelite = true;
                 }
 
-                if (Main.rand.NextFloat() < 0.7f)
+                if (spawnCollapsium)
                 {
-                    Item.NewItem(NPC.GetSource_Loot(), NPC.position, ModContent.ItemType<TrinityBag3>());
+                    SpawnOre(ModContent.TileType<CollapsiumOreTile>(), "This world has been attacked with Collapsium!", new Color(255, 20, 147));
+                    TremorSpawnEnemys.spawnedCollapsium = true;
                 }
+            }
 
-                TremorSpawnEnemys.TrinityKillCount++;
+            TremorSpawnEnemys.downedTrinity = true;
 
-                bool spawnAngelite = !TremorSpawnEnemys.spawnedAngelite;
-                bool spawnCollapsium = !TremorSpawnEnemys.spawnedCollapsium;
-
-                if (spawnAngelite || spawnCollapsium)
-                {
-                    if (spawnAngelite)
-                    {
-                        SpawnOre(ModContent.TileType<AngeliteOreTile>(), "This world has been enlightened with Angelite!", new Color(0, 191, 255));
-                        TremorSpawnEnemys.spawnedAngelite = true;
-                    }
-
-                    if (spawnCollapsium)
-                    {
-                        SpawnOre(ModContent.TileType<CollapsiumOreTile>(), "This world has been attacked with Collapsium!", new Color(255, 20, 147));
-                        TremorSpawnEnemys.spawnedCollapsium = true;
-                    }
-                }
-
-                TremorSpawnEnemys.downedTrinity = true;
-
-                if (Main.netMode == NetmodeID.Server)
-                {
-                    NetMessage.SendData(MessageID.WorldData);
-                }
+            if (Main.netMode == NetmodeID.Server)
+            {
+                NetMessage.SendData(MessageID.WorldData);
             }
         }
+    }
 
-        private void SpawnOre(int oreType, string message, Color messageColor)
+    private void SpawnOre(int oreType, string message, Color messageColor)
+    {
+        Main.NewText(message, messageColor);
+
+        if (Main.netMode == NetmodeID.MultiplayerClient)
         {
-            Main.NewText(message, messageColor);
-
-            if (Main.netMode == NetmodeID.MultiplayerClient)
-            {
-                ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(message), messageColor);
-            }
-
-            for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY) * 6E-05); k++)
-            {
-                WorldGen.TileRunner(
-                    WorldGen.genRand.Next(0, Main.maxTilesX),
-                    WorldGen.genRand.Next((int)(Main.maxTilesY * .3f), (int)(Main.maxTilesY * .65f)),
-                    WorldGen.genRand.Next(9, 15),
-                    WorldGen.genRand.Next(9, 15),
-                    oreType,
-                    false,
-                    0f, 0f, false, true);
-            }
+            ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(message), messageColor);
         }
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY) * 6E-05); k++)
         {
-            if (!NPC.AnyNPCs(ModContent.NPCType<SoulofTruth>()) && !NPC.AnyNPCs(ModContent.NPCType<SoulofTrust>()))
+            WorldGen.TileRunner(
+                WorldGen.genRand.Next(0, Main.maxTilesX),
+                WorldGen.genRand.Next((int)(Main.maxTilesY * .3f), (int)(Main.maxTilesY * .65f)),
+                WorldGen.genRand.Next(9, 15),
+                WorldGen.genRand.Next(9, 15),
+                oreType,
+                false,
+                0f, 0f, false, true);
+        }
+    }
+
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        if (!NPC.AnyNPCs(ModContent.NPCType<SoulofTruth>()) && !NPC.AnyNPCs(ModContent.NPCType<SoulofTrust>()))
 			{
 				npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<TrinityBag3>(), 1));
 			}          
-        }
     }
 }

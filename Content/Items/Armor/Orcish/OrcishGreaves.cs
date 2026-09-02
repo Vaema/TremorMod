@@ -1,9 +1,9 @@
-using Terraria;
+п»їusing Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace TremorMod.Content.Items.Armor.Orcish
-{
+namespace TremorMod.Content.Items.Armor.Orcish;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class OrcishGreaves : ModItem
 	{
@@ -25,8 +25,7 @@ namespace TremorMod.Content.Items.Armor.Orcish
 
 		public override void UpdateEquip(Player player)
 		{
-            player.GetDamage(DamageClass.Melee) += 0.07f;   // +7% к ближнему урону
-        }
+        player.GetDamage(DamageClass.Melee) += 0.07f;   // +7% ГЄ ГЎГ«ГЁГ¦Г­ГҐГ¬Гі ГіГ°Г®Г­Гі
+    }
 
 	}
-}

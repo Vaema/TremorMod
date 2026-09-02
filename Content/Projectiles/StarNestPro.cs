@@ -1,9 +1,9 @@
-using System;
+﻿using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class StarNestPro : ModProjectile
 	{
 		public override void SetDefaults()
@@ -29,4 +29,3 @@ namespace TremorMod.Content.Projectiles
 			}
 		}
 	}
-}

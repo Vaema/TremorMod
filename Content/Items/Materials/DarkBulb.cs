@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Materials
-{
+namespace TremorMod.Content.Items.Materials;
+
 	public class DarkBulb : ModItem
 	{
 		public override void SetDefaults()
@@ -30,4 +30,3 @@ namespace TremorMod.Content.Items.Materials
 			recipe.Register();
 		}
 	}
-}

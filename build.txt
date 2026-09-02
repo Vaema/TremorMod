@@ -1,5 +1,12 @@
-displayName = Tremor Mod Updated
-author = Gs_qs
+displayName = Tremor Mod Remastered
+author = Astra Gravastar
 version = 1.9.1
-modReferences = StructureHelper
 
+dllReferences = StructureHelper
+
+hideCode = false
+hideResources = false
+includeSource = true
+includePDB = true
+
+buildIgnore = .vs\*, Properties\*, *.tmp, *.csproj, *.user, obj\*, bin\*, *.config, .git\*, .github\*, LICENSE, *.md, .editorconfig, .gitignore, .gitattributes

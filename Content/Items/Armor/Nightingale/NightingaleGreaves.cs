@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Armor.Nightingale
-{
+namespace TremorMod.Content.Items.Armor.Nightingale;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class NightingaleGreaves : ModItem
 	{
@@ -32,12 +32,11 @@ namespace TremorMod.Content.Items.Armor.Nightingale
 
 		public override void AddRecipes()
 		{
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<SteelBar>(), 10);
-            recipe.AddIngredient(ModContent.ItemType<PhantomSoul>(), 3);
-            //recipe.SetResult(this);
-            recipe.AddTile(16);
-            recipe.Register();
-        }
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ModContent.ItemType<SteelBar>(), 10);
+        recipe.AddIngredient(ModContent.ItemType<PhantomSoul>(), 3);
+        //recipe.SetResult(this);
+        recipe.AddTile(16);
+        recipe.Register();
+    }
 	}
-}

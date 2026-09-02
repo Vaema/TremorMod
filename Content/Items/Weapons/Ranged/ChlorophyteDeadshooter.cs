@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 
-namespace TremorMod.Content.Items.Weapons.Ranged
-{
+namespace TremorMod.Content.Items.Weapons.Ranged;
+
 	public class ChlorophyteDeadshooter : ModItem
 	{
 		public override void SetDefaults()
@@ -34,18 +34,18 @@ namespace TremorMod.Content.Items.Weapons.Ranged
 			//Tooltip.SetDefault("");
 		}
 
-        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    {
+        for (int i = 0; i < 1; ++i) // Will shoot 3 bullets.
         {
-            for (int i = 0; i < 1; ++i) // Will shoot 3 bullets.
-            {
-                Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), type, damage, knockback, player.whoAmI);
-                Projectile.NewProjectile(source, position, velocity, type, damage, knockback, player.whoAmI);
-                Projectile.NewProjectile(source, position, velocity + new Vector2(-1, -1), type, damage, knockback, player.whoAmI);
-            }
-            return false;
+            Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), type, damage, knockback, player.whoAmI);
+            Projectile.NewProjectile(source, position, velocity, type, damage, knockback, player.whoAmI);
+            Projectile.NewProjectile(source, position, velocity + new Vector2(-1, -1), type, damage, knockback, player.whoAmI);
         }
+        return false;
+    }
 
-        public override void AddRecipes()
+    public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.ChlorophyteBar, 15);
@@ -55,4 +55,3 @@ namespace TremorMod.Content.Items.Weapons.Ranged
 			recipe.Register();
 		}
 	}
-}

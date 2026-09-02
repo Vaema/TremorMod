@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -14,8 +14,8 @@ using TremorMod.Content.Items.Vanity;
 using TremorMod.Content.Items.Weapons.Melee;
 using TremorMod.Content.Items;
 
-namespace TremorMod.Content.NPCs.Invasion
-{
+namespace TremorMod.Content.NPCs.Invasion;
+
 	public class ParadoxSun : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -56,9 +56,9 @@ namespace TremorMod.Content.NPCs.Invasion
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 10; k++)
 				{
@@ -85,15 +85,15 @@ namespace TremorMod.Content.NPCs.Invasion
 			NPC.damage = NPC.damage * 1;
 		}
 
-        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
+    public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
+    {
+        if (Main.rand.NextBool())
         {
-            if (Main.rand.NextBool())
-            {
-                target.AddBuff(BuffID.Confused, 1000);
-            }
+            target.AddBuff(BuffID.Confused, 1000);
         }
+    }
 
-        public override void AI()
+    public override void AI()
 		{
 			if (Main.rand.Next(320) == 5)
 			{
@@ -215,67 +215,67 @@ namespace TremorMod.Content.NPCs.Invasion
 				}
 			}
 
-            if (flag4)
+        if (flag4)
+        {
+            int num32 = (int)((NPC.position.X + NPC.width / 2 + (NPC.width / 2 + 6) * NPC.direction) / 16f);
+            int num33 = (int)((NPC.position.Y + NPC.height - 15f) / 16f);
+
+            if (Main.tile[num32, num33] == null)
             {
-                int num32 = (int)((NPC.position.X + NPC.width / 2 + (NPC.width / 2 + 6) * NPC.direction) / 16f);
-                int num33 = (int)((NPC.position.Y + NPC.height - 15f) / 16f);
+                //Main.tile[num32, num33] = new Tile();
+            }
+            if (Main.tile[num32, num33 - 1] == null)
+            {
+                //Main.tile[num32, num33 - 1] = new Tile();
+            }
+            if (Main.tile[num32, num33 - 2] == null)
+            {
+               // Main.tile[num32, num33 - 2] = new Tile();
+            }
+            if (Main.tile[num32, num33 - 3] == null)
+            {
+                //Main.tile[num32, num33 - 3] = new Tile();
+            }
+            if (Main.tile[num32, num33 + 1] == null)
+            {
+                //Main.tile[num32, num33 + 1] = new Tile();
+            }
+            if (Main.tile[num32 + NPC.direction, num33 - 1] == null)
+            {
+                //Main.tile[num32 + NPC.direction, num33 - 1] = new Tile();
+            }
+            if (Main.tile[num32 + NPC.direction, num33 + 1] == null)
+            {
+                //Main.tile[num32 + NPC.direction, num33 + 1] = new Tile();
+            }
 
-                if (Main.tile[num32, num33] == null)
+            if (Main.tile[num32, num33 - 1].HasTile && Main.tile[num32, num33 - 1].TileType == 10 && flag3)
+            {
+                NPC.ai[2] += 1f;
+                NPC.ai[3] = 0f;
+                if (NPC.ai[2] >= 60f)
                 {
-                    //Main.tile[num32, num33] = new Tile();
-                }
-                if (Main.tile[num32, num33 - 1] == null)
-                {
-                    //Main.tile[num32, num33 - 1] = new Tile();
-                }
-                if (Main.tile[num32, num33 - 2] == null)
-                {
-                   // Main.tile[num32, num33 - 2] = new Tile();
-                }
-                if (Main.tile[num32, num33 - 3] == null)
-                {
-                    //Main.tile[num32, num33 - 3] = new Tile();
-                }
-                if (Main.tile[num32, num33 + 1] == null)
-                {
-                    //Main.tile[num32, num33 + 1] = new Tile();
-                }
-                if (Main.tile[num32 + NPC.direction, num33 - 1] == null)
-                {
-                    //Main.tile[num32 + NPC.direction, num33 - 1] = new Tile();
-                }
-                if (Main.tile[num32 + NPC.direction, num33 + 1] == null)
-                {
-                    //Main.tile[num32 + NPC.direction, num33 + 1] = new Tile();
-                }
-
-                if (Main.tile[num32, num33 - 1].HasTile && Main.tile[num32, num33 - 1].TileType == 10 && flag3)
-                {
-                    NPC.ai[2] += 1f;
-                    NPC.ai[3] = 0f;
-                    if (NPC.ai[2] >= 60f)
+                    NPC.velocity.X = 0.5f * -(float)NPC.direction;
+                    NPC.ai[1] += 1f;
+                    NPC.ai[2] = 0f;
+                    bool flag5 = false;
+                    if (NPC.ai[1] >= 10f)
                     {
-                        NPC.velocity.X = 0.5f * -(float)NPC.direction;
-                        NPC.ai[1] += 1f;
-                        NPC.ai[2] = 0f;
-                        bool flag5 = false;
-                        if (NPC.ai[1] >= 10f)
+                        flag5 = true;
+                        NPC.ai[1] = 10f;
+                    }
+                    WorldGen.KillTile(num32, num33 - 1, true, false, false);
+                    if ((Main.netMode != NetmodeID.MultiplayerClient || !flag5) && flag5 && Main.netMode != NetmodeID.MultiplayerClient)
+                    {
+                        bool flag6 = WorldGen.OpenDoor(num32, num33, NPC.direction);
+                        if (!flag6)
                         {
-                            flag5 = true;
-                            NPC.ai[1] = 10f;
-                        }
-                        WorldGen.KillTile(num32, num33 - 1, true, false, false);
-                        if ((Main.netMode != NetmodeID.MultiplayerClient || !flag5) && flag5 && Main.netMode != NetmodeID.MultiplayerClient)
-                        {
-                            bool flag6 = WorldGen.OpenDoor(num32, num33, NPC.direction);
-                            if (!flag6)
-                            {
-                                NPC.ai[3] = num5;
-                                NPC.netUpdate = true;
-                            }
+                            NPC.ai[3] = num5;
+                            NPC.netUpdate = true;
                         }
                     }
                 }
+            }
 
 				if ((NPC.velocity.X < 0f && NPC.spriteDirection == -1) || (NPC.velocity.X > 0f && NPC.spriteDirection == 1))
 				{
@@ -337,15 +337,14 @@ namespace TremorMod.Content.NPCs.Invasion
 			}
 		}
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        if (Main.netMode != 1)
         {
-            if (Main.netMode != 1)
-            {
-                int centerX = (int)(NPC.position.X + NPC.width / 2) / 16;
-                int centerY = (int)(NPC.position.Y + NPC.height / 2) / 16;
-                int halfLength = NPC.width / 2 / 16 + 1;
-                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ClockofTime>(), 20));
-            }
+            int centerX = (int)(NPC.position.X + NPC.width / 2) / 16;
+            int centerY = (int)(NPC.position.Y + NPC.height / 2) / 16;
+            int halfLength = NPC.width / 2 / 16 + 1;
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ClockofTime>(), 20));
         }
     }
 }

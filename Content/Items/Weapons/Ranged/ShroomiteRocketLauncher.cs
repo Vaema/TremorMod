@@ -1,10 +1,10 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Weapons.Ranged
-{
+namespace TremorMod.Content.Items.Weapons.Ranged;
+
 	public class ShroomiteRocketLauncher : ModItem
 	{
 		public override void SetDefaults()
@@ -52,4 +52,3 @@ namespace TremorMod.Content.Items.Weapons.Ranged
 			recipe.Register();
 		}
 	}
-}

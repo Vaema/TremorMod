@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Materials.OreAndBar;
 
-namespace TremorMod.Content.Items.Armor.Magium
-{
+namespace TremorMod.Content.Items.Armor.Magium;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class MagiumBreastplate : ModItem
 	{
@@ -29,7 +29,7 @@ namespace TremorMod.Content.Items.Armor.Magium
 		public override void UpdateEquip(Player player)
 		{
 			player.GetDamage(DamageClass.Magic) += 0.1f;
-            player.statManaMax2 += 40;
+        player.statManaMax2 += 40;
 		}
 
 		public override void AddRecipes()
@@ -43,4 +43,3 @@ namespace TremorMod.Content.Items.Armor.Magium
 		}
 
 	}
-}

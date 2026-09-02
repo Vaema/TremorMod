@@ -1,66 +1,65 @@
-using Microsoft.Xna.Framework;
+п»їusing Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items.CogLordItems
-{
-    public class BrassChainRepeater : ModItem
-    {
-        public override void SetDefaults()
-        {
-            Item.DamageType = DamageClass.Ranged;
-            Item.width = 36;
-            Item.height = 24;
-            Item.useTime = 11;
-            Item.useAnimation = 11;
-            Item.shoot = ProjectileID.WoodenArrowFriendly; // Устанавливаем снаряд
-            Item.useAmmo = AmmoID.Arrow;
-            Item.shootSpeed = 30f;
-            Item.useStyle = 5; // Стиль использования, как у оружия дальнего боя
-            Item.damage = 30;
-            Item.knockBack = 4;
-            Item.value = 30000;
-            Item.rare = 5;
-            Item.UseSound = SoundID.Item5;
-            Item.autoReuse = true;
-        }
+namespace TremorMod.Content.Items.CogLordItems;
 
-        /*public override void SetStaticDefaults()
+public class BrassChainRepeater : ModItem
+{
+    public override void SetDefaults()
+    {
+        Item.DamageType = DamageClass.Ranged;
+        Item.width = 36;
+        Item.height = 24;
+        Item.useTime = 11;
+        Item.useAnimation = 11;
+        Item.shoot = ProjectileID.WoodenArrowFriendly; // Г“Г±ГІГ Г­Г ГўГ«ГЁГўГ ГҐГ¬ Г±Г­Г Г°ГїГ¤
+        Item.useAmmo = AmmoID.Arrow;
+        Item.shootSpeed = 30f;
+        Item.useStyle = 5; // Г‘ГІГЁГ«Гј ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГї, ГЄГ ГЄ Гі Г®Г°ГіГ¦ГЁГї Г¤Г Г«ГјГ­ГҐГЈГ® ГЎГ®Гї
+        Item.damage = 30;
+        Item.knockBack = 4;
+        Item.value = 30000;
+        Item.rare = 5;
+        Item.UseSound = SoundID.Item5;
+        Item.autoReuse = true;
+    }
+
+    /*public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Brass Chain Repeater");
 			Tooltip.SetDefault("Quickly launches arrows\n" +
 			"25% to shoot a heat ray");
 		}*/
 
-        public override void UpdateInventory(Player player)
+    public override void UpdateInventory(Player player)
+    {
+        if (player.HasBuff(ModContent.BuffType<SteamRangerBuff>()))
         {
-            if (player.HasBuff(ModContent.BuffType<SteamRangerBuff>()))
-            {
-                Item.damage = 45;
-            }
-            else
-            {
-                Item.damage = 30;
-            }
+            Item.damage = 45;
+        }
+        else
+        {
+            Item.damage = 30;
+        }
+    }
+
+    public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    {
+        Vector2 muzzleOffset = Vector2.Normalize(velocity) * 25f;
+        position += muzzleOffset;
+
+        if (Main.rand.NextBool(4)) 
+        {
+            Projectile.NewProjectile(source, position, velocity, ProjectileID.HeatRay, damage, knockback, player.whoAmI);
+        }
+        else
+        {
+            Projectile.NewProjectile(source, position, velocity, ProjectileID.WoodenArrowFriendly, damage, knockback, player.whoAmI);
         }
 
-        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-        {
-            Vector2 muzzleOffset = Vector2.Normalize(velocity) * 25f;
-            position += muzzleOffset;
-
-            if (Main.rand.NextBool(4)) 
-            {
-                Projectile.NewProjectile(source, position, velocity, ProjectileID.HeatRay, damage, knockback, player.whoAmI);
-            }
-            else
-            {
-                Projectile.NewProjectile(source, position, velocity, ProjectileID.WoodenArrowFriendly, damage, knockback, player.whoAmI);
-            }
-
-            return false; 
-        }
+        return false; 
     }
 }

@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Buffs;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class BigBottledSpirit : ModItem
 	{
 		/*public override bool CanEquipAccessory(Player player, int slot)
@@ -40,12 +40,12 @@ namespace TremorMod.Content.Items.Accessories
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-            MPlayer modPlayer = player.GetModPlayer<MPlayer>();
-            player.AddBuff(ModContent.BuffType<BigBottledSpiritBuffs>(), 2);
-            modPlayer.enchanted = true;
-        }
+        MPlayer modPlayer = player.GetModPlayer<MPlayer>();
+        player.AddBuff(ModContent.BuffType<BigBottledSpiritBuffs>(), 2);
+        modPlayer.enchanted = true;
+    }
 
-        public override void AddRecipes()
+    public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Bottle, 3);
@@ -58,4 +58,3 @@ namespace TremorMod.Content.Items.Accessories
 			recipe.Register();
 		}
 	}
-}

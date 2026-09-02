@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
@@ -6,8 +6,8 @@ using TremorMod.Content.NPCs.Bosses.CogLord;
 using static Terraria.ModLoader.ModContent;
 using TremorMod.Content.Items.CogLordItems;
 
-namespace TremorMod.Content.Items.CogLordItems
-{
+namespace TremorMod.Content.Items.CogLordItems;
+
 	public class CogLordBag : ModItem
 	{
 		public override void SetDefaults()
@@ -31,24 +31,23 @@ namespace TremorMod.Content.Items.CogLordItems
 			return true;
 		}
 
-        public override void ModifyItemLoot(ItemLoot itemLoot)
-        {
-            // Guarantee one item from the following three
-            itemLoot.Add(ItemDropRule.OneFromOptions(1,
-                ModContent.ItemType<BrassStave>(),
-                ModContent.ItemType<BrassChainRepeater>(),
-                ModContent.ItemType<BrassRapier>()
-            ));
+    public override void ModifyItemLoot(ItemLoot itemLoot)
+    {
+        // Guarantee one item from the following three
+        itemLoot.Add(ItemDropRule.OneFromOptions(1,
+            ModContent.ItemType<BrassStave>(),
+            ModContent.ItemType<BrassChainRepeater>(),
+            ModContent.ItemType<BrassRapier>()
+        ));
 
-            // Add CyberStaff drop only in Expert mode
-            itemLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<HeatCore>()));
+        // Add CyberStaff drop only in Expert mode
+        itemLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<HeatCore>()));
 
 			// Add CyberKingMask with a 1/7 chance
 			itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<CogLordMask>(), 7));
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<BrassChip>(), 10));
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<BrassChip>(), 10));
 
-            // Add other drops as necessary
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<BrassNugget>(),1, 18, 34));
-        }
+        // Add other drops as necessary
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<BrassNugget>(),1, 18, 34));
     }
 }

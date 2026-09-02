@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles.Stone;
 
-namespace TremorMod.Content.Items.Placeable.Stone
-{
+namespace TremorMod.Content.Items.Placeable.Stone;
+
 	public class StoneBed : ModItem
 	{
 		public override void SetDefaults()
@@ -40,4 +40,3 @@ namespace TremorMod.Content.Items.Placeable.Stone
 			recipe.Register();
 		}
 	}
-}

@@ -1,12 +1,12 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Dusts;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class Bounce : ModProjectile
 	{
 		public override void SetDefaults()
@@ -66,4 +66,3 @@ namespace TremorMod.Content.Projectiles
 			}
 		}
 	}
-}

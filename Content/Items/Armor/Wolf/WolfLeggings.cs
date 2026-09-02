@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Armor.Wolf
-{
+namespace TremorMod.Content.Items.Armor.Wolf;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class WolfLeggings : ModItem
 	{
@@ -42,4 +42,3 @@ namespace TremorMod.Content.Items.Armor.Wolf
 			recipe.Register();
 		}
 	}
-}

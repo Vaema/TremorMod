@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
@@ -7,8 +7,8 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Placeable.Banners;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class IceBlazer : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -34,28 +34,28 @@ namespace TremorMod.Content.NPCs
 			NPC.HitSound = SoundID.NPCHit5;
 			NPC.DeathSound = SoundID.NPCDeath7;
 			NPC.value = Item.buyPrice(0, 0, 5, 0);
-            Banner = NPC.type;
-            BannerItem = ModContent.ItemType<IceBlazerBanner>();
-            ItemID.Sets.KillsToBanner[BannerItem] = 50;
-        }
+        Banner = NPC.type;
+        BannerItem = ModContent.ItemType<IceBlazerBanner>();
+        ItemID.Sets.KillsToBanner[BannerItem] = 50;
+    }
 
-        public override void OnKill()
+    public override void OnKill()
+    {
+        if (Main.rand.NextBool(2))
         {
-            if (Main.rand.NextBool(2))
-            {
-                Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<FrostCore>());
-            }
-			if (Main.rand.NextBool(5))
-            {
-                Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<IceSoul>());
-            }
+            Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<FrostCore>());
         }
+			if (Main.rand.NextBool(5))
+        {
+            Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<IceSoul>());
+        }
+    }
 
-        public override void HitEffect(NPC.HitInfo hit)
+    public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 60; k++)
 				{
@@ -76,4 +76,3 @@ namespace TremorMod.Content.NPCs
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 			=> Helper.NormalSpawn(spawnInfo) && Helper.NoZoneAllowWater(spawnInfo) && NPC.downedMoonlord && Main.hardMode && spawnInfo.Player.ZoneSnow && spawnInfo.SpawnTileY < Main.worldSurface ? 0.004f : 0f;
 	}
-}

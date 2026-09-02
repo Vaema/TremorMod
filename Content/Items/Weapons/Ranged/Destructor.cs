@@ -1,10 +1,10 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Weapons.Ranged
-{
+namespace TremorMod.Content.Items.Weapons.Ranged;
+
 	public class Destructor : ModItem
 	{
 		public override void SetDefaults()
@@ -32,14 +32,13 @@ namespace TremorMod.Content.Items.Weapons.Ranged
 			//Tooltip.SetDefault("'Exterminate!'");
 		}
 
-        public override bool CanConsumeAmmo(Item ammo, Player player)
-        {
-            return !Main.rand.NextBool(2); 
-        }
+    public override bool CanConsumeAmmo(Item ammo, Player player)
+    {
+        return !Main.rand.NextBool(2); 
+    }
 
-        public override Vector2? HoldoutOffset()
+    public override Vector2? HoldoutOffset()
 		{
 			return new Vector2(-18, -4);
 		}
 	}
-}

@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class MoonBlast : ModProjectile
-    {
+{
 		public override void SetStaticDefaults()
 		{
 			Main.projFrames[Projectile.type] = 7;
@@ -38,4 +38,3 @@ namespace TremorMod.Content.Projectiles
 			{ Projectile.Kill(); }
 		}
 	}
-}

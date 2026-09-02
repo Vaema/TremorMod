@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 
-namespace TremorMod.Content.Items.Armor.Chain
-{
+namespace TremorMod.Content.Items.Armor.Chain;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class ChainGreaves : ModItem
 	{
@@ -32,12 +32,11 @@ namespace TremorMod.Content.Items.Armor.Chain
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 
-            Recipe recipe1 = CreateRecipe();
-            recipe1.AddIngredient(ItemID.LeadBar, 20);
-            recipe1.AddIngredient(ModContent.ItemType<InvarBar>());
-            recipe1.AddIngredient(ItemID.Chain);
-            recipe1.AddTile(TileID.Anvils);
-            recipe1.Register();
-        }
+        Recipe recipe1 = CreateRecipe();
+        recipe1.AddIngredient(ItemID.LeadBar, 20);
+        recipe1.AddIngredient(ModContent.ItemType<InvarBar>());
+        recipe1.AddIngredient(ItemID.Chain);
+        recipe1.AddTile(TileID.Anvils);
+        recipe1.Register();
+    }
 	}
-}

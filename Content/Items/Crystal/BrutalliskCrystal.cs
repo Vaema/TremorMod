@@ -1,9 +1,9 @@
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Mounts;
 
-namespace TremorMod.Content.Items.Crystal
-{
+namespace TremorMod.Content.Items.Crystal;
+
 	public class BrutalliskCrystal : ModItem
 	{
 		/*public override void SetStaticDefaults()
@@ -27,4 +27,3 @@ namespace TremorMod.Content.Items.Crystal
 			Item.mountType = ModContent.MountType<BrutalliskCrystalMounts>();
 		}
 	}
-}

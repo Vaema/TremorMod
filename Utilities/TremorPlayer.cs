@@ -1,4 +1,4 @@
-using System;
+Ôªøusing System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -27,12 +27,12 @@ using TremorMod.Content.NPCs.Bosses.NovaPillar;
 using TremorMod.Content.NPCs.Bosses.CogLord;
 using TremorMod.Utilities;
 
-namespace TremorMod
-{
+namespace TremorMod;
+
 	public class TremorPlayer : ModPlayer
 	{
-        public bool core;
-        public bool heartAmulet;
+    public bool core;
+    public bool heartAmulet;
 		public bool ZoneRuins;
 		public int healHurt;
 		public bool dFear;
@@ -281,19 +281,19 @@ namespace TremorMod
 				}
 			}
 		}
-        public override void ModifyHurt(ref Player.HurtModifiers modifiers)
+    public override void ModifyHurt(ref Player.HurtModifiers modifiers)
+    {
+        if (zellariumBody && Main.rand.Next(10) == 0)
         {
-            if (zellariumBody && Main.rand.Next(10) == 0)
-            {
-                // ≈ÒÎË zellariumBody ‡ÍÚË‚ÂÌ, ÚÓ ÔÓÒÚÓ Á‡‚Â¯‡ÂÏ ÏÂÚÓ‰ ·ÂÁ ËÁÏÂÌÂÌËÈ
-                return;
-            }
-
-            // œÂ‰ÔÓÎ‡„‡ÂÚÒˇ, ˜ÚÓ ÏÓ‰ËÙËÍ‡ˆËË ÔÓ‚ÂÊ‰ÂÌËÈ ‚˚ÔÓÎÌˇ˛ÚÒˇ ‚ ·‡ÁÓ‚ÓÏ ÏÂÚÓ‰Â
-            base.ModifyHurt(ref modifiers); // œËÏÂÌˇÂÏ ËÁÏÂÌÂÌËˇ ˜ÂÂÁ ·‡ÁÓ‚˚È ÏÂÚÓ‰
+            // √Ö√±√´√® zellariumBody √†√™√≤√®√¢√•√≠, √≤√Æ √Ø√∞√Æ√±√≤√Æ √ß√†√¢√•√∞√∏√†√•√¨ √¨√•√≤√Æ√§ √°√•√ß √®√ß√¨√•√≠√•√≠√®√©
+            return;
         }
 
-        public override void ResetEffects()
+        // √è√∞√•√§√Ø√Æ√´√†√£√†√•√≤√±√ø, √∑√≤√Æ √¨√Æ√§√®√¥√®√™√†√∂√®√® √Ø√Æ√¢√∞√•√¶√§√•√≠√®√© √¢√ª√Ø√Æ√´√≠√ø√æ√≤√±√ø √¢ √°√†√ß√Æ√¢√Æ√¨ √¨√•√≤√Æ√§√•
+        base.ModifyHurt(ref modifiers); // √è√∞√®√¨√•√≠√ø√•√¨ √®√ß√¨√•√≠√•√≠√®√ø √∑√•√∞√•√ß √°√†√ß√Æ√¢√ª√© √¨√•√≤√Æ√§
+    }
+
+    public override void ResetEffects()
 		{
 			heartAmulet = false;
 			dFear = false;
@@ -324,8 +324,8 @@ namespace TremorMod
 			gurdPet = false;
 			ancientVision = false;
 			whiteSakura = false;
-            CyberStray = false;
-            petZootaloo = false;
+        CyberStray = false;
+        petZootaloo = false;
 			LivingTombstone = false;
 			miniCyber = false;
 			cluster = false;
@@ -366,28 +366,28 @@ namespace TremorMod
 		public static int[] iceHeight = new int[3];
 		public static Texture2D[] backgroundTexture = new Texture2D[3];
 
-        public void UpdateBiomes()
-        {
-            ZoneRuins = (TremorWorld.RuinsTiles > 50);
-            ZoneGranite = (TremorWorld.GraniteTiles > 100);
-            ZoneIce = (TremorWorld.IceTiles > 100);
-            ZoneComet = (TremorWorld.CometTiles > 30);
+    public void UpdateBiomes()
+    {
+        ZoneRuins = (TremorWorld.RuinsTiles > 50);
+        ZoneGranite = (TremorWorld.GraniteTiles > 100);
+        ZoneIce = (TremorWorld.IceTiles > 100);
+        ZoneComet = (TremorWorld.CometTiles > 30);
 
-            ZoneTowerNova = false;
-            if (!Player.ZoneTowerSolar && !Player.ZoneTowerVortex && !Player.ZoneTowerNebula && !Player.ZoneTowerStardust)
+        ZoneTowerNova = false;
+        if (!Player.ZoneTowerSolar && !Player.ZoneTowerVortex && !Player.ZoneTowerNebula && !Player.ZoneTowerStardust)
+        {
+            for (int i = 0; i < Main.maxNPCs; i++)
             {
-                for (int i = 0; i < Main.maxNPCs; i++)
+                var npc = Main.npc[i];
+                if (npc != null && npc.active && npc.type == ModContent.NPCType<NovaPillar>() && Player.Distance(npc.Center) <= 4000f)
                 {
-                    var npc = Main.npc[i];
-                    if (npc != null && npc.active && npc.type == ModContent.NPCType<NovaPillar>() && Player.Distance(npc.Center) <= 4000f)
-                    {
-                        ZoneTowerNova = true;
-                    }
+                    ZoneTowerNova = true;
                 }
             }
         }
+    }
 
-        const int XOffset = 400;
+    const int XOffset = 400;
 		const int YOffset = 400;
 		public override void PostUpdate()
 		{
@@ -402,8 +402,8 @@ namespace TremorMod
 			}
 			if (ZoneComet)
 			{
-				Player player = Main.player[Main.myPlayer]; // œÓÎÛ˜‡ÂÏ ÚÂÍÛ˘Â„Ó Ë„ÓÍ‡
-				IEntitySource source = player.GetSource_FromThis(); // »ÒÚÓ˜ÌËÍ ÔÓˇ‚ÎÂÌËˇ NPC
+				Player player = Main.player[Main.myPlayer]; // √è√Æ√´√≥√∑√†√•√¨ √≤√•√™√≥√π√•√£√Æ √®√£√∞√Æ√™√†
+				IEntitySource source = player.GetSource_FromThis(); // √à√±√≤√Æ√∑√≠√®√™ √Ø√Æ√ø√¢√´√•√≠√®√ø NPC
 
 				if (Main.rand.Next(310) == 0)
 				{
@@ -461,86 +461,86 @@ namespace TremorMod
 		}
 
 		public bool CustomBiomesMatch(Player other)
-        {
-            var modOther = other.GetModPlayer<TremorPlayer>();
-            return modOther.ZoneTowerNova == this.ZoneTowerNova;
-        }
+    {
+        var modOther = other.GetModPlayer<TremorPlayer>();
+        return modOther.ZoneTowerNova == this.ZoneTowerNova;
+    }
 
-        public void CopyCustomBiomesTo(Player other)
-        {
-            var modOther = other.GetModPlayer<TremorPlayer>();
-            modOther.ZoneTowerNova = this.ZoneTowerNova;
-        }
+    public void CopyCustomBiomesTo(Player other)
+    {
+        var modOther = other.GetModPlayer<TremorPlayer>();
+        modOther.ZoneTowerNova = this.ZoneTowerNova;
+    }
 
-        public void SendCustomBiomes(BinaryWriter writer)
+    public void SendCustomBiomes(BinaryWriter writer)
+    {
+        byte flags = 0;
+        if (ZoneGranite)
         {
-            byte flags = 0;
-            if (ZoneGranite)
+            flags |= 1;
+        }
+        if (ZoneTowerNova)
+        {
+            flags |= 2;
+        }
+        writer.Write(flags);
+    }
+
+    public void ReceiveCustomBiomes(BinaryReader reader)
+    {
+        byte flags = reader.ReadByte();
+        ZoneGranite = (flags & 1) != 0;
+        ZoneTowerNova = (flags & 2) != 0;
+    }
+
+
+    public void OnHit(float x, float y, Entity victim)
+    {
+        if (onHitShadaggers && Main.rand.NextBool(4))
+        {
+            Player.petalTimer = 20;
+
+            int direction = Player.direction;
+            float num = Main.screenPosition.X;
+            if (direction < 0)
             {
-                flags |= 1;
+                num += Main.screenWidth;
             }
-            if (ZoneTowerNova)
-            {
-                flags |= 2;
-            }
-            writer.Write(flags);
+            float num2 = Main.screenPosition.Y;
+            num2 += Main.rand.Next(Main.screenHeight);
+
+            Vector2 spawnPosition = new Vector2(num, num2);
+            Vector2 targetPosition = new Vector2(x, y);
+
+            Vector2 velocity = targetPosition - spawnPosition;
+            velocity.X += Main.rand.Next(-50, 51) * 0.1f;
+            velocity.Y += Main.rand.Next(-50, 51) * 0.1f;
+
+            float speed = 24f;
+            velocity.Normalize();
+            velocity *= speed;
+
+            // √à√±√Ø√Æ√´√º√ß√≥√•√¨ IEntitySource √§√´√ø √≥√™√†√ß√†√≠√®√ø √®√±√≤√Æ√∑√≠√®√™√† √±√Æ√ß√§√†√≠√®√ø √±√≠√†√∞√ø√§√†
+            IEntitySource source = victim.GetSource_FromAI();
+
+            Projectile.NewProjectile(
+                source,
+                spawnPosition.X,
+                spawnPosition.Y,
+                velocity.X,
+                velocity.Y,
+                ModContent.ProjectileType<ParaxydeKnifePro>(),
+                46,
+                0f,
+                Player.whoAmI,
+                0f,
+                0f
+            );
         }
-
-        public void ReceiveCustomBiomes(BinaryReader reader)
-        {
-            byte flags = reader.ReadByte();
-            ZoneGranite = (flags & 1) != 0;
-            ZoneTowerNova = (flags & 2) != 0;
-        }
+    }
 
 
-        public void OnHit(float x, float y, Entity victim)
-        {
-            if (onHitShadaggers && Main.rand.NextBool(4))
-            {
-                Player.petalTimer = 20;
-
-                int direction = Player.direction;
-                float num = Main.screenPosition.X;
-                if (direction < 0)
-                {
-                    num += Main.screenWidth;
-                }
-                float num2 = Main.screenPosition.Y;
-                num2 += Main.rand.Next(Main.screenHeight);
-
-                Vector2 spawnPosition = new Vector2(num, num2);
-                Vector2 targetPosition = new Vector2(x, y);
-
-                Vector2 velocity = targetPosition - spawnPosition;
-                velocity.X += Main.rand.Next(-50, 51) * 0.1f;
-                velocity.Y += Main.rand.Next(-50, 51) * 0.1f;
-
-                float speed = 24f;
-                velocity.Normalize();
-                velocity *= speed;
-
-                // »ÒÔÓÎ¸ÁÛÂÏ IEntitySource ‰Îˇ ÛÍ‡Á‡ÌËˇ ËÒÚÓ˜ÌËÍ‡ ÒÓÁ‰‡ÌËˇ ÒÌ‡ˇ‰‡
-                IEntitySource source = victim.GetSource_FromAI();
-
-                Projectile.NewProjectile(
-                    source,
-                    spawnPosition.X,
-                    spawnPosition.Y,
-                    velocity.X,
-                    velocity.Y,
-                    ModContent.ProjectileType<ParaxydeKnifePro>(),
-                    46,
-                    0f,
-                    Player.whoAmI,
-                    0f,
-                    0f
-                );
-            }
-        }
-
-
-        public override void UpdateBadLifeRegen()
+    public override void UpdateBadLifeRegen()
 		{
 			ResetRegen(dFear || healHurt > 0, Player);
 
@@ -561,186 +561,185 @@ namespace TremorMod
 			}
 		}
 
-        public void UpdateCustomBiomeVisuals()
-        {
-            var modPlayer = Player.GetModPlayer<TremorPlayer>();
+    public void UpdateCustomBiomeVisuals()
+    {
+        var modPlayer = Player.GetModPlayer<TremorPlayer>();
 
-            bool useIceEffects = modPlayer.ZoneIce;
-            Player.ManageSpecialBiomeVisuals("Tremor:Ice", useIceEffects);
+        bool useIceEffects = modPlayer.ZoneIce;
+        Player.ManageSpecialBiomeVisuals("Tremor:Ice", useIceEffects);
 
-            bool useCogLordEffects = NPC.AnyNPCs(Mod.Find<ModNPC>("CogLord").Type);
-            Player.ManageSpecialBiomeVisuals("Tremor:CogLord", useCogLordEffects);
+        bool useCogLordEffects = NPC.AnyNPCs(Mod.Find<ModNPC>("CogLord").Type);
+        Player.ManageSpecialBiomeVisuals("Tremor:CogLord", useCogLordEffects);
 
-            bool useNovaEffects = modPlayer.ZoneTowerNova || NovaMonolith;
-            Player.ManageSpecialBiomeVisuals("Tremor:Nova", useNovaEffects);
+        bool useNovaEffects = modPlayer.ZoneTowerNova || NovaMonolith;
+        Player.ManageSpecialBiomeVisuals("Tremor:Nova", useNovaEffects);
 		}
 
-        public static bool ChestItemSummonCheck(int x, int y, Mod mod)
+    public static bool ChestItemSummonCheck(int x, int y, Mod mod)
+    {
+        if (Main.netMode == 1) return false;
+
+        int num = Chest.FindChest(x, y);
+        if (num < 0) return false;
+
+        int numberDesertKey = 0;
+        int numberJungleKey = 0;
+        int numberOceanKey = 0;
+        int numberOtherItems = 0;
+
+        ushort tileType = Main.tile[Main.chest[num].x, Main.chest[num].y].TileType;
+        int tileStyle = Main.tile[Main.chest[num].x, Main.chest[num].y].TileFrameX / 36;
+        if (TileID.Sets.BasicChest[tileType] && (tileStyle < 5 || tileStyle > 6))
         {
-            if (Main.netMode == 1) return false;
-
-            int num = Chest.FindChest(x, y);
-            if (num < 0) return false;
-
-            int numberDesertKey = 0;
-            int numberJungleKey = 0;
-            int numberOceanKey = 0;
-            int numberOtherItems = 0;
-
-            ushort tileType = Main.tile[Main.chest[num].x, Main.chest[num].y].TileType;
-            int tileStyle = Main.tile[Main.chest[num].x, Main.chest[num].y].TileFrameX / 36;
-            if (TileID.Sets.BasicChest[tileType] && (tileStyle < 5 || tileStyle > 6))
+            for (int i = 0; i < 40; i++)
             {
-                for (int i = 0; i < 40; i++)
+                if (Main.chest[num].item[i] != null && Main.chest[num].item[i].type > 0)
                 {
-                    if (Main.chest[num].item[i] != null && Main.chest[num].item[i].type > 0)
-                    {
-                        if (Main.chest[num].item[i].type == ModContent.ItemType<KeyofSands>())
-                            numberDesertKey += Main.chest[num].item[i].stack;
-                        else if (Main.chest[num].item[i].type == ModContent.ItemType<KeyofTwilight>())
-                            numberJungleKey += Main.chest[num].item[i].stack;
-                        else if (Main.chest[num].item[i].type == ModContent.ItemType<KeyofOcean>())
-                            numberOceanKey += Main.chest[num].item[i].stack;
-                        else
-                            numberOtherItems++;
-                    }
+                    if (Main.chest[num].item[i].type == ModContent.ItemType<KeyofSands>())
+                        numberDesertKey += Main.chest[num].item[i].stack;
+                    else if (Main.chest[num].item[i].type == ModContent.ItemType<KeyofTwilight>())
+                        numberJungleKey += Main.chest[num].item[i].stack;
+                    else if (Main.chest[num].item[i].type == ModContent.ItemType<KeyofOcean>())
+                        numberOceanKey += Main.chest[num].item[i].stack;
+                    else
+                        numberOtherItems++;
                 }
             }
-
-            if (numberOtherItems == 0 && numberDesertKey == 1)
-            {
-                if (TileID.Sets.BasicChest[Main.tile[x, y].TileType])
-                {
-                    if (Main.tile[x, y].TileFrameX % 36 != 0)
-                        x--;
-                    if (Main.tile[x, y].TileFrameY % 36 != 0)
-                        y--;
-                    int number = Chest.FindChest(x, y);
-                    for (int j = x; j <= x + 1; j++)
-                    {
-                        for (int k = y; k <= y + 1; k++)
-                        {
-                            Tile tile = Main.tile[j, k];
-                            if (tile.TileType == TileID.Containers)
-                                tile.HasTile = false;
-                        }
-                    }
-                    for (int l = 0; l < 40; l++)
-                        Main.chest[number].item[l] = new Item();
-                    Chest.DestroyChest(x, y);
-                    NetMessage.SendData(34, -1, -1, null, 1, x, y, 0f, number, 0, 0);
-                    NetMessage.SendTileSquare(-1, x, y, 3);
-                }
-                int npcToSpawn = ModContent.NPCType<DesertMimic>();
-                int npcIndex = NPC.NewNPC(
-                    new EntitySource_ItemUse(Main.LocalPlayer, Main.LocalPlayer.HeldItem),
-                    (int)(x * 16 + 16),
-                    (int)(y * 16 + 32),
-                    npcToSpawn,
-                    0,
-                    0f,
-                    0f,
-                    0f,
-                    0f,
-                    255
-                );
-                Main.npc[npcIndex].whoAmI = npcIndex;
-                NetMessage.SendData(23, -1, -1, null, npcIndex, 0f, 0f, 0f, 0, 0, 0);
-                Main.npc[npcIndex].BigMimicSpawnSmoke();
-            }
-            else if (numberOtherItems == 0 && numberJungleKey == 1)
-            {
-                if (TileID.Sets.BasicChest[Main.tile[x, y].TileType])
-                {
-                    if (Main.tile[x, y].TileFrameX % 36 != 0)
-                        x--;
-                    if (Main.tile[x, y].TileFrameY % 36 != 0)
-                        y--;
-
-                    int number = Chest.FindChest(x, y);
-
-                    for (int j = x; j <= x + 1; j++)
-                    {
-                        for (int k = y; k <= y + 1; k++)
-                        {
-                            Tile tile = Main.tile[j, k]; // œÓÎÛ˜‡ÂÏ Ó·˙ÂÍÚ Tile
-                            if (tile.TileType == TileID.Containers)
-                                tile.HasTile = false; // »ÁÏÂÌˇÂÏ Ò‚ÓÈÒÚ‚Ó HasTile
-                        }
-                    }
-
-                    for (int l = 0; l < 40; l++)
-                        Main.chest[number].item[l] = new Item(); // Œ˜Ë˘‡ÂÏ ÒÛÌ‰ÛÍ
-
-                    Chest.DestroyChest(x, y);
-                    NetMessage.SendData(34, -1, -1, null, 1, x, y, 0f, number, 0, 0);
-                    NetMessage.SendTileSquare(-1, x, y, 3);
-                }
-
-                int npcToSpawn = ModContent.NPCType<JungleMimic>();
-                int npcIndex = NPC.NewNPC(
-                    new EntitySource_ItemUse(Main.LocalPlayer, Main.LocalPlayer.HeldItem), // œÂÂ‰‡ÂÏ ÚÂÍÛ˘ËÈ ÔÂ‰ÏÂÚ
-                    (int)(x * 16 + 16),
-                    (int)(y * 16 + 32),
-                    npcToSpawn,
-                    0,
-                    0f,
-                    0f,
-                    0f,
-                    0f,
-                    255
-                );
-                Main.npc[npcIndex].whoAmI = npcIndex;
-                NetMessage.SendData(23, -1, -1, null, npcIndex, 0f, 0f, 0f, 0, 0, 0);
-                Main.npc[npcIndex].BigMimicSpawnSmoke();
-            }
-            else if (numberOtherItems == 0 && numberOceanKey == 1)
-            {
-                if (TileID.Sets.BasicChest[Main.tile[x, y].TileType])
-                {
-                    if (Main.tile[x, y].TileFrameX % 36 != 0)
-                        x--;
-                    if (Main.tile[x, y].TileFrameY % 36 != 0)
-                        y--;
-
-                    int number = Chest.FindChest(x, y);
-
-                    for (int j = x; j <= x + 1; j++)
-                    {
-                        for (int k = y; k <= y + 1; k++)
-                        {
-                            Tile tile = Main.tile[j, k];
-                            if (tile.TileType == TileID.Containers)
-                                tile.HasTile = false;
-                        }
-                    }
-
-                    for (int l = 0; l < 40; l++)
-                        Main.chest[number].item[l] = new Item();
-
-                    Chest.DestroyChest(x, y);
-                    NetMessage.SendData(34, -1, -1, null, 1, x, y, 0f, number, 0, 0);
-                    NetMessage.SendTileSquare(-1, x, y, 3);
-                }
-
-                int npcToSpawn = ModContent.NPCType<OceanMimic>();
-                int npcIndex = NPC.NewNPC(
-                    new EntitySource_ItemUse(Main.LocalPlayer, Main.LocalPlayer.HeldItem),
-                    (int)(x * 16 + 16),
-                    (int)(y * 16 + 32),
-                    npcToSpawn,
-                    0,
-                    0f,
-                    0f,
-                    0f,
-                    0f,
-                    255
-                );
-                Main.npc[npcIndex].whoAmI = npcIndex;
-                NetMessage.SendData(23, -1, -1, null, npcIndex, 0f, 0f, 0f, 0, 0, 0);
-                Main.npc[npcIndex].BigMimicSpawnSmoke();
-            }
-            return false;
         }
+
+        if (numberOtherItems == 0 && numberDesertKey == 1)
+        {
+            if (TileID.Sets.BasicChest[Main.tile[x, y].TileType])
+            {
+                if (Main.tile[x, y].TileFrameX % 36 != 0)
+                    x--;
+                if (Main.tile[x, y].TileFrameY % 36 != 0)
+                    y--;
+                int number = Chest.FindChest(x, y);
+                for (int j = x; j <= x + 1; j++)
+                {
+                    for (int k = y; k <= y + 1; k++)
+                    {
+                        Tile tile = Main.tile[j, k];
+                        if (tile.TileType == TileID.Containers)
+                            tile.HasTile = false;
+                    }
+                }
+                for (int l = 0; l < 40; l++)
+                    Main.chest[number].item[l] = new Item();
+                Chest.DestroyChest(x, y);
+                NetMessage.SendData(34, -1, -1, null, 1, x, y, 0f, number, 0, 0);
+                NetMessage.SendTileSquare(-1, x, y, 3);
+            }
+            int npcToSpawn = ModContent.NPCType<DesertMimic>();
+            int npcIndex = NPC.NewNPC(
+                new EntitySource_ItemUse(Main.LocalPlayer, Main.LocalPlayer.HeldItem),
+                (int)(x * 16 + 16),
+                (int)(y * 16 + 32),
+                npcToSpawn,
+                0,
+                0f,
+                0f,
+                0f,
+                0f,
+                255
+            );
+            Main.npc[npcIndex].whoAmI = npcIndex;
+            NetMessage.SendData(23, -1, -1, null, npcIndex, 0f, 0f, 0f, 0, 0, 0);
+            Main.npc[npcIndex].BigMimicSpawnSmoke();
+        }
+        else if (numberOtherItems == 0 && numberJungleKey == 1)
+        {
+            if (TileID.Sets.BasicChest[Main.tile[x, y].TileType])
+            {
+                if (Main.tile[x, y].TileFrameX % 36 != 0)
+                    x--;
+                if (Main.tile[x, y].TileFrameY % 36 != 0)
+                    y--;
+
+                int number = Chest.FindChest(x, y);
+
+                for (int j = x; j <= x + 1; j++)
+                {
+                    for (int k = y; k <= y + 1; k++)
+                    {
+                        Tile tile = Main.tile[j, k]; // √è√Æ√´√≥√∑√†√•√¨ √Æ√°√∫√•√™√≤ Tile
+                        if (tile.TileType == TileID.Containers)
+                            tile.HasTile = false; // √à√ß√¨√•√≠√ø√•√¨ √±√¢√Æ√©√±√≤√¢√Æ HasTile
+                    }
+                }
+
+                for (int l = 0; l < 40; l++)
+                    Main.chest[number].item[l] = new Item(); // √é√∑√®√π√†√•√¨ √±√≥√≠√§√≥√™
+
+                Chest.DestroyChest(x, y);
+                NetMessage.SendData(34, -1, -1, null, 1, x, y, 0f, number, 0, 0);
+                NetMessage.SendTileSquare(-1, x, y, 3);
+            }
+
+            int npcToSpawn = ModContent.NPCType<JungleMimic>();
+            int npcIndex = NPC.NewNPC(
+                new EntitySource_ItemUse(Main.LocalPlayer, Main.LocalPlayer.HeldItem), // √è√•√∞√•√§√†√•√¨ √≤√•√™√≥√π√®√© √Ø√∞√•√§√¨√•√≤
+                (int)(x * 16 + 16),
+                (int)(y * 16 + 32),
+                npcToSpawn,
+                0,
+                0f,
+                0f,
+                0f,
+                0f,
+                255
+            );
+            Main.npc[npcIndex].whoAmI = npcIndex;
+            NetMessage.SendData(23, -1, -1, null, npcIndex, 0f, 0f, 0f, 0, 0, 0);
+            Main.npc[npcIndex].BigMimicSpawnSmoke();
+        }
+        else if (numberOtherItems == 0 && numberOceanKey == 1)
+        {
+            if (TileID.Sets.BasicChest[Main.tile[x, y].TileType])
+            {
+                if (Main.tile[x, y].TileFrameX % 36 != 0)
+                    x--;
+                if (Main.tile[x, y].TileFrameY % 36 != 0)
+                    y--;
+
+                int number = Chest.FindChest(x, y);
+
+                for (int j = x; j <= x + 1; j++)
+                {
+                    for (int k = y; k <= y + 1; k++)
+                    {
+                        Tile tile = Main.tile[j, k];
+                        if (tile.TileType == TileID.Containers)
+                            tile.HasTile = false;
+                    }
+                }
+
+                for (int l = 0; l < 40; l++)
+                    Main.chest[number].item[l] = new Item();
+
+                Chest.DestroyChest(x, y);
+                NetMessage.SendData(34, -1, -1, null, 1, x, y, 0f, number, 0, 0);
+                NetMessage.SendTileSquare(-1, x, y, 3);
+            }
+
+            int npcToSpawn = ModContent.NPCType<OceanMimic>();
+            int npcIndex = NPC.NewNPC(
+                new EntitySource_ItemUse(Main.LocalPlayer, Main.LocalPlayer.HeldItem),
+                (int)(x * 16 + 16),
+                (int)(y * 16 + 32),
+                npcToSpawn,
+                0,
+                0f,
+                0f,
+                0f,
+                0f,
+                255
+            );
+            Main.npc[npcIndex].whoAmI = npcIndex;
+            NetMessage.SendData(23, -1, -1, null, npcIndex, 0f, 0f, 0f, 0, 0, 0);
+            Main.npc[npcIndex].BigMimicSpawnSmoke();
+        }
+        return false;
     }
 }

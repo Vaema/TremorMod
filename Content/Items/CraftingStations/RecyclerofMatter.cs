@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.CraftingStations
-{
+namespace TremorMod.Content.Items.CraftingStations;
+
 	public class RecyclerofMatter : ModItem
 	{
 		public override void SetDefaults()
@@ -20,8 +20,8 @@ namespace TremorMod.Content.Items.CraftingStations
 			Item.useStyle = 1;
 			Item.consumable = true;
 			Item.value = 150;
-            Item.createTile = ModContent.TileType<RecyclerofMatterTile>();
-        }
+        Item.createTile = ModContent.TileType<RecyclerofMatterTile>();
+    }
 
 		/*public override void SetStaticDefaults()
 		{
@@ -38,8 +38,7 @@ namespace TremorMod.Content.Items.CraftingStations
 			recipe.AddIngredient(ItemID.Glass, 20);
 			recipe.AddIngredient(ItemID.LavaBucket, 1);
 			//recipe.SetResult(this);	
-            recipe.AddIngredient(ModContent.ItemType<MagicWorkbench>());
-            recipe.Register();
+        recipe.AddIngredient(ModContent.ItemType<MagicWorkbench>());
+        recipe.Register();
 		}
 	}
-}

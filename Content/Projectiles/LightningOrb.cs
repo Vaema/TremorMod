@@ -1,4 +1,4 @@
-using Terraria;
+п»їusing Terraria;
 using System;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
@@ -7,94 +7,93 @@ using Terraria.Graphics.Shaders;
 using Microsoft.Xna.Framework.Graphics;
 
 
-namespace TremorMod.Content.Projectiles
+namespace TremorMod.Content.Projectiles;
+
+public class LightningOrb : ModProjectile
 {
-    public class LightningOrb : ModProjectile
+    private const int NormalFrameCount = 4;
+    private int hitCount = 0; // Г‘Г·ГҐГІГ·ГЁГЄ ГіГ¤Г Г°Г®Гў
+
+    public override void SetDefaults()
     {
-        private const int NormalFrameCount = 4;
-        private int hitCount = 0; // Счетчик ударов
+        Projectile.width = 32;
+        Projectile.height = 32;
+        Projectile.friendly = false;
+        Projectile.hostile = true;
+        Projectile.tileCollide = false;
+        Projectile.penetrate = -1;
+        Projectile.timeLeft = 180; // Г€Г±Г·ГҐГ§Г ГҐГІ Г·ГҐГ°ГҐГ§ 3 Г±ГҐГЄГіГ­Г¤Г» (60 ГЄГ Г¤Г°Г®Гў = 1 Г±ГҐГЄГіГ­Г¤Г )
+        Projectile.light = 1f;
+        Projectile.aiStyle = -1; // ГЏГ®Г«ГјГ§Г®ГўГ ГІГҐГ«ГјГ±ГЄГ Гї Г«Г®ГЈГЁГЄГ  AI
+    }
 
-        public override void SetDefaults()
+    public override void AI()
+    {
+        // ГЋГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ Г Г­ГЁГ¬Г Г¶ГЁГЁ Г±Г­Г Г°ГїГ¤Г 
+        int totalFrames = 4; // ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГЄГ Г¤Г°Г®Гў
+        //int frameHeight = 99; // Г‚Г»Г±Г®ГІГ  Г®Г¤Г­Г®ГЈГ® ГЄГ Г¤Г°Г 
+        //int frameWidth = 99; // ГГЁГ°ГЁГ­Г  Г®Г¤Г­Г®ГЈГ® ГЄГ Г¤Г°Г 
+
+        // Г‘Г·ВёГІГ·ГЁГЄ ГЄГ Г¤Г°Г®Гў
+        Projectile.frameCounter++;
+
+        // Г‘Г¬ГҐГ­ГЁГІГј ГЄГ Г¤Г° ГЇГ®Г±Г«ГҐ Г®ГЇГ°ГҐГ¤ГҐГ«ВёГ­Г­Г®ГЈГ® ГўГ°ГҐГ¬ГҐГ­ГЁ
+        if (Projectile.frameCounter >= 6) // Г‘ГЄГ®Г°Г®Г±ГІГј Г Г­ГЁГ¬Г Г¶ГЁГЁ, Г·ГҐГ¬ ГЎГ®Г«ГјГёГҐ Г·ГЁГ±Г«Г®, ГІГҐГ¬ Г¬ГҐГ¤Г«ГҐГ­Г­ГҐГҐ
         {
-            Projectile.width = 32;
-            Projectile.height = 32;
-            Projectile.friendly = false;
-            Projectile.hostile = true;
-            Projectile.tileCollide = false;
-            Projectile.penetrate = -1;
-            Projectile.timeLeft = 180; // Исчезает через 3 секунды (60 кадров = 1 секунда)
-            Projectile.light = 1f;
-            Projectile.aiStyle = -1; // Пользовательская логика AI
-        }
+            Projectile.frameCounter = 0;
+            Projectile.frame++;
 
-        public override void AI()
-        {
-            // Обновление анимации снаряда
-            int totalFrames = 4; // Количество кадров
-            //int frameHeight = 99; // Высота одного кадра
-            //int frameWidth = 99; // Ширина одного кадра
-
-            // Счётчик кадров
-            Projectile.frameCounter++;
-
-            // Сменить кадр после определённого времени
-            if (Projectile.frameCounter >= 6) // Скорость анимации, чем больше число, тем медленнее
+            if (Projectile.frame >= totalFrames) // ГЏГҐГ°ГҐГµГ®Г¤ ГЄ ГЇГҐГ°ГўГ®Г¬Гі ГЄГ Г¤Г°Гі ГЇГ®Г±Г«ГҐ ГЇГ®Г±Г«ГҐГ¤Г­ГҐГЈГ®
             {
-                Projectile.frameCounter = 0;
-                Projectile.frame++;
-
-                if (Projectile.frame >= totalFrames) // Переход к первому кадру после последнего
-                {
-                    Projectile.frame = 0;
-                }
-            }
-            // Нацеливание на ближайшего игрока
-            Player targetPlayer = Main.player[Player.FindClosest(Projectile.Center, 0, 0)];
-            if (targetPlayer != null && !targetPlayer.dead)
-            {
-                Vector2 direction = Vector2.Normalize(targetPlayer.Center - Projectile.Center);
-                Projectile.velocity = direction * 10f; // Скорость молнии
-
-                // Создание визуальных эффектов
-                if (Main.rand.NextBool(3))
-                {
-                    int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Electric, 0f, 0f, 100, default, 1.5f);
-                    Main.dust[dust].noGravity = true;
-                }
-            }
-
-            // Проверяем, сколько раз снаряд нанес удар
-            if (hitCount >= 5)
-            {
-                Projectile.Kill(); // Снаряд исчезает после 5 ударов
+                Projectile.frame = 0;
             }
         }
+        // ГЌГ Г¶ГҐГ«ГЁГўГ Г­ГЁГҐ Г­Г  ГЎГ«ГЁГ¦Г Г©ГёГҐГЈГ® ГЁГЈГ°Г®ГЄГ 
+        Player targetPlayer = Main.player[Player.FindClosest(Projectile.Center, 0, 0)];
+        if (targetPlayer != null && !targetPlayer.dead)
+        {
+            Vector2 direction = Vector2.Normalize(targetPlayer.Center - Projectile.Center);
+            Projectile.velocity = direction * 10f; // Г‘ГЄГ®Г°Г®Г±ГІГј Г¬Г®Г«Г­ГЁГЁ
 
-        public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
-        {
-            hitCount++; // Увеличиваем счетчик при ударе по игроку
-        }
-        public override void OnKill(int timeLeft)
-        {
-            for (int i = 0; i < 10; i++)
+            // Г‘Г®Г§Г¤Г Г­ГЁГҐ ГўГЁГ§ГіГ Г«ГјГ­Г»Гµ ГЅГґГґГҐГЄГІГ®Гў
+            if (Main.rand.NextBool(3))
             {
                 int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Electric, 0f, 0f, 100, default, 1.5f);
                 Main.dust[dust].noGravity = true;
             }
         }
 
-
-        public override bool PreDraw(ref Color lightColor)
+        // ГЏГ°Г®ГўГҐГ°ГїГҐГ¬, Г±ГЄГ®Г«ГјГЄГ® Г°Г Г§ Г±Г­Г Г°ГїГ¤ Г­Г Г­ГҐГ± ГіГ¤Г Г°
+        if (hitCount >= 5)
         {
-            // Получаем текстуру снаряда
-            Texture2D texture = ModContent.Request<Texture2D>("TremorMod/Content/Projectiles/LightningOrb").Value;
-            // Рисуем снаряд с анимацией
-            Rectangle frameRectangle = new Rectangle(0, Projectile.frame * 99, 99, 99);
-            Vector2 position = Projectile.Center - Main.screenPosition;
-
-            Main.spriteBatch.Draw(texture, position, frameRectangle, lightColor);
-
-            return false; // Возвращаем false, чтобы стандартный метод рисования не вызывался
+            Projectile.Kill(); // Г‘Г­Г Г°ГїГ¤ ГЁГ±Г·ГҐГ§Г ГҐГІ ГЇГ®Г±Г«ГҐ 5 ГіГ¤Г Г°Г®Гў
         }
+    }
+
+    public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
+    {
+        hitCount++; // Г“ГўГҐГ«ГЁГ·ГЁГўГ ГҐГ¬ Г±Г·ГҐГІГ·ГЁГЄ ГЇГ°ГЁ ГіГ¤Г Г°ГҐ ГЇГ® ГЁГЈГ°Г®ГЄГі
+    }
+    public override void OnKill(int timeLeft)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Electric, 0f, 0f, 100, default, 1.5f);
+            Main.dust[dust].noGravity = true;
+        }
+    }
+
+
+    public override bool PreDraw(ref Color lightColor)
+    {
+        // ГЏГ®Г«ГіГ·Г ГҐГ¬ ГІГҐГЄГ±ГІГіГ°Гі Г±Г­Г Г°ГїГ¤Г 
+        Texture2D texture = ModContent.Request<Texture2D>("TremorMod/Content/Projectiles/LightningOrb").Value;
+        // ГђГЁГ±ГіГҐГ¬ Г±Г­Г Г°ГїГ¤ Г± Г Г­ГЁГ¬Г Г¶ГЁГҐГ©
+        Rectangle frameRectangle = new Rectangle(0, Projectile.frame * 99, 99, 99);
+        Vector2 position = Projectile.Center - Main.screenPosition;
+
+        Main.spriteBatch.Draw(texture, position, frameRectangle, lightColor);
+
+        return false; // Г‚Г®Г§ГўГ°Г Г№Г ГҐГ¬ false, Г·ГІГ®ГЎГ» Г±ГІГ Г­Г¤Г Г°ГІГ­Г»Г© Г¬ГҐГІГ®Г¤ Г°ГЁГ±Г®ГўГ Г­ГЁГї Г­ГҐ ГўГ»Г§Г»ГўГ Г«Г±Гї
     }
 }

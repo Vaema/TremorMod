@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class WallOfShadowsBoom : ModProjectile
 	{
 		public override void SetDefaults()
@@ -54,4 +54,3 @@ namespace TremorMod.Content.Projectiles
 			target.AddBuff(153, 300);
 		}
 	}
-}

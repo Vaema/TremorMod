@@ -4,8 +4,8 @@ using Terraria.ModLoader;
 using TremorMod.Content.Tiles;
 using TremorMod.Content.NPCs.Bosses.NovaPillar.Items;
 
-namespace TremorMod.Content.Items.Placeable
-{
+namespace TremorMod.Content.Items.Placeable;
+
 	public class NovaFragmentBlock : ModItem
 	{
 		public override void SetDefaults()
@@ -38,4 +38,3 @@ namespace TremorMod.Content.Items.Placeable
 			recipe.Register();
 		}
 	}
-}

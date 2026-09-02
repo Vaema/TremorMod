@@ -1,12 +1,12 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.NPCs.Bosses
-{
+namespace TremorMod.Content.NPCs.Bosses;
+
 	public class HeaterOfWorldsBody : HeaterofWorldsPart
 	{
 		const int MaxCooldown = 240;
@@ -21,7 +21,7 @@ namespace TremorMod.Content.NPCs.Bosses
 		{
 			base.SetDefaults();
 			NPC.width = 26;
-            NPC.height = 48;
+        NPC.height = 48;
 		}
 
 		public override void AI()
@@ -36,42 +36,42 @@ namespace TremorMod.Content.NPCs.Bosses
 			DustFX();
 		}
 
-        private void TryShoot()
+    private void TryShoot()
+    {
+        if (Main.rand.NextBool())
+            ShootCooldown -= 1;
+
+        NPC.TargetClosest(false);
+
+        if (Main.netMode != NetmodeID.MultiplayerClient
+            && NPC.HasValidTarget
+            && ShootCooldown <= 0)
         {
-            if (Main.rand.NextBool())
-                ShootCooldown -= 1;
+            ShootCooldown = MaxCooldown;
 
-            NPC.TargetClosest(false);
+            // Calculate the direction from NPC to the target (player)
+            Vector2 direction = Main.player[NPC.target].Center - NPC.Center;
+            direction.Normalize();  // Normalize the direction vector
 
-            if (Main.netMode != NetmodeID.MultiplayerClient
-                && NPC.HasValidTarget
-                && ShootCooldown <= 0)
-            {
-                ShootCooldown = MaxCooldown;
+            // Multiply the normalized vector by the speed
+            Vector2 velocity = direction * 4; // Speed is 4
 
-                // Calculate the direction from NPC to the target (player)
-                Vector2 direction = Main.player[NPC.target].Center - NPC.Center;
-                direction.Normalize();  // Normalize the direction vector
-
-                // Multiply the normalized vector by the speed
-                Vector2 velocity = direction * 4; // Speed is 4
-
-                // Use NewProjectile to shoot the projectile
-                Projectile.NewProjectile(
-                    NPC.GetSource_FromAI(),      // Source
-                    NPC.Center,                  // Position (Vector2)
-                    velocity,                    // Speed (Vector2)
-                    326,                         // Projectile Type
-                    10,                          // Damage
-                    1f,                          // Knockback
-                    Main.myPlayer                // Owner (player ID)
-                );
-            }
+            // Use NewProjectile to shoot the projectile
+            Projectile.NewProjectile(
+                NPC.GetSource_FromAI(),      // Source
+                NPC.Center,                  // Position (Vector2)
+                velocity,                    // Speed (Vector2)
+                326,                         // Projectile Type
+                10,                          // Damage
+                1f,                          // Knockback
+                Main.myPlayer                // Owner (player ID)
+            );
         }
+    }
 
 
 
-        private void DustFX()
+    private void DustFX()
 		{
 			if (Main.rand.NextBool(3))
 			{
@@ -93,4 +93,3 @@ namespace TremorMod.Content.NPCs.Bosses
 			return false;
 		}
 	}
-}

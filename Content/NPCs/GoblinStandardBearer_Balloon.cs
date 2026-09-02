@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -12,8 +12,8 @@ using TremorMod.Content.Items.Weapons.Magic;
 using TremorMod.Content.Items.Placeable.Banners;
 using TremorMod.Content.Items.Vanity;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class GoblinStandardBearer_Balloon : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -99,10 +99,9 @@ namespace TremorMod.Content.NPCs
 			NPC.spriteDirection = NPC.direction;
 		}
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            npcLoot.Add(ItemDropRule.Common(ItemID.SpikyBall, 2, 1, 16));
-            npcLoot.Add(ItemDropRule.Common(ItemID.Harpoon, 200));
-        }
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ItemID.SpikyBall, 2, 1, 16));
+        npcLoot.Add(ItemDropRule.Common(ItemID.Harpoon, 200));
     }
 }

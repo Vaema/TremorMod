@@ -1,12 +1,12 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Crystal;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Armor
-{
+namespace TremorMod.Content.Items.Armor;
+
 	public class SilkBanner : ModItem
 	{
 		public override void SetDefaults()
@@ -43,4 +43,3 @@ namespace TremorMod.Content.Items.Armor
 			recipe.Register();
 		}
 	}
-}

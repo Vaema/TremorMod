@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.Xna.Framework;
@@ -16,8 +16,8 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Filters = Terraria.Graphics.Effects.Filters;
 
-namespace TremorMod.Content.NPCs.Bosses.AndasBoss
-{
+namespace TremorMod.Content.NPCs.Bosses.AndasBoss;
+
 	public class MoltenSpirit : ModNPC
 	{
 
@@ -54,13 +54,13 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss
 			return new Rectangle(0, NPC.frame.Height * (Number - 1), NPC.frame.Width, NPC.frame.Height);
 		}
 
-        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float bossLifeScale, float balance)
-        {
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.200f * bossLifeScale);
-            NPC.damage = (int)(NPC.damage * 0.2f);
-        }
+    public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float bossLifeScale, float balance)
+    {
+        NPC.lifeMax = (int)(NPC.lifeMax * 0.200f * bossLifeScale);
+        NPC.damage = (int)(NPC.damage * 0.2f);
+    }
 
-        public override bool PreAI()
+    public override bool PreAI()
 		{
 			NPC.spriteDirection = NPC.direction;
 			if (--TimeToAnimation <= 0)
@@ -165,53 +165,52 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss
 
 			if (distance2 < 320)
 			{
-				float num867 = 6f; // Скорость
-				int num869 = ModContent.ProjectileType<SpiritFire>(); // Тип проектиля
+				float num867 = 6f; // Г‘ГЄГ®Г°Г®Г±ГІГј
+				int num869 = ModContent.ProjectileType<SpiritFire>(); // Г’ГЁГЇ ГЇГ°Г®ГҐГЄГІГЁГ«Гї
 
-				// Источник для снаряда
+				// Г€Г±ГІГ®Г·Г­ГЁГЄ Г¤Г«Гї Г±Г­Г Г°ГїГ¤Г 
 				IEntitySource source = NPC.GetSource_FromAI();
 
-				// Центр NPC
+				// Г–ГҐГ­ГІГ° NPC
 				Vector2 vector86 = NPC.Center;
 
-				// Разница между позициями NPC и игрока
+				// ГђГ Г§Г­ГЁГ¶Г  Г¬ГҐГ¦Г¤Гі ГЇГ®Г§ГЁГ¶ГЁГїГ¬ГЁ NPC ГЁ ГЁГЈГ°Г®ГЄГ 
 				float num864 = target.Center.X - vector86.X;
 				float num865 = target.Center.Y - vector86.Y;
 
-				// Нормализация скорости
+				// ГЌГ®Г°Г¬Г Г«ГЁГ§Г Г¶ГЁГї Г±ГЄГ®Г°Г®Г±ГІГЁ
 				float num866 = (float)Math.Sqrt(num864 * num864 + num865 * num865);
 				num866 = num867 / num866;
 				num864 *= num866;
 				num865 *= num866;
 
-				// Добавление случайного разброса
+				// Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ Г±Г«ГіГ·Г Г©Г­Г®ГЈГ® Г°Г Г§ГЎГ°Г®Г±Г 
 				num865 += Main.rand.Next(-40, 41) * 0.01f;
 				num864 += Main.rand.Next(-40, 41) * 0.01f;
 
-				// Учет текущей скорости NPC
+				// Г“Г·ГҐГІ ГІГҐГЄГіГ№ГҐГ© Г±ГЄГ®Г°Г®Г±ГІГЁ NPC
 				num865 += NPC.velocity.Y * 0.5f;
 				num864 += NPC.velocity.X * 0.5f;
 
-				// Создание проектиля
+				// Г‘Г®Г§Г¤Г Г­ГЁГҐ ГЇГ°Г®ГҐГЄГІГЁГ«Гї
 				Projectile.NewProjectile(source, vector86, new Vector2(num864, num865), num869, NPC.damage, 0f, Main.myPlayer);
 			}
 			return false;
 
 
 			/*public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
-            {
-                Texture2D drawTexture = Main.npcTexture[npc.type];
-                Vector2 origin = new Vector2((drawTexture.Width / 2) * 0.5F, (drawTexture.Height / Main.npcFrameCount[npc.type]) * 0.5F);
+        {
+            Texture2D drawTexture = Main.npcTexture[npc.type];
+            Vector2 origin = new Vector2((drawTexture.Width / 2) * 0.5F, (drawTexture.Height / Main.npcFrameCount[npc.type]) * 0.5F);
 
-                Vector2 drawPos = new Vector2(
-                    npc.position.X - Main.screenPosition.X + (npc.width / 2) - (Main.npcTexture[npc.type].Width / 2) * npc.scale / 2f + origin.X * npc.scale,
-                    npc.position.Y - Main.screenPosition.Y + npc.height - Main.npcTexture[npc.type].Height * npc.scale / Main.npcFrameCount[npc.type] + 4f + origin.Y * npc.scale + npc.gfxOffY);
+            Vector2 drawPos = new Vector2(
+                npc.position.X - Main.screenPosition.X + (npc.width / 2) - (Main.npcTexture[npc.type].Width / 2) * npc.scale / 2f + origin.X * npc.scale,
+                npc.position.Y - Main.screenPosition.Y + npc.height - Main.npcTexture[npc.type].Height * npc.scale / Main.npcFrameCount[npc.type] + 4f + origin.Y * npc.scale + npc.gfxOffY);
 
-                SpriteEffects effects = npc.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
-                spriteBatch.Draw(drawTexture, drawPos, npc.frame, Color.White, npc.rotation, origin, npc.scale, effects, 0);
+            SpriteEffects effects = npc.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
+            spriteBatch.Draw(drawTexture, drawPos, npc.frame, Color.White, npc.rotation, origin, npc.scale, effects, 0);
 
-                return false;
-            }*/
+            return false;
+        }*/
 		}
 	}
-}

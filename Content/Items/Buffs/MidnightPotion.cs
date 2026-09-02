@@ -1,12 +1,12 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Buffs;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Buffs
-{
+namespace TremorMod.Content.Items.Buffs;
+
 
 	public class MidnightPotion : ModItem
 	{
@@ -21,8 +21,8 @@ namespace TremorMod.Content.Items.Buffs
 			Item.useStyle = 2;
 			Item.UseSound = SoundID.Item3;
 			Item.consumable = true;
-            Item.buffType = ModContent.BuffType<NightHunting>();
-        }
+        Item.buffType = ModContent.BuffType<NightHunting>();
+    }
 
 		public override void SetStaticDefaults()
 		{
@@ -48,4 +48,3 @@ namespace TremorMod.Content.Items.Buffs
 			recipe.Register();
 		}
 	}
-}

@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Fungus;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Items.Weapons.Melee
-{
+namespace TremorMod.Content.Items.Weapons.Melee;
+
 	public class FungusSpear : ModItem
 	{
 		public override void SetDefaults()
@@ -16,8 +16,8 @@ namespace TremorMod.Content.Items.Weapons.Melee
 			Item.noUseGraphic = true;
 			Item.DamageType = DamageClass.Melee;
 			Item.useTime = 30;
-            Item.useStyle = ItemUseStyleID.Shoot;
-            Item.shoot = ModContent.ProjectileType<FungusSpearPro>();
+        Item.useStyle = ItemUseStyleID.Shoot;
+        Item.shoot = ModContent.ProjectileType<FungusSpearPro>();
 			Item.shootSpeed = 3f;
 			Item.useAnimation = 30;
 			Item.useStyle = 5;
@@ -46,12 +46,11 @@ namespace TremorMod.Content.Items.Weapons.Melee
 			recipe1.Register();
 
 			Recipe recipe2 = CreateRecipe();
-            recipe2.AddIngredient(ModContent.ItemType<FungusElement>(), 11);
-            recipe2.AddIngredient(ItemID.GlowingMushroom, 10);
-            recipe2.AddIngredient(ModContent.ItemType<GoldSpear>(), 1);
-            //recipe.SetResult(this);
+        recipe2.AddIngredient(ModContent.ItemType<FungusElement>(), 11);
+        recipe2.AddIngredient(ItemID.GlowingMushroom, 10);
+        recipe2.AddIngredient(ModContent.ItemType<GoldSpear>(), 1);
+        //recipe.SetResult(this);
 			recipe2.AddTile(16);
 			recipe2.Register();
 		}
 	}
-}

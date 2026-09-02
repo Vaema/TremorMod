@@ -1,8 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class DesertClaymorePro : ModProjectile
 	{
 		const int MaxYOffset = 5;
@@ -70,4 +70,3 @@ namespace TremorMod.Content.Projectiles
 				Projectile.position += Projectile.velocity * (SpeedMulti - 1);
 		}
 	}
-}

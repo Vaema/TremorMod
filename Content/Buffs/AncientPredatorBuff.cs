@@ -1,12 +1,12 @@
-using Terraria;
+п»їusing Terraria;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 using TremorMod.Content.Projectiles.Minions;
 
-namespace TremorMod.Content.Buffs
-{
+namespace TremorMod.Content.Buffs;
+
 	public class AncientPredatorBuff : ModBuff
 	{
 		int MinionType = -1;
@@ -20,23 +20,22 @@ namespace TremorMod.Content.Buffs
 			Main.buffNoTimeDisplay[Type] = true;
 		}
 
-        public override void Update(Player player, ref int buffIndex)
+    public override void Update(Player player, ref int buffIndex)
+    {
+        if (MinionType == -1)
+            MinionType = ModContent.ProjectileType<AncientPredator>();
+
+        if (MinionID == -1 || Main.projectile[MinionID].type != MinionType || !Main.projectile[MinionID].active || Main.projectile[MinionID].owner != player.whoAmI)
         {
-            if (MinionType == -1)
-                MinionType = ModContent.ProjectileType<AncientPredator>();
+            IEntitySource source = player.GetSource_Buff(buffIndex); // Г€Г±ГІГ®Г·Г­ГЁГЄ Г¤Г«Гї ГўГ»Г§Г®ГўГ 
+            Vector2 position = player.Center; // ГЏГ®Г§ГЁГ¶ГЁГї Г±ГЇГ ГўГ­Г 
+            Vector2 velocity = Vector2.Zero;  // ГЌГіГ«ГҐГўГ Гї Г±ГЄГ®Г°Г®Г±ГІГј
 
-            if (MinionID == -1 || Main.projectile[MinionID].type != MinionType || !Main.projectile[MinionID].active || Main.projectile[MinionID].owner != player.whoAmI)
-            {
-                IEntitySource source = player.GetSource_Buff(buffIndex); // Источник для вызова
-                Vector2 position = player.Center; // Позиция спавна
-                Vector2 velocity = Vector2.Zero;  // Нулевая скорость
-
-                MinionID = Projectile.NewProjectile(source, position, velocity, MinionType, 300, 3f, player.whoAmI);
-            }
-            else
-            {
-                Main.projectile[MinionID].timeLeft = 5;
-            }
+            MinionID = Projectile.NewProjectile(source, position, velocity, MinionType, 300, 3f, player.whoAmI);
+        }
+        else
+        {
+            Main.projectile[MinionID].timeLeft = 5;
         }
     }
 }

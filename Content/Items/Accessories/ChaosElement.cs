@@ -1,12 +1,12 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using TremorMod.Content;
 using TremorMod.Content.Buffs;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class ChaosElement : ModItem
 	{
 
@@ -36,4 +36,3 @@ namespace TremorMod.Content.Items.Accessories
 			}
 		}
 	}
-}

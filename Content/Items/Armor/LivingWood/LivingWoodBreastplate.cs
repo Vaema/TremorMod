@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.LivingWood
-{
+namespace TremorMod.Content.Items.Armor.LivingWood;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class LivingWoodBreastplate : ModItem
 	{
@@ -40,4 +40,3 @@ namespace TremorMod.Content.Items.Armor.LivingWood
 			recipe.Register();
 		}
 	}
-}

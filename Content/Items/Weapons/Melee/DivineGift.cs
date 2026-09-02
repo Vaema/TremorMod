@@ -1,10 +1,10 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Weapons.Melee
-{
+namespace TremorMod.Content.Items.Weapons.Melee;
+
 	public class DivineGift : ModItem
 	{
 		public override void SetDefaults()
@@ -36,15 +36,14 @@ namespace TremorMod.Content.Items.Weapons.Melee
 			int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 64);
 		}
 
-        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    {
+        for (int i = 0; i < 1; ++i)
         {
-            for (int i = 0; i < 1; ++i)
-            {
-                Projectile.NewProjectile(source, position, velocity + new Vector2(2, 2), type, damage, knockback, Main.myPlayer);
-                Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer);
-                Projectile.NewProjectile(source, position, velocity - new Vector2(2, 2), type, damage, knockback, Main.myPlayer);
-            }
-            return false;
+            Projectile.NewProjectile(source, position, velocity + new Vector2(2, 2), type, damage, knockback, Main.myPlayer);
+            Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer);
+            Projectile.NewProjectile(source, position, velocity - new Vector2(2, 2), type, damage, knockback, Main.myPlayer);
         }
+        return false;
     }
 }

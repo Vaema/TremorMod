@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,13 +9,13 @@ using TremorMod.Content.Projectiles;
 using TremorMod.Content.Tiles;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.WhiteGold
-{
+namespace TremorMod.Content.Items.Armor.WhiteGold;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class WhiteGoldHelmet : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
-        const int ShootType = ProjectileID.HeatRay; 
+    public static LocalizedText SetBonusText { get; private set; }
+    const int ShootType = ProjectileID.HeatRay; 
 		const float ShootRange = 600.0f; 
 		const float ShootKN = 1.0f; 
 		const int ShootRate = 120; 
@@ -42,8 +42,8 @@ namespace TremorMod.Content.Items.Armor.WhiteGold
 			// DisplayName.SetDefault("White Gold Helmet");
 			/* Tooltip.SetDefault("20% increased ranged damage\n" +
 			"20% increased melee damage"); */
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Shoots dangerous gold daggers");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Shoots dangerous gold daggers");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -58,8 +58,8 @@ namespace TremorMod.Content.Items.Armor.WhiteGold
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Shoots dangerous gold daggers";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Shoots dangerous gold daggers";
 
 			if (--TimeToShoot <= 0)
 			{
@@ -83,33 +83,32 @@ namespace TremorMod.Content.Items.Armor.WhiteGold
 			return Target;
 		}
 
-        int GetDamage()
-        {
-            return (10 * ((int)Main.player[Item.playerIndexTheItemIsReservedFor].GetTotalDamage(DamageClass.Magic).ApplyTo(1f) +
-                          (int)Main.player[Item.playerIndexTheItemIsReservedFor].GetTotalDamage(DamageClass.Melee).ApplyTo(1f) +
-                          (int)Main.player[Item.playerIndexTheItemIsReservedFor].GetTotalDamage(DamageClass.Summon).ApplyTo(1f) +
-                          (int)Main.player[Item.playerIndexTheItemIsReservedFor].GetTotalDamage(DamageClass.Ranged).ApplyTo(1f) +
-                          (int)Main.player[Item.playerIndexTheItemIsReservedFor].GetTotalDamage(DamageClass.Throwing).ApplyTo(1f))) + 15;
-        }
+    int GetDamage()
+    {
+        return (10 * ((int)Main.player[Item.playerIndexTheItemIsReservedFor].GetTotalDamage(DamageClass.Magic).ApplyTo(1f) +
+                      (int)Main.player[Item.playerIndexTheItemIsReservedFor].GetTotalDamage(DamageClass.Melee).ApplyTo(1f) +
+                      (int)Main.player[Item.playerIndexTheItemIsReservedFor].GetTotalDamage(DamageClass.Summon).ApplyTo(1f) +
+                      (int)Main.player[Item.playerIndexTheItemIsReservedFor].GetTotalDamage(DamageClass.Ranged).ApplyTo(1f) +
+                      (int)Main.player[Item.playerIndexTheItemIsReservedFor].GetTotalDamage(DamageClass.Throwing).ApplyTo(1f))) + 15;
+    }
 
-        void Shoot(int Target, int Damage)
+    void Shoot(int Target, int Damage)
+    {
+        Vector2 velocity = Helper.VelocityToPoint(Main.player[Item.playerIndexTheItemIsReservedFor].Center, Main.npc[Target].Center, ShootSpeed);
+        for (int l = 0; l < ShootCount; l++)
         {
-            Vector2 velocity = Helper.VelocityToPoint(Main.player[Item.playerIndexTheItemIsReservedFor].Center, Main.npc[Target].Center, ShootSpeed);
-            for (int l = 0; l < ShootCount; l++)
-            {
-                velocity.X = velocity.X + Main.rand.Next(-spread, spread + 1) * spreadMult;
-                velocity.Y = velocity.Y + Main.rand.Next(-spread, spread + 1) * spreadMult;
-                int i = Projectile.NewProjectile(Main.player[Item.playerIndexTheItemIsReservedFor].GetSource_FromThis(), Main.player[Item.playerIndexTheItemIsReservedFor].Center.X, Main.player[Item.playerIndexTheItemIsReservedFor].Center.Y, velocity.X, velocity.Y, ModContent.ProjectileType<WhiteGoldKnife>(), 100, ShootKN, Item.playerIndexTheItemIsReservedFor);
-            }
+            velocity.X = velocity.X + Main.rand.Next(-spread, spread + 1) * spreadMult;
+            velocity.Y = velocity.Y + Main.rand.Next(-spread, spread + 1) * spreadMult;
+            int i = Projectile.NewProjectile(Main.player[Item.playerIndexTheItemIsReservedFor].GetSource_FromThis(), Main.player[Item.playerIndexTheItemIsReservedFor].Center.X, Main.player[Item.playerIndexTheItemIsReservedFor].Center.Y, velocity.X, velocity.Y, ModContent.ProjectileType<WhiteGoldKnife>(), 100, ShootKN, Item.playerIndexTheItemIsReservedFor);
         }
+    }
 
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<WhiteGoldBar>(), 12);
-            //recipe.SetResult(this);
-            recipe.AddTile(ModContent.TileType<DivineForgeTile>());
-            recipe.Register();
-        }
+    public override void AddRecipes()
+    {
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ModContent.ItemType<WhiteGoldBar>(), 12);
+        //recipe.SetResult(this);
+        recipe.AddTile(ModContent.TileType<DivineForgeTile>());
+        recipe.Register();
     }
 }

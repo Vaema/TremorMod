@@ -1,17 +1,17 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.Chlorophyte
-{
+namespace TremorMod.Content.Items.Armor.Chlorophyte;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class ChlorophyteVisage : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 
 			Item.width = 24;
@@ -26,8 +26,8 @@ namespace TremorMod.Content.Items.Armor.Chlorophyte
 		{
 			// DisplayName.SetDefault("Chlorophyte Visage");
 			// Tooltip.SetDefault("29% increased alchemical damage");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Summons a powerful leaf crystal to shoot at nearby enemies 25% increased alchemical critical strike chance");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Summons a powerful leaf crystal to shoot at nearby enemies 25% increased alchemical critical strike chance");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -41,8 +41,8 @@ namespace TremorMod.Content.Items.Armor.Chlorophyte
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Summons a powerful leaf crystal to shoot at nearby enemies\n" +
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Summons a powerful leaf crystal to shoot at nearby enemies\n" +
 "25% increased alchemical critical strike chance";
 			player.GetModPlayer<MPlayer>().alchemicalCrit += 25;
 			player.AddBuff(60, 60, true);
@@ -61,4 +61,3 @@ namespace TremorMod.Content.Items.Armor.Chlorophyte
 			recipe.Register();
 		}
 	}
-}

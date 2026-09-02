@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Items.Weapons.Melee
-{
+namespace TremorMod.Content.Items.Weapons.Melee;
+
 	public class Avenger : ModItem
 	{
 		public override void SetDefaults()
@@ -13,7 +13,7 @@ namespace TremorMod.Content.Items.Weapons.Melee
 			Item.CloneDefaults(3279);
 			Item.damage = 17;
 			Item.DamageType = DamageClass.Melee;
-            Item.width = 30;
+        Item.width = 30;
 			Item.height = 26;
 			Item.shoot = ModContent.ProjectileType<AvengerPro>();
 			Item.knockBack = 4;
@@ -36,4 +36,3 @@ namespace TremorMod.Content.Items.Weapons.Melee
 			recipe.Register();
 		}
 	}
-}

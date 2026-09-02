@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Audio;
@@ -8,8 +8,8 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Tiles;
 using TremorMod.Content.NPCs.Bosses.SpaceWhale;
 
-namespace TremorMod.Content.Items.BossSumonItems
-{
+namespace TremorMod.Content.Items.BossSumonItems;
+
 	public class CosmicKrill : ModItem
 	{
 		const int XOffset = -400;
@@ -35,16 +35,16 @@ namespace TremorMod.Content.Items.BossSumonItems
 			//"Requires Tremode");
 		}
 
-        public override bool CanUseItem(Player player)
-        {
+    public override bool CanUseItem(Player player)
+    {
 			return NPC.downedMoonlord && !NPC.AnyNPCs(ModContent.NPCType<SpaceWhale>());
 		}
 
-        public override bool? UseItem(Player player)
-        {
-            NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<SpaceWhale>());
-            Main.NewText("Space Whale has awoken!", 175, 75, 255);
-            SoundEngine.PlaySound(SoundID.Item15, player.position);
+    public override bool? UseItem(Player player)
+    {
+        NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<SpaceWhale>());
+        Main.NewText("Space Whale has awoken!", 175, 75, 255);
+        SoundEngine.PlaySound(SoundID.Item15, player.position);
 			return true;
 		}
 
@@ -59,4 +59,3 @@ namespace TremorMod.Content.Items.BossSumonItems
 			recipe.Register();
 		}
 	}
-}

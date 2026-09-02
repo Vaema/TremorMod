@@ -1,4 +1,4 @@
-using TremorMod.Content.Items.Placeable.Banners;
+п»їusing TremorMod.Content.Items.Placeable.Banners;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -10,8 +10,8 @@ using Microsoft.Xna.Framework;
 using TremorMod.Content.Items.NPCsDrop;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class JungleMimic : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -34,41 +34,40 @@ namespace TremorMod.Content.NPCs
 			NPC.DeathSound = SoundID.NPCDeath6;
 			NPC.value = Item.buyPrice(0, 3, 0, 0);
 			AnimationType = NPCID.BigMimicHallow;
-        }
+    }
 
-        public override void OnKill()
+    public override void OnKill()
+    {
+        // Г‚Г»ГЇГ Г¤ГҐГ­ГЁГҐ Greater Healing ГЁ Mana Potions Г± ГёГ Г­Г±Г®Г¬ 50%
+        if (Main.rand.NextBool()) // 50% ГёГ Г­Г±
         {
-            // Выпадение Greater Healing и Mana Potions с шансом 50%
-            if (Main.rand.NextBool()) // 50% шанс
-            {
-                Item.NewItem(NPC.GetSource_Loot(), NPC.position, ItemID.GreaterHealingPotion, Main.rand.Next(1, 10));
-                Item.NewItem(NPC.GetSource_Loot(), NPC.position, ItemID.GreaterManaPotion, Main.rand.Next(1, 10));
-            }
-
-            // Проверка с шансом 25% на каждый предмет
-            if (Main.rand.NextFloat() < 0.25f)
-            {
-                Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<SporeBlade>());
-            }
-            if (Main.rand.NextFloat() < 0.25f)
-            {
-                Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<TechnologyofDionysus>());
-            }
-            if (Main.rand.NextFloat() < 0.25f)
-            {
-                Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<LivingWoodThreepeater>());
-            }
-            if (Main.rand.NextFloat() < 0.25f)
-            {
-                Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<UnfathomableFlower>());
-            }
+            Item.NewItem(NPC.GetSource_Loot(), NPC.position, ItemID.GreaterHealingPotion, Main.rand.Next(1, 10));
+            Item.NewItem(NPC.GetSource_Loot(), NPC.position, ItemID.GreaterManaPotion, Main.rand.Next(1, 10));
         }
 
-
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        // ГЏГ°Г®ГўГҐГ°ГЄГ  Г± ГёГ Г­Г±Г®Г¬ 25% Г­Г  ГЄГ Г¦Г¤Г»Г© ГЇГ°ГҐГ¤Г¬ГҐГІ
+        if (Main.rand.NextFloat() < 0.25f)
         {
-            // Возвращаем результат тернарного оператора
-            return Main.hardMode && spawnInfo.Player.ZoneJungle && spawnInfo.SpawnTileY > Main.rockLayer ? 0.2f : 0f;
+            Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<SporeBlade>());
         }
+        if (Main.rand.NextFloat() < 0.25f)
+        {
+            Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<TechnologyofDionysus>());
+        }
+        if (Main.rand.NextFloat() < 0.25f)
+        {
+            Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<LivingWoodThreepeater>());
+        }
+        if (Main.rand.NextFloat() < 0.25f)
+        {
+            Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<UnfathomableFlower>());
+        }
+    }
+
+
+    public override float SpawnChance(NPCSpawnInfo spawnInfo)
+    {
+        // Г‚Г®Г§ГўГ°Г Г№Г ГҐГ¬ Г°ГҐГ§ГіГ«ГјГІГ ГІ ГІГҐГ°Г­Г Г°Г­Г®ГЈГ® Г®ГЇГҐГ°Г ГІГ®Г°Г 
+        return Main.hardMode && spawnInfo.Player.ZoneJungle && spawnInfo.SpawnTileY > Main.rockLayer ? 0.2f : 0f;
     }
 }

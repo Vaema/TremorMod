@@ -4,8 +4,8 @@ using Terraria.ID;
 using Terraria.Audio;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class TheCadenceProj : ModProjectile
 	{
 		public override void SetDefaults()
@@ -16,7 +16,7 @@ namespace TremorMod.Content.Projectiles
 			Projectile.friendly = true;
 			Projectile.ignoreWater = true;
 			Projectile.DamageType = DamageClass.Ranged;
-            Projectile.alpha = 255;
+        Projectile.alpha = 255;
 			Projectile.penetrate = 1;
 			Projectile.extraUpdates = 2;
 			Projectile.timeLeft = 600;
@@ -27,9 +27,9 @@ namespace TremorMod.Content.Projectiles
 			if (Projectile.ai[1] == 0f)
 			{
 				Projectile.ai[1] = 1f;
-                SoundEngine.PlaySound(SoundID.Item12, Projectile.position);
-            }
-            if (Projectile.alpha > 0)
+            SoundEngine.PlaySound(SoundID.Item12, Projectile.position);
+        }
+        if (Projectile.alpha > 0)
 			{
 				Projectile.alpha -= 15;
 			}
@@ -48,4 +48,3 @@ namespace TremorMod.Content.Projectiles
 			}
 		}
 	}
-}

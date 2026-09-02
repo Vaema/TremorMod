@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Tiles.GloomstoneTiles;
 
-namespace TremorMod.Content.Items.Placeable.GloomstonePlaceable
-{
+namespace TremorMod.Content.Items.Placeable.GloomstonePlaceable;
+
 	public class GloomstoneBathtub : ModItem
 	{
 		public override void SetDefaults()
@@ -38,4 +38,3 @@ namespace TremorMod.Content.Items.Placeable.GloomstonePlaceable
 			recipe.Register();
 		}
 	}
-}

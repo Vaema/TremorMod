@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -6,8 +6,8 @@ using Terraria.Enums;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class DiamondBeamPro : ModProjectile
 	{
 		private const int MAX_CHARGE = 50;
@@ -45,8 +45,8 @@ namespace TremorMod.Content.Projectiles
 
 		public override bool PreDraw(ref Color lightColor)
 		{
-            SpriteBatch spriteBatch = Main.spriteBatch;
-            if (Charge == MAX_CHARGE)
+        SpriteBatch spriteBatch = Main.spriteBatch;
+        if (Charge == MAX_CHARGE)
 			{
 				Vector2 unit = Projectile.velocity;
 				DrawLaser(spriteBatch, TextureAssets.Projectile[Projectile.type].Value,
@@ -240,4 +240,3 @@ namespace TremorMod.Content.Projectiles
 			Utils.PlotTileLine(Projectile.Center, Projectile.Center + unit * Distance, (Projectile.width + 16) * Projectile.scale, DelegateMethods.CutTiles);
 		}
 	}
-}

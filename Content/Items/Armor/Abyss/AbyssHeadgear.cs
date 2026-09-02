@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -8,13 +8,13 @@ using TremorMod.Utilities;
 using TremorMod;
 using Terraria.Localization;
 
-namespace TremorMod.Content.Items.Armor.Abyss
-{
+namespace TremorMod.Content.Items.Armor.Abyss;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class AbyssHeadgear : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
-        const int ShootType = 496; 
+    public static LocalizedText SetBonusText { get; private set; }
+    const int ShootType = 496; 
 		const float ShootRange = 100.0f; 
 		const float ShootKN = 1.0f; 
 		const int ShootRate = 60; 
@@ -41,10 +41,10 @@ namespace TremorMod.Content.Items.Armor.Abyss
 			// DisplayName.SetDefault("Abyss Headgear");
 			/* Tooltip.SetDefault("14% increased minion damage\n" +
 "Increases maximum health by 40"); */
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Allows to see hazards\n" +
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Allows to see hazards\n" +
 			"Summons abyss magic to attack nearby enemies\n" +
 			"Your Shadow Arms has 33% chance to inflict Shadowflame on enemies");
-        }
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -60,8 +60,8 @@ namespace TremorMod.Content.Items.Armor.Abyss
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Allows to see hazards\n" +
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Allows to see hazards\n" +
 			"Summons abyss magic to attack nearby enemies\n" +
 			"Your Shadow Arms has 33% chance to inflict Shadowflame on enemies";
 			TremorPlayer modPlayer = player.GetModPlayer<TremorPlayer>();
@@ -110,12 +110,12 @@ namespace TremorMod.Content.Items.Armor.Abyss
 
 		int GetDamage()
 		{		
-            return (10 * ((int)Main.player[Item.playerIndexTheItemIsReservedFor].GetTotalDamage(DamageClass.Magic).ApplyTo(1f) +
-                         (int)Main.player[Item.playerIndexTheItemIsReservedFor].GetTotalDamage(DamageClass.Melee).ApplyTo(1f) +
-                         (int)Main.player[Item.playerIndexTheItemIsReservedFor].GetTotalDamage(DamageClass.Summon).ApplyTo(1f) +
-                         (int)Main.player[Item.playerIndexTheItemIsReservedFor].GetTotalDamage(DamageClass.Ranged).ApplyTo(1f) +
-                         (int)Main.player[Item.playerIndexTheItemIsReservedFor].GetTotalDamage(DamageClass.Throwing).ApplyTo(1f))) + 15;
-        }
+        return (10 * ((int)Main.player[Item.playerIndexTheItemIsReservedFor].GetTotalDamage(DamageClass.Magic).ApplyTo(1f) +
+                     (int)Main.player[Item.playerIndexTheItemIsReservedFor].GetTotalDamage(DamageClass.Melee).ApplyTo(1f) +
+                     (int)Main.player[Item.playerIndexTheItemIsReservedFor].GetTotalDamage(DamageClass.Summon).ApplyTo(1f) +
+                     (int)Main.player[Item.playerIndexTheItemIsReservedFor].GetTotalDamage(DamageClass.Ranged).ApplyTo(1f) +
+                     (int)Main.player[Item.playerIndexTheItemIsReservedFor].GetTotalDamage(DamageClass.Throwing).ApplyTo(1f))) + 15;
+    }
 
 		void Shoot(int Target, int Damage)
 		{
@@ -128,16 +128,15 @@ namespace TremorMod.Content.Items.Armor.Abyss
 			}
 		}
 
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<DarknessCloth>(), 12);
-            recipe.AddIngredient(ItemID.SoulofNight, 9);
-            recipe.AddIngredient(ItemID.Amethyst, 7);
-            recipe.AddIngredient(ModContent.ItemType<PhantomSoul>(), 4);
-            //recipe.SetResult(this);
-            recipe.AddTile(134);
-            recipe.Register();
-        }
+    public override void AddRecipes()
+    {
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ModContent.ItemType<DarknessCloth>(), 12);
+        recipe.AddIngredient(ItemID.SoulofNight, 9);
+        recipe.AddIngredient(ItemID.Amethyst, 7);
+        recipe.AddIngredient(ModContent.ItemType<PhantomSoul>(), 4);
+        //recipe.SetResult(this);
+        recipe.AddTile(134);
+        recipe.Register();
     }
 }

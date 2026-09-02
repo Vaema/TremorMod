@@ -1,12 +1,12 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 using TremorMod.Content.Projectiles;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Weapons.Melee
-{
+namespace TremorMod.Content.Items.Weapons.Melee;
+
 	public class ShiningAxe : ModItem
 	{
 		public override void SetDefaults()
@@ -56,4 +56,3 @@ namespace TremorMod.Content.Items.Weapons.Melee
 			recipe.Register();
 		}
 	}
-}

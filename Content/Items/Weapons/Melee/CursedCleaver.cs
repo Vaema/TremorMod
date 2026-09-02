@@ -1,12 +1,12 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Items.Weapons.Melee
-{
+namespace TremorMod.Content.Items.Weapons.Melee;
+
 	public class CursedCleaver : ModItem
 	{
 		public override void SetDefaults()
@@ -23,15 +23,14 @@ namespace TremorMod.Content.Items.Weapons.Melee
 			// Tooltip.SetDefault("Inflicts Cursed Flames on enemies");
 		}
 
-        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-        {
-            Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<CursedCleaverPro>(), damage, knockback, player.whoAmI);
-            return false;
-        }
+    public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    {
+        Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<CursedCleaverPro>(), damage, knockback, player.whoAmI);
+        return false;
+    }
 
-        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
+    public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
 		{
 			target.AddBuff(39, 120);
 		}
 	}
-}

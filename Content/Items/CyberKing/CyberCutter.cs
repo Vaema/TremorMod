@@ -1,18 +1,18 @@
-using Microsoft.Xna.Framework;
+п»їusing Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Items.CyberKing
-{
+namespace TremorMod.Content.Items.CyberKing;
+
 	public class CyberCutter : ModItem
 	{
 		public override void SetDefaults()
 		{
 			Item.damage = 76;
 			Item.DamageType = DamageClass.Magic;
-            Item.width = 38;
+        Item.width = 38;
 			Item.height = 38;
 			Item.scale = 1.1f;
 			Item.maxStack = 1;
@@ -27,22 +27,21 @@ namespace TremorMod.Content.Items.CyberKing
 			Item.useStyle = 5;
 			Item.value = 10000;
 			Item.rare = 5;
-            Item.shoot = ModContent.ProjectileType<CyberCutterPro>();
-            Item.shootSpeed = 5f;
+        Item.shoot = ModContent.ProjectileType<CyberCutterPro>();
+        Item.shootSpeed = 5f;
 			Item.mana = 14;
 		}
 
-        /*public override void SetStaticDefaults()
+    /*public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Cyber Cutter");
 			Tooltip.SetDefault("Casts a controllable saw");
 		}*/
 
-        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-        {
-            player.channel = true; // Установка свойства "channel" для конкретного игрока
-            return true;
-        }
-
+    public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    {
+        player.channel = true; // Г“Г±ГІГ Г­Г®ГўГЄГ  Г±ГўГ®Г©Г±ГІГўГ  "channel" Г¤Г«Гї ГЄГ®Г­ГЄГ°ГҐГІГ­Г®ГЈГ® ГЁГЈГ°Г®ГЄГ 
+        return true;
     }
+
 }

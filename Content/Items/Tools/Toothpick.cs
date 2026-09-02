@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Items.Tools
-{
+namespace TremorMod.Content.Items.Tools;
+
 	public class Toothpick : ModItem
 	{
 		public override void SetDefaults()
@@ -55,4 +55,3 @@ namespace TremorMod.Content.Items.Tools
 			recipe1.Register();
 		}
 	}
-}

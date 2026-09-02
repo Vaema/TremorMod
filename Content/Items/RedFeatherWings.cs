@@ -1,12 +1,12 @@
-using System.Linq;
+﻿using System.Linq;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items
-{
+namespace TremorMod.Content.Items;
+
 	[AutoloadEquip(EquipType.Wings)]
 	public class RedFeatherWings : ModItem
 	{
@@ -24,8 +24,8 @@ namespace TremorMod.Content.Items
 		{
 			//DisplayName.SetDefault("Red Feather Wings");
 			//Tooltip.SetDefault("The wings made of red feathers.");
-            ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(140, 6f, 1f);
-        }
+        ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(140, 6f, 1f);
+    }
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
@@ -58,4 +58,3 @@ namespace TremorMod.Content.Items
 			recipe.Register();
 		}
 	}
-}

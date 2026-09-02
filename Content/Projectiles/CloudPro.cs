@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class CloudPro : ModProjectile
 	{
 		public override void SetDefaults()
@@ -22,4 +22,3 @@ namespace TremorMod.Content.Projectiles
 			Projectile.rotation = 0f;
 		}
 	}
-}

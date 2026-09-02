@@ -1,26 +1,25 @@
-using Microsoft.Xna.Framework;
+п»їusing Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Tiles
-{
+namespace TremorMod.Content.Tiles;
+
 	public class GloomstoneTile : ModTile
 	{
-        public override void SetStaticDefaults()
-        {
-            Main.tileSolid[Type] = true; // Плитка является твердой.
-            Main.tileMergeDirt[Type] = true; // Сливается с грязью.
-            Main.tileBlockLight[Type] = true; // Блокирует свет.
-            Main.tileLighted[Type] = true; // Освещается.
-            //ItemDrop = ModContent.ItemType<GloomstoneItem>(); // Выпадающий предмет.
-            HitSound = SoundID.Tink; // Звук при разрушении.
-            AddMapEntry(new Color(36, 118, 174));
-        }
+    public override void SetStaticDefaults()
+    {
+        Main.tileSolid[Type] = true; // ГЏГ«ГЁГІГЄГ  ГїГўГ«ГїГҐГІГ±Гї ГІГўГҐГ°Г¤Г®Г©.
+        Main.tileMergeDirt[Type] = true; // Г‘Г«ГЁГўГ ГҐГІГ±Гї Г± ГЈГ°ГїГ§ГјГѕ.
+        Main.tileBlockLight[Type] = true; // ГЃГ«Г®ГЄГЁГ°ГіГҐГІ Г±ГўГҐГІ.
+        Main.tileLighted[Type] = true; // ГЋГ±ГўГҐГ№Г ГҐГІГ±Гї.
+        //ItemDrop = ModContent.ItemType<GloomstoneItem>(); // Г‚Г»ГЇГ Г¤Г ГѕГ№ГЁГ© ГЇГ°ГҐГ¤Г¬ГҐГІ.
+        HitSound = SoundID.Tink; // Г‡ГўГіГЄ ГЇГ°ГЁ Г°Г Г§Г°ГіГёГҐГ­ГЁГЁ.
+        AddMapEntry(new Color(36, 118, 174));
+    }
 
 		public override void NumDust(int i, int j, bool fail, ref int num)
 		{
 			num = fail ? 1 : 3;
 		}
 	}
-}

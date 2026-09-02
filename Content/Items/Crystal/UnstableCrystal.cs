@@ -1,40 +1,39 @@
-using Microsoft.Xna.Framework;
+п»їusing Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Crystal
+namespace TremorMod.Content.Items.Crystal;
+
+class UnstableCrystal : ModItem
 {
-    class UnstableCrystal : ModItem
+    public override void SetDefaults()
     {
-        public override void SetDefaults()
-        {
-            Item.width = 44;
-            Item.height = 48;
-            Item.useTime = 30;
-            Item.useAnimation = 30;
-            Item.useStyle = ItemUseStyleID.HoldUp;
-            Item.knockBack = 0;
-            Item.shoot = ProjectileID.None;
-            Item.value = 10000;
-            Item.rare = ItemRarityID.Blue;
-            Item.consumable = true;
-            Item.maxStack = 9999;
-            Item.UseSound = SoundID.Item6;
-        }
-
-        /*public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Unstable Crystal");
-            Tooltip.SetDefault("Teleports you to a random location\n" +
-            "'Be careful! It can take you to a very dangerous place!'");
-        }*/
-
-        public override bool? UseItem(Player player)
-        {
-            player.TeleportationPotion(); // Телепортирует игрока в случайное место
-            return true; // Возвращает true, чтобы показать успешное использование
-        }
-
+        Item.width = 44;
+        Item.height = 48;
+        Item.useTime = 30;
+        Item.useAnimation = 30;
+        Item.useStyle = ItemUseStyleID.HoldUp;
+        Item.knockBack = 0;
+        Item.shoot = ProjectileID.None;
+        Item.value = 10000;
+        Item.rare = ItemRarityID.Blue;
+        Item.consumable = true;
+        Item.maxStack = 9999;
+        Item.UseSound = SoundID.Item6;
     }
+
+    /*public override void SetStaticDefaults()
+    {
+        DisplayName.SetDefault("Unstable Crystal");
+        Tooltip.SetDefault("Teleports you to a random location\n" +
+        "'Be careful! It can take you to a very dangerous place!'");
+    }*/
+
+    public override bool? UseItem(Player player)
+    {
+        player.TeleportationPotion(); // Г’ГҐГ«ГҐГЇГ®Г°ГІГЁГ°ГіГҐГІ ГЁГЈГ°Г®ГЄГ  Гў Г±Г«ГіГ·Г Г©Г­Г®ГҐ Г¬ГҐГ±ГІГ®
+        return true; // Г‚Г®Г§ГўГ°Г Г№Г ГҐГІ true, Г·ГІГ®ГЎГ» ГЇГ®ГЄГ Г§Г ГІГј ГіГ±ГЇГҐГёГ­Г®ГҐ ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ
+    }
+
 }

@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class PirahnaPro : ModProjectile
 	{
 		public override void SetDefaults()
@@ -29,14 +29,14 @@ namespace TremorMod.Content.Projectiles
 
 		public override void OnKill(int timeLeft)
 		{
-            SoundEngine.PlaySound(SoundID.NPCDeath1, Projectile.position);
-            if (Main.netMode != NetmodeID.Server) 
-            {
-                Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.position,
-                new Vector2(Projectile.velocity.X, Projectile.velocity.Y),
-                85, 1f);
-            }
-            for (int num158 = 0; num158 < 20; num158++)
+        SoundEngine.PlaySound(SoundID.NPCDeath1, Projectile.position);
+        if (Main.netMode != NetmodeID.Server) 
+        {
+            Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.position,
+            new Vector2(Projectile.velocity.X, Projectile.velocity.Y),
+            85, 1f);
+        }
+        for (int num158 = 0; num158 < 20; num158++)
 			{
 				int num159 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 5, Projectile.velocity.X * 0.1f, Projectile.velocity.Y * 0.1f, 0, default(Color), 0.5f);
 				if (Main.rand.NextBool(3))
@@ -65,11 +65,10 @@ namespace TremorMod.Content.Projectiles
 					}
 					value12.Normalize();
 					value12 *= Main.rand.Next(70, 101) * 0.1f;
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.oldPosition.X + Projectile.width / 2, Projectile.oldPosition.Y + Projectile.height / 2, value12.X, value12.Y, 400, (int)(Projectile.damage * 0.8), Projectile.knockBack * 0.8f, Projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.oldPosition.X + Projectile.width / 2, Projectile.oldPosition.Y + Projectile.height / 2, value12.X, value12.Y, 400, (int)(Projectile.damage * 0.8), Projectile.knockBack * 0.8f, Projectile.owner, 0f, 0f);
 
-                }
+            }
 			}
 		}
 
 	}
-}

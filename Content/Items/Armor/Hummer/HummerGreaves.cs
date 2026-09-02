@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.Hummer
-{
+namespace TremorMod.Content.Items.Armor.Hummer;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class HummerGreaves : ModItem
 	{
@@ -20,4 +20,3 @@ namespace TremorMod.Content.Items.Armor.Hummer
 			//Tooltip.SetDefault("'Great for impersonating devs!'");
 		}		
 	}
-}

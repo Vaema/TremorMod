@@ -1,4 +1,4 @@
-using System.Linq;
+﻿using System.Linq;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -15,8 +15,8 @@ using Terraria.DataStructures;
 using Terraria.ModLoader.IO;
 using ReLogic.Content;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class RuinGhost2 : ModNPC
 	{
 
@@ -47,13 +47,13 @@ namespace TremorMod.Content.NPCs
 			NPC.lavaImmune = true;
 		}
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RuinKey>(), 6));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RustyLantern>(), 6));
-        }
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RuinKey>(), 6));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RustyLantern>(), 6));
+    }
 
-        public override void HitEffect(NPC.HitInfo hit)
+    public override void HitEffect(NPC.HitInfo hit)
 		{
 			if (NPC.life <= 0)
 			{
@@ -63,23 +63,22 @@ namespace TremorMod.Content.NPCs
 			}
 		}
 
-        public override void AI()
+    public override void AI()
+    {
+        if (!TremorSpawnEnemys.downedTikiTotem)
         {
-            if (!TremorSpawnEnemys.downedTikiTotem)
-            {
-                NPC.active = false; 
-            }
+            NPC.active = false; 
         }
+    }
 
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            if (!TremorSpawnEnemys.downedTikiTotem)
-                return 0f;
+    public override float SpawnChance(NPCSpawnInfo spawnInfo)
+    {
+        if (!TremorSpawnEnemys.downedTikiTotem)
+            return 0f;
 
-            if (!spawnInfo.Player.InModBiome<RuinBiome>())
-                return 0f;
+        if (!spawnInfo.Player.InModBiome<RuinBiome>())
+            return 0f;
 
-            return 0.45f;
-        }
+        return 0.45f;
     }
 }

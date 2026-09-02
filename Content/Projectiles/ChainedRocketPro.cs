@@ -1,11 +1,11 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class ChainedRocketPro : ModProjectile
 	{
 		public override void SetDefaults()
@@ -98,7 +98,7 @@ namespace TremorMod.Content.Projectiles
 
 		public override bool PreDraw(ref Color lightColor)
 		{
-            Texture2D texture = ModContent.Request<Texture2D>("TremorMod/Content/Projectiles/ChainedRocket_Chain").Value;
+        Texture2D texture = ModContent.Request<Texture2D>("TremorMod/Content/Projectiles/ChainedRocket_Chain").Value;
 
 			Vector2 position = Projectile.Center;
 			Vector2 mountedCenter = Main.player[Projectile.owner].MountedCenter;
@@ -133,4 +133,3 @@ namespace TremorMod.Content.Projectiles
 			return true;
 		}
 	}
-}

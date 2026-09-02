@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.Frostbite
-{
+namespace TremorMod.Content.Items.Armor.Frostbite;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class FrostbiteGreaves : ModItem
 	{
@@ -32,4 +32,3 @@ namespace TremorMod.Content.Items.Armor.Frostbite
 			recipe.Register();
 		}
 	}
-}

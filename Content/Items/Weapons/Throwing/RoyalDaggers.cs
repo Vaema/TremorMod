@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -8,8 +8,8 @@ using TremorMod.Content.Items.Materials.OreAndBar;
 using TremorMod.Content.Projectiles;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Weapons.Throwing
-{
+namespace TremorMod.Content.Items.Weapons.Throwing;
+
 	public class RoyalDaggers : ModItem
 	{
 		public override void SetDefaults()
@@ -100,9 +100,9 @@ namespace TremorMod.Content.Items.Weapons.Throwing
 				num149 *= num80;
 				float x4 = vector2.X;
 				float y4 = vector2.Y;
-                Projectile.NewProjectile(source, x4, y4, num148, num149, ModContent.ProjectileType<WhiteGoldKnife>(), num73, num74, i, 0f, 0f);
+            Projectile.NewProjectile(source, x4, y4, num148, num149, ModContent.ProjectileType<WhiteGoldKnife>(), num73, num74, i, 0f, 0f);
 
-            }
+        }
 			return false;
 		}
 
@@ -114,4 +114,3 @@ namespace TremorMod.Content.Items.Weapons.Throwing
 			recipe.Register();
 		}
 	}
-}

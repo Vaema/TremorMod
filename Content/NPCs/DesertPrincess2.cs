@@ -12,9 +12,9 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Placeable.Banners;
 using TremorMod.Content.Items.Vanity;
 
-namespace TremorMod.Content.NPCs
-{ 
-    public class DesertPrincess2 : ModNPC
+namespace TremorMod.Content.NPCs;
+
+public class DesertPrincess2 : ModNPC
 	{
 		public override void SetStaticDefaults()
 		{
@@ -508,15 +508,14 @@ namespace TremorMod.Content.NPCs
 			}
 		}
 
-        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float bossLifeScale, float balance)
-        {
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.625f * bossLifeScale);
-            NPC.damage = (int)(NPC.damage * 0.6f);
-        }
+    public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float bossLifeScale, float balance)
+    {
+        NPC.lifeMax = (int)(NPC.lifeMax * 0.625f * bossLifeScale);
+        NPC.damage = (int)(NPC.damage * 0.6f);
+    }
 
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+    public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
 			return 0f;
 		}
 	}
-}

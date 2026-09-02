@@ -1,11 +1,11 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class FrostbittenBallPro : ModProjectile
 	{
 		public override void SetDefaults()
@@ -42,9 +42,9 @@ namespace TremorMod.Content.Projectiles
 
 		public override bool PreDraw(ref Color lightColor)
 		{
-            Texture2D texture = ModContent.Request<Texture2D>("TremorMod/Content/Projectiles/FrostbittenBall_Chain").Value;
+        Texture2D texture = ModContent.Request<Texture2D>("TremorMod/Content/Projectiles/FrostbittenBall_Chain").Value;
 
-            Vector2 position = Projectile.Center;
+        Vector2 position = Projectile.Center;
 			Vector2 mountedCenter = Main.player[Projectile.owner].MountedCenter;
 			Rectangle? sourceRectangle = new Rectangle?();
 			Vector2 origin = new Vector2(texture.Width * 0.5f, texture.Height * 0.5f);
@@ -77,4 +77,3 @@ namespace TremorMod.Content.Projectiles
 			return true;
 		}
 	}
-}

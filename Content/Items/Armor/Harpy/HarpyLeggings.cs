@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.Harpy
-{
+namespace TremorMod.Content.Items.Armor.Harpy;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class HarpyLeggings : ModItem
 	{
@@ -30,13 +30,12 @@ namespace TremorMod.Content.Items.Armor.Harpy
 
 		public override void AddRecipes()
 		{
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.Silk, 10);
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ItemID.Silk, 10);
 			recipe.AddIngredient(ItemID.Feather, 6);
 			//recipe.SetResult(this);
 			recipe.AddTile(86);
-            recipe.Register();
-        }
+        recipe.Register();
+    }
 
 	}
-}

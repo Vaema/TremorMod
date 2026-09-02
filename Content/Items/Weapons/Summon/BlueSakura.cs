@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -7,8 +7,8 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Projectiles.Minions; 
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items.Weapons.Summon
-{
+namespace TremorMod.Content.Items.Weapons.Summon;
+
 	public class BlueSakura : ModItem
 	{
 		public override void SetDefaults()
@@ -48,16 +48,16 @@ namespace TremorMod.Content.Items.Weapons.Summon
 			return player.altFunctionUse != 2;
 		}
 
-        public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
+    public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
+    {
+        if (player.altFunctionUse == 2)
         {
-            if (player.altFunctionUse == 2)
-            {
-                player.MinionNPCTargetAim(false);
-            }
-            return base.UseItem(player);
+            player.MinionNPCTargetAim(false);
         }
+        return base.UseItem(player);
+    }
 
-        public override void AddRecipes()
+    public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Wood, 15);
@@ -66,4 +66,3 @@ namespace TremorMod.Content.Items.Weapons.Summon
 			recipe.Register();
 		}
 	}
-}

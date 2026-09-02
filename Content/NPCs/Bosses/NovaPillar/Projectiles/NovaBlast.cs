@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.Xna.Framework;
@@ -16,8 +16,8 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Filters = Terraria.Graphics.Effects.Filters;
 
-namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles
-{
+namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles;
+
 	public class NovaBlast : ModProjectile
 	{
 		public override void SetDefaults()
@@ -48,4 +48,3 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles
 			{ Projectile.Kill(); }
 		}
 	}
-}

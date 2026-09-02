@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 
-namespace TremorMod.Content.Items.Armor.Luxorious
-{
+namespace TremorMod.Content.Items.Armor.Luxorious;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class LuxoriousLeggings : ModItem
 	{
@@ -37,4 +37,3 @@ namespace TremorMod.Content.Items.Armor.Luxorious
 			recipe.Register();
 		}
 	}
-}

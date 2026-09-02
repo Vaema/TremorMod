@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Accessories.Sparks
-{
+namespace TremorMod.Content.Items.Accessories.Sparks;
+
 	public class SorcererSpark : ModItem
 	{
 		public override void SetStaticDefaults()
@@ -29,8 +29,8 @@ namespace TremorMod.Content.Items.Accessories.Sparks
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
 			player.statManaMax2 += 20;
-            player.GetDamage(DamageClass.Magic) += 0.03f;
-            player.GetCritChance(DamageClass.Magic) += 8;
+        player.GetDamage(DamageClass.Magic) += 0.03f;
+        player.GetCritChance(DamageClass.Magic) += 8;
 		}
 
 		public override void AddRecipes()
@@ -41,4 +41,3 @@ namespace TremorMod.Content.Items.Accessories.Sparks
 			recipe.Register();
 		}
 	}
-}

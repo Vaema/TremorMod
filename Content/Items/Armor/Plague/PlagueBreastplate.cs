@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.Plague
-{
+namespace TremorMod.Content.Items.Armor.Plague;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class PlagueBreastplate : ModItem
 	{
@@ -42,4 +42,3 @@ namespace TremorMod.Content.Items.Armor.Plague
 			recipe.Register();
 		}
 	}
-}

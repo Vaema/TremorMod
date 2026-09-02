@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
@@ -9,8 +9,8 @@ using TremorMod.Content;
 using TremorMod;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.Nova
-{
+namespace TremorMod.Content.Items.Armor.Nova;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class NovaLeggings : ModItem
 	{
@@ -39,8 +39,8 @@ namespace TremorMod.Content.Items.Armor.Nova
 		{
 			player.GetModPlayer<MPlayer>().alchemicalDamage += 0.18f;
 			player.GetModPlayer<MPlayer>().alchemicalCrit += 12;
-            player.GetModPlayer<MPlayer>().novaLeggings = true;
-            player.moveSpeed += 0.14f;
+        player.GetModPlayer<MPlayer>().novaLeggings = true;
+        player.moveSpeed += 0.14f;
 			player.maxRunSpeed += 0.14f;
 			Lighting.AddLight((int)((player.position.X + player.width / 2) / 16f), (int)((player.position.Y + player.height / 2) / 16f), 0.8f, 0.7f, 0.3f);
 		}
@@ -55,4 +55,3 @@ namespace TremorMod.Content.Items.Armor.Nova
 			recipe.Register();
 		}
 	}
-}

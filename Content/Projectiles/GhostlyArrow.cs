@@ -1,12 +1,12 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	//ported from my tAPI mod because I don't want to make artwork
 	public class GhostlyArrow : ModProjectile
 	{
@@ -41,4 +41,3 @@ namespace TremorMod.Content.Projectiles
 				Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
 		}
 	}
-}

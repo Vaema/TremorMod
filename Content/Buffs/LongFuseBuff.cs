@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Buffs
-{
+namespace TremorMod.Content.Buffs;
+
 	public class LongFuseBuff : ModBuff
 	{
 		public override void SetStaticDefaults()
@@ -14,4 +14,3 @@ namespace TremorMod.Content.Buffs
 			Main.buffNoTimeDisplay[Type] = true;
 		}
 	}
-}

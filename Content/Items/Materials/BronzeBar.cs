@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Materials
-{
+namespace TremorMod.Content.Items.Materials;
+
 	public class BronzeBar : ModItem
 	{
 		public override void SetDefaults()
@@ -34,9 +34,8 @@ namespace TremorMod.Content.Items.Materials
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.TinOre, 2);
 			recipe.AddIngredient(ItemID.CopperOre, 2);
-            recipe.AddTile(ModContent.TileType<BlastFurnaceTile>());
-            //recipe.SetResult(this);
-            recipe.Register();
+        recipe.AddTile(ModContent.TileType<BlastFurnaceTile>());
+        //recipe.SetResult(this);
+        recipe.Register();
 		}
 	}
-}

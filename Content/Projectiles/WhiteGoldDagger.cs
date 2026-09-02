@@ -1,14 +1,14 @@
-using Microsoft.Xna.Framework;
+п»їusing Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	//ported from my tAPI mod because I don't want to make artwork
-	public class WhiteGoldDagger : ModProjectile // И зачем он нужен если используется WhiteGoldKnife
-    {
+	public class WhiteGoldDagger : ModProjectile // Г€ Г§Г Г·ГҐГ¬ Г®Г­ Г­ГіГ¦ГҐГ­ ГҐГ±Г«ГЁ ГЁГ±ГЇГ®Г«ГјГ§ГіГҐГІГ±Гї WhiteGoldKnife
+{
 		public override void SetDefaults()
 		{
 
@@ -71,4 +71,3 @@ namespace TremorMod.Content.Projectiles
 		}
 
 	}
-}

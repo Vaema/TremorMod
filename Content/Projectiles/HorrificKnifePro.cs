@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -6,8 +6,8 @@ using Terraria.ModLoader;
 using TremorMod.Content.Dusts;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class HorrificKnifePro : ModProjectile
 	{
 		public override void SetDefaults()
@@ -44,4 +44,3 @@ namespace TremorMod.Content.Projectiles
 			SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
 		}
 	}
-}

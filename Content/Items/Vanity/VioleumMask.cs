@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Vanity
-{
+namespace TremorMod.Content.Items.Vanity;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class VioleumMask : ModItem
 	{
@@ -17,12 +17,11 @@ namespace TremorMod.Content.Items.Vanity
 			Item.vanity = true;
 		}
 
-        public override void SetStaticDefaults()
-        {
-            //DisplayName.SetDefault("Violeum Mask");
-            //Tooltip.SetDefault("'The latest fashion trend'");
-            base.SetStaticDefaults();
-            ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
-        }
+    public override void SetStaticDefaults()
+    {
+        //DisplayName.SetDefault("Violeum Mask");
+        //Tooltip.SetDefault("'The latest fashion trend'");
+        base.SetStaticDefaults();
+        ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
+    }
 	}
-}

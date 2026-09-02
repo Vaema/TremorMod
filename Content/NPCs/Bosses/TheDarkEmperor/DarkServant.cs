@@ -1,12 +1,12 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.GameContent.ItemDropRules;
 using TremorMod.Content.Items.BossLoot.TheDarkEmperor;
 
-namespace TremorMod.Content.NPCs.Bosses.TheDarkEmperor
-{
+namespace TremorMod.Content.NPCs.Bosses.TheDarkEmperor;
+
 	public class DarkServant : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -33,9 +33,9 @@ namespace TremorMod.Content.NPCs.Bosses.TheDarkEmperor
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
 				{
@@ -53,12 +53,11 @@ namespace TremorMod.Content.NPCs.Bosses.TheDarkEmperor
 			}
 		}
 
-        public override void OnKill()
+    public override void OnKill()
+    {
+        if (Main.rand.NextBool(6))
         {
-            if (Main.rand.NextBool(6))
-            {
-                Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<DarkGel>());
-            }
+            Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<DarkGel>());
         }
     }
 }

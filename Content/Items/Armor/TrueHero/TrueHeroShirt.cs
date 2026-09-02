@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -6,8 +6,8 @@ using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items.Armor.TrueHero
-{
+namespace TremorMod.Content.Items.Armor.TrueHero;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class TrueHeroShirt : ModItem
 	{
@@ -32,18 +32,18 @@ namespace TremorMod.Content.Items.Armor.TrueHero
 			player.AddBuff(ModContent.BuffType<SecondTrueBlade>(), 2);
 		}
 
-        public override void ModifyTooltips(List<TooltipLine> tooltips)
+    public override void ModifyTooltips(List<TooltipLine> tooltips)
+    {
+        foreach (var tooltip in tooltips)
         {
-            foreach (var tooltip in tooltips)
+            if (tooltip.Mod == "Terraria" && tooltip.Name == "ItemName")
             {
-                if (tooltip.Mod == "Terraria" && tooltip.Name == "ItemName")
-                {
-                    tooltip.OverrideColor = new Color(238, 194, 73); 
-                }
+                tooltip.OverrideColor = new Color(238, 194, 73); 
             }
         }
+    }
 
-        public override void AddRecipes()
+    public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(248, 1);
@@ -55,4 +55,3 @@ namespace TremorMod.Content.Items.Armor.TrueHero
 			recipe.Register();
 		}
 	}
-}

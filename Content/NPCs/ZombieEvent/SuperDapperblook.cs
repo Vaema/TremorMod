@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
@@ -11,8 +11,8 @@ using TremorMod.Content.Items.Placeable.Banners;
 using TremorMod.Content.Items.Vanity;
 using TremorMod.Content.Items;
 
-namespace TremorMod.Content.NPCs.ZombieEvent
-{
+namespace TremorMod.Content.NPCs.ZombieEvent;
+
 
 	public class SuperDapperblook : ModNPC
 	{
@@ -45,26 +45,26 @@ namespace TremorMod.Content.NPCs.ZombieEvent
 			// Todo: bannerItem = mod.ItemType("DapperblookBanner");
 		}
 
-        public override void AI()
+    public override void AI()
+    {
+        if (!NPC.AnyNPCs(ModContent.NPCType<Cryptomage>()))
         {
-            if (!NPC.AnyNPCs(ModContent.NPCType<Cryptomage>()))
-            {
-                NPC.Transform(ModContent.NPCType<Dapperblook>());
-            }
+            NPC.Transform(ModContent.NPCType<Dapperblook>());
         }
+    }
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        if (Main.netMode != 1)
         {
-            if (Main.netMode != 1)
-            {
-                int centerX = (int)(NPC.position.X + NPC.width / 2) / 16;
-                int centerY = (int)(NPC.position.Y + NPC.height / 2) / 16;
-                int halfLength = NPC.width / 2 / 16 + 1;
-                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CursedInk>(), 4));
-            }
+            int centerX = (int)(NPC.position.X + NPC.width / 2) / 16;
+            int centerY = (int)(NPC.position.Y + NPC.height / 2) / 16;
+            int halfLength = NPC.width / 2 / 16 + 1;
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CursedInk>(), 4));
         }
+    }
 
-        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
+    public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
 		{
 			NPC.lifeMax = NPC.lifeMax * 1;
 			NPC.damage = NPC.damage * 1;
@@ -72,18 +72,17 @@ namespace TremorMod.Content.NPCs.ZombieEvent
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 61, 0.8f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 61, 0.8f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 62, 0.8f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 62, 0.8f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 63, 0.8f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 63, 0.8f);
-            }
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 61, 0.8f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 61, 0.8f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 62, 0.8f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 62, 0.8f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 63, 0.8f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 63, 0.8f);
+        }
 		}
 
 	}
-}

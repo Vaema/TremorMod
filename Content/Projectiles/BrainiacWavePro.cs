@@ -1,12 +1,12 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class BrainiacWavePro : ModProjectile
 	{
 		public override void SetDefaults()
@@ -69,20 +69,19 @@ namespace TremorMod.Content.Projectiles
 				Main.dust[num159].velocity *= 2.5f;
 				Main.dust[num159].velocity -= Projectile.oldVelocity / 10f;
 			}
-            if (Main.myPlayer == Projectile.owner)
+        if (Main.myPlayer == Projectile.owner)
+        {
+            int num160 = Main.rand.Next(0, 0);
+            for (int num161 = 0; num161 < num160; num161++)
             {
-                int num160 = Main.rand.Next(0, 0);
-                for (int num161 = 0; num161 < num160; num161++)
+                Vector2 value12 = new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101));
+                while (value12.X == 0f && value12.Y == 0f)
                 {
-                    Vector2 value12 = new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101));
-                    while (value12.X == 0f && value12.Y == 0f)
-                    {
-                        value12 = new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101));
-                    }
-                    value12.Normalize();
-                    value12 *= Main.rand.Next(70, 101) * 0.1f;
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.oldPosition + new Vector2(Projectile.width / 2, Projectile.height / 2), value12, 400, (int)(Projectile.damage * 0.8), Projectile.knockBack * 0.8f, Projectile.owner);
+                    value12 = new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101));
                 }
+                value12.Normalize();
+                value12 *= Main.rand.Next(70, 101) * 0.1f;
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.oldPosition + new Vector2(Projectile.width / 2, Projectile.height / 2), value12, 400, (int)(Projectile.damage * 0.8), Projectile.knockBack * 0.8f, Projectile.owner);
             }
         }
     }

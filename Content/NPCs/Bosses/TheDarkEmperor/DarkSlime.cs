@@ -1,12 +1,12 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.GameContent.ItemDropRules;
 using TremorMod.Content.Items.BossLoot.TheDarkEmperor;
 
-namespace TremorMod.Content.NPCs.Bosses.TheDarkEmperor
-{
+namespace TremorMod.Content.NPCs.Bosses.TheDarkEmperor;
+
 
 	public class DarkSlime : ModNPC
 	{
@@ -34,9 +34,9 @@ namespace TremorMod.Content.NPCs.Bosses.TheDarkEmperor
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 191, 2.5f * hitDirection, -2.5f, 0, Color.Green, 0.7f);
@@ -46,13 +46,12 @@ namespace TremorMod.Content.NPCs.Bosses.TheDarkEmperor
 			}
 		}
 
-        public override void OnKill()
+    public override void OnKill()
+    {
+        if (Main.rand.NextBool(8))
         {
-            if (Main.rand.NextBool(8))
-            {
-                int amount = Main.rand.Next(1, 4);
-                Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<DarkGel>(), amount);
-            }
+            int amount = Main.rand.Next(1, 4);
+            Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<DarkGel>(), amount);
         }
     }
 }

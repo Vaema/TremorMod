@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
@@ -8,8 +8,8 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Weapons.Melee;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class GiantGastropod : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -38,10 +38,10 @@ namespace TremorMod.Content.NPCs
 			NPC.buffImmune[31] = false;
 			NPC.DeathSound = SoundID.NPCDeath7;
 			NPC.value = Item.buyPrice(0, 0, 12, 0);
-            Banner = NPC.type;
-            BannerItem = ModContent.ItemType<GiantGastropodBanner>();
-            ItemID.Sets.KillsToBanner[BannerItem] = 50;
-        }
+        Banner = NPC.type;
+        BannerItem = ModContent.ItemType<GiantGastropodBanner>();
+        ItemID.Sets.KillsToBanner[BannerItem] = 50;
+    }
 
 		public override void AI()
 		{
@@ -51,17 +51,17 @@ namespace TremorMod.Content.NPCs
 
 		public override void OnKill()
 		{
-            if (Main.rand.NextBool(2))
-            {
-                Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ItemID.Glowstick, 6);
-            }
+        if (Main.rand.NextBool(2))
+        {
+            Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ItemID.Glowstick, 6);
         }
+    }
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				Dust.NewDust(NPC.position, NPC.width, NPC.height, 72, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
 				Dust.NewDust(NPC.position, NPC.width, NPC.height, 72, 2.5f * hitDirection, -2.5f, 0, default(Color), 2.7f);
@@ -81,4 +81,3 @@ namespace TremorMod.Content.NPCs
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 			=> Helper.NormalSpawn(spawnInfo) && !Main.dayTime && NPC.downedMoonlord && Helper.NoZoneAllowWater(spawnInfo) && spawnInfo.Player.ZoneHallow && spawnInfo.SpawnTileY < Main.worldSurface ? 0.01f : 0f;
 	}
-}

@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -6,10 +6,10 @@ using Terraria.ModLoader;
 using Terraria.DataStructures;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Projectiles.Minions
-{
+namespace TremorMod.Content.Projectiles.Minions;
+
 	public class QuetzalcoatlPro : ModProjectile
-    {
+{
 		public override void SetDefaults()
 		{
 			Projectile.netImportant = true;
@@ -46,14 +46,13 @@ namespace TremorMod.Content.Projectiles.Minions
 			return false;
 		}
 
-        public override void AI()
+    public override void AI()
+    {
+        Player player = Main.player[Projectile.owner];
+        if (!player.active || player.dead || !player.HasBuff(ModContent.BuffType<QuetzalcoatlBuff>()))
         {
-            Player player = Main.player[Projectile.owner];
-            if (!player.active || player.dead || !player.HasBuff(ModContent.BuffType<QuetzalcoatlBuff>()))
-            {
-                Projectile.Kill();
-                return;
-            }
+            Projectile.Kill();
+            return;
         }
     }
 }

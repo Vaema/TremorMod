@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Armor.Nightingale
-{
+namespace TremorMod.Content.Items.Armor.Nightingale;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class NightingaleChestplate : ModItem
 	{
@@ -25,21 +25,20 @@ namespace TremorMod.Content.Items.Armor.Nightingale
 
 		public override void UpdateEquip(Player player)
 		{
-            player.GetDamage(DamageClass.Melee) += 0.05f;   
-            player.GetDamage(DamageClass.Magic) += 0.05f;  
-            player.GetDamage(DamageClass.Ranged) += 0.05f; 
-            player.GetDamage(DamageClass.Throwing) += 0.05f; 
-            player.GetDamage(DamageClass.Summon) += 0.05f;  
+        player.GetDamage(DamageClass.Melee) += 0.05f;   
+        player.GetDamage(DamageClass.Magic) += 0.05f;  
+        player.GetDamage(DamageClass.Ranged) += 0.05f; 
+        player.GetDamage(DamageClass.Throwing) += 0.05f; 
+        player.GetDamage(DamageClass.Summon) += 0.05f;  
 		}
 
 		public override void AddRecipes()
 		{
-            Recipe recipe = CreateRecipe();
+        Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<SteelBar>(), 15);
-            recipe.AddIngredient(ModContent.ItemType<PhantomSoul>(), 4);
-            //recipe.SetResult(this);
-            recipe.AddTile(16);
-            recipe.Register();
-        }
+        recipe.AddIngredient(ModContent.ItemType<PhantomSoul>(), 4);
+        //recipe.SetResult(this);
+        recipe.AddTile(16);
+        recipe.Register();
+    }
 	}
-}

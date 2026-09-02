@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 
-namespace TremorMod.Content.NPCs.Bosses.TikiTotem
-{
+namespace TremorMod.Content.NPCs.Bosses.TikiTotem;
+
 	public class LizardPro : ModProjectile
 	{
 		public override void SetDefaults()
@@ -49,8 +49,7 @@ namespace TremorMod.Content.NPCs.Bosses.TikiTotem
 
 		public override void OnKill(int timeLeft)
 		{
-            IEntitySource source = Projectile.GetSource_FromThis();
-            NPC.NewNPC(source, (int)Projectile.Center.X, (int)Projectile.Center.Y, ModContent.NPCType<Lizard>());
-        }
+        IEntitySource source = Projectile.GetSource_FromThis();
+        NPC.NewNPC(source, (int)Projectile.Center.X, (int)Projectile.Center.Y, ModContent.NPCType<Lizard>());
+    }
 	}
-}

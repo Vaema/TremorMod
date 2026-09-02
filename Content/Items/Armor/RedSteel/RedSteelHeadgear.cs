@@ -1,18 +1,18 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using TremorMod.Content.Items.Materials.OreAndBar;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Armor.RedSteel
-{
+namespace TremorMod.Content.Items.Armor.RedSteel;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class RedSteelHeadgear : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 26;
 			Item.height = 20;
@@ -25,8 +25,8 @@ namespace TremorMod.Content.Items.Armor.RedSteel
 		{
 			// DisplayName.SetDefault("Red Steel Headgear");
 			// Tooltip.SetDefault("10% increased melee damage");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Grants chance to dodge attack");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Grants chance to dodge attack");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -40,18 +40,17 @@ namespace TremorMod.Content.Items.Armor.RedSteel
 
 		public override void UpdateArmorSet(Player p)
 		{
-            p.setBonus = SetBonusText.Value;
-            p.setBonus = "Grants chance to dodge attack";
+        p.setBonus = SetBonusText.Value;
+        p.setBonus = "Grants chance to dodge attack";
 			p.blackBelt = true;
 		}
 
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<RedSteelArmorPiece>(), 5);
-            recipe.AddIngredient(ModContent.ItemType<RedSteelBar>(), 7);
-            recipe.AddTile(16);
-            recipe.Register();
-        }
+    public override void AddRecipes()
+    {
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ModContent.ItemType<RedSteelArmorPiece>(), 5);
+        recipe.AddIngredient(ModContent.ItemType<RedSteelBar>(), 7);
+        recipe.AddTile(16);
+        recipe.Register();
     }
 }

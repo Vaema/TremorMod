@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
@@ -8,8 +8,8 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Placeable.Banners;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class QuartzBeetle : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -33,21 +33,21 @@ namespace TremorMod.Content.NPCs
 			NPC.HitSound = SoundID.NPCHit41;
 			NPC.DeathSound = SoundID.NPCDeath44;
 			NPC.value = Item.buyPrice(0, 0, 8, 0);
-            Banner = NPC.type;
-            BannerItem = ModContent.ItemType<QuartzBeetleBanner>();
-            ItemID.Sets.KillsToBanner[BannerItem] = 50;
-        }
+        Banner = NPC.type;
+        BannerItem = ModContent.ItemType<QuartzBeetleBanner>();
+        ItemID.Sets.KillsToBanner[BannerItem] = 50;
+    }
 
-        public override void OnKill()
+    public override void OnKill()
+    {
+        if (Main.rand.NextBool())
         {
-            if (Main.rand.NextBool())
-            {
-                int amount = Main.rand.Next(1, 2);
-                Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<PurpleQuartz>(), amount);
-            }
+            int amount = Main.rand.Next(1, 2);
+            Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<PurpleQuartz>(), amount);
         }
+    }
 
-        public override void HitEffect(NPC.HitInfo hit)
+    public override void HitEffect(NPC.HitInfo hit)
 		{
 			int hitDirection = hit.HitDirection;
 
@@ -63,4 +63,3 @@ namespace TremorMod.Content.NPCs
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 			=> Helper.NoZoneAllowWater(spawnInfo) && spawnInfo.Player.ZoneJungle && NPC.downedMoonlord && Main.hardMode && spawnInfo.SpawnTileY > Main.rockLayer ? 0.01f : 0f;
 	}
-}

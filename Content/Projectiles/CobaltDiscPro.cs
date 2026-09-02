@@ -1,15 +1,15 @@
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class CobaltDiscPro : ModProjectile
 	{
 		public override void SetDefaults()
 		{
-            Projectile.CloneDefaults(106);
+        Projectile.CloneDefaults(106);
 
-            AIType = 106;
-        }
+        AIType = 106;
+    }
 
 		public override void SetStaticDefaults()
 		{
@@ -18,4 +18,3 @@ namespace TremorMod.Content.Projectiles
 		}
 
 	}
-}

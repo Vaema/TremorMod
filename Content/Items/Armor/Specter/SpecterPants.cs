@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
@@ -6,8 +6,8 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Tiles;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.Specter
-{
+namespace TremorMod.Content.Items.Armor.Specter;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class SpecterPants : ModItem
 	{
@@ -34,13 +34,12 @@ namespace TremorMod.Content.Items.Armor.Specter
 			player.GetDamage(DamageClass.Summon) += 0.1f;
 		}
 	
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<CryptStone>(), 5);
-            recipe.AddIngredient(ModContent.ItemType<CursedCloth>(), 6);
-            recipe.AddTile(ModContent.TileType<MagicWorkbenchTile>());
-            recipe.Register();
-        }
+    public override void AddRecipes()
+    {
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ModContent.ItemType<CryptStone>(), 5);
+        recipe.AddIngredient(ModContent.ItemType<CursedCloth>(), 6);
+        recipe.AddTile(ModContent.TileType<MagicWorkbenchTile>());
+        recipe.Register();
     }
 }

@@ -1,10 +1,10 @@
-using Terraria;
+п»їusing Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Armor.Berserker
-{
+namespace TremorMod.Content.Items.Armor.Berserker;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class BerserkerChestplate : ModItem
 	{
@@ -18,26 +18,25 @@ namespace TremorMod.Content.Items.Armor.Berserker
 			Item.defense = 6;
 		}
 
-        /*public override void SetStaticDefaults()
+    /*public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Berserker Chestplate");
 			Tooltip.SetDefault("7% increased melee critical strike chance");
 		}*/
 
-        public override void UpdateEquip(Player player)
-        {
-            player.GetCritChance(DamageClass.Melee) += 7; // Увеличивает шанс крита для ближнего боя на 7%
-        }
+    public override void UpdateEquip(Player player)
+    {
+        player.GetCritChance(DamageClass.Melee) += 7; // Г“ГўГҐГ«ГЁГ·ГЁГўГ ГҐГІ ГёГ Г­Г± ГЄГ°ГЁГІГ  Г¤Г«Гї ГЎГ«ГЁГ¦Г­ГҐГЈГ® ГЎГ®Гї Г­Г  7%
+    }
 
 
-        public override void AddRecipes()
+    public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<SteelBar>(), 20);
-            recipe.AddIngredient(ModContent.ItemType<MinotaurHorn>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<EarthFragment>(), 10);
+        recipe.AddIngredient(ModContent.ItemType<SteelBar>(), 20);
+        recipe.AddIngredient(ModContent.ItemType<MinotaurHorn>(), 1);
+        recipe.AddIngredient(ModContent.ItemType<EarthFragment>(), 10);
 			recipe.AddTile(16);
 			recipe.Register();
 		}
 	}
-}

@@ -5,8 +5,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.NPCs.Bosses.Motherboard
-{
+namespace TremorMod.Content.NPCs.Bosses.Motherboard;
+
 	public class Clamper : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -148,4 +148,3 @@ namespace TremorMod.Content.NPCs.Bosses.Motherboard
 			NPC.rotation = NPC.AngleTo(NPC.target != -1 ? Main.player[NPC.target].Center : Motherboard.Center);
 		}	
 	}
-}

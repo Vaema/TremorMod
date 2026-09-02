@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Buffs
-{
+namespace TremorMod.Content.Buffs;
+
 	public class TatteredBannerBuff : ModBuff
 	{
 		public override void SetStaticDefaults()
@@ -24,4 +24,3 @@ namespace TremorMod.Content.Buffs
 			player.GetModPlayer<MPlayer>().alchemicalDamage += 0.25f;
 		}
 	}
-}

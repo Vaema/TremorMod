@@ -1,11 +1,11 @@
-using System.Linq;
+﻿using System.Linq;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 
-namespace TremorMod.Content.Items.SpaceWhaleItems
-{
+namespace TremorMod.Content.Items.SpaceWhaleItems;
+
 	[AutoloadEquip(EquipType.Wings)]
 	public class WhaleFlippers : ModItem
 	{
@@ -21,10 +21,10 @@ namespace TremorMod.Content.Items.SpaceWhaleItems
 
 		public override void SetStaticDefaults()
 		{
-            //DisplayName.SetDefault("Whale Flippers");
-            //Tooltip.SetDefault("Allows flight and slow fall");
-            ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(183, 9f, 1f);
-        }
+        //DisplayName.SetDefault("Whale Flippers");
+        //Tooltip.SetDefault("Allows flight and slow fall");
+        ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(183, 9f, 1f);
+    }
 
 		//these wings use the same values as the solar wings
 
@@ -49,4 +49,3 @@ namespace TremorMod.Content.Items.SpaceWhaleItems
 			acceleration *= 2.5f;
 		}
 	}
-}

@@ -1,4 +1,4 @@
-using System.Linq;
+ï»¿using System.Linq;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -13,8 +13,8 @@ using TremorMod.Content.Items.Crystal;
 using TremorMod.Content.Tiles;
 using TremorMod.Content.Items.Placeable.Banners;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class CometHead : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -42,46 +42,45 @@ namespace TremorMod.Content.NPCs
 			NPC.DeathSound = SoundID.NPCDeath5;
 			NPC.value = Item.buyPrice(0, 0, 4, 9);
 		}
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
 			npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<CometiteOre>(), 1, 2, 3));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ChargedCrystal>(), 1, 5, 6));
-        }
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ChargedCrystal>(), 1, 5, 6));
+    }
 
-        public override void HitEffect(NPC.HitInfo hit)
+    public override void HitEffect(NPC.HitInfo hit)
+    {
+        if (NPC.life <= 0)
         {
-            if (NPC.life <= 0)
+            // ÃˆÃ±Ã¯Ã®Ã«Ã¼Ã§Ã³Ã¥Ã¬ NPC.lastInteraction Ã¤Ã«Ã¿ Ã¯Ã®Ã«Ã³Ã·Ã¥Ã­Ã¨Ã¿ Ã¨Ã­Ã¤Ã¥ÃªÃ±Ã  Ã¨Ã£Ã°Ã®ÃªÃ 
+            int playerID = NPC.lastInteraction;
+
+            // Ã“Ã¡Ã¥Ã¦Ã¤Ã Ã¥Ã¬Ã±Ã¿, Ã·Ã²Ã® playerID Ã­Ã ÃµÃ®Ã¤Ã¨Ã²Ã±Ã¿ Ã¢ Ã¤Ã®Ã¯Ã³Ã±Ã²Ã¨Ã¬Ã®Ã¬ Ã¤Ã¨Ã Ã¯Ã Ã§Ã®Ã­Ã¥
+            if (playerID >= 0 && playerID < Main.maxPlayers)
             {
-                // Èñïîëüçóåì NPC.lastInteraction äëÿ ïîëó÷åíèÿ èíäåêñà èãðîêà
-                int playerID = NPC.lastInteraction;
+                Player player = Main.player[playerID]; // ÃÃ®Ã«Ã³Ã·Ã Ã¥Ã¬ Ã®Ã¡ÃºÃ¥ÃªÃ² Ã¨Ã£Ã°Ã®ÃªÃ 
+                float HitDirection = (player.position.X < NPC.position.X) ? -1f : 1f; // ÃŽÃ¯Ã°Ã¥Ã¤Ã¥Ã«Ã¿Ã¥Ã¬ Ã­Ã Ã¯Ã°Ã Ã¢Ã«Ã¥Ã­Ã¨Ã¥ Ã³Ã¤Ã Ã°Ã 
 
-                // Óáåæäàåìñÿ, ÷òî playerID íàõîäèòñÿ â äîïóñòèìîì äèàïàçîíå
-                if (playerID >= 0 && playerID < Main.maxPlayers)
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, 59, 2.5f * HitDirection, -2.5f, 0, default(Color), 1.7f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, 59, 2.5f * HitDirection, -2.5f, 0, default(Color), 2.7f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, 59, 2.5f * HitDirection, -2.5f, 0, default(Color), 0.7f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, 59, 2.5f * HitDirection, -2.5f, 0, default(Color), 2.7f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, 59, 2.5f * HitDirection, -2.5f, 0, default(Color), 0.7f);
+
+                for (int k = 0; k < 20; k++)
                 {
-                    Player player = Main.player[playerID]; // Ïîëó÷àåì îáúåêò èãðîêà
-                    float HitDirection = (player.position.X < NPC.position.X) ? -1f : 1f; // Îïðåäåëÿåì íàïðàâëåíèå óäàðà
-
                     Dust.NewDust(NPC.position, NPC.width, NPC.height, 59, 2.5f * HitDirection, -2.5f, 0, default(Color), 1.7f);
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, 59, 2.5f * HitDirection, -2.5f, 0, default(Color), 2.7f);
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, 59, 2.5f * HitDirection, -2.5f, 0, default(Color), 0.7f);
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, 59, 2.5f * HitDirection, -2.5f, 0, default(Color), 2.7f);
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, 59, 2.5f * HitDirection, -2.5f, 0, default(Color), 0.7f);
-
-                    for (int k = 0; k < 20; k++)
-                    {
-                        Dust.NewDust(NPC.position, NPC.width, NPC.height, 59, 2.5f * HitDirection, -2.5f, 0, default(Color), 1.7f);
-                        Dust.NewDust(NPC.position, NPC.width, NPC.height, 59, 2.5f * HitDirection, -2.5f, 0, default(Color), 0.6f);
-                        Dust.NewDust(NPC.position, NPC.width, NPC.height, 59, 2.5f * HitDirection, -2.5f, 0, default(Color), 1.7f);
-                        Dust.NewDust(NPC.position, NPC.width, NPC.height, 59, 2.5f * HitDirection, -2.5f, 0, default(Color), 0.6f);
-                    }
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, 59, 2.5f * HitDirection, -2.5f, 0, default(Color), 0.6f);
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, 59, 2.5f * HitDirection, -2.5f, 0, default(Color), 1.7f);
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, 59, 2.5f * HitDirection, -2.5f, 0, default(Color), 0.6f);
                 }
             }
         }
+    }
 
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+    public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
-			int[] cometTiles = { ModContent.TileType<CometiteOreTile>(), ModContent.TileType<HardCometiteOreTile>()};
+			int[] cometTiles = [ModContent.TileType<CometiteOreTile>(), ModContent.TileType<HardCometiteOreTile>()];
 			return cometTiles.Contains(Main.tile[spawnInfo.SpawnTileX, spawnInfo.SpawnTileY].TileType) ? 15f : 0f;
 		}
-    }
 }

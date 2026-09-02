@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
@@ -52,16 +52,16 @@ using TremorMod.Utilities;
 using TremorMod;
 using TremorMod.Content.Items.Armor.Chain;
 
-namespace TremorMod.Content.NPCs.TownNPCs
-{
+namespace TremorMod.Content.NPCs.TownNPCs;
+
 	[AutoloadHead]
 	public class LadyMoon : ModNPC
 	{
 		public override string Texture => $"{typeof(LadyMoon).NamespaceToPath()}/LadyMoon";
 
-        public override bool IsLoadingEnabled(Mod mod) => true;
+    public override bool IsLoadingEnabled(Mod mod) => true;
 
-        public override void SetStaticDefaults()
+    public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Lady Moon");
 			Main.npcFrameCount[NPC.type] = 21;
@@ -89,78 +89,78 @@ namespace TremorMod.Content.NPCs.TownNPCs
 			AnimationType = NPCID.Dryad;
 		}
 
-        public override bool CanTownNPCSpawn(int numTownNPCs)
+    public override bool CanTownNPCSpawn(int numTownNPCs)
+    {
+        foreach (Player player in Main.ActivePlayers)
         {
-            foreach (Player player in Main.ActivePlayers)
+            if (!NPC.downedMoonlord)
             {
-                if (!NPC.downedMoonlord)
-                {
-                    return true;
-                }
+                return true;
             }
-            return false;
         }
+        return false;
+    }
 
-        public override List<string> SetNPCNameList() => new List<string>()
-        {
-            this.GetLocalizedValue("Name.Atria"),
-            this.GetLocalizedValue("Name.Mintaka"),
-            this.GetLocalizedValue("Name.Nashira"),
-            this.GetLocalizedValue("Name.Rana"),
-            this.GetLocalizedValue("Name.Talita"),
-            this.GetLocalizedValue("Name.Zosma"),
-            this.GetLocalizedValue("Name.Pleyona")
-        };
+    public override List<string> SetNPCNameList() => new List<string>()
+    {
+        this.GetLocalizedValue("Name.Atria"),
+        this.GetLocalizedValue("Name.Mintaka"),
+        this.GetLocalizedValue("Name.Nashira"),
+        this.GetLocalizedValue("Name.Rana"),
+        this.GetLocalizedValue("Name.Talita"),
+        this.GetLocalizedValue("Name.Zosma"),
+        this.GetLocalizedValue("Name.Pleyona")
+    };
 
-        public override string GetChat()
-        {
-            WeightedRandom<string> dialogue = new WeightedRandom<string>();
+    public override string GetChat()
+    {
+        WeightedRandom<string> dialogue = new WeightedRandom<string>();
 
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal1"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal2"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal3"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal4"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal5"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal6"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal7"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal1"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal2"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal3"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal4"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal5"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal6"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal7"));
 
-            return dialogue;
-        }
+        return dialogue;
+    }
 
 		public override void SetChatButtons(ref string button, ref string button2)
 		{
 			button = Lang.inter[28].Value;
 		}
 
-        public override void OnChatButtonClicked(bool firstButton, ref string shopName)
-        {
-            if (firstButton)
-                shopName = "LadyMoon";
-        }
+    public override void OnChatButtonClicked(bool firstButton, ref string shopName)
+    {
+        if (firstButton)
+            shopName = "LadyMoon";
+    }
 
-        public override void AddShops()
-        {
-            var nightCondition = new Condition("NightTime", () => !Main.dayTime);
-            var bloodMoonCondition = new Condition("BloodMoon", () => Main.bloodMoon);
-            var eclipseCondition = new Condition("Eclipse", () => Main.eclipse);
+    public override void AddShops()
+    {
+        var nightCondition = new Condition("NightTime", () => !Main.dayTime);
+        var bloodMoonCondition = new Condition("BloodMoon", () => Main.bloodMoon);
+        var eclipseCondition = new Condition("Eclipse", () => Main.eclipse);
 
-            NPCShop shop = new(Type, "LadyMoon");
+        NPCShop shop = new(Type, "LadyMoon");
 
-            shop.Add(ModContent.ItemType<DimensionalTopHat>())
-                .Add(ModContent.ItemType<ExtraterrestrialRubies>())
-                .Add(ModContent.ItemType<UnchargedBand>());
+        shop.Add(ModContent.ItemType<DimensionalTopHat>())
+            .Add(ModContent.ItemType<ExtraterrestrialRubies>())
+            .Add(ModContent.ItemType<UnchargedBand>());
 
-            shop.Add(ModContent.ItemType<ManaBooster>(), nightCondition)
-                .Add(ModContent.ItemType<HealthBooster>(), nightCondition);
+        shop.Add(ModContent.ItemType<ManaBooster>(), nightCondition)
+            .Add(ModContent.ItemType<HealthBooster>(), nightCondition);
 
-            shop.Add(ModContent.ItemType<ChainedRocket>(), bloodMoonCondition);
+        shop.Add(ModContent.ItemType<ChainedRocket>(), bloodMoonCondition);
 
-            shop.Add(ModContent.ItemType<Infusion>(), eclipseCondition);
+        shop.Add(ModContent.ItemType<Infusion>(), eclipseCondition);
 
-            shop.Register(); 
-        }
+        shop.Register(); 
+    }
 
-        public override void TownNPCAttackStrength(ref int damage, ref float knockback)
+    public override void TownNPCAttackStrength(ref int damage, ref float knockback)
 		{
 			damage = 165;
 			knockback = 4f;
@@ -186,16 +186,15 @@ namespace TremorMod.Content.NPCs.TownNPCs
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
 				for(int i = 0; i < 3; ++i)
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FarmerGore1").Type, 1f);
-            }
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FarmerGore1").Type, 1f);
+        }
 		}
 	}
-}

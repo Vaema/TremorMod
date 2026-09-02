@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Event
-{
+namespace TremorMod.Content.Event;
+
 	public class InvasionData : ScreenShaderData
 	{
 		//private int invasionI;
@@ -29,4 +29,3 @@ namespace TremorMod.Content.Event
 			base.Apply();
 		}
 	}
-}

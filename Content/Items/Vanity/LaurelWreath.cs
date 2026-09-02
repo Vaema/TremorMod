@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Vanity
-{
+namespace TremorMod.Content.Items.Vanity;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class LaurelWreath : ModItem
 	{
@@ -16,11 +16,11 @@ namespace TremorMod.Content.Items.Vanity
 
 		public override void SetStaticDefaults()
 		{
-            //DisplayName.SetDefault("Laurel Wreath");
-            //Tooltip.SetDefault("'The latest fashion trend'");
-            base.SetStaticDefaults();
-            ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
-        }
+        //DisplayName.SetDefault("Laurel Wreath");
+        //Tooltip.SetDefault("'The latest fashion trend'");
+        base.SetStaticDefaults();
+        ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
+    }
 
 		public override void AddRecipes()
 		{
@@ -31,4 +31,3 @@ namespace TremorMod.Content.Items.Vanity
 			recipe.Register();
 		}
 	}
-}

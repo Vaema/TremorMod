@@ -1,15 +1,15 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 
-namespace TremorMod.Content.Items.Armor.Meteor
-{
+namespace TremorMod.Content.Items.Armor.Meteor;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class AncientMeteorHelmet : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
-        public override void SetDefaults()
+    public static LocalizedText SetBonusText { get; private set; }
+    public override void SetDefaults()
 		{
 
 			Item.width = 20;
@@ -24,8 +24,8 @@ namespace TremorMod.Content.Items.Armor.Meteor
 		{
 			// DisplayName.SetDefault("Ancient Meteor Helmet");
 			// Tooltip.SetDefault("7% increased magic damage");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Reduces the mana cost of the Space Gun to zero");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Reduces the mana cost of the Space Gun to zero");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -39,9 +39,8 @@ namespace TremorMod.Content.Items.Armor.Meteor
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Reduces the mana cost of the Space Gun to zero";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Reduces the mana cost of the Space Gun to zero";
 			player.spaceGun = true;
 		}
 	}
-}

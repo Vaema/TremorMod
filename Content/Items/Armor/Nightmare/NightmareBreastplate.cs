@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Armor.Nightmare
-{
+namespace TremorMod.Content.Items.Armor.Nightmare;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class NightmareBreastplate : ModItem
 	{
@@ -33,4 +33,3 @@ namespace TremorMod.Content.Items.Armor.Nightmare
 			recipe.Register();
 		}
 	}
-}

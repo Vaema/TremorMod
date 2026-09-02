@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 
-namespace TremorMod.Content.Items.Armor.Crystal
-{
+namespace TremorMod.Content.Items.Armor.Crystal;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class CrystalHelmet : ModItem
 	{
@@ -21,15 +21,15 @@ namespace TremorMod.Content.Items.Armor.Crystal
 
 		public override void SetStaticDefaults()
 		{
-            /*DisplayName.SetDefault("Crystal Helmet");
+        /*DisplayName.SetDefault("Crystal Helmet");
 			Tooltip.SetDefault("20% increased throwing damage");*/
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases movement speed");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases movement speed");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
-            player.GetDamage(DamageClass.Throwing) += 0.2f;
-        }
+        player.GetDamage(DamageClass.Throwing) += 0.2f;
+    }
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
@@ -38,8 +38,8 @@ namespace TremorMod.Content.Items.Armor.Crystal
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases movement speed");           
+        player.setBonus = SetBonusText.Value;
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases movement speed");           
 			player.moveSpeed += 0.25f;
 		}
 
@@ -58,4 +58,3 @@ namespace TremorMod.Content.Items.Armor.Crystal
 			recipe.Register();
 		}
 	}
-}

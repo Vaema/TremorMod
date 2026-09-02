@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Placeable
-{
+namespace TremorMod.Content.Items.Placeable;
+
 	public class GloomstoneWallItem : ModItem
 	{
 		public override void SetDefaults()
@@ -20,8 +20,8 @@ namespace TremorMod.Content.Items.Placeable
 			Item.useStyle = 1;
 			Item.rare = 3;
 			Item.consumable = true;
-            Item.createWall = ModContent.WallType<GloomstoneWall>();
-        }
+        Item.createWall = ModContent.WallType<GloomstoneWall>();
+    }
 
 		/*public override void SetStaticDefaults()
 		{
@@ -33,10 +33,9 @@ namespace TremorMod.Content.Items.Placeable
 		{
 			Recipe recipe = CreateRecipe();
 			recipe = Recipe.Create(ModContent.ItemType<GloomstoneWallItem>(), 4);
-            recipe.AddIngredient(ModContent.ItemType<Gloomstone>(), 1);
+        recipe.AddIngredient(ModContent.ItemType<Gloomstone>(), 1);
 			//recipe.SetResult(this, 4);
 			recipe.AddTile(17);
-            recipe.Register();	
-        }
+        recipe.Register();	
+    }
 	}
-}

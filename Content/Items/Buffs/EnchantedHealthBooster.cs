@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,8 +6,8 @@ using TremorMod.Content.Tiles;
 using TremorMod.Content.Buffs;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Buffs
-{
+namespace TremorMod.Content.Items.Buffs;
+
 	public class EnchantedHealthBooster : ModItem
 	{
 		public override void SetDefaults()
@@ -29,15 +29,15 @@ namespace TremorMod.Content.Items.Buffs
 			//Tooltip.SetDefault("Regenerates heatlh every 45 seconds");
 		}
 
-        public override void UseStyle(Player player, Rectangle heldItemFrame)
+    public override void UseStyle(Player player, Rectangle heldItemFrame)
+    {
+        if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
         {
-            if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
-            {
-                player.AddBuff(Item.buffType, 2700, true);
-            }
+            player.AddBuff(Item.buffType, 2700, true);
         }
+    }
 
-        public override void AddRecipes()
+    public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<HealthBooster>(), 1);
@@ -49,4 +49,3 @@ namespace TremorMod.Content.Items.Buffs
 			recipe.Register();
 		}
 	}
-}

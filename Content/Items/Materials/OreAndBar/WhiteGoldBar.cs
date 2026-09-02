@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Materials.OreAndBar
-{
+namespace TremorMod.Content.Items.Materials.OreAndBar;
+
 	public class WhiteGoldBar : ModItem
 	{
 		public override void SetDefaults()
@@ -41,4 +41,3 @@ namespace TremorMod.Content.Items.Materials.OreAndBar
 			recipe.Register();
 		}
 	}
-}

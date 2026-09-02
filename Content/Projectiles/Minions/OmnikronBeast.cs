@@ -6,8 +6,8 @@ using Terraria.ModLoader;
 using Terraria.DataStructures;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Projectiles.Minions
-{
+namespace TremorMod.Content.Projectiles.Minions;
+
 	public class OmnikronBeast : ModProjectile 
 	{
 		const int ShootRate = 15; // Частота выстрела (1 секунда = 60ед.)
@@ -44,41 +44,41 @@ namespace TremorMod.Content.Projectiles.Minions
 			return false;
 		}
 
-        void Shoot()
+    void Shoot()
+    {
+        if (--TimeToShoot <= 0)
         {
-            if (--TimeToShoot <= 0)
+            TimeToShoot = ShootRate;
+
+            float NearestNPCDist = ShootDistance;
+            int NearestNPC = -1;
+            foreach (NPC enemy in Main.npc) 
             {
-                TimeToShoot = ShootRate;
-
-                float NearestNPCDist = ShootDistance;
-                int NearestNPC = -1;
-                foreach (NPC enemy in Main.npc) 
+                if (!enemy.active)
+                    continue;
+                if (enemy.friendly || enemy.lifeMax <= 5)
+                    continue;
+                if (NearestNPCDist == -1 || enemy.Distance(Projectile.Center) < NearestNPCDist && Collision.CanHitLine(Projectile.Center, 16, 16, enemy.Center, 16, 16))
                 {
-                    if (!enemy.active)
-                        continue;
-                    if (enemy.friendly || enemy.lifeMax <= 5)
-                        continue;
-                    if (NearestNPCDist == -1 || enemy.Distance(Projectile.Center) < NearestNPCDist && Collision.CanHitLine(Projectile.Center, 16, 16, enemy.Center, 16, 16))
-                    {
-                        NearestNPCDist = enemy.Distance(Projectile.Center);
-                        NearestNPC = enemy.whoAmI;
-                    }
+                    NearestNPCDist = enemy.Distance(Projectile.Center);
+                    NearestNPC = enemy.whoAmI;
                 }
-                if (NearestNPC == -1)
-                    return;
-
-                NPC targetNPC = Main.npc[NearestNPC];
-
-                IEntitySource source = this.Projectile.GetSource_FromThis();
-
-                Vector2 velocity = Helper.VelocityToPoint(Projectile.Center, targetNPC.Center, ShootSpeed);
-
-                Projectile.NewProjectile(source, Projectile.Center, velocity, ShootType, ShootDamage, ShootKnockback, Projectile.owner);
             }
+            if (NearestNPC == -1)
+                return;
+
+            NPC targetNPC = Main.npc[NearestNPC];
+
+            IEntitySource source = this.Projectile.GetSource_FromThis();
+
+            Vector2 velocity = Helper.VelocityToPoint(Projectile.Center, targetNPC.Center, ShootSpeed);
+
+            Projectile.NewProjectile(source, Projectile.Center, velocity, ShootType, ShootDamage, ShootKnockback, Projectile.owner);
         }
+    }
 
 
-        public override void AI()
+    public override void AI()
 		{
 			Shoot();
 			Projectile.ai[1] = 1;
@@ -113,4 +113,3 @@ namespace TremorMod.Content.Projectiles.Minions
 		}
 
 	}
-}

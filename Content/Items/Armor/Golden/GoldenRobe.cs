@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.Golden
-{
+namespace TremorMod.Content.Items.Armor.Golden;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class GoldenRobe : ModItem
 	{
@@ -25,8 +25,7 @@ namespace TremorMod.Content.Items.Armor.Golden
 
 		public override void UpdateEquip(Player player)
 		{
-            player.GetDamage(DamageClass.Magic) -= 0.05f;
+        player.GetDamage(DamageClass.Magic) -= 0.05f;
 			player.statManaMax2 += 40;
 		}
 	}
-}

@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Vanity
-{
+namespace TremorMod.Content.Items.Vanity;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class OrangeKnightHelmet : ModItem
 	{
@@ -32,4 +32,3 @@ namespace TremorMod.Content.Items.Vanity
 			recipe.Register();
 		}
 	}
-}

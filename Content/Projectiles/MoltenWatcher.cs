@@ -6,8 +6,8 @@ using Terraria.ModLoader;
 using TremorMod.Utilities;
 using TremorMod;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class MoltenWatcher : ModProjectile
 	{
 		const int ShootRate = 35; // Частота выстрела (1 секунда = 60ед.)
@@ -64,22 +64,22 @@ namespace TremorMod.Content.Projectiles
 						NearestNPC = npc.whoAmI;
 					}
 				}
-                if (NearestNPC == -1)
-                    return;
+            if (NearestNPC == -1)
+                return;
 
-                Vector2 velocity = Helper.VelocityToPointM(Projectile.Center, Main.npc[NearestNPC].Center, ShootSpeed);
+            Vector2 velocity = Helper.VelocityToPointM(Projectile.Center, Main.npc[NearestNPC].Center, ShootSpeed);
 
-                Projectile.NewProjectile(
-                    Projectile.GetSource_FromThis(), 
-                    Projectile.Center,              
-                    velocity,                        
-                    ShootType,                     
-                    ShootDamage,                      
-                    ShootKnockback,                   
-                    Projectile.owner                
-                );
-            }
+            Projectile.NewProjectile(
+                Projectile.GetSource_FromThis(), 
+                Projectile.Center,              
+                velocity,                        
+                ShootType,                     
+                ShootDamage,                      
+                ShootKnockback,                   
+                Projectile.owner                
+            );
         }
+    }
 
 		public override void AI()
 		{
@@ -116,4 +116,3 @@ namespace TremorMod.Content.Projectiles
 		}
 
 	}
-}

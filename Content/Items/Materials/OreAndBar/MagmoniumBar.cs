@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Materials.OreAndBar
-{
+namespace TremorMod.Content.Items.Materials.OreAndBar;
+
 	public class MagmoniumBar : ModItem
 	{
 		public override void SetDefaults()
@@ -31,12 +31,11 @@ namespace TremorMod.Content.Items.Materials.OreAndBar
 
 		public override void AddRecipes()
 		{
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.HellstoneBar, 1);
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ItemID.HellstoneBar, 1);
 			recipe.AddIngredient(ItemID.Ectoplasm, 2);
 			//recipe.SetResult(this);
 			recipe.AddTile(133);
-            recipe.Register();
-        }
+        recipe.Register();
+    }
 	}
-}

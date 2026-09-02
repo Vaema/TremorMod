@@ -1,12 +1,12 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Weapons.Ranged
-{
+namespace TremorMod.Content.Items.Weapons.Ranged;
+
 	public class TheUltimateBoomstick : ModItem
 	{
 		public override void SetDefaults()
@@ -42,27 +42,27 @@ namespace TremorMod.Content.Items.Weapons.Ranged
 		}
 
 
-        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    {
+        int projectileType = ProjectileID.MoonlordBullet;
+
+        if (Main.rand.NextBool(4))
         {
-            int projectileType = ProjectileID.MoonlordBullet;
-
-            if (Main.rand.NextBool(4))
-            {
-                projectileType = ProjectileID.LunarFlare;
-            }
-
-            for (int i = 0; i < 1; ++i) // Will shoot 3 bullets.
-            {
-                Projectile.NewProjectile(source, position, velocity + new Vector2(2, 2), projectileType, damage, knockback, player.whoAmI);
-                Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), projectileType, damage, knockback, player.whoAmI);
-                Projectile.NewProjectile(source, position, velocity, projectileType, damage, knockback, player.whoAmI);
-                Projectile.NewProjectile(source, position, velocity + new Vector2(-1, -1), projectileType, damage, knockback, player.whoAmI);
-                Projectile.NewProjectile(source, position, velocity + new Vector2(-2, -2), projectileType, damage, knockback, player.whoAmI);
-            }
-            return false;
+            projectileType = ProjectileID.LunarFlare;
         }
 
-        public override void AddRecipes()
+        for (int i = 0; i < 1; ++i) // Will shoot 3 bullets.
+        {
+            Projectile.NewProjectile(source, position, velocity + new Vector2(2, 2), projectileType, damage, knockback, player.whoAmI);
+            Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), projectileType, damage, knockback, player.whoAmI);
+            Projectile.NewProjectile(source, position, velocity, projectileType, damage, knockback, player.whoAmI);
+            Projectile.NewProjectile(source, position, velocity + new Vector2(-1, -1), projectileType, damage, knockback, player.whoAmI);
+            Projectile.NewProjectile(source, position, velocity + new Vector2(-2, -2), projectileType, damage, knockback, player.whoAmI);
+        }
+        return false;
+    }
+
+    public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<VoidBar>(), 5);
@@ -74,4 +74,3 @@ namespace TremorMod.Content.Items.Weapons.Ranged
 			recipe.Register();
 		}
 	}
-}

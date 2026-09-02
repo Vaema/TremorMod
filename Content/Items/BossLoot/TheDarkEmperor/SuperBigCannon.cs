@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Items.BossLoot.TheDarkEmperor
-{
+namespace TremorMod.Content.Items.BossLoot.TheDarkEmperor;
+
 	public class SuperBigCannon : ModItem
 	{
 		public override void SetDefaults()
@@ -39,4 +39,3 @@ namespace TremorMod.Content.Items.BossLoot.TheDarkEmperor
 			return new Vector2(-18, -4);
 		}
 	}
-}

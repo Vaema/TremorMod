@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Buffs
-{
+namespace TremorMod.Content.Buffs;
+
 	public class BottledSoulOfMightBuff : ModBuff
 	{
 		public override void SetStaticDefaults()
@@ -21,4 +21,3 @@ namespace TremorMod.Content.Buffs
 			player.GetDamage(DamageClass.Magic) += 0.05f;
 		}
 	}
-}

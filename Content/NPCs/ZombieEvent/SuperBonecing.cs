@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
@@ -11,8 +11,8 @@ using TremorMod.Content.Items.Placeable.Banners;
 using TremorMod.Content.Items.Vanity;
 using TremorMod.Content.Items;
 
-namespace TremorMod.Content.NPCs.ZombieEvent
-{
+namespace TremorMod.Content.NPCs.ZombieEvent;
+
 
 	public class SuperBonecing : ModNPC
 	{
@@ -49,4 +49,3 @@ namespace TremorMod.Content.NPCs.ZombieEvent
 			}
 		}
 	}
-}

@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.CyberKing
-{
+namespace TremorMod.Content.Items.CyberKing;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class CyberKingMask : ModItem
 	{
@@ -21,4 +21,3 @@ namespace TremorMod.Content.Items.CyberKing
 			Tooltip.SetDefault("");*/
 		}
 	}
-}

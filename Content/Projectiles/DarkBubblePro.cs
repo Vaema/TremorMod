@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class DarkBubblePro : ModProjectile
 	{
 		public override void SetDefaults()
@@ -60,23 +60,22 @@ namespace TremorMod.Content.Projectiles
 				Main.dust[num159].velocity *= 2.5f;
 				Main.dust[num159].velocity -= Projectile.oldVelocity / 10f;
 			}
-            if (Main.myPlayer == Projectile.owner)
+        if (Main.myPlayer == Projectile.owner)
+        {
+            int num160 = Main.rand.Next(0, 0); 
+            for (int num161 = 0; num161 < num160; num161++)
             {
-                int num160 = Main.rand.Next(0, 0); 
-                for (int num161 = 0; num161 < num160; num161++)
+                Vector2 value12 = new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101));
+                while (value12.X == 0f && value12.Y == 0f)
                 {
-                    Vector2 value12 = new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101));
-                    while (value12.X == 0f && value12.Y == 0f)
-                    {
-                        value12 = new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101));
-                    }
-                    value12.Normalize();
-                    value12 *= Main.rand.Next(70, 101) * 0.1f;
-                    IEntitySource source = Projectile.GetSource_FromThis();
-                    Projectile.NewProjectile(source, Projectile.oldPosition.X + Projectile.width / 2, Projectile.oldPosition.Y + Projectile.height / 2, value12.X, value12.Y, 400, (int)(Projectile.damage * 0.8), Projectile.knockBack * 2.8f, Projectile.owner, 0f, 0f);
+                    value12 = new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101));
                 }
+                value12.Normalize();
+                value12 *= Main.rand.Next(70, 101) * 0.1f;
+                IEntitySource source = Projectile.GetSource_FromThis();
+                Projectile.NewProjectile(source, Projectile.oldPosition.X + Projectile.width / 2, Projectile.oldPosition.Y + Projectile.height / 2, value12.X, value12.Y, 400, (int)(Projectile.damage * 0.8), Projectile.knockBack * 2.8f, Projectile.owner, 0f, 0f);
             }
-
         }
+
     }
 }

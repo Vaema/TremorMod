@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Biomes.Ruins.Items
-{
+namespace TremorMod.Content.Biomes.Ruins.Items;
+
 	public class RuinKey : ModItem
 	{
 		public override void SetDefaults()
@@ -21,4 +21,3 @@ namespace TremorMod.Content.Biomes.Ruins.Items
 		}*/
 
 	}
-}

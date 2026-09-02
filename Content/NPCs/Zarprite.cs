@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
@@ -9,8 +9,8 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Placeable.Banners;
 using TremorMod.Content.Items.Vanity;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class Zarprite : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -34,20 +34,20 @@ namespace TremorMod.Content.NPCs
 			NPC.noGravity = true;
 			NPC.DeathSound = SoundID.NPCDeath57;
 			NPC.value = Item.buyPrice(0, 0, 15, 0);
-            Banner = NPC.type;
-            BannerItem = ModContent.ItemType<ZarpriteBanner>();
-            ItemID.Sets.KillsToBanner[BannerItem] = 50;
-        }
+        Banner = NPC.type;
+        BannerItem = ModContent.ItemType<ZarpriteBanner>();
+        ItemID.Sets.KillsToBanner[BannerItem] = 50;
+    }
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ZarpriteGore").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ZarpriteGore").Type, 1f);
 
-                if (Main.netMode == 1) return;
+            if (Main.netMode == 1) return;
 
 				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X - 6, (int)NPC.position.Y + 6, ModContent.NPCType<Parasprite>());
 				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + 6, (int)NPC.position.Y, ModContent.NPCType<Parasprite>());
@@ -58,4 +58,3 @@ namespace TremorMod.Content.NPCs
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 			=> (Helper.NoZoneAllowWater(spawnInfo)) && spawnInfo.SpawnTileY > Main.rockLayer ? 0.01f : 0f;
 	}
-}

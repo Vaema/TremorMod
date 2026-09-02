@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
@@ -52,16 +52,16 @@ using TremorMod.Utilities;
 using TremorMod;
 using TremorMod.Content.Items.Armor.Chain;
 
-namespace TremorMod.Content.NPCs.TownNPCs
-{
+namespace TremorMod.Content.NPCs.TownNPCs;
+
 	[AutoloadHead]
 	public class Professor : ModNPC
 	{
 		public override string Texture => $"{typeof(Professor).NamespaceToPath()}/Professor";
 
-        public override bool IsLoadingEnabled(Mod mod) => true;
+    public override bool IsLoadingEnabled(Mod mod) => true;
 
-        public override void SetStaticDefaults()
+    public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Professor");
 			Main.npcFrameCount[NPC.type] = 25;
@@ -89,77 +89,77 @@ namespace TremorMod.Content.NPCs.TownNPCs
 			AnimationType = NPCID.GoblinTinkerer;
 		}
 
-        public override bool CanTownNPCSpawn(int numTownNPCs)
+    public override bool CanTownNPCSpawn(int numTownNPCs)
+    {
+        foreach (Player player in Main.ActivePlayers)
         {
-            foreach (Player player in Main.ActivePlayers)
+            if (!Main.hardMode)
             {
-                if (!Main.hardMode)
-                {
-                    return true;
-                }
+                return true;
             }
-            return false;
         }
+        return false;
+    }
 
-        public override List<string> SetNPCNameList() => new List<string>()
-        {
-            this.GetLocalizedValue("Name.James"),
-            this.GetLocalizedValue("Name.Harold"),
-            this.GetLocalizedValue("Name.Steven"),
-            this.GetLocalizedValue("Name.David"),
-            this.GetLocalizedValue("Name.John"),
-            this.GetLocalizedValue("Name.BrusBunner"),
-            this.GetLocalizedValue("Name.Alfred")
-        };
+    public override List<string> SetNPCNameList() => new List<string>()
+    {
+        this.GetLocalizedValue("Name.James"),
+        this.GetLocalizedValue("Name.Harold"),
+        this.GetLocalizedValue("Name.Steven"),
+        this.GetLocalizedValue("Name.David"),
+        this.GetLocalizedValue("Name.John"),
+        this.GetLocalizedValue("Name.BrusBunner"),
+        this.GetLocalizedValue("Name.Alfred")
+    };
 
-        public override string GetChat()
-        {
-            WeightedRandom<string> dialogue = new WeightedRandom<string>();
+    public override string GetChat()
+    {
+        WeightedRandom<string> dialogue = new WeightedRandom<string>();
 
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal1"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal2"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal3"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal4"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal5"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal6"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal7"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal1"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal2"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal3"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal4"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal5"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal6"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal7"));
 
-            return dialogue;
-        }
+        return dialogue;
+    }
 
 		public override void SetChatButtons(ref string button, ref string button2)
 		{
 			button = Lang.inter[28].Value;
 		}
 
-        public override void OnChatButtonClicked(bool firstButton, ref string shopName)
-        {
-            if (firstButton)
-                shopName = "Professor";
-        }
+    public override void OnChatButtonClicked(bool firstButton, ref string shopName)
+    {
+        if (firstButton)
+            shopName = "Professor";
+    }
 
-        public override void AddShops()
-        {
-            var downedAncientCultistCondition = new Condition("DownedAncientCultist", () => NPC.downedAncientCultist);
-            var downedMechBossAnyCondition = new Condition("DownedMechBossAny", () => NPC.downedMechBossAny);
+    public override void AddShops()
+    {
+        var downedAncientCultistCondition = new Condition("DownedAncientCultist", () => NPC.downedAncientCultist);
+        var downedMechBossAnyCondition = new Condition("DownedMechBossAny", () => NPC.downedMechBossAny);
 
-            NPCShop shop = new(Type, "Professor");
+        NPCShop shop = new(Type, "Professor");
 
-            shop.Add(ModContent.ItemType<DimensionalTopHat>())
-                .Add(ItemID.HangingSkeleton)
-                .Add(ModContent.ItemType<LifeMachine>())
-                .Add(ModContent.ItemType<AncientTechnology>())
-                .Add(ModContent.ItemType<BagofDust>())
-                .Add(ModContent.ItemType<UnchargedBand>());
+        shop.Add(ModContent.ItemType<DimensionalTopHat>())
+            .Add(ItemID.HangingSkeleton)
+            .Add(ModContent.ItemType<LifeMachine>())
+            .Add(ModContent.ItemType<AncientTechnology>())
+            .Add(ModContent.ItemType<BagofDust>())
+            .Add(ModContent.ItemType<UnchargedBand>());
 
-            shop.Add(ModContent.ItemType<ManaGenerator>(), downedAncientCultistCondition);
+        shop.Add(ModContent.ItemType<ManaGenerator>(), downedAncientCultistCondition);
 
-            shop.Add(ModContent.ItemType<ChaoticAmplifier>(), downedMechBossAnyCondition);
+        shop.Add(ModContent.ItemType<ChaoticAmplifier>(), downedMechBossAnyCondition);
 
-            shop.Register(); 
-        }
+        shop.Register(); 
+    }
 
-        public override void TownNPCAttackStrength(ref int damage, ref float knockback)
+    public override void TownNPCAttackStrength(ref int damage, ref float knockback)
 		{
 			damage = 40;
 			knockback = 4f;
@@ -171,14 +171,14 @@ namespace TremorMod.Content.NPCs.TownNPCs
 			randExtraCooldown = 5;
 		}
 
-        public override void DrawTownAttackSwing(ref Texture2D item, ref Rectangle itemFrame, ref int itemSize, ref float scale, ref Vector2 offset)/* tModPorter Note: closeness is now horizontalHoldoutOffset, use 'horizontalHoldoutOffset = Main.DrawPlayerItemPos(1f, itemtype) - originalClosenessValue' to adjust to the change. See docs for how to use hook with an item type. */ //Allows you to customize how this town NPC's weapon is drawn when this NPC is shooting (this NPC must have an attack type of 1). Scale is a multiplier for the item's drawing size, item is the ID of the item to be drawn, and closeness is how close the item should be drawn to the NPC.
-        {
+    public override void DrawTownAttackSwing(ref Texture2D item, ref Rectangle itemFrame, ref int itemSize, ref float scale, ref Vector2 offset)/* tModPorter Note: closeness is now horizontalHoldoutOffset, use 'horizontalHoldoutOffset = Main.DrawPlayerItemPos(1f, itemtype) - originalClosenessValue' to adjust to the change. See docs for how to use hook with an item type. */ //Allows you to customize how this town NPC's weapon is drawn when this NPC is shooting (this NPC must have an attack type of 1). Scale is a multiplier for the item's drawing size, item is the ID of the item to be drawn, and closeness is how close the item should be drawn to the NPC.
+    {
 			scale = 1f;
-            item = TextureAssets.Item[ModContent.ItemType<AlienBlaster>()].Value;
-            itemSize = 14;
+        item = TextureAssets.Item[ModContent.ItemType<AlienBlaster>()].Value;
+        itemSize = 14;
 		}
 
-        public override void TownNPCAttackProj(ref int projType, ref int attackDelay)//Allows you to determine the projectile type of this town NPC's attack, and how long it takes for the projectile to actually appear
+    public override void TownNPCAttackProj(ref int projType, ref int attackDelay)//Allows you to determine the projectile type of this town NPC's attack, and how long it takes for the projectile to actually appear
 		{
 			projType = 440;
 			attackDelay = 1;
@@ -191,16 +191,15 @@ namespace TremorMod.Content.NPCs.TownNPCs
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
 				for (int i = 0; i < 3; ++i)
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ProfessorGore1").Type, 1f);
-            }
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ProfessorGore1").Type, 1f);
+        }
 		}
 	}
-}

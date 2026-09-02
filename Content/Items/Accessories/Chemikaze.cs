@@ -1,12 +1,12 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
 using TremorMod.Content.Items.HeaterOfWorldsItems;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class Chemikaze : ModItem
 	{
 		/*public override bool CanEquipAccessory(Player player, int slot)
@@ -52,9 +52,8 @@ namespace TremorMod.Content.Items.Accessories
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-            MPlayer modPlayer = player.GetModPlayer<MPlayer>();
-            player.AddBuff(ModContent.BuffType<ChemikazeBuff>(), 2);
-            modPlayer.enchanted = true;
+        MPlayer modPlayer = player.GetModPlayer<MPlayer>();
+        player.AddBuff(ModContent.BuffType<ChemikazeBuff>(), 2);
+        modPlayer.enchanted = true;
 		}
 	}
-}

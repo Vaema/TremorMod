@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles; 
 
-namespace TremorMod.Content.Items.Placeable
-{
+namespace TremorMod.Content.Items.Placeable;
+
 	public class RedBrickChimney : ModItem
 	{
 		public override void SetDefaults()
@@ -37,4 +37,3 @@ namespace TremorMod.Content.Items.Placeable
 			recipe.Register();
 		}
 	}
-}

@@ -1,10 +1,10 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Biomes.Ice.Items
-{
+namespace TremorMod.Content.Biomes.Ice.Items;
+
 	public class GlacierKnivesProj : ModProjectile
 	{
 		public override void SetDefaults()
@@ -64,4 +64,3 @@ namespace TremorMod.Content.Biomes.Ice.Items
 		}
 
 	}
-}

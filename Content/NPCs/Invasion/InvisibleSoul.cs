@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -13,8 +13,8 @@ using TremorMod.Content.Items.Vanity;
 using TremorMod.Content.Items.Weapons.Melee;
 using TremorMod.Content.NPCs.Invasion.ParadoxTitan;
 
-namespace TremorMod.Content.NPCs.Invasion
-{
+namespace TremorMod.Content.NPCs.Invasion;
+
 	public class InvisibleSoul : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -54,19 +54,19 @@ namespace TremorMod.Content.NPCs.Invasion
 			return InvasionWorld.CyberWrath && y > Main.worldSurface ? 1f : 0f;
 		}
 
-        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
+    public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
+    {
+        if (Main.rand.NextBool())
         {
-            if (Main.rand.NextBool())
-            {
-                target.AddBuff(BuffID.VortexDebuff, 1000);
-            }
+            target.AddBuff(BuffID.VortexDebuff, 1000);
         }
+    }
 
-        public override void HitEffect(NPC.HitInfo hit)
+    public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 10; k++)
 				{
@@ -87,18 +87,18 @@ namespace TremorMod.Content.NPCs.Invasion
 			}
 		}
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        if (Main.netMode != 1)
         {
-            if (Main.netMode != 1)
-            {
-                int centerX = (int)(NPC.position.X + NPC.width / 2) / 16;
-                int centerY = (int)(NPC.position.Y + NPC.height / 2) / 16;
-                int halfLength = NPC.width / 2 / 16 + 1;
-                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ParadoxElement>(), 3, 5, 7));
-            }
+            int centerX = (int)(NPC.position.X + NPC.width / 2) / 16;
+            int centerY = (int)(NPC.position.Y + NPC.height / 2) / 16;
+            int halfLength = NPC.width / 2 / 16 + 1;
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ParadoxElement>(), 3, 5, 7));
         }
+    }
 
-        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
+    public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
 		{
 			NPC.lifeMax = NPC.lifeMax * 1;
 			NPC.damage = NPC.damage * 1;
@@ -283,4 +283,3 @@ namespace TremorMod.Content.NPCs.Invasion
 			}
 		}
 	}
-}

@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.Zerokk
-{
+namespace TremorMod.Content.Items.Armor.Zerokk;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class ZerokkBody : ModItem
 	{
@@ -31,4 +31,3 @@ namespace TremorMod.Content.Items.Armor.Zerokk
 			}
 		}
 	}
-}

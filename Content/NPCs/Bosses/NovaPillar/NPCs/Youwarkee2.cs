@@ -7,8 +7,8 @@ using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 using TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles;
 
-namespace TremorMod.Content.NPCs.Bosses.NovaPillar.NPCs
-{
+namespace TremorMod.Content.NPCs.Bosses.NovaPillar.NPCs;
+
 	public class Youwarkee2 : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -98,41 +98,41 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.NPCs
 			NovaAnimation();
 		}
 
-        /*public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
-        {
-            var texture = ModContent.Request<Texture2D>("NPCs/Bosses/NovaPillar/NPCs/Youwarkee2_GlowMask").Value;
-            //TremorUtils.DrawNPCGlowMask(spriteBatch, NPC, texture);
-        }*/
+    /*public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+    {
+        var texture = ModContent.Request<Texture2D>("NPCs/Bosses/NovaPillar/NPCs/Youwarkee2_GlowMask").Value;
+        //TremorUtils.DrawNPCGlowMask(spriteBatch, NPC, texture);
+    }*/
 
 
-        public override void HitEffect(NPC.HitInfo hit)
+    public override void HitEffect(NPC.HitInfo hit)
+    {
+        if (NPC.life <= 0)
         {
-            if (NPC.life <= 0)
+            if (NovaHandler.ShieldStrength > 0)
             {
-                if (NovaHandler.ShieldStrength > 0)
+                int parentIndex = NPC.FindFirstNPC(Mod.Find<ModNPC>("NovaPillar").Type);
+                if (parentIndex >= 0)
                 {
-                    int parentIndex = NPC.FindFirstNPC(Mod.Find<ModNPC>("NovaPillar").Type);
-                    if (parentIndex >= 0)
-                    {
-                        NPC parent = Main.npc[parentIndex];
-                        Vector2 Velocity = Helper.VelocityToPoint(NPC.Center, parent.Center, 20);
-                        Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center, Velocity, Mod.Find<ModProjectile>("CogLordLaser").Type, 1, 1f);
-                    }
+                    NPC parent = Main.npc[parentIndex];
+                    Vector2 Velocity = Helper.VelocityToPoint(NPC.Center, parent.Center, 20);
+                    Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center, Velocity, Mod.Find<ModProjectile>("CogLordLaser").Type, 1, 1f);
                 }
-                for (int i = 0; i < 5; i++)
-                {
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, 57, Main.rand.NextFloat(-3f, 3f), Main.rand.NextFloat(-3f, 3f));
-                }
-                for (int i = 0; i < 2; i++)
-                {
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("YouwarkeeGore1").Type, 1f);
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("YouwarkeeGore2").Type, 1f);
-                }
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("YouwarkeeGore3").Type, 1f);
             }
+            for (int i = 0; i < 5; i++)
+            {
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, 57, Main.rand.NextFloat(-3f, 3f), Main.rand.NextFloat(-3f, 3f));
+            }
+            for (int i = 0; i < 2; i++)
+            {
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("YouwarkeeGore1").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("YouwarkeeGore2").Type, 1f);
+            }
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("YouwarkeeGore3").Type, 1f);
         }
+    }
 
-        void NovaAnimation()
+    void NovaAnimation()
 		{
 			if (--TimeToAnimation <= 0)
 			{
@@ -148,4 +148,3 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.NPCs
 			return new Rectangle(0, NPC.frame.Height * (Number - 1), NPC.frame.Width, NPC.frame.Height);
 		}
 	}
-}

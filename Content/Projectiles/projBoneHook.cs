@@ -6,8 +6,8 @@ using Terraria.GameContent;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class projBoneHook : ModProjectile
 	{
 
@@ -51,8 +51,8 @@ namespace TremorMod.Content.Projectiles
 
 		public override bool PreDraw(ref Color lightColor)
 		{
-            SpriteBatch spriteBatch = Main.spriteBatch;
-            spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, new Rectangle((int)(Projectile.position - Main.screenPosition).X, (int)(Projectile.position - Main.screenPosition).Y, Projectile.width, Projectile.height), null, lightColor, Projectile.rotation, new Vector2(Projectile.width / 2, Projectile.height / 2), SpriteEffects.None, 0);
+        SpriteBatch spriteBatch = Main.spriteBatch;
+        spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, new Rectangle((int)(Projectile.position - Main.screenPosition).X, (int)(Projectile.position - Main.screenPosition).Y, Projectile.width, Projectile.height), null, lightColor, Projectile.rotation, new Vector2(Projectile.width / 2, Projectile.height / 2), SpriteEffects.None, 0);
 			return false;
 		}
 
@@ -61,18 +61,17 @@ namespace TremorMod.Content.Projectiles
 			return true;
 		}
 
-        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
-        {
-            if (NPC == -1 && !target.boss && !target.friendly && target.lifeMax > 5 && target.aiStyle != 6)
-                NPC = target.whoAmI;
-            TimeToHook = 1;
-        }
+    public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+    {
+        if (NPC == -1 && !target.boss && !target.friendly && target.lifeMax > 5 && target.aiStyle != 6)
+            NPC = target.whoAmI;
+        TimeToHook = 1;
+    }
 
 
-        public override bool OnTileCollide(Vector2 oldVelocity)
+    public override bool OnTileCollide(Vector2 oldVelocity)
 		{
 			TimeToHook = 1;
 			return base.OnTileCollide(oldVelocity);
 		}
-    }
 }

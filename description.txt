@@ -1,5 +1,7 @@
-Tremor mod port to 1.4
-Credits
+Tremor Mod Remastered, now ported to 1.4.
+
+Credits:
+
 Re-Logic - for creating Terraria
 Bluemagic123 - big thanks for creating tModLoader and helping with code
 Jopojelly - for a lot help with the code
@@ -19,9 +21,8 @@ Mr.Pigeon - for making some sprites and animation sheets
 Jofairden - For previous work on refactoring the mod
 Iggysaur - For various resprites
 Vaklyrie - For various resprites
-Original Forums https://forums.terraria.org/index.php?threads/tremor-remastered-discontinued.28695/
-Original wiki https://tremormod.fandom.com/wiki/Tremor_Mod_Wiki
-My source code https://github.com/Sernk/Tremor-mod
-The mod is not completely finished yet. I hope someone will finish it, as I will probably not work on it anymore. Overall, the port is finished, but not in perfect condition.
-Need help fixing broken sprites and rendering animations
 
+Links:
+
+Original forums: https://forums.terraria.org/index.php?threads/tremor-remastered-discontinued.28695/
+Original wiki: https://tremormod.fandom.com/wiki/Tremor_Mod_Wiki

@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 
-namespace TremorMod.Content.Items.Armor.Argite
-{
+namespace TremorMod.Content.Items.Armor.Argite;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class ArgiteBreastplate : ModItem
 	{
@@ -25,16 +25,15 @@ namespace TremorMod.Content.Items.Armor.Argite
 
 		public override void UpdateEquip(Player player)
 		{
-            player.GetDamage(DamageClass.Melee) += 0.12f;
-        }
+        player.GetDamage(DamageClass.Melee) += 0.12f;
+    }
 
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<ArgiteBar>(), 22);
-            //recipe.SetResult(this);
+        recipe.AddIngredient(ModContent.ItemType<ArgiteBar>(), 22);
+        //recipe.SetResult(this);
 			recipe.AddTile(16);
 			recipe.Register();
 		}
 	}
-}

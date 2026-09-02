@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Materials.OreAndBar
-{
+namespace TremorMod.Content.Items.Materials.OreAndBar;
+
 	public class ArgiteBar : ModItem
 	{
 		public override void SetDefaults()
@@ -32,10 +32,9 @@ namespace TremorMod.Content.Items.Materials.OreAndBar
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<ArgiteOre>(), 4);
-            //recipe.SetResult(this);
+        recipe.AddIngredient(ModContent.ItemType<ArgiteOre>(), 4);
+        //recipe.SetResult(this);
 			recipe.AddTile(17);
 			recipe.Register();
 		}
 	}
-}

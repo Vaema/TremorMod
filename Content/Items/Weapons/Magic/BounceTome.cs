@@ -1,18 +1,18 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Items.Weapons.Magic
-{
+namespace TremorMod.Content.Items.Weapons.Magic;
+
 	public class BounceTome : ModItem
 	{
 		public override void SetDefaults()
 		{
 			Item.CloneDefaults(165);
 			Item.damage = 20;
-            Item.DamageType = DamageClass.Magic;
-            Item.width = 26;
+        Item.DamageType = DamageClass.Magic;
+        Item.width = 26;
 			Item.maxStack = 1;
 			Item.height = 30;
 			Item.useTime = 15;
@@ -33,4 +33,3 @@ namespace TremorMod.Content.Items.Weapons.Magic
 			//Tooltip.SetDefault("Summons bouncy ball of gel");
 		}
 	}
-}

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -14,8 +14,8 @@ using TremorMod.Content.Items.Weapons.Magic;
 using TremorMod.Content.Items.Placeable.Banners;
 using TremorMod.Content.Items.Vanity;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class Polaris : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -43,18 +43,18 @@ namespace TremorMod.Content.NPCs
 			// Todo: bannerItem = mod.ItemType("PolarisBanner");
 		}
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FrostFreshness>(), 20));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FrostCore>(), 2));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<IceSoul>(), 5));
-        }
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FrostFreshness>(), 20));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FrostCore>(), 2));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<IceSoul>(), 5));
+    }
 
-        public override void HitEffect(NPC.HitInfo hit)
+    public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
 				{
@@ -62,11 +62,11 @@ namespace TremorMod.Content.NPCs
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 80, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.8f);
 				}
 
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PolarisGore1").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PolarisGore2").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PolarisGore2").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PolarisGore3").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PolarisGore3").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PolarisGore1").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PolarisGore2").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PolarisGore2").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PolarisGore3").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PolarisGore3").Type, 1f);
 
 				Dust.NewDust(NPC.position, NPC.width, NPC.height, 80, 2.5f * hitDirection, -2.5f, 0, default(Color), 1f);
 				Dust.NewDust(NPC.position, NPC.width, NPC.height, 80, 2.5f * hitDirection, -2.5f, 0, default(Color), 2f);
@@ -78,4 +78,3 @@ namespace TremorMod.Content.NPCs
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 			=> Helper.NoZoneAllowWater(spawnInfo) && Main.cloudAlpha > 0f && spawnInfo.SpawnTileY < Main.worldSurface && spawnInfo.Player.ZoneSnow ? 0.03f : 0f;
 	}
-}

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -10,8 +10,8 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Vanity;
 using TremorMod.Content.Items.Placeable;
 
-namespace TremorMod.Content.NPCs.Bosses.FungusBeetle
-{
+namespace TremorMod.Content.NPCs.Bosses.FungusBeetle;
+
 	public class GreatFungusBug : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -40,14 +40,14 @@ namespace TremorMod.Content.NPCs.Bosses.FungusBeetle
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FungalBugGore1").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FungalBugGore1").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FungalBugGore2").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FungalBugGore3").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FungalBugGore1").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FungalBugGore1").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FungalBugGore2").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FungalBugGore3").Type, 1f);
 				for (int k = 0; k < 60; k++)
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 67, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				for (int k = 0; k < 20; k++)
@@ -60,4 +60,3 @@ namespace TremorMod.Content.NPCs.Bosses.FungusBeetle
 			}
 		}
 	}
-}

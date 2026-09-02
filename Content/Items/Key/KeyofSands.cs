@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Key
-{
+namespace TremorMod.Content.Items.Key;
+
 	public class KeyofSands : ModItem
 	{
 		public override void SetDefaults()
@@ -31,4 +31,3 @@ namespace TremorMod.Content.Items.Key
 			recipe.Register();
 		}
 	}
-}

@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+п»їusing Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles.Minions;
 
-namespace TremorMod.Content.Items.Weapons.Summon
-{
+namespace TremorMod.Content.Items.Weapons.Summon;
+
 	public class BrambleStaff : ModItem
 	{
 
@@ -40,16 +40,16 @@ namespace TremorMod.Content.Items.Weapons.Summon
 			return true;
 		}
 
-        public override bool? UseItem(Player player)
+    public override bool? UseItem(Player player)
+    {
+        if (player.altFunctionUse == 2)
         {
-            if (player.altFunctionUse == 2)
-            {
-                player.MinionNPCTargetAim(true); // Или false, в зависимости от того, что вам нужно
-            }
-            return base.UseItem(player);
+            player.MinionNPCTargetAim(true); // Г€Г«ГЁ false, Гў Г§Г ГўГЁГ±ГЁГ¬Г®Г±ГІГЁ Г®ГІ ГІГ®ГЈГ®, Г·ГІГ® ГўГ Г¬ Г­ГіГ¦Г­Г®
         }
+        return base.UseItem(player);
+    }
 
-        public override void AddRecipes()
+    public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.JungleSpores, 10);
@@ -60,9 +60,9 @@ namespace TremorMod.Content.Items.Weapons.Summon
 			recipe.Register();
 		}
 
-        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockBack)
+    public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockBack)
 		{
-            Vector2 SPos = Main.screenPosition + new Vector2(Main.mouseX, Main.mouseY);
+        Vector2 SPos = Main.screenPosition + new Vector2(Main.mouseX, Main.mouseY);
 			position = SPos;
 			for (int l = 0; l < Main.projectile.Length; l++)
 			{
@@ -75,4 +75,3 @@ namespace TremorMod.Content.Items.Weapons.Summon
 			return player.altFunctionUse != 2;
 		}
 	}
-}

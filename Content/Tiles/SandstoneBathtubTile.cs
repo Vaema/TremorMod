@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+п»їusing Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
@@ -9,38 +9,37 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using TremorMod.Content.Items.Placeable;
 
-namespace TremorMod.Content.Tiles
+namespace TremorMod.Content.Tiles;
+
+public class SandstoneBathtubTile : ModTile
 {
-    public class SandstoneBathtubTile : ModTile
+    public override void SetStaticDefaults()
     {
-        public override void SetStaticDefaults()
-        {
-            Main.tileFrameImportant[Type] = true;
-            Main.tileLavaDeath[Type] = true;
+        Main.tileFrameImportant[Type] = true;
+        Main.tileLavaDeath[Type] = true;
 
-            TileObjectData.newTile.CopyFrom(TileObjectData.Style4x2); // Этот стиль автоматически учитывает направление
-            TileObjectData.newTile.CoordinateHeights = new[] { 16, 16 };
-            TileObjectData.addTile(Type);
+        TileObjectData.newTile.CopyFrom(TileObjectData.Style4x2); // ГќГІГ®ГІ Г±ГІГЁГ«Гј Г ГўГІГ®Г¬Г ГІГЁГ·ГҐГ±ГЄГЁ ГіГ·ГЁГІГ»ГўГ ГҐГІ Г­Г ГЇГ°Г ГўГ«ГҐГ­ГЁГҐ
+        TileObjectData.newTile.CoordinateHeights = [16, 16];
+        TileObjectData.addTile(Type);
 
-            // Добавление в массивы для функционала кровати
-            TileID.Sets.CanBeSleptIn[Type] = true; // Указывает, что плитка может быть использована как кровать
-            TileID.Sets.IsValidSpawnPoint[Type] = true; // Позволяет установить точку возрождения
+        // Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ Гў Г¬Г Г±Г±ГЁГўГ» Г¤Г«Гї ГґГіГ­ГЄГ¶ГЁГ®Г­Г Г«Г  ГЄГ°Г®ГўГ ГІГЁ
+        TileID.Sets.CanBeSleptIn[Type] = true; // Г“ГЄГ Г§Г»ГўГ ГҐГІ, Г·ГІГ® ГЇГ«ГЁГІГЄГ  Г¬Г®Г¦ГҐГІ ГЎГ»ГІГј ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­Г  ГЄГ ГЄ ГЄГ°Г®ГўГ ГІГј
+        TileID.Sets.IsValidSpawnPoint[Type] = true; // ГЏГ®Г§ГўГ®Г«ГїГҐГІ ГіГ±ГІГ Г­Г®ГўГЁГІГј ГІГ®Г·ГЄГі ГўГ®Г§Г°Г®Г¦Г¤ГҐГ­ГЁГї
 
-            AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable); // Добавляет, чтобы плитка считалась как стол (если нужно)
-            AddMapEntry(new Color(233, 211, 123), CreateMapEntryName());
-        }
-
-        public override void MouseOver(int i, int j)
-        {
-            Player player = Main.LocalPlayer;
-
-            // Указываем, что игрок взаимодействует с предметом
-            player.noThrow = 2;
-            player.cursorItemIconEnabled = true;
-            player.cursorItemIconID = ModContent.ItemType<SandstoneBathtub>(); // Указываем иконку для отображения
-        }
-
-        // Переопределите метод для обработки взаимодействия с кроватью
-      
+        AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable); // Г„Г®ГЎГ ГўГ«ГїГҐГІ, Г·ГІГ®ГЎГ» ГЇГ«ГЁГІГЄГ  Г±Г·ГЁГІГ Г«Г Г±Гј ГЄГ ГЄ Г±ГІГ®Г« (ГҐГ±Г«ГЁ Г­ГіГ¦Г­Г®)
+        AddMapEntry(new Color(233, 211, 123), CreateMapEntryName());
     }
+
+    public override void MouseOver(int i, int j)
+    {
+        Player player = Main.LocalPlayer;
+
+        // Г“ГЄГ Г§Г»ГўГ ГҐГ¬, Г·ГІГ® ГЁГЈГ°Г®ГЄ ГўГ§Г ГЁГ¬Г®Г¤ГҐГ©Г±ГІГўГіГҐГІ Г± ГЇГ°ГҐГ¤Г¬ГҐГІГ®Г¬
+        player.noThrow = 2;
+        player.cursorItemIconEnabled = true;
+        player.cursorItemIconID = ModContent.ItemType<SandstoneBathtub>(); // Г“ГЄГ Г§Г»ГўГ ГҐГ¬ ГЁГЄГ®Г­ГЄГі Г¤Г«Гї Г®ГІГ®ГЎГ°Г Г¦ГҐГ­ГЁГї
+    }
+
+    // ГЏГҐГ°ГҐГ®ГЇГ°ГҐГ¤ГҐГ«ГЁГІГҐ Г¬ГҐГІГ®Г¤ Г¤Г«Гї Г®ГЎГ°Г ГЎГ®ГІГЄГЁ ГўГ§Г ГЁГ¬Г®Г¤ГҐГ©Г±ГІГўГЁГї Г± ГЄГ°Г®ГўГ ГІГјГѕ
+  
 }

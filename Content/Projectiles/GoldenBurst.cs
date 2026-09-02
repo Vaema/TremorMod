@@ -3,10 +3,10 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class GoldenBurst : ModProjectile
-    {
+{
 
 		public override void SetDefaults()
 		{
@@ -72,4 +72,3 @@ namespace TremorMod.Content.Projectiles
 
 		}
 	}
-}

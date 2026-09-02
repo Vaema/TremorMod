@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.CogLordItems
-{
+namespace TremorMod.Content.Items.CogLordItems;
+
 	public class BrassNugget : ModItem
 	{
 		public override void SetDefaults()
@@ -22,4 +22,3 @@ namespace TremorMod.Content.Items.CogLordItems
 		}*/
 
 	}
-}

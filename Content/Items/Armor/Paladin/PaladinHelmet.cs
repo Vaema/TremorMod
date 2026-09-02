@@ -1,17 +1,17 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items.Armor.Paladin
-{
+namespace TremorMod.Content.Items.Armor.Paladin;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class PaladinHelmet : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 32;
 			Item.height = 26;
@@ -22,10 +22,10 @@ namespace TremorMod.Content.Items.Armor.Paladin
 
 		public override void SetStaticDefaults()
 		{
-            //DisplayName.SetDefault("Paladin Helmet");
-            //Tooltip.SetDefault("30% increased melee speed");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Summons a paladin hammer to protect you!");
-        }
+        //DisplayName.SetDefault("Paladin Helmet");
+        //Tooltip.SetDefault("30% increased melee speed");
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Summons a paladin hammer to protect you!");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -39,8 +39,8 @@ namespace TremorMod.Content.Items.Armor.Paladin
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Summons a paladin hammer to protect you!";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Summons a paladin hammer to protect you!";
 			player.AddBuff(ModContent.BuffType<PaladinBuff>(), 2);
 		}
 
@@ -49,4 +49,3 @@ namespace TremorMod.Content.Items.Armor.Paladin
 			player.armorEffectDrawOutlines = true;
 		}
 	}
-}

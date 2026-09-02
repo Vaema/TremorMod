@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
@@ -6,8 +6,8 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Tiles;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.Specter
-{
+namespace TremorMod.Content.Items.Armor.Specter;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class SpecterChestplate : ModItem
 	{
@@ -46,4 +46,3 @@ namespace TremorMod.Content.Items.Armor.Specter
 			recipe.Register();
 		}
 	}
-}

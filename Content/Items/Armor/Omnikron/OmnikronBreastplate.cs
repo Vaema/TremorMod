@@ -1,12 +1,12 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.Omnikron
-{
+namespace TremorMod.Content.Items.Armor.Omnikron;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class OmnikronBreastplate : ModItem
 	{
@@ -25,18 +25,18 @@ namespace TremorMod.Content.Items.Armor.Omnikron
 			//Tooltip.SetDefault("20% increased damage");
 		}
 
-        public override void ModifyTooltips(List<TooltipLine> tooltips)
+    public override void ModifyTooltips(List<TooltipLine> tooltips)
+    {
+        foreach (var tooltip in tooltips)
         {
-            foreach (var tooltip in tooltips)
+            if (tooltip.Mod == "Terraria" && tooltip.Name == "ItemName")
             {
-                if (tooltip.Mod == "Terraria" && tooltip.Name == "ItemName")
-                {
-                    tooltip.OverrideColor = new Color(238, 194, 73);
-                }
+                tooltip.OverrideColor = new Color(238, 194, 73);
             }
         }
+    }
 
-        public override void UpdateEquip(Player player)
+    public override void UpdateEquip(Player player)
 		{
 			player.GetDamage(DamageClass.Generic) += 0.2f;
 			player.GetModPlayer<MPlayer>().alchemicalDamage += 0.2f;
@@ -51,4 +51,3 @@ namespace TremorMod.Content.Items.Armor.Omnikron
 			recipe.Register();
 		}
 	}
-}

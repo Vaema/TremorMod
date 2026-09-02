@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Vanity
-{
+namespace TremorMod.Content.Items.Vanity;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class PurpleShelmet : ModItem
 	{
@@ -22,4 +22,3 @@ namespace TremorMod.Content.Items.Vanity
 			//Tooltip.SetDefault("");
 		}
 	}
-}

@@ -1,16 +1,16 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.Invar
-{
-    [AutoloadEquip(EquipType.Legs)]
-    internal class InvarGreaves : ModItem
+namespace TremorMod.Content.Items.Armor.Invar;
+
+[AutoloadEquip(EquipType.Legs)]
+internal class InvarGreaves : ModItem
 	{
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 22;
 			Item.height = 18;
@@ -19,24 +19,23 @@ namespace TremorMod.Content.Items.Armor.Invar
 			Item.defense = 2;
 		}
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
-        {
-            player.GetModPlayer<MPlayer>().damageReduction += 0.03f;
-        }
+    public override void UpdateAccessory(Player player, bool hideVisual)
+    {
+        player.GetModPlayer<MPlayer>().damageReduction += 0.03f;
+    }
 
-        /*public override void SafeStaticDefaults()
+    /*public override void SafeStaticDefaults()
 		{
 			DisplayName.SetDefault("Reinforced Invar Greaves");
 			Tooltip.SetDefault("Reinforced to grant +1 defense");
 		}*/
 
-        public override void AddRecipes()
+    public override void AddRecipes()
 		{
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<InvarBar>(), 12);
-            //recipe.SetResult(this);
-            recipe.AddTile((TileID.Anvils));
-            recipe.Register();
-        }
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ModContent.ItemType<InvarBar>(), 12);
+        //recipe.SetResult(this);
+        recipe.AddTile((TileID.Anvils));
+        recipe.Register();
+    }
 	}
-}

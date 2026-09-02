@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Materials.OreAndBar
-{
+namespace TremorMod.Content.Items.Materials.OreAndBar;
+
 	public class ChaosBar : ModItem
 	{
 		public override void SetDefaults()
@@ -29,4 +29,3 @@ namespace TremorMod.Content.Items.Materials.OreAndBar
 			Tooltip.SetDefault("");
 		}*/
 	}
-}

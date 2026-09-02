@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.BossSumonItems
-{
+namespace TremorMod.Content.Items.BossSumonItems;
+
 	public class BloodmoonPotion : ModItem
 	{
 		public override void SetDefaults()
@@ -51,4 +51,3 @@ namespace TremorMod.Content.Items.BossSumonItems
 			recipe.Register();
 		}
 	}
-}

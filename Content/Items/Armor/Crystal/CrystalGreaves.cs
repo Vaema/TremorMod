@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.Crystal
-{
+namespace TremorMod.Content.Items.Armor.Crystal;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class CrystalGreaves : ModItem
 	{
@@ -25,8 +25,8 @@ namespace TremorMod.Content.Items.Armor.Crystal
 
 		public override void UpdateEquip(Player player)
 		{
-            player.GetCritChance(DamageClass.Throwing) += 20;
-        }
+        player.GetCritChance(DamageClass.Throwing) += 20;
+    }
 
 		public override void AddRecipes()
 		{
@@ -38,4 +38,3 @@ namespace TremorMod.Content.Items.Armor.Crystal
 			recipe.Register();
 		}
 	}
-}

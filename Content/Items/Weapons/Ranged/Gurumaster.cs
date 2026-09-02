@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Items.Weapons.Ranged
-{
+namespace TremorMod.Content.Items.Weapons.Ranged;
+
 	public class Gurumaster : ModItem
 	{
 		public override void SetDefaults()
@@ -37,4 +37,3 @@ namespace TremorMod.Content.Items.Weapons.Ranged
 			return new Vector2(-10, -4);
 		}
 	}
-}

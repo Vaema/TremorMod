@@ -1,12 +1,12 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.Brutallisk
-{
+namespace TremorMod.Content.Items.Armor.Brutallisk;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class BrutalliskChestplate : ModItem
 	{
@@ -52,4 +52,3 @@ namespace TremorMod.Content.Items.Armor.Brutallisk
 			recipe.Register();
 		}
 	}
-}

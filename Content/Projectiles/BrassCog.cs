@@ -1,17 +1,17 @@
-using Terraria;
+п»їusing Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class BrassCog : ModProjectile
 	{
 		public override void SetDefaults()
 		{
-            Projectile.CloneDefaults(1);  // Использует параметры стандартного снаряда (например, для стрел)
-            Projectile.aiStyle = 1;
-        }
+        Projectile.CloneDefaults(1);  // Г€Г±ГЇГ®Г«ГјГ§ГіГҐГІ ГЇГ Г°Г Г¬ГҐГІГ°Г» Г±ГІГ Г­Г¤Г Г°ГІГ­Г®ГЈГ® Г±Г­Г Г°ГїГ¤Г  (Г­Г ГЇГ°ГЁГ¬ГҐГ°, Г¤Г«Гї Г±ГІГ°ГҐГ«)
+        Projectile.aiStyle = 1;
+    }
 
 		/*public override void SetStaticDefaults()
 		{
@@ -20,4 +20,3 @@ namespace TremorMod.Content.Projectiles
 		}*/
 
 	}
-}

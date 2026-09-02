@@ -1,7 +1,7 @@
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Vanity
-{
+namespace TremorMod.Content.Items.Vanity;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class CursedKnightBreastplate : ModItem
 	{
@@ -23,4 +23,3 @@ namespace TremorMod.Content.Items.Vanity
 		}
 
 	}
-}

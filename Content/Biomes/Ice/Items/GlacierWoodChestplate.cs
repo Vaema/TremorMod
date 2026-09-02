@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Biomes.Ice.Items
-{
+namespace TremorMod.Content.Biomes.Ice.Items;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class GlacierWoodChestplate : ModItem
 	{
@@ -31,4 +31,3 @@ namespace TremorMod.Content.Biomes.Ice.Items
 			recipe.Register();
 		}
 	}
-}

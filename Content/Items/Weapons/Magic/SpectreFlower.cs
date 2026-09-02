@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Items.Weapons.Magic
-{
+namespace TremorMod.Content.Items.Weapons.Magic;
+
 	public class SpectreFlower : ModItem
 	{
 		public override void SetDefaults()
@@ -36,11 +36,10 @@ namespace TremorMod.Content.Items.Weapons.Magic
 
 		public override void AddRecipes()
 		{
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.SpectreBar, 17);
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ItemID.SpectreBar, 17);
 			//recipe.SetResult(this);
 			recipe.AddTile(134);
 			recipe.Register();
 		}
 	}
-}

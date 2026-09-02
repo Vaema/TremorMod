@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
 using TremorMod.Content.Items.Vanity;
@@ -7,8 +7,8 @@ using TremorMod.Content.Items.Weapons.Melee;
 using TremorMod.Content.Items.Weapons.Magic;
 using TremorMod.Content.Items.Accessories;
 
-namespace TremorMod.Content.Items.Bag
-{
+namespace TremorMod.Content.Items.Bag;
+
 	public class AncientDragonBag : ModItem
 	{
 		public override void SetDefaults()
@@ -32,18 +32,17 @@ namespace TremorMod.Content.Items.Bag
 			return true;
 		}
 
-        public override void ModifyItemLoot(ItemLoot itemLoot)
+    public override void ModifyItemLoot(ItemLoot itemLoot)
 		{
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientDragonTrophy>(), 10));
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientDragonTrophy>(), 10));
 
-            itemLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<AncientDragonMask>(), 7));
+        itemLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<AncientDragonMask>(), 7));
 
-            itemLoot.Add(ItemDropRule.OneFromOptions(1,
-                ModContent.ItemType<Swordstorm>(),
-                ModContent.ItemType<DragonHead>(),
-                ModContent.ItemType<AncientTimesEdge>()));
+        itemLoot.Add(ItemDropRule.OneFromOptions(1,
+            ModContent.ItemType<Swordstorm>(),
+            ModContent.ItemType<DragonHead>(),
+            ModContent.ItemType<AncientTimesEdge>()));
 
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientSoul>(), 1));
-        }      
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientSoul>(), 1));
+    }      
 	}
-}

@@ -3,8 +3,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class AlchemistEmblem : ModItem
 	{
 		public override void SetDefaults()
@@ -28,4 +28,3 @@ namespace TremorMod.Content.Items.Accessories
 			player.GetModPlayer<MPlayer>().alchemicalDamage += 0.15f;
 		}
 	}
-}

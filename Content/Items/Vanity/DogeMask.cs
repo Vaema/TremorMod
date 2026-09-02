@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Vanity
-{
+namespace TremorMod.Content.Items.Vanity;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class DogeMask : ModItem
 	{
@@ -29,4 +29,3 @@ namespace TremorMod.Content.Items.Vanity
 			recipe.Register();
 		}
 	}
-}

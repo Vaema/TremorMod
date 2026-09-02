@@ -1,58 +1,57 @@
-using Microsoft.Xna.Framework;
+п»їusing Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles.Minions;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items.CyberKing
+namespace TremorMod.Content.Items.CyberKing;
+
+public class CyberStaff : ModItem
 {
-    public class CyberStaff : ModItem
+    public override void SetDefaults()
     {
-        public override void SetDefaults()
+        Item.damage = 62;
+        Item.DamageType = DamageClass.Summon;
+        Item.mana = 15;
+        Item.width = 26;
+        Item.height = 28;
+        Item.expert = true;
+        Item.useTime = 36;
+        Item.useAnimation = 36;
+        Item.useStyle = 1;
+        Item.knockBack = 3;
+        Item.value = Item.buyPrice(0, 3, 0, 0);
+        Item.rare = 7;
+        Item.UseSound = SoundID.Item44;
+        Item.shoot = ModContent.ProjectileType<CyberStaffPro>();
+        Item.shootSpeed = 2f;
+        Item.buffType = ModContent.BuffType<CyberSawBuff>();
+        Item.buffTime = 3600;
+    }
+
+    public override bool AltFunctionUse(Player player)
+    {
+        return true; // Г‚Г®Г§ГўГ°Г Г№Г ГҐГ¬ true, ГҐГ±Г«ГЁ ГЁГЈГ°Г®ГЄ ГЁГ±ГЇГ®Г«ГјГ§ГіГҐГІ Г Г«ГјГІГҐГ°Г­Г ГІГЁГўГ­ГіГѕ ГЄГ­Г®ГЇГЄГі
+    }
+
+    public override bool? UseItem(Player player)
+    {
+        // Г‹Г®ГЈГЁГЄГ  Г¤Г«Гї Г ГЄГІГЁГўГ Г¶ГЁГЁ Г Г«ГјГІГҐГ°Г­Г ГІГЁГўГ­Г®ГЈГ® ГЇГ®ГўГҐГ¤ГҐГ­ГЁГї
+        if (player.altFunctionUse == 2)
         {
-            Item.damage = 62;
-            Item.DamageType = DamageClass.Summon;
-            Item.mana = 15;
-            Item.width = 26;
-            Item.height = 28;
-            Item.expert = true;
-            Item.useTime = 36;
-            Item.useAnimation = 36;
-            Item.useStyle = 1;
-            Item.knockBack = 3;
-            Item.value = Item.buyPrice(0, 3, 0, 0);
-            Item.rare = 7;
-            Item.UseSound = SoundID.Item44;
-            Item.shoot = ModContent.ProjectileType<CyberStaffPro>();
-            Item.shootSpeed = 2f;
-            Item.buffType = ModContent.BuffType<CyberSawBuff>();
-            Item.buffTime = 3600;
+            player.MinionNPCTargetAim(false); // Г„ГҐГ«Г ГҐГ¬ Г¶ГҐГ«Гј Г¤Г«Гї Г¬ГЁГ­ГјГ®Г­Г , Г­ГҐ ГЁГЈГ­Г®Г°ГЁГ°ГіГї, ГҐГ±Г«ГЁ Г¶ГҐГ«Гј Г­ГҐ ГЁГ§Г¬ГҐГ­ГЁГ«Г Г±Гј
         }
+        return base.UseItem(player); // Г‚Г®Г§ГўГ°Г Г№Г ГҐГ¬ Г±ГІГ Г­Г¤Г Г°ГІГ­Г®ГҐ ГЇГ®ГўГҐГ¤ГҐГ­ГЁГҐ, Г±Г®ГµГ°Г Г­ГїГї ГІГЁГЇ bool?
+    }
 
-        public override bool AltFunctionUse(Player player)
+
+    public override void HoldItem(Player player)
+    {
+        // Г‹Г®ГЈГЁГЄГ  Г¤Г«Гї Г®ГЎГ»Г·Г­Г®ГЈГ® ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГї
+        if (player.altFunctionUse != 2)
         {
-            return true; // Возвращаем true, если игрок использует альтернативную кнопку
-        }
-
-        public override bool? UseItem(Player player)
-        {
-            // Логика для активации альтернативного поведения
-            if (player.altFunctionUse == 2)
-            {
-                player.MinionNPCTargetAim(false); // Делаем цель для миньона, не игнорируя, если цель не изменилась
-            }
-            return base.UseItem(player); // Возвращаем стандартное поведение, сохраняя тип bool?
-        }
-
-
-        public override void HoldItem(Player player)
-        {
-            // Логика для обычного использования
-            if (player.altFunctionUse != 2)
-            {
-                base.HoldItem(player);
-            }
+            base.HoldItem(player);
         }
     }
 }

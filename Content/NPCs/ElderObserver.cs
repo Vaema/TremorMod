@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.DataStructures;
@@ -9,8 +9,8 @@ using TremorMod.Content.Items.Weapons.Melee;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Placeable.Banners;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 
 	public class ElderObserver : ModNPC
 	{
@@ -45,10 +45,10 @@ namespace TremorMod.Content.NPCs
 			NPC.DeathSound = SoundID.NPCDeath6;
 			NPC.value = Item.buyPrice(0, 0, 55, 9);
 			TimeToShoot = 0;
-            Banner = NPC.type;
-            BannerItem = ModContent.ItemType<ElderObserverBanner>();
-            ItemID.Sets.KillsToBanner[BannerItem] = 50;
-        }
+        Banner = NPC.type;
+        BannerItem = ModContent.ItemType<ElderObserverBanner>();
+        ItemID.Sets.KillsToBanner[BannerItem] = 50;
+    }
 
 		public override void AI()
 		{
@@ -59,19 +59,19 @@ namespace TremorMod.Content.NPCs
 			}
 		}
 
-        void Shoot()
-        {
-            IEntitySource source = NPC.GetSource_FromAI();
-            Vector2 position = NPC.Center;
-            Vector2 velocity = Vector2.Normalize(Main.player[NPC.target].Center - NPC.Center) * ShootSpeed;
-            Projectile.NewProjectile(source, position, velocity, ShootType, ShootDamage, ShootKN);
-        }
+    void Shoot()
+    {
+        IEntitySource source = NPC.GetSource_FromAI();
+        Vector2 position = NPC.Center;
+        Vector2 velocity = Vector2.Normalize(Main.player[NPC.target].Center - NPC.Center) * ShootSpeed;
+        Projectile.NewProjectile(source, position, velocity, ShootType, ShootDamage, ShootKN);
+    }
 
-        public override void HitEffect(NPC.HitInfo hit)
+    public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
 				{
@@ -84,11 +84,11 @@ namespace TremorMod.Content.NPCs
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 5, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				}
 				for(int i = 0; i < 4; ++i)
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ElderObserverGore1").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ElderObserverGore2").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ElderObserverGore3").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ElderObserverGore4").Type, 1f);
-            }
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ElderObserverGore1").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ElderObserverGore2").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ElderObserverGore3").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ElderObserverGore4").Type, 1f);
+        }
 			else
 			{
 				for (int k = 0; k < hit.Damage / NPC.lifeMax * 50; k++)
@@ -100,21 +100,20 @@ namespace TremorMod.Content.NPCs
 			}
 		}
 
-        public override void OnKill()
+    public override void OnKill()
 		{
 			if (Main.rand.NextBool(10))
 			{
 				Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<Spearaxe>());
 			}
-            if (Main.rand.NextBool(10))
-            {
-                Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<ScarredReaper>());
-            }
+        if (Main.rand.NextBool(10))
+        {
+            Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<ScarredReaper>());
         }
+    }
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            return Main.hardMode && Main.expertMode && Main.bloodMoon && spawnInfo.SpawnTileY < Main.worldSurface ? 0.10f : 0f;
-        }
+    {
+        return Main.hardMode && Main.expertMode && Main.bloodMoon && spawnInfo.SpawnTileY < Main.worldSurface ? 0.10f : 0f;
     }
 }

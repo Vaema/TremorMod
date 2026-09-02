@@ -1,12 +1,12 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.BossSumonItems
-{
+namespace TremorMod.Content.Items.BossSumonItems;
+
 	public class DoomKey : ModItem
 	{
 		public override void SetDefaults()
@@ -53,4 +53,3 @@ namespace TremorMod.Content.Items.BossSumonItems
 		}
 
 	}
-}

@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.King
-{
+namespace TremorMod.Content.Items.Armor.King;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class KnightHelmet : ModItem
 	{
@@ -21,4 +21,3 @@ namespace TremorMod.Content.Items.Armor.King
 			//Tooltip.SetDefault("");
 		}
 	}
-}

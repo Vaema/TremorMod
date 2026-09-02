@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Armor.Granite
-{
+namespace TremorMod.Content.Items.Armor.Granite;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class GraniteChestplate : ModItem
 	{
@@ -35,4 +35,3 @@ namespace TremorMod.Content.Items.Armor.Granite
 		}
 
 	}
-}

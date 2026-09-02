@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Armor.Chain;
@@ -7,8 +7,8 @@ using TremorMod.Content.Items.Accessories;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.Chemist
-{
+namespace TremorMod.Content.Items.Armor.Chemist;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class ChemistPants : ModItem
 	{
@@ -43,4 +43,3 @@ namespace TremorMod.Content.Items.Armor.Chemist
 		}
 
 	}
-}

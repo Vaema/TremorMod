@@ -1,17 +1,17 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Armor.Salamander
-{
+namespace TremorMod.Content.Items.Armor.Salamander;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class SalamanderMask : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 28;
 			Item.height = 22;
@@ -24,8 +24,8 @@ namespace TremorMod.Content.Items.Armor.Salamander
 		{
 			//DisplayName.SetDefault("Salamander Mask");
 			//Tooltip.SetDefault("Increases movement speed");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases armor penetration by 5");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases armor penetration by 5");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -39,12 +39,12 @@ namespace TremorMod.Content.Items.Armor.Salamander
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Increases armor penetration by 5";
-            player.GetArmorPenetration(DamageClass.Generic) += 5;
-        }
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Increases armor penetration by 5";
+        player.GetArmorPenetration(DamageClass.Generic) += 5;
+    }
 
-        public override void AddRecipes()
+    public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<SalamanderSkin>(), 6);
@@ -53,4 +53,3 @@ namespace TremorMod.Content.Items.Armor.Salamander
 			recipe.Register();
 		}
 	}
-}

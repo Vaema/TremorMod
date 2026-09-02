@@ -1,32 +1,31 @@
-using Microsoft.Xna.Framework;
+п»їusing Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace TremorMod.Content.Tiles
-{
+namespace TremorMod.Content.Tiles;
+
 	public class SandstoneBookcaseTile : ModTile
 	{
-        public override void SetStaticDefaults()
-        {
-            // Настройки плитки
-            Main.tileSolidTop[Type] = true;
-            Main.tileFrameImportant[Type] = true;
-            Main.tileNoAttach[Type] = true;
-            Main.tileTable[Type] = true;
-            Main.tileLavaDeath[Type] = true;
+    public override void SetStaticDefaults()
+    {
+        // ГЌГ Г±ГІГ°Г®Г©ГЄГЁ ГЇГ«ГЁГІГЄГЁ
+        Main.tileSolidTop[Type] = true;
+        Main.tileFrameImportant[Type] = true;
+        Main.tileNoAttach[Type] = true;
+        Main.tileTable[Type] = true;
+        Main.tileLavaDeath[Type] = true;
 
-            // Конфигурация TileObjectData
-            TileObjectData.newTile.CopyFrom(TileObjectData.Style3x4); // Размер 3x4
-            TileObjectData.newTile.CoordinateHeights = new[] { 16, 16, 16, 16 }; // Высота каждой строки в пикселях
-            TileObjectData.addTile(Type);
+        // ГЉГ®Г­ГґГЁГЈГіГ°Г Г¶ГЁГї TileObjectData
+        TileObjectData.newTile.CopyFrom(TileObjectData.Style3x4); // ГђГ Г§Г¬ГҐГ° 3x4
+        TileObjectData.newTile.CoordinateHeights = [16, 16, 16, 16]; // Г‚Г»Г±Г®ГІГ  ГЄГ Г¦Г¤Г®Г© Г±ГІГ°Г®ГЄГЁ Гў ГЇГЁГЄГ±ГҐГ«ГїГµ
+        TileObjectData.addTile(Type);
 
-            // Указание, что эта плитка аналогична книжному шкафу
-            AdjTiles = new int[] { TileID.Bookcases };
+        // Г“ГЄГ Г§Г Г­ГЁГҐ, Г·ГІГ® ГЅГІГ  ГЇГ«ГЁГІГЄГ  Г Г­Г Г«Г®ГЈГЁГ·Г­Г  ГЄГ­ГЁГ¦Г­Г®Г¬Гі ГёГЄГ ГґГі
+        AdjTiles = [TileID.Bookcases];
 
-            // Карта
-            AddMapEntry(new Color(233, 211, 123), CreateMapEntryName());
-        }
+        // ГЉГ Г°ГІГ 
+        AddMapEntry(new Color(233, 211, 123), CreateMapEntryName());
     }
 }

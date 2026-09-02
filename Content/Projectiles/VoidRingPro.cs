@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.DataStructures;
@@ -6,8 +6,8 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class VoidRingPro : ModProjectile
 	{
 		public override void SetDefaults()
@@ -30,8 +30,8 @@ namespace TremorMod.Content.Projectiles
 
 		public override bool PreDraw(ref Color lightColor)
 		{
-            SpriteBatch spriteBatch = Main.spriteBatch;
-            Vector2 drawOrigin = new Vector2(TextureAssets.Projectile[Projectile.type].Value.Width * 0.5f, Projectile.height * 0.5f);
+        SpriteBatch spriteBatch = Main.spriteBatch;
+        Vector2 drawOrigin = new Vector2(TextureAssets.Projectile[Projectile.type].Value.Width * 0.5f, Projectile.height * 0.5f);
 			for (int k = 0; k < Projectile.oldPos.Length; k++)
 			{
 				Vector2 drawPos = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
@@ -60,34 +60,33 @@ namespace TremorMod.Content.Projectiles
 				Main.dust[num159].velocity *= 2.5f;
 				Main.dust[num159].velocity -= Projectile.oldVelocity / 10f;
 			}
-            if (Main.myPlayer == Projectile.owner)
+        if (Main.myPlayer == Projectile.owner)
+        {
+            Terraria.DataStructures.IEntitySource source = Projectile.GetSource_FromThis();
+            int num160 = Main.rand.Next(0, 0); 
+            for (int num161 = 0; num161 < num160; num161++)
             {
-                Terraria.DataStructures.IEntitySource source = Projectile.GetSource_FromThis();
-                int num160 = Main.rand.Next(0, 0); 
-                for (int num161 = 0; num161 < num160; num161++)
+                Vector2 value12 = new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101));
+                while (value12.X == 0f && value12.Y == 0f)
                 {
-                    Vector2 value12 = new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101));
-                    while (value12.X == 0f && value12.Y == 0f)
-                    {
-                        value12 = new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101));
-                    }
-                    value12.Normalize(); 
-                    value12 *= Main.rand.Next(70, 101) * 0.1f; 
-                    Vector2 position = Projectile.oldPosition + new Vector2(Projectile.width / 2, Projectile.height / 2);
-                    Projectile.NewProjectile(
-                        source,
-                        position,
-                        value12, 
-                        400, 
-                        (int)(Projectile.damage * 0.8), 
-                        Projectile.knockBack * 2.8f, 
-                        Projectile.owner, 
-                        0f, 
-                        0f  
-                    );
+                    value12 = new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101));
                 }
+                value12.Normalize(); 
+                value12 *= Main.rand.Next(70, 101) * 0.1f; 
+                Vector2 position = Projectile.oldPosition + new Vector2(Projectile.width / 2, Projectile.height / 2);
+                Projectile.NewProjectile(
+                    source,
+                    position,
+                    value12, 
+                    400, 
+                    (int)(Projectile.damage * 0.8), 
+                    Projectile.knockBack * 2.8f, 
+                    Projectile.owner, 
+                    0f, 
+                    0f  
+                );
             }
-
         }
+
     }
 }

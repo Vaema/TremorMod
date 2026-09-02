@@ -1,7 +1,7 @@
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 
 	public class ChainjawPro : ModProjectile
 	{
@@ -26,4 +26,3 @@ namespace TremorMod.Content.Projectiles
 		}
 
 	}
-}

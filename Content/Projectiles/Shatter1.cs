@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.Audio;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class Shatter1 : ModProjectile
 	{
 		public override void SetDefaults()
@@ -19,8 +19,8 @@ namespace TremorMod.Content.Projectiles
 			Projectile.light = 0.5f;
 		}
 
-        public void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-        {
+    public void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+    {
 			int newLife = 1;
 			Main.player[Projectile.owner].statLife += newLife;
 			Main.player[Projectile.owner].HealEffect(newLife);
@@ -46,9 +46,8 @@ namespace TremorMod.Content.Projectiles
 				}
 				Projectile.velocity *= 0.75f;
 				//Main.PlaySound(2, (int)Projectile.position.X, (int)Projectile.position.Y, 27);
-                SoundEngine.PlaySound(SoundID.Item12, Projectile.position);
-            }
+            SoundEngine.PlaySound(SoundID.Item12, Projectile.position);
+        }
 			return false;
 		}
 	}
-}

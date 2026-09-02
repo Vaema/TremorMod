@@ -1,12 +1,12 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items
-{
+namespace TremorMod.Content.Items;
+
 	public class TheArtifact : ModItem
 	{
 		public override void SetDefaults()
@@ -32,4 +32,3 @@ namespace TremorMod.Content.Items
 			}
 		}
 	}
-}

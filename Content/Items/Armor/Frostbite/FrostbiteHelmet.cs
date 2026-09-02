@@ -1,15 +1,15 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 
-namespace TremorMod.Content.Items.Armor.Frostbite
-{
+namespace TremorMod.Content.Items.Armor.Frostbite;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class FrostbiteHelmet : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
-        
+    public static LocalizedText SetBonusText { get; private set; }
+    
 		public override void SetDefaults()
 		{
 			Item.width = 32;
@@ -23,8 +23,8 @@ namespace TremorMod.Content.Items.Armor.Frostbite
 		{
 			//DisplayName.SetDefault("Frostbite Helmet");
 			//Tooltip.SetDefault("");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Grants immunity to frozen effect and to ice breaking");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Grants immunity to frozen effect and to ice breaking");
+    }
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
@@ -55,4 +55,3 @@ namespace TremorMod.Content.Items.Armor.Frostbite
 			recipe.Register();
 		}
 	}
-}

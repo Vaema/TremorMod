@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.NPCs.Bosses.Alchemaster
-{
+namespace TremorMod.Content.NPCs.Bosses.Alchemaster;
+
 	public class SparkingCloudPro : ModProjectile
 	{
 		public override void SetDefaults()
@@ -33,4 +33,3 @@ namespace TremorMod.Content.NPCs.Bosses.Alchemaster
 		}
 
 	}
-}

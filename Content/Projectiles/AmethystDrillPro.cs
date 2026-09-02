@@ -1,10 +1,10 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 
 	public class AmethystDrillPro : ModProjectile
 	{
@@ -18,8 +18,8 @@ namespace TremorMod.Content.Projectiles
 			Projectile.tileCollide = false;
 			Projectile.hide = true;
 			Projectile.ownerHitCheck = true;
-            Projectile.DamageType = DamageClass.Melee;
-        }
+        Projectile.DamageType = DamageClass.Melee;
+    }
 
 		/*public override void SetStaticDefaults()
 		{
@@ -32,4 +32,3 @@ namespace TremorMod.Content.Projectiles
 			Main.dust[dust].noGravity = true;
 		}
 	}
-}

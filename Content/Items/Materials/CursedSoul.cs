@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Materials
-{
+namespace TremorMod.Content.Items.Materials;
+
 	public class CursedSoul : ModItem
 	{
 		public override void SetDefaults()
@@ -14,7 +14,7 @@ namespace TremorMod.Content.Items.Materials
 			Item.value = 1000;
 			Item.rare = 4;
 			ItemID.Sets.ItemNoGravity[Item.type] = true;
-        }
+    }
 
 		public override void SetStaticDefaults()
 		{
@@ -22,4 +22,3 @@ namespace TremorMod.Content.Items.Materials
 			//Tooltip.SetDefault("");
 		}
 	}
-}

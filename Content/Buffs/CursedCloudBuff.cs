@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Buffs
-{
+namespace TremorMod.Content.Buffs;
+
 	public class CursedCloudBuff : ModBuff
 	{
 		public override void SetStaticDefaults()
@@ -11,4 +11,3 @@ namespace TremorMod.Content.Buffs
 			//Description.SetDefault("Alchemical weapons confuse your enemies");
 		}
 	}
-}

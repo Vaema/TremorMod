@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.Vile
-{
+namespace TremorMod.Content.Items.Armor.Vile;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class VileChestplate : ModItem
 	{
@@ -31,4 +31,3 @@ namespace TremorMod.Content.Items.Armor.Vile
 		}
 
 	}
-}

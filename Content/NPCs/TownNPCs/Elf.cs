@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
@@ -50,16 +50,16 @@ using TremorMod.Content.Projectiles;
 using TremorMod.Utilities;
 using TremorMod;
 
-namespace TremorMod.Content.NPCs.TownNPCs
-{
+namespace TremorMod.Content.NPCs.TownNPCs;
+
 	[AutoloadHead]
 	public class Elf : ModNPC
 	{
 		public override string Texture => $"{typeof(Elf).NamespaceToPath()}/Elf";
 
-        public override bool IsLoadingEnabled(Mod mod) => true;
+    public override bool IsLoadingEnabled(Mod mod) => true;
 
-        public override void SetStaticDefaults()
+    public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Elf");
 			Main.npcFrameCount[NPC.type] = 26;
@@ -87,80 +87,80 @@ namespace TremorMod.Content.NPCs.TownNPCs
 			AnimationType = NPCID.Guide;
 		}
 
-        public override bool CanTownNPCSpawn(int numTownNPCs)
+    public override bool CanTownNPCSpawn(int numTownNPCs)
+    {
+        foreach (Player player in Main.ActivePlayers)
         {
-            foreach (Player player in Main.ActivePlayers)
+            if (player.InventoryHas(ModContent.ItemType<SuspiciousLookingPresent>()))
             {
-                if (player.InventoryHas(ModContent.ItemType<SuspiciousLookingPresent>()))
-                {
-                    return true; 
-                }
+                return true; 
             }
-
-            return false; 
         }
 
-        public override List<string> SetNPCNameList() => new List<string>()
-        {
-            this.GetLocalizedValue("Name.Nick"),
-            this.GetLocalizedValue("Name.Elfie"),
-            this.GetLocalizedValue("Name.Jingle"),
-            this.GetLocalizedValue("Name.Sparkle"),
-            this.GetLocalizedValue("Name.Twinkle"),
-            this.GetLocalizedValue("Name.Elvis"),
-            this.GetLocalizedValue("Name.Peppermint"),
-            this.GetLocalizedValue("Name.Snowflake")
-        };
+        return false; 
+    }
 
-        public override string GetChat()
-        {
-            WeightedRandom<string> dialogue = new WeightedRandom<string>();
+    public override List<string> SetNPCNameList() => new List<string>()
+    {
+        this.GetLocalizedValue("Name.Nick"),
+        this.GetLocalizedValue("Name.Elfie"),
+        this.GetLocalizedValue("Name.Jingle"),
+        this.GetLocalizedValue("Name.Sparkle"),
+        this.GetLocalizedValue("Name.Twinkle"),
+        this.GetLocalizedValue("Name.Elvis"),
+        this.GetLocalizedValue("Name.Peppermint"),
+        this.GetLocalizedValue("Name.Snowflake")
+    };
 
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal1"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal2"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal3"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal4"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal5"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal6"));
+    public override string GetChat()
+    {
+        WeightedRandom<string> dialogue = new WeightedRandom<string>();
 
-            return dialogue;
-        }
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal1"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal2"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal3"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal4"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal5"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal6"));
+
+        return dialogue;
+    }
 
 		public override void SetChatButtons(ref string button, ref string button2)
 		{
 			button = Lang.inter[28].Value;
 		}
 
-        public override void OnChatButtonClicked(bool firstButton, ref string shopName)
-        {
-            if (firstButton)
-                shopName = "Elf";
-        }
+    public override void OnChatButtonClicked(bool firstButton, ref string shopName)
+    {
+        if (firstButton)
+            shopName = "Elf";
+    }
 
-        public override void AddShops()
-        {
-            var downedBoss1Condition = new Condition("DownedBoss1", () => NPC.downedBoss1);
-            var downedBoss3Condition = new Condition("DownedBoss3", () => NPC.downedBoss3);
-            var hardmodeCondition = new Condition("Hardmode", () => Main.hardMode);
+    public override void AddShops()
+    {
+        var downedBoss1Condition = new Condition("DownedBoss1", () => NPC.downedBoss1);
+        var downedBoss3Condition = new Condition("DownedBoss3", () => NPC.downedBoss3);
+        var hardmodeCondition = new Condition("Hardmode", () => Main.hardMode);
 
-            NPCShop shop = new(Type, "Elf");
+        NPCShop shop = new(Type, "Elf");
 
-            shop.Add(ModContent.ItemType<CandyCane>())
-                .Add(ModContent.ItemType<RedChristmasStocking>())
-                .Add(ModContent.ItemType<BlueChristmasStocking>())
-                .Add(ModContent.ItemType<GreenChristmasStocking>());
+        shop.Add(ModContent.ItemType<CandyCane>())
+            .Add(ModContent.ItemType<RedChristmasStocking>())
+            .Add(ModContent.ItemType<BlueChristmasStocking>())
+            .Add(ModContent.ItemType<GreenChristmasStocking>());
 
-            shop.Add(ModContent.ItemType<SnowShotgun>(), downedBoss1Condition)
-                .Add(ModContent.ItemType<CandyBow>(), downedBoss1Condition);
+        shop.Add(ModContent.ItemType<SnowShotgun>(), downedBoss1Condition)
+            .Add(ModContent.ItemType<CandyBow>(), downedBoss1Condition);
 
-            shop.Add(ModContent.ItemType<TheSnowBall>(), downedBoss3Condition);
+        shop.Add(ModContent.ItemType<TheSnowBall>(), downedBoss3Condition);
 
-            shop.Add(ModContent.ItemType<Blizzard>(), hardmodeCondition);
+        shop.Add(ModContent.ItemType<Blizzard>(), hardmodeCondition);
 
-            shop.Register(); 
-        }
+        shop.Register(); 
+    }
 
-        public override void TownNPCAttackStrength(ref int damage, ref float knockback)
+    public override void TownNPCAttackStrength(ref int damage, ref float knockback)
 		{
 			damage = 20;
 			knockback = 4f;
@@ -183,5 +183,4 @@ namespace TremorMod.Content.NPCs.TownNPCs
 			multiplier = 12f;
 			randomOffset = 2f;
 		}     
-    } 
-}
+} 

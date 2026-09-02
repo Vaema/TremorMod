@@ -1,16 +1,16 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 
-namespace TremorMod.Content.Items.Armor.Mythril
-{
+namespace TremorMod.Content.Items.Armor.Mythril;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class MythrilMask : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 28;
 			Item.height = 26;
@@ -21,10 +21,10 @@ namespace TremorMod.Content.Items.Armor.Mythril
 
 		public override void SetStaticDefaults()
 		{
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases your max number of minions");
-            //DisplayName.SetDefault("Mythril Mask");
-            //Tooltip.SetDefault("20% increased minion damage");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases your max number of minions");
+        //DisplayName.SetDefault("Mythril Mask");
+        //Tooltip.SetDefault("20% increased minion damage");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -38,8 +38,8 @@ namespace TremorMod.Content.Items.Armor.Mythril
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Increases your max number of minions";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Increases your max number of minions";
 			player.maxMinions += 2;
 		}
 
@@ -57,4 +57,3 @@ namespace TremorMod.Content.Items.Armor.Mythril
 			recipe.Register();
 		}
 	}
-}

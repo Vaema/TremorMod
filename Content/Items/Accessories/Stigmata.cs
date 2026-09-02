@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class Stigmata : ModItem
 	{
 		public override void SetDefaults()
@@ -27,28 +27,27 @@ namespace TremorMod.Content.Items.Accessories
 		{
 			if (player.statLife < 50)
 			{
-                player.GetDamage(DamageClass.Magic) += 0.20f;
-                player.GetDamage(DamageClass.Melee) += 0.20f;
-                player.GetDamage(DamageClass.Ranged) += 0.20f;
-            }
+            player.GetDamage(DamageClass.Magic) += 0.20f;
+            player.GetDamage(DamageClass.Melee) += 0.20f;
+            player.GetDamage(DamageClass.Ranged) += 0.20f;
+        }
 			if (player.statLife < 100)
 			{
-                player.GetDamage(DamageClass.Magic) += 0.15f;
-                player.GetDamage(DamageClass.Melee) += 0.15f;
-                player.GetDamage(DamageClass.Ranged) += 0.15f;
-            }
+            player.GetDamage(DamageClass.Magic) += 0.15f;
+            player.GetDamage(DamageClass.Melee) += 0.15f;
+            player.GetDamage(DamageClass.Ranged) += 0.15f;
+        }
 			if (player.statLife < 200)
 			{
-                player.GetDamage(DamageClass.Magic) += 0.10f;
-                player.GetDamage(DamageClass.Melee) += 0.10f;
-                player.GetDamage(DamageClass.Ranged) += 0.10f;
-            }
+            player.GetDamage(DamageClass.Magic) += 0.10f;
+            player.GetDamage(DamageClass.Melee) += 0.10f;
+            player.GetDamage(DamageClass.Ranged) += 0.10f;
+        }
 			if (player.statLife < 300)
 			{
-                player.GetDamage(DamageClass.Magic) += 0.5f;
-                player.GetDamage(DamageClass.Melee) += 0.5f;
-                player.GetDamage(DamageClass.Ranged) += 0.5f;
-            }
+            player.GetDamage(DamageClass.Magic) += 0.5f;
+            player.GetDamage(DamageClass.Melee) += 0.5f;
+            player.GetDamage(DamageClass.Ranged) += 0.5f;
+        }
 		}
 	}
-}

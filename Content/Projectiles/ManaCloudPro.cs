@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class ManaCloudPro : ModProjectile
-    {
+{
 		public override void SetDefaults()
 		{
 			Projectile.width = 40;
@@ -28,4 +28,3 @@ namespace TremorMod.Content.Projectiles
 			Main.player[Projectile.owner].ManaEffect(newLife);
 		}
 	}
-}

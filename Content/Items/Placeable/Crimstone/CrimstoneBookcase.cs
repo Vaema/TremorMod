@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles.Crimstone;
 
-namespace TremorMod.Content.Items.Placeable.Crimstone
-{
+namespace TremorMod.Content.Items.Placeable.Crimstone;
+
 	public class CrimstoneBookcase : ModItem
 	{
 		public override void SetDefaults()
@@ -40,4 +40,3 @@ namespace TremorMod.Content.Items.Placeable.Crimstone
 			recipe.Register();
 		}
 	}
-}

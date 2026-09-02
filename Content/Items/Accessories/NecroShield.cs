@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	[AutoloadEquip(EquipType.Shield)]
 	public class NecroShield : ModItem
 	{
@@ -30,4 +30,3 @@ namespace TremorMod.Content.Items.Accessories
 			player.GetDamage(DamageClass.Summon) += 0.1f;
 		}
 	}
-}

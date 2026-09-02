@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.NPCs.Bosses.TikiTotem;
 
-namespace TremorMod.Content.Items.BossSumonItems
-{
+namespace TremorMod.Content.Items.BossSumonItems;
+
 	public class MysteriousDrum : ModItem
 	{
 		public override void SetDefaults()
@@ -62,4 +62,3 @@ namespace TremorMod.Content.Items.BossSumonItems
 			recipe1.Register();
 		}
 	}
-}

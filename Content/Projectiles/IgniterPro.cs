@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class IgniterPro : ModProjectile
 	{
 		public override void SetDefaults()
@@ -85,7 +85,7 @@ namespace TremorMod.Content.Projectiles
 					}
 					value12.Normalize();
 					value12 *= Main.rand.Next(70, 101) * 0.1f;
-                    Projectile.NewProjectile(
+                Projectile.NewProjectile(
 						Projectile.GetSource_FromThis(), 
 						Projectile.Center,               
 						value12,                        
@@ -97,8 +97,7 @@ namespace TremorMod.Content.Projectiles
 						0f                               
 					);
 
-                }
             }
+        }
 		}
 	}
-}

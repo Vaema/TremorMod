@@ -1,17 +1,17 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.Cobalt
-{
+namespace TremorMod.Content.Items.Armor.Cobalt;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class CobaltHeader : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 20;
 			Item.height = 26;
@@ -24,8 +24,8 @@ namespace TremorMod.Content.Items.Armor.Cobalt
 		{
 			// DisplayName.SetDefault("Cobalt Header");
 			// Tooltip.SetDefault("18% increased thrown damage");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases thrown weapon velocity");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases thrown weapon velocity");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -39,8 +39,8 @@ namespace TremorMod.Content.Items.Armor.Cobalt
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Increases thrown weapon velocity";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Increases thrown weapon velocity";
 			player.ThrownVelocity += 0.25f;
 		}
 
@@ -56,4 +56,3 @@ namespace TremorMod.Content.Items.Armor.Cobalt
 			recipe.Register();
 		}
 	}
-}

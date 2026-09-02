@@ -1,9 +1,9 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Biomes.Ice.Dungeon
-{
+namespace TremorMod.Content.Biomes.Ice.Dungeon;
+
 	public class DungeonWall : ModWall
 	{
 		public override void SetStaticDefaults()
@@ -24,4 +24,3 @@ namespace TremorMod.Content.Biomes.Ice.Dungeon
 			b = 0.5f;
 		}
 	}
-}

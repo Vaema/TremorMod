@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.BossLoot.TikiTotem
-{
+namespace TremorMod.Content.Items.BossLoot.TikiTotem;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class HappyTotemMask : ModItem
 	{
@@ -21,4 +21,3 @@ namespace TremorMod.Content.Items.BossLoot.TikiTotem
 			//Tooltip.SetDefault("");
 		}
 	}
-}

@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class DesertSigil : ModItem
 	{
 
@@ -29,4 +29,3 @@ namespace TremorMod.Content.Items.Accessories
 			player.AddBuff(ModContent.BuffType<DesertSigilBuff>(), 60, true);
 		}
 	}
-}

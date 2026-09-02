@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Armor.Afterlife
-{
+namespace TremorMod.Content.Items.Armor.Afterlife;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class AfterlifeLeggings : ModItem
 	{
@@ -35,11 +35,10 @@ namespace TremorMod.Content.Items.Armor.Afterlife
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<SkullTeeth>(), 8);
-            recipe.AddIngredient(ModContent.ItemType<SteelBar>(), 16);
+        recipe.AddIngredient(ModContent.ItemType<SteelBar>(), 16);
 			//recipe.SetResult(this);
 			recipe.AddTile(134);
 			recipe.Register();
 		}
 
 	}
-}

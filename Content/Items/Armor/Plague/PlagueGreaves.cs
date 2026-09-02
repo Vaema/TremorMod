@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.Plague
-{
+namespace TremorMod.Content.Items.Armor.Plague;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class PlagueGreaves : ModItem
 	{
@@ -32,15 +32,14 @@ namespace TremorMod.Content.Items.Armor.Plague
 			player.GetModPlayer<MPlayer>().alchemicalDamage += 0.1f;
 		}
 
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.Silk, 16);
-            recipe.AddIngredient(ModContent.ItemType<PhantomSoul>(), 4);
-            recipe.AddIngredient(ModContent.ItemType<TearsofDeath>(), 8);
-            recipe.AddTile(16);
-            recipe.Register();
-        }
-
+    public override void AddRecipes()
+    {
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ItemID.Silk, 16);
+        recipe.AddIngredient(ModContent.ItemType<PhantomSoul>(), 4);
+        recipe.AddIngredient(ModContent.ItemType<TearsofDeath>(), 8);
+        recipe.AddTile(16);
+        recipe.Register();
     }
+
 }

@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -9,8 +9,8 @@ using Terraria.GameContent.ItemDropRules;
 using TremorMod.Content.Items.BossLoot.TheDarkEmperor;
 using TremorMod.Content.Items.Weapons.Melee;
 
-namespace TremorMod.Content.NPCs.Bosses.TheDarkEmperor
-{
+namespace TremorMod.Content.NPCs.Bosses.TheDarkEmperor;
+
 	[AutoloadBossHead]
 	public class TheDarkEmperorTwo : ModNPC
 	{
@@ -19,7 +19,7 @@ namespace TremorMod.Content.NPCs.Bosses.TheDarkEmperor
 		{
 			if (NPC.life <= 0)
 			{
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DEGore1").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DEGore1").Type, 1f);
 			}
 		}
 
@@ -53,8 +53,8 @@ namespace TremorMod.Content.NPCs.Bosses.TheDarkEmperor
 			NPC.npcSlots = 10f;
 		}
 
-        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float bossLifeScale, float balance)
-        {
+    public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float bossLifeScale, float balance)
+    {
 			NPC.lifeMax = (int)(NPC.lifeMax * 0.625f * bossLifeScale);
 			NPC.damage = (int)(NPC.damage * 0.6f);
 		}
@@ -173,33 +173,33 @@ namespace TremorMod.Content.NPCs.Bosses.TheDarkEmperor
 					{
 						NPC.ai[3] = -(float)num1324;
 					}
-                    if (NPC.ai[3] == 0f && Main.netMode != 1)
+                if (NPC.ai[3] == 0f && Main.netMode != 1)
+                {
+                    Vector2 vector159 = new Vector2(NPC.Center.X, NPC.Center.Y);
+                    vector159.X += NPC.velocity.X * 7f;
+                    float num1325 = Main.player[NPC.target].position.X + Main.player[NPC.target].width * 0.5f - vector159.X;
+                    float num1326 = Main.player[NPC.target].Center.Y - vector159.Y;
+                    float num1327 = (float)Math.Sqrt(num1325 * num1325 + num1326 * num1326);
+                    float num1328 = 6f;
+                    if (NPC.life < NPC.lifeMax * 0.75)
                     {
-                        Vector2 vector159 = new Vector2(NPC.Center.X, NPC.Center.Y);
-                        vector159.X += NPC.velocity.X * 7f;
-                        float num1325 = Main.player[NPC.target].position.X + Main.player[NPC.target].width * 0.5f - vector159.X;
-                        float num1326 = Main.player[NPC.target].Center.Y - vector159.Y;
-                        float num1327 = (float)Math.Sqrt(num1325 * num1325 + num1326 * num1326);
-                        float num1328 = 6f;
-                        if (NPC.life < NPC.lifeMax * 0.75)
-                        {
-                            num1328 = 7f;
-                        }
-                        if (NPC.life < NPC.lifeMax * 0.5)
-                        {
-                            num1328 = 8f;
-                        }
-                        if (NPC.life < NPC.lifeMax * 0.25)
-                        {
-                            num1328 = 9f;
-                        }
-                        num1327 = num1328 / num1327;
-                        num1325 *= num1327;
-                        num1326 *= num1327;
-                        Projectile.NewProjectile(NPC.GetSource_FromAI(), vector159.X, vector159.Y, num1325, num1326, ModContent.ProjectileType<FallingDarkServant>(), 54, 0f, Main.myPlayer, 0f, 0f);
+                        num1328 = 7f;
                     }
+                    if (NPC.life < NPC.lifeMax * 0.5)
+                    {
+                        num1328 = 8f;
+                    }
+                    if (NPC.life < NPC.lifeMax * 0.25)
+                    {
+                        num1328 = 9f;
+                    }
+                    num1327 = num1328 / num1327;
+                    num1325 *= num1327;
+                    num1326 *= num1327;
+                    Projectile.NewProjectile(NPC.GetSource_FromAI(), vector159.X, vector159.Y, num1325, num1326, ModContent.ProjectileType<FallingDarkServant>(), 54, 0f, Main.myPlayer, 0f, 0f);
                 }
-                else if (NPC.ai[3] < 0f)
+            }
+            else if (NPC.ai[3] < 0f)
 				{
 					NPC.ai[3] += 1f;
 				}
@@ -293,26 +293,26 @@ namespace TremorMod.Content.NPCs.Bosses.TheDarkEmperor
 						num1332 = 8;
 					}
 					num1332 += 3;
-                    if (NPC.ai[3] >= num1332)
+                if (NPC.ai[3] >= num1332)
+                {
+                    NPC.ai[3] = 0f;
+                    Vector2 vector160 = new Vector2(NPC.Center.X, NPC.position.Y + NPC.height - 14f);
+                    int i2 = (int)(vector160.X / 16f);
+                    int j2 = (int)(vector160.Y / 16f);
+                    if (!WorldGen.SolidTile(i2, j2))
                     {
-                        NPC.ai[3] = 0f;
-                        Vector2 vector160 = new Vector2(NPC.Center.X, NPC.position.Y + NPC.height - 14f);
-                        int i2 = (int)(vector160.X / 16f);
-                        int j2 = (int)(vector160.Y / 16f);
-                        if (!WorldGen.SolidTile(i2, j2))
+                        float num1333 = NPC.velocity.Y;
+                        if (num1333 < 0f)
                         {
-                            float num1333 = NPC.velocity.Y;
-                            if (num1333 < 0f)
-                            {
-                                num1333 = 0f;
-                            }
-                            num1333 += 3f;
-                            float speedX2 = NPC.velocity.X * 0.25f;
-                            Projectile.NewProjectile(NPC.GetSource_FromAI(), vector160.X, vector160.Y, speedX2, num1333, ModContent.ProjectileType<FallingDarkSlime>(), 34, 0f, Main.myPlayer, Main.rand.Next(5), 0f);
+                            num1333 = 0f;
                         }
+                        num1333 += 3f;
+                        float speedX2 = NPC.velocity.X * 0.25f;
+                        Projectile.NewProjectile(NPC.GetSource_FromAI(), vector160.X, vector160.Y, speedX2, num1333, ModContent.ProjectileType<FallingDarkSlime>(), 34, 0f, Main.myPlayer, Main.rand.Next(5), 0f);
                     }
                 }
-                if (Main.netMode != 1)
+            }
+            if (Main.netMode != 1)
 				{
 					NPC.ai[1] += Main.rand.Next(1, 4);
 					if (NPC.ai[1] > 600f)
@@ -321,56 +321,56 @@ namespace TremorMod.Content.NPCs.Bosses.TheDarkEmperor
 					}
 				}
 			}
-            else if (NPC.ai[0] == 2f)
+        else if (NPC.ai[0] == 2f)
+        {
+            NPC.TargetClosest(true);
+            Vector2 vector161 = new Vector2(NPC.Center.X, NPC.Center.Y - 20f);
+            float num1334 = Main.rand.Next(-1000, 1001);
+            float num1335 = Main.rand.Next(-1000, 1001);
+            float num1336 = (float)Math.Sqrt(num1334 * num1334 + num1335 * num1335);
+            float num1337 = 15f;
+            NPC.velocity *= 0.95f;
+            num1336 = num1337 / num1336;
+            num1334 *= num1336;
+            num1335 *= num1336;
+            NPC.rotation += 0.2f;
+            vector161.X += num1334 * 4f;
+            vector161.Y += num1335 * 4f;
+            NPC.ai[3] += 1f;
+            int num1338 = 7;
+            if (NPC.life < NPC.lifeMax * 0.75)
             {
-                NPC.TargetClosest(true);
-                Vector2 vector161 = new Vector2(NPC.Center.X, NPC.Center.Y - 20f);
-                float num1334 = Main.rand.Next(-1000, 1001);
-                float num1335 = Main.rand.Next(-1000, 1001);
-                float num1336 = (float)Math.Sqrt(num1334 * num1334 + num1335 * num1335);
-                float num1337 = 15f;
-                NPC.velocity *= 0.95f;
-                num1336 = num1337 / num1336;
-                num1334 *= num1336;
-                num1335 *= num1336;
-                NPC.rotation += 0.2f;
-                vector161.X += num1334 * 4f;
-                vector161.Y += num1335 * 4f;
-                NPC.ai[3] += 1f;
-                int num1338 = 7;
-                if (NPC.life < NPC.lifeMax * 0.75)
-                {
-                    num1338--;
-                }
-                if (NPC.life < NPC.lifeMax * 0.5)
-                {
-                    num1338 -= 2;
-                }
-                if (NPC.life < NPC.lifeMax * 0.25)
-                {
-                    num1338 -= 3;
-                }
-                if (NPC.life < NPC.lifeMax * 0.1)
-                {
-                    num1338 -= 4;
-                }
-                if (NPC.ai[3] > num1338)
-                {
-                    NPC.ai[3] = 0f;
+                num1338--;
+            }
+            if (NPC.life < NPC.lifeMax * 0.5)
+            {
+                num1338 -= 2;
+            }
+            if (NPC.life < NPC.lifeMax * 0.25)
+            {
+                num1338 -= 3;
+            }
+            if (NPC.life < NPC.lifeMax * 0.1)
+            {
+                num1338 -= 4;
+            }
+            if (NPC.ai[3] > num1338)
+            {
+                NPC.ai[3] = 0f;
 
-                    // Corrected call to Projectile.NewProjectile
-                    Projectile.NewProjectile(NPC.GetSource_FromAI(), vector161.X, vector161.Y, num1334, num1335, ModContent.ProjectileType<DarkBubblePro>(), 40, 0f, Main.myPlayer, 0f, 0f);
-                }
-                if (Main.netMode != 1)
+                // Corrected call to Projectile.NewProjectile
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), vector161.X, vector161.Y, num1334, num1335, ModContent.ProjectileType<DarkBubblePro>(), 40, 0f, Main.myPlayer, 0f, 0f);
+            }
+            if (Main.netMode != 1)
+            {
+                NPC.ai[1] += Main.rand.Next(1, 4);
+                if (NPC.ai[1] > 500f)
                 {
-                    NPC.ai[1] += Main.rand.Next(1, 4);
-                    if (NPC.ai[1] > 500f)
-                    {
-                        NPC.ai[0] = -1f;
-                    }
+                    NPC.ai[0] = -1f;
                 }
             }
-            if (NPC.ai[0] == -1f)
+        }
+        if (NPC.ai[0] == -1f)
 			{
 				int num1339 = Main.rand.Next(3);
 				NPC.TargetClosest(true);
@@ -386,30 +386,29 @@ namespace TremorMod.Content.NPCs.Bosses.TheDarkEmperor
 
 		}
 
-        public override void OnKill()
-        {
-            TremorSpawnEnemys.downedTheDarkEmperor = true;
-        }
+    public override void OnKill()
+    {
+        TremorSpawnEnemys.downedTheDarkEmperor = true;
+    }
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
 
-            // Âûïàäåíèå ìàñêè ñ øàíñîì 1/4 (25%) âíå ýêñïåðòíîãî ðåæèìà
-            npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<DarkEmperorMask>(), 4));
+        // Ã‚Ã»Ã¯Ã Ã¤Ã¥Ã­Ã¨Ã¥ Ã¬Ã Ã±ÃªÃ¨ Ã± Ã¸Ã Ã­Ã±Ã®Ã¬ 1/4 (25%) Ã¢Ã­Ã¥ Ã½ÃªÃ±Ã¯Ã¥Ã°Ã²Ã­Ã®Ã£Ã® Ã°Ã¥Ã¦Ã¨Ã¬Ã 
+        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<DarkEmperorMask>(), 4));
 
-            npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<DarkEmperorTrophy>(), 4));
+        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<DarkEmperorTrophy>(), 4));
 
-            npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<DrippingScythe>(), 10));
+        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<DrippingScythe>(), 10));
 
-            npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<DelightfulClump>(), 4));
+        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<DelightfulClump>(), 4));
 
-            npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<NastyJavelin>(), 1, 30, 50));
+        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<NastyJavelin>(), 1, 30, 50));
 
-            npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<DarkGel>(), 1, 50, 100));
+        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<DarkGel>(), 1, 50, 100));
 
-            npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<SoulofFight>(), 1, 20, 30));
+        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<SoulofFight>(), 1, 20, 30));
 
-            npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<DarkEmperorBag>(), 1));
-        }
+        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<DarkEmperorBag>(), 1));
     }
 }

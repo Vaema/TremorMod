@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class GurumasterPro : ModProjectile
 	{
 		public override void SetDefaults()
@@ -73,62 +73,61 @@ namespace TremorMod.Content.Projectiles
 				num631 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 6, 0f, 0f, 100, default(Color), 2f);
 				Main.dust[num631].velocity *= 2f;
 			}
-            for (int num632 = 0; num632 < 3; num632++)
+        for (int num632 = 0; num632 < 3; num632++)
+        {
+            float scaleFactor10 = 0.33f;
+            if (num632 == 1)
             {
-                float scaleFactor10 = 0.33f;
-                if (num632 == 1)
-                {
-                    scaleFactor10 = 0.66f;
-                }
-                if (num632 == 2)
-                {
-                    scaleFactor10 = 1f;
-                }
-                int num633 = Gore.NewGore(Projectile.GetSource_FromThis(), new Vector2(Projectile.position.X + Projectile.width / 2 - 24f, Projectile.position.Y + Projectile.height / 2 - 24f), default(Vector2), Main.rand.Next(61, 64), 1f);
-                Main.gore[num633].velocity *= scaleFactor10;
-                Main.gore[num633].velocity.X += 1f;
-                Main.gore[num633].velocity.Y += 1f;
-
-                num633 = Gore.NewGore(Projectile.GetSource_FromThis(), new Vector2(Projectile.position.X + Projectile.width / 2 - 24f, Projectile.position.Y + Projectile.height / 2 - 24f), default(Vector2), Main.rand.Next(61, 64), 2f);
-                Main.gore[num633].velocity *= scaleFactor10;
-                Main.gore[num633].velocity.X -= 1f;
-                Main.gore[num633].velocity.Y += 1f;
-
-                num633 = Gore.NewGore(Projectile.GetSource_FromThis(), new Vector2(Projectile.position.X + Projectile.width / 2 - 24f, Projectile.position.Y + Projectile.height / 2 - 24f), default(Vector2), Main.rand.Next(61, 64), 1f);
-                Main.gore[num633].velocity *= scaleFactor10;
-                Main.gore[num633].velocity.X += 1f;
-                Main.gore[num633].velocity.Y -= 1f;
-
-                num633 = Gore.NewGore(Projectile.GetSource_FromThis(), new Vector2(Projectile.position.X + Projectile.width / 2 - 24f, Projectile.position.Y + Projectile.height / 2 - 24f), default(Vector2), Main.rand.Next(61, 64), 1f);
-                Main.gore[num633].velocity *= scaleFactor10;
-                Main.gore[num633].velocity.X -= 1f;
-                Main.gore[num633].velocity.Y -= 1f;
+                scaleFactor10 = 0.66f;
             }
-
-            Projectile.position.X = Projectile.position.X + Projectile.width / 2;
-            Projectile.position.Y = Projectile.position.Y + Projectile.height / 2;
-            Projectile.width = 10;
-            Projectile.height = 10;
-            Projectile.position.X = Projectile.position.X - Projectile.width / 2;
-            Projectile.position.Y = Projectile.position.Y - Projectile.height / 2;
-
-            if (Projectile.owner == Main.myPlayer)
+            if (num632 == 2)
             {
-                int num220 = Main.rand.Next(3, 8);
-                for (int num221 = 0; num221 < num220; num221++)
-                {
-                    Vector2 value17 = new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101));
-                    value17.Normalize();
-                    value17 *= Main.rand.Next(10, 201) * 0.01f;
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, value17.X, value17.Y, ModContent.ProjectileType<BoomCloudPro>(), Projectile.damage, 1f, Projectile.owner, 0f, Main.rand.Next(-45, 1));
-                }
+                scaleFactor10 = 1f;
             }
+            int num633 = Gore.NewGore(Projectile.GetSource_FromThis(), new Vector2(Projectile.position.X + Projectile.width / 2 - 24f, Projectile.position.Y + Projectile.height / 2 - 24f), default(Vector2), Main.rand.Next(61, 64), 1f);
+            Main.gore[num633].velocity *= scaleFactor10;
+            Main.gore[num633].velocity.X += 1f;
+            Main.gore[num633].velocity.Y += 1f;
+
+            num633 = Gore.NewGore(Projectile.GetSource_FromThis(), new Vector2(Projectile.position.X + Projectile.width / 2 - 24f, Projectile.position.Y + Projectile.height / 2 - 24f), default(Vector2), Main.rand.Next(61, 64), 2f);
+            Main.gore[num633].velocity *= scaleFactor10;
+            Main.gore[num633].velocity.X -= 1f;
+            Main.gore[num633].velocity.Y += 1f;
+
+            num633 = Gore.NewGore(Projectile.GetSource_FromThis(), new Vector2(Projectile.position.X + Projectile.width / 2 - 24f, Projectile.position.Y + Projectile.height / 2 - 24f), default(Vector2), Main.rand.Next(61, 64), 1f);
+            Main.gore[num633].velocity *= scaleFactor10;
+            Main.gore[num633].velocity.X += 1f;
+            Main.gore[num633].velocity.Y -= 1f;
+
+            num633 = Gore.NewGore(Projectile.GetSource_FromThis(), new Vector2(Projectile.position.X + Projectile.width / 2 - 24f, Projectile.position.Y + Projectile.height / 2 - 24f), default(Vector2), Main.rand.Next(61, 64), 1f);
+            Main.gore[num633].velocity *= scaleFactor10;
+            Main.gore[num633].velocity.X -= 1f;
+            Main.gore[num633].velocity.Y -= 1f;
         }
 
-        public override Color? GetAlpha(Color lightColor)
+        Projectile.position.X = Projectile.position.X + Projectile.width / 2;
+        Projectile.position.Y = Projectile.position.Y + Projectile.height / 2;
+        Projectile.width = 10;
+        Projectile.height = 10;
+        Projectile.position.X = Projectile.position.X - Projectile.width / 2;
+        Projectile.position.Y = Projectile.position.Y - Projectile.height / 2;
+
+        if (Projectile.owner == Main.myPlayer)
+        {
+            int num220 = Main.rand.Next(3, 8);
+            for (int num221 = 0; num221 < num220; num221++)
+            {
+                Vector2 value17 = new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101));
+                value17.Normalize();
+                value17 *= Main.rand.Next(10, 201) * 0.01f;
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, value17.X, value17.Y, ModContent.ProjectileType<BoomCloudPro>(), Projectile.damage, 1f, Projectile.owner, 0f, Main.rand.Next(-45, 1));
+            }
+        }
+    }
+
+    public override Color? GetAlpha(Color lightColor)
 		{
 			return Color.White;
 		}
 
 	}
-}

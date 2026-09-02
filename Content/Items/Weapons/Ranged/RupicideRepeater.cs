@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -7,8 +7,8 @@ using TremorMod.Content.Items.Materials.OreAndBar;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Weapons.Ranged
-{
+namespace TremorMod.Content.Items.Weapons.Ranged;
+
 	public class RupicideRepeater : ModItem
 	{
 		public override void SetDefaults()
@@ -57,9 +57,9 @@ namespace TremorMod.Content.Items.Weapons.Ranged
 
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
-            Projectile.NewProjectile(source, position, velocity, ProjectileID.WoodenArrowFriendly, damage, knockback, player.whoAmI);
+        Projectile.NewProjectile(source, position, velocity, ProjectileID.WoodenArrowFriendly, damage, knockback, player.whoAmI);
 
-            if (Main.rand.NextBool(5))
+        if (Main.rand.NextBool(5))
 			{
 				int proj = Projectile.NewProjectile(Item.GetSource_FromThis(), position.X, position.Y, velocity.X, velocity.Y, 686, damage, Main.myPlayer);
 				Main.projectile[proj].hostile = false;
@@ -70,4 +70,3 @@ namespace TremorMod.Content.Items.Weapons.Ranged
 			return false;
 		}
 	}
-}

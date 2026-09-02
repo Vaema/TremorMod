@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,8 +8,8 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Placeable.Banners;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class Hallower : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -38,10 +38,10 @@ namespace TremorMod.Content.NPCs
 			NPC.buffImmune[31] = false;
 			NPC.DeathSound = SoundID.NPCDeath7;
 			NPC.value = Item.buyPrice(0, 0, 5, 0);
-            Banner = NPC.type;
-            BannerItem = ModContent.ItemType<HallowerBanner>();
-            ItemID.Sets.KillsToBanner[BannerItem] = 50;
-        }
+        Banner = NPC.type;
+        BannerItem = ModContent.ItemType<HallowerBanner>();
+        ItemID.Sets.KillsToBanner[BannerItem] = 50;
+    }
 
 		public override void OnKill()
 		{
@@ -51,11 +51,11 @@ namespace TremorMod.Content.NPCs
 			}
 		}
 
-        public override void HitEffect(NPC.HitInfo hit)
+    public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				Dust.NewDust(NPC.position, NPC.width, NPC.height, 57, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				Dust.NewDust(NPC.position, NPC.width, NPC.height, 57, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
@@ -77,4 +77,3 @@ namespace TremorMod.Content.NPCs
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 			=> Helper.NormalSpawn(spawnInfo) && NPC.downedMoonlord && Helper.NoZoneAllowWater(spawnInfo) && spawnInfo.Player.ZoneHallow && spawnInfo.SpawnTileY < Main.worldSurface ? 0.01f : 0f;
 	}
-}

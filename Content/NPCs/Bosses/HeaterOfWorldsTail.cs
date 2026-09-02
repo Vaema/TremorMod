@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.NPCs.Bosses
-{
+namespace TremorMod.Content.NPCs.Bosses;
+
 	public class HeaterOfWorldsTail : HeaterofWorldsPart
 	{
 		public override void SetDefaults()
@@ -30,4 +30,3 @@ namespace TremorMod.Content.NPCs.Bosses
 			return false;
 		}
 	}
-}

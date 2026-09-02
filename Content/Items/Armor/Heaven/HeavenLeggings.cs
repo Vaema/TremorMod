@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.Heaven
-{
+namespace TremorMod.Content.Items.Armor.Heaven;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class HeavenLeggings : ModItem
 	{
@@ -29,4 +29,3 @@ namespace TremorMod.Content.Items.Armor.Heaven
 			player.moveSpeed -= 0.15f;
 		}
 	}
-}

@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.King
-{
+namespace TremorMod.Content.Items.Armor.King;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class KingSuit : ModItem
 	{
@@ -22,4 +22,3 @@ namespace TremorMod.Content.Items.Armor.King
 			//Tooltip.SetDefault("");
 		}
 	}
-}

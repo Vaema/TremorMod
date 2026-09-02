@@ -8,8 +8,8 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Projectiles;
 using TremorMod.Content.Dusts;
 
-namespace TremorMod.Content.NPCs.Invasion.ParadoxTitan
-{
+namespace TremorMod.Content.NPCs.Invasion.ParadoxTitan;
+
 	public class Hand : ModNPC
 	{
 		//[1] id head
@@ -49,4 +49,3 @@ namespace TremorMod.Content.NPCs.Invasion.ParadoxTitan
 			return false;
 		}
 	}
-}

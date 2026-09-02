@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace TremorMod.Content.Tiles.Crimstone
-{
+namespace TremorMod.Content.Tiles.Crimstone;
+
 	public class CrimstonePianoTile : ModTile
 	{
 		public override void SetStaticDefaults()
@@ -16,10 +16,9 @@ namespace TremorMod.Content.Tiles.Crimstone
 			Main.tileTable[Type] = true;
 			Main.tileLavaDeath[Type] = true;
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style4x2);
-			TileObjectData.newTile.CoordinateHeights = new[]{ 16, 16 };
+			TileObjectData.newTile.CoordinateHeights = [16, 16];
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
 			AddMapEntry(new Color(111, 22, 22), CreateMapEntryName());
 		}
 	}
-}

@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
 using TremorMod.Content.Items.Vanity;
@@ -9,8 +9,8 @@ using TremorMod.Content.Items.Accessories;
 using TremorMod.Content.Items.Bag;
 using TremorMod.Content.Items;
 
-namespace TremorMod.Content.Items.Bag
-{
+namespace TremorMod.Content.Items.Bag;
+
 	public class AlchemasterTreasureBag : ModItem
 	{
 		public override void SetDefaults()
@@ -34,16 +34,15 @@ namespace TremorMod.Content.Items.Bag
 			return true;
 		}
 
-        public override void ModifyItemLoot(ItemLoot itemLoot)
-        {
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<AlchemasterMask>(), 7));
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<PlagueFlask>(), 1, 60, 160));
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<SparkingFlask>(), 1, 60, 160));
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<LongFuse>(), 1));
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<TheGlorch>(), 3));
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<BadApple>(), 3));
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<GoldenStar>(), 1));
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<AlchemasterTrophy>(), 10));
-        }
+    public override void ModifyItemLoot(ItemLoot itemLoot)
+    {
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<AlchemasterMask>(), 7));
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<PlagueFlask>(), 1, 60, 160));
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<SparkingFlask>(), 1, 60, 160));
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<LongFuse>(), 1));
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<TheGlorch>(), 3));
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<BadApple>(), 3));
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<GoldenStar>(), 1));
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<AlchemasterTrophy>(), 10));
+    }
 	}
-}

@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class HeavyNecklace : ModItem
 	{
 
@@ -27,4 +27,3 @@ namespace TremorMod.Content.Items.Accessories
 			player.GetDamage(DamageClass.Generic) += 0.05f;
 		}
 	}
-}

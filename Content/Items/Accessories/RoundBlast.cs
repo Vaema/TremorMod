@@ -1,12 +1,12 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Buffs;
 using TremorMod.Utilities;
 using TremorMod.Content.Items.Materials.OreAndBar;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class RoundBlast : ModItem
 	{
 		/*public override bool CanEquipAccessory(Player player, int slot)
@@ -51,9 +51,8 @@ namespace TremorMod.Content.Items.Accessories
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-            MPlayer modPlayer = player.GetModPlayer<MPlayer>();
-            player.AddBuff(ModContent.BuffType<RoundBlastBuff>(), 2);
-            modPlayer.nitro = true;
-        }
+        MPlayer modPlayer = player.GetModPlayer<MPlayer>();
+        player.AddBuff(ModContent.BuffType<RoundBlastBuff>(), 2);
+        modPlayer.nitro = true;
+    }
 	}
-}

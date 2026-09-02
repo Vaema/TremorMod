@@ -1,17 +1,17 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Weapons.Melee
-{
+namespace TremorMod.Content.Items.Weapons.Melee;
+
 	public class AmethystBlade : ModItem
 	{
 		public override void SetDefaults()
 		{
 			Item.damage = 13;
-            Item.DamageType = DamageClass.Melee;
-            Item.width = 46;
+        Item.DamageType = DamageClass.Melee;
+        Item.width = 46;
 			Item.height = 48;
 			Item.useTime = 25;
 			Item.useAnimation = 25;
@@ -37,11 +37,10 @@ namespace TremorMod.Content.Items.Weapons.Melee
 
 		public override void AddRecipes()
 		{
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.Amethyst, 12);
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ItemID.Amethyst, 12);
 			//recipe.SetResult(this);
 			recipe.AddTile(16);
-            recipe.Register();
-        }
+        recipe.Register();
+    }
 	}
-}

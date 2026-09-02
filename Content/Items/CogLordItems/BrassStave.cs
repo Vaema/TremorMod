@@ -1,18 +1,18 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items.CogLordItems
-{
+namespace TremorMod.Content.Items.CogLordItems;
+
 	public class BrassStave : ModItem
 	{
 		public override void SetDefaults()
 		{
 
 			Item.damage = 80;
-            Item.DamageType = DamageClass.Magic;
-            Item.mana = 60;
+        Item.DamageType = DamageClass.Magic;
+        Item.mana = 60;
 			Item.width = 40;
 			Item.height = 40;
 			Item.useTime = 45;
@@ -24,8 +24,8 @@ namespace TremorMod.Content.Items.CogLordItems
 			Item.autoReuse = false;
 			Item.shoot = 443;
 			Item.shootSpeed = 12f;
-            Item.staff[Type] = true; //this makes the useStyle animate as a staff instead of as a gun
-        }
+        Item.staff[Type] = true; //this makes the useStyle animate as a staff instead of as a gun
+    }
 
 		/*public override void SetStaticDefaults()
 		{
@@ -44,8 +44,8 @@ namespace TremorMod.Content.Items.CogLordItems
 			if (player.altFunctionUse == 2)
 			{
 				Item.damage = 80;
-                Item.DamageType = DamageClass.Magic;
-                Item.mana = 60;
+            Item.DamageType = DamageClass.Magic;
+            Item.mana = 60;
 				Item.width = 40;
 				Item.height = 40;
 				Item.useTime = 45;
@@ -56,15 +56,15 @@ namespace TremorMod.Content.Items.CogLordItems
 				Item.autoReuse = false;
 				Item.shoot = 443;
 				Item.shootSpeed = 12f;
-                //item.toolTip = "Shoots fast thin bolts";
-                //item.toolTip2 = "Press RMB for powerful attack";
-                Item.staff[Type] = true; //this makes the useStyle animate as a staff instead of as a gun
+            //item.toolTip = "Shoots fast thin bolts";
+            //item.toolTip2 = "Press RMB for powerful attack";
+            Item.staff[Type] = true; //this makes the useStyle animate as a staff instead of as a gun
 			}
 			else
 			{
 				Item.damage = 65;
-                Item.DamageType = DamageClass.Magic;
-                Item.mana = 10;
+            Item.DamageType = DamageClass.Magic;
+            Item.mana = 10;
 				Item.width = 40;
 				Item.height = 40;
 				Item.useTime = 22;
@@ -75,9 +75,9 @@ namespace TremorMod.Content.Items.CogLordItems
 				Item.autoReuse = true;
 				Item.shoot = 459;
 				Item.shootSpeed = 15f;
-                //item.toolTip = "Shoots fast thin bolts";
-                //item.toolTip2 = "Press RMB for powerful attack";
-                Item.staff[Type] = true; //this makes the useStyle animate as a staff instead of as a gun
+            //item.toolTip = "Shoots fast thin bolts";
+            //item.toolTip2 = "Press RMB for powerful attack";
+            Item.staff[Type] = true; //this makes the useStyle animate as a staff instead of as a gun
 			}
 			return base.CanUseItem(player);
 		}
@@ -108,4 +108,3 @@ namespace TremorMod.Content.Items.CogLordItems
 			}
 		}
 	}
-}

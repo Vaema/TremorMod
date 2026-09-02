@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
@@ -7,8 +7,8 @@ using TremorMod.Content.Items.Placeable.Banners;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class FrostBeetle : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -43,23 +43,23 @@ namespace TremorMod.Content.NPCs
 
 		public override void OnKill()
 		{
-            if (Main.rand.NextBool(5))
-            {
-                Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ItemID.SnowBlock);
-            }
-            if (Main.rand.NextBool(5))
-            {
-                Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ItemID.IceBlock);
-            }
-            if (Main.rand.NextBool(3))
-            {
-                Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<FrostCore>());
-            }
-            if (NPC.downedMoonlord && Main.rand.NextBool(5))
-            {
-                Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<IceSoul>());
-            }
+        if (Main.rand.NextBool(5))
+        {
+            Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ItemID.SnowBlock);
         }
+        if (Main.rand.NextBool(5))
+        {
+            Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ItemID.IceBlock);
+        }
+        if (Main.rand.NextBool(3))
+        {
+            Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<FrostCore>());
+        }
+        if (NPC.downedMoonlord && Main.rand.NextBool(5))
+        {
+            Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<IceSoul>());
+        }
+    }
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{
@@ -71,11 +71,11 @@ namespace TremorMod.Content.NPCs
 				Dust.NewDust(NPC.position, NPC.width, NPC.height, 76, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
 				Dust.NewDust(NPC.position, NPC.width, NPC.height, 76, 2.5f * hitDirection, -2.5f, 0, default(Color), 2.7f);
 				Dust.NewDust(NPC.position, NPC.width, NPC.height, 76, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("IBGore1").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("IBGore3").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("IBGore2").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("IBGore2").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("IBGore2").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("IBGore1").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("IBGore3").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("IBGore2").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("IBGore2").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("IBGore2").Type, 1f);
 				for (int k = 0; k < 20; k++)
 				{
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 76, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
@@ -87,4 +87,3 @@ namespace TremorMod.Content.NPCs
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 			=> Main.hardMode && NPC.downedMoonlord && spawnInfo.Player.ZoneSnow && spawnInfo.SpawnTileY > Main.rockLayer ? 0.01f : 0f;
 	}
-}

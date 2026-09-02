@@ -1,12 +1,12 @@
-using System.Collections.Generic;
+п»їusing System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Materials
-{
+namespace TremorMod.Content.Items.Materials;
+
 	public class AngeliteOre : ModItem
 	{
 		public override void SetDefaults()
@@ -16,7 +16,7 @@ namespace TremorMod.Content.Items.Materials
 			Item.maxStack = 9999;
 			Item.value = 12500;
 			Item.rare = 0;
-            Item.createTile = ModContent.TileType<AngeliteOreTile>();
+        Item.createTile = ModContent.TileType<AngeliteOreTile>();
 			Item.useTurn = true;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
@@ -25,27 +25,26 @@ namespace TremorMod.Content.Items.Materials
 			Item.consumable = true;
 		}
 
-        public override void SetStaticDefaults()
-        {
-            ItemID.Sets.ShimmerTransformToItem[Item.type] = ModContent.ItemType<CollapsiumOre>();
-        }
+    public override void SetStaticDefaults()
+    {
+        ItemID.Sets.ShimmerTransformToItem[Item.type] = ModContent.ItemType<CollapsiumOre>();
+    }
 
-        public override void ModifyTooltips(List<TooltipLine> tooltips)
+    public override void ModifyTooltips(List<TooltipLine> tooltips)
+    {
+        foreach (var tooltip in tooltips)
         {
-            foreach (var tooltip in tooltips)
+            // ГЊГҐГ­ГїГҐГ¬ Г¶ГўГҐГІ ГІГҐГЄГ±ГІГ  Г¤Г«Гї Г­Г Г§ГўГ Г­ГЁГї ГЇГ°ГҐГ¤Г¬ГҐГІГ 
+            if (tooltip.Mod == "Terraria" && tooltip.Name == "ItemName")
             {
-                // Меняем цвет текста для названия предмета
-                if (tooltip.Mod == "Terraria" && tooltip.Name == "ItemName")
-                {
-                    tooltip.OverrideColor = new Color(238, 194, 73); // Цвет золота
-                }
+                tooltip.OverrideColor = new Color(238, 194, 73); // Г–ГўГҐГІ Г§Г®Г«Г®ГІГ 
             }
         }
+    }
 
-        /*public override void SetStaticDefaults()
+    /*public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Angelite Ore");
 			Tooltip.SetDefault("");
 		}*/
-    }
 }

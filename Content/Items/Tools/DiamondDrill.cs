@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Items.Tools
-{
+namespace TremorMod.Content.Items.Tools;
+
 
 	public class DiamondDrill : ModItem
 	{
@@ -47,4 +47,3 @@ namespace TremorMod.Content.Items.Tools
 			recipe.Register();
 		}
 	}
-}

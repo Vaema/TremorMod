@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,8 +7,8 @@ using TremorMod.Content.Buffs;
 using System;
 using Terraria.Audio;
 
-namespace TremorMod.Content.Items.Weapons.Summon
-{
+namespace TremorMod.Content.Items.Weapons.Summon;
+
 	public class BirbStaff : ModItem
 	{
 		public override void SetDefaults()
@@ -43,19 +43,18 @@ namespace TremorMod.Content.Items.Weapons.Summon
 			return true;
 		}
 
-        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-        {
+    public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    {
 			return player.altFunctionUse != 2;
 		}
 
-        public override bool? UseItem(Player player)
+    public override bool? UseItem(Player player)
+    {
+        if (player.altFunctionUse == 2)
         {
-            if (player.altFunctionUse == 2)
-            {
-                player.MinionNPCTargetAim(true); 
-            }
-            return base.UseItem(player);
+            player.MinionNPCTargetAim(true); 
         }
-
+        return base.UseItem(player);
     }
+
 }

@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -7,8 +7,8 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Projectiles;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Weapons.Ranged
-{
+namespace TremorMod.Content.Items.Weapons.Ranged;
+
 	public class PlaguedBow : ModItem
 	{
 		public override void SetDefaults()
@@ -39,7 +39,7 @@ namespace TremorMod.Content.Items.Weapons.Ranged
 
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
-            Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<GhostlyArrow>(), damage, knockback, player.whoAmI);
+        Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<GhostlyArrow>(), damage, knockback, player.whoAmI);
 			return false;
 		}
 
@@ -51,4 +51,3 @@ namespace TremorMod.Content.Items.Weapons.Ranged
 			recipe.Register();
 		}
 	}
-}

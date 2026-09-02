@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Buffs
-{
+namespace TremorMod.Content.Items.Buffs;
+
 	public class DeadlyTreats : ModItem
 	{
 		public override void SetDefaults()
@@ -28,8 +28,8 @@ namespace TremorMod.Content.Items.Buffs
 
 		public override bool? UseItem(Player player)
 		{
-            player.AddBuff(BuffID.Regeneration, 10000, true);
-            player.AddBuff(BuffID.Darkness, 14400, true);
+        player.AddBuff(BuffID.Regeneration, 10000, true);
+        player.AddBuff(BuffID.Darkness, 14400, true);
 			player.AddBuff(BuffID.ManaRegeneration, 14400, true);
 			return true;
 		}
@@ -53,4 +53,3 @@ namespace TremorMod.Content.Items.Buffs
 			recipe1.Register();
 		}
 	}
-}

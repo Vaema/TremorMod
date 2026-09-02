@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles.GloomstoneTiles;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Placeable.GloomstonePlaceable
-{
+namespace TremorMod.Content.Items.Placeable.GloomstonePlaceable;
+
 	public class GloomstonePlatform : ModItem
 	{
 		public override void SetDefaults()
@@ -30,12 +30,11 @@ namespace TremorMod.Content.Items.Placeable.GloomstonePlaceable
 			//Tooltip.SetDefault("");
 		}
 
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe(2);
-            recipe.AddIngredient(ModContent.ItemType<Gloomstone>(), 1);
-            recipe.AddTile(17);
-            recipe.Register();
-        }
+    public override void AddRecipes()
+    {
+        Recipe recipe = CreateRecipe(2);
+        recipe.AddIngredient(ModContent.ItemType<Gloomstone>(), 1);
+        recipe.AddTile(17);
+        recipe.Register();
+    }
 	}
-}

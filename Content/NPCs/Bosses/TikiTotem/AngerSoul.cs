@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 using Microsoft.Xna.Framework;
 
-namespace TremorMod.Content.NPCs.Bosses.TikiTotem
-{
+namespace TremorMod.Content.NPCs.Bosses.TikiTotem;
+
 	[AutoloadBossHead]
 	public class AngerSoul : ModNPC
 	{
@@ -42,9 +42,9 @@ namespace TremorMod.Content.NPCs.Bosses.TikiTotem
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				Dust.NewDust(NPC.position, NPC.width, NPC.height, 64, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
 				Dust.NewDust(NPC.position, NPC.width, NPC.height, 64, 2.5f * hitDirection, -2.5f, 0, default(Color), 2.7f);
@@ -62,4 +62,3 @@ namespace TremorMod.Content.NPCs.Bosses.TikiTotem
 			}
 		}
 	}
-}

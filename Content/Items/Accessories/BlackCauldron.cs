@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class BlackCauldron : ModItem
 	{
 		public override void SetDefaults()
@@ -27,9 +27,8 @@ namespace TremorMod.Content.Items.Accessories
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-            MPlayer modPlayer = player.GetModPlayer<MPlayer>();
-            player.AddBuff(ModContent.BuffType<CursedCloudBuff>(), 2);
-            modPlayer.enchanted = true;
-        }
+        MPlayer modPlayer = player.GetModPlayer<MPlayer>();
+        player.AddBuff(ModContent.BuffType<CursedCloudBuff>(), 2);
+        modPlayer.enchanted = true;
+    }
 	}
-}

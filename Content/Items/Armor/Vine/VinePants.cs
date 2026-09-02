@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.Vine
-{
+namespace TremorMod.Content.Items.Armor.Vine;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class VinePants : ModItem
 	{
@@ -40,4 +40,3 @@ namespace TremorMod.Content.Items.Armor.Vine
 		}
 
 	}
-}

@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
 
-namespace TremorMod.Content.Items.Bag
-{
+namespace TremorMod.Content.Items.Bag;
+
 	public class MoneySack : ModItem
 	{
 		public override void SetDefaults()
@@ -27,12 +27,11 @@ namespace TremorMod.Content.Items.Bag
 			return true;
 		}
 
-        public override void ModifyItemLoot(ItemLoot itemLoot)
-        {
-            itemLoot.Add(ItemDropRule.Common(ItemID.CopperCoin, 1, 70, 98));
-            itemLoot.Add(ItemDropRule.Common(ItemID.SilverCoin, 1, 50, 75));
-            itemLoot.Add(ItemDropRule.Common(ItemID.GoldCoin, 1, 1, 15));
+    public override void ModifyItemLoot(ItemLoot itemLoot)
+    {
+        itemLoot.Add(ItemDropRule.Common(ItemID.CopperCoin, 1, 70, 98));
+        itemLoot.Add(ItemDropRule.Common(ItemID.SilverCoin, 1, 50, 75));
+        itemLoot.Add(ItemDropRule.Common(ItemID.GoldCoin, 1, 1, 15));
 
-        }
     }
 }

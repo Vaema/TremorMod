@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Buffs
-{
+namespace TremorMod.Content.Buffs;
+
 	public class FlaskCoreBuff : ModBuff
 	{
 		public override void SetStaticDefaults()
@@ -16,8 +16,7 @@ namespace TremorMod.Content.Buffs
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-            MPlayer modPlayer = player.GetModPlayer<MPlayer>();
-            modPlayer.core = true;
-        }
+        MPlayer modPlayer = player.GetModPlayer<MPlayer>();
+        modPlayer.core = true;
+    }
 	}
-}

@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Fungus;
 
-namespace TremorMod.Content.Items.Armor.Fungus
-{
+namespace TremorMod.Content.Items.Armor.Fungus;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class FungusGreaves : ModItem
 	{
@@ -28,23 +28,22 @@ namespace TremorMod.Content.Items.Armor.Fungus
 		{
 		}
 
-        public override void AddRecipes()
-        {
-            Recipe recipe1 = CreateRecipe();
-            recipe1.AddIngredient(ModContent.ItemType<FungusElement>(), 14);
-            recipe1.AddIngredient(ItemID.GlowingMushroom, 12);
-            recipe1.AddIngredient(ItemID.GoldGreaves, 1);
-            //recipe1.SetResult(this);
-            recipe1.AddTile(16);
-            recipe1.Register();
+    public override void AddRecipes()
+    {
+        Recipe recipe1 = CreateRecipe();
+        recipe1.AddIngredient(ModContent.ItemType<FungusElement>(), 14);
+        recipe1.AddIngredient(ItemID.GlowingMushroom, 12);
+        recipe1.AddIngredient(ItemID.GoldGreaves, 1);
+        //recipe1.SetResult(this);
+        recipe1.AddTile(16);
+        recipe1.Register();
 
-            Recipe recipe2 = CreateRecipe();
-            recipe2.AddIngredient(ModContent.ItemType<FungusElement>(), 14);
-            recipe2.AddIngredient(ItemID.GlowingMushroom, 12);
-            recipe2.AddIngredient(ItemID.PlatinumGreaves, 1);
-            //recipe2.SetResult(this);
-            recipe2.AddTile(16);
-            recipe2.Register();
-        }
+        Recipe recipe2 = CreateRecipe();
+        recipe2.AddIngredient(ModContent.ItemType<FungusElement>(), 14);
+        recipe2.AddIngredient(ItemID.GlowingMushroom, 12);
+        recipe2.AddIngredient(ItemID.PlatinumGreaves, 1);
+        //recipe2.SetResult(this);
+        recipe2.AddTile(16);
+        recipe2.Register();
     }
 }

@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -6,15 +6,15 @@ using Terraria.ModLoader;
 using TremorMod.Content.Projectiles.Minions;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items.Weapons.Summon
-{
+namespace TremorMod.Content.Items.Weapons.Summon;
+
 	public class RichMahoganySeed : ModItem
 	{
 		public override void SetDefaults()
 		{
 			Item.damage = 38;
-            Item.DamageType = DamageClass.Summon;
-            Item.mana = 10;
+        Item.DamageType = DamageClass.Summon;
+        Item.mana = 10;
 			Item.width = 26;
 			Item.height = 28;
 			Item.useTime = 36;
@@ -48,4 +48,3 @@ namespace TremorMod.Content.Items.Weapons.Summon
 			return player.altFunctionUse != 2;
 		}
 	}
-}

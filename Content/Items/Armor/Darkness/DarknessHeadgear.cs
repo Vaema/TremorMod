@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -7,14 +7,14 @@ using Terraria.Localization;
 using TremorMod.Content.Items.BossLoot.TheDarkEmperor;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Armor.Darkness
-{
+namespace TremorMod.Content.Items.Armor.Darkness;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class DarknessHeadgear : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 
 			Item.defense = 22;
@@ -30,15 +30,15 @@ namespace TremorMod.Content.Items.Armor.Darkness
 			// DisplayName.SetDefault("Headgear of Darkness");
 			/* Tooltip.SetDefault("Increases life regeneration\n" +
 			"20% chance not consume ammo"); */
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Your ranged stats are increased during the night!");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Your ranged stats are increased during the night!");
+    }
 
-        public override bool IsArmorSet(Item head, Item body, Item legs)
-        {
-            return body.type == ModContent.ItemType<DarknessBreastplate>() && legs.type == ModContent.ItemType<DarknessLeggings>();
-        }
+    public override bool IsArmorSet(Item head, Item body, Item legs)
+    {
+        return body.type == ModContent.ItemType<DarknessBreastplate>() && legs.type == ModContent.ItemType<DarknessLeggings>();
+    }
 
-        public override void UpdateEquip(Player player)
+    public override void UpdateEquip(Player player)
 		{
 			player.lifeRegen += 5;
 			player.ammoCost80 = true;
@@ -46,8 +46,8 @@ namespace TremorMod.Content.Items.Armor.Darkness
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Your ranged stats are increased during the night!";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Your ranged stats are increased during the night!";
 
 			if (Math.Abs(player.velocity.X) + Math.Abs(player.velocity.Y) > 1f && !player.rocketFrame) // Makes sure the player is actually moving
 			{
@@ -74,14 +74,13 @@ namespace TremorMod.Content.Items.Armor.Darkness
 			player.armorEffectDrawShadowLokis = true;
 		}
 
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<DarkGel>(), 32);
-            recipe.AddIngredient(ModContent.ItemType<DarkMatter>(), 32);
-            recipe.AddIngredient(ModContent.ItemType<DarkMass>(), 1);
-            recipe.AddTile(247);
-            recipe.Register();
-        }
+    public override void AddRecipes()
+    {
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ModContent.ItemType<DarkGel>(), 32);
+        recipe.AddIngredient(ModContent.ItemType<DarkMatter>(), 32);
+        recipe.AddIngredient(ModContent.ItemType<DarkMass>(), 1);
+        recipe.AddTile(247);
+        recipe.Register();
     }
 }

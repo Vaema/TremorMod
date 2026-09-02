@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -12,8 +12,8 @@ using TremorMod.Content.Event;
 using TremorMod.Content.Items.Vanity;
 using TremorMod.Content.Items.Weapons.Melee;
 
-namespace TremorMod.Content.NPCs.Invasion
-{
+namespace TremorMod.Content.NPCs.Invasion;
+
 	public class Violeum : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -42,28 +42,28 @@ namespace TremorMod.Content.NPCs.Invasion
 			NPC.color = Color.White;
 		}
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        if (Main.netMode != 1)
         {
-            if (Main.netMode != 1)
+            int centerX = (int)(NPC.position.X + NPC.width / 2) / 16;
+            int centerY = (int)(NPC.position.Y + NPC.height / 2) / 16;
+            int halfLength = NPC.width / 2 / 16 + 1;
+            if (!Main.expertMode)
             {
-                int centerX = (int)(NPC.position.X + NPC.width / 2) / 16;
-                int centerY = (int)(NPC.position.Y + NPC.height / 2) / 16;
-                int halfLength = NPC.width / 2 / 16 + 1;
-                if (!Main.expertMode)
-                {
-                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<VioleumMask>(), 7));
-                }
-                if (!Main.expertMode)
-                {
-                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Crystyle>(), 5));
-                }
-                npcLoot.Add(ItemDropRule.Common(ItemID.HealingPotion, 1, 7, 20));
-                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TimeTissue>(), 1, 5, 15));
-                Main.NewText("Violeum has been defeated!", 39, 86, 134);
+                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<VioleumMask>(), 7));
             }
+            if (!Main.expertMode)
+            {
+                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Crystyle>(), 5));
+            }
+            npcLoot.Add(ItemDropRule.Common(ItemID.HealingPotion, 1, 7, 20));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TimeTissue>(), 1, 5, 15));
+            Main.NewText("Violeum has been defeated!", 39, 86, 134);
         }
+    }
 
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+    public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
 			CyberWrathInvasion modPlayer = Main.player[Main.myPlayer].GetModPlayer<CyberWrathInvasion>();
 			int x = spawnInfo.SpawnTileX;
@@ -74,9 +74,9 @@ namespace TremorMod.Content.NPCs.Invasion
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 10; k++)
 				{
@@ -132,33 +132,33 @@ namespace TremorMod.Content.NPCs.Invasion
 					Hands.Y = -1;
 		}
 
-        public override void ModifyHitByProjectile(Projectile projectile, ref NPC.HitModifiers modifiers)
-        {
-            CheckHands();
-            if (Hands.Y != -1)
-                modifiers.FinalDamage /= 10;
-        }
+    public override void ModifyHitByProjectile(Projectile projectile, ref NPC.HitModifiers modifiers)
+    {
+        CheckHands();
+        if (Hands.Y != -1)
+            modifiers.FinalDamage /= 10;
+    }
 
-        public override void ModifyHitByItem(Player player, Item item, ref NPC.HitModifiers modifiers)
-        {
-            CheckHands();
-            if (Hands.Y != -1)
-                modifiers.FinalDamage /= 10;
-        }
+    public override void ModifyHitByItem(Player player, Item item, ref NPC.HitModifiers modifiers)
+    {
+        CheckHands();
+        if (Hands.Y != -1)
+            modifiers.FinalDamage /= 10;
+    }
 
-        public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
-        {
-            CheckHands();
-            if (Hands.Y != -1)
-                modifiers.FinalDamage /= 10;
-        }
+    public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
+    {
+        CheckHands();
+        if (Hands.Y != -1)
+            modifiers.FinalDamage /= 10;
+    }
 
-        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
-        {
-            CheckHands();
-            if (Hands.Y != -1)
-                modifiers.FinalDamage /= 10;
-        }
+    public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
+    {
+        CheckHands();
+        if (Hands.Y != -1)
+            modifiers.FinalDamage /= 10;
+    }
 
 		float customAi1;
 		bool FirstState;
@@ -197,7 +197,7 @@ namespace TremorMod.Content.NPCs.Invasion
 					{
 						SoundEngine.PlaySound(SoundID.Pixie, NPC.position);
 						float Angle = (float)Math.Atan2(NPos.Y - PTC.Y, NPos.X - PTC.X);
-                        int SpitShot1 = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPos.X, NPos.Y, (float)((Math.Cos(Angle) * 22f) * -1), (float)((Math.Sin(Angle) * 22f) * -1), ModContent.ProjectileType<CyberLaserBat>(), 70, 0f, 0);
+                    int SpitShot1 = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPos.X, NPos.Y, (float)((Math.Cos(Angle) * 22f) * -1), (float)((Math.Sin(Angle) * 22f) * -1), ModContent.ProjectileType<CyberLaserBat>(), 70, 0f, 0);
 						Main.projectile[SpitShot1].timeLeft = 120;
 						customAi1 = 1f;
 					}
@@ -318,4 +318,3 @@ namespace TremorMod.Content.NPCs.Invasion
 			}
 		}
 	}
-}

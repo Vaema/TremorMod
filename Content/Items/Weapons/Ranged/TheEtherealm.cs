@@ -1,10 +1,10 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Weapons.Ranged
-{
+namespace TremorMod.Content.Items.Weapons.Ranged;
+
 	public class TheEtherealm : ModItem
 	{
 		public override void SetDefaults()
@@ -34,21 +34,20 @@ namespace TremorMod.Content.Items.Weapons.Ranged
 			// Tooltip.SetDefault("");
 		}
 
-        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-        {
+    public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    {
 			type = ProjectileID.LaserMachinegunLaser;
-            for (int i = 0; i < 1; ++i)
-            {
-                Projectile.NewProjectile(source, position, velocity + new Vector2(+1, +1), type, damage, knockback, Main.myPlayer);
-                Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer);
-                Projectile.NewProjectile(source, position, velocity - new Vector2(-1, -1), type, damage, knockback, Main.myPlayer);
-                Projectile.NewProjectile(source, position, velocity - new Vector2(+2, +2), type, damage, knockback, Main.myPlayer);
-                Projectile.NewProjectile(source, position, velocity - new Vector2(-2, -2), type, damage, knockback, Main.myPlayer);
-                Projectile.NewProjectile(source, position, velocity - new Vector2(+3, +3), type, damage, knockback, Main.myPlayer);
-                Projectile.NewProjectile(source, position, velocity - new Vector2(-3, -3), type, damage, knockback, Main.myPlayer);
-            }
-            return false;
+        for (int i = 0; i < 1; ++i)
+        {
+            Projectile.NewProjectile(source, position, velocity + new Vector2(+1, +1), type, damage, knockback, Main.myPlayer);
+            Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer);
+            Projectile.NewProjectile(source, position, velocity - new Vector2(-1, -1), type, damage, knockback, Main.myPlayer);
+            Projectile.NewProjectile(source, position, velocity - new Vector2(+2, +2), type, damage, knockback, Main.myPlayer);
+            Projectile.NewProjectile(source, position, velocity - new Vector2(-2, -2), type, damage, knockback, Main.myPlayer);
+            Projectile.NewProjectile(source, position, velocity - new Vector2(+3, +3), type, damage, knockback, Main.myPlayer);
+            Projectile.NewProjectile(source, position, velocity - new Vector2(-3, -3), type, damage, knockback, Main.myPlayer);
         }
-
+        return false;
     }
+
 }

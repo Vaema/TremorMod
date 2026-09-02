@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.Vicious
-{
+namespace TremorMod.Content.Items.Armor.Vicious;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class ViciousLeggings : ModItem
 	{
@@ -32,4 +32,3 @@ namespace TremorMod.Content.Items.Armor.Vicious
 		}
 
 	}
-}

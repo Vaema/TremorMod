@@ -1,12 +1,12 @@
-using System.Linq;
+﻿using System.Linq;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items
-{
+namespace TremorMod.Content.Items;
+
 	[AutoloadEquip(EquipType.Wings)]
 	public class ShadowWings : ModItem
 	{
@@ -22,10 +22,10 @@ namespace TremorMod.Content.Items
 
 		public override void SetStaticDefaults()
 		{
-            //DisplayName.SetDefault("Shadow Wings");
-            //Tooltip.SetDefault("The wings of shadow.");
-            ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(180, 6f, 1f);
-        }
+        //DisplayName.SetDefault("Shadow Wings");
+        //Tooltip.SetDefault("The wings of shadow.");
+        ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(180, 6f, 1f);
+    }
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
@@ -59,4 +59,3 @@ namespace TremorMod.Content.Items
 			recipe.Register();
 		}
 	}
-}

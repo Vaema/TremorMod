@@ -1,16 +1,16 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 
-namespace TremorMod.Content.Items.Armor.Palladium
-{
+namespace TremorMod.Content.Items.Armor.Palladium;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class PalladiumHeader : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 20;
 			Item.height = 24;
@@ -23,8 +23,8 @@ namespace TremorMod.Content.Items.Armor.Palladium
 		{
 			//DisplayName.SetDefault("Palladium Header");
 			//Tooltip.SetDefault("18% increased thrown damage");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases thrown weapon velocity and greatly increases life regeneration after striking an enemy");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases thrown weapon velocity and greatly increases life regeneration after striking an enemy");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -38,8 +38,8 @@ namespace TremorMod.Content.Items.Armor.Palladium
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Increases thrown weapon velocity and greatly increases life regeneration after striking an enemy";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Increases thrown weapon velocity and greatly increases life regeneration after striking an enemy";
 			player.GetAttackSpeed(DamageClass.Throwing) += 0.25f;
 			player.onHitRegen = true;
 		}
@@ -58,4 +58,3 @@ namespace TremorMod.Content.Items.Armor.Palladium
 			recipe.Register();
 		}
 	}
-}

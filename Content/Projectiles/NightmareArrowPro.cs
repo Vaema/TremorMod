@@ -1,12 +1,12 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Dusts;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	//ported from my tAPI mod because I don't want to make artwork
 	public class NightmareArrowPro : ModProjectile
 	{
@@ -45,4 +45,3 @@ namespace TremorMod.Content.Projectiles
 			SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
 		}
 	}
-}

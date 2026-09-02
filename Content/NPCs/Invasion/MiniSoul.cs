@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -13,8 +13,8 @@ using TremorMod.Content.Event;
 using TremorMod.Content.Items.Vanity;
 using TremorMod.Content.Items.Weapons.Melee;
 
-namespace TremorMod.Content.NPCs.Invasion
-{
+namespace TremorMod.Content.NPCs.Invasion;
+
 	public class MiniSoul : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -62,9 +62,9 @@ namespace TremorMod.Content.NPCs.Invasion
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 10; k++)
 				{
@@ -85,4 +85,3 @@ namespace TremorMod.Content.NPCs.Invasion
 			}
 		}
 	}
-}

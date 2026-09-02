@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class StrongBelt : ModItem
 	{
 		public override void SetDefaults()
@@ -23,7 +23,6 @@ namespace TremorMod.Content.Items.Accessories
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-            player.GetKnockback(DamageClass.Summon) += 0.15f;
-        }
+        player.GetKnockback(DamageClass.Summon) += 0.15f;
     }
 }

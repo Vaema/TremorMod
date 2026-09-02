@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -12,8 +12,8 @@ using TremorMod.Content.Items.Placeable;
 using TremorMod.Content.Items.Vanity;
 using TremorMod.Content.Items.Bag;
 
-namespace TremorMod.Content.NPCs.Bosses.Jellyfish
-{
+namespace TremorMod.Content.NPCs.Bosses.Jellyfish;
+
 	[AutoloadBossHead]
 	public class StormJellyfish : ModNPC
 	{
@@ -23,25 +23,25 @@ namespace TremorMod.Content.NPCs.Bosses.Jellyfish
 			Main.npcFrameCount[NPC.type] = 6;
 		}
 
-		const int ShootRate = 100; // Частота выстрела
-		const int ShootDamage = 18; // Урон от лазера.
-		const float ShootKN = 1.0f; // Отбрасывание
-		const int ShootType = 435; // Тип проджектайла которым будет произведён выстрел.
-		const float ShootSpeed = 8; // Это, я так понимаю, влияет на дальность выстрела
+		const int ShootRate = 100; // Г—Г Г±ГІГ®ГІГ  ГўГ»Г±ГІГ°ГҐГ«Г 
+		const int ShootDamage = 18; // Г“Г°Г®Г­ Г®ГІ Г«Г Г§ГҐГ°Г .
+		const float ShootKN = 1.0f; // ГЋГІГЎГ°Г Г±Г»ГўГ Г­ГЁГҐ
+		const int ShootType = 435; // Г’ГЁГЇ ГЇГ°Г®Г¤Г¦ГҐГЄГІГ Г©Г«Г  ГЄГ®ГІГ®Г°Г»Г¬ ГЎГіГ¤ГҐГІ ГЇГ°Г®ГЁГ§ГўГҐГ¤ВёГ­ ГўГ»Г±ГІГ°ГҐГ«.
+		const float ShootSpeed = 8; // ГќГІГ®, Гї ГІГ ГЄ ГЇГ®Г­ГЁГ¬Г Гѕ, ГўГ«ГЁГїГҐГІ Г­Г  Г¤Г Г«ГјГ­Г®Г±ГІГј ГўГ»Г±ГІГ°ГҐГ«Г 
 		const int ProjID = 437;
 		const int UpSpeed = 6;
 
-		const int ShootRate2 = 660; // Частота выстрела
-		const int ShootDamage2 = 15; // Урон от лазера.
-		const float ShootKN2 = 1.0f; // Отбрасывание
-		const int ShootType2 = 465; // Тип проджектайла которым будет произведён выстрел.
-		const float ShootSpeed2 = 5; // Это, я так понимаю, влияет на дальность выстрела
+		const int ShootRate2 = 660; // Г—Г Г±ГІГ®ГІГ  ГўГ»Г±ГІГ°ГҐГ«Г 
+		const int ShootDamage2 = 15; // Г“Г°Г®Г­ Г®ГІ Г«Г Г§ГҐГ°Г .
+		const float ShootKN2 = 1.0f; // ГЋГІГЎГ°Г Г±Г»ГўГ Г­ГЁГҐ
+		const int ShootType2 = 465; // Г’ГЁГЇ ГЇГ°Г®Г¤Г¦ГҐГЄГІГ Г©Г«Г  ГЄГ®ГІГ®Г°Г»Г¬ ГЎГіГ¤ГҐГІ ГЇГ°Г®ГЁГ§ГўГҐГ¤ВёГ­ ГўГ»Г±ГІГ°ГҐГ«.
+		const float ShootSpeed2 = 5; // ГќГІГ®, Гї ГІГ ГЄ ГЇГ®Г­ГЁГ¬Г Гѕ, ГўГ«ГЁГїГҐГІ Г­Г  Г¤Г Г«ГјГ­Г®Г±ГІГј ГўГ»Г±ГІГ°ГҐГ«Г 
 		const int ProjID2 = 437;
 		const int UpSpeed2 = 6;
 
-		int TimeToShoot = ShootRate; // Время до выстрела.
+		int TimeToShoot = ShootRate; // Г‚Г°ГҐГ¬Гї Г¤Г® ГўГ»Г±ГІГ°ГҐГ«Г .
 
-		int TimeToShoot2 = ShootRate2; // Время до выстрела.
+		int TimeToShoot2 = ShootRate2; // Г‚Г°ГҐГ¬Гї Г¤Г® ГўГ»Г±ГІГ°ГҐГ«Г .
 
 		public override void SetDefaults()
 		{
@@ -67,8 +67,8 @@ namespace TremorMod.Content.NPCs.Bosses.Jellyfish
 		{
 			NPC.position += NPC.velocity * 0.5f;
 
-			if (--TimeToShoot <= 0 && NPC.target != -1) Shoot(); // В этой строке из переменной TimeToShot отнимается 1, и если TimeToShot < или = 0, то вызывается метод Shoot()
-			if (--TimeToShoot2 <= 0 && NPC.target != -1) Shoot2(); // В этой строке из переменной TimeToShot отнимается 1, и если TimeToShot < или = 0, то вызывается метод Shoot()
+			if (--TimeToShoot <= 0 && NPC.target != -1) Shoot(); // Г‚ ГЅГІГ®Г© Г±ГІГ°Г®ГЄГҐ ГЁГ§ ГЇГҐГ°ГҐГ¬ГҐГ­Г­Г®Г© TimeToShot Г®ГІГ­ГЁГ¬Г ГҐГІГ±Гї 1, ГЁ ГҐГ±Г«ГЁ TimeToShot < ГЁГ«ГЁ = 0, ГІГ® ГўГ»Г§Г»ГўГ ГҐГІГ±Гї Г¬ГҐГІГ®Г¤ Shoot()
+			if (--TimeToShoot2 <= 0 && NPC.target != -1) Shoot2(); // Г‚ ГЅГІГ®Г© Г±ГІГ°Г®ГЄГҐ ГЁГ§ ГЇГҐГ°ГҐГ¬ГҐГ­Г­Г®Г© TimeToShot Г®ГІГ­ГЁГ¬Г ГҐГІГ±Гї 1, ГЁ ГҐГ±Г«ГЁ TimeToShot < ГЁГ«ГЁ = 0, ГІГ® ГўГ»Г§Г»ГўГ ГҐГІГ±Гї Г¬ГҐГІГ®Г¤ Shoot()
 
 			if (Main.rand.Next(400) == 0)
 			{
@@ -88,13 +88,13 @@ namespace TremorMod.Content.NPCs.Bosses.Jellyfish
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 226, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 226, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				}
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("StormGore1").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("StormGore1").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("StormGore1").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("StormGore1").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("StormGore3").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("StormGore2").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("StormGore4").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("StormGore1").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("StormGore1").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("StormGore1").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("StormGore1").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("StormGore3").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("StormGore2").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("StormGore4").Type, 1f);
 			}
 			else
 			{
@@ -133,7 +133,7 @@ namespace TremorMod.Content.NPCs.Bosses.Jellyfish
 			return move * (speed / (float)Math.Sqrt(move.X * move.X + move.Y * move.Y));
 		}
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
 		{
 			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<StormJellyfishMask>(), 7));
 			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<StormBlade>(), 4));
@@ -145,4 +145,3 @@ namespace TremorMod.Content.NPCs.Bosses.Jellyfish
 			npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<StormJellyfishBag>(), 1));
 		}	
 	}
-}

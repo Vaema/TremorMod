@@ -1,16 +1,16 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 
-namespace TremorMod.Content.Items.Armor.Stone
-{
+namespace TremorMod.Content.Items.Armor.Stone;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class StoneHelmet : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 22;
 			Item.height = 26;
@@ -23,8 +23,8 @@ namespace TremorMod.Content.Items.Armor.Stone
 		{
 			// DisplayName.SetDefault("Stone Helmet");
 			// Tooltip.SetDefault("`Your neck starts to ache`");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases maximum defense by 2");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases maximum defense by 2");
+    }
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
@@ -33,8 +33,8 @@ namespace TremorMod.Content.Items.Armor.Stone
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Increases maximum defense by 2";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Increases maximum defense by 2";
 			player.statDefense += 2;
 		}
 
@@ -47,4 +47,3 @@ namespace TremorMod.Content.Items.Armor.Stone
 			recipe.Register();
 		}
 	}
-}

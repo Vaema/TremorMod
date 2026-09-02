@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 
-namespace TremorMod.Content.Items.Weapons.Melee
-{
+namespace TremorMod.Content.Items.Weapons.Melee;
+
 	public class ArgiteBroadsword : ModItem
 	{
 		public override void SetDefaults()
@@ -34,9 +34,9 @@ namespace TremorMod.Content.Items.Weapons.Melee
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<ArgiteBar>(), 25);
-            //recipe.SetResult(this);
-            recipe.AddTile(16);
+        recipe.AddIngredient(ModContent.ItemType<ArgiteBar>(), 25);
+        //recipe.SetResult(this);
+        recipe.AddTile(16);
 			recipe.Register();
 		}
 
@@ -48,4 +48,3 @@ namespace TremorMod.Content.Items.Weapons.Melee
 			}
 		}
 	}
-}

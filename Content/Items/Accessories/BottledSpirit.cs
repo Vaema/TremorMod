@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using TremorMod;
 using TremorMod.Content.Buffs;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class BottledSpirit : ModItem
 	{
 		/*public override bool CanEquipAccessory(Player player, int slot)
@@ -40,9 +40,8 @@ namespace TremorMod.Content.Items.Accessories
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-            MPlayer modPlayer = player.GetModPlayer<MPlayer>();
-            player.AddBuff(ModContent.BuffType<BottledSpiritBuffs>(), 2);
-            modPlayer.enchanted = true;
-        }
+        MPlayer modPlayer = player.GetModPlayer<MPlayer>();
+        player.AddBuff(ModContent.BuffType<BottledSpiritBuffs>(), 2);
+        modPlayer.enchanted = true;
+    }
 	}
-}

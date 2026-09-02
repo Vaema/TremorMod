@@ -1,11 +1,11 @@
-using System;
+п»їusing System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class FrostwindPro : ModProjectile
 	{
 		public override void SetDefaults()
@@ -88,27 +88,27 @@ namespace TremorMod.Content.Projectiles
 			{
 				Projectile.ai[0] -= 1f;
 			}
-            if (Projectile.ai[0] == 1f && Projectile.ai[1] > 0f && Projectile.owner == Main.myPlayer)
-            {
-                Projectile.netUpdate = true;
-                Vector2 center = Projectile.Center;
-                center.Y -= num617 * Projectile.scale / 2f;
+        if (Projectile.ai[0] == 1f && Projectile.ai[1] > 0f && Projectile.owner == Main.myPlayer)
+        {
+            Projectile.netUpdate = true;
+            Vector2 center = Projectile.Center;
+            center.Y -= num617 * Projectile.scale / 2f;
 
-                float num618 = (num613 + num614 - Projectile.ai[1] + 1f) * num615 / (num614 + num613);
-                center.Y -= num617 * num618 / 2f;
-                center.Y += 2f;
+            float num618 = (num613 + num614 - Projectile.ai[1] + 1f) * num615 / (num614 + num613);
+            center.Y -= num617 * num618 / 2f;
+            center.Y += 2f;
 
-                // Приведение типов
-                IEntitySource source = Projectile.GetSource_FromThis(); // Пример получения IEntitySource
-                Vector2 position = new Vector2(center.X, center.Y);
-                Vector2 velocity = new Vector2(Projectile.velocity.X, Projectile.velocity.Y);
-                int damage = (int)Projectile.damage; // Приведение к int
-                int knockBack = (int)Projectile.knockBack; // Приведение к int
+            // ГЏГ°ГЁГўГҐГ¤ГҐГ­ГЁГҐ ГІГЁГЇГ®Гў
+            IEntitySource source = Projectile.GetSource_FromThis(); // ГЏГ°ГЁГ¬ГҐГ° ГЇГ®Г«ГіГ·ГҐГ­ГЁГї IEntitySource
+            Vector2 position = new Vector2(center.X, center.Y);
+            Vector2 velocity = new Vector2(Projectile.velocity.X, Projectile.velocity.Y);
+            int damage = (int)Projectile.damage; // ГЏГ°ГЁГўГҐГ¤ГҐГ­ГЁГҐ ГЄ int
+            int knockBack = (int)Projectile.knockBack; // ГЏГ°ГЁГўГҐГ¤ГҐГ­ГЁГҐ ГЄ int
 
-                // Вызов метода
-                Projectile.NewProjectile(source, position, velocity, Projectile.type, damage, knockBack, Projectile.owner, 10f, Projectile.ai[1] - 1f);
-            }
-            if (Projectile.ai[0] <= 0f)
+            // Г‚Г»Г§Г®Гў Г¬ГҐГІГ®Г¤Г 
+            Projectile.NewProjectile(source, position, velocity, Projectile.type, damage, knockBack, Projectile.owner, 10f, Projectile.ai[1] - 1f);
+        }
+        if (Projectile.ai[0] <= 0f)
 			{
 				float num622 = 0.104719758f;
 				float num623 = Projectile.width / 5f;
@@ -121,4 +121,3 @@ namespace TremorMod.Content.Projectiles
 		}
 
 	}
-}

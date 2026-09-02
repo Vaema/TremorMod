@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.Leather
-{
+namespace TremorMod.Content.Items.Armor.Leather;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class LeatherGreaves : ModItem
 	{
@@ -35,4 +35,3 @@ namespace TremorMod.Content.Items.Armor.Leather
 			recipe1.Register();
 		}
 	}
-}

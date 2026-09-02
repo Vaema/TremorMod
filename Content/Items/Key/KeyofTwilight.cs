@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Key
-{
+namespace TremorMod.Content.Items.Key;
+
 	public class KeyofTwilight : ModItem
 	{
 		public override void SetDefaults()
@@ -31,7 +31,6 @@ namespace TremorMod.Content.Items.Key
 			recipe.AddIngredient(ItemID.JungleSpores, 3);
 			//recipe.SetResult(this);
 			recipe.AddTile(134);
-            recipe.Register();
-        }
+        recipe.Register();
+    }
 	}
-}

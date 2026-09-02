@@ -1,28 +1,27 @@
-using Terraria;
+п»їusing Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class AxeofExecutionerPro : ModProjectile
 	{
-        public override void SetDefaults()
-        {
-            // Копируем параметры поведения снаряда с ID 182
-            Projectile.CloneDefaults(182);
+    public override void SetDefaults()
+    {
+        // ГЉГ®ГЇГЁГ°ГіГҐГ¬ ГЇГ Г°Г Г¬ГҐГІГ°Г» ГЇГ®ГўГҐГ¤ГҐГ­ГЁГї Г±Г­Г Г°ГїГ¤Г  Г± ID 182
+        Projectile.CloneDefaults(182);
 
-            // Задаем размеры снаряда
-            Projectile.width = 29;
-            Projectile.height = 29;
+        // Г‡Г Г¤Г ГҐГ¬ Г°Г Г§Г¬ГҐГ°Г» Г±Г­Г Г°ГїГ¤Г 
+        Projectile.width = 29;
+        Projectile.height = 29;
 
-            // Указываем AIType (снаряд, на который ориентируется логика поведения)
-            AIType = 182; // Убедитесь, что 182 — это существующий ID снаряда, с которым вы хотите сравняться
-        }
+        // Г“ГЄГ Г§Г»ГўГ ГҐГ¬ AIType (Г±Г­Г Г°ГїГ¤, Г­Г  ГЄГ®ГІГ®Г°Г»Г© Г®Г°ГЁГҐГ­ГІГЁГ°ГіГҐГІГ±Гї Г«Г®ГЈГЁГЄГ  ГЇГ®ГўГҐГ¤ГҐГ­ГЁГї)
+        AIType = 182; // Г“ГЎГҐГ¤ГЁГІГҐГ±Гј, Г·ГІГ® 182 вЂ” ГЅГІГ® Г±ГіГ№ГҐГ±ГІГўГіГѕГ№ГЁГ© ID Г±Г­Г Г°ГїГ¤Г , Г± ГЄГ®ГІГ®Г°Г»Г¬ ГўГ» ГµГ®ГІГЁГІГҐ Г±Г°Г ГўГ­ГїГІГјГ±Гї
+    }
 
 
-        /*public override void SetStaticDefaults()
+    /*public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("AxeofExecutioner");
 		}*/
-    }
 }

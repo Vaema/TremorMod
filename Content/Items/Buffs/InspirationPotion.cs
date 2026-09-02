@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items.Buffs
-{
+namespace TremorMod.Content.Items.Buffs;
+
 	public class InspirationPotion : ModItem
 	{
 		public override void SetDefaults()
@@ -19,8 +19,8 @@ namespace TremorMod.Content.Items.Buffs
 			Item.useStyle = 2;
 			Item.UseSound = SoundID.Item3;
 			Item.consumable = true;
-            Item.buffType = ModContent.BuffType<MaximumCharge>();
-        }
+        Item.buffType = ModContent.BuffType<MaximumCharge>();
+    }
 
 		public override void SetStaticDefaults()
 		{
@@ -46,4 +46,3 @@ namespace TremorMod.Content.Items.Buffs
 			recipe.Register();
 		}
 	}
-}

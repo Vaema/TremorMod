@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.Xna.Framework;
@@ -16,8 +16,8 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Filters = Terraria.Graphics.Effects.Filters;
 
-namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles
-{
+namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles;
+
 	public class NovaCauldron_Fire : ModProjectile
 	{
 		public override void SetDefaults()
@@ -110,39 +110,38 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles
 			}
 		}
 
-        public override void OnKill(int timeLeft)
-        {
-            SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
+    public override void OnKill(int timeLeft)
+    {
+        SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
 
-            // Реализация взрыва вручную
-            for (int i = 0; i < 40; i++)
+        // ГђГҐГ Г«ГЁГ§Г Г¶ГЁГї ГўГ§Г°Г»ГўГ  ГўГ°ГіГ·Г­ГіГѕ
+        for (int i = 0; i < 40; i++)
+        {
+            int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 57, 0f, -2f, 0, default(Color), 2f);
+            Main.dust[num].noGravity = true;
+            Dust expr_62_cp_0 = Main.dust[num];
+            expr_62_cp_0.position.X = expr_62_cp_0.position.X + (Main.rand.Next(-50, 51) / 20 - 1.5f);
+            Dust expr_92_cp_0 = Main.dust[num];
+            expr_92_cp_0.position.Y = expr_92_cp_0.position.Y + (Main.rand.Next(-50, 51) / 20 - 1.5f);
+            if (Main.dust[num].position != Projectile.Center)
             {
-                int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 57, 0f, -2f, 0, default(Color), 2f);
-                Main.dust[num].noGravity = true;
-                Dust expr_62_cp_0 = Main.dust[num];
-                expr_62_cp_0.position.X = expr_62_cp_0.position.X + (Main.rand.Next(-50, 51) / 20 - 1.5f);
-                Dust expr_92_cp_0 = Main.dust[num];
-                expr_92_cp_0.position.Y = expr_92_cp_0.position.Y + (Main.rand.Next(-50, 51) / 20 - 1.5f);
-                if (Main.dust[num].position != Projectile.Center)
-                {
-                    Main.dust[num].velocity = Projectile.DirectionTo(Main.dust[num].position) * 6f;
-                }
+                Main.dust[num].velocity = Projectile.DirectionTo(Main.dust[num].position) * 6f;
             }
         }
-
-
-        public override bool PreDraw(ref Color lightColor)
-        {
-            // Получаем текстуру для данного типа проекта
-            Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
-
-            // Рисуем спрайт вокруг центра
-            Vector2 origin = Projectile.Center - Main.screenPosition;
-            Main.spriteBatch.Draw(texture, origin, null, lightColor, Projectile.rotation, texture.Bounds.Size() / 2, Projectile.scale, SpriteEffects.None, 0f);
-
-            return false;
-        }
-
-
     }
+
+
+    public override bool PreDraw(ref Color lightColor)
+    {
+        // ГЏГ®Г«ГіГ·Г ГҐГ¬ ГІГҐГЄГ±ГІГіГ°Гі Г¤Г«Гї Г¤Г Г­Г­Г®ГЈГ® ГІГЁГЇГ  ГЇГ°Г®ГҐГЄГІГ 
+        Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
+
+        // ГђГЁГ±ГіГҐГ¬ Г±ГЇГ°Г Г©ГІ ГўГ®ГЄГ°ГіГЈ Г¶ГҐГ­ГІГ°Г 
+        Vector2 origin = Projectile.Center - Main.screenPosition;
+        Main.spriteBatch.Draw(texture, origin, null, lightColor, Projectile.rotation, texture.Bounds.Size() / 2, Projectile.scale, SpriteEffects.None, 0f);
+
+        return false;
+    }
+
+
 }

@@ -1,10 +1,10 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Weapons.Melee
-{
+namespace TremorMod.Content.Items.Weapons.Melee;
+
 	public class CursedKnife : ModItem
 	{
 		public override void SetDefaults()
@@ -21,9 +21,9 @@ namespace TremorMod.Content.Items.Weapons.Melee
 			Item.value = 2800;
 			Item.rare = 4;
 			Item.UseSound = SoundID.Item1;
-            Item.autoReuse = true;
-            Item.useTurn = true;
-        }
+        Item.autoReuse = true;
+        Item.useTurn = true;
+    }
 
 		public override void SetStaticDefaults()
 		{
@@ -53,4 +53,3 @@ namespace TremorMod.Content.Items.Weapons.Melee
 			}
 		}
 	}
-}

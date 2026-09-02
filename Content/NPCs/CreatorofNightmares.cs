@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
@@ -9,8 +9,8 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Placeable.Banners;
 using TremorMod.Content.Items.Vanity;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class CreatorofNightmares : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -38,25 +38,25 @@ namespace TremorMod.Content.NPCs
 			// Todo: bannerItem = mod.ItemType("CreatorofNightmaresBanner");
 		}
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BrokenHeroArmorplate>(), 5));
-        }
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BrokenHeroArmorplate>(), 5));
+    }
 
-        public override void HitEffect(NPC.HitInfo hit)
+    public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				Dust.NewDust(NPC.position, NPC.width, NPC.height, 54, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 99, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 99, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 99, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 99, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 99, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 99, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 99, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 99, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 99, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 99, 1f);
 
-                for (int k = 0; k < 20; k++)
+            for (int k = 0; k < 20; k++)
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 5, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
 			}
 		}
@@ -64,4 +64,3 @@ namespace TremorMod.Content.NPCs
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 			=> Helper.NormalSpawn(spawnInfo) && spawnInfo.SpawnTileY < Main.rockLayer && NPC.downedMoonlord && Main.eclipse ? 0.01f : 0f;
 	}
-}

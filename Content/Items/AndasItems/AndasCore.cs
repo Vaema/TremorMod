@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using System.Linq;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 
-namespace TremorMod.Content.Items.AndasItems
-{
+namespace TremorMod.Content.Items.AndasItems;
+
 	[AutoloadEquip(EquipType.Wings)]
 	public class AndasCore : ModItem
 	{
@@ -21,12 +21,12 @@ namespace TremorMod.Content.Items.AndasItems
 
 		public override void SetStaticDefaults()
 		{
-            //DisplayName.SetDefault("Andas Core");
-            //Tooltip.SetDefault("Allows flight\n" +
-            //"Has infinite flight time\n" +
-            //"Has big flight speed");
-            ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(9999999, 40f, 3f);
-        }
+        //DisplayName.SetDefault("Andas Core");
+        //Tooltip.SetDefault("Allows flight\n" +
+        //"Has infinite flight time\n" +
+        //"Has big flight speed");
+        ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(9999999, 40f, 3f);
+    }
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
@@ -55,4 +55,3 @@ namespace TremorMod.Content.Items.AndasItems
 			acceleration *= 4f;
 		}
 	}
-}

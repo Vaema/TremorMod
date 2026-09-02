@@ -1,11 +1,11 @@
-using Terraria;
+п»їusing Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Fungus;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.Fungus
-{
+namespace TremorMod.Content.Items.Armor.Fungus;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class FungusBreastplate : ModItem
 	{
@@ -28,14 +28,14 @@ namespace TremorMod.Content.Items.Armor.Fungus
 
 		public override void UpdateEquip(Player player)
 		{
-			player.GetDamage(DamageClass.Melee) += 0.13f;   // +13% к ближнему урону
-			player.GetDamage(DamageClass.Magic) += 0.13f;   // +13% к магическому урону
-			player.GetDamage(DamageClass.Ranged) += 0.13f;  // +13% к дальнему урону
-			player.GetDamage(DamageClass.Throwing) += 0.13f; // +13% к урону бросков
-			player.GetDamage(DamageClass.Summon) += 0.13f;  // +13% к урону прислужников
+			player.GetDamage(DamageClass.Melee) += 0.13f;   // +13% ГЄ ГЎГ«ГЁГ¦Г­ГҐГ¬Гі ГіГ°Г®Г­Гі
+			player.GetDamage(DamageClass.Magic) += 0.13f;   // +13% ГЄ Г¬Г ГЈГЁГ·ГҐГ±ГЄГ®Г¬Гі ГіГ°Г®Г­Гі
+			player.GetDamage(DamageClass.Ranged) += 0.13f;  // +13% ГЄ Г¤Г Г«ГјГ­ГҐГ¬Гі ГіГ°Г®Г­Гі
+			player.GetDamage(DamageClass.Throwing) += 0.13f; // +13% ГЄ ГіГ°Г®Г­Гі ГЎГ°Г®Г±ГЄГ®Гў
+			player.GetDamage(DamageClass.Summon) += 0.13f;  // +13% ГЄ ГіГ°Г®Г­Гі ГЇГ°ГЁГ±Г«ГіГ¦Г­ГЁГЄГ®Гў
 
-			// Пользовательский тип урона
-			player.GetModPlayer<MPlayer>().alchemicalDamage += 0.13f; // +13% к алхимическому урону
+			// ГЏГ®Г«ГјГ§Г®ГўГ ГІГҐГ«ГјГ±ГЄГЁГ© ГІГЁГЇ ГіГ°Г®Г­Г 
+			player.GetModPlayer<MPlayer>().alchemicalDamage += 0.13f; // +13% ГЄ Г Г«ГµГЁГ¬ГЁГ·ГҐГ±ГЄГ®Г¬Гі ГіГ°Г®Г­Гі
 		}
 
 
@@ -58,13 +58,12 @@ namespace TremorMod.Content.Items.Armor.Fungus
 			recipe2.Register();
 		}
 	}
-}
 /*    public override void AddRecipes()
 		{
-                        Recipe recipe = CreateRecipe();
+                    Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<SteelBar>(), 15);
-            recipe.AddIngredient(ModContent.ItemType<PhantomSoul>(), 4);
-            //recipe.SetResult(this);
-            recipe.AddTile(16);
-            recipe.Register();
-        }*/
+        recipe.AddIngredient(ModContent.ItemType<PhantomSoul>(), 4);
+        //recipe.SetResult(this);
+        recipe.AddTile(16);
+        recipe.Register();
+    }*/

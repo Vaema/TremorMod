@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.NPCsDrop
-{
+namespace TremorMod.Content.Items.NPCsDrop;
+
 	public class TheTide : ModItem
 	{
 		public override void SetDefaults()
@@ -37,17 +37,16 @@ namespace TremorMod.Content.Items.NPCsDrop
 			"Uses bullets as ammo"); */
 		}
 
-        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-        {
-            type = 27; 
-            Projectile.NewProjectile(source, position, velocity, type, damage, knockback, player.whoAmI);
-            return false; 
-        }
+    public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    {
+        type = 27; 
+        Projectile.NewProjectile(source, position, velocity, type, damage, knockback, player.whoAmI);
+        return false; 
+    }
 
 
-        public override Vector2? HoldoutOffset()
+    public override Vector2? HoldoutOffset()
 		{
 			return new Vector2(-16, 0);
 		}
 	}
-}

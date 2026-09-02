@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Armor.RedSteel
-{
+namespace TremorMod.Content.Items.Armor.RedSteel;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class RedSteelGreaves : ModItem
 	{
@@ -29,14 +29,13 @@ namespace TremorMod.Content.Items.Armor.RedSteel
 			player.moveSpeed += 0.2f;
 		}
 
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<RedSteelArmorPiece>(), 5);
-            recipe.AddIngredient(ModContent.ItemType<RedSteelBar>(), 6);
-            recipe.AddTile(16);
-            recipe.Register();
-        }
-
+    public override void AddRecipes()
+    {
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ModContent.ItemType<RedSteelArmorPiece>(), 5);
+        recipe.AddIngredient(ModContent.ItemType<RedSteelBar>(), 6);
+        recipe.AddTile(16);
+        recipe.Register();
     }
+
 }

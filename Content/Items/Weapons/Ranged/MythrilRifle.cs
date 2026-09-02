@@ -1,10 +1,10 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Weapons.Ranged
-{
+namespace TremorMod.Content.Items.Weapons.Ranged;
+
 	public class MythrilRifle : ModItem
 	{
 		public override void SetDefaults()
@@ -24,8 +24,8 @@ namespace TremorMod.Content.Items.Weapons.Ranged
 			Item.autoReuse = true;
 			Item.shoot = 10;
 			Item.shootSpeed = 12f;
-            Item.useAmmo = AmmoID.Bullet;
-        }
+        Item.useAmmo = AmmoID.Bullet;
+    }
 
 		public override void SetStaticDefaults()
 		{
@@ -47,4 +47,3 @@ namespace TremorMod.Content.Items.Weapons.Ranged
 			recipe.Register();
 		}
 	}
-}

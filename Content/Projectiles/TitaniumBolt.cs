@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class TitaniumBolt : ModProjectile
 	{
 		public override void SetDefaults()
@@ -35,4 +35,3 @@ namespace TremorMod.Content.Projectiles
 		}
 
 	}
-}

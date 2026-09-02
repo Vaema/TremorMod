@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,13 +8,13 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Tiles;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.Specter
-{
+namespace TremorMod.Content.Items.Armor.Specter;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class SpecterHood : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
-        //const int ShootType = ProjectileID.HeatRay; 
+    public static LocalizedText SetBonusText { get; private set; }
+    //const int ShootType = ProjectileID.HeatRay; 
 		const float ShootRange = 600.0f; 
 		const float ShootKN = 1.0f; 
 		const int ShootRate = 120; 
@@ -40,14 +40,14 @@ namespace TremorMod.Content.Items.Armor.Specter
 			// DisplayName.SetDefault("Specter Hood");
 			/* Tooltip.SetDefault("10% increased melee damage\n" +
 			                   "10% increased minion damage"); */
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Summons the cursed skulls to fight for you.");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Summons the cursed skulls to fight for you.");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
-            MPlayer modPlayer = player.GetModPlayer<MPlayer>();
-            modPlayer.HeatRayF = true; 
-            player.GetDamage(DamageClass.Melee) += 0.1f;
+        MPlayer modPlayer = player.GetModPlayer<MPlayer>();
+        modPlayer.HeatRayF = true; 
+        player.GetDamage(DamageClass.Melee) += 0.1f;
 			player.GetDamage(DamageClass.Summon) += 0.1f;
 		}
 
@@ -63,8 +63,8 @@ namespace TremorMod.Content.Items.Armor.Specter
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Summons the cursed skulls to fight for you.";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Summons the cursed skulls to fight for you.";
 
 			if (--TimeToShoot <= 0)
 			{
@@ -88,16 +88,16 @@ namespace TremorMod.Content.Items.Armor.Specter
 			return Target;
 		}
 
-        int GetDamage()
-        {
-            return (10 * ((int)Main.player[Item.playerIndexTheItemIsReservedFor].GetTotalDamage(DamageClass.Magic).ApplyTo(1f) +
-                          (int)Main.player[Item.playerIndexTheItemIsReservedFor].GetTotalDamage(DamageClass.Melee).ApplyTo(1f) +
-                          (int)Main.player[Item.playerIndexTheItemIsReservedFor].GetTotalDamage(DamageClass.Summon).ApplyTo(1f) +
-                          (int)Main.player[Item.playerIndexTheItemIsReservedFor].GetTotalDamage(DamageClass.Ranged).ApplyTo(1f) +
-                          (int)Main.player[Item.playerIndexTheItemIsReservedFor].GetTotalDamage(DamageClass.Throwing).ApplyTo(1f))) + 15;
-        }
+    int GetDamage()
+    {
+        return (10 * ((int)Main.player[Item.playerIndexTheItemIsReservedFor].GetTotalDamage(DamageClass.Magic).ApplyTo(1f) +
+                      (int)Main.player[Item.playerIndexTheItemIsReservedFor].GetTotalDamage(DamageClass.Melee).ApplyTo(1f) +
+                      (int)Main.player[Item.playerIndexTheItemIsReservedFor].GetTotalDamage(DamageClass.Summon).ApplyTo(1f) +
+                      (int)Main.player[Item.playerIndexTheItemIsReservedFor].GetTotalDamage(DamageClass.Ranged).ApplyTo(1f) +
+                      (int)Main.player[Item.playerIndexTheItemIsReservedFor].GetTotalDamage(DamageClass.Throwing).ApplyTo(1f))) + 15;
+    }
 
-        void Shoot(int Target, int Damage)
+    void Shoot(int Target, int Damage)
 		{
 			Vector2 velocity = Helper.VelocityToPoint(Main.player[Item.playerIndexTheItemIsReservedFor].Center, Main.npc[Target].Center, ShootSpeed);
 			for (int l = 0; l < ShootCount; l++)
@@ -108,13 +108,12 @@ namespace TremorMod.Content.Items.Armor.Specter
 			}
 		}
 
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<CryptStone>(), 3);
-            recipe.AddIngredient(ModContent.ItemType<CursedCloth>(), 8);
-            recipe.AddTile(ModContent.TileType<MagicWorkbenchTile>());
-            recipe.Register();
-        }
+    public override void AddRecipes()
+    {
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ModContent.ItemType<CryptStone>(), 3);
+        recipe.AddIngredient(ModContent.ItemType<CursedCloth>(), 8);
+        recipe.AddTile(ModContent.TileType<MagicWorkbenchTile>());
+        recipe.Register();
     }
 }

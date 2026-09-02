@@ -1,12 +1,12 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Accessories.Sparks
-{
+namespace TremorMod.Content.Items.Accessories.Sparks;
+
 	public class GunslingerFocus : ModItem
 	{
 
@@ -44,4 +44,3 @@ namespace TremorMod.Content.Items.Accessories.Sparks
 			recipe.Register();
 		}
 	}
-}

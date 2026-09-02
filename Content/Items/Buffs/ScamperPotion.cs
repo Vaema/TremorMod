@@ -1,12 +1,12 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Buffs;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Buffs
-{
+namespace TremorMod.Content.Items.Buffs;
+
 	public class ScamperPotion : ModItem
 	{
 		public override void SetDefaults()
@@ -20,8 +20,8 @@ namespace TremorMod.Content.Items.Buffs
 			Item.useStyle = 2;
 			Item.UseSound = SoundID.Item3;
 			Item.consumable = true;
-            Item.buffType = ModContent.BuffType<ScamperBuff>();
-        }
+        Item.buffType = ModContent.BuffType<ScamperBuff>();
+    }
 
 		public override void SetStaticDefaults()
 		{
@@ -47,4 +47,3 @@ namespace TremorMod.Content.Items.Buffs
 			recipe.Register();
 		}
 	}
-}

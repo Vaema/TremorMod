@@ -1,12 +1,12 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles.Minions;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items.Weapons.Summon
-{
+namespace TremorMod.Content.Items.Weapons.Summon;
+
 	public class CorruptorStaff : ModItem
 	{
 		public override void SetDefaults()
@@ -35,18 +35,17 @@ namespace TremorMod.Content.Items.Weapons.Summon
 			//Tooltip.SetDefault("Summons a corruptor to fight for you.");
 		}
 
-        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockBack)
-        {
+    public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockBack)
+    {
 			return player.altFunctionUse != 2;
 		}
 
 		public override bool? UseItem(Player player)
 		{
-            if (player.altFunctionUse == 2)
-            {
-                player.MinionNPCTargetAim(true); 
-            }
-            return base.UseItem(player);
+        if (player.altFunctionUse == 2)
+        {
+            player.MinionNPCTargetAim(true); 
         }
+        return base.UseItem(player);
+    }
 	}
-}

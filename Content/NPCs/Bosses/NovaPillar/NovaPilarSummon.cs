@@ -1,87 +1,86 @@
-using Microsoft.Xna.Framework;
+п»їusing Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.NPCs.Bosses.NovaPillar
+namespace TremorMod.Content.NPCs.Bosses.NovaPillar;
+
+public class NovaPilarSummon : ModItem
 {
-    public class NovaPilarSummon : ModItem
+    public override void SetDefaults()
     {
-        public override void SetDefaults()
+        Item.width = 32; // ГГЁГ°ГЁГ­Г  Г±ГЇГ°Г Г©ГІГ 
+        Item.height = 32; // Г‚Г»Г±Г®ГІГ  Г±ГЇГ°Г Г©ГІГ 
+        Item.useStyle = ItemUseStyleID.HoldUp; // ГЂГ­ГЁГ¬Г Г¶ГЁГї ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГї
+        Item.useTime = 20; // Г‚Г°ГҐГ¬Гї ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГї
+        Item.useAnimation = 20; // ГЂГ­ГЁГ¬Г Г¶ГЁГї ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГї
+        Item.rare = ItemRarityID.Red; // ГђГҐГ¤ГЄГ®Г±ГІГј ГЇГ°ГҐГ¤Г¬ГҐГІГ 
+        Item.value = Item.sellPrice(0, 5, 0, 0); // Г–ГҐГ­Г  ГЇГ°ГҐГ¤Г¬ГҐГІГ 
+        Item.consumable = true; // Г€Г±ГЇГ®Г«ГјГ§ГіГҐГІГ±Гї Г«ГЁ ГЇГ°ГҐГ¤Г¬ГҐГІ (Г±Г®ГµГ°Г Г­ГїГҐГІГ±Гї/ГЁГ±Г·ГҐГ§Г ГҐГІ ГЇГ®Г±Г«ГҐ ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГї)
+        Item.maxStack = 20; // ГЊГ ГЄГ±ГЁГ¬Г Г«ГјГ­Г®ГҐ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® Гў Г±ГІГ ГЄГҐ
+    }
+
+    public override bool CanUseItem(Player player)
+    {
+        // ГЏГ°Г®ГўГҐГ°ГїГҐГ¬, Г¬Г®Г¦Г­Г® Г«ГЁ ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ ГІГј ГЇГ°ГҐГ¤Г¬ГҐГІ
+        if (NPC.AnyNPCs(ModContent.NPCType<NovaPillar>()))
         {
-            Item.width = 32; // Ширина спрайта
-            Item.height = 32; // Высота спрайта
-            Item.useStyle = ItemUseStyleID.HoldUp; // Анимация использования
-            Item.useTime = 20; // Время использования
-            Item.useAnimation = 20; // Анимация использования
-            Item.rare = ItemRarityID.Red; // Редкость предмета
-            Item.value = Item.sellPrice(0, 5, 0, 0); // Цена предмета
-            Item.consumable = true; // Используется ли предмет (сохраняется/исчезает после использования)
-            Item.maxStack = 20; // Максимальное количество в стаке
+            Main.NewText("A Nova Pillar already exists in this world!", Color.Red);
+            return false; // Г…Г±Г«ГЁ NovaPillar ГіГ¦ГҐ Г±ГіГ№ГҐГ±ГІГўГіГҐГІ, ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ ГЇГ°ГҐГ¤Г¬ГҐГІГ  Г§Г ГЇГ°ГҐГ№ГҐГ­Г®
         }
+        return true;
+    }
 
-        public override bool CanUseItem(Player player)
+    public override bool? UseItem(Player player)
+    {
+        // ГЋГЇГ°ГҐГ¤ГҐГ«ГїГҐГ¬ ГЄГ®Г®Г°Г¤ГЁГ­Г ГІГ» Г¤Г«Гї Г±ГЇГ ГўГ­Г  NovaPillar
+        Vector2 spawnPos = player.Center + new Vector2(Main.rand.Next(-1600, 1600), -100); // ГЏГ°ГЁГ¬ГҐГ° ГЇГ®Г§ГЁГ¶ГЁГЁ Г­Г Г¤ ГЁГЈГ°Г®ГЄГ®Г¬
+
+        int spawnNPC = NPC.NewNPC(new Terraria.DataStructures.EntitySource_ItemUse(player, Item),
+            (int)spawnPos.X, (int)spawnPos.Y, ModContent.NPCType<NovaPillar>());
+
+        if (spawnNPC < 200)
         {
-            // Проверяем, можно ли использовать предмет
-            if (NPC.AnyNPCs(ModContent.NPCType<NovaPillar>()))
-            {
-                Main.NewText("A Nova Pillar already exists in this world!", Color.Red);
-                return false; // Если NovaPillar уже существует, использование предмета запрещено
-            }
-            return true;
+            Main.NewText("The Nova Pillar has been summoned!", Color.Orange);
+            return true; // ГЏГ°ГҐГ¤Г¬ГҐГІ ГіГ±ГЇГҐГёГ­Г® ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­
         }
-
-        public override bool? UseItem(Player player)
+        else
         {
-            // Определяем координаты для спавна NovaPillar
-            Vector2 spawnPos = player.Center + new Vector2(Main.rand.Next(-1600, 1600), -100); // Пример позиции над игроком
-
-            int spawnNPC = NPC.NewNPC(new Terraria.DataStructures.EntitySource_ItemUse(player, Item),
-                (int)spawnPos.X, (int)spawnPos.Y, ModContent.NPCType<NovaPillar>());
-
-            if (spawnNPC < 200)
-            {
-                Main.NewText("The Nova Pillar has been summoned!", Color.Orange);
-                return true; // Предмет успешно использован
-            }
-            else
-            {
-                Main.NewText("Failed to summon the Nova Pillar.", Color.Red);
-                return false; // Ошибка при использовании
-            }
+            Main.NewText("Failed to summon the Nova Pillar.", Color.Red);
+            return false; // ГЋГёГЁГЎГЄГ  ГЇГ°ГЁ ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГЁ
         }
+    }
 
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(3456, 10);
-            recipe.AddIngredient(3457, 10);
-            recipe.AddIngredient(3458, 10);
-            //recipe.AddIngredient(3459, 1);
-            //recipe.SetResult(this);
-            recipe.AddTile(412);
-            recipe.Register();
+    public override void AddRecipes()
+    {
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(3456, 10);
+        recipe.AddIngredient(3457, 10);
+        recipe.AddIngredient(3458, 10);
+        //recipe.AddIngredient(3459, 1);
+        //recipe.SetResult(this);
+        recipe.AddTile(412);
+        recipe.Register();
 
-            Recipe recipe1 = CreateRecipe();
-            recipe1.AddIngredient(3456, 10);
-            recipe1.AddIngredient(3457, 10);
-            recipe1.AddIngredient(3459, 10);
-            recipe1.AddTile(412);
-            recipe1.Register();
+        Recipe recipe1 = CreateRecipe();
+        recipe1.AddIngredient(3456, 10);
+        recipe1.AddIngredient(3457, 10);
+        recipe1.AddIngredient(3459, 10);
+        recipe1.AddTile(412);
+        recipe1.Register();
 
-            Recipe recipe2 = CreateRecipe();
-            recipe2.AddIngredient(3456, 10);
-            recipe2.AddIngredient(3459, 10);
-            recipe2.AddIngredient(3458, 10);
-            recipe2.AddTile(412);
-            recipe2.Register();
+        Recipe recipe2 = CreateRecipe();
+        recipe2.AddIngredient(3456, 10);
+        recipe2.AddIngredient(3459, 10);
+        recipe2.AddIngredient(3458, 10);
+        recipe2.AddTile(412);
+        recipe2.Register();
 
-            Recipe recipe3 = CreateRecipe();
-            recipe3.AddIngredient(3459, 10);
-            recipe3.AddIngredient(3457, 10);
-            recipe3.AddIngredient(3458, 10);
-            recipe3.AddTile(412);
-            recipe3.Register();
-        }
+        Recipe recipe3 = CreateRecipe();
+        recipe3.AddIngredient(3459, 10);
+        recipe3.AddIngredient(3457, 10);
+        recipe3.AddIngredient(3458, 10);
+        recipe3.AddTile(412);
+        recipe3.Register();
     }
 }

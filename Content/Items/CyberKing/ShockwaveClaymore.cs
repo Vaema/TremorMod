@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Items.CyberKing
-{
+namespace TremorMod.Content.Items.CyberKing;
+
 	public class ShockwaveClaymore : ModItem
 	{
 		public override void SetDefaults()
@@ -17,7 +17,7 @@ namespace TremorMod.Content.Items.CyberKing
 			Item.useTime = 25;
 			Item.useAnimation = 25;
 			Item.useStyle = 1;
-            Item.shoot = ModContent.ProjectileType<ShockwavePro>();
+        Item.shoot = ModContent.ProjectileType<ShockwavePro>();
 			Item.shootSpeed = 7f;
 			Item.knockBack = 4;
 			Item.value = 10000;
@@ -37,4 +37,3 @@ namespace TremorMod.Content.Items.CyberKing
 			int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 60);
 		}
 	}
-}

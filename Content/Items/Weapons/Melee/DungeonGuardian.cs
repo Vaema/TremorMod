@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Items.Weapons.Melee
-{
+namespace TremorMod.Content.Items.Weapons.Melee;
+
 	public class DungeonGuardian : ModItem
 	{
 		public override void SetStaticDefaults()
@@ -21,7 +21,7 @@ namespace TremorMod.Content.Items.Weapons.Melee
 			Item.shoot = ModContent.ProjectileType<DungeonGuardianPro>();
 			Item.knockBack = 4;
 			Item.DamageType = DamageClass.Melee;
-            Item.value = 10000;
+        Item.value = 10000;
 			Item.rare = 2;
 			if (!NPC.downedBoss1)
 			{
@@ -61,4 +61,3 @@ namespace TremorMod.Content.Items.Weapons.Melee
 			}
 		}
 	}
-}

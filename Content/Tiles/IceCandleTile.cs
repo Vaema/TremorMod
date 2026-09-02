@@ -1,15 +1,15 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace TremorMod.Content.Tiles
-{
+namespace TremorMod.Content.Tiles;
+
 	public class IceCandleTile : ModTile
 	{
-        public override void SetStaticDefaults()
-        {
+    public override void SetStaticDefaults()
+    {
 			Main.tileFrameImportant[Type] = true;
 			Main.tileLavaDeath[Type] = true;
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
@@ -29,4 +29,3 @@ namespace TremorMod.Content.Tiles
 			b = 0.9f;
 		}
 	}
-}

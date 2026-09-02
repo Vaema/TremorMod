@@ -1,7 +1,7 @@
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.Archer
-{
+namespace TremorMod.Content.Items.Armor.Archer;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class ArcherGreaves : ModItem
 	{
@@ -23,4 +23,3 @@ namespace TremorMod.Content.Items.Armor.Archer
 		}
 
 	}
-}

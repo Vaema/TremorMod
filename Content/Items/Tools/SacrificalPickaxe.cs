@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.BossLoot.TikiTotem;
 
-namespace TremorMod.Content.Items.Tools
-{
+namespace TremorMod.Content.Items.Tools;
+
 	public class SacrificalPickaxe : ModItem
 	{
 		public override void SetDefaults()
@@ -52,4 +52,3 @@ namespace TremorMod.Content.Items.Tools
 			recipe.Register();
 		}
 	}
-}

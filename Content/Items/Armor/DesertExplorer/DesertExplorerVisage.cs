@@ -1,18 +1,18 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using TremorMod.Content.Buffs;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.DesertExplorer
-{
+namespace TremorMod.Content.Items.Armor.DesertExplorer;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class DesertExplorerVisage : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 30;
 			Item.height = 22;
@@ -25,9 +25,9 @@ namespace TremorMod.Content.Items.Armor.DesertExplorer
 		{
 			// DisplayName.SetDefault("Desert Explorer Visage");
 			// Tooltip.SetDefault("15% increased alchemical critical strike chance");
-            //TremorGlowMask.AddGlowMask(item.type, $"{typeof(DesertExplorerVisage).NamespaceToPath()}/DesertExplorerVisage_HeadGlow");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("When a flask explodes a wasp appears to attack enemies");
-        }
+        //TremorGlowMask.AddGlowMask(item.type, $"{typeof(DesertExplorerVisage).NamespaceToPath()}/DesertExplorerVisage_HeadGlow");
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("When a flask explodes a wasp appears to attack enemies");
+    }
 
 		public override void ArmorSetShadows(Player player)
 		{
@@ -52,9 +52,8 @@ namespace TremorMod.Content.Items.Armor.DesertExplorer
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "When a flask explodes a wasp appears to attack enemies";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "When a flask explodes a wasp appears to attack enemies";
 			player.AddBuff(ModContent.BuffType<DesertEmperorSetBuff>(), 4);
 		}
 	}
-}

@@ -1,16 +1,16 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.Hallowed
-{
+namespace TremorMod.Content.Items.Armor.Hallowed;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class HallowedHeader : ModItem
 	{
 		public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 24;
 			Item.height = 24;
@@ -21,10 +21,10 @@ namespace TremorMod.Content.Items.Armor.Hallowed
 
 		public override void SetStaticDefaults()
 		{
-            //DisplayName.SetDefault("Hallowed Header");
-            //Tooltip.SetDefault("26% increased thrown damage");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases thrown weapon velocity");
-        }
+        //DisplayName.SetDefault("Hallowed Header");
+        //Tooltip.SetDefault("26% increased thrown damage");
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases thrown weapon velocity");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -39,7 +39,7 @@ namespace TremorMod.Content.Items.Armor.Hallowed
 		public override void UpdateArmorSet(Player player)
 		{
 			player.setBonus = SetBonusText.Value;
-            player.setBonus = "Increases thrown weapon velocity";
+        player.setBonus = "Increases thrown weapon velocity";
 			player.GetAttackSpeed(DamageClass.Throwing) += 0.25f;
 		}
 
@@ -57,4 +57,3 @@ namespace TremorMod.Content.Items.Armor.Hallowed
 			recipe.Register();
 		}
 	}
-}

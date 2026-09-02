@@ -1,35 +1,34 @@
-using Microsoft.Xna.Framework;
+п»їusing Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace TremorMod.Content.Projectiles
+namespace TremorMod.Content.Projectiles;
+
+public class RedStormLaser : ModProjectile
 {
-    public class RedStormLaser : ModProjectile
+    public override void SetDefaults()
     {
-        public override void SetDefaults()
-        {
-            Projectile.width = 10;
-            Projectile.height = 300; // Лазер длинный
-            Projectile.friendly = true;
-            Projectile.DamageType = DamageClass.Ranged;
-            Projectile.penetrate = -1; // Лазер будет наносить урон несколько раз
-            Projectile.timeLeft = 300;
-            Projectile.ignoreWater = true;
-            Projectile.tileCollide = false; // Лазер не будет взаимодействовать с плитками
-        }
+        Projectile.width = 10;
+        Projectile.height = 300; // Г‹Г Г§ГҐГ° Г¤Г«ГЁГ­Г­Г»Г©
+        Projectile.friendly = true;
+        Projectile.DamageType = DamageClass.Ranged;
+        Projectile.penetrate = -1; // Г‹Г Г§ГҐГ° ГЎГіГ¤ГҐГІ Г­Г Г­Г®Г±ГЁГІГј ГіГ°Г®Г­ Г­ГҐГ±ГЄГ®Г«ГјГЄГ® Г°Г Г§
+        Projectile.timeLeft = 300;
+        Projectile.ignoreWater = true;
+        Projectile.tileCollide = false; // Г‹Г Г§ГҐГ° Г­ГҐ ГЎГіГ¤ГҐГІ ГўГ§Г ГЁГ¬Г®Г¤ГҐГ©Г±ГІГўГ®ГўГ ГІГј Г± ГЇГ«ГЁГІГЄГ Г¬ГЁ
+    }
 
-        public override void AI()
-        {
-            // Лазер всегда двигается вниз
-            Projectile.velocity = new Vector2(0, 10f);
+    public override void AI()
+    {
+        // Г‹Г Г§ГҐГ° ГўГ±ГҐГЈГ¤Г  Г¤ГўГЁГЈГ ГҐГІГ±Гї ГўГ­ГЁГ§
+        Projectile.velocity = new Vector2(0, 10f);
 
-            // Добавление визуальных эффектов
-            if (Main.rand.NextBool(5))
-            {
-                int dustID = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.PurpleCrystalShard);
-                Main.dust[dustID].noGravity = true;
-            }
+        // Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ ГўГЁГ§ГіГ Г«ГјГ­Г»Гµ ГЅГґГґГҐГЄГІГ®Гў
+        if (Main.rand.NextBool(5))
+        {
+            int dustID = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.PurpleCrystalShard);
+            Main.dust[dustID].noGravity = true;
         }
     }
 }

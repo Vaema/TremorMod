@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Biomes.Ice.Items.Furniture
-{
+namespace TremorMod.Content.Biomes.Ice.Items.Furniture;
+
 	public class IceChestt : ModItem
 	{
 		public override void SetStaticDefaults()
@@ -44,4 +44,3 @@ namespace TremorMod.Content.Biomes.Ice.Items.Furniture
 			recipe.Register();
 		}
 	}
-}

@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
@@ -8,8 +8,8 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Placeable.Banners;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class PossessedHornet1 : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -34,25 +34,25 @@ namespace TremorMod.Content.NPCs
 			NPC.DeathSound = SoundID.NPCDeath44;
 			NPC.noGravity = true;
 			NPC.value = Item.buyPrice(0, 0, 10, 0);
-            Banner = NPC.type;
-            BannerItem = ModContent.ItemType<PossessedHornetBanner>();
-            ItemID.Sets.KillsToBanner[BannerItem] = 50;
-        }
+        Banner = NPC.type;
+        BannerItem = ModContent.ItemType<PossessedHornetBanner>();
+        ItemID.Sets.KillsToBanner[BannerItem] = 50;
+    }
 
 		public override void OnKill()
 		{
-            if (Main.rand.NextBool())
-            {
-                int amount = Main.rand.Next(1, 2);
-                Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<CarbonSteel>(), amount);
-            }
+        if (Main.rand.NextBool())
+        {
+            int amount = Main.rand.Next(1, 2);
+            Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<CarbonSteel>(), amount);
         }
+    }
 
-        public override void HitEffect(NPC.HitInfo hit)
+    public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<NightmareFlame>(), 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
@@ -65,4 +65,3 @@ namespace TremorMod.Content.NPCs
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 			=> Helper.NoZoneAllowWater(spawnInfo) && spawnInfo.Player.ZoneJungle && NPC.downedMoonlord && Main.hardMode && spawnInfo.SpawnTileY > Main.rockLayer ? 0.01f : 0f;
 	}
-}

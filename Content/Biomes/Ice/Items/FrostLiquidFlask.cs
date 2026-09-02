@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
@@ -6,14 +6,14 @@ using TremorMod.Content.Projectiles;
 using TremorMod.Utilities;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Biomes.Ice.Items
-{
+namespace TremorMod.Content.Biomes.Ice.Items;
+
 	public class FrostLiquidFlask : ModItem
 	{
 		public override void SetDefaults()
 		{
-            Item.DamageType = TremorMod.alchemicalDamage ?? DamageClass.Generic;
-            Item.damage = 10;
+        Item.DamageType = TremorMod.alchemicalDamage ?? DamageClass.Generic;
+        Item.damage = 10;
 			//item.thrown = true;
 			Item.width = 26;
 			Item.noUseGraphic = true;
@@ -39,4 +39,3 @@ namespace TremorMod.Content.Biomes.Ice.Items
 			Tooltip.SetDefault("Throws a flask that explodes into frost bolts");
 		}*/
 	}
-}

@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Accessories.Sparks
-{
+namespace TremorMod.Content.Items.Accessories.Sparks;
+
 	public class WarriorSpark : ModItem
 	{
 		public override void SetStaticDefaults()
@@ -40,4 +40,3 @@ namespace TremorMod.Content.Items.Accessories.Sparks
 			recipe.Register();
 		}
 	}
-}

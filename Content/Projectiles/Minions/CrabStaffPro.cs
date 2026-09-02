@@ -1,12 +1,12 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles.Minions
-{
+namespace TremorMod.Content.Projectiles.Minions;
+
 	public class CrabStaffPro : ModProjectile
-    {
+{
 		public override void SetDefaults()
 		{
 			Projectile.width = 32;
@@ -59,4 +59,3 @@ namespace TremorMod.Content.Projectiles.Minions
 			Main.player[Projectile.owner].slime = oldSlime;
 		}
 	}
-}

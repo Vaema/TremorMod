@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Armor.Bone
-{
+namespace TremorMod.Content.Items.Armor.Bone;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class BoneGreaves : ModItem
 	{
@@ -45,4 +45,3 @@ namespace TremorMod.Content.Items.Armor.Bone
 			recipe.Register();
 		}
 	}
-}

@@ -1,15 +1,15 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Buffs;
 using TremorMod.Utilities;
 using TremorMod.Content.Items.Materials.OreAndBar;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class ReinforcedBurst : ModItem
 	{
-        /*public override bool CanEquipAccessory(Player player, int slot)
+    /*public override bool CanEquipAccessory(Player player, int slot)
 		{
 			for (int i = 0; i < player.armor.Length; i++)
 			{
@@ -22,7 +22,7 @@ namespace TremorMod.Content.Items.Accessories
 			return true;
 		}*/
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 22;
 			Item.height = 44;
@@ -51,9 +51,8 @@ namespace TremorMod.Content.Items.Accessories
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-            MPlayer modPlayer = player.GetModPlayer<MPlayer>();
-            player.AddBuff(ModContent.BuffType<ReinforcedBurstBuff>(), 2);
-            modPlayer.nitro = true;
-        }
+        MPlayer modPlayer = player.GetModPlayer<MPlayer>();
+        player.AddBuff(ModContent.BuffType<ReinforcedBurstBuff>(), 2);
+        modPlayer.nitro = true;
+    }
 	}
-}

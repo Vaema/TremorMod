@@ -1,12 +1,12 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.GameContent.ItemDropRules;
 using TremorMod.Content.Items.Placeable.Banners;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class CrimsonBicholmere : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -17,25 +17,25 @@ namespace TremorMod.Content.NPCs
 
 		public override void SetDefaults()
 		{
-            NPC.lifeMax = 300;
-            NPC.damage = 28;
-            NPC.defense = 11;
-            NPC.knockBackResist = 0.3f;
-            NPC.width = 62;
-            NPC.height = 46;
-            AnimationType = 244;
-            NPC.aiStyle = 1;
-            NPC.npcSlots = 0.9f;
-            NPC.HitSound = SoundID.NPCHit47;
-            NPC.DeathSound = SoundID.NPCDeath23;
-            NPC.value = Item.buyPrice(0, 0, 5, 25);
-            Banner = NPC.type;
-            BannerItem = ModContent.ItemType<CrimsonBiholmerBanner>();
-            ItemID.Sets.KillsToBanner[BannerItem] = 50;
+        NPC.lifeMax = 300;
+        NPC.damage = 28;
+        NPC.defense = 11;
+        NPC.knockBackResist = 0.3f;
+        NPC.width = 62;
+        NPC.height = 46;
+        AnimationType = 244;
+        NPC.aiStyle = 1;
+        NPC.npcSlots = 0.9f;
+        NPC.HitSound = SoundID.NPCHit47;
+        NPC.DeathSound = SoundID.NPCDeath23;
+        NPC.value = Item.buyPrice(0, 0, 5, 25);
+        Banner = NPC.type;
+        BannerItem = ModContent.ItemType<CrimsonBiholmerBanner>();
+        ItemID.Sets.KillsToBanner[BannerItem] = 50;
 		}
 
-        public override void HitEffect(NPC.HitInfo hit)
-        {
+    public override void HitEffect(NPC.HitInfo hit)
+    {
 			if (NPC.life <= 0)
 			{
 				int hitDirection = NPC.direction;
@@ -51,14 +51,13 @@ namespace TremorMod.Content.NPCs
 			}
 		}
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            npcLoot.Add(ItemDropRule.Common(ItemID.Vertebrae, 1));
-        }
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ItemID.Vertebrae, 1));
+    }
 
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            return spawnInfo.Player.ZoneCrimson && spawnInfo.SpawnTileY > Main.rockLayer ? 0.05f : 0f;
-        }
+    public override float SpawnChance(NPCSpawnInfo spawnInfo)
+    {
+        return spawnInfo.Player.ZoneCrimson && spawnInfo.SpawnTileY > Main.rockLayer ? 0.05f : 0f;
     }
 }

@@ -5,8 +5,8 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.NPCsDrop
-{
+namespace TremorMod.Content.Items.NPCsDrop;
+
 	class CrawlerHook : ModItem
 	{
 		public override void SetDefaults()
@@ -109,45 +109,44 @@ namespace TremorMod.Content.Items.NPCsDrop
 			speed = 10;
 		}
 
-        public override bool PreDraw(ref Color lightColor)
+    public override bool PreDraw(ref Color lightColor)
+    {
+        Vector2 playerCenter = Main.player[Projectile.owner].MountedCenter;
+        Vector2 center = Projectile.Center;
+        Vector2 distToProj = playerCenter - Projectile.Center;
+        float projRotation = distToProj.ToRotation() - 1.57f;
+        float distance = distToProj.Length();
+
+        while (distance > 30f && !float.IsNaN(distance))
         {
-            Vector2 playerCenter = Main.player[Projectile.owner].MountedCenter;
-            Vector2 center = Projectile.Center;
-            Vector2 distToProj = playerCenter - Projectile.Center;
-            float projRotation = distToProj.ToRotation() - 1.57f;
-            float distance = distToProj.Length();
+            distToProj.Normalize();                 // get unit vector
+            distToProj *= 24f;                      // speed = 24
+            center += distToProj;                   // update draw position
+            distToProj = playerCenter - center;    // update distance
+            distance = distToProj.Length();
+            Color drawColor = lightColor;
 
-            while (distance > 30f && !float.IsNaN(distance))
-            {
-                distToProj.Normalize();                 // get unit vector
-                distToProj *= 24f;                      // speed = 24
-                center += distToProj;                   // update draw position
-                distToProj = playerCenter - center;    // update distance
-                distance = distToProj.Length();
-                Color drawColor = lightColor;
-
-                // Draw chain
-                Texture2D chainTexture = ModContent.Request<Texture2D>("TremorMod/Content/Items/NPCsDrop/CrawlerHookChain").Value; // Исправленный путь
-                Main.spriteBatch.Draw(chainTexture, new Vector2(center.X - Main.screenPosition.X, center.Y - Main.screenPosition.Y),
-                    new Rectangle(0, 0, chainTexture.Width, chainTexture.Height), drawColor, projRotation,
-                    new Vector2(chainTexture.Width * 0.5f, chainTexture.Height * 0.5f), 1f, SpriteEffects.None, 0f);
-            }
-            return true;
+            // Draw chain
+            Texture2D chainTexture = ModContent.Request<Texture2D>("TremorMod/Content/Items/NPCsDrop/CrawlerHookChain").Value; // Исправленный путь
+            Main.spriteBatch.Draw(chainTexture, new Vector2(center.X - Main.screenPosition.X, center.Y - Main.screenPosition.Y),
+                new Rectangle(0, 0, chainTexture.Width, chainTexture.Height), drawColor, projRotation,
+                new Vector2(chainTexture.Width * 0.5f, chainTexture.Height * 0.5f), 1f, SpriteEffects.None, 0f);
         }
-
+        return true;
     }
 
-    // Animated hook example
-    // Multiple, 
-    // only 1 connected, spawn mult
-    // Light the path
-    // Gem Hooks: 1 spawn only
-    // Thorn: 4 spawns, 3 connected
-    // Dual: 2/1 
-    // Lunar: 5/4 -- Cycle hooks, more than 1 at once
-    // AntiGravity -- Push player to position
-    // Static -- move player with keys, don't pull to wall
-    // Christmas -- light ends
-    // Web slinger -- 9/8, can shoot more than 1 at once
-    // Bat hook -- Fast reeling
 }
+
+// Animated hook example
+// Multiple, 
+// only 1 connected, spawn mult
+// Light the path
+// Gem Hooks: 1 spawn only
+// Thorn: 4 spawns, 3 connected
+// Dual: 2/1 
+// Lunar: 5/4 -- Cycle hooks, more than 1 at once
+// AntiGravity -- Push player to position
+// Static -- move player with keys, don't pull to wall
+// Christmas -- light ends
+// Web slinger -- 9/8, can shoot more than 1 at once
+// Bat hook -- Fast reeling

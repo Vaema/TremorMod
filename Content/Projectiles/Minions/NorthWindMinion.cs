@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -9,24 +9,24 @@ using TremorMod;
 using TremorMod.Utilities;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Projectiles.Minions
-{
-	public class NorthWindMinion : ModProjectile
-    {
+namespace TremorMod.Content.Projectiles.Minions;
 
-        const int ShootRate = 30; 
-        const float ShootDistance = 300f; 
-        const float ShootSpeed = 12f; 
-        const int ShootDamage = 20; 
-        const float ShootKnockback = 2; 
-        int ShootType = 118; 
-        int TimeToShoot = ShootRate;
+	public class NorthWindMinion : ModProjectile
+{
+
+    const int ShootRate = 30; 
+    const float ShootDistance = 300f; 
+    const float ShootSpeed = 12f; 
+    const int ShootDamage = 20; 
+    const float ShootKnockback = 2; 
+    int ShootType = 118; 
+    int TimeToShoot = ShootRate;
 
 		public override void SetDefaults()
 		{
 			Projectile.netImportant = true;
 			Projectile.CloneDefaults(317);
-            Projectile.aiStyle = 62;
+        Projectile.aiStyle = 62;
 			Projectile.width = 20;
 			Projectile.height = 30;
 			Main.projFrames[Projectile.type] = 8;
@@ -36,50 +36,50 @@ namespace TremorMod.Content.Projectiles.Minions
 			Projectile.penetrate = -1;
 			Projectile.timeLeft = 18000;
 			Projectile.ignoreWater = true;
-            Projectile.tileCollide = false;
-            ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
+        Projectile.tileCollide = false;
+        ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 		}
 
-        void Shoot()
+    void Shoot()
+    {
+        if (--TimeToShoot <= 0)
         {
-            if (--TimeToShoot <= 0)
-            {
-                TimeToShoot = ShootRate;
+            TimeToShoot = ShootRate;
 
-                float NearestNPCDist = ShootDistance;
-                int NearestNPC = -1;
-                foreach (NPC npc in Main.npc)
+            float NearestNPCDist = ShootDistance;
+            int NearestNPC = -1;
+            foreach (NPC npc in Main.npc)
+            {
+                if (!npc.active)
+                    continue;
+                if (npc.friendly || npc.lifeMax <= 5)
+                    continue;
+                if (NearestNPCDist == -1 || npc.Distance(Projectile.Center) < NearestNPCDist && Collision.CanHitLine(Projectile.Center, 16, 16, npc.Center, 16, 16))
                 {
-                    if (!npc.active)
-                        continue;
-                    if (npc.friendly || npc.lifeMax <= 5)
-                        continue;
-                    if (NearestNPCDist == -1 || npc.Distance(Projectile.Center) < NearestNPCDist && Collision.CanHitLine(Projectile.Center, 16, 16, npc.Center, 16, 16))
-                    {
-                        NearestNPCDist = npc.Distance(Projectile.Center);
-                        NearestNPC = npc.whoAmI;
-                    }
+                    NearestNPCDist = npc.Distance(Projectile.Center);
+                    NearestNPC = npc.whoAmI;
                 }
-                if (NearestNPC == -1)
-                    return;
-                Vector2 Velocity = Helper.VelocityToPoint(Projectile.Center, Main.npc[NearestNPC].Center, ShootSpeed);
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, Velocity.X, Velocity.Y, ShootType, ShootDamage, ShootKnockback, Projectile.owner);
             }
-        }
-
-        public override void AI()
-        {
-            Shoot();
-            base.AI();
-            Player player = Main.player[Projectile.owner];
-            if (!player.active || player.dead || !player.HasBuff(ModContent.BuffType<NorthwindBuff>()))
-            {
-                Projectile.Kill();
+            if (NearestNPC == -1)
                 return;
-            }
+            Vector2 Velocity = Helper.VelocityToPoint(Projectile.Center, Main.npc[NearestNPC].Center, ShootSpeed);
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, Velocity.X, Velocity.Y, ShootType, ShootDamage, ShootKnockback, Projectile.owner);
         }
+    }
 
-        public override bool OnTileCollide(Vector2 oldVelocity)
+    public override void AI()
+    {
+        Shoot();
+        base.AI();
+        Player player = Main.player[Projectile.owner];
+        if (!player.active || player.dead || !player.HasBuff(ModContent.BuffType<NorthwindBuff>()))
+        {
+            Projectile.Kill();
+            return;
+        }
+    }
+
+    public override bool OnTileCollide(Vector2 oldVelocity)
 		{
 			if (Projectile.velocity.X != oldVelocity.X)
 			{
@@ -89,7 +89,6 @@ namespace TremorMod.Content.Projectiles.Minions
 			{
 				Projectile.tileCollide = false;
 			}
-        return false;
+    return false;
 		}
 	}
-}

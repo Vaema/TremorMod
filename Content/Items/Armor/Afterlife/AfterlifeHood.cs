@@ -1,18 +1,18 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using Terraria.Localization;
 using Terraria.GameContent.Creative;
 
-namespace TremorMod.Content.Items.Armor.Afterlife
-{
+namespace TremorMod.Content.Items.Armor.Afterlife;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class AfterlifeHood : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 38;
 			Item.height = 22;
@@ -21,14 +21,14 @@ namespace TremorMod.Content.Items.Armor.Afterlife
 			Item.defense = 7;
 		}
 
-        public override void SetStaticDefaults()
+    public override void SetStaticDefaults()
 		{
 			//DisplayName.SetDefault("Afterlife Hood");
 			//Tooltip.SetDefault("Increases life regeneration");
 			SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Quickly recovers you if you have low health.But at what cost...");
 		}
 
-        public override void UpdateEquip(Player player)
+    public override void UpdateEquip(Player player)
 		{
 			player.crimsonRegen = true;
 		}
@@ -40,8 +40,8 @@ namespace TremorMod.Content.Items.Armor.Afterlife
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Quickly recovers you if you have low health.But at what cost...");
+        player.setBonus = SetBonusText.Value;
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Quickly recovers you if you have low health.But at what cost...");
 			if (player.statLife < 25)
 			{
 				player.lifeRegen += 40;
@@ -57,9 +57,8 @@ namespace TremorMod.Content.Items.Armor.Afterlife
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<SkullTeeth>(), 2);
-            recipe.AddIngredient(ModContent.ItemType<SteelBar>(), 12);
+        recipe.AddIngredient(ModContent.ItemType<SteelBar>(), 12);
 			recipe.AddTile(134);
 			recipe.Register();
 		}
 	}
-}

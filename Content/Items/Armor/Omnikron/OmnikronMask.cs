@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -8,9 +8,9 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Utilities;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items.Armor.Omnikron
-{ 
-    [AutoloadEquip(EquipType.Head)]
+namespace TremorMod.Content.Items.Armor.Omnikron;
+
+[AutoloadEquip(EquipType.Head)]
 	public class OmnikronMask : ModItem
 	{
 		public static LocalizedText SetBonusText { get; private set; }
@@ -28,31 +28,31 @@ namespace TremorMod.Content.Items.Armor.Omnikron
 		{
 			//DisplayName.SetDefault("Omnikron Mask");
 			//Tooltip.SetDefault("20% increased damage");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Calls ancient soul to protect you");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Calls ancient soul to protect you");
+    }
 
-        public override void ModifyTooltips(List<TooltipLine> tooltips)
+    public override void ModifyTooltips(List<TooltipLine> tooltips)
+    {
+        foreach (var tooltip in tooltips)
         {
-            foreach (var tooltip in tooltips)
+            if (tooltip.Mod == "Terraria" && tooltip.Name == "ItemName")
             {
-                if (tooltip.Mod == "Terraria" && tooltip.Name == "ItemName")
-                {
-                    tooltip.OverrideColor = new Color(238, 194, 73);
-                }
+                tooltip.OverrideColor = new Color(238, 194, 73);
             }
         }
+    }
 
-        public override bool IsArmorSet(Item head, Item body, Item legs)
-        {
-            return body.type == ModContent.ItemType<OmnikronBreastplate>() && legs.type == ModContent.ItemType<OmnikronGreaves>();
-        }
+    public override bool IsArmorSet(Item head, Item body, Item legs)
+    {
+        return body.type == ModContent.ItemType<OmnikronBreastplate>() && legs.type == ModContent.ItemType<OmnikronGreaves>();
+    }
 
-        public override void UpdateArmorSet(Player player)
+    public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Calls ancient soul to protect you";
-            player.AddBuff(ModContent.BuffType<Omnibuff>(), 2);
-            if (Math.Abs(player.velocity.X) + Math.Abs(player.velocity.Y) > 1f && !player.rocketFrame) // Makes sure the player is actually moving
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Calls ancient soul to protect you";
+        player.AddBuff(ModContent.BuffType<Omnibuff>(), 2);
+        if (Math.Abs(player.velocity.X) + Math.Abs(player.velocity.Y) > 1f && !player.rocketFrame) // Makes sure the player is actually moving
 			{
 				for (int k = 0; k < 2; k++)
 				{
@@ -68,8 +68,8 @@ namespace TremorMod.Content.Items.Armor.Omnikron
 
 		public override void UpdateEquip(Player player)
 		{
-            player.GetDamage(DamageClass.Generic) += 0.2f;
-            player.GetModPlayer<MPlayer>().alchemicalDamage += 0.2f;
+        player.GetDamage(DamageClass.Generic) += 0.2f;
+        player.GetModPlayer<MPlayer>().alchemicalDamage += 0.2f;
 		}
 
 		public override void ArmorSetShadows(Player player)
@@ -77,13 +77,12 @@ namespace TremorMod.Content.Items.Armor.Omnikron
 			player.armorEffectDrawOutlines = true;
 		}
 
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<OmnikronBar>(), 15);
-            //recipe.SetResult(this);
-            recipe.AddTile(412);
-            recipe.Register();
-        }
+    public override void AddRecipes()
+    {
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ModContent.ItemType<OmnikronBar>(), 15);
+        //recipe.SetResult(this);
+        recipe.AddTile(412);
+        recipe.Register();
     }
 }

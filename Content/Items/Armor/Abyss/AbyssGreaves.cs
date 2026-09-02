@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Armor.Abyss
-{
+namespace TremorMod.Content.Items.Armor.Abyss;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class AbyssGreaves : ModItem
 	{
@@ -33,17 +33,16 @@ namespace TremorMod.Content.Items.Armor.Abyss
 			player.GetDamage(DamageClass.Summon) += 0.14f;
 		}
 
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<DarknessCloth>(), 9);
-            recipe.AddIngredient(ItemID.SoulofNight, 8);
-            recipe.AddIngredient(ItemID.Amethyst, 6);
-            recipe.AddIngredient(ModContent.ItemType<PhantomSoul>(), 3);
-            //recipe.SetResult(this);
-            recipe.AddTile(134);
-            recipe.Register();
-        }
-
+    public override void AddRecipes()
+    {
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ModContent.ItemType<DarknessCloth>(), 9);
+        recipe.AddIngredient(ItemID.SoulofNight, 8);
+        recipe.AddIngredient(ItemID.Amethyst, 6);
+        recipe.AddIngredient(ModContent.ItemType<PhantomSoul>(), 3);
+        //recipe.SetResult(this);
+        recipe.AddTile(134);
+        recipe.Register();
     }
+
 }

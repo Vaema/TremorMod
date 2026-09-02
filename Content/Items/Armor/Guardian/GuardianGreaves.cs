@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Armor.Guardian
-{
+namespace TremorMod.Content.Items.Armor.Guardian;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class GuardianGreaves : ModItem
 	{
@@ -33,4 +33,3 @@ namespace TremorMod.Content.Items.Armor.Guardian
 			recipe.Register();
 		}
 	}
-}

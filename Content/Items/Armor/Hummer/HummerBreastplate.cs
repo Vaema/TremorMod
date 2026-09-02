@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.Hummer
-{
+namespace TremorMod.Content.Items.Armor.Hummer;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class HummerBreastplate : ModItem
 	{
@@ -27,4 +27,3 @@ namespace TremorMod.Content.Items.Armor.Hummer
 			}
 		}
 	}
-}

@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.Archer
-{
+namespace TremorMod.Content.Items.Armor.Archer;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class ArcherHelmet : ModItem
 	{
@@ -21,7 +21,7 @@ namespace TremorMod.Content.Items.Armor.Archer
 		{
 			// DisplayName.SetDefault("Archer Helmet");
 			// Tooltip.SetDefault("");
-        }
+    }
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
@@ -33,4 +33,3 @@ namespace TremorMod.Content.Items.Armor.Archer
 			player.armorEffectDrawShadow = true;
 		}
 	}
-}

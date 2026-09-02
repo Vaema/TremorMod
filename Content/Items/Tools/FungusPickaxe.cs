@@ -1,18 +1,18 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Fungus;
 
-namespace TremorMod.Content.Items.Tools
-{
+namespace TremorMod.Content.Items.Tools;
+
 	public class FungusPickaxe : ModItem
 	{
 		public override void SetDefaults()
 		{
 
 			Item.damage = 10;
-            Item.DamageType = DamageClass.Melee;
-            Item.width = 32;
+        Item.DamageType = DamageClass.Melee;
+        Item.width = 32;
 			Item.height = 32;
 			Item.useTime = 15;
 			Item.useAnimation = 20;
@@ -50,4 +50,3 @@ namespace TremorMod.Content.Items.Tools
 			recipe2.Register();
 		}
 	}
-}

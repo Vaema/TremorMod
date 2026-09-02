@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -9,8 +9,8 @@ using Terraria.GameContent.ItemDropRules;
 using TremorMod.Content.Biomes.Ice.Items;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Biomes.Ice.Mobs
-{
+namespace TremorMod.Content.Biomes.Ice.Mobs;
+
 	public class Frostbyte : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -39,28 +39,28 @@ namespace TremorMod.Content.Biomes.Ice.Mobs
 			NPC.damage += 2 * numPlayers;
 		}
 
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+    public override float SpawnChance(NPCSpawnInfo spawnInfo)
+    {
+        if (!spawnInfo.Player.InModBiome<IceBiome>())
         {
-            if (!spawnInfo.Player.InModBiome<IceBiome>())
+            if (!NPC.AnyNPCs(NPCID.LunarTowerVortex) && !NPC.AnyNPCs(NPCID.LunarTowerStardust) && !NPC.AnyNPCs(NPCID.LunarTowerNebula) && !NPC.AnyNPCs(NPCID.LunarTowerSolar))
             {
-                if (!NPC.AnyNPCs(NPCID.LunarTowerVortex) && !NPC.AnyNPCs(NPCID.LunarTowerStardust) && !NPC.AnyNPCs(NPCID.LunarTowerNebula) && !NPC.AnyNPCs(NPCID.LunarTowerSolar))
-                {
-                    return 0f;
-                }
+                return 0f;
             }
-
-            return 15f;
         }
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FrostByteEye>(), 28));
+        return 15f;
+    }
 
-            npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(),
-                ModContent.ItemType<IceBlockB>(), 10, 1, 4));
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FrostByteEye>(), 28));
 
-            npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(),
-                ModContent.ItemType<Icicle>(), 20, 1, 3));
+        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(),
+            ModContent.ItemType<IceBlockB>(), 10, 1, 4));
+
+        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(),
+            ModContent.ItemType<Icicle>(), 20, 1, 3));
 		}
 
 		public override void AI()
@@ -91,11 +91,10 @@ namespace TremorMod.Content.Biomes.Ice.Mobs
 		}
 
 		public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
+    {
+        if (Main.hardMode || Main.expertMode)
         {
-            if (Main.hardMode || Main.expertMode)
-            {
-                target.AddBuff(BuffID.Frostburn, 180);
-            }
+            target.AddBuff(BuffID.Frostburn, 180);
         }
     }
 }

@@ -1,16 +1,16 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 
-namespace TremorMod.Content.Items.Armor.Palladium
-{
+namespace TremorMod.Content.Items.Armor.Palladium;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class PalladiumHat : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 20;
 			Item.height = 24;
@@ -21,10 +21,10 @@ namespace TremorMod.Content.Items.Armor.Palladium
 
 		public override void SetStaticDefaults()
 		{
-            //DisplayName.SetDefault("Palladium Hat");
-            //Tooltip.SetDefault("18% increased minion damage");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases your max number of minions and greatly increases life regeneration after striking an enemy");
-        }
+        //DisplayName.SetDefault("Palladium Hat");
+        //Tooltip.SetDefault("18% increased minion damage");
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases your max number of minions and greatly increases life regeneration after striking an enemy");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -38,8 +38,8 @@ namespace TremorMod.Content.Items.Armor.Palladium
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Increases your max number of minions and greatly increases life regeneration after striking an enemy";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Increases your max number of minions and greatly increases life regeneration after striking an enemy";
 			player.maxMinions += 1;
 			player.onHitRegen = true;
 		}
@@ -58,4 +58,3 @@ namespace TremorMod.Content.Items.Armor.Palladium
 			recipe.Register();
 		}
 	}
-}

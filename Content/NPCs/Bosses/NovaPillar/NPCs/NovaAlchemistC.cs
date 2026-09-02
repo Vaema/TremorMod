@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles;
 
-namespace TremorMod.Content.NPCs.Bosses.NovaPillar.NPCs
-{
+namespace TremorMod.Content.NPCs.Bosses.NovaPillar.NPCs;
+
 
 	public class NovaAlchemistC : ModNPC
 	{
@@ -56,21 +56,21 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.NPCs
 				NPC.life = -1;
 				NPC.active = false;
 				NPC.checkDead();
-                for (int k = 0; k < 19; k++)
-                {
-                    Vector2 Vector = new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101));
-                    Vector.Normalize();
-                    Vector *= Main.rand.Next(10, 201) * 0.01f;
+            for (int k = 0; k < 19; k++)
+            {
+                Vector2 Vector = new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101));
+                Vector.Normalize();
+                Vector *= Main.rand.Next(10, 201) * 0.01f;
 
-                    var source = NPC.GetSource_FromThis();
+                var source = NPC.GetSource_FromThis();
 
-                    int i = Projectile.NewProjectile(source, NPC.Center, Vector, ModContent.ProjectileType<NovaAlchemistCloud>(), 20, 1f);
+                int i = Projectile.NewProjectile(source, NPC.Center, Vector, ModContent.ProjectileType<NovaAlchemistCloud>(), 20, 1f);
 
-                    Main.projectile[i].friendly = false;
-                }
-
+                Main.projectile[i].friendly = false;
             }
+
         }
+    }
 
 		void NovaAnimation()
 		{
@@ -88,4 +88,3 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.NPCs
 			return new Rectangle(0, NPC.frame.Height * (Number - 1), NPC.frame.Width, NPC.frame.Height);
 		}
 	}
-}

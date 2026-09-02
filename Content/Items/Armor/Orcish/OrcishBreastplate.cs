@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.Orcish
-{
+namespace TremorMod.Content.Items.Armor.Orcish;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class OrcishBreastplate : ModItem
 	{
@@ -25,8 +25,7 @@ namespace TremorMod.Content.Items.Armor.Orcish
 
 		public override void UpdateEquip(Player player)
 		{
-            player.GetAttackSpeed(DamageClass.Melee) += 0.15f;
-        }
+        player.GetAttackSpeed(DamageClass.Melee) += 0.15f;
+    }
 
 	}
-}

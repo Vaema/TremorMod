@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
@@ -50,16 +50,16 @@ using TremorMod.Content.Projectiles;
 using TremorMod.Utilities;
 using TremorMod;
 
-namespace TremorMod.Content.NPCs.TownNPCs
-{
+namespace TremorMod.Content.NPCs.TownNPCs;
+
 	[AutoloadHead]
 	public class Farmer : ModNPC
 	{
 		public override string Texture => $"{typeof(Farmer).NamespaceToPath()}/Farmer";
 
-        public override bool IsLoadingEnabled(Mod mod) => true;
+    public override bool IsLoadingEnabled(Mod mod) => true;
 
-        public override void SetStaticDefaults()
+    public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Farmer");
 			Main.npcFrameCount[NPC.type] = 23;
@@ -87,88 +87,88 @@ namespace TremorMod.Content.NPCs.TownNPCs
 			AnimationType = NPCID.Nurse;
 		}
 
-        public override bool CanTownNPCSpawn(int numTownNPCs)
+    public override bool CanTownNPCSpawn(int numTownNPCs)
+    {
+        foreach (Player player in Main.ActivePlayers)
         {
-            foreach (Player player in Main.ActivePlayers)
+            if (player.InventoryHas(ModContent.ItemType<FarmerShovel>()))
             {
-                if (player.InventoryHas(ModContent.ItemType<FarmerShovel>()))
-                {
-                    return true; 
-                }
+                return true; 
             }
-            return false; 
         }
+        return false; 
+    }
 
-        public override List<string> SetNPCNameList() => new List<string>()
-        {
-            this.GetLocalizedValue("Name.Trillian"),
-            this.GetLocalizedValue("Name.Penelope"),
-            this.GetLocalizedValue("Name.Emily"),
-            this.GetLocalizedValue("Name.Abigail"),
-            this.GetLocalizedValue("Name.Alma"),
-            this.GetLocalizedValue("Name.Alexandra"),
-            this.GetLocalizedValue("Name.Peg")
-        };
+    public override List<string> SetNPCNameList() => new List<string>()
+    {
+        this.GetLocalizedValue("Name.Trillian"),
+        this.GetLocalizedValue("Name.Penelope"),
+        this.GetLocalizedValue("Name.Emily"),
+        this.GetLocalizedValue("Name.Abigail"),
+        this.GetLocalizedValue("Name.Alma"),
+        this.GetLocalizedValue("Name.Alexandra"),
+        this.GetLocalizedValue("Name.Peg")
+    };
 
-        public override string GetChat()
-        {
-            WeightedRandom<string> dialogue = new WeightedRandom<string>();
+    public override string GetChat()
+    {
+        WeightedRandom<string> dialogue = new WeightedRandom<string>();
 
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal1"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal2"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal3"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal4"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal5"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal6"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal1"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal2"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal3"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal4"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal5"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal6"));
 
-            return dialogue;
-        }
+        return dialogue;
+    }
 
 		public override void SetChatButtons(ref string button, ref string button2)
 		{
 			button = Lang.inter[28].Value;
 		}
 
-        public override void OnChatButtonClicked(bool firstButton, ref string shopName)
-        {
-            if (firstButton)
-                shopName = "Farmer";
-        }
+    public override void OnChatButtonClicked(bool firstButton, ref string shopName)
+    {
+        if (firstButton)
+            shopName = "Farmer";
+    }
 
-        public override void AddShops()
-        {
-            var notDownedBoss1Condition = new Condition("NotDownedBoss1", () => !NPC.downedBoss1);
-            var dayCondition = new Condition("DayTime", () => Main.dayTime);
-            var nightCondition = new Condition("NightTime", () => !Main.dayTime);
-            var downedSlimeKingCondition = new Condition("DownedSlimeKing", () => NPC.downedSlimeKing);
-            var downedBoss2Condition = new Condition("DownedBoss2", () => NPC.downedBoss2);
-            var hardmodeCondition = new Condition("Hardmode", () => Main.hardMode);
-            var hasCarrowCondition = new Condition("HasCarrow", () => Main.LocalPlayer.HasItem(ModContent.ItemType<Carrow>()));
-            var bloodMoonCondition = new Condition("BloodMoon", () => Main.bloodMoon);
+    public override void AddShops()
+    {
+        var notDownedBoss1Condition = new Condition("NotDownedBoss1", () => !NPC.downedBoss1);
+        var dayCondition = new Condition("DayTime", () => Main.dayTime);
+        var nightCondition = new Condition("NightTime", () => !Main.dayTime);
+        var downedSlimeKingCondition = new Condition("DownedSlimeKing", () => NPC.downedSlimeKing);
+        var downedBoss2Condition = new Condition("DownedBoss2", () => NPC.downedBoss2);
+        var hardmodeCondition = new Condition("Hardmode", () => Main.hardMode);
+        var hasCarrowCondition = new Condition("HasCarrow", () => Main.LocalPlayer.HasItem(ModContent.ItemType<Carrow>()));
+        var bloodMoonCondition = new Condition("BloodMoon", () => Main.bloodMoon);
 
-            NPCShop shop = new(Type, "Farmer");
+        NPCShop shop = new(Type, "Farmer");
 
-            shop.Add(ModContent.ItemType<CornSeed>());
+        shop.Add(ModContent.ItemType<CornSeed>());
 
-            shop.Add(ModContent.ItemType<Pitchfork>(), notDownedBoss1Condition);
+        shop.Add(ModContent.ItemType<Pitchfork>(), notDownedBoss1Condition);
 
-            shop.Add(ItemID.DaybloomSeeds, dayCondition);
-            shop.Add(ItemID.MoonglowSeeds, nightCondition);
+        shop.Add(ItemID.DaybloomSeeds, dayCondition);
+        shop.Add(ItemID.MoonglowSeeds, nightCondition);
 
-            shop.Add(ItemID.WaterleafSeeds, downedSlimeKingCondition);
+        shop.Add(ItemID.WaterleafSeeds, downedSlimeKingCondition);
 
-            shop.Add(ItemID.BlinkrootSeeds, downedBoss2Condition);
+        shop.Add(ItemID.BlinkrootSeeds, downedBoss2Condition);
 
-            shop.Add(ItemID.FireblossomSeeds, hardmodeCondition);
+        shop.Add(ItemID.FireblossomSeeds, hardmodeCondition);
 
-            shop.Add(ModContent.ItemType<Carrow>(), hasCarrowCondition);
+        shop.Add(ModContent.ItemType<Carrow>(), hasCarrowCondition);
 
-            shop.Add(ItemID.DeathweedSeeds, bloodMoonCondition);
+        shop.Add(ItemID.DeathweedSeeds, bloodMoonCondition);
 
-            shop.Register(); 
-        }
+        shop.Register(); 
+    }
 
-        public override void TownNPCAttackStrength(ref int damage, ref float knockback)
+    public override void TownNPCAttackStrength(ref int damage, ref float knockback)
 		{
 			damage = 20;
 			knockback = 4f;
@@ -194,16 +194,15 @@ namespace TremorMod.Content.NPCs.TownNPCs
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
 				for(int i = 0; i < 3; ++i)
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FarmerGore1").Type, 1f);
-            }
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FarmerGore1").Type, 1f);
+        }
 		}
 	}
-}

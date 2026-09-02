@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using Terraria.DataStructures;
 using TremorMod.Utilities;
 using Microsoft.Xna.Framework;
@@ -14,8 +14,8 @@ using TremorMod.Content.Items.Placeable;
 using TremorMod.Content.Items.Weapons.Melee;
 using TremorMod.Content.Items.Weapons.Magic;
 
-namespace TremorMod.Content.NPCs.Bosses.AncienDragon
-{
+namespace TremorMod.Content.NPCs.Bosses.AncienDragon;
+
 	//todo: refactor, comparable to HoW
 	[AutoloadBossHead]
 	public class Dragon_HeadB : ModNPC
@@ -57,80 +57,79 @@ namespace TremorMod.Content.NPCs.Bosses.AncienDragon
 			//bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.ItemType<AncientDragonBag>();
 		}
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientDragonTrophy>(), 10));
+
+        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<AncientDragonMask>(), 7));
+
+        npcLoot.Add(ItemDropRule.OneFromOptions(1,
+            ModContent.ItemType<Swordstorm>(),
+            ModContent.ItemType<DragonHead>(),
+            ModContent.ItemType<AncientTimesEdge>()));
+
+        // Ã€Ã«Ã¼Ã²Ã¥Ã°Ã­Ã Ã²Ã¨Ã¢Ã­Ã®Ã¥ Ã¨Ã±Ã¯Ã®Ã«Ã¼Ã§Ã®Ã¢Ã Ã­Ã¨Ã¥ Ã³Ã±Ã«Ã®Ã¢Ã¨Ã¿:
+        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<AncientDragonBag>(), 1));
+    }
+
+    public override void AI()
+    {
+        NPC.position += NPC.velocity * (2 - 1);
+
+        if (!_tailSpawned)
         {
-
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientDragonTrophy>(), 10));
-
-            npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<AncientDragonMask>(), 7));
-
-            npcLoot.Add(ItemDropRule.OneFromOptions(1,
-                ModContent.ItemType<Swordstorm>(),
-                ModContent.ItemType<DragonHead>(),
-                ModContent.ItemType<AncientTimesEdge>()));
-
-            // Àëüòåðíàòèâíîå èñïîëüçîâàíèå óñëîâèÿ:
-            npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<AncientDragonBag>(), 1));
-        }
-
-        public override void AI()
-        {
-            NPC.position += NPC.velocity * (2 - 1);
-
-            if (!_tailSpawned)
+            int previous = NPC.whoAmI;
+            for (int num36 = 0; num36 < 19; num36++)
             {
-                int previous = NPC.whoAmI;
-                for (int num36 = 0; num36 < 19; num36++)
+                int newNPC;
+                if (num36 < 18)
                 {
-                    int newNPC;
-                    if (num36 < 18)
-                    {
-                        newNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.position.X + (NPC.width / 2), (int)NPC.position.Y + (NPC.width / 2), ModContent.NPCType<Dragon_BodyB>(), NPC.whoAmI);
-                    }
-                    else
-                    {
-                        newNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.position.X + (NPC.width / 2), (int)NPC.position.Y + (NPC.width / 2), ModContent.NPCType<Dragon_LegB>(), NPC.whoAmI);
-                    }
-
-                    Main.npc[newNPC].realLife = NPC.whoAmI;
-                    Main.npc[newNPC].ai[2] = NPC.whoAmI;
-                    Main.npc[newNPC].ai[1] = previous;
-                    Main.npc[previous].ai[0] = newNPC;
-
-                    previous = newNPC;
+                    newNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.position.X + (NPC.width / 2), (int)NPC.position.Y + (NPC.width / 2), ModContent.NPCType<Dragon_BodyB>(), NPC.whoAmI);
                 }
-                _tailSpawned = true;
+                else
+                {
+                    newNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.position.X + (NPC.width / 2), (int)NPC.position.Y + (NPC.width / 2), ModContent.NPCType<Dragon_LegB>(), NPC.whoAmI);
+                }
+
+                Main.npc[newNPC].realLife = NPC.whoAmI;
+                Main.npc[newNPC].ai[2] = NPC.whoAmI;
+                Main.npc[newNPC].ai[1] = previous;
+                Main.npc[previous].ai[0] = newNPC;
+
+                previous = newNPC;
             }
-
-            if ((int)(Main.time % 180) == 0)
-            {
-                Vector2 vector = new Vector2(NPC.position.X + (NPC.width * 0.5f), NPC.position.Y + (NPC.height / 2));
-                float birdRotation = (float)Math.Atan2(vector.Y - (Main.player[NPC.target].position.Y + (Main.player[NPC.target].height * 0.5f)), vector.X - (Main.player[NPC.target].position.X + (Main.player[NPC.target].width * 0.5f)));
-                NPC.velocity.X = (float)(Math.Cos(birdRotation) * 7) * -1;
-                NPC.velocity.Y = (float)(Math.Sin(birdRotation) * 7) * -1;
-                NPC.netUpdate = true;
-            }
+            _tailSpawned = true;
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        if ((int)(Main.time % 180) == 0)
         {
-            Texture2D drawTexture = TextureAssets.Npc[NPC.type].Value;
-            Vector2 origin = new Vector2((drawTexture.Width / 2) * 0.5F, (drawTexture.Height / Main.npcFrameCount[NPC.type]) * 0.5F);
-
-            Vector2 drawPos = new Vector2(
-                NPC.position.X - Main.screenPosition.X + (NPC.width / 2) - (TextureAssets.Npc[NPC.type].Value.Width / 2) * NPC.scale / 2f + origin.X * NPC.scale,
-                NPC.position.Y - Main.screenPosition.Y + NPC.height - TextureAssets.Npc[NPC.type].Value.Height * NPC.scale / Main.npcFrameCount[NPC.type] + 4f + origin.Y * NPC.scale + NPC.gfxOffY);
-
-            SpriteEffects effects = NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
-
-            spriteBatch.Draw(drawTexture, drawPos, NPC.frame, drawColor, NPC.rotation, origin, NPC.scale, effects, 0);
-
-            return false;
+            Vector2 vector = new Vector2(NPC.position.X + (NPC.width * 0.5f), NPC.position.Y + (NPC.height / 2));
+            float birdRotation = (float)Math.Atan2(vector.Y - (Main.player[NPC.target].position.Y + (Main.player[NPC.target].height * 0.5f)), vector.X - (Main.player[NPC.target].position.X + (Main.player[NPC.target].width * 0.5f)));
+            NPC.velocity.X = (float)(Math.Cos(birdRotation) * 7) * -1;
+            NPC.velocity.Y = (float)(Math.Sin(birdRotation) * 7) * -1;
+            NPC.netUpdate = true;
         }
+    }
 
-        public override void OnKill()
-        {
-            TremorSpawnEnemys.downedAncienDragon = true;
-        }
+    public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+    {
+        Texture2D drawTexture = TextureAssets.Npc[NPC.type].Value;
+        Vector2 origin = new Vector2((drawTexture.Width / 2) * 0.5F, (drawTexture.Height / Main.npcFrameCount[NPC.type]) * 0.5F);
+
+        Vector2 drawPos = new Vector2(
+            NPC.position.X - Main.screenPosition.X + (NPC.width / 2) - (TextureAssets.Npc[NPC.type].Value.Width / 2) * NPC.scale / 2f + origin.X * NPC.scale,
+            NPC.position.Y - Main.screenPosition.Y + NPC.height - TextureAssets.Npc[NPC.type].Value.Height * NPC.scale / Main.npcFrameCount[NPC.type] + 4f + origin.Y * NPC.scale + NPC.gfxOffY);
+
+        SpriteEffects effects = NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
+
+        spriteBatch.Draw(drawTexture, drawPos, NPC.frame, drawColor, NPC.rotation, origin, NPC.scale, effects, 0);
+
+        return false;
+    }
+
+    public override void OnKill()
+    {
+        TremorSpawnEnemys.downedAncienDragon = true;
     }
 }

@@ -1,12 +1,12 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class SuperBigCannonPro : ModProjectile
 	{
 		public override void SetDefaults()
@@ -49,39 +49,39 @@ namespace TremorMod.Content.Projectiles
 				num631 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 6, 0f, 0f, 100, default(Color), 2f);
 				Main.dust[num631].velocity *= 2f;
 			}
-            for (int num632 = 0; num632 < 3; num632++)
-            {
-                float scaleFactor10 = 0.33f;
-                if (num632 == 1) scaleFactor10 = 0.66f;
-                if (num632 == 2) scaleFactor10 = 1f;
+        for (int num632 = 0; num632 < 3; num632++)
+        {
+            float scaleFactor10 = 0.33f;
+            if (num632 == 1) scaleFactor10 = 0.66f;
+            if (num632 == 2) scaleFactor10 = 1f;
 
-                IEntitySource source = Projectile.GetSource_FromThis(); 
+            IEntitySource source = Projectile.GetSource_FromThis(); 
 
-                Vector2 gorePosition = new Vector2(Projectile.position.X + Projectile.width / 2 - 24f,
-                                                   Projectile.position.Y + Projectile.height / 2 - 24f);
+            Vector2 gorePosition = new Vector2(Projectile.position.X + Projectile.width / 2 - 24f,
+                                               Projectile.position.Y + Projectile.height / 2 - 24f);
 
-                int num633 = Gore.NewGore(source, gorePosition, Vector2.Zero, Main.rand.Next(61, 64), 1f);
-                Main.gore[num633].velocity *= scaleFactor10;
-                Main.gore[num633].velocity.X += 1f;
-                Main.gore[num633].velocity.Y += 1f;
+            int num633 = Gore.NewGore(source, gorePosition, Vector2.Zero, Main.rand.Next(61, 64), 1f);
+            Main.gore[num633].velocity *= scaleFactor10;
+            Main.gore[num633].velocity.X += 1f;
+            Main.gore[num633].velocity.Y += 1f;
 
-                num633 = Gore.NewGore(source, gorePosition, Vector2.Zero, Main.rand.Next(61, 64), 1f);
-                Main.gore[num633].velocity *= scaleFactor10;
-                Main.gore[num633].velocity.X -= 1f;
-                Main.gore[num633].velocity.Y += 1f;
+            num633 = Gore.NewGore(source, gorePosition, Vector2.Zero, Main.rand.Next(61, 64), 1f);
+            Main.gore[num633].velocity *= scaleFactor10;
+            Main.gore[num633].velocity.X -= 1f;
+            Main.gore[num633].velocity.Y += 1f;
 
-                num633 = Gore.NewGore(source, gorePosition, Vector2.Zero, Main.rand.Next(61, 64), 1f);
-                Main.gore[num633].velocity *= scaleFactor10;
-                Main.gore[num633].velocity.X += 1f;
-                Main.gore[num633].velocity.Y -= 1f;
+            num633 = Gore.NewGore(source, gorePosition, Vector2.Zero, Main.rand.Next(61, 64), 1f);
+            Main.gore[num633].velocity *= scaleFactor10;
+            Main.gore[num633].velocity.X += 1f;
+            Main.gore[num633].velocity.Y -= 1f;
 
-                num633 = Gore.NewGore(source, gorePosition, Vector2.Zero, Main.rand.Next(61, 64), 1f);
-                Main.gore[num633].velocity *= scaleFactor10;
-                Main.gore[num633].velocity.X -= 1f;
-                Main.gore[num633].velocity.Y -= 1f;
-            }
+            num633 = Gore.NewGore(source, gorePosition, Vector2.Zero, Main.rand.Next(61, 64), 1f);
+            Main.gore[num633].velocity *= scaleFactor10;
+            Main.gore[num633].velocity.X -= 1f;
+            Main.gore[num633].velocity.Y -= 1f;
+        }
 
-            Projectile.position.X = Projectile.position.X + Projectile.width / 2;
+        Projectile.position.X = Projectile.position.X + Projectile.width / 2;
 			Projectile.position.Y = Projectile.position.Y + Projectile.height / 2;
 			Projectile.width = 10;
 			Projectile.height = 10;
@@ -90,4 +90,3 @@ namespace TremorMod.Content.Projectiles
 		}
 
 	}
-}

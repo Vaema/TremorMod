@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+п»їusing Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,8 +6,8 @@ using Terraria.DataStructures;
 using Terraria.GameContent;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Tiles
-{
+namespace TremorMod.Content.Tiles;
+
 	public class CometiteOreTile : ModTile
 	{
 		public override void SetStaticDefaults()
@@ -22,20 +22,20 @@ namespace TremorMod.Content.Tiles
 			MinPick = 225;
 		}
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
+    public override void KillMultiTile(int i, int j, int frameX, int frameY)
+    {
+        if (Main.rand.Next(10) == 0)
         {
-            if (Main.rand.Next(10) == 0)
-            {
-                // Создайте источник для события (разрушение плитки)
-                IEntitySource source = new EntitySource_TileBreak(i, j);
+            // Г‘Г®Г§Г¤Г Г©ГІГҐ ГЁГ±ГІГ®Г·Г­ГЁГЄ Г¤Г«Гї Г±Г®ГЎГ»ГІГЁГї (Г°Г Г§Г°ГіГёГҐГ­ГЁГҐ ГЇГ«ГЁГІГЄГЁ)
+            IEntitySource source = new EntitySource_TileBreak(i, j);
 
-                // Создаем предмет с использованием IEntitySource и координат в виде Vector2
-                Item.NewItem(source, i * 16, j * 16, 16, 16, ModContent.ItemType<ChargedCrystal>());
-            }
+            // Г‘Г®Г§Г¤Г ГҐГ¬ ГЇГ°ГҐГ¤Г¬ГҐГІ Г± ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐГ¬ IEntitySource ГЁ ГЄГ®Г®Г°Г¤ГЁГ­Г ГІ Гў ГўГЁГ¤ГҐ Vector2
+            Item.NewItem(source, i * 16, j * 16, 16, 16, ModContent.ItemType<ChargedCrystal>());
         }
+    }
 
 
-        public override void NumDust(int i, int j, bool fail, ref int num)
+    public override void NumDust(int i, int j, bool fail, ref int num)
 		{
 			num = fail ? 1 : 3;
 		}
@@ -47,4 +47,3 @@ namespace TremorMod.Content.Tiles
 			b = 0.7f;
 		}
 	}
-}

@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.CyberKing
-{
+namespace TremorMod.Content.Items.CyberKing;
+
 	public class CyberKingTrophy : ModItem
 	{
 		public override void SetDefaults()
@@ -18,7 +18,7 @@ namespace TremorMod.Content.Items.CyberKing
 			Item.useStyle = 1;
 			Item.consumable = true;
 			Item.value = 50000;
-            Item.createTile = ModContent.TileType<CyberKingTrophyTile>();
+        Item.createTile = ModContent.TileType<CyberKingTrophyTile>();
 			Item.placeStyle = 0;
 		}
 
@@ -29,4 +29,3 @@ namespace TremorMod.Content.Items.CyberKing
 		}*/
 
 	}
-}

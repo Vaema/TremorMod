@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
@@ -6,8 +6,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace TremorMod.Content.Tiles.GloomstoneTiles
-{
+namespace TremorMod.Content.Tiles.GloomstoneTiles;
+
 	public class GloomstoneDoorClosed : ModTile
 	{
 		public override void SetStaticDefaults()
@@ -26,7 +26,7 @@ namespace TremorMod.Content.Tiles.GloomstoneTiles
 			TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile, TileObjectData.newTile.Width, 0);
 			TileObjectData.newTile.UsesCustomCanPlace = true;
 			TileObjectData.newTile.LavaDeath = true;
-			TileObjectData.newTile.CoordinateHeights = new[]{ 16, 16, 16 };
+			TileObjectData.newTile.CoordinateHeights = [16, 16, 16];
 			TileObjectData.newTile.CoordinateWidth = 16;
 			TileObjectData.newTile.CoordinatePadding = 2;
 			TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
@@ -38,8 +38,8 @@ namespace TremorMod.Content.Tiles.GloomstoneTiles
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
 			AddMapEntry(new Color(8,91,146), CreateMapEntryName());
-            AdjTiles = new int[]{ TileID.ClosedDoor };
-            TileID.Sets.OpenDoorID[Type] = ModContent.TileType<GloomstoneDoorOpen>();
+        AdjTiles = [TileID.ClosedDoor];
+        TileID.Sets.OpenDoorID[Type] = ModContent.TileType<GloomstoneDoorOpen>();
 		}
 
 		public override void NumDust(int i, int j, bool fail, ref int num)
@@ -47,4 +47,3 @@ namespace TremorMod.Content.Tiles.GloomstoneTiles
 			num = 1;
 		}
 	}
-}

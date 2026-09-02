@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
@@ -8,8 +8,8 @@ using Terraria.GameContent.ItemDropRules;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Placeable.Banners;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class ScaryBat : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -35,16 +35,16 @@ namespace TremorMod.Content.NPCs
 			NPC.DeathSound = SoundID.NPCDeath4;
 			NPC.value = Item.buyPrice(0, 0, 6, 9);
 			NPC.behindTiles = true;
-            Banner = NPC.type;
-            BannerItem = ModContent.ItemType<ScaryBatBanner>();
-            ItemID.Sets.KillsToBanner[BannerItem] = 50;
-        }
+        Banner = NPC.type;
+        BannerItem = ModContent.ItemType<ScaryBatBanner>();
+        ItemID.Sets.KillsToBanner[BannerItem] = 50;
+    }
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 60; k++)
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 54, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
@@ -65,4 +65,3 @@ namespace TremorMod.Content.NPCs
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 			=> Helper.NoZoneAllowWater(spawnInfo) && NPC.downedPlantBoss && spawnInfo.SpawnTileY > Main.rockLayer ? 0.01f : 0f;
 	}
-}

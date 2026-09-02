@@ -1,12 +1,12 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 
-namespace TremorMod.Content.NPCs.Bosses.Alchemaster
-{
+namespace TremorMod.Content.NPCs.Bosses.Alchemaster;
+
 	public class PlagueFlaskEvil : ModProjectile
 	{
 		public override void SetDefaults()
@@ -30,12 +30,12 @@ namespace TremorMod.Content.NPCs.Bosses.Alchemaster
 		public override void OnKill(int timeLeft)
 		{
 			SoundEngine.PlaySound(SoundID.Item107, Projectile.position);
-            IEntitySource source = Projectile.GetSource_FromThis();
-            Gore.NewGore(source, Projectile.position, -Projectile.oldVelocity * 0.2f, 704, 1f);
-            Gore.NewGore(source, Projectile.position, -Projectile.oldVelocity * 0.2f, 705, 1f);
-            //if (projectile.owner == Main.myPlayer)
-            //{
-            int num220 = Main.rand.Next(3, 5);
+        IEntitySource source = Projectile.GetSource_FromThis();
+        Gore.NewGore(source, Projectile.position, -Projectile.oldVelocity * 0.2f, 704, 1f);
+        Gore.NewGore(source, Projectile.position, -Projectile.oldVelocity * 0.2f, 705, 1f);
+        //if (projectile.owner == Main.myPlayer)
+        //{
+        int num220 = Main.rand.Next(3, 5);
 			for (int num221 = 0; num221 < num220; num221++)
 			{
 				Vector2 value17 = new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101));
@@ -47,4 +47,3 @@ namespace TremorMod.Content.NPCs.Bosses.Alchemaster
 		}
 
 	}
-}

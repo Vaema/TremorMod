@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.EvilCornItems
-{
+namespace TremorMod.Content.Items.EvilCornItems;
+
 	public class Corn : ModItem
 	{
 		public override void SetDefaults()
@@ -20,4 +20,3 @@ namespace TremorMod.Content.Items.EvilCornItems
 			//Tooltip.SetDefault("");
 		}
 	}
-}

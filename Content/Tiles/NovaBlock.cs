@@ -3,8 +3,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Tiles
-{
+namespace TremorMod.Content.Tiles;
+
 	public class NovaBlock : ModTile
 	{
 		public override void SetStaticDefaults()
@@ -36,4 +36,3 @@ namespace TremorMod.Content.Tiles
 			b = 0.3f;
 		}
 	}
-}

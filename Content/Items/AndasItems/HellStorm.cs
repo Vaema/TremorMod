@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.Xna.Framework;
@@ -17,8 +17,8 @@ using Terraria.ModLoader;
 using Filters = Terraria.Graphics.Effects.Filters;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Items.AndasItems
-{
+namespace TremorMod.Content.Items.AndasItems;
+
 	public class HellStorm : ModItem
 	{
 		public override void SetDefaults()
@@ -53,24 +53,23 @@ namespace TremorMod.Content.Items.AndasItems
 		{
 			foreach (var tooltip in tooltips)
 			{
-				// Меняем цвет текста для названия предмета
+				// ГЊГҐГ­ГїГҐГ¬ Г¶ГўГҐГІ ГІГҐГЄГ±ГІГ  Г¤Г«Гї Г­Г Г§ГўГ Г­ГЁГї ГЇГ°ГҐГ¤Г¬ГҐГІГ 
 				if (tooltip.Mod == "Terraria" && tooltip.Name == "ItemName")
 				{
-					tooltip.OverrideColor = new Color(238, 194, 73); // Цвет золота
+					tooltip.OverrideColor = new Color(238, 194, 73); // Г–ГўГҐГІ Г§Г®Г«Г®ГІГ 
 				}
 			}
 		}
 
-        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-        {
-            // Смещение позиции при стрельбе
-            Vector2 muzzleOffset = Vector2.Normalize(velocity) * 25f;
-            position += muzzleOffset;
+    public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    {
+        // Г‘Г¬ГҐГ№ГҐГ­ГЁГҐ ГЇГ®Г§ГЁГ¶ГЁГЁ ГЇГ°ГЁ Г±ГІГ°ГҐГ«ГјГЎГҐ
+        Vector2 muzzleOffset = Vector2.Normalize(velocity) * 25f;
+        position += muzzleOffset;
 
-            // Создаем кастомный снаряд
-            Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<HellStormProj>(), damage, knockback, player.whoAmI);
+        // Г‘Г®Г§Г¤Г ГҐГ¬ ГЄГ Г±ГІГ®Г¬Г­Г»Г© Г±Г­Г Г°ГїГ¤
+        Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<HellStormProj>(), damage, knockback, player.whoAmI);
 
-            return false; // Отключаем стандартный выстрел
-        }
+        return false; // ГЋГІГЄГ«ГѕГ·Г ГҐГ¬ Г±ГІГ Г­Г¤Г Г°ГІГ­Г»Г© ГўГ»Г±ГІГ°ГҐГ«
     }
 }

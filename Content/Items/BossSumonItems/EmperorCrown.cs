@@ -1,12 +1,12 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.Audio;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.NPCs.Bosses.TheDarkEmperor;
 
-namespace TremorMod.Content.Items.BossSumonItems
-{
+namespace TremorMod.Content.Items.BossSumonItems;
+
 	public class EmperorCrown : ModItem
 	{
 		public override void SetDefaults()
@@ -48,8 +48,7 @@ namespace TremorMod.Content.Items.BossSumonItems
 		public override bool? UseItem(Player player)
 		{
 			NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<TheDarkEmperor>());
-            SoundEngine.PlaySound(SoundID.Roar, player.position); // Play a sound at the player's position
-            return true;
+        SoundEngine.PlaySound(SoundID.Roar, player.position); // Play a sound at the player's position
+        return true;
 		}
 	}
-}

@@ -1,12 +1,12 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using TremorMod;
 using TremorMod.Content.Buffs;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.CogLordItems
-{
+namespace TremorMod.Content.Items.CogLordItems;
+
 	public class BrassChip : ModItem
 	{
 		/*public override void SetStaticDefaults()
@@ -35,4 +35,3 @@ namespace TremorMod.Content.Items.CogLordItems
 			}
 		}
 	}
-}

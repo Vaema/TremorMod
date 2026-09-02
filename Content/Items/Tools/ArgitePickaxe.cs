@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 
-namespace TremorMod.Content.Items.Tools
-{
+namespace TremorMod.Content.Items.Tools;
+
 	public class ArgitePickaxe : ModItem
 	{
 		public override void SetDefaults()
@@ -49,4 +49,3 @@ namespace TremorMod.Content.Items.Tools
 			}
 		}
 	}
-}

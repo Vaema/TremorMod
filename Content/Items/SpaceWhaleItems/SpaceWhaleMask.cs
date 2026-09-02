@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.SpaceWhaleItems
-{
+namespace TremorMod.Content.Items.SpaceWhaleItems;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class SpaceWhaleMask : ModItem
 	{
@@ -21,4 +21,3 @@ namespace TremorMod.Content.Items.SpaceWhaleItems
 			//Tooltip.SetDefault("");
 		}
 	}
-}

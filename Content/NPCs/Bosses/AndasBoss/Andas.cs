@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.Xna.Framework;
@@ -16,13 +16,13 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Filters = Terraria.Graphics.Effects.Filters;
 
-namespace TremorMod.Content.NPCs.Bosses.AndasBoss
-{
+namespace TremorMod.Content.NPCs.Bosses.AndasBoss;
+
 	[AutoloadBossHead]
 	public class Andas : ModNPC
 	{
 
-        public override void SetStaticDefaults()
+    public override void SetStaticDefaults()
 		{
 			//DisplayName.SetDefault("Andas");
 			Main.npcFrameCount[NPC.type] = 3;
@@ -42,28 +42,28 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss
 			NPC.noTileCollide = true;
 			NPC.noGravity = true;
 			NPC.boss = true;
-            if (ModLoader.HasMod("TremorModMusic"))
+        if (ModLoader.HasMod("TremorModMusic"))
+        {
+            Mod musicMod = ModLoader.GetMod("TremorModMusic");
+            if (musicMod != null)
             {
-                Mod musicMod = ModLoader.GetMod("TremorModMusic");
-                if (musicMod != null)
-                {
-                    Music = MusicLoader.GetMusicSlot(musicMod, "Assets/Music/Andas");
-                }
+                Music = MusicLoader.GetMusicSlot(musicMod, "Assets/Music/Andas");
             }
-            else
-            {
-                Music = MusicID.Boss1; // Ванильная музыка
-            }
-            NPC.buffImmune[24] = true;
+        }
+        else
+        {
+            Music = MusicID.Boss1; // Г‚Г Г­ГЁГ«ГјГ­Г Гї Г¬ГіГ§Г»ГЄГ 
+        }
+        NPC.buffImmune[24] = true;
 			NPC.buffImmune[67] = true;
 			NPC.lavaImmune = true;
 		}
 
 		private Vector2 CalculateVelocity(Vector2 start, Vector2 end, float speed)
 		{
-			Vector2 direction = end - start; // Вектор направления
-			direction.Normalize(); // Нормализация вектора
-			return direction * speed; // Умножаем нормализованный вектор на скорость
+			Vector2 direction = end - start; // Г‚ГҐГЄГІГ®Г° Г­Г ГЇГ°Г ГўГ«ГҐГ­ГЁГї
+			direction.Normalize(); // ГЌГ®Г°Г¬Г Г«ГЁГ§Г Г¶ГЁГї ГўГҐГЄГІГ®Г°Г 
+			return direction * speed; // Г“Г¬Г­Г®Г¦Г ГҐГ¬ Г­Г®Г°Г¬Г Г«ГЁГ§Г®ГўГ Г­Г­Г»Г© ГўГҐГЄГІГ®Г° Г­Г  Г±ГЄГ®Г°Г®Г±ГІГј
 		}
 
 
@@ -86,7 +86,7 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss
 			NPC.spriteDirection = NPC.direction;
 			Player player = Main.player[NPC.target];
 
-			// Проверка, жив ли игрок
+			// ГЏГ°Г®ГўГҐГ°ГЄГ , Г¦ГЁГў Г«ГЁ ГЁГЈГ°Г®ГЄ
 			if (player.dead || !player.active)
 			{
 				NPC.TargetClosest(false);
@@ -258,37 +258,36 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss
 		}
 
 
-        // Переопределение метода для рисования NPC
-        /*public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
-        {
-            // Получаем текстуру NPC (замените на путь к вашей текстуре)
-            Texture2D drawTexture = ModContent.Request<Texture2D>("TremorMod.Content.NPCs.Bosses.AndasBoss").Value;
-            Vector2 origin = new Vector2(drawTexture.Width / 2, drawTexture.Height / Main.npcFrameCount[NPC.type] / 2);
+    // ГЏГҐГ°ГҐГ®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГҐ Г¬ГҐГІГ®Г¤Г  Г¤Г«Гї Г°ГЁГ±Г®ГўГ Г­ГЁГї NPC
+    /*public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+    {
+        // ГЏГ®Г«ГіГ·Г ГҐГ¬ ГІГҐГЄГ±ГІГіГ°Гі NPC (Г§Г Г¬ГҐГ­ГЁГІГҐ Г­Г  ГЇГіГІГј ГЄ ГўГ ГёГҐГ© ГІГҐГЄГ±ГІГіГ°ГҐ)
+        Texture2D drawTexture = ModContent.Request<Texture2D>("TremorMod.Content.NPCs.Bosses.AndasBoss").Value;
+        Vector2 origin = new Vector2(drawTexture.Width / 2, drawTexture.Height / Main.npcFrameCount[NPC.type] / 2);
 
-            // Рисуем NPC
-            Vector2 drawPos = new Vector2(
-                NPC.position.X - Main.screenPosition.X + NPC.width / 2 - drawTexture.Width / 2 * NPC.scale + origin.X * NPC.scale,
-                NPC.position.Y - Main.screenPosition.Y + NPC.height - drawTexture.Height * NPC.scale / Main.npcFrameCount[NPC.type] + origin.Y * NPC.scale + NPC.gfxOffY);
+        // ГђГЁГ±ГіГҐГ¬ NPC
+        Vector2 drawPos = new Vector2(
+            NPC.position.X - Main.screenPosition.X + NPC.width / 2 - drawTexture.Width / 2 * NPC.scale + origin.X * NPC.scale,
+            NPC.position.Y - Main.screenPosition.Y + NPC.height - drawTexture.Height * NPC.scale / Main.npcFrameCount[NPC.type] + origin.Y * NPC.scale + NPC.gfxOffY);
 
-            // Отражение спрайта по оси X
-            SpriteEffects effects = NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
+        // ГЋГІГ°Г Г¦ГҐГ­ГЁГҐ Г±ГЇГ°Г Г©ГІГ  ГЇГ® Г®Г±ГЁ X
+        SpriteEffects effects = NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
 
-            spriteBatch.Draw(drawTexture, drawPos, NPC.frame, lightColor, NPC.rotation, origin, NPC.scale, effects, 0f);
-            return false;
-        }*/
+        spriteBatch.Draw(drawTexture, drawPos, NPC.frame, lightColor, NPC.rotation, origin, NPC.scale, effects, 0f);
+        return false;
+    }*/
 
-        public override void OnKill()
-        {
-           
-            IEntitySource source = NPC.GetSource_FromAI();
+    public override void OnKill()
+    {
+       
+        IEntitySource source = NPC.GetSource_FromAI();
 			Vector2 bossCenter = NPC.Center;
 
 			int cyberKingID = ModContent.NPCType<TrueAndas>();
-            NPC.NewNPC(source, (int)bossCenter.X, (int)bossCenter.Y, cyberKingID, 0, 0, 0, 0, 0, NPC.target);
+        NPC.NewNPC(source, (int)bossCenter.X, (int)bossCenter.Y, cyberKingID, 0, 0, 0, 0, 0, NPC.target);
 
-            Player player = Main.player[NPC.target];
-            SoundEngine.PlaySound(SoundID.Roar, player.position);
-        }
-
+        Player player = Main.player[NPC.target];
+        SoundEngine.PlaySound(SoundID.Roar, player.position);
     }
+
 }

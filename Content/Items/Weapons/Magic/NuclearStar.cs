@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -9,33 +9,33 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Projectiles;
 using TremorMod.Content.Items.BossLoot.TheDarkEmperor;
 
-namespace TremorMod.Content.Items.Weapons.Magic
-{
+namespace TremorMod.Content.Items.Weapons.Magic;
+
 	public class NuclearStar : ModItem
 	{
 
-        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    {
+        float spread = 45f * 0.0174f; 
+        double startAngle = Math.Atan2(velocity.Y, velocity.X) - spread / 2; 
+        double deltaAngle = spread / 8f;
+        double offsetAngle;
+
+        for (int i = 0; i < 4; i++)
         {
-            float spread = 45f * 0.0174f; 
-            double startAngle = Math.Atan2(velocity.Y, velocity.X) - spread / 2; 
-            double deltaAngle = spread / 8f;
-            double offsetAngle;
+            offsetAngle = (startAngle + deltaAngle * (i + i * i) / 2f) + 32f * i;
 
-            for (int i = 0; i < 4; i++)
-            {
-                offsetAngle = (startAngle + deltaAngle * (i + i * i) / 2f) + 32f * i;
+            float speedX = (float)(Math.Cos(offsetAngle) * 5f);
+            float speedY = (float)(Math.Sin(offsetAngle) * 5f);
 
-                float speedX = (float)(Math.Cos(offsetAngle) * 5f);
-                float speedY = (float)(Math.Sin(offsetAngle) * 5f);
-
-                Projectile.NewProjectile(source, position.X, position.Y, speedX, speedY, type, damage, knockback, player.whoAmI);
-                Projectile.NewProjectile(source, position.X, position.Y, -speedX, -speedY, type, damage, knockback, player.whoAmI);
-            }
-
-            return false;
+            Projectile.NewProjectile(source, position.X, position.Y, speedX, speedY, type, damage, knockback, player.whoAmI);
+            Projectile.NewProjectile(source, position.X, position.Y, -speedX, -speedY, type, damage, knockback, player.whoAmI);
         }
 
-        public override void SetDefaults()
+        return false;
+    }
+
+    public override void SetDefaults()
 		{
 			Item.damage = 500;
 			Item.DamageType = DamageClass.Magic;
@@ -75,4 +75,3 @@ namespace TremorMod.Content.Items.Weapons.Magic
 			recipe.Register();
 		}
 	}
-}

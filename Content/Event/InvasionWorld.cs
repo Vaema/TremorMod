@@ -1,12 +1,12 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.WorldBuilding;
 
-namespace TremorMod.Content.Event
-{
+namespace TremorMod.Content.Event;
+
 	public class InvasionWorld : ModSystem
 	{
 		public static int CyberWrathPoints = 0; // Is set once to Points1, never used. Delete ?? (?)
@@ -27,10 +27,10 @@ namespace TremorMod.Content.Event
 		} */
 
 		public override void SaveWorldData(TagCompound tag)
-        {
-            tag["CyberWrath"] = CyberWrath;
-            tag["CyberWrathPoints1"] = CyberWrathPoints1;
-        }
+    {
+        tag["CyberWrath"] = CyberWrath;
+        tag["CyberWrathPoints1"] = CyberWrathPoints1;
+    }
 
 		public override void LoadWorldData(TagCompound tag)
 		{
@@ -50,4 +50,3 @@ namespace TremorMod.Content.Event
 			CyberWrathPoints1 = reader.ReadInt32();
 		}
 	}
-}

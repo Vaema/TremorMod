@@ -1,12 +1,12 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.Omnikron
-{
+namespace TremorMod.Content.Items.Armor.Omnikron;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class OmnikronGreaves : ModItem
 	{
@@ -27,21 +27,21 @@ namespace TremorMod.Content.Items.Armor.Omnikron
 			//"Increases all critical strike chances by 15");
 		}
 
-        public override void ModifyTooltips(List<TooltipLine> tooltips)
+    public override void ModifyTooltips(List<TooltipLine> tooltips)
+    {
+        foreach (var tooltip in tooltips)
         {
-            foreach (var tooltip in tooltips)
+            if (tooltip.Mod == "Terraria" && tooltip.Name == "ItemName")
             {
-                if (tooltip.Mod == "Terraria" && tooltip.Name == "ItemName")
-                {
-                    tooltip.OverrideColor = new Color(238, 194, 73);
-                }
+                tooltip.OverrideColor = new Color(238, 194, 73);
             }
         }
+    }
 
-        public override void UpdateEquip(Player player)
+    public override void UpdateEquip(Player player)
 		{
 			player.moveSpeed += 0.5f;
-            player.GetCritChance(DamageClass.Generic) += 15;
+        player.GetCritChance(DamageClass.Generic) += 15;
 			player.GetModPlayer<MPlayer>().alchemicalCrit += 15;
 		}
 
@@ -55,4 +55,3 @@ namespace TremorMod.Content.Items.Armor.Omnikron
 		}
 
 	}
-}

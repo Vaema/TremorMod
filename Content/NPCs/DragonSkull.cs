@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
@@ -6,8 +6,8 @@ using Terraria.GameContent.ItemDropRules;
 using TremorMod.Content.Items.Weapons.Throwing;
 using TremorMod.Content.Items.Placeable.Banners;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 
 	public class DragonSkull : ModNPC
 	{
@@ -33,20 +33,20 @@ namespace TremorMod.Content.NPCs
 			NPC.noGravity = true;
 			NPC.DeathSound = SoundID.NPCDeath2;
 			NPC.value = Item.buyPrice(0, 0, 15, 9);
-            Banner = NPC.type;
-            BannerItem = ModContent.ItemType<DragonSkullBanner>();
-            ItemID.Sets.KillsToBanner[BannerItem] = 50;
+        Banner = NPC.type;
+        BannerItem = ModContent.ItemType<DragonSkullBanner>();
+        ItemID.Sets.KillsToBanner[BannerItem] = 50;
 		}
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DragonBreath>(), 1, 29, 41));
-        }
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DragonBreath>(), 1, 29, 41));
+    }
 
-        public override void HitEffect(NPC.HitInfo hit)
+    public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
-            if (NPC.life <= 0)
+        int hitDirection = hit.HitDirection;
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
 				{
@@ -58,8 +58,8 @@ namespace TremorMod.Content.NPCs
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 5, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 5, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				}
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonSkullGore").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonSkullGore2").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonSkullGore").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonSkullGore2").Type, 1f);
 			}
 			else
 			{
@@ -72,9 +72,8 @@ namespace TremorMod.Content.NPCs
 			}
 		}
 
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            return Main.hardMode && spawnInfo.SpawnTileY > Main.maxTilesY - 200 ? 0.10f : 0;
-        }
+    public override float SpawnChance(NPCSpawnInfo spawnInfo)
+    {
+        return Main.hardMode && spawnInfo.SpawnTileY > Main.maxTilesY - 200 ? 0.10f : 0;
     }
 }

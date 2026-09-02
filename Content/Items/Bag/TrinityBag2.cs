@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
 using TremorMod.Content.Items.Placeable;
@@ -11,38 +11,37 @@ using TremorMod.Content.Items.Weapons.Throwing;
 using TremorMod.Content.Items.Vanity;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Bag
+namespace TremorMod.Content.Items.Bag;
+
+public class TrinityBag2 : ModItem
 {
-    public class TrinityBag2 : ModItem
+    public override void SetDefaults()
     {
-        public override void SetDefaults()
-        {
-            Item.maxStack = 9999;
-            Item.consumable = true;
-            Item.width = 24;
-            Item.height = 24;
-            Item.rare = 9;
-            Item.expert = true;
-        }
+        Item.maxStack = 9999;
+        Item.consumable = true;
+        Item.width = 24;
+        Item.height = 24;
+        Item.rare = 9;
+        Item.expert = true;
+    }
 
-        public override bool CanRightClick()
-        {
-            return true;
-        }
+    public override bool CanRightClick()
+    {
+        return true;
+    }
 
-        public override void ModifyItemLoot(ItemLoot itemLoot)
-        {
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<TrustMask>(), 7));
+    public override void ModifyItemLoot(ItemLoot itemLoot)
+    {
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<TrustMask>(), 7));
 
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<HonestBlade>(), 3));
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<HonestBlade>(), 3));
 
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Volcannon>(), 3));
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Volcannon>(), 3));
 
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<UnpredictableСompass>(), 3));
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<UnpredictableСompass>(), 3));
 
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<OmnikronBar>(), 1, 20, 36));
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<OmnikronBar>(), 1, 20, 36));
 
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<TrueEssense>(), 1, 10, 25));
-        }
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<TrueEssense>(), 1, 10, 25));
     }
 }

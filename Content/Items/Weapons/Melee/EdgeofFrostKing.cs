@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Weapons.Melee
-{
+namespace TremorMod.Content.Items.Weapons.Melee;
+
 	public class EdgeofFrostKing : ModItem
 	{
 		public override void SetDefaults()
@@ -29,9 +29,8 @@ namespace TremorMod.Content.Items.Weapons.Melee
 			//Tooltip.SetDefault("");
 		}
 
-        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
-        {
+    public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
+    {
 			target.AddBuff(44, 60);
 		}
 	}
-}

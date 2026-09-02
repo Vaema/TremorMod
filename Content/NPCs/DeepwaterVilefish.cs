@@ -1,12 +1,12 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.GameContent.ItemDropRules;
 using TremorMod.Content.Items.Placeable.Banners;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class DeepwaterVilefish : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -29,31 +29,30 @@ namespace TremorMod.Content.NPCs
 			NPC.HitSound = SoundID.NPCHit47;
 			NPC.DeathSound = SoundID.NPCDeath23;
 			NPC.value = Item.buyPrice(0, 0, 0, 3);
-            Banner = NPC.type;
-            BannerItem = ModContent.ItemType<DeepwaterVilefishBanner>();
-            ItemID.Sets.KillsToBanner[BannerItem] = 50;
-        }
+        Banner = NPC.type;
+        BannerItem = ModContent.ItemType<DeepwaterVilefishBanner>();
+        ItemID.Sets.KillsToBanner[BannerItem] = 50;
+    }
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = NPC.direction;
+        int hitDirection = NPC.direction;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 				for (int k = 0; k < 20; k++)
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 		}
 
 		public override void OnKill()
 		{
-            Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ItemID.RottenChunk);
-        }
+        Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ItemID.RottenChunk);
+    }
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            npcLoot.Add(ItemDropRule.Common(ItemID.RottenChunk, 1));
-        }
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ItemID.RottenChunk, 1));
+    }
 
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+    public override float SpawnChance(NPCSpawnInfo spawnInfo)
 			=> spawnInfo.Player.ZoneCorrupt && spawnInfo.Water && spawnInfo.SpawnTileY > Main.rockLayer ? 0.05f : 0f;
 	}
-}

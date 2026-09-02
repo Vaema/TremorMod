@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	[AutoloadEquip(EquipType.Shield)]
 	public class MeatShield : ModItem
 	{
@@ -48,4 +48,3 @@ namespace TremorMod.Content.Items.Accessories
 			recipe1.Register();
 		}
 	}
-}

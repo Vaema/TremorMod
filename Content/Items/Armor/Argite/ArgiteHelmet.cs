@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
@@ -6,8 +6,8 @@ using Terraria.ID;
 using TremorMod.Content.Items.Materials.OreAndBar;
 using Terraria.Localization;
 
-namespace TremorMod.Content.Items.Armor.Argite
-{
+namespace TremorMod.Content.Items.Armor.Argite;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class ArgiteHelmet : ModItem
 	{
@@ -22,17 +22,17 @@ namespace TremorMod.Content.Items.Armor.Argite
 			Item.defense = 6;
 		}
 
-        public override void SetStaticDefaults()
+    public override void SetStaticDefaults()
 		{
 			//DisplayName.SetDefault("Argite Helmet");
 			//Tooltip.SetDefault("10% increased melee speed");
 			SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Your body become spiky");
 		}
 
-        public override void UpdateEquip(Player player)
+    public override void UpdateEquip(Player player)
 		{
-            player.GetAttackSpeed(DamageClass.Melee) += 0.1f;
-        }
+        player.GetAttackSpeed(DamageClass.Melee) += 0.1f;
+    }
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
@@ -41,8 +41,8 @@ namespace TremorMod.Content.Items.Armor.Argite
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Your body become spiky");
+        player.setBonus = SetBonusText.Value;
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Your body become spiky");
 			player.thorns = 1;
 
 			if (Math.Abs(player.velocity.X) + Math.Abs(player.velocity.Y) > 1f && !player.rocketFrame) // Makes sure the player is actually moving
@@ -59,13 +59,12 @@ namespace TremorMod.Content.Items.Armor.Argite
 			}
 		}
 
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<ArgiteBar>(), 15);
-            //recipe.SetResult(this);
-            recipe.AddTile(16);
-            recipe.Register();
-        }
+    public override void AddRecipes()
+    {
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ModContent.ItemType<ArgiteBar>(), 15);
+        //recipe.SetResult(this);
+        recipe.AddTile(16);
+        recipe.Register();
     }
 }

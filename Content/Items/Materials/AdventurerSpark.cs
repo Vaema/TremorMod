@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Materials
-{
+namespace TremorMod.Content.Items.Materials;
+
 	public class AdventurerSpark : ModItem
 	{
 		public override void SetStaticDefaults()
@@ -12,9 +12,9 @@ namespace TremorMod.Content.Items.Materials
 			//DisplayName.SetDefault("Adventurer Spark");
 			//Tooltip.SetDefault("Can be enchanted only once!");
 			Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
-            ItemID.Sets.AnimatesAsSoul[Item.type] = true;
-            ItemID.Sets.ItemIconPulse[Item.type] = true;
-        }
+        ItemID.Sets.AnimatesAsSoul[Item.type] = true;
+        ItemID.Sets.ItemIconPulse[Item.type] = true;
+    }
 
 		public override void SetDefaults()
 		{
@@ -24,4 +24,3 @@ namespace TremorMod.Content.Items.Materials
 			Item.value = Item.buyPrice(silver: 1);
 		}
 	}
-}

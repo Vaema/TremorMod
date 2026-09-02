@@ -5,8 +5,8 @@ using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class HealingSkull : ModProjectile
 	{
 
@@ -85,4 +85,3 @@ namespace TremorMod.Content.Projectiles
 
 		}
 	}
-}

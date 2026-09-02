@@ -1,4 +1,4 @@
-using TremorMod.Content.Items.Placeable.Banners;
+﻿using TremorMod.Content.Items.Placeable.Banners;
 using Terraria;
 using Microsoft.Xna.Framework;
 using Terraria.GameContent.Bestiary;
@@ -8,8 +8,8 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 using System.IO;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class Crimer : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -33,9 +33,9 @@ namespace TremorMod.Content.NPCs
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath6;
 			NPC.value = Item.buyPrice(0, 0, 5, 0);
-            Banner = NPC.type;
-            BannerItem = ModContent.ItemType<CrimerBanner>();
-            ItemID.Sets.KillsToBanner[BannerItem] = 50;
+        Banner = NPC.type;
+        BannerItem = ModContent.ItemType<CrimerBanner>();
+        ItemID.Sets.KillsToBanner[BannerItem] = 50;
 		}
 
 		public override void HitEffect(NPC.HitInfo hit)
@@ -50,12 +50,11 @@ namespace TremorMod.Content.NPCs
 			}
 		}
 
-        public override void OnKill()
+    public override void OnKill()
+    {
+        if (Main.netMode != NetmodeID.MultiplayerClient)
         {
-            if (Main.netMode != NetmodeID.MultiplayerClient)
-            {
-                NPC.NewNPC(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPCID.Crimslime);
-            }
+            NPC.NewNPC(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPCID.Crimslime);
         }
     }
 }

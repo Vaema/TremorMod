@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
@@ -6,15 +6,15 @@ using TremorMod.Content.Projectiles;
 using TremorMod.Utilities;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items.Weapons.Alchemical
-{
+namespace TremorMod.Content.Items.Weapons.Alchemical;
+
 	public class LesserHealingFlack : ModItem
 	{
 
 		public override void SetDefaults()
 		{
-            Item.DamageType = TremorMod.alchemicalDamage ?? DamageClass.Generic;
-            Item.crit = 4;
+        Item.DamageType = TremorMod.alchemicalDamage ?? DamageClass.Generic;
+        Item.crit = 4;
 			Item.damage = 11;
 			Item.width = 26;
 			Item.noUseGraphic = true;
@@ -31,8 +31,8 @@ namespace TremorMod.Content.Items.Weapons.Alchemical
 			Item.value = 70;
 			Item.rare = 1;
 			Item.autoReuse = false;
-            //Item.useAmmo = ModContent.ItemType<BoomFlask>();
-        }
+        //Item.useAmmo = ModContent.ItemType<BoomFlask>();
+    }
 
 		public override void SetStaticDefaults()
 		{
@@ -85,4 +85,3 @@ namespace TremorMod.Content.Items.Weapons.Alchemical
 			recipe.Register();
 		}
 	}
-}

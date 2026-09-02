@@ -1,10 +1,10 @@
-using Terraria;	
+﻿using Terraria;	
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Materials
-{
+namespace TremorMod.Content.Items.Materials;
+
 	public class StarBar : ModItem
 	{
 		public override void SetDefaults()
@@ -40,4 +40,3 @@ namespace TremorMod.Content.Items.Materials
 			recipe.Register();
 		}
 	}
-}

@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Tools
-{
+namespace TremorMod.Content.Items.Tools;
+
 	public class CoralPickaxe : ModItem
 	{
 		public override void SetDefaults()
@@ -38,4 +38,3 @@ namespace TremorMod.Content.Items.Tools
 			recipe.Register();
 		}
 	}
-}

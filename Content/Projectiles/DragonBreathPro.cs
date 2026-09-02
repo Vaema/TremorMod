@@ -1,10 +1,10 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 
 	public class DragonBreathPro : ModProjectile
 	{
@@ -40,4 +40,3 @@ namespace TremorMod.Content.Projectiles
 			}
 		}
 	}
-}

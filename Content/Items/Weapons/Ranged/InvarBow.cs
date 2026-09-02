@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 
-namespace TremorMod.Content.Items.Weapons.Ranged
-{
+namespace TremorMod.Content.Items.Weapons.Ranged;
+
 	public class InvarBow : ModItem
 	{
 		public override void SetDefaults()
@@ -37,10 +37,9 @@ namespace TremorMod.Content.Items.Weapons.Ranged
 		public override void AddRecipes()
 		{
 		    Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<InvarBar>(), 7);
+        recipe.AddIngredient(ModContent.ItemType<InvarBar>(), 7);
 			recipe.AddTile(16);
 		    //recipe.SetResult(this);
 			recipe.Register();
 		}
 	}
-}

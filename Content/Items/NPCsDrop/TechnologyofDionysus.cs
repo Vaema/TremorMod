@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.NPCsDrop
-{
+namespace TremorMod.Content.Items.NPCsDrop;
+
 	public class TechnologyofDionysus : ModItem
 	{
 
@@ -29,4 +29,3 @@ namespace TremorMod.Content.Items.NPCsDrop
 			player.aggro -= 400;
 		}
 	}
-}

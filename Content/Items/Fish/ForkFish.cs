@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Fish
-{
+namespace TremorMod.Content.Items.Fish;
+
 	public class ForkFish : ModItem
 	{
 		public override void SetDefaults()
@@ -37,4 +37,3 @@ namespace TremorMod.Content.Items.Fish
 			catchLocation = "Anywhere";
 		}
 	}
-}

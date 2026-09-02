@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -23,14 +23,14 @@ using Terraria.Audio;
 using Terraria.Graphics.Effects;
 using TremorMod.Content.NPCs.Bosses.NovaPillar.Items;
 
-namespace TremorMod.Content.Items.Weapons.Alchemical
-{
+namespace TremorMod.Content.Items.Weapons.Alchemical;
+
 	public class NovaSprayer : ModItem
 	{
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
-            Item.DamageType = TremorMod.alchemicalDamage ?? DamageClass.Generic; 
-            Item.damage = 84;
+        Item.DamageType = TremorMod.alchemicalDamage ?? DamageClass.Generic; 
+        Item.damage = 84;
 			Item.width = 62;
 			Item.height = 32;
 			Item.useTime = 6;
@@ -86,54 +86,54 @@ namespace TremorMod.Content.Items.Weapons.Alchemical
 			}
 		}
 
-        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    {
+        MPlayer modPlayer = MPlayer.GetModPlayer(player);
+        if (modPlayer.glove)
         {
-            MPlayer modPlayer = MPlayer.GetModPlayer(player);
-            if (modPlayer.glove)
+            for (int i = 0; i < 1; ++i)
             {
-                for (int i = 0; i < 1; ++i)
-                {
-                    if (player.FindBuffIndex(Mod.Find<ModBuff>("BottledSpiritBuffs").Type) != -1)
-                    {
-                        Projectile.NewProjectile(source, position, velocity + new Vector2(2, 2), 297, damage, knockback, Main.myPlayer);
-                    }
-                    if (player.FindBuffIndex(Mod.Find<ModBuff>("BigBottledSpiritBuffs").Type) != -1)
-                    {
-                        Projectile.NewProjectile(source, position, velocity + new Vector2(3, 3), 297, damage, knockback, Main.myPlayer);
-                        Projectile.NewProjectile(source, position, velocity + new Vector2(2, 2), 297, damage, knockback, Main.myPlayer);
-                    }
-                    Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), type, damage, knockback, Main.myPlayer);
-                    Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), type, damage, knockback, Main.myPlayer);
-                    int k = Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer);
-                    Main.projectile[k].friendly = true;
-                }
-                return false;
-            }
-            if (player.FindBuffIndex(Mod.Find<ModBuff>("BottledSpiritBuffs").Type) != -1 && !modPlayer.glove)
-            {
-                for (int i = 0; i < 1; ++i)
-                {
-                    Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), 297, damage, knockback, Main.myPlayer);
-                    int k = Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer);
-                    Main.projectile[k].friendly = true;
-                }
-                return false;
-            }
-            if (player.FindBuffIndex(Mod.Find<ModBuff>("BigBottledSpiritBuffs").Type) != -1 && !modPlayer.glove)
-            {
-                for (int i = 0; i < 1; ++i)
+                if (player.FindBuffIndex(Mod.Find<ModBuff>("BottledSpiritBuffs").Type) != -1)
                 {
                     Projectile.NewProjectile(source, position, velocity + new Vector2(2, 2), 297, damage, knockback, Main.myPlayer);
-                    Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), 297, damage, knockback, Main.myPlayer);
-                    int k = Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer);
-                    Main.projectile[k].friendly = true;
                 }
-                return false;
+                if (player.FindBuffIndex(Mod.Find<ModBuff>("BigBottledSpiritBuffs").Type) != -1)
+                {
+                    Projectile.NewProjectile(source, position, velocity + new Vector2(3, 3), 297, damage, knockback, Main.myPlayer);
+                    Projectile.NewProjectile(source, position, velocity + new Vector2(2, 2), 297, damage, knockback, Main.myPlayer);
+                }
+                Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), type, damage, knockback, Main.myPlayer);
+                Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), type, damage, knockback, Main.myPlayer);
+                int k = Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer);
+                Main.projectile[k].friendly = true;
             }
-            return true;
+            return false;
         }
+        if (player.FindBuffIndex(Mod.Find<ModBuff>("BottledSpiritBuffs").Type) != -1 && !modPlayer.glove)
+        {
+            for (int i = 0; i < 1; ++i)
+            {
+                Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), 297, damage, knockback, Main.myPlayer);
+                int k = Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer);
+                Main.projectile[k].friendly = true;
+            }
+            return false;
+        }
+        if (player.FindBuffIndex(Mod.Find<ModBuff>("BigBottledSpiritBuffs").Type) != -1 && !modPlayer.glove)
+        {
+            for (int i = 0; i < 1; ++i)
+            {
+                Projectile.NewProjectile(source, position, velocity + new Vector2(2, 2), 297, damage, knockback, Main.myPlayer);
+                Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), 297, damage, knockback, Main.myPlayer);
+                int k = Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer);
+                Main.projectile[k].friendly = true;
+            }
+            return false;
+        }
+        return true;
+    }
 
-        public override void AddRecipes()
+    public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<NovaFragment>(), 18);
@@ -141,4 +141,3 @@ namespace TremorMod.Content.Items.Weapons.Alchemical
 			recipe.Register();
 		}
 	}
-}

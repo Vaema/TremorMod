@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.BossLoot.TheDarkEmperor
-{
+namespace TremorMod.Content.Items.BossLoot.TheDarkEmperor;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class DarkEmperorMask : ModItem
 	{
@@ -22,4 +22,3 @@ namespace TremorMod.Content.Items.BossLoot.TheDarkEmperor
 			//Tooltip.SetDefault("");
 		}
 	}
-}

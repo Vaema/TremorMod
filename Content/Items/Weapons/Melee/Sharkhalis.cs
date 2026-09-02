@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -7,8 +7,8 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Projectiles;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Weapons.Melee
-{
+namespace TremorMod.Content.Items.Weapons.Melee;
+
 	public class Sharkhalis : ModItem
 	{
 		public override void SetDefaults()
@@ -23,11 +23,11 @@ namespace TremorMod.Content.Items.Weapons.Melee
 			//Tooltip.SetDefault("");
 		}
 
-        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
-            Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<SharkhalisPro>(), damage, knockback, player.whoAmI);
-            return false;
-        }
+        Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<SharkhalisPro>(), damage, knockback, player.whoAmI);
+        return false;
+    }
 
 		public override void AddRecipes()
 		{
@@ -40,4 +40,3 @@ namespace TremorMod.Content.Items.Weapons.Melee
 			recipe.Register();
 		}
 	}
-}

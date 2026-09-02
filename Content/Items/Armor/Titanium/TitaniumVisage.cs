@@ -1,17 +1,17 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.Titanium
-{
+namespace TremorMod.Content.Items.Armor.Titanium;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class TitaniumVisage : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 24;
 			Item.height = 24;
@@ -22,9 +22,9 @@ namespace TremorMod.Content.Items.Armor.Titanium
 
 		public override void SetStaticDefaults()
 		{
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Become invulnerable after striking an enemy\n" +
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Become invulnerable after striking an enemy\n" +
 			"20% increased alchemical critical strike chance");
-            // DisplayName.SetDefault("Titanium Visage");
+        // DisplayName.SetDefault("Titanium Visage");
 			// Tooltip.SetDefault("24% increased alchemical damage");
 		}
 
@@ -40,8 +40,8 @@ namespace TremorMod.Content.Items.Armor.Titanium
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Become invulnerable after striking an enemy\n" +
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Become invulnerable after striking an enemy\n" +
 			"20% increased alchemical critical strike chance";
 			player.GetModPlayer<MPlayer>().alchemicalCrit += 20;
 			player.onHitDodge = true;
@@ -56,4 +56,3 @@ namespace TremorMod.Content.Items.Armor.Titanium
 			recipe.Register();
 		}
 	}
-}

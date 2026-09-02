@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class FieryKunaiPro : ModProjectile
 	{
 		public override void SetDefaults()
@@ -50,4 +50,3 @@ namespace TremorMod.Content.Projectiles
 			Projectile.velocity *= 0.75f;
 		}
 	}
-}

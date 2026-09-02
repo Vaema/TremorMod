@@ -1,18 +1,18 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 using Terraria.Localization;
 
-namespace TremorMod.Content.Items.Armor.Luxorious
-{
+namespace TremorMod.Content.Items.Armor.Luxorious;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class LuxoriousHelmet : ModItem
 	{
 
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.defense = 15;
 			Item.width = 26;
@@ -23,10 +23,10 @@ namespace TremorMod.Content.Items.Armor.Luxorious
 
 		public override void SetStaticDefaults()
 		{
-            //DisplayName.SetDefault("Luxorious Helmet");
-            //Tooltip.SetDefault("12% increased mining speed");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Allows to detect treasures, ores and traps");
-        }
+        //DisplayName.SetDefault("Luxorious Helmet");
+        //Tooltip.SetDefault("12% increased mining speed");
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Allows to detect treasures, ores and traps");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -40,8 +40,8 @@ namespace TremorMod.Content.Items.Armor.Luxorious
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Allows to detect treasures, ores and traps";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Allows to detect treasures, ores and traps";
 			player.findTreasure = true;
 			player.AddBuff(111, 2);
 		}
@@ -60,4 +60,3 @@ namespace TremorMod.Content.Items.Armor.Luxorious
 			recipe.Register();
 		}
 	}
-}

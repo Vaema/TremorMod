@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.Xna.Framework;
@@ -16,8 +16,8 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Filters = Terraria.Graphics.Effects.Filters;
 
-namespace TremorMod.Content.NPCs.Bosses.AndasBoss
-{
+namespace TremorMod.Content.NPCs.Bosses.AndasBoss;
+
 	public class UndeadWyrmHead : ModNPC
 	{
 
@@ -44,73 +44,73 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss
 		public override void SetDefaults()
 		{
 			NPC.lifeMax = 8000;
-            NPC.damage = 75;
-            NPC.defense = 50;
-            NPC.knockBackResist = 0f;
-            NPC.width = 74;
-            NPC.height = 82;
-            NPC.aiStyle = 6;
-            NPC.npcSlots = 1f;
-            NPC.noTileCollide = true;
-            NPC.behindTiles = true;
-            NPC.friendly = false;
-            NPC.dontTakeDamage = false;
-            NPC.noGravity = true;
-            NPC.HitSound = SoundID.NPCHit2;
-            NPC.DeathSound = SoundID.NPCDeath6;
-            NPC.buffImmune[24] = true;
-            NPC.buffImmune[67] = true;
-            NPC.lavaImmune = true;
+        NPC.damage = 75;
+        NPC.defense = 50;
+        NPC.knockBackResist = 0f;
+        NPC.width = 74;
+        NPC.height = 82;
+        NPC.aiStyle = 6;
+        NPC.npcSlots = 1f;
+        NPC.noTileCollide = true;
+        NPC.behindTiles = true;
+        NPC.friendly = false;
+        NPC.dontTakeDamage = false;
+        NPC.noGravity = true;
+        NPC.HitSound = SoundID.NPCHit2;
+        NPC.DeathSound = SoundID.NPCDeath6;
+        NPC.buffImmune[24] = true;
+        NPC.buffImmune[67] = true;
+        NPC.lavaImmune = true;
 		}
 
-        public override void AI()
+    public override void AI()
+    {
+        NPC.position += NPC.velocity * (2 - 1);
+
+        if (!TailSpawned)
         {
-            NPC.position += NPC.velocity * (2 - 1);
-
-            if (!TailSpawned)
+            int previous = NPC.whoAmI;
+            for (int num36 = 0; num36 < 10; num36++)
             {
-                int previous = NPC.whoAmI;
-                for (int num36 = 0; num36 < 10; num36++)
+                int newNpcId = 0;
+
+                // ГЏГ®Г«ГіГ·Г ГҐГ¬ ГЁГ±ГІГ®Г·Г­ГЁГЄ Г¤Г«Гї Г±Г®Г§Г¤Г Г­ГЁГї NPC
+                IEntitySource source = NPC.GetSource_FromAI();
+
+                if (num36 >= 0 && num36 < 9)
                 {
-                    int newNpcId = 0;
-
-                    // Получаем источник для создания NPC
-                    IEntitySource source = NPC.GetSource_FromAI();
-
-                    if (num36 >= 0 && num36 < 9)
-                    {
-                        newNpcId = NPC.NewNPC(source, (int)NPC.position.X + (NPC.width / 2), (int)NPC.position.Y + (NPC.width / 2), ModContent.NPCType<UndeadWyrmBody>());
-                    }
-                    else
-                    {
-                        newNpcId = NPC.NewNPC(source, (int)NPC.position.X + (NPC.width / 2), (int)NPC.position.Y + (NPC.width / 2), ModContent.NPCType<UndeadWyrmTail>());
-                    }
-
-                    // Ссылка на новый NPC
-                    NPC newNpc = Main.npc[newNpcId];
-                    newNpc.realLife = NPC.whoAmI;
-                    newNpc.ai[2] = NPC.whoAmI;
-                    newNpc.ai[1] = previous;
-                    Main.npc[previous].ai[0] = newNpcId;
-
-                    // Отправка данных для сетевой синхронизации (если необходимо)
-                    //NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, newNpcId);
-
-                    previous = newNpcId;
+                    newNpcId = NPC.NewNPC(source, (int)NPC.position.X + (NPC.width / 2), (int)NPC.position.Y + (NPC.width / 2), ModContent.NPCType<UndeadWyrmBody>());
+                }
+                else
+                {
+                    newNpcId = NPC.NewNPC(source, (int)NPC.position.X + (NPC.width / 2), (int)NPC.position.Y + (NPC.width / 2), ModContent.NPCType<UndeadWyrmTail>());
                 }
 
-                TailSpawned = true;
+                // Г‘Г±Г»Г«ГЄГ  Г­Г  Г­Г®ГўГ»Г© NPC
+                NPC newNpc = Main.npc[newNpcId];
+                newNpc.realLife = NPC.whoAmI;
+                newNpc.ai[2] = NPC.whoAmI;
+                newNpc.ai[1] = previous;
+                Main.npc[previous].ai[0] = newNpcId;
+
+                // ГЋГІГЇГ°Г ГўГЄГ  Г¤Г Г­Г­Г»Гµ Г¤Г«Гї Г±ГҐГІГҐГўГ®Г© Г±ГЁГ­ГµГ°Г®Г­ГЁГ§Г Г¶ГЁГЁ (ГҐГ±Г«ГЁ Г­ГҐГ®ГЎГµГ®Г¤ГЁГ¬Г®)
+                //NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, newNpcId);
+
+                previous = newNpcId;
             }
-        
+
+            TailSpawned = true;
+        }
+    
 
 
 			if ((int)(Main.time % 180) == 0)
 			{
 				Vector2 vector = new Vector2(NPC.position.X + (NPC.width * 0.5f), NPC.position.Y + (NPC.height / 2));
 				float birdRotation = (float)Math.Atan2(vector.Y - (Main.player[NPC.target].position.Y + (Main.player[NPC.target].height * 0.5f)), vector.X - (Main.player[NPC.target].position.X + (Main.player[NPC.target].width * 0.5f)));
-                NPC.velocity.X = (float)(Math.Cos(birdRotation) * 7) * -1;
-                NPC.velocity.Y = (float)(Math.Sin(birdRotation) * 7) * -1;
-                NPC.netUpdate = true;
+            NPC.velocity.X = (float)(Math.Cos(birdRotation) * 7) * -1;
+            NPC.velocity.Y = (float)(Math.Sin(birdRotation) * 7) * -1;
+            NPC.netUpdate = true;
 			}
 		}
 
@@ -129,4 +129,3 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss
 			return false;
 		}*/
 	}
-}

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.Xna.Framework;
@@ -16,8 +16,8 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Filters = Terraria.Graphics.Effects.Filters;
 
-namespace TremorMod.Content.NPCs.Bosses.AndasBoss
-{
+namespace TremorMod.Content.NPCs.Bosses.AndasBoss;
+
 	public class UndeadWyrmTail : ModNPC
 	{
 		/*public override void SetStaticDefaults()
@@ -27,21 +27,21 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss
 
 		public override void SetDefaults()
 		{
-            NPC.lifeMax = 1;
-            NPC.damage = 65;
-            NPC.defense = 30;
-            NPC.width = 30;
-            NPC.height = 62;
-            NPC.noTileCollide = true;
-            NPC.behindTiles = true;
-            NPC.friendly = false;
-            NPC.noGravity = true;
-            NPC.aiStyle = 6;
-            NPC.dontTakeDamage = false;
-            NPC.HitSound = SoundID.NPCHit2;
-            NPC.buffImmune[24] = true;
-            NPC.buffImmune[67] = true;
-            NPC.lavaImmune = true;
+        NPC.lifeMax = 1;
+        NPC.damage = 65;
+        NPC.defense = 30;
+        NPC.width = 30;
+        NPC.height = 62;
+        NPC.noTileCollide = true;
+        NPC.behindTiles = true;
+        NPC.friendly = false;
+        NPC.noGravity = true;
+        NPC.aiStyle = 6;
+        NPC.dontTakeDamage = false;
+        NPC.HitSound = SoundID.NPCHit2;
+        NPC.buffImmune[24] = true;
+        NPC.buffImmune[67] = true;
+        NPC.lavaImmune = true;
 		}
 
 		public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
@@ -53,9 +53,9 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss
 		{
 			if (!Main.npc[(int)NPC.ai[1]].active)
 			{
-                NPC.life = 0;
-                NPC.HitEffect(0, 10.0);
-                NPC.active = false;
+            NPC.life = 0;
+            NPC.HitEffect(0, 10.0);
+            NPC.active = false;
 			}
 		}
 
@@ -74,4 +74,3 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss
 			return false;
 		}*/
 	}
-}

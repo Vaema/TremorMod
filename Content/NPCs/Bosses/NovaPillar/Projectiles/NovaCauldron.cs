@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.Xna.Framework;
@@ -17,8 +17,8 @@ using Terraria.ModLoader;
 using Filters = Terraria.Graphics.Effects.Filters;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles
-{
+namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles;
+
 	public class NovaCauldron : ModProjectile
 	{
 		public override void SetDefaults()
@@ -220,23 +220,22 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles
 						}
 					}
 				}
-                if (Flag2)
-                {
-                    float Num9 = 12f;
-                    Vector2 Vector = new Vector2(Projectile.position.X + Projectile.width * 0.5f, Projectile.position.Y + Projectile.height * 0.5f);
-                    float Num10 = Num3 - Vector.X;
-                    float Num11 = Num4 - Vector.Y;
-                    float Num12 = (float)Math.Sqrt(Num10 * Num10 + Num11 * Num11);
-                    Num12 = Num9 / Num12;
-                    Num10 *= Num12;
-                    Num11 *= Num12;
+            if (Flag2)
+            {
+                float Num9 = 12f;
+                Vector2 Vector = new Vector2(Projectile.position.X + Projectile.width * 0.5f, Projectile.position.Y + Projectile.height * 0.5f);
+                float Num10 = Num3 - Vector.X;
+                float Num11 = Num4 - Vector.Y;
+                float Num12 = (float)Math.Sqrt(Num10 * Num10 + Num11 * Num11);
+                Num12 = Num9 / Num12;
+                Num10 *= Num12;
+                Num11 *= Num12;
 
-                    // Èñïðàâëåíèå àðãóìåíòîâ äëÿ NewProjectile
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X - 4f, Projectile.Center.Y, Num10, Num11, ModContent.ProjectileType<NovaCauldron_Fire>(), 65, Projectile.knockBack, Projectile.owner, 0f, 0f);
-                    Projectile.ai[0] = 50f;
-                }
-
+                // ÃˆÃ±Ã¯Ã°Ã Ã¢Ã«Ã¥Ã­Ã¨Ã¥ Ã Ã°Ã£Ã³Ã¬Ã¥Ã­Ã²Ã®Ã¢ Ã¤Ã«Ã¿ NewProjectile
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X - 4f, Projectile.Center.Y, Num10, Num11, ModContent.ProjectileType<NovaCauldron_Fire>(), 65, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                Projectile.ai[0] = 50f;
             }
+
         }
+    }
 	}
-}

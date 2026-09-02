@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.Samurai
-{
+namespace TremorMod.Content.Items.Armor.Samurai;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class SamuraiGeaves : ModItem
 	{
@@ -29,4 +29,3 @@ namespace TremorMod.Content.Items.Armor.Samurai
 			player.maxRunSpeed += 0.5f;
 		}
 	}
-}

@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class VultureFeather : ModItem
 	{
 		public override void SetDefaults()
@@ -27,4 +27,3 @@ namespace TremorMod.Content.Items.Accessories
 			player.maxRunSpeed += 0.15f;
 		}
 	}
-}

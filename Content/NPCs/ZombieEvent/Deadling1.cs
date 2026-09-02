@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
@@ -11,8 +11,8 @@ using TremorMod.Content.Items.Placeable.Banners;
 using TremorMod.Content.Items.Vanity;
 using TremorMod.Content.Items;
 
-namespace TremorMod.Content.NPCs.ZombieEvent
-{
+namespace TremorMod.Content.NPCs.ZombieEvent;
+
 
 	public class Deadling1 : ModNPC
 	{
@@ -56,26 +56,25 @@ namespace TremorMod.Content.NPCs.ZombieEvent
 				{
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				}
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DeadlingHead1").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DeadlingLeg").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DeadlingArm").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DeadlingLeg").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DeadlingArm").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DeadlingHead1").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DeadlingLeg").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DeadlingArm").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DeadlingLeg").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DeadlingArm").Type, 1f);
 			}
 		}
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        if (Main.netMode != 1)
         {
-            if (Main.netMode != 1)
-            {
-                int centerX = (int)(NPC.position.X + NPC.width / 2) / 16;
-                int centerY = (int)(NPC.position.Y + NPC.height / 2) / 16;
-                int halfLength = NPC.width / 2 / 16 + 1;
-                npcLoot.Add(ItemDropRule.Common(ItemID.Heart, 40)); 
-                npcLoot.Add(ItemDropRule.Common(ItemID.Cobweb, 10, 2, 3)); 
-                npcLoot.Add(ItemDropRule.Common(ItemID.Star, 12)); 
-                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RottenHand>(), 40));
-            }
+            int centerX = (int)(NPC.position.X + NPC.width / 2) / 16;
+            int centerY = (int)(NPC.position.Y + NPC.height / 2) / 16;
+            int halfLength = NPC.width / 2 / 16 + 1;
+            npcLoot.Add(ItemDropRule.Common(ItemID.Heart, 40)); 
+            npcLoot.Add(ItemDropRule.Common(ItemID.Cobweb, 10, 2, 3)); 
+            npcLoot.Add(ItemDropRule.Common(ItemID.Star, 12)); 
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RottenHand>(), 40));
         }
     }
 }

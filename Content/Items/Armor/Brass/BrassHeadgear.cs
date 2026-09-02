@@ -1,18 +1,18 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 using Terraria.Localization;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items.Armor.Brass
-{
+namespace TremorMod.Content.Items.Armor.Brass;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class BrassHeadgear : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 20;
 			Item.height = 20;
@@ -23,15 +23,15 @@ namespace TremorMod.Content.Items.Armor.Brass
 
 		public override void SetStaticDefaults()
 		{
-            /*DisplayName.SetDefault("Brass Headgear");
+        /*DisplayName.SetDefault("Brass Headgear");
 			Tooltip.SetDefault("10% increased magical damage\n" +
 			"Increases magical critical strike chance by 8");*/
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Summons a Steampunk Drone to fight for you and increases damage of Brass Chain Repeater");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Summons a Steampunk Drone to fight for you and increases damage of Brass Chain Repeater");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
-            player.GetCritChance(DamageClass.Magic) += 8;
+        player.GetCritChance(DamageClass.Magic) += 8;
 			player.GetDamage(DamageClass.Magic) += 0.1f;
 		}
 
@@ -44,7 +44,7 @@ namespace TremorMod.Content.Items.Armor.Brass
 		{
 			player.setBonus = SetBonusText.Value;
 			SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Summons a Steampunk Drone to fight for you and increases damage of Brass Chain Repeater");
-            player.AddBuff(ModContent.BuffType<buffSteampunkProbe>(), 4);
+        player.AddBuff(ModContent.BuffType<buffSteampunkProbe>(), 4);
 			player.AddBuff(ModContent.BuffType<SteamMageBuff>(), 4);
 		}
 
@@ -56,7 +56,7 @@ namespace TremorMod.Content.Items.Armor.Brass
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<BrassBar>(), 13);
+        recipe.AddIngredient(ModContent.ItemType<BrassBar>(), 13);
 			recipe.AddIngredient(ItemID.Cog, 12);
 			recipe.AddIngredient(ItemID.Glass, 6);
 			//recipe.SetResult(this);
@@ -64,4 +64,3 @@ namespace TremorMod.Content.Items.Armor.Brass
 			recipe.Register();
 		}
 	}
-}

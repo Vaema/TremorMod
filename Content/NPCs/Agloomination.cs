@@ -1,4 +1,4 @@
-using TremorMod.Content.Items.Placeable.Banners;
+ï»¿using TremorMod.Content.Items.Placeable.Banners;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -10,24 +10,24 @@ using Microsoft.Xna.Framework;
 
 
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class Agloomination : ModNPC
+{
+    public override void SetStaticDefaults()
     {
-        public override void SetStaticDefaults()
+        Main.npcFrameCount[Type] = Main.npcFrameCount[NPCID.ToxicSludge];
+
+        NPCID.Sets.ShimmerTransformToNPC[NPC.type] = NPCID.Skeleton;
+
+        NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
         {
-            Main.npcFrameCount[Type] = Main.npcFrameCount[NPCID.ToxicSludge];
+            Velocity = 1f
+        };
+        NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, value);
+    }
 
-            NPCID.Sets.ShimmerTransformToNPC[NPC.type] = NPCID.Skeleton;
-
-            NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
-            {
-                Velocity = 1f
-            };
-            NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, value);
-        }
-
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			NPC.lifeMax = 600;
 			NPC.damage = 90;
@@ -36,56 +36,55 @@ namespace TremorMod.Content.NPCs
 			NPC.width = 38;
 			NPC.height = 44;
 			AnimationType = NPCID.ToxicSludge;
-            AIType = NPCID.ToxicSludge;
-            NPC.aiStyle = 1;
-            NPC.value = 60f;
-            NPC.HitSound = SoundID.NPCHit1;
+        AIType = NPCID.ToxicSludge;
+        NPC.aiStyle = 1;
+        NPC.value = 60f;
+        NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath1;
 			NPC.value = Item.buyPrice(0, 0, 12, 24);
 			Banner = NPC.type;
 			BannerItem = ModContent.ItemType<AgloominationBanner>();
 			ItemID.Sets.KillsToBanner[BannerItem] = 50;
-        }
+    }
 
-        public override void HitEffect(NPC.HitInfo hit)
+    public override void HitEffect(NPC.HitInfo hit)
+    {
+        // ÃˆÃ±Ã¯Ã®Ã«Ã¼Ã§Ã³Ã¥Ã¬ direction Ã¤Ã«Ã¿ Ã­Ã Ã¯Ã°Ã Ã¢Ã«Ã¥Ã­Ã¨Ã¿ Ã¯Ã»Ã«Ã¨
+        int hitDirection = NPC.direction;
+
+        if (NPC.life <= 0)
         {
-            // Èñïîëüçóåì direction äëÿ íàïðàâëåíèÿ ïûëè
-            int hitDirection = NPC.direction;
+            // Ã‘Ã®Ã§Ã¤Ã Ã¥Ã¬ Ã¯Ã»Ã«Ã¼ Ã¯Ã°Ã¨ Ã±Ã¬Ã¥Ã°Ã²Ã¨ NPC
+            for (int k = 0; k < 60; k++)
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, 54, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
-            if (NPC.life <= 0)
+            for (int k = 0; k < 20; k++)
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+        }
+        else
+        {
+            // ÃÃ»Ã«Ã¼ Ã¯Ã°Ã¨ Ã¯Ã®Ã«Ã³Ã·Ã¥Ã­Ã¨Ã¨ Ã³Ã°Ã®Ã­Ã 
+            for (int k = 0; k < hit.Damage / NPC.lifeMax * 50; k++)
             {
-                // Ñîçäàåì ïûëü ïðè ñìåðòè NPC
-                for (int k = 0; k < 60; k++)
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, 54, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-
-                for (int k = 0; k < 20; k++)
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, 54, hitDirection, -1f, 0, default(Color), 0.7f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, 54, hitDirection, -1f, 0, default(Color), 0.7f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, 54, hitDirection, -1f, 0, default(Color), 0.7f);
             }
-            else
-            {
-                // Ïûëü ïðè ïîëó÷åíèè óðîíà
-                for (int k = 0; k < hit.Damage / NPC.lifeMax * 50; k++)
-                {
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, 54, hitDirection, -1f, 0, default(Color), 0.7f);
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, 54, hitDirection, -1f, 0, default(Color), 0.7f);
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, 54, hitDirection, -1f, 0, default(Color), 0.7f);
-                }
-            }
-        }
-
-        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
-        {
-            bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
-                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Underground,
-                new FlavorTextBestiaryInfoElement("An Agloomination that prowls the jungles.")
-            });
-        }
-
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            // Ïðîâåðÿåì, ÷òî âðàã ìîæåò ïîÿâèòüñÿ â øàõòàõ ïîñëå ïîáåäû íàä Ïëàíòåðîé
-            return NPC.downedPlantBoss && spawnInfo.Player.ZoneRockLayerHeight ? 0.01f : 0f;
         }
     }
-	
+
+    public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+    {
+        bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
+            BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Underground,
+            new FlavorTextBestiaryInfoElement("An Agloomination that prowls the jungles.")
+        });
+    }
+
+    public override float SpawnChance(NPCSpawnInfo spawnInfo)
+    {
+        // ÃÃ°Ã®Ã¢Ã¥Ã°Ã¿Ã¥Ã¬, Ã·Ã²Ã® Ã¢Ã°Ã Ã£ Ã¬Ã®Ã¦Ã¥Ã² Ã¯Ã®Ã¿Ã¢Ã¨Ã²Ã¼Ã±Ã¿ Ã¢ Ã¸Ã ÃµÃ²Ã Ãµ Ã¯Ã®Ã±Ã«Ã¥ Ã¯Ã®Ã¡Ã¥Ã¤Ã» Ã­Ã Ã¤ ÃÃ«Ã Ã­Ã²Ã¥Ã°Ã®Ã©
+        return NPC.downedPlantBoss && spawnInfo.Player.ZoneRockLayerHeight ? 0.01f : 0f;
+    }
 }
+	

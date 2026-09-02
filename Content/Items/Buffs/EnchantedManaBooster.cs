@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,8 +6,8 @@ using TremorMod.Content.Tiles;
 using TremorMod.Content.Buffs;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Buffs
-{
+namespace TremorMod.Content.Items.Buffs;
+
 	public class EnchantedManaBooster : ModItem
 	{
 		public override void SetDefaults()
@@ -29,8 +29,8 @@ namespace TremorMod.Content.Items.Buffs
 			//Tooltip.SetDefault("Regenerates mana every 45 seconds");
 		}
 
-        public override void UseStyle(Player player, Rectangle heldItemFrame)
-        {
+    public override void UseStyle(Player player, Rectangle heldItemFrame)
+    {
 			if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
 			{
 				player.AddBuff(Item.buffType, 2700, true);
@@ -41,12 +41,11 @@ namespace TremorMod.Content.Items.Buffs
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<ManaBooster>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<GoldenClaw>(), 15);
-            recipe.AddIngredient(ModContent.ItemType<StarBar>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<AngryShard>(), 1);
-            //recipe.SetResult(this);
-            recipe.AddTile(ModContent.TileType<MagicWorkbenchTile>());
-            recipe.Register();
-        }
+        recipe.AddIngredient(ModContent.ItemType<GoldenClaw>(), 15);
+        recipe.AddIngredient(ModContent.ItemType<StarBar>(), 1);
+        recipe.AddIngredient(ModContent.ItemType<AngryShard>(), 1);
+        //recipe.SetResult(this);
+        recipe.AddTile(ModContent.TileType<MagicWorkbenchTile>());
+        recipe.Register();
+    }
 	}
-}

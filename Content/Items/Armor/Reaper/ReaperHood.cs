@@ -1,17 +1,17 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.Reaper
-{
+namespace TremorMod.Content.Items.Armor.Reaper;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class ReaperHood : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 38;
 			Item.height = 22;
@@ -22,10 +22,10 @@ namespace TremorMod.Content.Items.Armor.Reaper
 
 		public override void SetStaticDefaults()
 		{
-            //DisplayName.SetDefault("Reaper Hood");
-            //Tooltip.SetDefault("15% increased alchemical damage");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("30% increased alchemical critical strike chance");
-        }
+        //DisplayName.SetDefault("Reaper Hood");
+        //Tooltip.SetDefault("15% increased alchemical damage");
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("30% increased alchemical critical strike chance");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -39,9 +39,8 @@ namespace TremorMod.Content.Items.Armor.Reaper
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "30% increased alchemical critical strike chance";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "30% increased alchemical critical strike chance";
 			player.GetModPlayer<MPlayer>().alchemicalCrit += 30;
 		}
 	}
-}

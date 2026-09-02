@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -8,14 +8,14 @@ using TremorMod.Content.Items.Materials.OreAndBar;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.Brutallisk
-{
+namespace TremorMod.Content.Items.Armor.Brutallisk;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class BrutalliskHelmet : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 
 			Item.width = 38;
@@ -30,8 +30,8 @@ namespace TremorMod.Content.Items.Armor.Brutallisk
 			// DisplayName.SetDefault("Brutallisk Helmet");
 			/* Tooltip.SetDefault("Increases maximum life by 40\n" +
 			"15% increased melee speed"); */
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Greatly increases health regeneration");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Greatly increases health regeneration");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -46,8 +46,8 @@ namespace TremorMod.Content.Items.Armor.Brutallisk
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Greatly increases health regeneration";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Greatly increases health regeneration";
 			player.lifeRegen = +30;
 
 			if (Math.Abs(player.velocity.X) + Math.Abs(player.velocity.Y) > 1f && !player.rocketFrame) // Makes sure the player is actually moving
@@ -76,4 +76,3 @@ namespace TremorMod.Content.Items.Armor.Brutallisk
 			recipe.Register();
 		}
 	}
-}

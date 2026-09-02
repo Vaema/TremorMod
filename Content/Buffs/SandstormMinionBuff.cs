@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,42 +6,41 @@ using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using TremorMod.Content.Projectiles.Minions;
 
-namespace TremorMod.Content.Buffs
+namespace TremorMod.Content.Buffs;
+
+public class SandstormMinionBuff : ModBuff
 {
-    public class SandstormMinionBuff : ModBuff
+    int MinionType = -1;
+    int MinionID = -1;
+
+    public override void SetStaticDefaults()
     {
-        int MinionType = -1;
-        int MinionID = -1;
+        Main.buffNoTimeDisplay[Type] = true;
+        //DisplayName.SetDefault("Sandstorm Minion");
+    }
 
-        public override void SetStaticDefaults()
+    public override void Update(Player player, ref int buffIndex)
+    {
+        if (MinionType == -1)
+            MinionType = ModContent.ProjectileType<SandstormMinion>();
+
+        if (MinionID == -1 || Main.projectile[MinionID].type != MinionType || !Main.projectile[MinionID].active || Main.projectile[MinionID].owner != player.whoAmI)
         {
-            Main.buffNoTimeDisplay[Type] = true;
-            //DisplayName.SetDefault("Sandstorm Minion");
+            // Г€Г±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ ГЄГ®Г°Г°ГҐГЄГІГ­Г®ГЈГ® ГЁГ±ГІГ®Г·Г­ГЁГЄГ 
+            IEntitySource source = player.GetSource_Buff(buffIndex);
+            MinionID = Projectile.NewProjectile(
+                source,
+                player.Center,          // ГЏГ®Г§ГЁГ¶ГЁГї
+                Vector2.Zero,           // Г‘ГЄГ®Г°Г®Г±ГІГј
+                MinionType,             // Г’ГЁГЇ Г±Г­Г Г°ГїГ¤Г 
+                50,                     // Г“Г°Г®Г­
+                1f,                     // ГЋГІГЎГ°Г®Г±
+                player.whoAmI           // Г‚Г«Г Г¤ГҐГ«ГҐГ¶
+            );
         }
-
-        public override void Update(Player player, ref int buffIndex)
+        else
         {
-            if (MinionType == -1)
-                MinionType = ModContent.ProjectileType<SandstormMinion>();
-
-            if (MinionID == -1 || Main.projectile[MinionID].type != MinionType || !Main.projectile[MinionID].active || Main.projectile[MinionID].owner != player.whoAmI)
-            {
-                // Использование корректного источника
-                IEntitySource source = player.GetSource_Buff(buffIndex);
-                MinionID = Projectile.NewProjectile(
-                    source,
-                    player.Center,          // Позиция
-                    Vector2.Zero,           // Скорость
-                    MinionType,             // Тип снаряда
-                    50,                     // Урон
-                    1f,                     // Отброс
-                    player.whoAmI           // Владелец
-                );
-            }
-            else
-            {
-                Main.projectile[MinionID].timeLeft = 5;
-            }
+            Main.projectile[MinionID].timeLeft = 5;
         }
     }
 }

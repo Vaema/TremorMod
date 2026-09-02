@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.NPCsDrop
-{
+namespace TremorMod.Content.Items.NPCsDrop;
+
 	public class OceanAmulet : ModItem
 	{
 
@@ -30,4 +30,3 @@ namespace TremorMod.Content.Items.NPCsDrop
 			player.AddBuff(122, 60, true);
 		}
 	}
-}

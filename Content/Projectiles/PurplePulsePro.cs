@@ -1,59 +1,58 @@
-using Microsoft.Xna.Framework;
+п»їusing Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
+namespace TremorMod.Content.Projectiles;
+
+public class PurplePulsePro : ModProjectile
 {
-    public class PurplePulsePro : ModProjectile
+    public override void SetDefaults()
     {
-        public override void SetDefaults()
+        Projectile.width = 90;
+        Projectile.height = 34;
+        Projectile.hostile = true;
+        Projectile.timeLeft = 300;  // Г‚Г°ГҐГ¬Гї Г¦ГЁГ§Г­ГЁ Г±Г­Г Г°ГїГ¤Г 
+        Projectile.tileCollide = false;
+    }
+
+    public override void AI()
+    {
+        this.Projectile.rotation = this.Projectile.velocity.ToRotation();
+
+        if (this.Projectile.localAI[0] == 0f)
         {
-            Projectile.width = 90;
-            Projectile.height = 34;
-            Projectile.hostile = true;
-            Projectile.timeLeft = 300;  // Время жизни снаряда
-            Projectile.tileCollide = false;
+            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item91, this.Projectile.position);
         }
 
-        public override void AI()
+        this.Projectile.localAI[0] += 1f;
+
+        if (this.Projectile.localAI[0] > 3f)
         {
-            this.Projectile.rotation = this.Projectile.velocity.ToRotation();
-
-            if (this.Projectile.localAI[0] == 0f)
-            {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item91, this.Projectile.position);
-            }
-
-            this.Projectile.localAI[0] += 1f;
-
-            if (this.Projectile.localAI[0] > 3f)
-            {
-                int dustID = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.PurpleTorch);
-                Main.dust[dustID].noGravity = true;
-            }
-
-            // Когда время жизни снаряда заканчивается, создаем снаряд взрыва
-            if (Projectile.timeLeft <= 1)
-            {
-                Explode();  // Вызов взрыва
-            }
+            int dustID = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.PurpleTorch);
+            Main.dust[dustID].noGravity = true;
         }
 
-        // Создание снаряда PurpleBoomPro (взрыв)
-        private void Explode()
+        // ГЉГ®ГЈГ¤Г  ГўГ°ГҐГ¬Гї Г¦ГЁГ§Г­ГЁ Г±Г­Г Г°ГїГ¤Г  Г§Г ГЄГ Г­Г·ГЁГўГ ГҐГІГ±Гї, Г±Г®Г§Г¤Г ГҐГ¬ Г±Г­Г Г°ГїГ¤ ГўГ§Г°Г»ГўГ 
+        if (Projectile.timeLeft <= 1)
         {
-            // Создаем снаряд PurpleBoomPro на месте текущего снаряда
-            Projectile.NewProjectile(
-                Projectile.GetSource_Death(),  // Источник смерти
-                Projectile.Center.X,  // Координаты центра снаряда
-                Projectile.Center.Y,
-                0f, 0f,  // Начальная скорость (снаряд взрывается на месте)
-                ModContent.ProjectileType<PurpleBoomPro>(),  // Тип снаряда (взрыв)
-                Projectile.damage,  // Урон взрыва
-                0f,  // Сила удара
-                Projectile.owner  // Владелец снаряда
-            );
+            Explode();  // Г‚Г»Г§Г®Гў ГўГ§Г°Г»ГўГ 
         }
+    }
+
+    // Г‘Г®Г§Г¤Г Г­ГЁГҐ Г±Г­Г Г°ГїГ¤Г  PurpleBoomPro (ГўГ§Г°Г»Гў)
+    private void Explode()
+    {
+        // Г‘Г®Г§Г¤Г ГҐГ¬ Г±Г­Г Г°ГїГ¤ PurpleBoomPro Г­Г  Г¬ГҐГ±ГІГҐ ГІГҐГЄГіГ№ГҐГЈГ® Г±Г­Г Г°ГїГ¤Г 
+        Projectile.NewProjectile(
+            Projectile.GetSource_Death(),  // Г€Г±ГІГ®Г·Г­ГЁГЄ Г±Г¬ГҐГ°ГІГЁ
+            Projectile.Center.X,  // ГЉГ®Г®Г°Г¤ГЁГ­Г ГІГ» Г¶ГҐГ­ГІГ°Г  Г±Г­Г Г°ГїГ¤Г 
+            Projectile.Center.Y,
+            0f, 0f,  // ГЌГ Г·Г Г«ГјГ­Г Гї Г±ГЄГ®Г°Г®Г±ГІГј (Г±Г­Г Г°ГїГ¤ ГўГ§Г°Г»ГўГ ГҐГІГ±Гї Г­Г  Г¬ГҐГ±ГІГҐ)
+            ModContent.ProjectileType<PurpleBoomPro>(),  // Г’ГЁГЇ Г±Г­Г Г°ГїГ¤Г  (ГўГ§Г°Г»Гў)
+            Projectile.damage,  // Г“Г°Г®Г­ ГўГ§Г°Г»ГўГ 
+            0f,  // Г‘ГЁГ«Г  ГіГ¤Г Г°Г 
+            Projectile.owner  // Г‚Г«Г Г¤ГҐГ«ГҐГ¶ Г±Г­Г Г°ГїГ¤Г 
+        );
     }
 }

@@ -1,19 +1,19 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Tools
-{
+namespace TremorMod.Content.Items.Tools;
+
 	public class ParaxydePickaxe : ModItem
 	{
 		public override void SetDefaults()
 		{
 			Item.damage = 42;
-            Item.DamageType = DamageClass.Melee;
-            Item.width = 36;
+        Item.DamageType = DamageClass.Melee;
+        Item.width = 36;
 			Item.height = 36;
 			Item.useTime = 15;
 			Item.useAnimation = 15;
@@ -36,10 +36,10 @@ namespace TremorMod.Content.Items.Tools
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<ParaxydeShard>(), 12);
-            //recipe.SetResult(this);
-            recipe.AddTile(ModContent.TileType<AlchematorTile>());
-            recipe.Register();
+        recipe.AddIngredient(ModContent.ItemType<ParaxydeShard>(), 12);
+        //recipe.SetResult(this);
+        recipe.AddTile(ModContent.TileType<AlchematorTile>());
+        recipe.Register();
 		}
 
 		public override void MeleeEffects(Player player, Rectangle hitbox)
@@ -50,4 +50,3 @@ namespace TremorMod.Content.Items.Tools
 			}
 		}
 	}
-}

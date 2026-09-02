@@ -2,8 +2,8 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class ZootalooPet : ModProjectile
 	{
 		public override void SetDefaults()
@@ -30,4 +30,3 @@ namespace TremorMod.Content.Projectiles
 			return true;
 		}
 	}
-}

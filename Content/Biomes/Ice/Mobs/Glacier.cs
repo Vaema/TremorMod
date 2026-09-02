@@ -1,4 +1,4 @@
-using System.Linq;
+﻿using System.Linq;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -10,8 +10,8 @@ using TremorMod.Content.Biomes.Ice.Items;
 using Terraria.GameContent.ItemDropRules;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Biomes.Ice.Mobs
-{
+namespace TremorMod.Content.Biomes.Ice.Mobs;
+
 	public class Glacier : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -45,18 +45,18 @@ namespace TremorMod.Content.Biomes.Ice.Mobs
 			NPC.damage += 2 * numPlayers;
 		}
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Frostex>(), 30));
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Frostex>(), 30));
 
-            npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(),
-                ModContent.ItemType<IceBlockB>(), 10, 1, 4));
+        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(),
+            ModContent.ItemType<IceBlockB>(), 10, 1, 4));
 
-            npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(),
-                ModContent.ItemType<Icicle>(), 20, 1, 3));
-        }
+        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(),
+            ModContent.ItemType<Icicle>(), 20, 1, 3));
+    }
 
-        public override void AI()
+    public override void AI()
 		{
 			Dust.NewDust(NPC.position, NPC.width, NPC.height, 80, 0, -1f, 0, default(Color), 0.7f);
 		}
@@ -69,30 +69,29 @@ namespace TremorMod.Content.Biomes.Ice.Mobs
 			}
 		}
 
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+    public override float SpawnChance(NPCSpawnInfo spawnInfo)
+    {
+        if (!spawnInfo.Player.InModBiome<IceBiome>())
         {
-            if (!spawnInfo.Player.InModBiome<IceBiome>())
+            if (!NPC.AnyNPCs(NPCID.LunarTowerVortex) && !NPC.AnyNPCs(NPCID.LunarTowerStardust) && !NPC.AnyNPCs(NPCID.LunarTowerNebula) && !NPC.AnyNPCs(NPCID.LunarTowerSolar))
             {
-                if (!NPC.AnyNPCs(NPCID.LunarTowerVortex) && !NPC.AnyNPCs(NPCID.LunarTowerStardust) && !NPC.AnyNPCs(NPCID.LunarTowerNebula) && !NPC.AnyNPCs(NPCID.LunarTowerSolar))
-                {
-                    return 0f;
-                }
+                return 0f;
             }
-
-            return 15f;
         }
 
+        return 15f;
+    }
 
-        public override void HitEffect(NPC.HitInfo hitInfo)
+
+    public override void HitEffect(NPC.HitInfo hitInfo)
+    {
+        if (NPC.life <= 0)
         {
-            if (NPC.life <= 0)
+            for (int k = 0; k < 20; k++)
             {
-                for (int k = 0; k < 20; k++)
-                {
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitInfo.HitDirection, -2.5f, 0, default(Color), 0.7f);
-                }
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("GlacierGore").Type, 1f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitInfo.HitDirection, -2.5f, 0, default(Color), 0.7f);
             }
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("GlacierGore").Type, 1f);
         }
     }
 }

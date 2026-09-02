@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.Xna.Framework;
@@ -18,8 +18,8 @@ using Filters = Terraria.Graphics.Effects.Filters;
 using TremorMod.Content.Items.AndasItems;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.NPCs.Bosses.AndasBoss
-{
+namespace TremorMod.Content.NPCs.Bosses.AndasBoss;
+
 	[AutoloadBossHead]
 	public class TrueAndas : ModNPC
 	{
@@ -33,33 +33,33 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss
 		public override void SetDefaults()
 		{
 			NPC.aiStyle = -1;
-            NPC.width = 142;
-            NPC.height = 164;
-            NPC.damage = 67;
-            NPC.defense = 200;
-            NPC.lifeMax = 145000;
-            NPC.HitSound = SoundID.NPCHit1;
-            NPC.DeathSound = SoundID.NPCDeath10;
-            NPC.value = 60000f;
-            NPC.knockBackResist = 0f;
-            NPC.noTileCollide = true;
-            NPC.noGravity = true;
-            NPC.boss = true;
-            if (ModLoader.HasMod("TremorModMusic"))
+        NPC.width = 142;
+        NPC.height = 164;
+        NPC.damage = 67;
+        NPC.defense = 200;
+        NPC.lifeMax = 145000;
+        NPC.HitSound = SoundID.NPCHit1;
+        NPC.DeathSound = SoundID.NPCDeath10;
+        NPC.value = 60000f;
+        NPC.knockBackResist = 0f;
+        NPC.noTileCollide = true;
+        NPC.noGravity = true;
+        NPC.boss = true;
+        if (ModLoader.HasMod("TremorModMusic"))
+        {
+            Mod musicMod = ModLoader.GetMod("TremorModMusic");
+            if (musicMod != null)
             {
-                Mod musicMod = ModLoader.GetMod("TremorModMusic");
-                if (musicMod != null)
-                {
-                    Music = MusicLoader.GetMusicSlot(musicMod, "Assets/Music/TrueAndas");
-                }
+                Music = MusicLoader.GetMusicSlot(musicMod, "Assets/Music/TrueAndas");
             }
-            else
-            {
-                Music = MusicID.Boss1; 
-            }
-            NPC.buffImmune[24] = true;
-            NPC.buffImmune[67] = true;
-            NPC.lavaImmune = true;
+        }
+        else
+        {
+            Music = MusicID.Boss1; 
+        }
+        NPC.buffImmune[24] = true;
+        NPC.buffImmune[67] = true;
+        NPC.lavaImmune = true;
 		}
 
 		#region Settings AI
@@ -161,7 +161,7 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss
 					Main.dust[dust].scale = 1.5f;
 				}
 
-				IEntitySource source = NPC.GetSource_FromAI();  // Создаем источник для NPC
+				IEntitySource source = NPC.GetSource_FromAI();  // Г‘Г®Г§Г¤Г ГҐГ¬ ГЁГ±ГІГ®Г·Г­ГЁГЄ Г¤Г«Гї NPC
 				NPC.NewNPC(source, (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<MoltenSpirit>());
 				DoAndasShoot();
 				NPC.position.X = (Main.player[NPC.target].position.X - 500) + Main.rand.Next(1000);
@@ -188,7 +188,7 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss
 					Main.dust[dust].scale = 1.5f;
 				}
 
-				IEntitySource source = NPC.GetSource_FromAI();  // Создаем источник для NPC
+				IEntitySource source = NPC.GetSource_FromAI();  // Г‘Г®Г§Г¤Г ГҐГ¬ ГЁГ±ГІГ®Г·Г­ГЁГЄ Г¤Г«Гї NPC
 				NPC.NewNPC(source, (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<UndeadWyrmHead>());
 				NPC.position.X = (Main.player[NPC.target].position.X - 500) + Main.rand.Next(1000);
 				NPC.position.Y = (Main.player[NPC.target].position.Y - 500) + Main.rand.Next(1000);
@@ -200,27 +200,27 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss
 			}
 
 		}
-        void DoAndasShoot()
-        {
-            // Создаем источник для снаряда
-            IEntitySource source = NPC.GetSource_FromAI(); // Создание источника для снаряда
+    void DoAndasShoot()
+    {
+        // Г‘Г®Г§Г¤Г ГҐГ¬ ГЁГ±ГІГ®Г·Г­ГЁГЄ Г¤Г«Гї Г±Г­Г Г°ГїГ¤Г 
+        IEntitySource source = NPC.GetSource_FromAI(); // Г‘Г®Г§Г¤Г Г­ГЁГҐ ГЁГ±ГІГ®Г·Г­ГЁГЄГ  Г¤Г«Гї Г±Г­Г Г°ГїГ¤Г 
 
-            // Создаем проектиль в разных направлениях
-            Projectile.NewProjectile(source, NPC.position.X + 40, NPC.position.Y + 40, -ShootDirection, 0, ModContent.ProjectileType<InfernoSkull>(), ShootDamage, ShootKnockback, Main.myPlayer, 0f, 0f);
-            Projectile.NewProjectile(source, NPC.position.X + 40, NPC.position.Y + 40, ShootDirection, 0, ModContent.ProjectileType<InfernoSkull>(), ShootDamage, ShootKnockback, Main.myPlayer, 0f, 0f);
-            Projectile.NewProjectile(source, NPC.position.X + 40, NPC.position.Y + 40, 0, ShootDirection, ModContent.ProjectileType<InfernoSkull>(), ShootDamage, ShootKnockback, Main.myPlayer, 0f, 0f);
-            Projectile.NewProjectile(source, NPC.position.X + 40, NPC.position.Y + 40, 0, -ShootDirection, ModContent.ProjectileType<InfernoSkull>(), ShootDamage, ShootKnockback, Main.myPlayer, 0f, 0f);
-        }
+        // Г‘Г®Г§Г¤Г ГҐГ¬ ГЇГ°Г®ГҐГЄГІГЁГ«Гј Гў Г°Г Г§Г­Г»Гµ Г­Г ГЇГ°Г ГўГ«ГҐГ­ГЁГїГµ
+        Projectile.NewProjectile(source, NPC.position.X + 40, NPC.position.Y + 40, -ShootDirection, 0, ModContent.ProjectileType<InfernoSkull>(), ShootDamage, ShootKnockback, Main.myPlayer, 0f, 0f);
+        Projectile.NewProjectile(source, NPC.position.X + 40, NPC.position.Y + 40, ShootDirection, 0, ModContent.ProjectileType<InfernoSkull>(), ShootDamage, ShootKnockback, Main.myPlayer, 0f, 0f);
+        Projectile.NewProjectile(source, NPC.position.X + 40, NPC.position.Y + 40, 0, ShootDirection, ModContent.ProjectileType<InfernoSkull>(), ShootDamage, ShootKnockback, Main.myPlayer, 0f, 0f);
+        Projectile.NewProjectile(source, NPC.position.X + 40, NPC.position.Y + 40, 0, -ShootDirection, ModContent.ProjectileType<InfernoSkull>(), ShootDamage, ShootKnockback, Main.myPlayer, 0f, 0f);
+    }
 
 
-        /*public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+    /*public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
 		{
 			Texture2D drawTexture = Main.npcTexture[NPC.type];
 			Vector2 origin = new Vector2((drawTexture.Width / 2) * 0.5F, (drawTexture.Height / Main.npcFrameCount[NPC.type]) * 0.5F);
 
 			Vector2 drawPos = new Vector2(
-                NPC.position.X - Main.screenPosition.X + (NPC.width / 2) - (Main.npcTexture[NPC.type].Width / 2) * NPC.scale / 2f + origin.X * NPC.scale,
-                NPC.position.Y - Main.screenPosition.Y + NPC.height - Main.npcTexture[NPC.type].Height * NPC.scale / Main.npcFrameCount[NPC.type] + 4f + origin.Y * NPC.scale + NPC.gfxOffY);
+            NPC.position.X - Main.screenPosition.X + (NPC.width / 2) - (Main.npcTexture[NPC.type].Width / 2) * NPC.scale / 2f + origin.X * NPC.scale,
+            NPC.position.Y - Main.screenPosition.Y + NPC.height - Main.npcTexture[NPC.type].Height * NPC.scale / Main.npcFrameCount[NPC.type] + 4f + origin.Y * NPC.scale + NPC.gfxOffY);
 
 			SpriteEffects effects = NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
 			spriteBatch.Draw(drawTexture, drawPos, NPC.frame, Color.White, NPC.rotation, origin, NPC.scale, effects, 0);
@@ -228,33 +228,32 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss
 			return false;
 		}*/
 
-        public override void OnKill()
-        {
-            TremorSpawnEnemys.downedTrueAndas = true;
-        }
+    public override void OnKill()
+    {
+        TremorSpawnEnemys.downedTrueAndas = true;
+    }
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            // Выпадение обычных предметов
-            npcLoot.Add(ItemDropRule.Common(ItemID.GoldCoin, 1, 6, 25)); // 6-25 золотых монет
-            npcLoot.Add(ItemDropRule.Common(ItemID.SilverCoin, 1, 6, 25)); // 6-25 серебряных монет
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        // Г‚Г»ГЇГ Г¤ГҐГ­ГЁГҐ Г®ГЎГ»Г·Г­Г»Гµ ГЇГ°ГҐГ¤Г¬ГҐГІГ®Гў
+        npcLoot.Add(ItemDropRule.Common(ItemID.GoldCoin, 1, 6, 25)); // 6-25 Г§Г®Г«Г®ГІГ»Гµ Г¬Г®Г­ГҐГІ
+        npcLoot.Add(ItemDropRule.Common(ItemID.SilverCoin, 1, 6, 25)); // 6-25 Г±ГҐГ°ГҐГЎГ°ГїГ­Г»Гµ Г¬Г®Г­ГҐГІ
 
-            // Выпадение трофея с шансом 10%
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AndasTrophy>(), 10));
+        // Г‚Г»ГЇГ Г¤ГҐГ­ГЁГҐ ГІГ°Г®ГґГҐГї Г± ГёГ Г­Г±Г®Г¬ 10%
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AndasTrophy>(), 10));
 
-            // Выпадение маски с шансом 1/7 (14.29%) вне экспертного режима
-            npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<AndasMask>(), 7));
+        // Г‚Г»ГЇГ Г¤ГҐГ­ГЁГҐ Г¬Г Г±ГЄГЁ Г± ГёГ Г­Г±Г®Г¬ 1/7 (14.29%) ГўГ­ГҐ ГЅГЄГ±ГЇГҐГ°ГІГ­Г®ГЈГ® Г°ГҐГ¦ГЁГ¬Г 
+        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<AndasMask>(), 7));
 
-            // Гарантированное выпадение одного из трёх предметов.
-            npcLoot.Add(ItemDropRule.OneFromOptions(1,
-                ModContent.ItemType<GehennaStaff>(),
-                ModContent.ItemType<VulcanBlade>(),
-                ModContent.ItemType<HellStorm>(),
-                ModContent.ItemType<Inferno>(),
-                ModContent.ItemType<Pandemonium>()));
+        // ГѓГ Г°Г Г­ГІГЁГ°Г®ГўГ Г­Г­Г®ГҐ ГўГ»ГЇГ Г¤ГҐГ­ГЁГҐ Г®Г¤Г­Г®ГЈГ® ГЁГ§ ГІГ°ВёГµ ГЇГ°ГҐГ¤Г¬ГҐГІГ®Гў.
+        npcLoot.Add(ItemDropRule.OneFromOptions(1,
+            ModContent.ItemType<GehennaStaff>(),
+            ModContent.ItemType<VulcanBlade>(),
+            ModContent.ItemType<HellStorm>(),
+            ModContent.ItemType<Inferno>(),
+            ModContent.ItemType<Pandemonium>()));
 
-            // Альтернативное использование условия:
-            npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<AndasBag>(), 1));
-        }
+        // ГЂГ«ГјГІГҐГ°Г­Г ГІГЁГўГ­Г®ГҐ ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ ГіГ±Г«Г®ГўГЁГї:
+        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<AndasBag>(), 1));
     }
 }

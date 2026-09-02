@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Weapons.Throwing
-{
+namespace TremorMod.Content.Items.Weapons.Throwing;
+
 	public class BoomSpear : ModItem
 	{
 		public override void SetDefaults()
@@ -33,4 +33,3 @@ namespace TremorMod.Content.Items.Weapons.Throwing
 			//Tooltip.SetDefault("");
 		}
 	}
-}

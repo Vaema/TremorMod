@@ -1,16 +1,16 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 
-namespace TremorMod.Content.Items.Armor.Vine
-{
+namespace TremorMod.Content.Items.Armor.Vine;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class VineHood : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 
 			Item.width = 26;
@@ -25,8 +25,8 @@ namespace TremorMod.Content.Items.Armor.Vine
 		{
 			// DisplayName.SetDefault("Vine Hood");
 			// Tooltip.SetDefault("5% increased ranged damage");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("15% increased movement speed");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("15% increased movement speed");
+    }
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
@@ -35,8 +35,8 @@ namespace TremorMod.Content.Items.Armor.Vine
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "15% increased movement speed";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "15% increased movement speed";
 			player.moveSpeed += 0.15f;
 		}
 		public override void UpdateEquip(Player player)
@@ -55,4 +55,3 @@ namespace TremorMod.Content.Items.Armor.Vine
 		}
 
 	}
-}

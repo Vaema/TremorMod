@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.Xna.Framework;
@@ -16,8 +16,8 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Filters = Terraria.Graphics.Effects.Filters;
 
-namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles
-{
+namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles;
+
 	public class NovaAlchemistProjectile : ModProjectile
 	{
 		/*public override void SetStaticDefaults()
@@ -98,26 +98,26 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles
 				dust17.velocity = vector112;
 				dust17.scale = 0.5f + Main.rand.NextFloat();
 				dust17.fadeIn = 0.5f;
-                if (Projectile.ai[0] == 90f && Main.netMode != NetmodeID.MultiplayerClient)
-                {
-                    Vector2 vector113 = Projectile.ai[1].ToRotationVector2() * 8f;
-                    float ai2 = Main.rand.Next(80);
+            if (Projectile.ai[0] == 90f && Main.netMode != NetmodeID.MultiplayerClient)
+            {
+                Vector2 vector113 = Projectile.ai[1].ToRotationVector2() * 8f;
+                float ai2 = Main.rand.Next(80);
 
-                    Projectile.NewProjectile(
-                        Projectile.GetSource_FromAI(), // Источник
-                        Projectile.Center - vector113, // Позиция
-                        vector113, // Скорость
-                        ModContent.ProjectileType<NovaFlask_Proj>(), // Тип снаряда
-                        15, // Урон
-                        1f, // Отдача
-                        Main.myPlayer, // Владелец
-                        Projectile.ai[1], // AI0
-                        ai2 // AI1
-                    );
-                }
-
+                Projectile.NewProjectile(
+                    Projectile.GetSource_FromAI(), // Г€Г±ГІГ®Г·Г­ГЁГЄ
+                    Projectile.Center - vector113, // ГЏГ®Г§ГЁГ¶ГЁГї
+                    vector113, // Г‘ГЄГ®Г°Г®Г±ГІГј
+                    ModContent.ProjectileType<NovaFlask_Proj>(), // Г’ГЁГЇ Г±Г­Г Г°ГїГ¤Г 
+                    15, // Г“Г°Г®Г­
+                    1f, // ГЋГІГ¤Г Г·Г 
+                    Main.myPlayer, // Г‚Г«Г Г¤ГҐГ«ГҐГ¶
+                    Projectile.ai[1], // AI0
+                    ai2 // AI1
+                );
             }
-            else
+
+        }
+        else
 			{
 				if (Projectile.ai[0] > 120f)
 				{
@@ -180,4 +180,3 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles
 			}
 		}
 	}
-}

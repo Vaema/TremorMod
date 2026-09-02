@@ -1,9 +1,9 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class ArcherGlove : ModItem
 	{
 
@@ -31,4 +31,3 @@ namespace TremorMod.Content.Items.Accessories
 			player.GetDamage(DamageClass.Ranged) += 0.05f;
 		}
 	}
-}

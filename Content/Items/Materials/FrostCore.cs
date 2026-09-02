@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Content.Biomes.Ice.Items;
 
-namespace TremorMod.Content.Items.Materials
-{
+namespace TremorMod.Content.Items.Materials;
+
 	public class FrostCore : ModItem
 	{
 		public override void SetDefaults()
@@ -29,4 +29,3 @@ namespace TremorMod.Content.Items.Materials
 			recipe.Register();
 		}
 	}
-}

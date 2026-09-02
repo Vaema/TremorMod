@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -8,8 +8,8 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Materials.OreAndBar;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Weapons.Magic
-{
+namespace TremorMod.Content.Items.Weapons.Magic;
+
 	public class StarBound : ModItem
 	{
 		public override void SetDefaults()
@@ -116,4 +116,3 @@ namespace TremorMod.Content.Items.Weapons.Magic
 			recipe.Register();
 		}
 	}
-}

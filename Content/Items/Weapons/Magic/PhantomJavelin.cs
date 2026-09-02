@@ -5,8 +5,8 @@ using TremorMod.Content.Projectiles;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Weapons.Magic
-{
+namespace TremorMod.Content.Items.Weapons.Magic;
+
 	public class PhantomJavelin : ModItem
 	{
 		public override void SetDefaults()
@@ -46,4 +46,3 @@ namespace TremorMod.Content.Items.Weapons.Magic
 			recipe.Register();
 		}
 	}
-}

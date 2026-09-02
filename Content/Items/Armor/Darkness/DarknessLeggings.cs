@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.BossLoot.TheDarkEmperor;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Armor.Darkness
-{
+namespace TremorMod.Content.Items.Armor.Darkness;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class DarknessLeggings : ModItem
 	{
@@ -32,14 +32,13 @@ namespace TremorMod.Content.Items.Armor.Darkness
 			player.lifeRegen += 5;
 		}
 
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<DarkGel>(), 45);
-            recipe.AddIngredient(ModContent.ItemType<DarkMatter>(), 45);
-            recipe.AddIngredient(ModContent.ItemType<DarkMass>(), 1);
-            recipe.AddTile(247);
-            recipe.Register();
-        }
+    public override void AddRecipes()
+    {
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ModContent.ItemType<DarkGel>(), 45);
+        recipe.AddIngredient(ModContent.ItemType<DarkMatter>(), 45);
+        recipe.AddIngredient(ModContent.ItemType<DarkMass>(), 1);
+        recipe.AddTile(247);
+        recipe.Register();
     }
 }

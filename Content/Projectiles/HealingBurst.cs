@@ -1,11 +1,11 @@
-using System.Linq;
+﻿using System.Linq;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class HealingBurst : ModProjectile
 	{
 		public override void SetDefaults()
@@ -52,4 +52,3 @@ namespace TremorMod.Content.Projectiles
 		}
 
 	}
-}

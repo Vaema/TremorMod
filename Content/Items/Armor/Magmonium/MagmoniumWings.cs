@@ -1,12 +1,12 @@
-using Terraria;
+﻿using Terraria;
 using System.Linq;
 using Terraria.ID;
 using TremorMod.Content.Items.Materials.OreAndBar;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 
-namespace TremorMod.Content.Items.Armor.Magmonium
-{
+namespace TremorMod.Content.Items.Armor.Magmonium;
+
 	[AutoloadEquip(EquipType.Wings)]
 	public class MagmoniumWings : ModItem
 	{
@@ -20,16 +20,16 @@ namespace TremorMod.Content.Items.Armor.Magmonium
 			Item.accessory = true;
 		}
 
-        public override void SetStaticDefaults()
+    public override void SetStaticDefaults()
 		{
 			//DisplayName.SetDefault("Magmonium Wings");
 			//Tooltip.SetDefault("Allows flight and slow fall");
 			ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(163, 9f, 1f);
 		}
 
-        //these wings use the same values as the solar wings
+    //these wings use the same values as the solar wings
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
+    public override void UpdateAccessory(Player player, bool hideVisual)
 		{
 			player.wingTimeMax = 163;
 		}
@@ -60,4 +60,3 @@ namespace TremorMod.Content.Items.Armor.Magmonium
 			recipe.Register();
 		}
 	}
-}

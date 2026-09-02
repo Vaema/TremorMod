@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+п»їusing Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 
-namespace TremorMod.Content.Items.Tools
-{
+namespace TremorMod.Content.Items.Tools;
+
 	public class CrystalPickaxe : ModItem
 	{
 		public override void SetDefaults()
@@ -51,8 +51,7 @@ namespace TremorMod.Content.Items.Tools
 		}
 
 		public override void ModifyHitNPC(Player player, NPC target, ref NPC.HitModifiers modifiers)
-        {
-            target.AddBuff(BuffID.OnFire, 60); // Пример: добавляем эффект горения на 60 кадров
-        }
+    {
+        target.AddBuff(BuffID.OnFire, 60); // ГЏГ°ГЁГ¬ГҐГ°: Г¤Г®ГЎГ ГўГ«ГїГҐГ¬ ГЅГґГґГҐГЄГІ ГЈГ®Г°ГҐГ­ГЁГї Г­Г  60 ГЄГ Г¤Г°Г®Гў
     }
 }

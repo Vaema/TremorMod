@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+ï»¿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
@@ -56,16 +56,16 @@ using TremorMod.Content.Items.Armor.Chain;
 using TremorMod.Content.Items.Armor.Vicious;
 using TremorMod.Content.Items.Armor.Vile;
 
-namespace TremorMod.Content.NPCs.TownNPCs
-{
+namespace TremorMod.Content.NPCs.TownNPCs;
+
 	[AutoloadHead]
 	public class Warlock : ModNPC
 	{
 		public override string Texture => $"{typeof(Warlock).NamespaceToPath()}/Warlock";
 
-        public override bool IsLoadingEnabled(Mod mod) => true;
+    public override bool IsLoadingEnabled(Mod mod) => true;
 
-        public override void SetStaticDefaults()
+    public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Warlock");
 			Main.npcFrameCount[NPC.type] = 26;
@@ -93,78 +93,78 @@ namespace TremorMod.Content.NPCs.TownNPCs
 			AnimationType = NPCID.Guide;
 		}
 
-        public override bool CanTownNPCSpawn(int numTownNPCs)
+    public override bool CanTownNPCSpawn(int numTownNPCs)
+    {
+        foreach (Player player in Main.ActivePlayers)
         {
-            foreach (Player player in Main.ActivePlayers)
+            if (!NPC.downedBoss2)
             {
-                if (!NPC.downedBoss2)
-                {
-                    return true;
-                }
+                return true;
             }
-            return false;
         }
+        return false;
+    }
 
-        public override List<string> SetNPCNameList() => new List<string>()
-        {
-            this.GetLocalizedValue("Name.Azazel"),
-            this.GetLocalizedValue("Name.Baphomet"),
-            this.GetLocalizedValue("Name.Vaal"),
-            this.GetLocalizedValue("Name.Dis"),
-            this.GetLocalizedValue("Name.Nisroke"),
-            this.GetLocalizedValue("Name.Sabnak")
-        };
+    public override List<string> SetNPCNameList() => new List<string>()
+    {
+        this.GetLocalizedValue("Name.Azazel"),
+        this.GetLocalizedValue("Name.Baphomet"),
+        this.GetLocalizedValue("Name.Vaal"),
+        this.GetLocalizedValue("Name.Dis"),
+        this.GetLocalizedValue("Name.Nisroke"),
+        this.GetLocalizedValue("Name.Sabnak")
+    };
 
-        public override string GetChat()
-        {
-            WeightedRandom<string> dialogue = new WeightedRandom<string>();
+    public override string GetChat()
+    {
+        WeightedRandom<string> dialogue = new WeightedRandom<string>();
 
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal1"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal1"));
 
-            return dialogue;
-        }
+        return dialogue;
+    }
 
 		public override void SetChatButtons(ref string button, ref string button2)
 		{
 			button = Lang.inter[28].Value;
 		}
 
-        public override void OnChatButtonClicked(bool firstButton, ref string shopName)
-        {
-            if (firstButton)
-                shopName = "Warlock";
-        }
+    public override void OnChatButtonClicked(bool firstButton, ref string shopName)
+    {
+        if (firstButton)
+            shopName = "Warlock";
+    }
 
-        public override void AddShops()
-        {
-            // Ñîçäàåì óñëîâèÿ
-            var downedBoss3Condition = new Condition("DownedBoss3", () => NPC.downedBoss3);
-            var crimsonWorldCondition = new Condition("CrimsonWorld", () => WorldGen.crimson);
-            var corruptionWorldCondition = new Condition("CorruptionWorld", () => !WorldGen.crimson);
-            var hardmodeCondition = new Condition("Hardmode", () => Main.hardMode);
-            var downedAllMechBossesCondition = new Condition("DownedAllMechBosses", () => NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3);
+    public override void AddShops()
+    {
+        // Ã‘Ã®Ã§Ã¤Ã Ã¥Ã¬ Ã³Ã±Ã«Ã®Ã¢Ã¨Ã¿
+        var downedBoss3Condition = new Condition("DownedBoss3", () => NPC.downedBoss3);
+        var crimsonWorldCondition = new Condition("CrimsonWorld", () => WorldGen.crimson);
+        var corruptionWorldCondition = new Condition("CorruptionWorld", () => !WorldGen.crimson);
+        var hardmodeCondition = new Condition("Hardmode", () => Main.hardMode);
+        var downedAllMechBossesCondition = new Condition("DownedAllMechBosses", () => NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3);
 
-            NPCShop shop = new(Type, "Warlock");
+        NPCShop shop = new(Type, "Warlock");
 
-            shop.Add(ModContent.ItemType<StrongBelt>());
+        shop.Add(ModContent.ItemType<StrongBelt>());
 
-            shop.Add(ModContent.ItemType<BallnChain>(), downedBoss3Condition);
+        shop.Add(ModContent.ItemType<BallnChain>(), downedBoss3Condition);
 
-            shop.Add(ModContent.ItemType<ViciousHelmet>(), crimsonWorldCondition)
-                .Add(ModContent.ItemType<ViciousChestplate>(), crimsonWorldCondition)
-                .Add(ModContent.ItemType<ViciousLeggings>(), crimsonWorldCondition);
+        shop.Add(ModContent.ItemType<ViciousHelmet>(), crimsonWorldCondition)
+            .Add(ModContent.ItemType<ViciousChestplate>(), crimsonWorldCondition)
+            .Add(ModContent.ItemType<ViciousLeggings>(), crimsonWorldCondition);
 
-            shop.Add(ModContent.ItemType<VileHelmet>(), corruptionWorldCondition)
-                .Add(ModContent.ItemType<VileChestplate>(), corruptionWorldCondition)
-                .Add(ModContent.ItemType<VileLeggings>(), corruptionWorldCondition);
+        shop.Add(ModContent.ItemType<VileHelmet>(), corruptionWorldCondition)
+            .Add(ModContent.ItemType<VileChestplate>(), corruptionWorldCondition)
+            .Add(ModContent.ItemType<VileLeggings>(), corruptionWorldCondition);
 
-            shop.Add(ModContent.ItemType<Necronomicon>(), downedAllMechBossesCondition)
-                .Add(ModContent.ItemType<Zephyrhorn>(), downedAllMechBossesCondition);
+        shop.Add(ModContent.ItemType<Necronomicon>(), downedAllMechBossesCondition)
+            .Add(ModContent.ItemType<Zephyrhorn>(), downedAllMechBossesCondition);
 
-            shop.Register(); 
-        }
+        shop.Register(); 
+    }
 
-        public override void TownNPCAttackStrength(ref int damage, ref float knockback)
+    public override void TownNPCAttackStrength(ref int damage, ref float knockback)
 		{
 			damage = 20;
 			knockback = 4f;
@@ -190,16 +190,15 @@ namespace TremorMod.Content.NPCs.TownNPCs
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
 				for (int i = 0; i < 3; i++)
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("WarlockGore1").Type, 1f);
-            }
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("WarlockGore1").Type, 1f);
+        }
 		}
 	}
-}

@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
@@ -56,8 +56,8 @@ using TremorMod.Content.Items.Armor.Chain;
 using TremorMod.Content.Items.Armor.Vicious;
 using TremorMod.Content.Items.Armor.Vile;
 
-namespace TremorMod.Content.NPCs.TownNPCs
-{
+namespace TremorMod.Content.NPCs.TownNPCs;
+
 	[AutoloadHead]
 	public class Witch : ModNPC
 	{
@@ -93,41 +93,41 @@ namespace TremorMod.Content.NPCs.TownNPCs
 			AnimationType = NPCID.Guide;
 		}
 
-        public override bool CanTownNPCSpawn(int numTownNPCs)
+    public override bool CanTownNPCSpawn(int numTownNPCs)
+    {
+        foreach (Player player in Main.ActivePlayers)
         {
-            foreach (Player player in Main.ActivePlayers)
+            bool Goodie = player.InventoryHas(ItemID.GoodieBag);
+            if (!Main.dayTime || Goodie)
             {
-                bool Goodie = player.InventoryHas(ItemID.GoodieBag);
-                if (!Main.dayTime || Goodie)
-                {
-                    return false;
-                }
-
+                return false;
             }
-            return true;
+
         }
+        return true;
+    }
 
-        public override List<string> SetNPCNameList() => new List<string>()
-        {
-            this.GetLocalizedValue("Name.Circe"),
-            this.GetLocalizedValue("Name.Kikimora"),
-            this.GetLocalizedValue("Name.Morgana"),
-            this.GetLocalizedValue("Name.Hecate")
-        };
+    public override List<string> SetNPCNameList() => new List<string>()
+    {
+        this.GetLocalizedValue("Name.Circe"),
+        this.GetLocalizedValue("Name.Kikimora"),
+        this.GetLocalizedValue("Name.Morgana"),
+        this.GetLocalizedValue("Name.Hecate")
+    };
 
-        public override string GetChat()
-        {
-            WeightedRandom<string> dialogue = new WeightedRandom<string>();
+    public override string GetChat()
+    {
+        WeightedRandom<string> dialogue = new WeightedRandom<string>();
 
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal1"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal2"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal3"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal4"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal5"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal6"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal1"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal2"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal3"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal4"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal5"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal6"));
 
-            return dialogue;
-        }
+        return dialogue;
+    }
 
 		public override void SetChatButtons(ref string button, ref string button2)
 		{
@@ -140,29 +140,29 @@ namespace TremorMod.Content.NPCs.TownNPCs
 				shopName = "Witch";
 		}
 
-        public override void AddShops()
-        {
-            var downedBoss1Condition = new Condition("DownedBoss1", () => NPC.downedBoss1);
-            var downedBoss2Condition = new Condition("DownedBoss2", () => NPC.downedBoss2);
-            var downedBoss3Condition = new Condition("DownedBoss3", () => NPC.downedBoss3);
+    public override void AddShops()
+    {
+        var downedBoss1Condition = new Condition("DownedBoss1", () => NPC.downedBoss1);
+        var downedBoss2Condition = new Condition("DownedBoss2", () => NPC.downedBoss2);
+        var downedBoss3Condition = new Condition("DownedBoss3", () => NPC.downedBoss3);
 
-            NPCShop shop = new(Type, "Witch");
+        NPCShop shop = new(Type, "Witch");
 
-            shop.Add(ModContent.ItemType<PlagueMask>())
-                .Add(ModContent.ItemType<PlagueRobe>())
-                .Add(ModContent.ItemType<SacrificalScythe>())
-                .Add(ModContent.ItemType<Scarecrow>());
+        shop.Add(ModContent.ItemType<PlagueMask>())
+            .Add(ModContent.ItemType<PlagueRobe>())
+            .Add(ModContent.ItemType<SacrificalScythe>())
+            .Add(ModContent.ItemType<Scarecrow>());
 
-            shop.Add(ModContent.ItemType<BoomSpear>(), downedBoss1Condition);
+        shop.Add(ModContent.ItemType<BoomSpear>(), downedBoss1Condition);
 
-            shop.Add(ModContent.ItemType<BlackRose>(), downedBoss2Condition);
+        shop.Add(ModContent.ItemType<BlackRose>(), downedBoss2Condition);
 
-            shop.Add(ModContent.ItemType<Pumpspell>(), downedBoss3Condition);
+        shop.Add(ModContent.ItemType<Pumpspell>(), downedBoss3Condition);
 
-            shop.Register();
-        }
+        shop.Register();
+    }
 
-        public override void TownNPCAttackStrength(ref int damage, ref float knockback)
+    public override void TownNPCAttackStrength(ref int damage, ref float knockback)
 		{
 			damage = 25;
 			knockback = 4f;
@@ -200,4 +200,3 @@ namespace TremorMod.Content.NPCs.TownNPCs
 			}
 		}
 	}
-}

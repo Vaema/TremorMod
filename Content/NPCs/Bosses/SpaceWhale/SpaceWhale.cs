@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.Xna.Framework;
@@ -19,8 +19,8 @@ using Filters = Terraria.Graphics.Effects.Filters;
 using TremorMod;
 using TremorMod.Content.Items.SpaceWhaleItems;
 
-namespace TremorMod.Content.NPCs.Bosses.SpaceWhale
-{
+namespace TremorMod.Content.NPCs.Bosses.SpaceWhale;
+
 	[AutoloadBossHead]
 	public class SpaceWhale : ModNPC
 	{
@@ -50,32 +50,32 @@ namespace TremorMod.Content.NPCs.Bosses.SpaceWhale
 			//bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("SpaceWhaleTreasureBag").Type;
 		}
 
-        public override void HitEffect(NPC.HitInfo hitInfo)
+    public override void HitEffect(NPC.HitInfo hitInfo)
+    {
+        if (NPC.life <= 0)
         {
-            if (NPC.life <= 0)
+            for (int k = 0; k < 60; k++)
             {
-                for (int k = 0; k < 60; k++)
-                {
-                    Dust.NewDust(NPC.Center, NPC.width, NPC.height, 6, 2.5f * hitInfo.HitDirection, -2.5f, 0, default(Color), 0.7f);
-                    Dust.NewDust(NPC.Center, NPC.width, NPC.height, 6, 2.5f * hitInfo.HitDirection, -2.5f, 0, default(Color), 0.7f);
-                    Dust.NewDust(NPC.Center, NPC.width, NPC.height, 6, 2.5f * hitInfo.HitDirection, -2.5f, 0, default(Color), 0.7f);
-                }
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SWGore1").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SWGore2").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SWGore2").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SWGore3").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SWGore3").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SWGore4").Type, 1f);
+                Dust.NewDust(NPC.Center, NPC.width, NPC.height, 6, 2.5f * hitInfo.HitDirection, -2.5f, 0, default(Color), 0.7f);
+                Dust.NewDust(NPC.Center, NPC.width, NPC.height, 6, 2.5f * hitInfo.HitDirection, -2.5f, 0, default(Color), 0.7f);
+                Dust.NewDust(NPC.Center, NPC.width, NPC.height, 6, 2.5f * hitInfo.HitDirection, -2.5f, 0, default(Color), 0.7f);
             }
-            else
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SWGore1").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SWGore2").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SWGore2").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SWGore3").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SWGore3").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SWGore4").Type, 1f);
+        }
+        else
+        {
+            for (int k = 0; k < hitInfo.Damage / (float)NPC.lifeMax * 20.0f; k++)
             {
-                for (int k = 0; k < hitInfo.Damage / (float)NPC.lifeMax * 20.0f; k++)
-                {
-                    Dust.NewDust(NPC.Center, NPC.width, NPC.height, 226, hitInfo.HitDirection, -2f, 0, default(Color), 0.7f);
-                    Dust.NewDust(NPC.Center, NPC.width, NPC.height, 27, hitInfo.HitDirection, -1f, 0, default(Color), 0.7f);
-                }
+                Dust.NewDust(NPC.Center, NPC.width, NPC.height, 226, hitInfo.HitDirection, -2f, 0, default(Color), 0.7f);
+                Dust.NewDust(NPC.Center, NPC.width, NPC.height, 27, hitInfo.HitDirection, -1f, 0, default(Color), 0.7f);
             }
         }
+    }
 
 		public override void AI()
 		{
@@ -512,18 +512,18 @@ namespace TremorMod.Content.NPCs.Bosses.SpaceWhale
 				{
 					SoundEngine.PlaySound(SoundID.Zombie96, vector134);
 				}
-                if (NPC.ai[2] % num1080 == 0f)
-                {
-                    // Ensure SoundID.NPCDeath19 is a string or convert it to the appropriate type
-                    //SoundEngine.PlaySound(SoundID.NPCDeath19.ToString(), new EntitySource_Misc(NPC), NPC.Center);
+            if (NPC.ai[2] % num1080 == 0f)
+            {
+                // Ensure SoundID.NPCDeath19 is a string or convert it to the appropriate type
+                //SoundEngine.PlaySound(SoundID.NPCDeath19.ToString(), new EntitySource_Misc(NPC), NPC.Center);
 
-                    if (Main.netMode != 1)
-                    {
-                        Vector2 vector139 = Vector2.Normalize(player2.Center - vector134) * (NPC.width + 20) / 2f + vector134;
-                        NPC.NewNPC(NPC.GetSource_FromThis(), (int)vector139.X, (int)vector139.Y + 45, Mod.Find<ModNPC>("SpaceWhaleMinion").Type, 0);
-                    }
+                if (Main.netMode != 1)
+                {
+                    Vector2 vector139 = Vector2.Normalize(player2.Center - vector134) * (NPC.width + 20) / 2f + vector134;
+                    NPC.NewNPC(NPC.GetSource_FromThis(), (int)vector139.X, (int)vector139.Y + 45, Mod.Find<ModNPC>("SpaceWhaleMinion").Type, 0);
                 }
-                int num1099 = Math.Sign(player2.Center.X - vector134.X);
+            }
+            int num1099 = Math.Sign(player2.Center.X - vector134.X);
 				if (num1099 != 0)
 				{
 					NPC.direction = num1099;
@@ -550,28 +550,28 @@ namespace TremorMod.Content.NPCs.Bosses.SpaceWhale
 				{
 					SoundEngine.PlaySound(SoundID.Zombie95, vector134);
 				}
-                if (Main.netMode != 1 && NPC.ai[2] == num1082 - 30)
-                {
-                    Vector2 vector140 = NPC.rotation.ToRotationVector2() * (Vector2.UnitX * NPC.direction) * (NPC.width + 20) / 2f + vector134;
+            if (Main.netMode != 1 && NPC.ai[2] == num1082 - 30)
+            {
+                Vector2 vector140 = NPC.rotation.ToRotationVector2() * (Vector2.UnitX * NPC.direction) * (NPC.width + 20) / 2f + vector134;
 
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(NPC.direction * 2, 8f), 467, 0, 0, Main.myPlayer);
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(NPC.direction * 3, 8f), 467, 0, 0, Main.myPlayer);
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(NPC.direction * 4, 8f), 467, 0, 0, Main.myPlayer);
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(NPC.direction * 5, 8f), 467, 0, 0, Main.myPlayer);
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(NPC.direction * 6, 8f), 467, 0, 0, Main.myPlayer);
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(NPC.direction * 7, 8f), 467, 0, 0, Main.myPlayer);
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(NPC.direction * 8, 8f), 467, 0, 0, Main.myPlayer);
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(NPC.direction * 9, 8f), 467, 0, 0, Main.myPlayer);
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(-(float)NPC.direction * 2, 8f), 467, 0, 0, Main.myPlayer);
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(-(float)NPC.direction * 3, 8f), 467, 0, 0, Main.myPlayer);
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(-(float)NPC.direction * 4, 8f), 467, 0, 0, Main.myPlayer);
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(-(float)NPC.direction * 5, 8f), 467, 0, 0, Main.myPlayer);
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(-(float)NPC.direction * 6, 8f), 467, 0, 0, Main.myPlayer);
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(-(float)NPC.direction * 7, 8f), 467, 0, 0, Main.myPlayer);
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(-(float)NPC.direction * 8, 8f), 467, 0, 0, Main.myPlayer);
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(-(float)NPC.direction * 9, 8f), 467, 0, 0, Main.myPlayer);
-                }
-                NPC.ai[2] += 1f;
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(NPC.direction * 2, 8f), 467, 0, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(NPC.direction * 3, 8f), 467, 0, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(NPC.direction * 4, 8f), 467, 0, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(NPC.direction * 5, 8f), 467, 0, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(NPC.direction * 6, 8f), 467, 0, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(NPC.direction * 7, 8f), 467, 0, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(NPC.direction * 8, 8f), 467, 0, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(NPC.direction * 9, 8f), 467, 0, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(-(float)NPC.direction * 2, 8f), 467, 0, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(-(float)NPC.direction * 3, 8f), 467, 0, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(-(float)NPC.direction * 4, 8f), 467, 0, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(-(float)NPC.direction * 5, 8f), 467, 0, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(-(float)NPC.direction * 6, 8f), 467, 0, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(-(float)NPC.direction * 7, 8f), 467, 0, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(-(float)NPC.direction * 8, 8f), 467, 0, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(-(float)NPC.direction * 9, 8f), 467, 0, 0, Main.myPlayer);
+            }
+            NPC.ai[2] += 1f;
 				if (NPC.ai[2] >= num1082)
 				{
 					NPC.ai[0] = 0f;
@@ -742,62 +742,62 @@ namespace TremorMod.Content.NPCs.Bosses.SpaceWhale
 					NPC.netUpdate = true;
 				}
 			}
-            else if (NPC.ai[0] == 7f)
+        else if (NPC.ai[0] == 7f)
+        {
+            /*if (NPC.ai[2] == 0f)
             {
-                /*if (NPC.ai[2] == 0f)
+                SoundEngine.PlaySound(SoundID.Zombie98, new EntitySource_Misc(NPC), vector134);
+            }*/
+            if (NPC.ai[2] % num1085 == 0f)
+            {
+                //SoundEngine.PlaySound(SoundID.NPCDeath19, new EntitySource_Misc(NPC), NPC.Center);
+                if (Main.netMode != 1)
                 {
-                    SoundEngine.PlaySound(SoundID.Zombie98, new EntitySource_Misc(NPC), vector134);
-                }*/
-                if (NPC.ai[2] % num1085 == 0f)
-                {
-                    //SoundEngine.PlaySound(SoundID.NPCDeath19, new EntitySource_Misc(NPC), NPC.Center);
-                    if (Main.netMode != 1)
-                    {
-                        Vector2 vector143 = Vector2.Normalize(NPC.velocity) * (NPC.width + 20) / 2f + vector134;
-                        int num1105 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)vector143.X, (int)vector143.Y + 45, Mod.Find<ModNPC>("SpaceWhaleMinion").Type);
-                        Main.npc[num1105].target = NPC.target;
-                        //Main.npc[num1105].velocity = Vector2.Normalize(NPC.velocity).RotatedBy(1.57079637f * NPC.direction) * scaleFactor4;
-                        Main.npc[num1105].netUpdate = true;
-                        Main.npc[num1105].ai[3] = Main.rand.Next(80, 121) / 100f;
-                    }
-                }
-                NPC.velocity = NPC.velocity.RotatedBy(-(double)num1086 * NPC.direction);
-                NPC.rotation -= num1086 * NPC.direction;
-                NPC.ai[2] += 1f;
-                if (NPC.ai[2] >= num1084)
-                {
-                    NPC.ai[0] = 5f;
-                    NPC.ai[1] = 0f;
-                    NPC.ai[2] = 0f;
-                    NPC.netUpdate = true;
+                    Vector2 vector143 = Vector2.Normalize(NPC.velocity) * (NPC.width + 20) / 2f + vector134;
+                    int num1105 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)vector143.X, (int)vector143.Y + 45, Mod.Find<ModNPC>("SpaceWhaleMinion").Type);
+                    Main.npc[num1105].target = NPC.target;
+                    //Main.npc[num1105].velocity = Vector2.Normalize(NPC.velocity).RotatedBy(1.57079637f * NPC.direction) * scaleFactor4;
+                    Main.npc[num1105].netUpdate = true;
+                    Main.npc[num1105].ai[3] = Main.rand.Next(80, 121) / 100f;
                 }
             }
-            else if (NPC.ai[0] == 8f)
+            NPC.velocity = NPC.velocity.RotatedBy(-(double)num1086 * NPC.direction);
+            NPC.rotation -= num1086 * NPC.direction;
+            NPC.ai[2] += 1f;
+            if (NPC.ai[2] >= num1084)
             {
-                NPC.velocity *= 0.98f;
-                NPC.velocity.Y = MathHelper.Lerp(NPC.velocity.Y, 0f, 0.02f);
-                if (NPC.ai[2] == num1082 - 30)
-                {
-                    //SoundEngine.PlaySound(SoundID.Zombie94, NPC.GetSource_FromThis(), vector134);
-                }
-                if (Main.netMode != 1 && NPC.ai[2] == num1082 - 30)
-                {
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), vector134.X, vector134.Y, 0f, 0f, Mod.Find<ModProjectile>("VulcanBladeRing").Type, 0, 0f, Main.myPlayer, 1f, NPC.target + 1);
-                }
-                NPC.ai[2] += 1f;
-                if (NPC.ai[2] >= num1082)
-                {
-                    NPC.ai[0] = 5f;
-                    NPC.ai[1] = 0f;
-                    NPC.ai[2] = 0f;
-                    NPC.netUpdate = true;
-                }
+                NPC.ai[0] = 5f;
+                NPC.ai[1] = 0f;
+                NPC.ai[2] = 0f;
+                NPC.netUpdate = true;
             }
         }
+        else if (NPC.ai[0] == 8f)
+        {
+            NPC.velocity *= 0.98f;
+            NPC.velocity.Y = MathHelper.Lerp(NPC.velocity.Y, 0f, 0.02f);
+            if (NPC.ai[2] == num1082 - 30)
+            {
+                //SoundEngine.PlaySound(SoundID.Zombie94, NPC.GetSource_FromThis(), vector134);
+            }
+            if (Main.netMode != 1 && NPC.ai[2] == num1082 - 30)
+            {
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), vector134.X, vector134.Y, 0f, 0f, Mod.Find<ModProjectile>("VulcanBladeRing").Type, 0, 0f, Main.myPlayer, 1f, NPC.target + 1);
+            }
+            NPC.ai[2] += 1f;
+            if (NPC.ai[2] >= num1082)
+            {
+                NPC.ai[0] = 5f;
+                NPC.ai[1] = 0f;
+                NPC.ai[2] = 0f;
+                NPC.netUpdate = true;
+            }
+        }
+    }
 		public override void OnKill()
 		{
-            TremorSpawnEnemys.downedSpaceWhale = true;
-            if (Main.netMode != 1)
+        TremorSpawnEnemys.downedSpaceWhale = true;
+        if (Main.netMode != 1)
 			{
 				int CenterX = (int)(NPC.Center.X + NPC.width / 2) / 16;
 				int CenterY = (int)(NPC.Center.Y + NPC.height / 2) / 16;
@@ -805,30 +805,29 @@ namespace TremorMod.Content.NPCs.Bosses.SpaceWhale
 			}
 		}
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            // Выпадение обычных предметов
-            npcLoot.Add(ItemDropRule.Common(ItemID.PlatinumCoin, 1, 1, 7)); // 6-25 золотых монет
-            npcLoot.Add(ItemDropRule.Common(ItemID.GoldCoin, 1, 25, 60)); // 6-25 серебряных монет
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        // Г‚Г»ГЇГ Г¤ГҐГ­ГЁГҐ Г®ГЎГ»Г·Г­Г»Гµ ГЇГ°ГҐГ¤Г¬ГҐГІГ®Гў
+        npcLoot.Add(ItemDropRule.Common(ItemID.PlatinumCoin, 1, 1, 7)); // 6-25 Г§Г®Г«Г®ГІГ»Гµ Г¬Г®Г­ГҐГІ
+        npcLoot.Add(ItemDropRule.Common(ItemID.GoldCoin, 1, 25, 60)); // 6-25 Г±ГҐГ°ГҐГЎГ°ГїГ­Г»Гµ Г¬Г®Г­ГҐГІ
 
-            // Выпадение трофея с шансом 10%
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SpaceWhaleTrophy>(), 10));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CosmicFuel>(), 1));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<StarLantern>(), 4));
+        // Г‚Г»ГЇГ Г¤ГҐГ­ГЁГҐ ГІГ°Г®ГґГҐГї Г± ГёГ Г­Г±Г®Г¬ 10%
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SpaceWhaleTrophy>(), 10));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CosmicFuel>(), 1));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<StarLantern>(), 4));
 
-            // Выпадение маски с шансом 1/7 (14.29%) вне экспертного режима
-            npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SpaceWhaleMask>(), 7));
+        // Г‚Г»ГЇГ Г¤ГҐГ­ГЁГҐ Г¬Г Г±ГЄГЁ Г± ГёГ Г­Г±Г®Г¬ 1/7 (14.29%) ГўГ­ГҐ ГЅГЄГ±ГЇГҐГ°ГІГ­Г®ГЈГ® Г°ГҐГ¦ГЁГ¬Г 
+        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SpaceWhaleMask>(), 7));
 
-            // Гарантированное выпадение одного из трёх предметов.
-            npcLoot.Add(ItemDropRule.OneFromOptions(1,
-                ModContent.ItemType<BlackHoleCannon>(),
-                ModContent.ItemType<HornedWarHammer>(),
-                ModContent.ItemType<SDL>(),
-                ModContent.ItemType<WhaleFlippers>()));
+        // ГѓГ Г°Г Г­ГІГЁГ°Г®ГўГ Г­Г­Г®ГҐ ГўГ»ГЇГ Г¤ГҐГ­ГЁГҐ Г®Г¤Г­Г®ГЈГ® ГЁГ§ ГІГ°ВёГµ ГЇГ°ГҐГ¤Г¬ГҐГІГ®Гў.
+        npcLoot.Add(ItemDropRule.OneFromOptions(1,
+            ModContent.ItemType<BlackHoleCannon>(),
+            ModContent.ItemType<HornedWarHammer>(),
+            ModContent.ItemType<SDL>(),
+            ModContent.ItemType<WhaleFlippers>()));
 
-            // Альтернативное использование условия:
-            npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<SpaceWhaleTreasureBag>(), 1));
-        }
-
+        // ГЂГ«ГјГІГҐГ°Г­Г ГІГЁГўГ­Г®ГҐ ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ ГіГ±Г«Г®ГўГЁГї:
+        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<SpaceWhaleTreasureBag>(), 1));
     }
+
 }

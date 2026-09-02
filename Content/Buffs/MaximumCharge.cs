@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Buffs
-{
+namespace TremorMod.Content.Buffs;
+
 	public class MaximumCharge : ModBuff
 	{
 		public override void SetStaticDefaults()
@@ -17,4 +17,3 @@ namespace TremorMod.Content.Buffs
 			player.statManaMax2 += 100;
 		}
 	}
-}

@@ -1,4 +1,4 @@
-using System.Linq;
+п»їusing System.Linq;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,8 +9,8 @@ using TremorMod.Content.Items.NPCsDrop;
 using TremorMod.Content.Items.Crystal;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 
 	public class Astrofly : ModNPC
 	{
@@ -41,58 +41,57 @@ namespace TremorMod.Content.NPCs
 			// Todo: bannerItem = mod.ItemType("AstroflyBanner");
 		}
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+       npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CometiteOre>(), 1, 2, 5));
+       npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ChargedCrystal>(), 1, 1, 3));
+    }
+
+    public override void HitEffect(NPC.HitInfo hit)
+    {
+        if (NPC.life <= 0) // Г…Г±Г«ГЁ NPC ГіГ¬ГЁГ°Г ГҐГІ
         {
-           npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CometiteOre>(), 1, 2, 5));
-           npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ChargedCrystal>(), 1, 1, 3));
+            for (int k = 0; k < 20; k++)
+            {
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, 59, 2.5f * hit.HitDirection, -2.5f, 0, default(Color), 0.7f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, 27, 2.5f * hit.HitDirection, -2.5f, 0, default(Color), 0.7f);
+            }
+
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AstroflyGore1").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AstroflyGore1").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AstroflyGore2").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AstroflyGore2").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AstroflyGore3").Type, 1f);
         }
-
-        public override void HitEffect(NPC.HitInfo hit)
+        else // Г…Г±Г«ГЁ NPC Г­ГҐ ГіГ¬ГЁГ°Г ГҐГІ
         {
-            if (NPC.life <= 0) // Если NPC умирает
+            int dustAmount = (int)(hit.Damage / (float)NPC.lifeMax * 50.0f); // ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГЇГ»Г«ГЁ Гў Г§Г ГўГЁГ±ГЁГ¬Г®Г±ГІГЁ Г®ГІ ГіГ°Г®Г­Г 
+            for (int k = 0; k < dustAmount; k++)
             {
-                for (int k = 0; k < 20; k++)
-                {
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, 59, 2.5f * hit.HitDirection, -2.5f, 0, default(Color), 0.7f);
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, 27, 2.5f * hit.HitDirection, -2.5f, 0, default(Color), 0.7f);
-                }
-
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AstroflyGore1").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AstroflyGore1").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AstroflyGore2").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AstroflyGore2").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AstroflyGore3").Type, 1f);
-            }
-            else // Если NPC не умирает
-            {
-                int dustAmount = (int)(hit.Damage / (float)NPC.lifeMax * 50.0f); // Количество пыли в зависимости от урона
-                for (int k = 0; k < dustAmount; k++)
-                {
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, 59, hit.HitDirection, -1f, 0, default(Color), 0.7f);
-                }
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, 59, hit.HitDirection, -1f, 0, default(Color), 0.7f);
             }
         }
+    }
 
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+    public override float SpawnChance(NPCSpawnInfo spawnInfo)
+    {
+        // ГЏГ°Г®ГўГҐГ°ГЄГ , Г­Г ГµГ®Г¤ГЁГІГ±Гї Г«ГЁ ГЄГ®Г®Г°Г¤ГЁГ­Г ГІГ  Гў ГЇГ°ГҐГ¤ГҐГ«Г Гµ ГЄГ Г°ГІГ»
+        if (spawnInfo.SpawnTileX < 0 || spawnInfo.SpawnTileX >= Main.maxTilesX ||
+            spawnInfo.SpawnTileY < 0 || spawnInfo.SpawnTileY >= Main.maxTilesY)
         {
-            // Проверка, находится ли координата в пределах карты
-            if (spawnInfo.SpawnTileX < 0 || spawnInfo.SpawnTileX >= Main.maxTilesX ||
-                spawnInfo.SpawnTileY < 0 || spawnInfo.SpawnTileY >= Main.maxTilesY)
-            {
-                return 0f;
-            }
-
-            // Список допустимых тайлов
-            int[] cometTiles = { ModContent.TileType<CometiteOreTile>(), ModContent.TileType<HardCometiteOreTile>() };
-
-            // Проверяем наличие тайла и дополнительные условия
-            if (cometTiles.Contains(Main.tile[spawnInfo.SpawnTileX, spawnInfo.SpawnTileY].TileType) &&
-                NPC.downedMoonlord && spawnInfo.SpawnTileY < Main.rockLayer)
-            {
-                return 15f;
-            }
-
             return 0f;
         }
+
+        // Г‘ГЇГЁГ±Г®ГЄ Г¤Г®ГЇГіГ±ГІГЁГ¬Г»Гµ ГІГ Г©Г«Г®Гў
+        int[] cometTiles = [ModContent.TileType<CometiteOreTile>(), ModContent.TileType<HardCometiteOreTile>()];
+
+        // ГЏГ°Г®ГўГҐГ°ГїГҐГ¬ Г­Г Г«ГЁГ·ГЁГҐ ГІГ Г©Г«Г  ГЁ Г¤Г®ГЇГ®Г«Г­ГЁГІГҐГ«ГјГ­Г»ГҐ ГіГ±Г«Г®ГўГЁГї
+        if (cometTiles.Contains(Main.tile[spawnInfo.SpawnTileX, spawnInfo.SpawnTileY].TileType) &&
+            NPC.downedMoonlord && spawnInfo.SpawnTileY < Main.rockLayer)
+        {
+            return 15f;
+        }
+
+        return 0f;
     }
 }

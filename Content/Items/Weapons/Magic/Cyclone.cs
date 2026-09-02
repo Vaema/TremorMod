@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Weapons.Magic
-{
+namespace TremorMod.Content.Items.Weapons.Magic;
+
 	public class Cyclone : ModItem
 	{
 		public override void SetDefaults()
@@ -44,4 +44,3 @@ namespace TremorMod.Content.Items.Weapons.Magic
 			recipe.Register();
 		}
 	}
-}

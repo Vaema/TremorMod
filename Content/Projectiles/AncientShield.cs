@@ -1,12 +1,12 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class AncientShield : ModProjectile
 	{
 		public override void SetDefaults()
@@ -32,8 +32,8 @@ namespace TremorMod.Content.Projectiles
 
 		}
 
-        public override bool PreAI()
-        {
+    public override bool PreAI()
+    {
 			//float Num = 4f;
 			//float Num2 = 1.1f;
 			int Num3 = 1;
@@ -118,4 +118,3 @@ namespace TremorMod.Content.Projectiles
 			return false;
 		}
 	}
-}

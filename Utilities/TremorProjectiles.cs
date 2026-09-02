@@ -1,12 +1,12 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 using TremorMod.Content.Projectiles;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Utilities
-{
+namespace TremorMod.Utilities;
+
 	public class TremorProjectiles : GlobalProjectile
 	{
 		public override void SetDefaults(Projectile projectile)
@@ -67,5 +67,4 @@ namespace TremorMod.Utilities
 		}
 
 	}
-}
 

@@ -1,18 +1,18 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using TremorMod.Content.Items.Armor.Leather;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Armor.Steel
-{
+namespace TremorMod.Content.Items.Armor.Steel;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class SteelHelmet : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 
 			Item.width = 32;
@@ -27,8 +27,8 @@ namespace TremorMod.Content.Items.Armor.Steel
 		{
 			// DisplayName.SetDefault("Steel Helmet");
 			// Tooltip.SetDefault("3% increased melee critical strike chance");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increased maximum defense by 10");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increased maximum defense by 10");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -42,8 +42,8 @@ namespace TremorMod.Content.Items.Armor.Steel
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Increased maximum defense by 10";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Increased maximum defense by 10";
 			player.statDefense += 10;
 			player.moveSpeed -= 0.25f;
 		}
@@ -62,4 +62,3 @@ namespace TremorMod.Content.Items.Armor.Steel
 			recipe.Register();
 		}
 	}
-}

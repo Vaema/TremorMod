@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 
-namespace TremorMod.Content.Items.Armor.Chaos
-{
+namespace TremorMod.Content.Items.Armor.Chaos;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class ChaosGreaves : ModItem
 	{
@@ -31,12 +31,11 @@ namespace TremorMod.Content.Items.Armor.Chaos
 		}
 
 		public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<ChaosBar>(), 17);
-            //recipe.SetResult(this);
-            recipe.AddTile(134);
-            recipe.Register();
-        }
+    {
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ModContent.ItemType<ChaosBar>(), 17);
+        //recipe.SetResult(this);
+        recipe.AddTile(134);
+        recipe.Register();
     }
 }

@@ -5,8 +5,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Weapons.Magic
-{
+namespace TremorMod.Content.Items.Weapons.Magic;
+
 	public class LightningOrb : ModItem
 	{
 		public override void SetDefaults()
@@ -35,16 +35,16 @@ namespace TremorMod.Content.Items.Weapons.Magic
 			//Tooltip.SetDefault("Creates a divine lightning");
 		}
 
-        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-        {
-            Vector2 vector82 = -Main.player[Main.myPlayer].Center + Main.MouseWorld;
-            float ai = Main.rand.Next(100);
-            Vector2 vector83 = Vector2.Normalize(vector82) * Item.shootSpeed;
-            Projectile.NewProjectile(source, player.Center.X, player.Center.Y, vector83.X, vector83.Y, type, damage, knockback, player.whoAmI, vector82.ToRotation(), ai);
-            return false;
-        }
+    public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    {
+        Vector2 vector82 = -Main.player[Main.myPlayer].Center + Main.MouseWorld;
+        float ai = Main.rand.Next(100);
+        Vector2 vector83 = Vector2.Normalize(vector82) * Item.shootSpeed;
+        Projectile.NewProjectile(source, player.Center.X, player.Center.Y, vector83.X, vector83.Y, type, damage, knockback, player.whoAmI, vector82.ToRotation(), ai);
+        return false;
+    }
 
-        public override void AddRecipes()
+    public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Glass, 30);
@@ -56,4 +56,3 @@ namespace TremorMod.Content.Items.Weapons.Magic
 			recipe.Register();
 		}
 	}
-}

@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Audio;
@@ -7,8 +7,8 @@ using Terraria.DataStructures;
 using TremorMod.Content.NPCs.Bosses;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.BossSumonItems
-{
+namespace TremorMod.Content.Items.BossSumonItems;
+
 	public class MoltenHeart : ModItem
 	{
 		const int XOffset = 300;
@@ -29,14 +29,14 @@ namespace TremorMod.Content.Items.BossSumonItems
 
 		}
 
-        /*public override void SetStaticDefaults()
+    /*public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Molten Heart");
 			Tooltip.SetDefault("Summons Heater of Worlds\n" +
 			"Requires the hell biome");
 		}*/
 
-        public override bool CanUseItem(Player player)
+    public override bool CanUseItem(Player player)
 		{
 			return player.position.Y / 16f > Main.maxTilesY - 200 && NPC.downedBoss2 && !NPC.AnyNPCs(ModContent.NPCType<HeaterOfWorldsHead>());
 		}
@@ -52,11 +52,10 @@ namespace TremorMod.Content.Items.BossSumonItems
 			recipe.Register();
 		}
 
-        public override bool? UseItem(Player player)
-        {
+    public override bool? UseItem(Player player)
+    {
 			NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<HeaterOfWorldsHead>());
-            SoundEngine.PlaySound(SoundID.Item15, player.position);
-            return true;
+        SoundEngine.PlaySound(SoundID.Item15, player.position);
+        return true;
 		}
 	}
-}

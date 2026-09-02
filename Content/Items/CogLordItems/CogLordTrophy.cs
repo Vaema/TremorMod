@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.CogLordItems
-{
+namespace TremorMod.Content.Items.CogLordItems;
+
 	public class CogLordTrophy : ModItem
 	{
 		public override void SetDefaults()
@@ -20,8 +20,8 @@ namespace TremorMod.Content.Items.CogLordItems
 			Item.useStyle = 1;
 			Item.consumable = true;
 			Item.value = 50000;
-            Item.createTile = ModContent.TileType<CogLordTrophyTile>();
-            Item.placeStyle = 0;
+        Item.createTile = ModContent.TileType<CogLordTrophyTile>();
+        Item.placeStyle = 0;
 		}
 
 		/*public override void SetStaticDefaults()
@@ -31,4 +31,3 @@ namespace TremorMod.Content.Items.CogLordItems
 		}*/
 
 	}
-}

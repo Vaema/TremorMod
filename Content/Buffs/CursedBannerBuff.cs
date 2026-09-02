@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Buffs
-{
+namespace TremorMod.Content.Buffs;
+
 	public class CursedBannerBuff : ModBuff
 	{
 		public override void SetStaticDefaults()
@@ -23,4 +23,3 @@ namespace TremorMod.Content.Buffs
 			player.GetModPlayer<MPlayer>().alchemicalCrit += 25;
 		}
 	}
-}

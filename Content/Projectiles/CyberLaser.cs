@@ -6,8 +6,8 @@ using Terraria.ModLoader;
 using TremorMod.Content.Buffs;
 using TremorMod.Content.Dusts;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class CyberLaser : ModProjectile
 	{
 		public override void SetDefaults()
@@ -26,15 +26,15 @@ namespace TremorMod.Content.Projectiles
 			AIType = 598;
 		}
 
-        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
-        {
-            Player player = Main.player[Main.myPlayer];
-            if (Main.rand.NextBool(2))
+    public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+    {
+        Player player = Main.player[Main.myPlayer];
+        if (Main.rand.NextBool(2))
 			{
 				player.AddBuff(ModContent.BuffType<Light>(), 300);
 			}
-                
-        }
+            
+    }
 
 		public override void AI()
 		{
@@ -68,4 +68,3 @@ namespace TremorMod.Content.Projectiles
 		}
 
 	}
-}

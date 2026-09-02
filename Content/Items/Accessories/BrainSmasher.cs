@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Content.Buffs;
 using TremorMod.Content.Items.Accessories;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class BrainSmasher : ModItem
 	{
 		public override void SetDefaults()
@@ -40,4 +40,3 @@ namespace TremorMod.Content.Items.Accessories
 			recipe.Register();
 		}
 	}
-}

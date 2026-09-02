@@ -1,12 +1,12 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria.DataStructures;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class BoomBurst : ModProjectile
 	{
 
@@ -16,8 +16,8 @@ namespace TremorMod.Content.Projectiles
 			Projectile.width = 52;
 			Projectile.height = 52;
 			Projectile.friendly = true;
-            Main.projFrames[Projectile.type] = 20;
-            Projectile.tileCollide = false;
+        Main.projFrames[Projectile.type] = 20;
+        Projectile.tileCollide = false;
 			Projectile.penetrate = -1;
 		}
 
@@ -39,4 +39,3 @@ namespace TremorMod.Content.Projectiles
 		}
 
 	}
-}

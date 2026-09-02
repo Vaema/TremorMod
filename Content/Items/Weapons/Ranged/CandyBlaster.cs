@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+п»їusing Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -7,8 +7,8 @@ using TremorMod.Content.Items.Materials.OreAndBar;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Items.Weapons.Ranged
-{
+namespace TremorMod.Content.Items.Weapons.Ranged;
+
 	public class CandyBlaster : ModItem
 	{
 		public override void SetDefaults()
@@ -44,13 +44,13 @@ namespace TremorMod.Content.Items.Weapons.Ranged
 			return Main.rand.NextBool(3);
 		}
 
-        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-        {
-            Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<SweetPro>(), damage, knockback, player.whoAmI);
-            return false; // Возвращаем false, чтобы не создавать стандартный снаряд
-        }
+    public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    {
+        Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<SweetPro>(), damage, knockback, player.whoAmI);
+        return false; // Г‚Г®Г§ГўГ°Г Г№Г ГҐГ¬ false, Г·ГІГ®ГЎГ» Г­ГҐ Г±Г®Г§Г¤Г ГўГ ГІГј Г±ГІГ Г­Г¤Г Г°ГІГ­Г»Г© Г±Г­Г Г°ГїГ¤
+    }
 
-        public override Vector2? HoldoutOffset()
+    public override Vector2? HoldoutOffset()
 		{
 			return Vector2.Zero;
 		}
@@ -66,4 +66,3 @@ namespace TremorMod.Content.Items.Weapons.Ranged
 			recipe.Register();
 		}
 	}
-}

@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.MagicalArmor
-{
+namespace TremorMod.Content.Items.Armor.MagicalArmor;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class MagicalGreaves : ModItem
 	{
@@ -47,4 +47,3 @@ namespace TremorMod.Content.Items.Armor.MagicalArmor
 		}
 
 	}
-}

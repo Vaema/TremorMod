@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.EvilCornItems
-{
+namespace TremorMod.Content.Items.EvilCornItems;
+
 	public class FarmerShovel : ModItem
 	{
 
@@ -32,4 +32,3 @@ namespace TremorMod.Content.Items.EvilCornItems
 			Item.autoReuse = true;
 		}
 	}
-}

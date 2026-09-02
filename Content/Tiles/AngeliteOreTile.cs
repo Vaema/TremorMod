@@ -1,42 +1,41 @@
-using Microsoft.Xna.Framework;
+п»їusing Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using System.Collections.Generic;  // Добавляем эту строку для работы с List<T>
+using System.Collections.Generic;  // Г„Г®ГЎГ ГўГ«ГїГҐГ¬ ГЅГІГі Г±ГІГ°Г®ГЄГі Г¤Г«Гї Г°Г ГЎГ®ГІГ» Г± List<T>
 
-namespace TremorMod.Content.Tiles
+namespace TremorMod.Content.Tiles;
+
+public class AngeliteOreTile : ModTile
 {
-    public class AngeliteOreTile : ModTile
+    public override void SetStaticDefaults()
     {
-        public override void SetStaticDefaults()
-        {
-            TileID.Sets.Ore[Type] = true;
-            // Устанавливаем базовые свойства плитки
-            Main.tileSolid[Type] = true;
-            Main.tileMergeDirt[Type] = true;
-            Main.tileBlockLight[Type] = true;
-            Main.tileLighted[Type] = true;
+        TileID.Sets.Ore[Type] = true;
+        // Г“Г±ГІГ Г­Г ГўГ«ГЁГўГ ГҐГ¬ ГЎГ Г§Г®ГўГ»ГҐ Г±ГўГ®Г©Г±ГІГўГ  ГЇГ«ГЁГІГЄГЁ
+        Main.tileSolid[Type] = true;
+        Main.tileMergeDirt[Type] = true;
+        Main.tileBlockLight[Type] = true;
+        Main.tileLighted[Type] = true;
 
-            // Задаём тип пыли, которая будет генерироваться при разрушении плитки
-            DustType = 57;
+        // Г‡Г Г¤Г ВёГ¬ ГІГЁГЇ ГЇГ»Г«ГЁ, ГЄГ®ГІГ®Г°Г Гї ГЎГіГ¤ГҐГІ ГЈГҐГ­ГҐГ°ГЁГ°Г®ГўГ ГІГјГ±Гї ГЇГ°ГЁ Г°Г Г§Г°ГіГёГҐГ­ГЁГЁ ГЇГ«ГЁГІГЄГЁ
+        DustType = 57;
 
-            // Задаём звук для разрушения плитки
-            HitSound = SoundID.Tink;  // Установим звук разрушения
+        // Г‡Г Г¤Г ВёГ¬ Г§ГўГіГЄ Г¤Г«Гї Г°Г Г§Г°ГіГёГҐГ­ГЁГї ГЇГ«ГЁГІГЄГЁ
+        HitSound = SoundID.Tink;  // Г“Г±ГІГ Г­Г®ГўГЁГ¬ Г§ГўГіГЄ Г°Г Г§Г°ГіГёГҐГ­ГЁГї
 
-            // Задаём сопротивление разрушению и минимальную кирку
-            MineResist = 15f;          // Уровень сопротивления разрушению плитки
-            MinPick = 250;             // Минимальный уровень кирки для разрушения плитки
+        // Г‡Г Г¤Г ВёГ¬ Г±Г®ГЇГ°Г®ГІГЁГўГ«ГҐГ­ГЁГҐ Г°Г Г§Г°ГіГёГҐГ­ГЁГѕ ГЁ Г¬ГЁГ­ГЁГ¬Г Г«ГјГ­ГіГѕ ГЄГЁГ°ГЄГі
+        MineResist = 15f;          // Г“Г°Г®ГўГҐГ­Гј Г±Г®ГЇГ°Г®ГІГЁГўГ«ГҐГ­ГЁГї Г°Г Г§Г°ГіГёГҐГ­ГЁГѕ ГЇГ«ГЁГІГЄГЁ
+        MinPick = 250;             // ГЊГЁГ­ГЁГ¬Г Г«ГјГ­Г»Г© ГіГ°Г®ГўГҐГ­Гј ГЄГЁГ°ГЄГЁ Г¤Г«Гї Г°Г Г§Г°ГіГёГҐГ­ГЁГї ГЇГ«ГЁГІГЄГЁ
 
-            // Добавляем плитку на карту с указанным цветом
-            AddMapEntry(new Color(0, 191, 255), CreateMapEntryName());
-        }
+        // Г„Г®ГЎГ ГўГ«ГїГҐГ¬ ГЇГ«ГЁГІГЄГі Г­Г  ГЄГ Г°ГІГі Г± ГіГЄГ Г§Г Г­Г­Г»Г¬ Г¶ГўГҐГІГ®Г¬
+        AddMapEntry(new Color(0, 191, 255), CreateMapEntryName());
+    }
 
-        public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
-        {
-            r = 0f;
-            g = 0.3f;
-            b = 0.9f;
-        }
+    public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
+    {
+        r = 0f;
+        g = 0.3f;
+        b = 0.9f;
     }
 }

@@ -1,16 +1,16 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 
-namespace TremorMod.Content.Items.Armor.LivingWood
-{
+namespace TremorMod.Content.Items.Armor.LivingWood;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class LivingWoodMask : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 
 			Item.width = 34;
@@ -25,8 +25,8 @@ namespace TremorMod.Content.Items.Armor.LivingWood
 		{
 			// DisplayName.SetDefault("Living Wood Mask");
 			// Tooltip.SetDefault("4% increased minion damage");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases your max number of minions");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases your max number of minions");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -40,8 +40,8 @@ namespace TremorMod.Content.Items.Armor.LivingWood
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Increases your max number of minions";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Increases your max number of minions";
 			player.maxMinions += 1;
 		}
 
@@ -54,4 +54,3 @@ namespace TremorMod.Content.Items.Armor.LivingWood
 		}
 
 	}
-}

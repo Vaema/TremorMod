@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.BossLoot.TikiTotem
-{
+namespace TremorMod.Content.Items.BossLoot.TikiTotem;
+
 	public class TikiSkull : ModItem
 	{
 		public override void SetDefaults()
@@ -26,4 +26,3 @@ namespace TremorMod.Content.Items.BossLoot.TikiTotem
 			player.GetDamage(DamageClass.Summon) += 0.1f;
 		}
 	}
-}

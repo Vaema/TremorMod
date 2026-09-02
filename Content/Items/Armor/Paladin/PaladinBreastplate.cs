@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.Paladin
-{
+namespace TremorMod.Content.Items.Armor.Paladin;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class PaladinBreastplate : ModItem
 	{
@@ -28,4 +28,3 @@ namespace TremorMod.Content.Items.Armor.Paladin
 			player.GetCritChance(DamageClass.Melee) += 25;
 		}
 	}
-}

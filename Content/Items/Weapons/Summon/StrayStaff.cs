@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -6,8 +6,8 @@ using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items.Weapons.Summon
-{
+namespace TremorMod.Content.Items.Weapons.Summon;
+
 	public class StrayStaff : ModItem
 	{
 
@@ -49,4 +49,3 @@ namespace TremorMod.Content.Items.Weapons.Summon
 			return player.altFunctionUse != 2;
 		}
 	}
-}

@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 
-namespace TremorMod.Content.NPCs.Bosses.Alchemaster
-{
+namespace TremorMod.Content.NPCs.Bosses.Alchemaster;
+
 	public class PlagueSoul : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -31,8 +31,8 @@ namespace TremorMod.Content.NPCs.Bosses.Alchemaster
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
-            if (NPC.life <= 0)
+        int hitDirection = hit.HitDirection;
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 60; k++)
 				{
@@ -52,4 +52,3 @@ namespace TremorMod.Content.NPCs.Bosses.Alchemaster
 			}
 		}
 	}
-}

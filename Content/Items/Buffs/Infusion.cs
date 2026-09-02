@@ -2,8 +2,8 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Buffs
-{
+namespace TremorMod.Content.Items.Buffs;
+
 	public class Infusion : ModItem
 	{
 		public override void SetDefaults()
@@ -26,4 +26,3 @@ namespace TremorMod.Content.Items.Buffs
 			//Tooltip.SetDefault("Eternal potion");
 		}
 	}
-}

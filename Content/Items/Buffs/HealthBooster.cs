@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items.Buffs
-{
+namespace TremorMod.Content.Items.Buffs;
+
 	public class HealthBooster : ModItem
 	{
 		public override void SetDefaults()
@@ -36,4 +36,3 @@ namespace TremorMod.Content.Items.Buffs
 		}
 
 	}
-}

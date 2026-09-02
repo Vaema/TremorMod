@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -7,8 +7,8 @@ using TremorMod.Content.Tiles;
 using TremorMod.Content.Items;
 
 
-namespace TremorMod.Content.Items.Materials
-{
+namespace TremorMod.Content.Items.Materials;
+
 	public class SoulofMind : ModItem
 	{
 		public override void SetDefaults()
@@ -40,8 +40,7 @@ namespace TremorMod.Content.Items.Materials
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.SoulofMight, 2);
 			//recipe.SetResult(this);
-            recipe.AddTile(ModContent.TileType<RecyclerofMatterTile>());
-            recipe.Register();
+        recipe.AddTile(ModContent.TileType<RecyclerofMatterTile>());
+        recipe.Register();
 		}
 	}
-}

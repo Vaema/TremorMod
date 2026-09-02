@@ -16,8 +16,8 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Filters = Terraria.Graphics.Effects.Filters;
 
-namespace TremorMod.Content.NPCs.Bosses.AndasBoss
-{
+namespace TremorMod.Content.NPCs.Bosses.AndasBoss;
+
 	public class InfernoSkull : ModProjectile
 	{
 		/*public override void SetStaticDefaults()
@@ -42,25 +42,25 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss
 			Projectile.timeLeft = 175;
 			Main.projFrames[Projectile.type] = 2;
 		}
-        public override void OnKill(int timeLeft)
-        {
-            // Замена устаревшего Main.PlaySound
-            SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
+    public override void OnKill(int timeLeft)
+    {
+        // Замена устаревшего Main.PlaySound
+        SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
 
-            // Создание новых снарядов
-            IEntitySource source = Projectile.GetSource_Death();
-            Projectile.NewProjectile(source, Projectile.position.X + 40, Projectile.position.Y + 40, -ShootDirection, 0, ShootType, ShootDamage, ShootKnockback, Main.myPlayer, 0f, 0f);
-            Projectile.NewProjectile(source, Projectile.position.X + 40, Projectile.position.Y + 40, ShootDirection, 0, ShootType, ShootDamage, ShootKnockback, Main.myPlayer, 0f, 0f);
-            Projectile.NewProjectile(source, Projectile.position.X + 40, Projectile.position.Y + 40, 0, ShootDirection, ShootType, ShootDamage, ShootKnockback, Main.myPlayer, 0f, 0f);
-            Projectile.NewProjectile(source, Projectile.position.X + 40, Projectile.position.Y + 40, 0, -ShootDirection, ShootType, ShootDamage, ShootKnockback, Main.myPlayer, 0f, 0f);
-        }
+        // Создание новых снарядов
+        IEntitySource source = Projectile.GetSource_Death();
+        Projectile.NewProjectile(source, Projectile.position.X + 40, Projectile.position.Y + 40, -ShootDirection, 0, ShootType, ShootDamage, ShootKnockback, Main.myPlayer, 0f, 0f);
+        Projectile.NewProjectile(source, Projectile.position.X + 40, Projectile.position.Y + 40, ShootDirection, 0, ShootType, ShootDamage, ShootKnockback, Main.myPlayer, 0f, 0f);
+        Projectile.NewProjectile(source, Projectile.position.X + 40, Projectile.position.Y + 40, 0, ShootDirection, ShootType, ShootDamage, ShootKnockback, Main.myPlayer, 0f, 0f);
+        Projectile.NewProjectile(source, Projectile.position.X + 40, Projectile.position.Y + 40, 0, -ShootDirection, ShootType, ShootDamage, ShootKnockback, Main.myPlayer, 0f, 0f);
+    }
 
-        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
-        {
-            Projectile.Kill();
-        }
+    public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
+    {
+        Projectile.Kill();
+    }
 
-        public override bool PreAI()
+    public override bool PreAI()
 		{
 			Projectile.spriteDirection = Projectile.direction;
 			Projectile.frameCounter++;
@@ -131,4 +131,3 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss
 			target = reader.Read();
 		}
 	}
-}

@@ -1,12 +1,12 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles.Minions
-{
+namespace TremorMod.Content.Projectiles.Minions;
+
 	public class AncientPredator : ModProjectile
-    {
+{
 		public override void SetDefaults()
 		{
 			Projectile.netImportant = true;
@@ -26,15 +26,15 @@ namespace TremorMod.Content.Projectiles.Minions
 			ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 		}
 
-        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
+    public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
+    {
+        if (Main.rand.Next(10) == 0)
         {
-            if (Main.rand.Next(10) == 0)
-            {
-                target.AddBuff(BuffID.Poisoned, 80);
-                target.AddBuff(BuffID.CursedInferno, 80); 
-                target.AddBuff(BuffID.Venom, 80); 
-            }
+            target.AddBuff(BuffID.Poisoned, 80);
+            target.AddBuff(BuffID.CursedInferno, 80); 
+            target.AddBuff(BuffID.Venom, 80); 
         }
+    }
 
 		public override bool OnTileCollide(Vector2 oldVelocity)
 		{
@@ -49,4 +49,3 @@ namespace TremorMod.Content.Projectiles.Minions
 				 return false;
 		}
 	}
-}

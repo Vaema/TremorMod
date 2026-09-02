@@ -1,17 +1,17 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items.Armor.Coral
-{
+namespace TremorMod.Content.Items.Armor.Coral;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class CoralHelmet : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 
 			Item.width = 24;
@@ -26,8 +26,8 @@ namespace TremorMod.Content.Items.Armor.Coral
 		{
 			// DisplayName.SetDefault("Coral Helmet");
 			// Tooltip.SetDefault("Allows you to swim");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Allows you to breath underwater and summons an starfish");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Allows you to breath underwater and summons an starfish");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -41,8 +41,8 @@ namespace TremorMod.Content.Items.Armor.Coral
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Allows you to breath underwater and summons an starfish";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Allows you to breath underwater and summons an starfish";
 			if (player.breath < player.breathMax - 1)
 			{
 				player.breath = player.breathMax - 1;
@@ -65,4 +65,3 @@ namespace TremorMod.Content.Items.Armor.Coral
 		}
 
 	}
-}

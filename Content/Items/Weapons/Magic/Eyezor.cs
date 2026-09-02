@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Weapons.Magic
-{
+namespace TremorMod.Content.Items.Weapons.Magic;
+
 	//ported from my tAPI mod because I don't want to make more artwork
 	public class Eyezor : ModItem
 	{
@@ -34,4 +34,3 @@ namespace TremorMod.Content.Items.Weapons.Magic
 			//Tooltip.SetDefault("");
 		}
 	}
-}

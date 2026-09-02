@@ -4,8 +4,8 @@ using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class projGenie : ModProjectile
 	{
 		public override void SetDefaults()
@@ -33,9 +33,8 @@ namespace TremorMod.Content.Projectiles
 
 		public override bool PreDraw(ref Color lightColor)
 		{
-            SpriteBatch spriteBatch = Main.spriteBatch;
-            spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, new Rectangle((int)(Projectile.position.X - Main.screenPosition.X), (int)(Projectile.position.Y - Main.screenPosition.Y), 38, 60), null, Color.White, 0, new Vector2(2, 2), ((Main.player[Projectile.owner].position.X < Projectile.position.X) ? SpriteEffects.FlipHorizontally : SpriteEffects.None), 0);
+        SpriteBatch spriteBatch = Main.spriteBatch;
+        spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, new Rectangle((int)(Projectile.position.X - Main.screenPosition.X), (int)(Projectile.position.Y - Main.screenPosition.Y), 38, 60), null, Color.White, 0, new Vector2(2, 2), ((Main.player[Projectile.owner].position.X < Projectile.position.X) ? SpriteEffects.FlipHorizontally : SpriteEffects.None), 0);
 			return false;
 		}
 	}
-}

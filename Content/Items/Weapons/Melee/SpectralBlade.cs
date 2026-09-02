@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Weapons.Melee
-{
+namespace TremorMod.Content.Items.Weapons.Melee;
+
 	public class SpectralBlade : ModItem
 	{
 		public override void SetDefaults()
@@ -33,11 +33,10 @@ namespace TremorMod.Content.Items.Weapons.Melee
 
 		public override void AddRecipes()
 		{
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.SpectreBar, 18);
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ItemID.SpectreBar, 18);
 			//recipe.SetResult(this);
 			recipe.AddTile(134);
 			recipe.Register();
 		}
 	}
-}

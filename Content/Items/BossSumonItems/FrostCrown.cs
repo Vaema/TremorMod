@@ -1,12 +1,12 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.Audio;
 using Terraria.ModLoader;
 using TremorMod.Content.NPCs.Bosses.FrostKing;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.BossSumonItems
-{
+namespace TremorMod.Content.Items.BossSumonItems;
+
 	public class FrostCrown : ModItem
 	{
 		public override void SetDefaults()
@@ -37,8 +37,8 @@ namespace TremorMod.Content.Items.BossSumonItems
 		public override bool? UseItem(Player player)
 		{
 			NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<FrostKing>());
-            SoundEngine.PlaySound(SoundID.Roar, player.position);
-            return true;
+        SoundEngine.PlaySound(SoundID.Roar, player.position);
+        return true;
 		}
 
 		public override void AddRecipes()
@@ -54,4 +54,3 @@ namespace TremorMod.Content.Items.BossSumonItems
 			recipe.Register();
 		}
 	}
-}

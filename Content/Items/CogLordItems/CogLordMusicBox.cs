@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.CogLordItems
-{
+namespace TremorMod.Content.Items.CogLordItems;
+
 	public class CogLordMusicBox : ModItem
 	{
 		public override void SetDefaults()
@@ -15,8 +15,8 @@ namespace TremorMod.Content.Items.CogLordItems
 			Item.useTime = 10;
 			Item.autoReuse = true;
 			Item.consumable = true;
-            Item.createTile = ModContent.TileType<CogLordMusicBoxTile>();
-            Item.width = 24;
+        Item.createTile = ModContent.TileType<CogLordMusicBoxTile>();
+        Item.width = 24;
 			Item.height = 24;
 			Item.rare = 4;
 			Item.value = 100000;
@@ -30,4 +30,3 @@ namespace TremorMod.Content.Items.CogLordItems
 		}*/
 
 	}
-}

@@ -1,11 +1,11 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Weapons.Ranged
-{
+namespace TremorMod.Content.Items.Weapons.Ranged;
+
 	public class Revolwar : ModItem
 	{
 		public override void SetDefaults()
@@ -33,20 +33,19 @@ namespace TremorMod.Content.Items.Weapons.Ranged
 			//Tooltip.SetDefault("");
 		}
 
-        public override void ModifyTooltips(List<TooltipLine> tooltips)
+    public override void ModifyTooltips(List<TooltipLine> tooltips)
+    {
+        foreach (var tooltip in tooltips)
         {
-            foreach (var tooltip in tooltips)
+            if (tooltip.Mod == "Terraria" && tooltip.Name == "ItemName")
             {
-                if (tooltip.Mod == "Terraria" && tooltip.Name == "ItemName")
-                {
-                    tooltip.OverrideColor = new Color(238, 194, 73); 
-                }
+                tooltip.OverrideColor = new Color(238, 194, 73); 
             }
         }
+    }
 
-        public override Vector2? HoldoutOffset()
+    public override Vector2? HoldoutOffset()
 		{
 			return new Vector2(-12, -2);
 		}
 	}
-}

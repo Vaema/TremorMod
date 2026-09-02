@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles.Crimstone;
 
-namespace TremorMod.Content.Items.Placeable.Crimstone
-{
+namespace TremorMod.Content.Items.Placeable.Crimstone;
+
 	public class CrimstoneGrandfatherClock : ModItem
 	{
 		public override void SetDefaults()
@@ -49,4 +49,3 @@ namespace TremorMod.Content.Items.Placeable.Crimstone
 			recipe1.Register();
 		}
 	}
-}

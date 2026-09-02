@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.CraftingStations
-{
+namespace TremorMod.Content.Items.CraftingStations;
+
 	public class AltarofEnchantments : ModItem
 	{
 		public override void SetDefaults()
@@ -22,8 +22,8 @@ namespace TremorMod.Content.Items.CraftingStations
 			Item.useStyle = 1;
 			Item.consumable = true;
 			Item.value = 150;
-            Item.createTile = ModContent.TileType<AltarofEnchantmentsTile>();
-        }
+        Item.createTile = ModContent.TileType<AltarofEnchantmentsTile>();
+    }
 
 		/*public override void SetStaticDefaults()
 		{
@@ -33,13 +33,12 @@ namespace TremorMod.Content.Items.CraftingStations
 
 		public override void AddRecipes()
 		{
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.StoneBlock, 30);
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ItemID.StoneBlock, 30);
 			recipe.AddIngredient(ModContent.ItemType<StoneofLife>(), 2);
-            recipe.AddIngredient(ModContent.ItemType<Gloomstone>(), 30);
-            recipe.AddIngredient(ItemID.Book, 1);
+        recipe.AddIngredient(ModContent.ItemType<Gloomstone>(), 30);
+        recipe.AddIngredient(ItemID.Book, 1);
 			//recipe.SetResult(this);
-            recipe.Register();
-        }
+        recipe.Register();
+    }
 	}
-}

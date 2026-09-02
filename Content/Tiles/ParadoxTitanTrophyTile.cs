@@ -1,12 +1,12 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Enums;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace TremorMod.Content.Tiles
-{
+namespace TremorMod.Content.Tiles;
+
 	public class ParadoxTitanTrophyTile : ModTile
 	{
 		public override void SetStaticDefaults()
@@ -21,4 +21,3 @@ namespace TremorMod.Content.Tiles
 			AddMapEntry(new Color(120, 85, 60), CreateMapEntryName());
 		}
 	}
-}

@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
@@ -8,11 +8,11 @@ using TremorMod.Content.Projectiles;
 using TremorMod.Content.Buffs;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Weapons.Alchemical
-{
+namespace TremorMod.Content.Items.Weapons.Alchemical;
+
 	// todo: redo
 	public class WallOfShadowsFlask : ModItem
-    {
+{
 		const float ShootRange = 600.0f;
 		const float ShootKN = 1.0f;
 		const int ShootRate = 180;
@@ -24,8 +24,8 @@ namespace TremorMod.Content.Items.Weapons.Alchemical
 
 		public override void SetDefaults()
 		{
-            Item.DamageType = TremorMod.alchemicalDamage ?? DamageClass.Generic;
-            Item.damage = 70;
+        Item.DamageType = TremorMod.alchemicalDamage ?? DamageClass.Generic;
+        Item.damage = 70;
 			Item.knockBack = 3;
 			Item.width = 26;
 			Item.height = 30;
@@ -96,9 +96,8 @@ namespace TremorMod.Content.Items.Weapons.Alchemical
 			{
 				velocity.X = velocity.X + Main.rand.Next(-spread, spread + 1) * spreadMult;
 				velocity.Y = velocity.Y + Main.rand.Next(-spread, spread + 1) * spreadMult;
-                int i = Projectile.NewProjectile(Main.player[Item.playerIndexTheItemIsReservedFor].GetSource_FromThis(), Main.player[Item.playerIndexTheItemIsReservedFor].Center.X, Main.player[Item.playerIndexTheItemIsReservedFor].Center.Y, velocity.X, velocity.Y, ModContent.ProjectileType<WallOfShadowsFlask_Proj>(), Damage, ShootKN, Item.playerIndexTheItemIsReservedFor);
+            int i = Projectile.NewProjectile(Main.player[Item.playerIndexTheItemIsReservedFor].GetSource_FromThis(), Main.player[Item.playerIndexTheItemIsReservedFor].Center.X, Main.player[Item.playerIndexTheItemIsReservedFor].Center.Y, velocity.X, velocity.Y, ModContent.ProjectileType<WallOfShadowsFlask_Proj>(), Damage, ShootKN, Item.playerIndexTheItemIsReservedFor);
 
-            }
         }
+    }
 	}
-}

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Terraria.Audio;
 using System.Linq;
 using Microsoft.Xna.Framework;
@@ -14,10 +14,10 @@ using TremorMod.Content.Projectiles;
 using TremorMod.Utilities;
 using Utils = Terraria.Utils;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class ExtendedFreezeFlaskPro : ModProjectile
-    {
+{
 		public override void SetStaticDefaults()
 		{
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
@@ -34,17 +34,17 @@ namespace TremorMod.Content.Projectiles
 			Projectile.timeLeft = 1200;
 		}
 
-        public override void OnSpawn(IEntitySource source)
+    public override void OnSpawn(IEntitySource source)
+    {
+        Player player = Main.player[Projectile.owner];
+
+        if (player.HasBuff(ModContent.BuffType<BouncingCasingBuff>()))
         {
-            Player player = Main.player[Projectile.owner];
-
-            if (player.HasBuff(ModContent.BuffType<BouncingCasingBuff>()))
-            {
-                Projectile.penetrate = 3;
-            }
+            Projectile.penetrate = 3;
         }
+    }
 
-        public override void AI()
+    public override void AI()
 		{
 			if (Main.LocalPlayer.HasBuff(ModContent.BuffType<TheCadenceBuff>()))
 			{
@@ -130,15 +130,15 @@ namespace TremorMod.Content.Projectiles
 
 		public override void OnKill(int timeLeft)
 		{
-            Player player = Main.player[Projectile.owner];
-            var modPlayer = player.GetModPlayer<MPlayer>();
-            SoundEngine.PlaySound(SoundID.Item107, Projectile.position);
+        Player player = Main.player[Projectile.owner];
+        var modPlayer = player.GetModPlayer<MPlayer>();
+        SoundEngine.PlaySound(SoundID.Item107, Projectile.position);
 
-            IEntitySource source = Projectile.GetSource_FromThis();
-            Gore.NewGore(source, Projectile.position, -Projectile.oldVelocity * 0.2f, 704, 1f);
-            Gore.NewGore(source, Projectile.position, -Projectile.oldVelocity * 0.2f, 705, 1f);
+        IEntitySource source = Projectile.GetSource_FromThis();
+        Gore.NewGore(source, Projectile.position, -Projectile.oldVelocity * 0.2f, 704, 1f);
+        Gore.NewGore(source, Projectile.position, -Projectile.oldVelocity * 0.2f, 705, 1f);
 
-            if (Main.LocalPlayer.HasBuff(ModContent.BuffType<DesertEmperorSetBuff>()))
+        if (Main.LocalPlayer.HasBuff(ModContent.BuffType<DesertEmperorSetBuff>()))
 			{
 				int a = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, 0, 0, ModContent.ProjectileType<FlaskWasp>(), Projectile.damage * 2, 1.5f, Projectile.owner);
 				int b = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, 0, 0, ModContent.ProjectileType<FlaskWasp>(), Projectile.damage * 2, 1.5f, Projectile.owner);
@@ -507,4 +507,3 @@ namespace TremorMod.Content.Projectiles
 		}
 
 	}
-}

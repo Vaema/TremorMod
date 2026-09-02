@@ -4,8 +4,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class projVultureFeather : ModProjectile
 	{
 		const int TileCollideDustType = DustID.Tin;
@@ -40,4 +40,3 @@ namespace TremorMod.Content.Projectiles
 			return true;
 		}
 	}
-}

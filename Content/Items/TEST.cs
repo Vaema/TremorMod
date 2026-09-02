@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items
-{ 
+namespace TremorMod.Content.Items;
+
 	// This is a basic item template.
 	// Please see tModLoader's ExampleMod for every other example:
 	// https://github.com/tModLoader/tModLoader/tree/stable/ExampleMod
@@ -34,4 +34,3 @@ namespace TremorMod.Content.Items
 			recipe.Register();
 		}
 	}
-}

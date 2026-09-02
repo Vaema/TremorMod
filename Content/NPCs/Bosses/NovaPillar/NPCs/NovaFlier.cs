@@ -8,8 +8,8 @@ using TremorMod.Content.Projectiles;
 using Terraria.DataStructures;
 using TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles;
 
-namespace TremorMod.Content.NPCs.Bosses.NovaPillar.NPCs
-{
+namespace TremorMod.Content.NPCs.Bosses.NovaPillar.NPCs;
+
 	public class NovaFlier : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -51,119 +51,119 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.NPCs
 		}
 
 		Vector2 RandomPointInArea(Vector2 areaStart, Vector2 areaEnd)
-        {
-            float x = Main.rand.NextFloat(areaStart.X, areaEnd.X);
-            float y = Main.rand.NextFloat(areaStart.Y, areaEnd.Y);
-            return new Vector2(x, y);
-        }
+    {
+        float x = Main.rand.NextFloat(areaStart.X, areaEnd.X);
+        float y = Main.rand.NextFloat(areaStart.Y, areaEnd.Y);
+        return new Vector2(x, y);
+    }
 
-        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)
+    public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)
 		{
 			NPC.lifeMax = NPC.lifeMax * 1;
 			NPC.damage = NPC.damage * 1;
 		}
 
-        public static class Helper
+    public static class Helper
+    {
+        public static Vector2 RandomPointInArea(Vector2 topLeft, Vector2 bottomRight)
         {
-            public static Vector2 RandomPointInArea(Vector2 topLeft, Vector2 bottomRight)
-            {
-                float randomX = Main.rand.NextFloat(topLeft.X, bottomRight.X);
-                float randomY = Main.rand.NextFloat(topLeft.Y, bottomRight.Y);
-                return new Vector2(randomX, randomY);
-            }
-
-            public static Vector2 VelocityToPoint(Vector2 startPoint, Vector2 endPoint, float speed)
-            {
-                Vector2 direction = endPoint - startPoint;
-                direction.Normalize();
-                return direction * speed;
-            }
+            float randomX = Main.rand.NextFloat(topLeft.X, bottomRight.X);
+            float randomY = Main.rand.NextFloat(topLeft.Y, bottomRight.Y);
+            return new Vector2(randomX, randomY);
         }
 
-        public override void AI()
+        public static Vector2 VelocityToPoint(Vector2 startPoint, Vector2 endPoint, float speed)
         {
-            Player player = Main.player[NPC.target];
+            Vector2 direction = endPoint - startPoint;
+            direction.Normalize();
+            return direction * speed;
+        }
+    }
 
-            if (player.GetModPlayer<TremorPlayer>().ZoneRuins)
-            {
-                NPC.life = -1;
-                NPC.active = false;
-                NPC.checkDead();
-                return;
-            }
+    public override void AI()
+    {
+        Player player = Main.player[NPC.target];
 
-            NPC.spriteDirection = NPC.direction;
-            NovaAnimation();
-
-            if (Main.time % 200 == 0)
-            {
-                Vector2 targetAreaTopLeft = new Vector2(player.Center.X - 10, player.Center.Y - 10);
-                Vector2 targetAreaBottomRight = new Vector2(player.Center.X + 20, player.Center.Y + 20);
-
-                Vector2 randomPoint = Helper.RandomPointInArea(targetAreaTopLeft, targetAreaBottomRight);
-
-                Vector2 velocity = Helper.VelocityToPoint(NPC.Center, randomPoint, 7);
-                var source = NPC.GetSource_FromThis();
-
-                Projectile.NewProjectile(source, NPC.Center, velocity, ModContent.ProjectileType<NovaFlierProj>(), 20, 1f);
-            }
+        if (player.GetModPlayer<TremorPlayer>().ZoneRuins)
+        {
+            NPC.life = -1;
+            NPC.active = false;
+            NPC.checkDead();
+            return;
         }
 
+        NPC.spriteDirection = NPC.direction;
+        NovaAnimation();
 
-        /*public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        if (Main.time % 200 == 0)
         {
-            Texture2D glowMask = ModContent.Request<Texture2D>("NPCs/Bosses/NovaPillar/NPCs/NovaFlier_GlowMask").Value;
-            TremorUtils.DrawNPCGlowMask(spriteBatch, NPC, glowMask);
-        }*/
+            Vector2 targetAreaTopLeft = new Vector2(player.Center.X - 10, player.Center.Y - 10);
+            Vector2 targetAreaBottomRight = new Vector2(player.Center.X + 20, player.Center.Y + 20);
 
+            Vector2 randomPoint = Helper.RandomPointInArea(targetAreaTopLeft, targetAreaBottomRight);
 
-        public override void HitEffect(NPC.HitInfo hit)
-        {
-            if (NPC.life <= 0)
-            {
-                if (NovaHandler.ShieldStrength > 0)
-                {
-                    int parentIndex = NPC.FindFirstNPC(ModContent.NPCType<NovaPillar>());
+            Vector2 velocity = Helper.VelocityToPoint(NPC.Center, randomPoint, 7);
+            var source = NPC.GetSource_FromThis();
 
-                    // Ensure that the NPC type is found before accessing the array
-                    if (parentIndex != -1)
-                    {
-                        NPC parent = Main.npc[parentIndex];
-                        Vector2 Velocity = Helper.VelocityToPoint(NPC.Center, parent.Center, 20);
-                        var source = NPC.GetSource_FromThis();
-                        Projectile.NewProjectile(source, NPC.Center, Velocity, ModContent.ProjectileType<CogLordLaser>(), 1, 1f);
-                    }
-                }
-                for (int i = 0; i < 5; i++)
-                {
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, 57, Main.rand.NextFloat(-3f, 3f), Main.rand.NextFloat(-3f, 3f));
-                }
-                for (int i = 0; i < 2; i++)
-                {
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("NovaFlierGore1").Type, 1);
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("NovaFlierGore2").Type, 1);
-                }
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("NovaFlierGore3").Type, 1);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("NovaFlierGore3").Type, 1);
-            }
+            Projectile.NewProjectile(source, NPC.Center, velocity, ModContent.ProjectileType<NovaFlierProj>(), 20, 1f);
         }
+    }
 
-        public override void OnKill()
+
+    /*public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+    {
+        Texture2D glowMask = ModContent.Request<Texture2D>("NPCs/Bosses/NovaPillar/NPCs/NovaFlier_GlowMask").Value;
+        TremorUtils.DrawNPCGlowMask(spriteBatch, NPC, glowMask);
+    }*/
+
+
+    public override void HitEffect(NPC.HitInfo hit)
+    {
+        if (NPC.life <= 0)
         {
-            base.OnKill();
-            int pillarIndex = NPC.FindFirstNPC(ModContent.NPCType<NovaPillar>());
-
-            if (pillarIndex != -1)
+            if (NovaHandler.ShieldStrength > 0)
             {
-                NPC pillar = Main.npc[pillarIndex];
-                if (pillar != null && pillar.ModNPC is NovaPillar novaPillar)
+                int parentIndex = NPC.FindFirstNPC(ModContent.NPCType<NovaPillar>());
+
+                // Ensure that the NPC type is found before accessing the array
+                if (parentIndex != -1)
                 {
-                    novaPillar.OnEnemyKilled();
+                    NPC parent = Main.npc[parentIndex];
+                    Vector2 Velocity = Helper.VelocityToPoint(NPC.Center, parent.Center, 20);
+                    var source = NPC.GetSource_FromThis();
+                    Projectile.NewProjectile(source, NPC.Center, Velocity, ModContent.ProjectileType<CogLordLaser>(), 1, 1f);
                 }
             }
+            for (int i = 0; i < 5; i++)
+            {
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, 57, Main.rand.NextFloat(-3f, 3f), Main.rand.NextFloat(-3f, 3f));
+            }
+            for (int i = 0; i < 2; i++)
+            {
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("NovaFlierGore1").Type, 1);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("NovaFlierGore2").Type, 1);
+            }
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("NovaFlierGore3").Type, 1);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("NovaFlierGore3").Type, 1);
         }
+    }
 
-        void NovaAnimation()
+    public override void OnKill()
+    {
+        base.OnKill();
+        int pillarIndex = NPC.FindFirstNPC(ModContent.NPCType<NovaPillar>());
+
+        if (pillarIndex != -1)
+        {
+            NPC pillar = Main.npc[pillarIndex];
+            if (pillar != null && pillar.ModNPC is NovaPillar novaPillar)
+            {
+                novaPillar.OnEnemyKilled();
+            }
+        }
+    }
+
+    void NovaAnimation()
 		{
 			if (--TimeToAnimation <= 0)
 			{
@@ -179,11 +179,10 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.NPCs
 			return new Rectangle(0, NPC.frame.Height * (Number - 1), NPC.frame.Width, NPC.frame.Height);
 		}
 
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            if (spawnInfo.Player.GetModPlayer<TremorPlayer>().ZoneTowerNova)
-                return 1f; 
-            return 0;
-        }
+    public override float SpawnChance(NPCSpawnInfo spawnInfo)
+    {
+        if (spawnInfo.Player.GetModPlayer<TremorPlayer>().ZoneTowerNova)
+            return 1f; 
+        return 0;
     }
 }

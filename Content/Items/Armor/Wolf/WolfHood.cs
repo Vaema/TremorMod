@@ -1,17 +1,17 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Armor.Wolf
-{
+namespace TremorMod.Content.Items.Armor.Wolf;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class WolfHood : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 
 			Item.width = 28;
@@ -26,8 +26,8 @@ namespace TremorMod.Content.Items.Armor.Wolf
 		{
 			// DisplayName.SetDefault("Wolf Hood");
 			// Tooltip.SetDefault("6% increased minion damage");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases your max number of minions");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases your max number of minions");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -41,8 +41,8 @@ namespace TremorMod.Content.Items.Armor.Wolf
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Increases your max number of minions";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Increases your max number of minions";
 			player.maxMinions += 1;
 		}
 
@@ -55,4 +55,3 @@ namespace TremorMod.Content.Items.Armor.Wolf
 			recipe.Register();
 		}
 	}
-}

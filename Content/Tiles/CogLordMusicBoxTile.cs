@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace TremorMod.Content.Tiles
-{
+namespace TremorMod.Content.Tiles;
+
 	class CogLordMusicBoxTile : ModTile
 	{
 		public override void SetStaticDefaults()
@@ -27,6 +27,5 @@ namespace TremorMod.Content.Tiles
 			player.noThrow = 2;
 			//player.showItemIcon = true;
 			//player.showItemIcon2 = ModContent.ItemType<CogLordMusicBox>();
-        }
+    }
 	}
-}

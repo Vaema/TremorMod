@@ -1,12 +1,12 @@
-using Terraria;
+п»їusing Terraria;
 using Terraria.ID; 
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using Terraria.GameContent.Creative;
 using Terraria.Localization;
 
-namespace TremorMod.Content.Items.Armor.Afterlife
-{
+namespace TremorMod.Content.Items.Armor.Afterlife;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class AfterlifeBreastplate : ModItem
 	{
@@ -20,31 +20,30 @@ namespace TremorMod.Content.Items.Armor.Afterlife
 			Item.defense = 11;
 		}
 
-        /*public override void SetStaticDefaults()
+    /*public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Afterlife Breastplate");
 			Tooltip.SetDefault("9% increased damage\n" +
 			"Increases your max number of minions");
 		}*/
 
-        public override void UpdateEquip(Player player)
-        {
-            player.GetDamage(DamageClass.Summon) += 0.12f; // Увеличение урона на 12% для Summon
-            player.GetDamage(DamageClass.Magic) += 0.09f;  // Увеличение урона на 9% для Magic
-            player.GetDamage(DamageClass.Ranged) += 0.09f; // Увеличение урона на 9% для Ranged
-            player.GetDamage(DamageClass.Melee) += 0.09f;  // Увеличение урона на 9% для Melee
-            player.maxMinions += 2;                        // Увеличение максимального количества миньонов
-        }
+    public override void UpdateEquip(Player player)
+    {
+        player.GetDamage(DamageClass.Summon) += 0.12f; // Г“ГўГҐГ«ГЁГ·ГҐГ­ГЁГҐ ГіГ°Г®Г­Г  Г­Г  12% Г¤Г«Гї Summon
+        player.GetDamage(DamageClass.Magic) += 0.09f;  // Г“ГўГҐГ«ГЁГ·ГҐГ­ГЁГҐ ГіГ°Г®Г­Г  Г­Г  9% Г¤Г«Гї Magic
+        player.GetDamage(DamageClass.Ranged) += 0.09f; // Г“ГўГҐГ«ГЁГ·ГҐГ­ГЁГҐ ГіГ°Г®Г­Г  Г­Г  9% Г¤Г«Гї Ranged
+        player.GetDamage(DamageClass.Melee) += 0.09f;  // Г“ГўГҐГ«ГЁГ·ГҐГ­ГЁГҐ ГіГ°Г®Г­Г  Г­Г  9% Г¤Г«Гї Melee
+        player.maxMinions += 2;                        // Г“ГўГҐГ«ГЁГ·ГҐГ­ГЁГҐ Г¬Г ГЄГ±ГЁГ¬Г Г«ГјГ­Г®ГЈГ® ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ  Г¬ГЁГ­ГјГ®Г­Г®Гў
+    }
 
 
 
-        public override void AddRecipes()
+    public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<SkullTeeth>(), 3);
-            recipe.AddIngredient(ModContent.ItemType<SteelBar>(), 20);
+        recipe.AddIngredient(ModContent.ItemType<SkullTeeth>(), 3);
+        recipe.AddIngredient(ModContent.ItemType<SteelBar>(), 20);
 			recipe.AddTile(134);
 			recipe.Register();
 		}
 	}
-}

@@ -1,7 +1,7 @@
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Vanity
-{
+namespace TremorMod.Content.Items.Vanity;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class TriangleMask : ModItem
 	{
@@ -22,4 +22,3 @@ namespace TremorMod.Content.Items.Vanity
 		}
 
 	}
-}

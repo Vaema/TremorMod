@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Mounts;
 
-namespace TremorMod.Content.Buffs
-{
+namespace TremorMod.Content.Buffs;
+
 	public class BrutalliskCrystal : ModBuff
 	{
 		public override void SetStaticDefaults()
@@ -21,4 +21,3 @@ namespace TremorMod.Content.Buffs
 			player.noKnockback = true;
 		}
 	}
-}

@@ -1,4 +1,4 @@
-using System;
+Ôªøusing System;
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.Xna.Framework;
@@ -16,8 +16,8 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Filters = Terraria.Graphics.Effects.Filters;
 
-namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles
-{
+namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles;
+
 	public class NovaBottle : ModProjectile
 	{
 
@@ -41,43 +41,42 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles
 			return Color.White;
 		}
 
-        public override void OnKill(int timeLeft)
+    public override void OnKill(int timeLeft)
+    {
+        SoundEngine.PlaySound(SoundID.Item107, Projectile.position);
+        Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.position, -Projectile.oldVelocity * 0.2f, 704, 1f);
+        Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.position, -Projectile.oldVelocity * 0.2f, 705, 1f);
+        Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.position, -Projectile.oldVelocity * 0.2f, 705, 1f);
+
+        if (Projectile.owner == Main.myPlayer)
         {
-            SoundEngine.PlaySound(SoundID.Item107, Projectile.position);
-            Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.position, -Projectile.oldVelocity * 0.2f, 704, 1f);
-            Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.position, -Projectile.oldVelocity * 0.2f, 705, 1f);
-            Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.position, -Projectile.oldVelocity * 0.2f, 705, 1f);
-
-            if (Projectile.owner == Main.myPlayer)
+            int num220 = Main.rand.Next(5, 8);
+            for (int num221 = 0; num221 < num220; num221++)
             {
-                int num220 = Main.rand.Next(5, 8);
-                for (int num221 = 0; num221 < num220; num221++)
-                {
-                    Vector2 value17 = new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101));
-                    value17.Normalize();
-                    value17 *= Main.rand.Next(10, 201) * 0.01f;
+                Vector2 value17 = new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101));
+                value17.Normalize();
+                value17 *= Main.rand.Next(10, 201) * 0.01f;
 
-                    int k = Projectile.NewProjectile(
-                        Projectile.GetSource_FromThis(),
-                        Projectile.position, // œÓÁËˆËˇ
-                        value17,             // —ÍÓÓÒÚ¸
-                        ModContent.ProjectileType<NovaFlask_Proj>(),
-                        Projectile.damage,
-                        1f,
-                        Projectile.owner,
-                        0f,
-                        Main.rand.Next(-45, 1)
-                    );
+                int k = Projectile.NewProjectile(
+                    Projectile.GetSource_FromThis(),
+                    Projectile.position, // √è√Æ√ß√®√∂√®√ø
+                    value17,             // √ë√™√Æ√∞√Æ√±√≤√º
+                    ModContent.ProjectileType<NovaFlask_Proj>(),
+                    Projectile.damage,
+                    1f,
+                    Projectile.owner,
+                    0f,
+                    Main.rand.Next(-45, 1)
+                );
 
-                    Main.projectile[k].friendly = false;
-                }
+                Main.projectile[k].friendly = false;
             }
         }
+    }
 
 
-        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+    public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
 			Projectile.Kill();
 		}
 	}
-}

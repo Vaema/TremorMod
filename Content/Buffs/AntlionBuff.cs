@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Content.Mounts;
 
-namespace TremorMod.Content.Buffs
-{
+namespace TremorMod.Content.Buffs;
+
 	public class AntlionBuff : ModBuff
 	{
 		public override void SetStaticDefaults()
@@ -19,4 +19,3 @@ namespace TremorMod.Content.Buffs
 			player.buffTime[buffIndex] = 10;
 		}
 	}
-}

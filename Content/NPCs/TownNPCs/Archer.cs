@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
@@ -49,16 +49,16 @@ using TremorMod.Content.Projectiles;
 using TremorMod.Utilities;
 using TremorMod;
 
-namespace TremorMod.Content.NPCs.TownNPCs
-{
+namespace TremorMod.Content.NPCs.TownNPCs;
+
 	[AutoloadHead]
 	public class Archer : ModNPC
 	{
 		public override string Texture => $"{typeof(Archer).NamespaceToPath()}/Archer";
 
-        public override bool IsLoadingEnabled(Mod mod) => true;
+    public override bool IsLoadingEnabled(Mod mod) => true;
 
-        public override void SetStaticDefaults()
+    public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Archer");
 			Main.npcFrameCount[NPC.type] = 26;
@@ -88,80 +88,80 @@ namespace TremorMod.Content.NPCs.TownNPCs
 			AnimationType = NPCID.Guide;
 		}
 
-        public override bool CanTownNPCSpawn(int numTownNPCs)
+    public override bool CanTownNPCSpawn(int numTownNPCs)
+    {
+        foreach (Player player in Main.ActivePlayers)
         {
-            foreach (Player player in Main.ActivePlayers)
+            if (player.InventoryHas(ItemID.WoodenArrow))
             {
-                if (player.InventoryHas(ItemID.WoodenArrow))
-                {
-                    return true; 
-                }
+                return true; 
             }
-            return false; 
         }
+        return false; 
+    }
 
-        public override List<string> SetNPCNameList() => new List<string>()
-        {
-            this.GetLocalizedValue("Name.Richard"),
-            this.GetLocalizedValue("Name.Arthur"),
-            this.GetLocalizedValue("Name.Jack"),
-            this.GetLocalizedValue("Name.William"),
-            this.GetLocalizedValue("Name.Robin"),
-            this.GetLocalizedValue("Name.Wales")
-        };
+    public override List<string> SetNPCNameList() => new List<string>()
+    {
+        this.GetLocalizedValue("Name.Richard"),
+        this.GetLocalizedValue("Name.Arthur"),
+        this.GetLocalizedValue("Name.Jack"),
+        this.GetLocalizedValue("Name.William"),
+        this.GetLocalizedValue("Name.Robin"),
+        this.GetLocalizedValue("Name.Wales")
+    };
 
-        public override string GetChat()
-        {
-            WeightedRandom<string> dialogue = new WeightedRandom<string>();
+    public override string GetChat()
+    {
+        WeightedRandom<string> dialogue = new WeightedRandom<string>();
 
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal1"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal2"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal3"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal4"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal5"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal6"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal1"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal2"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal3"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal4"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal5"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal6"));
 
-            return dialogue;
-        }
+        return dialogue;
+    }
 
 		public override void SetChatButtons(ref string button, ref string button2)
 		{
 			button = Lang.inter[28].Value;
 		}
 
-        public override void OnChatButtonClicked(bool firstButton, ref string shopName)
-        {
-            if (firstButton)
-                shopName = "Archer";
-        }
+    public override void OnChatButtonClicked(bool firstButton, ref string shopName)
+    {
+        if (firstButton)
+            shopName = "Archer";
+    }
 
-        public override void AddShops()
-        {
-            var bossCondition = new Condition("DownedEaterOrBrain", () => Condition.DownedEaterOfWorlds.IsMet() || Condition.DownedBrainOfCthulhu.IsMet());
-            NPCShop shop = new(Type, "Archer");
+    public override void AddShops()
+    {
+        var bossCondition = new Condition("DownedEaterOrBrain", () => Condition.DownedEaterOfWorlds.IsMet() || Condition.DownedBrainOfCthulhu.IsMet());
+        NPCShop shop = new(Type, "Archer");
 
-            shop.AddWithCustomValue(ModContent.ItemType<Quiver>(), Item.buyPrice(silver: 6), Condition.DownedEyeOfCthulhu)
-                .AddWithCustomValue(ModContent.ItemType<ArcherGlove>(), Item.buyPrice(gold: 1))
-                .AddWithCustomValue(ModContent.ItemType<Crossbow>(), Item.buyPrice(gold: 3))
-                .AddWithCustomValue(ItemID.WoodenArrow, Item.buyPrice(copper: 5))
-                .AddWithCustomValue(ModContent.ItemType<MiniGun>(), Item.buyPrice(gold: 5), Condition.DownedEyeOfCthulhu)
-                .AddWithCustomValue(ModContent.ItemType<LeatherHat>(), Item.buyPrice(silver: 50), Condition.DownedEyeOfCthulhu)
-                .AddWithCustomValue(ModContent.ItemType<LeatherShirt>(), Item.buyPrice(silver: 75), Condition.DownedEyeOfCthulhu)
-                .AddWithCustomValue(ModContent.ItemType<LeatherGreaves>(), Item.buyPrice(silver: 75), Condition.DownedEyeOfCthulhu)
-                .AddWithCustomValue(ItemID.JestersArrow, Item.buyPrice(silver: 10), Condition.DownedEyeOfCthulhu)
-                .AddWithCustomValue(ItemID.BoneJavelin, Item.buyPrice(silver: 15), bossCondition)
-                .AddWithCustomValue(ModContent.ItemType<DragonGem>(), Item.buyPrice(gold: 3), bossCondition)
-                .AddWithCustomValue(ItemID.UnholyArrow, Item.buyPrice(silver: 20), bossCondition)
-                .AddWithCustomValue(ModContent.ItemType<DesertEagle>(), Item.buyPrice(gold: 10), Condition.Hardmode)
-                .AddWithCustomValue(ItemID.HolyArrow, Item.buyPrice(silver: 25), Condition.Hardmode)
-                .AddWithCustomValue(ItemID.HellfireArrow, Item.buyPrice(silver: 30), Condition.Hardmode)
-                .AddWithCustomValue(ItemID.BoneArrow, Item.buyPrice(silver: 5), Condition.BloodMoon);
+        shop.AddWithCustomValue(ModContent.ItemType<Quiver>(), Item.buyPrice(silver: 6), Condition.DownedEyeOfCthulhu)
+            .AddWithCustomValue(ModContent.ItemType<ArcherGlove>(), Item.buyPrice(gold: 1))
+            .AddWithCustomValue(ModContent.ItemType<Crossbow>(), Item.buyPrice(gold: 3))
+            .AddWithCustomValue(ItemID.WoodenArrow, Item.buyPrice(copper: 5))
+            .AddWithCustomValue(ModContent.ItemType<MiniGun>(), Item.buyPrice(gold: 5), Condition.DownedEyeOfCthulhu)
+            .AddWithCustomValue(ModContent.ItemType<LeatherHat>(), Item.buyPrice(silver: 50), Condition.DownedEyeOfCthulhu)
+            .AddWithCustomValue(ModContent.ItemType<LeatherShirt>(), Item.buyPrice(silver: 75), Condition.DownedEyeOfCthulhu)
+            .AddWithCustomValue(ModContent.ItemType<LeatherGreaves>(), Item.buyPrice(silver: 75), Condition.DownedEyeOfCthulhu)
+            .AddWithCustomValue(ItemID.JestersArrow, Item.buyPrice(silver: 10), Condition.DownedEyeOfCthulhu)
+            .AddWithCustomValue(ItemID.BoneJavelin, Item.buyPrice(silver: 15), bossCondition)
+            .AddWithCustomValue(ModContent.ItemType<DragonGem>(), Item.buyPrice(gold: 3), bossCondition)
+            .AddWithCustomValue(ItemID.UnholyArrow, Item.buyPrice(silver: 20), bossCondition)
+            .AddWithCustomValue(ModContent.ItemType<DesertEagle>(), Item.buyPrice(gold: 10), Condition.Hardmode)
+            .AddWithCustomValue(ItemID.HolyArrow, Item.buyPrice(silver: 25), Condition.Hardmode)
+            .AddWithCustomValue(ItemID.HellfireArrow, Item.buyPrice(silver: 30), Condition.Hardmode)
+            .AddWithCustomValue(ItemID.BoneArrow, Item.buyPrice(silver: 5), Condition.BloodMoon);
 
-            shop.Register();
-        }
+        shop.Register();
+    }
 
 
-        public override void TownNPCAttackStrength(ref int damage, ref float knockback)
+    public override void TownNPCAttackStrength(ref int damage, ref float knockback)
 		{
 			damage = 20;
 			knockback = 4f;
@@ -173,12 +173,12 @@ namespace TremorMod.Content.NPCs.TownNPCs
 			randExtraCooldown = 10;
 		}
 
-        public override void DrawTownAttackGun(ref Texture2D item, ref Rectangle itemFrame, ref float scale, ref int horizontalHoldoutOffset)
-        {
-            scale = 1f;
-            item = Main.hardMode ? TextureAssets.Item[ItemID.ShadowFlameBow].Value : TextureAssets.Item[ItemID.DemonBow].Value;
-            horizontalHoldoutOffset = 20;
-        }
+    public override void DrawTownAttackGun(ref Texture2D item, ref Rectangle itemFrame, ref float scale, ref int horizontalHoldoutOffset)
+    {
+        scale = 1f;
+        item = Main.hardMode ? TextureAssets.Item[ItemID.ShadowFlameBow].Value : TextureAssets.Item[ItemID.DemonBow].Value;
+        horizontalHoldoutOffset = 20;
+    }
 
 		public override void TownNPCAttackProj(ref int projType, ref int attackDelay)//Allows you to determine the projectile type of this town NPC's attack, and how long it takes for the projectile to actually appear
 		{
@@ -193,16 +193,15 @@ namespace TremorMod.Content.NPCs.TownNPCs
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
 				for(int i = 0; i < 3; ++i)
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ArcherGore1").Type, 1f);
-            }
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ArcherGore1").Type, 1f);
+        }
 		}
 	}
-}

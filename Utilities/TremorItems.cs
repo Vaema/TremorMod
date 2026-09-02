@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -37,8 +37,8 @@ using TremorMod.Content.Items.Weapons.Throwing;
 using TremorMod.Content.Items.Wood;
 using TremorMod;
 
-namespace TremorMod.Utilities
-{
+namespace TremorMod.Utilities;
+
 	public class TremorItems : GlobalItem
 	{
 
@@ -196,4 +196,3 @@ namespace TremorMod.Utilities
 			}
 		}
 	}
-}

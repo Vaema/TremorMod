@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Materials.OreAndBar;
 
-namespace TremorMod.Content.Items.Armor.Magium
-{
+namespace TremorMod.Content.Items.Armor.Magium;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class MagiumGreaves : ModItem
 	{
@@ -42,4 +42,3 @@ namespace TremorMod.Content.Items.Armor.Magium
 			recipe.Register();
 		}
 	}
-}

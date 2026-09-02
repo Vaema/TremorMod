@@ -18,8 +18,8 @@ using TremorMod.Content.Items;
 using TremorMod.Utilities;
 using TremorMod;
 
-namespace TremorMod.Content.NPCs.Bosses.Brutallisk
-{
+namespace TremorMod.Content.NPCs.Bosses.Brutallisk;
+
 	[AutoloadBossHead]
 	public class Brutallisk : ModNPC
 	{
@@ -77,13 +77,13 @@ namespace TremorMod.Content.NPCs.Bosses.Brutallisk
 			//bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("BrutalliskBag").Type;
 		}
 
-        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float bossLifeScale, float balance)
-        {
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.625f * bossLifeScale);
-            NPC.damage = (int)(NPC.damage * 0.6f);
-        }
+    public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float bossLifeScale, float balance)
+    {
+        NPC.lifeMax = (int)(NPC.lifeMax * 0.625f * bossLifeScale);
+        NPC.damage = (int)(NPC.damage * 0.6f);
+    }
 
-        public override void HitEffect(NPC.HitInfo hit)
+    public override void HitEffect(NPC.HitInfo hit)
 		{
 			int hitDirection = hit.HitDirection;
 
@@ -93,12 +93,12 @@ namespace TremorMod.Content.NPCs.Bosses.Brutallisk
 				{
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				}
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("BrutalliskGore1").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("BrutalliskGore2").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("BrutalliskGore3").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("BrutalliskGore4").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("BrutalliskGore4").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("BrutalliskCrystal").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("BrutalliskGore1").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("BrutalliskGore2").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("BrutalliskGore3").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("BrutalliskGore4").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("BrutalliskGore4").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("BrutalliskCrystal").Type, 1f);
 			}
 			else
 			{
@@ -510,7 +510,7 @@ namespace TremorMod.Content.NPCs.Bosses.Brutallisk
 			if (Main.rand.Next(380) == 0)
 			{
 				NPC.NewNPC(Entity.GetSource_FromThis(), (int)NPC.position.X - 50, (int)NPC.position.Y, ModContent.NPCType<Naga>());
-            }
+        }
 
 			if (Main.rand.Next(380) == 0)
 			{
@@ -525,25 +525,24 @@ namespace TremorMod.Content.NPCs.Bosses.Brutallisk
 			return move * (speed / (float)Math.Sqrt(move.X * move.X + move.Y * move.Y));
 		}
 
-        public override void OnKill()
-        {
-            TremorSpawnEnemys.downedBrutallisk = true;
-        }
-
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BrutalliskMask>(), 7));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<LightningStaff>(), 4));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Awakening>(), 4));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SnakeDevourer>(), 4));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<QuetzalcoatlStave>(), 4));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TreasureGlaive>(), 4));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FallenSnake>(), 4));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<StrangeEgg>(), 5));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BrutalliskTrophy>(), 10));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Aquamarine>(), 1, 25, 30));
-            npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<BrutalliskBag>(), 1));
-        }
-
+    public override void OnKill()
+    {
+        TremorSpawnEnemys.downedBrutallisk = true;
     }
+
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BrutalliskMask>(), 7));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<LightningStaff>(), 4));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Awakening>(), 4));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SnakeDevourer>(), 4));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<QuetzalcoatlStave>(), 4));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TreasureGlaive>(), 4));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FallenSnake>(), 4));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<StrangeEgg>(), 5));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BrutalliskTrophy>(), 10));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Aquamarine>(), 1, 25, 30));
+        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<BrutalliskBag>(), 1));
+    }
+
 }

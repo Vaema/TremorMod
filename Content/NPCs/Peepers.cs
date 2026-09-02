@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
@@ -8,8 +8,8 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Placeable.Banners;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class Peepers : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -22,9 +22,9 @@ namespace TremorMod.Content.NPCs
 		const int ShootDamage = 10;
 		const float ShootKN = 1.0f;
 		const float ShootSpeed = 4;
-        const int ShootType = 100;
+    const int ShootType = 100;
 
-        int TimeToShoot = 0;
+    int TimeToShoot = 0;
 
 		public override void SetDefaults()
 		{
@@ -42,25 +42,25 @@ namespace TremorMod.Content.NPCs
 			NPC.noGravity = true;
 			NPC.DeathSound = SoundID.NPCDeath6;
 			NPC.value = Item.buyPrice(0, 0, 8, 9);
-            Banner = NPC.type;
-            BannerItem = ModContent.ItemType<PeepersBanner>();
-            ItemID.Sets.KillsToBanner[BannerItem] = 50;
-            TimeToShoot = 0;
+        Banner = NPC.type;
+        BannerItem = ModContent.ItemType<PeepersBanner>();
+        ItemID.Sets.KillsToBanner[BannerItem] = 50;
+        TimeToShoot = 0;
 		}
 
-        public override void AI()
+    public override void AI()
+    {
+        if (Main.netMode != 1 && TimeToShoot++ >= 250 && NPC.target != -1)
         {
-            if (Main.netMode != 1 && TimeToShoot++ >= 250 && NPC.target != -1)
-            {
-                IEntitySource source = NPC.GetSource_FromAI();
-                Vector2 position = NPC.Center;
-                Vector2 velocity = Vector2.Normalize(Main.player[NPC.target].Center - NPC.Center) * ShootSpeed;
-                Projectile.NewProjectile(source, position, velocity, ShootType, ShootDamage, ShootKN);
-                TimeToShoot = 0;
-            }
+            IEntitySource source = NPC.GetSource_FromAI();
+            Vector2 position = NPC.Center;
+            Vector2 velocity = Vector2.Normalize(Main.player[NPC.target].Center - NPC.Center) * ShootSpeed;
+            Projectile.NewProjectile(source, position, velocity, ShootType, ShootDamage, ShootKN);
+            TimeToShoot = 0;
         }
+    }
 
-        public override void OnKill()
+    public override void OnKill()
 		{
 			if (Main.rand.NextBool(1))
 			{
@@ -68,11 +68,11 @@ namespace TremorMod.Content.NPCs
 			}
 		}
 
-        public override void HitEffect(NPC.HitInfo hit)
+    public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
 				{
@@ -92,8 +92,8 @@ namespace TremorMod.Content.NPCs
 					Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PeepersGore3").Type, 1f);
 					Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PeepersGore3").Type, 1f);
 				}
-                
-            }
+            
+        }
 			else
 			{
 				for (int k = 0; k < hit.Damage / NPC.lifeMax * 50.0; k++)
@@ -108,4 +108,3 @@ namespace TremorMod.Content.NPCs
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 			=> Helper.NoZoneAllowWater(spawnInfo) && spawnInfo.Player.ZoneDungeon && spawnInfo.SpawnTileY > Main.rockLayer ? 0.01f : 0f;
 	}
-}

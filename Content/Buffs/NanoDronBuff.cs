@@ -1,54 +1,53 @@
-using System;
+п»їusing System;
 using Terraria;
 using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles.Minions;
 
-namespace TremorMod.Content.Buffs
+namespace TremorMod.Content.Buffs;
+
+public class NanoDronBuff : ModBuff
 {
-    public class NanoDronBuff : ModBuff
+    int MinionType = -1;
+    int MinionID = -1;
+
+    public override void SetStaticDefaults()
     {
-        int MinionType = -1;
-        int MinionID = -1;
+        Main.buffNoTimeDisplay[Type] = true;
+        //DisplayName.SetDefault("Nano Dron");
+        //Description.SetDefault("Summons a dron that destroys your enemies");
+    }
 
-        public override void SetStaticDefaults()
+    public override void Update(Player player, ref int buffIndex)
+    {
+        if (MinionType == -1)
+            MinionType = ModContent.ProjectileType<NanoDronPro>();
+
+        // ГЏГ°Г®ГўГҐГ°ГїГҐГ¬ Г­Г Г«ГЁГ·ГЁГҐ Г ГЄГІГЁГўГ­Г®ГЈГ® Г¬ГЁГ­ГјГ®Г­Г 
+        if (MinionID == -1 ||
+            !Main.projectile[MinionID].active ||
+            Main.projectile[MinionID].type != MinionType ||
+            Main.projectile[MinionID].owner != player.whoAmI)
         {
-            Main.buffNoTimeDisplay[Type] = true;
-            //DisplayName.SetDefault("Nano Dron");
-            //Description.SetDefault("Summons a dron that destroys your enemies");
+            // Г‘Г®Г§Г¤Г ГҐГ¬ ГЁГ±ГІГ®Г·Г­ГЁГЄ Г¤ГҐГ©Г±ГІГўГЁГї ГЄГ®Г°Г°ГҐГЄГІГ­Г®
+            IEntitySource source = player.GetSource_Buff(buffIndex);
+
+            // Г‚Г»Г§Г»ГўГ ГҐГ¬ Г­Г®ГўГ®ГЈГ® Г¬ГЁГ­ГјГ®Г­Г 
+            MinionID = Projectile.NewProjectile(
+                source,             // Г€Г±ГІГ®Г·Г­ГЁГЄ Г¤ГҐГ©Г±ГІГўГЁГї
+                player.Center,       // ГЏГ®Г§ГЁГ¶ГЁГї
+                Vector2.Zero,        // Г‘ГЄГ®Г°Г®Г±ГІГј
+                MinionType,          // Г’ГЁГЇ Г¬ГЁГ­ГјГ®Г­Г 
+                50,                  // Г“Г°Г®Г­
+                1f,                  // ГЋГІГЎГ°Г®Г±
+                player.whoAmI        // Г‚Г«Г Г¤ГҐГ«ГҐГ¶
+            );
         }
-
-        public override void Update(Player player, ref int buffIndex)
+        else
         {
-            if (MinionType == -1)
-                MinionType = ModContent.ProjectileType<NanoDronPro>();
-
-            // Проверяем наличие активного миньона
-            if (MinionID == -1 ||
-                !Main.projectile[MinionID].active ||
-                Main.projectile[MinionID].type != MinionType ||
-                Main.projectile[MinionID].owner != player.whoAmI)
-            {
-                // Создаем источник действия корректно
-                IEntitySource source = player.GetSource_Buff(buffIndex);
-
-                // Вызываем нового миньона
-                MinionID = Projectile.NewProjectile(
-                    source,             // Источник действия
-                    player.Center,       // Позиция
-                    Vector2.Zero,        // Скорость
-                    MinionType,          // Тип миньона
-                    50,                  // Урон
-                    1f,                  // Отброс
-                    player.whoAmI        // Владелец
-                );
-            }
-            else
-            {
-                // Обновляем время жизни миньона
-                Main.projectile[MinionID].timeLeft = 5;
-            }
+            // ГЋГЎГ­Г®ГўГ«ГїГҐГ¬ ГўГ°ГҐГ¬Гї Г¦ГЁГ§Г­ГЁ Г¬ГЁГ­ГјГ®Г­Г 
+            Main.projectile[MinionID].timeLeft = 5;
         }
     }
 }

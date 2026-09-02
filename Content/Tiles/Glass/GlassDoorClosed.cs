@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
@@ -6,8 +6,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace TremorMod.Content.Tiles.Glass
-{
+namespace TremorMod.Content.Tiles.Glass;
+
 	public class GlassDoorClosed : ModTile
 	{
 		public override void SetStaticDefaults()
@@ -24,7 +24,7 @@ namespace TremorMod.Content.Tiles.Glass
 			TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile, TileObjectData.newTile.Width, 0);
 			TileObjectData.newTile.UsesCustomCanPlace = true;
 			TileObjectData.newTile.LavaDeath = true;
-			TileObjectData.newTile.CoordinateHeights = new[]{ 16, 16, 16 };
+			TileObjectData.newTile.CoordinateHeights = [16, 16, 16];
 			TileObjectData.newTile.CoordinateWidth = 16;
 			TileObjectData.newTile.CoordinatePadding = 2;
 			TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
@@ -36,8 +36,7 @@ namespace TremorMod.Content.Tiles.Glass
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
 			AddMapEntry(new Color(200, 200, 200), CreateMapEntryName());
-			AdjTiles = new int[]{ TileID.ClosedDoor };
-            TileID.Sets.OpenDoorID[Type] = ModContent.TileType<GlassDoorOpen>();
-        }
+			AdjTiles = [TileID.ClosedDoor];
+        TileID.Sets.OpenDoorID[Type] = ModContent.TileType<GlassDoorOpen>();
+    }
 	}
-}

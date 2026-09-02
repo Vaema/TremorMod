@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Buffs
-{
+namespace TremorMod.Content.Buffs;
+
 	public class GurdPetBuff : ModBuff
 	{
 		public override void SetStaticDefaults()
@@ -30,4 +30,3 @@ namespace TremorMod.Content.Buffs
 			}
 		}*/
 	}
-}

@@ -1,8 +1,8 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Materials
-{
+namespace TremorMod.Content.Items.Materials;
+
 	public class MeatChunk : ModItem
 	{
 		public override void SetDefaults()
@@ -17,4 +17,3 @@ namespace TremorMod.Content.Items.Materials
 			//Tooltip.SetDefault("");
 		}
 	}
-}

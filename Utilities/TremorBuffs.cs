@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Utilities
-{
+namespace TremorMod.Utilities;
+
 	public class TremorBuffs : GlobalBuff
 	{
 		public override void Update(int type, Player player, ref int buffIndex)
@@ -17,4 +17,3 @@ namespace TremorMod.Utilities
 			}
 		}
 	}
-}

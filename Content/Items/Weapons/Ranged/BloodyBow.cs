@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.DataStructures;
@@ -6,8 +6,8 @@ using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Weapons.Ranged
-{
+namespace TremorMod.Content.Items.Weapons.Ranged;
+
 	public class BloodyBow : ModItem
 	{
 		public override void SetDefaults()
@@ -36,14 +36,14 @@ namespace TremorMod.Content.Items.Weapons.Ranged
 			//Tooltip.SetDefault("Launches arrows at lightning speed!");
 		}
 
-        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-        {
-            Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<BloodyArrow>(), damage, knockback, player.whoAmI);
+    public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    {
+        Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<BloodyArrow>(), damage, knockback, player.whoAmI);
 
-            return false; 
-        }
+        return false; 
+    }
 
-        public override void AddRecipes()
+    public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<SkullTeeth>(), 4);
@@ -53,4 +53,3 @@ namespace TremorMod.Content.Items.Weapons.Ranged
 			recipe.Register();
 		}
 	}
-}

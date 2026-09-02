@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -8,8 +8,8 @@ using TremorMod.Content.Projectiles;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Weapons.Magic
-{
+namespace TremorMod.Content.Items.Weapons.Magic;
+
 	public class AlienBlaster : ModItem
 	{
 		public override void SetDefaults()
@@ -53,30 +53,29 @@ namespace TremorMod.Content.Items.Weapons.Magic
 			recipe.Register();
 		}
 
-        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    {
+        int ShotAmt = 2;
+        int spread = 5;
+        float spreadMult = 0.3f;
+
+        Vector2 vector2 = new Vector2();
+
+        for (int i = 0; i < ShotAmt; i++)
         {
-            int ShotAmt = 2;
-            int spread = 5;
-            float spreadMult = 0.3f;
+            float vX = 8 * velocity.X + Main.rand.Next(-spread, spread + 1) * spreadMult;
+            float vY = 8 * velocity.Y + Main.rand.Next(-spread, spread + 1) * spreadMult;
 
-            Vector2 vector2 = new Vector2();
-
-            for (int i = 0; i < ShotAmt; i++)
+            float angle = (float)Math.Atan(vY / vX);
+            vector2 = new Vector2(position.X + 75f * (float)Math.Cos(angle), position.Y + 75f * (float)Math.Sin(angle));
+            float mouseX = Main.mouseX + Main.screenPosition.X;
+            if (mouseX < player.position.X)
             {
-                float vX = 8 * velocity.X + Main.rand.Next(-spread, spread + 1) * spreadMult;
-                float vY = 8 * velocity.Y + Main.rand.Next(-spread, spread + 1) * spreadMult;
-
-                float angle = (float)Math.Atan(vY / vX);
-                vector2 = new Vector2(position.X + 75f * (float)Math.Cos(angle), position.Y + 75f * (float)Math.Sin(angle));
-                float mouseX = Main.mouseX + Main.screenPosition.X;
-                if (mouseX < player.position.X)
-                {
-                    vector2 = new Vector2(position.X - 75f * (float)Math.Cos(angle), position.Y - 75f * (float)Math.Sin(angle));
-                }
-
-                Projectile.NewProjectile(source, vector2.X, vector2.Y, vX, vY, type, damage, knockback, Main.myPlayer);
+                vector2 = new Vector2(position.X - 75f * (float)Math.Cos(angle), position.Y - 75f * (float)Math.Sin(angle));
             }
-            return false;
+
+            Projectile.NewProjectile(source, vector2.X, vector2.Y, vX, vY, type, damage, knockback, Main.myPlayer);
         }
+        return false;
+    }
 	}
-}

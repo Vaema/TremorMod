@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
@@ -9,8 +9,8 @@ using TremorMod.Content.Items.Placeable.Banners;
 using TremorMod.Content.Items.Weapons.Magic;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class Phantom : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -35,28 +35,28 @@ namespace TremorMod.Content.NPCs
 			NPC.noGravity = true;
 			NPC.DeathSound = SoundID.NPCDeath6;
 			NPC.value = Item.buyPrice(0, 0, 4, 9);
-            Banner = NPC.type;
-            BannerItem = ModContent.ItemType<PhantomBanner>();
-            ItemID.Sets.KillsToBanner[BannerItem] = 50;
-        }
+        Banner = NPC.type;
+        BannerItem = ModContent.ItemType<PhantomBanner>();
+        ItemID.Sets.KillsToBanner[BannerItem] = 50;
+    }
 
-        public override void OnKill()
+    public override void OnKill()
+    {
+        if (Main.rand.NextBool(1))
         {
-            if (Main.rand.NextBool(1))
-            {
-                Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<PhantomSoul>());
-            }
-            if (Main.rand.NextBool(48))
-            {
-                Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<GloomTome>());
-            }
+            Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<PhantomSoul>());
         }
+        if (Main.rand.NextBool(48))
+        {
+            Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<GloomTome>());
+        }
+    }
 
-        public override void HitEffect(NPC.HitInfo hit)
+    public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 60; k++)
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 27, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
@@ -75,4 +75,3 @@ namespace TremorMod.Content.NPCs
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 			=> Helper.NormalSpawn(spawnInfo) && Helper.NoZoneAllowWater(spawnInfo) && Main.bloodMoon && spawnInfo.SpawnTileY < Main.worldSurface ? 0.03f : 0f;
 	}
-}

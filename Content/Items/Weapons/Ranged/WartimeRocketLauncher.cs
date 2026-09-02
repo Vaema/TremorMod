@@ -1,9 +1,9 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Weapons.Ranged
-{
+namespace TremorMod.Content.Items.Weapons.Ranged;
+
 	public class WartimeRocketLauncher : ModItem
 	{
 		public override void SetDefaults()
@@ -37,4 +37,3 @@ namespace TremorMod.Content.Items.Weapons.Ranged
 			return new Vector2(-14, -2);
 		}
 	}
-}

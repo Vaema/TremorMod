@@ -1,12 +1,12 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Audio;
 using TremorMod.Content.NPCs.Bosses.Alchemaster;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.BossSumonItems
-{
+namespace TremorMod.Content.Items.BossSumonItems;
+
 	public class AncientMosaic : ModItem
 	{
 		public override void SetDefaults()
@@ -57,4 +57,3 @@ namespace TremorMod.Content.Items.BossSumonItems
 		}
 
 	}
-}

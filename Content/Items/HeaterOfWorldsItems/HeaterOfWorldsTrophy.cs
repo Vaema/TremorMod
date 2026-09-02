@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.HeaterOfWorldsItems
-{
+namespace TremorMod.Content.Items.HeaterOfWorldsItems;
+
 	public class HeaterOfWorldsTrophy : ModItem
 	{
 		public override void SetDefaults()
@@ -30,4 +30,3 @@ namespace TremorMod.Content.Items.HeaterOfWorldsItems
 		}*/
 
 	}
-}

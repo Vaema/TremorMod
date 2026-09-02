@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Weapons.Melee
-{
+namespace TremorMod.Content.Items.Weapons.Melee;
+
 	public class ExecutionerAxe : ModItem
 	{
 		public override void SetDefaults()
@@ -30,10 +30,10 @@ namespace TremorMod.Content.Items.Weapons.Melee
 			//Tooltip.SetDefault("");
 		}
 
-        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
-        {
-            player.AddBuff(39, 120);
-        }
+    public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
+    {
+        player.AddBuff(39, 120);
+    }
 
 		public override void AddRecipes()
 		{
@@ -47,4 +47,3 @@ namespace TremorMod.Content.Items.Weapons.Melee
 			recipe.Register();
 		}
 	}
-}

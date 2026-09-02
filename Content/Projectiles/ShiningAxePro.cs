@@ -1,7 +1,7 @@
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class ShiningAxePro : ModProjectile
 	{
 		public override void SetDefaults()
@@ -20,4 +20,3 @@ namespace TremorMod.Content.Projectiles
 		}
 
 	}
-}

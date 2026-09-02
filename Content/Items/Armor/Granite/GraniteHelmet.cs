@@ -1,17 +1,17 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Armor.Granite
-{
+namespace TremorMod.Content.Items.Armor.Granite;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class GraniteHelmet : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 
 			Item.width = 18;
@@ -25,8 +25,8 @@ namespace TremorMod.Content.Items.Armor.Granite
 		{
 			// DisplayName.SetDefault("Granite Helmet");
 			// Tooltip.SetDefault("");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases maximum defense by 3");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases maximum defense by 3");
+    }
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
@@ -35,8 +35,8 @@ namespace TremorMod.Content.Items.Armor.Granite
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Increases maximum defense by 3";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Increases maximum defense by 3";
 			player.statDefense += 3;
 			player.moveSpeed -= 0.20f;
 		}
@@ -55,4 +55,3 @@ namespace TremorMod.Content.Items.Armor.Granite
 			recipe.Register();
 		}
 	}
-}

@@ -1,10 +1,10 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Weapons.Melee
-{
+namespace TremorMod.Content.Items.Weapons.Melee;
+
 	public class Crystyle : ModItem
 	{
 		public override void SetDefaults()
@@ -38,4 +38,3 @@ namespace TremorMod.Content.Items.Weapons.Melee
 		}
 
 	}
-}

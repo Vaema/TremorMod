@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles.Bottled;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Placeable.Bottled
-{
+namespace TremorMod.Content.Items.Placeable.Bottled;
+
 	public class BottledSoulOfMind : ModItem
 	{
 		public override void SetDefaults()
@@ -48,4 +48,3 @@ namespace TremorMod.Content.Items.Placeable.Bottled
 			player.detectCreature = true;
 		}
 	}
-}

@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Content.NPCs.Bosses.CogLord;
 //using Tremor.NPCs.Bosses.NovaPillar;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class CogLordLaser : ModProjectile
 	{
 		private const float length = 2400f;
@@ -16,8 +16,8 @@ namespace TremorMod.Content.Projectiles
 			Projectile.height = 48;
 			Projectile.hostile = true;
 			Projectile.penetrate = -1;
-            Projectile.DamageType = DamageClass.Magic;
-            Projectile.tileCollide = false;
+        Projectile.DamageType = DamageClass.Magic;
+        Projectile.tileCollide = false;
 			Projectile.ignoreWater = true;
 			CooldownSlot = 1;
 		}
@@ -49,7 +49,7 @@ namespace TremorMod.Content.Projectiles
 			}
 			for (int k = 0; k < 200; k++)
 			{
-                /*if (NovaHandler.ShieldStrength > 0)
+            /*if (NovaHandler.ShieldStrength > 0)
 				{
 					if (Main.npc[k].Hitbox.Intersects(projectile.Hitbox))
 					{
@@ -60,15 +60,14 @@ namespace TremorMod.Content.Projectiles
 						}
 					}
 				}*/
-                if (Main.npc[k].Hitbox.Intersects(Projectile.Hitbox))
+            if (Main.npc[k].Hitbox.Intersects(Projectile.Hitbox))
+            {
+                if (Main.npc[k].type == ModContent.NPCType<CogLord>())
                 {
-                    if (Main.npc[k].type == ModContent.NPCType<CogLord>())
-                    {
-                        Projectile.Kill();
-                    }
+                    Projectile.Kill();
                 }
-
             }
+
         }
+    }
 	}
-}

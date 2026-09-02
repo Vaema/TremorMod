@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
@@ -50,16 +50,16 @@ using TremorMod.Content.Projectiles;
 using TremorMod.Utilities;
 using TremorMod;
 
-namespace TremorMod.Content.NPCs.TownNPCs
-{
+namespace TremorMod.Content.NPCs.TownNPCs;
+
 	[AutoloadHead]
 	public class ArabianMerchant : ModNPC
 	{
 		public override string Texture => $"{typeof(ArabianMerchant).NamespaceToPath()}/ArabianMerchant";
 
-        public override bool IsLoadingEnabled(Mod mod) => true;
+    public override bool IsLoadingEnabled(Mod mod) => true;
 
-        public override void SetStaticDefaults()
+    public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Arabian Merchant");
 			Main.npcFrameCount[NPC.type] = 26;
@@ -89,85 +89,85 @@ namespace TremorMod.Content.NPCs.TownNPCs
 			AnimationType = NPCID.Guide;
 		}
 
-        public override bool CanTownNPCSpawn(int numTownNPCs)
-        {
-            if (!TremorSpawnEnemys.downedRukh)
-                return false;
-
-            foreach (Player player in Main.ActivePlayers)
-            {
-                if (!player.dead)
-                {
-                    return true;
-                }
-            }
-
+    public override bool CanTownNPCSpawn(int numTownNPCs)
+    {
+        if (!TremorSpawnEnemys.downedRukh)
             return false;
+
+        foreach (Player player in Main.ActivePlayers)
+        {
+            if (!player.dead)
+            {
+                return true;
+            }
         }
 
-        public override List<string> SetNPCNameList() => new List<string>()
-        {
-            this.GetLocalizedValue("Name.Badruddin"),
-            this.GetLocalizedValue("Name.Galib"),
-            this.GetLocalizedValue("Name.Salavat"),
-            this.GetLocalizedValue("Name.Zafar"),
-            this.GetLocalizedValue("Name.Valid"),
-            this.GetLocalizedValue("Name.Tunak"),
-            this.GetLocalizedValue("Name.Nadim")
-        };
+        return false;
+    }
 
-        public override string GetChat()
-        {
-            WeightedRandom<string> dialogue = new WeightedRandom<string>();
+    public override List<string> SetNPCNameList() => new List<string>()
+    {
+        this.GetLocalizedValue("Name.Badruddin"),
+        this.GetLocalizedValue("Name.Galib"),
+        this.GetLocalizedValue("Name.Salavat"),
+        this.GetLocalizedValue("Name.Zafar"),
+        this.GetLocalizedValue("Name.Valid"),
+        this.GetLocalizedValue("Name.Tunak"),
+        this.GetLocalizedValue("Name.Nadim")
+    };
 
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal1"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal2"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal3"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal4"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal5"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal6"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal7"));
+    public override string GetChat()
+    {
+        WeightedRandom<string> dialogue = new WeightedRandom<string>();
 
-            return dialogue;
-        }       
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal1"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal2"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal3"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal4"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal5"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal6"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal7"));
+
+        return dialogue;
+    }       
 
 		public override void SetChatButtons(ref string button, ref string button2)
 		{
 			button = Lang.inter[28].Value;
 		}
 
-        public override void OnChatButtonClicked(bool firstButton, ref string shopName)
-        {
-            if (firstButton)
-                shopName = "Arabian";
-        }
+    public override void OnChatButtonClicked(bool firstButton, ref string shopName)
+    {
+        if (firstButton)
+            shopName = "Arabian";
+    }
 
-        public override void AddShops()
-        {
-            var downedBoss1Condition = new Condition("DownedBoss1", () => NPC.downedBoss1);
-            var downedBoss2Condition = new Condition("DownedBoss2", () => NPC.downedBoss2);
+    public override void AddShops()
+    {
+        var downedBoss1Condition = new Condition("DownedBoss1", () => NPC.downedBoss1);
+        var downedBoss2Condition = new Condition("DownedBoss2", () => NPC.downedBoss2);
 
-            NPCShop shop = new(Type, "Arabian");
+        NPCShop shop = new(Type, "Arabian");
 
-            shop.Add(ModContent.ItemType<GenieLamp>())
-                .Add(ModContent.ItemType<JavaHood>())
-                .Add(ModContent.ItemType<JavaRobe>())
-                .Add(ModContent.ItemType<SandstoneRing>())
-                .Add(ItemID.StinkPotion)
-                .Add(ItemID.LovePotion);
+        shop.Add(ModContent.ItemType<GenieLamp>())
+            .Add(ModContent.ItemType<JavaHood>())
+            .Add(ModContent.ItemType<JavaRobe>())
+            .Add(ModContent.ItemType<SandstoneRing>())
+            .Add(ItemID.StinkPotion)
+            .Add(ItemID.LovePotion);
 
-            shop.Add(ModContent.ItemType<FossilSugar>(), downedBoss1Condition)
-                .Add(ModContent.ItemType<DesertCrown>(), downedBoss1Condition);
+        shop.Add(ModContent.ItemType<FossilSugar>(), downedBoss1Condition)
+            .Add(ModContent.ItemType<DesertCrown>(), downedBoss1Condition);
 
-            shop.Add(ItemID.BoneJavelin, downedBoss2Condition)
-                .Add(ItemID.BoneDagger, downedBoss2Condition);
+        shop.Add(ItemID.BoneJavelin, downedBoss2Condition)
+            .Add(ItemID.BoneDagger, downedBoss2Condition);
 
-            shop.Add(ModContent.ItemType<DesertEagle>(), Condition.Hardmode);
+        shop.Add(ModContent.ItemType<DesertEagle>(), Condition.Hardmode);
 
-            shop.Register(); 
-        }
+        shop.Register(); 
+    }
 
-        public override void TownNPCAttackStrength(ref int damage, ref float knockback)
+    public override void TownNPCAttackStrength(ref int damage, ref float knockback)
 		{
 			damage = 30;
 			knockback = 3f;
@@ -185,23 +185,23 @@ namespace TremorMod.Content.NPCs.TownNPCs
 			attackDelay = 4;
 		}
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WhiteTurban>(), 1));
-        }
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WhiteTurban>(), 1));
+    }
 
-        public override void HitEffect(NPC.HitInfo hit)
+    public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
 				for (int i = 0; i < 3; i++)
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ArabianMerchantGore1").Type, 1f);
-            }
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ArabianMerchantGore1").Type, 1f);
+        }
 		}
 
 		public override void TownNPCAttackProjSpeed(ref float multiplier, ref float gravityCorrection, ref float randomOffset)
@@ -210,4 +210,3 @@ namespace TremorMod.Content.NPCs.TownNPCs
 			randomOffset = 2f;
 		}
 	}
-}

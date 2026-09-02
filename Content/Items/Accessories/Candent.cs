@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class Candent : ModItem
 	{
 		public override void SetDefaults()
@@ -26,9 +26,9 @@ namespace TremorMod.Content.Items.Accessories
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-            player.GetDamage(DamageClass.Melee) += 0.13f;
-            player.GetCritChance(DamageClass.Melee) += 7;
-        }
+        player.GetDamage(DamageClass.Melee) += 0.13f;
+        player.GetCritChance(DamageClass.Melee) += 7;
+    }
 
 		public override void AddRecipes()
 		{
@@ -40,4 +40,3 @@ namespace TremorMod.Content.Items.Accessories
 			recipe.Register();
 		}
 	}
-}

@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Armor.WhiteGold
-{
+namespace TremorMod.Content.Items.Armor.WhiteGold;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class WhiteGoldGreaves : ModItem
 	{
@@ -32,13 +32,12 @@ namespace TremorMod.Content.Items.Armor.WhiteGold
 			player.moveSpeed += 0.5f;
 		}
 
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<WhiteGoldBar>(), 15);
-            //recipe.SetResult(this);
-            recipe.AddTile(ModContent.TileType<DivineForgeTile>());
-            recipe.Register();
-        }
+    public override void AddRecipes()
+    {
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ModContent.ItemType<WhiteGoldBar>(), 15);
+        //recipe.SetResult(this);
+        recipe.AddTile(ModContent.TileType<DivineForgeTile>());
+        recipe.Register();
     }
 }

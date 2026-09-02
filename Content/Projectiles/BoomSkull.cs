@@ -6,8 +6,8 @@ using Terraria.Audio;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class BoomSkull : ModProjectile
 	{
 
@@ -29,47 +29,47 @@ namespace TremorMod.Content.Projectiles
 			return Color.White;
 		}
 
-        
-        public override void OnKill(int timeLeft)
+    
+    public override void OnKill(int timeLeft)
+    {
+        SoundEngine.PlaySound(SoundID.Item62, Projectile.position);
+        Projectile.position.X = Projectile.position.X + Projectile.width / 2;
+        Projectile.position.Y = Projectile.position.Y + Projectile.height / 2;
+        Projectile.width = 80;
+        Projectile.height = 80;
+        Projectile.position.X = Projectile.position.X - Projectile.width / 2;
+        Projectile.position.Y = Projectile.position.Y - Projectile.height / 2;
+
+        for (int i = 0; i < 40; i++)
         {
-            SoundEngine.PlaySound(SoundID.Item62, Projectile.position);
-            Projectile.position.X = Projectile.position.X + Projectile.width / 2;
-            Projectile.position.Y = Projectile.position.Y + Projectile.height / 2;
-            Projectile.width = 80;
-            Projectile.height = 80;
-            Projectile.position.X = Projectile.position.X - Projectile.width / 2;
-            Projectile.position.Y = Projectile.position.Y - Projectile.height / 2;
-
-            for (int i = 0; i < 40; i++)
+            int dustIndex = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 31, 0f, 0f, 100, default(Color), 2f);
+            Main.dust[dustIndex].velocity *= 3f;
+            if (Main.rand.NextBool(2))
             {
-                int dustIndex = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 31, 0f, 0f, 100, default(Color), 2f);
-                Main.dust[dustIndex].velocity *= 3f;
-                if (Main.rand.NextBool(2))
-                {
-                    Main.dust[dustIndex].scale = 0.5f;
-                    Main.dust[dustIndex].fadeIn = 1f + Main.rand.Next(10) * 0.1f;
-                }
-            }
-
-            for (int i = 0; i < 70; i++)
-            {
-                int dustIndex = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 6, 0f, 0f, 100, default(Color), 3f);
-                Main.dust[dustIndex].noGravity = true;
-                Main.dust[dustIndex].velocity *= 5f;
-            }
-
-            if (Projectile.owner == Main.myPlayer)
-            {
-                int numProjectiles = Main.rand.Next(2, 3);
-                for (int i = 0; i < numProjectiles; i++)
-                {
-                    Vector2 velocity = Main.rand.NextVector2Circular(1f, 1f) * Main.rand.NextFloat(0.1f, 2f);
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, velocity, ModContent.ProjectileType<BoomCloudPro>(), Projectile.damage, 1f, Projectile.owner);
-                }
+                Main.dust[dustIndex].scale = 0.5f;
+                Main.dust[dustIndex].fadeIn = 1f + Main.rand.Next(10) * 0.1f;
             }
         }
 
-        public override void AI()
+        for (int i = 0; i < 70; i++)
+        {
+            int dustIndex = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 6, 0f, 0f, 100, default(Color), 3f);
+            Main.dust[dustIndex].noGravity = true;
+            Main.dust[dustIndex].velocity *= 5f;
+        }
+
+        if (Projectile.owner == Main.myPlayer)
+        {
+            int numProjectiles = Main.rand.Next(2, 3);
+            for (int i = 0; i < numProjectiles; i++)
+            {
+                Vector2 velocity = Main.rand.NextVector2Circular(1f, 1f) * Main.rand.NextFloat(0.1f, 2f);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, velocity, ModContent.ProjectileType<BoomCloudPro>(), Projectile.damage, 1f, Projectile.owner);
+            }
+        }
+    }
+
+    public override void AI()
 		{
 
 			//int num613 = 10;
@@ -110,4 +110,3 @@ namespace TremorMod.Content.Projectiles
 
 		}
 	}
-}

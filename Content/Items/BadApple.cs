@@ -1,11 +1,11 @@
-using Terraria;
+п»їusing Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items
-{
+namespace TremorMod.Content.Items;
+
 	public class BadApple : ModItem
 	{
 		public override void SetDefaults()
@@ -17,21 +17,20 @@ namespace TremorMod.Content.Items
 			Item.buffType = ModContent.BuffType<GurdPetBuff>();
 		}
 
-        /*public override void SetStaticDefaults()
+    /*public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Bad Apple");
 			Tooltip.SetDefault("Summons a gurd pet");
 		}*/
 
-        public override bool? UseItem(Player player)
+    public override bool? UseItem(Player player)
+    {
+        // Г„Г®ГЇГ®Г«Г­ГЁГІГҐГ«ГјГ­Г®ГҐ ГЇГ®ГўГҐГ¤ГҐГ­ГЁГҐ ГЇГ°ГЁ ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГЁ
+        if (player.whoAmI == Main.myPlayer)
         {
-            // Дополнительное поведение при использовании
-            if (player.whoAmI == Main.myPlayer)
-            {
-                player.AddBuff(Item.buffType, 3600, true); // Добавляем бафф на 60 секунд
-            }
-            return true; // Указывает, что действие выполнено успешно
+            player.AddBuff(Item.buffType, 3600, true); // Г„Г®ГЎГ ГўГ«ГїГҐГ¬ ГЎГ ГґГґ Г­Г  60 Г±ГҐГЄГіГ­Г¤
         }
-
+        return true; // Г“ГЄГ Г§Г»ГўГ ГҐГІ, Г·ГІГ® Г¤ГҐГ©Г±ГІГўГЁГҐ ГўГ»ГЇГ®Г«Г­ГҐГ­Г® ГіГ±ГЇГҐГёГ­Г®
     }
+
 }

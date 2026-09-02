@@ -1,12 +1,12 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Items.Weapons.Melee
-{
+namespace TremorMod.Content.Items.Weapons.Melee;
+
 	public class Transistor : ModItem
 	{
 		public override void SetDefaults()
@@ -35,12 +35,11 @@ namespace TremorMod.Content.Items.Weapons.Melee
 			/* Tooltip.SetDefault("'Crash() everyone!'\n" +
 "Sends energy waves in different directions on swing"); */
 		}
-        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-        {
-            Vector2 speed = velocity;
-            speed = speed.RotatedByRandom(MathHelper.ToRadians(60));
-            velocity = speed;
-            return true;
-        }
+    public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    {
+        Vector2 speed = velocity;
+        speed = speed.RotatedByRandom(MathHelper.ToRadians(60));
+        velocity = speed;
+        return true;
+    }
 	}
-}

@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -7,8 +7,8 @@ using TremorMod.Content.Buffs;
 using TremorMod.Content.Projectiles.Minions;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Weapons.Summon
-{
+namespace TremorMod.Content.Items.Weapons.Summon;
+
 	public class HuskyStaff : ModItem
 	{
 		public override void SetDefaults()
@@ -59,4 +59,3 @@ namespace TremorMod.Content.Items.Weapons.Summon
 			recipe.Register();
 		}
 	}
-}

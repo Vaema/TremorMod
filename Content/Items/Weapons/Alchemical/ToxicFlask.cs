@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
@@ -8,14 +8,14 @@ using TremorMod.Content.Projectiles;
 using TremorMod.Content.Buffs;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Weapons.Alchemical
-{
+namespace TremorMod.Content.Items.Weapons.Alchemical;
+
 	public class ToxicFlask : ModItem
-    {
+{
 		public override void SetDefaults()
 		{
-            Item.DamageType = TremorMod.alchemicalDamage ?? DamageClass.Generic;
-            Item.damage = 46;
+        Item.DamageType = TremorMod.alchemicalDamage ?? DamageClass.Generic;
+        Item.damage = 46;
 			Item.width = 28;
 			Item.noUseGraphic = true;
 			Item.maxStack = 1;
@@ -41,41 +41,40 @@ namespace TremorMod.Content.Items.Weapons.Alchemical
 			// Tooltip.SetDefault("Throws a flask that explodes into toxic clouds");
 		}
 
-        public override void UpdateInventory(Player player)
+    public override void UpdateInventory(Player player)
+    {
+        MPlayer modPlayer = MPlayer.GetModPlayer(player);
+        if (modPlayer.novaHelmet)
         {
-            MPlayer modPlayer = MPlayer.GetModPlayer(player);
-            if (modPlayer.novaHelmet)
-            {
-                Item.autoReuse = true;
-            }
-            if (!modPlayer.novaHelmet)
-            {
-                Item.autoReuse = false;
-            }
-
-            if (player.FindBuffIndex(ModContent.BuffType<LongFuseBuff>()) != -1)
-            {
-                Item.shootSpeed = 11f;
-            }
-            if (player.FindBuffIndex(ModContent.BuffType<LongFuseBuff>()) < 1)
-            {
-                Item.shootSpeed = 8f;
-            }
-            if (modPlayer.core)
-            {
-                Item.autoReuse = true;
-            }
-            if (!modPlayer.core)
-            {
-                Item.autoReuse = false;
-            }
+            Item.autoReuse = true;
+        }
+        if (!modPlayer.novaHelmet)
+        {
+            Item.autoReuse = false;
         }
 
-        public override void AddRecipes()
+        if (player.FindBuffIndex(ModContent.BuffType<LongFuseBuff>()) != -1)
+        {
+            Item.shootSpeed = 11f;
+        }
+        if (player.FindBuffIndex(ModContent.BuffType<LongFuseBuff>()) < 1)
+        {
+            Item.shootSpeed = 8f;
+        }
+        if (modPlayer.core)
+        {
+            Item.autoReuse = true;
+        }
+        if (!modPlayer.core)
+        {
+            Item.autoReuse = false;
+        }
+    }
+
+    public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.ToxicFlask, 1);
-            recipe.Register();
+        recipe.AddIngredient(ItemID.ToxicFlask, 1);
+        recipe.Register();
 		}
 	}
-}

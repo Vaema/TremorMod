@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Vanity
-{
+namespace TremorMod.Content.Items.Vanity;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class BenderBody : ModItem
 	{
@@ -21,4 +21,3 @@ namespace TremorMod.Content.Items.Vanity
 			//Tooltip.SetDefault("");
 		}
 	}
-}

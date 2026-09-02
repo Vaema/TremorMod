@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
@@ -54,16 +54,16 @@ using TremorMod.Utilities;
 using TremorMod;
 using TremorMod.Content.Items.Armor.Chain;
 
-namespace TremorMod.Content.NPCs.TownNPCs
-{
+namespace TremorMod.Content.NPCs.TownNPCs;
+
 	[AutoloadHead]
 	public class Undertaker : ModNPC
 	{
 		public override string Texture => $"{typeof(Undertaker).NamespaceToPath()}/Undertaker";
 
-        public override bool IsLoadingEnabled(Mod mod) => true;
+    public override bool IsLoadingEnabled(Mod mod) => true;
 
-        public override void SetStaticDefaults()
+    public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Undertaker");
 			Main.npcFrameCount[NPC.type] = 25;
@@ -91,71 +91,71 @@ namespace TremorMod.Content.NPCs.TownNPCs
 			AnimationType = NPCID.Guide;
 		}
 
-        public override bool CanTownNPCSpawn(int numTownNPCs)
+    public override bool CanTownNPCSpawn(int numTownNPCs)
+    {
+        foreach (Player player in Main.ActivePlayers)
         {
-            foreach (Player player in Main.ActivePlayers)
+            if (!TremorSpawnEnemys.downedTrinity)
             {
-                if (!TremorSpawnEnemys.downedTrinity)
-                {
-                    return true;
-                }
+                return true;
             }
-            return false;
         }
+        return false;
+    }
 
-        public override List<string> SetNPCNameList() => new List<string>()
-        {
-            this.GetLocalizedValue("Name.Tenner"),
-            this.GetLocalizedValue("Name.Geyer"),
-            this.GetLocalizedValue("Name.Cleve"),
-            this.GetLocalizedValue("Name.Ferron"),
-            this.GetLocalizedValue("Name.Gasper"),
-            this.GetLocalizedValue("Name.Spots"),
-            this.GetLocalizedValue("Name.Hargon")
-        };
+    public override List<string> SetNPCNameList() => new List<string>()
+    {
+        this.GetLocalizedValue("Name.Tenner"),
+        this.GetLocalizedValue("Name.Geyer"),
+        this.GetLocalizedValue("Name.Cleve"),
+        this.GetLocalizedValue("Name.Ferron"),
+        this.GetLocalizedValue("Name.Gasper"),
+        this.GetLocalizedValue("Name.Spots"),
+        this.GetLocalizedValue("Name.Hargon")
+    };
 
-        public override string GetChat()
-        {
-            WeightedRandom<string> dialogue = new WeightedRandom<string>();
+    public override string GetChat()
+    {
+        WeightedRandom<string> dialogue = new WeightedRandom<string>();
 
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal1"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal2"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal3"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal4"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal5"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal6"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal7"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal1"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal2"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal3"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal4"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal5"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal6"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal7"));
 
-            return dialogue;
-        }
+        return dialogue;
+    }
 
 		public override void SetChatButtons(ref string button, ref string button2)
 		{
 			button = Lang.inter[28].Value;
 		}
 
-        public override void OnChatButtonClicked(bool firstButton, ref string shopName)
-        {
-            if (firstButton)
-                shopName = "Undertaker";
-        }
+    public override void OnChatButtonClicked(bool firstButton, ref string shopName)
+    {
+        if (firstButton)
+            shopName = "Undertaker";
+    }
 
-        public override void AddShops()
-        {
-            var nightCondition = new Condition("NightTime", () => !Main.dayTime);
+    public override void AddShops()
+    {
+        var nightCondition = new Condition("NightTime", () => !Main.dayTime);
 
-            NPCShop shop = new(Type, "Undertaker");
+        NPCShop shop = new(Type, "Undertaker");
 
-            shop.Add(ModContent.ItemType<Skullheart>())
-                .Add(ModContent.ItemType<SpearofJustice>())
-                .Add(ModContent.ItemType<TheGhostClaymore>());
+        shop.Add(ModContent.ItemType<Skullheart>())
+            .Add(ModContent.ItemType<SpearofJustice>())
+            .Add(ModContent.ItemType<TheGhostClaymore>());
 
-            shop.Add(ModContent.ItemType<LivingTombstone>(), nightCondition);
+        shop.Add(ModContent.ItemType<LivingTombstone>(), nightCondition);
 
-            shop.Register(); 
-        }
+        shop.Register(); 
+    }
 
-        public override void TownNPCAttackStrength(ref int damage, ref float knockback)
+    public override void TownNPCAttackStrength(ref int damage, ref float knockback)
 		{
 			damage = 150;
 			knockback = 4f;
@@ -181,16 +181,15 @@ namespace TremorMod.Content.NPCs.TownNPCs
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
 				//for (int i = 0; i < 3; i++)
-    //            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TheUndertakerGore1").Type, 1f);
-            }
+//            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TheUndertakerGore1").Type, 1f);
+        }
 		}
 	}
-}

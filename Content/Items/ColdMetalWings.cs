@@ -1,12 +1,12 @@
-using System.Linq;
+﻿using System.Linq;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items
-{
+namespace TremorMod.Content.Items;
+
 	[AutoloadEquip(EquipType.Wings)]
 	public class ColdMetalWings : ModItem
 	{
@@ -22,10 +22,10 @@ namespace TremorMod.Content.Items
 
 		public override void SetStaticDefaults()
 		{
-            //DisplayName.SetDefault("Frosteel Wings");
-            //Tooltip.SetDefault("Allows flight and slow fall");
-            ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(200, 15f, 1f);
-        }
+        //DisplayName.SetDefault("Frosteel Wings");
+        //Tooltip.SetDefault("Allows flight and slow fall");
+        ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(200, 15f, 1f);
+    }
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
@@ -61,4 +61,3 @@ namespace TremorMod.Content.Items
 		}
 
 	}
-}

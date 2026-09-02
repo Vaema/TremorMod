@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.BossLoot.TheDarkEmperor;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Armor.Darkness
-{
+namespace TremorMod.Content.Items.Armor.Darkness;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class DarknessBreastplate : ModItem
 	{
@@ -42,4 +42,3 @@ namespace TremorMod.Content.Items.Armor.Darkness
 			recipe.Register();
 		}
 	}
-}

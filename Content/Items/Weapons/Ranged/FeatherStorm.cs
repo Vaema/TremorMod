@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+п»їusing Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -6,8 +6,8 @@ using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Weapons.Ranged
-{
+namespace TremorMod.Content.Items.Weapons.Ranged;
+
 	public class FeatherStorm : ModItem
 	{
 		public override void SetDefaults()
@@ -36,19 +36,19 @@ namespace TremorMod.Content.Items.Weapons.Ranged
 			//Tooltip.SetDefault("");
 		}
 
-        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-        {
-            // Создание пяти снарядов с разным отклонением скорости
-            Projectile.NewProjectile(source, position, velocity + new Vector2(2, 2), type, damage, knockback, player.whoAmI);
-            Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), type, damage, knockback, player.whoAmI);
-            Projectile.NewProjectile(source, position, velocity, type, damage, knockback, player.whoAmI);
-            Projectile.NewProjectile(source, position, velocity + new Vector2(-1, -1), type, damage, knockback, player.whoAmI);
-            Projectile.NewProjectile(source, position, velocity + new Vector2(-2, -2), type, damage, knockback, player.whoAmI);
+    public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    {
+        // Г‘Г®Г§Г¤Г Г­ГЁГҐ ГЇГїГІГЁ Г±Г­Г Г°ГїГ¤Г®Гў Г± Г°Г Г§Г­Г»Г¬ Г®ГІГЄГ«Г®Г­ГҐГ­ГЁГҐГ¬ Г±ГЄГ®Г°Г®Г±ГІГЁ
+        Projectile.NewProjectile(source, position, velocity + new Vector2(2, 2), type, damage, knockback, player.whoAmI);
+        Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), type, damage, knockback, player.whoAmI);
+        Projectile.NewProjectile(source, position, velocity, type, damage, knockback, player.whoAmI);
+        Projectile.NewProjectile(source, position, velocity + new Vector2(-1, -1), type, damage, knockback, player.whoAmI);
+        Projectile.NewProjectile(source, position, velocity + new Vector2(-2, -2), type, damage, knockback, player.whoAmI);
 
-            return false;
-        }
+        return false;
+    }
 
-        public override void AddRecipes()
+    public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Feather, 15);
@@ -59,4 +59,3 @@ namespace TremorMod.Content.Items.Weapons.Ranged
 			recipe.Register();
 		}
 	}
-}

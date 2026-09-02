@@ -1,9 +1,9 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Dusts
-{
+namespace TremorMod.Content.Dusts;
+
 	public class ClusterFlame : ModDust
 	{
 		public override void OnSpawn(Dust dust)
@@ -36,4 +36,3 @@ namespace TremorMod.Content.Dusts
 			return new Color(lightColor.R, lightColor.G, lightColor.B, 75);
 		}
 	}
-}

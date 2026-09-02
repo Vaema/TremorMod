@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.HeaterOfWorldsItems
-{
+namespace TremorMod.Content.Items.HeaterOfWorldsItems;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class HeaterOfWorldsMask : ModItem
 	{
@@ -21,4 +21,3 @@ namespace TremorMod.Content.Items.HeaterOfWorldsItems
 			Tooltip.SetDefault("");
 		}*/
 	}
-}

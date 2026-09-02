@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -11,8 +11,8 @@ using TremorMod.Content.Items.Weapons.Magic;
 using TremorMod.Content.Items.Placeable.Banners;
 using TremorMod.Content.Items.Vanity;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class GoblinAssassin : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -560,13 +560,12 @@ namespace TremorMod.Content.NPCs
 			NPC.spriteDirection = NPC.direction;
 		}
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            npcLoot.Add(ItemDropRule.Common(ItemID.SpikyBall, 2, 1, 16));
-            npcLoot.Add(ItemDropRule.Common(ItemID.Harpoon, 200));
-        }
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ItemID.SpikyBall, 2, 1, 16));
+        npcLoot.Add(ItemDropRule.Common(ItemID.Harpoon, 200));
+    }
 
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+    public override float SpawnChance(NPCSpawnInfo spawnInfo)
 			=> Main.invasionType == InvasionID.GoblinArmy && NPC.downedBoss3 && spawnInfo.SpawnTileY < Main.worldSurface ? 0.08f : 0f;
 	}
-}

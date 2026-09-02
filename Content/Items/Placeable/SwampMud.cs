@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Placeable
-{
+namespace TremorMod.Content.Items.Placeable;
+
 	public class SwampMud : ModItem
 	{
 		public override void SetDefaults()
@@ -14,7 +14,7 @@ namespace TremorMod.Content.Items.Placeable
 			Item.height = 24;
 			Item.maxStack = 9999;
 			Item.rare = 0;
-			//item.createTile = ModContent.TileType<SwampMudTile>(); // �� ���������� 
+			//item.createTile = ModContent.TileType<SwampMudTile>(); // Íå ñóùåñòâóåò 
 			Item.useTurn = true;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
@@ -30,4 +30,3 @@ namespace TremorMod.Content.Items.Placeable
 		}
 
 	}
-}

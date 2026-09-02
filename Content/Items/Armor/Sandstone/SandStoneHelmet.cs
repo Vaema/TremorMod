@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
@@ -7,14 +7,14 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Materials.OreAndBar;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items.Armor.Sandstone
-{
+namespace TremorMod.Content.Items.Armor.Sandstone;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class SandStoneHelmet : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 32;
 			Item.height = 26;
@@ -27,8 +27,8 @@ namespace TremorMod.Content.Items.Armor.Sandstone
 		{
 			/*DisplayName.SetDefault("Dune Helmet");
 			Tooltip.SetDefault("10% increased movement speed");*/
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Summons a Sandstorm to fight for you");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Summons a Sandstorm to fight for you");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -42,8 +42,8 @@ namespace TremorMod.Content.Items.Armor.Sandstone
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.AddBuff(ModContent.BuffType<SandstormMinionBuff>(), 2);
+        player.setBonus = SetBonusText.Value;
+        player.AddBuff(ModContent.BuffType<SandstormMinionBuff>(), 2);
 		}
 
 		public override void ArmorSetShadows(Player player)
@@ -53,13 +53,12 @@ namespace TremorMod.Content.Items.Armor.Sandstone
 
 		public override void AddRecipes()
 		{
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<SandstoneBar>(), 8);
-            recipe.AddIngredient(ModContent.ItemType<AntlionShell>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<PetrifiedSpike>(), 4);
-            //recipe.SetResult(this);
-            recipe.AddTile(16);
-            recipe.Register();
-        }
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ModContent.ItemType<SandstoneBar>(), 8);
+        recipe.AddIngredient(ModContent.ItemType<AntlionShell>(), 1);
+        recipe.AddIngredient(ModContent.ItemType<PetrifiedSpike>(), 4);
+        //recipe.SetResult(this);
+        recipe.AddTile(16);
+        recipe.Register();
+    }
 	}
-}

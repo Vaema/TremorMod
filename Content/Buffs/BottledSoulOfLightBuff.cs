@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Buffs
-{
+namespace TremorMod.Content.Buffs;
+
 	public class BottledSoulOfLightBuff : ModBuff
 	{
 		public override void SetStaticDefaults()
@@ -17,4 +17,3 @@ namespace TremorMod.Content.Buffs
 			player.moveSpeed += 0.2f;
 		}
 	}
-}

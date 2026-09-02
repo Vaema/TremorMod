@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.Enchanted
-{
+namespace TremorMod.Content.Items.Armor.Enchanted;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class EnchantedGreaves : ModItem
 	{
@@ -29,4 +29,3 @@ namespace TremorMod.Content.Items.Armor.Enchanted
 		}
 
 	}
-}

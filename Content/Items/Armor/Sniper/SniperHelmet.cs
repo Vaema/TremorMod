@@ -1,16 +1,16 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Content.Buffs;
 using Terraria.Localization;
 
-namespace TremorMod.Content.Items.Armor.Sniper
-{
+namespace TremorMod.Content.Items.Armor.Sniper;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class SniperHelmet : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 26;
 			Item.height = 26;
@@ -24,8 +24,8 @@ namespace TremorMod.Content.Items.Armor.Sniper
 			// DisplayName.SetDefault("Sniper Helmet");
 			/* Tooltip.SetDefault("15% increased ranged damage\n" +
 			"20% decreased movement speed"); */
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases projectile's speed twice");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases projectile's speed twice");
+    }
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
@@ -34,8 +34,8 @@ namespace TremorMod.Content.Items.Armor.Sniper
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Increases projectile's speed twice";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Increases projectile's speed twice";
 			player.moveSpeed += 0.15f;
 			player.AddBuff(ModContent.BuffType<ShootSpeedBuff>(), 2);
 			player.scope = true;
@@ -48,8 +48,7 @@ namespace TremorMod.Content.Items.Armor.Sniper
 
 		public override void UpdateEquip(Player player)
 		{
-            player.GetDamage(DamageClass.Ranged) *= 1.15f;
+        player.GetDamage(DamageClass.Ranged) *= 1.15f;
 			player.moveSpeed -= 0.20f;
 		}
 	}
-}

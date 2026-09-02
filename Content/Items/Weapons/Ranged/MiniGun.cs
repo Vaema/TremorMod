@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Weapons.Ranged
-{
+namespace TremorMod.Content.Items.Weapons.Ranged;
+
 	public class MiniGun : ModItem
 	{
 		public override void SetDefaults()
@@ -32,4 +32,3 @@ namespace TremorMod.Content.Items.Weapons.Ranged
 			//Tooltip.SetDefault("");
 		}
 	}
-}

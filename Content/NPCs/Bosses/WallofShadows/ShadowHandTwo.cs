@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.NPCs.Bosses.WallofShadows
-{
+namespace TremorMod.Content.NPCs.Bosses.WallofShadows;
+
 
 	public class ShadowHandTwo : ModNPC
 	{
@@ -38,20 +38,20 @@ namespace TremorMod.Content.NPCs.Bosses.WallofShadows
 				target.AddBuff(153, 120);
 		}
 
-        private int GetActiveShadowSteedCount()
+    private int GetActiveShadowSteedCount()
+    {
+        int count = 0;
+        for (int i = 0; i < Main.maxNPCs; i++)
         {
-            int count = 0;
-            for (int i = 0; i < Main.maxNPCs; i++)
+            if (Main.npc[i].active && Main.npc[i].type == ModContent.NPCType<ShadowSteed>())
             {
-                if (Main.npc[i].active && Main.npc[i].type == ModContent.NPCType<ShadowSteed>())
-                {
-                    count++;
-                }
+                count++;
             }
-            return count;
         }
+        return count;
+    }
 
-        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
+    public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
 		{
 			NPC.lifeMax = NPC.lifeMax * 1;
 			NPC.damage = NPC.damage * 1;
@@ -69,4 +69,3 @@ namespace TremorMod.Content.NPCs.Bosses.WallofShadows
 			}
 		}
 	}
-}

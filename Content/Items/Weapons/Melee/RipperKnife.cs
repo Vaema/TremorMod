@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Weapons.Melee
-{
+namespace TremorMod.Content.Items.Weapons.Melee;
+
 	public class RipperKnife : ModItem
 	{
 		public override void SetDefaults()
@@ -20,8 +20,8 @@ namespace TremorMod.Content.Items.Weapons.Melee
 			Item.rare = 1;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
-            Item.useTurn = true;
-        }
+        Item.useTurn = true;
+    }
 
 		public override void SetStaticDefaults()
 		{
@@ -29,4 +29,3 @@ namespace TremorMod.Content.Items.Weapons.Melee
 			//Tooltip.SetDefault("");
 		}
 	}
-}

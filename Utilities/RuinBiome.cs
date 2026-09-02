@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod;
@@ -9,31 +9,30 @@ using TremorMod.Content.Biomes.Ice.Items.Furniture;
 using Terraria.GameContent;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace TremorMod.Utilities
+namespace TremorMod.Utilities;
+
+public class RuinBiome : ModBiome
 {
-    public class RuinBiome : ModBiome
+    public override bool IsBiomeActive(Player player)
     {
-        public override bool IsBiomeActive(Player player)
-        {
-            return BiomeTileCounterSystem.RuinAltar > 1;
-        }
+        return BiomeTileCounterSystem.RuinAltar > 1;
+    }
 
-        public override SceneEffectPriority Priority => SceneEffectPriority.BiomeMedium;
+    public override SceneEffectPriority Priority => SceneEffectPriority.BiomeMedium;
 
-        public override int Music
+    public override int Music
+    {
+        get
         {
-            get
+            if (ModLoader.HasMod("TremorModMusic"))
             {
-                if (ModLoader.HasMod("TremorModMusic"))
+                Mod musicMod = ModLoader.GetMod("TremorModMusic");
+                if (musicMod != null)
                 {
-                    Mod musicMod = ModLoader.GetMod("TremorModMusic");
-                    if (musicMod != null)
-                    {
-                        return MusicLoader.GetMusicSlot(musicMod, "Assets/Music/Eternal-Echoes");
-                    }
+                    return MusicLoader.GetMusicSlot(musicMod, "Assets/Music/Eternal-Echoes");
                 }
-                return MusicID.Underground;
             }
+            return MusicID.Underground;
         }
     }
 }

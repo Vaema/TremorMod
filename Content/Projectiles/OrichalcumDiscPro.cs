@@ -1,21 +1,20 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
+namespace TremorMod.Content.Projectiles;
+
+public class OrichalcumDiscPro : ModProjectile
 {
-    public class OrichalcumDiscPro : ModProjectile
+    public override void SetDefaults()
     {
-        public override void SetDefaults()
-        {
-            Projectile.CloneDefaults(106);
+        Projectile.CloneDefaults(106);
 
-            AIType = 106;
-        }
+        AIType = 106;
+    }
 
-        /*public override void SetStaticDefaults()
+    /*public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("OrichalcumDiscPro");
 		}*/
-    }
 }

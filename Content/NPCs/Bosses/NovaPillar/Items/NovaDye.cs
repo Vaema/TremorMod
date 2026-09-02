@@ -2,8 +2,8 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Items
-{
+namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Items;
+
 	public class NovaDye : ModItem
 	{
 		public override void SetDefaults()
@@ -31,4 +31,3 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Items
 			recipe.Register();
 		}
 	}
-}

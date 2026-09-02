@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Weapons.Melee
-{
+namespace TremorMod.Content.Items.Weapons.Melee;
+
 	public class RavenClutches : ModItem
 	{
 		public override void SetDefaults()
@@ -42,11 +42,10 @@ namespace TremorMod.Content.Items.Weapons.Melee
 
 			Recipe recipe1 = CreateRecipe();
 			recipe1.AddIngredient(ItemID.TungstenBar, 10);
-            recipe1.AddIngredient(ModContent.ItemType<Opal>(), 1);
-            recipe1.AddIngredient(ModContent.ItemType<RavenFeather>(), 13);
-            //recipe.SetResult(this);
+        recipe1.AddIngredient(ModContent.ItemType<Opal>(), 1);
+        recipe1.AddIngredient(ModContent.ItemType<RavenFeather>(), 13);
+        //recipe.SetResult(this);
 			recipe1.AddTile(16);
 			recipe1.Register();
 		}
 	}
-}

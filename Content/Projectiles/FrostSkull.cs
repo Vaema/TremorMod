@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class FrostSkull : ModProjectile
-    {
+{
 		public override void SetDefaults()
 		{
 			Projectile.timeLeft = 420;
@@ -44,4 +44,3 @@ namespace TremorMod.Content.Projectiles
 		}
 
 	}
-}

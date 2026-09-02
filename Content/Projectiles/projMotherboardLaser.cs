@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -7,8 +7,8 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class projMotherboardLaser : ModProjectile
 	{
 		const float YOffset = 95f;
@@ -72,8 +72,8 @@ namespace TremorMod.Content.Projectiles
 
 		public override bool PreDraw(ref Color lightColor)
 		{
-            SpriteBatch spriteBatch = Main.spriteBatch;
-            Vector2 endPoint = Main.npc[(int)Projectile.ai[1]].Center;
+        SpriteBatch spriteBatch = Main.spriteBatch;
+        Vector2 endPoint = Main.npc[(int)Projectile.ai[1]].Center;
 			Vector2 unit = endPoint - Projectile.Center;
 			float length = unit.Length();
 			unit.Normalize();
@@ -86,4 +86,3 @@ namespace TremorMod.Content.Projectiles
 			return false;
 		}
 	}
-}

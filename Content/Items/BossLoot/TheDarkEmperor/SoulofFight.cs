@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.BossLoot.TheDarkEmperor
-{
+namespace TremorMod.Content.Items.BossLoot.TheDarkEmperor;
+
 	public class SoulofFight : ModItem
 	{
 		public override void SetDefaults()
@@ -33,4 +33,3 @@ namespace TremorMod.Content.Items.BossLoot.TheDarkEmperor
 		}
 
 	}
-}

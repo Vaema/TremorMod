@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
@@ -8,8 +8,8 @@ using Terraria.GameContent.ItemDropRules;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Placeable.Banners;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class SandThing : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -33,22 +33,22 @@ namespace TremorMod.Content.NPCs
 			AIType = 73;
 			NPC.aiStyle = 3;
 			AnimationType = 166;
-            Banner = NPC.type;
-            BannerItem = ModContent.ItemType<SandThingBanner>();
-            ItemID.Sets.KillsToBanner[BannerItem] = 50;
-        }
+        Banner = NPC.type;
+        BannerItem = ModContent.ItemType<SandThingBanner>();
+        ItemID.Sets.KillsToBanner[BannerItem] = 50;
+    }
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            npcLoot.Add(ItemDropRule.Common(ItemID.IllegalGunParts, 50));
-            npcLoot.Add(ItemDropRule.Common(ItemID.SandBlock, 1));
-        }
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ItemID.IllegalGunParts, 50));
+        npcLoot.Add(ItemDropRule.Common(ItemID.SandBlock, 1));
+    }
 
-        public override void HitEffect(NPC.HitInfo hit)
+    public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
 				{
@@ -61,13 +61,12 @@ namespace TremorMod.Content.NPCs
 				Dust.NewDust(NPC.position, NPC.width, NPC.height, 19, 2.5f * hitDirection, -2.5f, 0, default(Color), 2.7f);
 				Dust.NewDust(NPC.position, NPC.width, NPC.height, 19, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
 
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 220, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 221, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 222, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 220, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 221, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 222, 1f);
 			}
 		}
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 			=> Helper.NormalSpawn(spawnInfo) && Helper.NoZoneAllowWater(spawnInfo) && spawnInfo.Player.ZoneDesert && NPC.downedBoss1 && Main.dayTime && spawnInfo.SpawnTileY < Main.worldSurface ? 0.01f : 0f;
 	}
-}

@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Items.Weapons.Throwing
-{
+namespace TremorMod.Content.Items.Weapons.Throwing;
+
 	public class AdamantiteDisc : ModItem
 	{
 		public override void SetDefaults()
@@ -22,7 +22,7 @@ namespace TremorMod.Content.Items.Weapons.Throwing
 			Item.value = 27600;
 			Item.rare = 4;
 			Item.UseSound = SoundID.Item1;
-            Item.shoot = ModContent.ProjectileType<AdamantiteDiscPro>();
+        Item.shoot = ModContent.ProjectileType<AdamantiteDiscPro>();
 			Item.shootSpeed = 12f;
 			Item.autoReuse = true;
 
@@ -50,4 +50,3 @@ namespace TremorMod.Content.Items.Weapons.Throwing
 			recipe.Register();
 		}
 	}
-}

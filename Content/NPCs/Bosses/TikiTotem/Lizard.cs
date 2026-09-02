@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.NPCs.Bosses.TikiTotem
-{
+namespace TremorMod.Content.NPCs.Bosses.TikiTotem;
+
 	public class Lizard : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -32,9 +32,8 @@ namespace TremorMod.Content.NPCs.Bosses.TikiTotem
 		{
 			if (NPC.life <= 0)
 			{
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("LizardGore1").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("LizardGore2").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("LizardGore1").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("LizardGore2").Type, 1f);
 			}
 		}
 	}
-}

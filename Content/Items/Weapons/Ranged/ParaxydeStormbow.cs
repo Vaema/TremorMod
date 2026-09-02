@@ -1,12 +1,12 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Weapons.Ranged
-{
+namespace TremorMod.Content.Items.Weapons.Ranged;
+
 	public class ParaxydeStormbow : ModItem
 	{
 		public override void SetDefaults()
@@ -50,18 +50,17 @@ namespace TremorMod.Content.Items.Weapons.Ranged
 			recipe.Register();
 		}
 
-        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    {
+        if (Main.rand.NextBool(3)) 
         {
-            if (Main.rand.NextBool(3)) 
-            {
-                Projectile.NewProjectile(source, position, velocity, ProjectileID.CrystalPulse, damage, knockback, player.whoAmI);
-            }
-            else
-            {
-                Projectile.NewProjectile(source, position, velocity, ProjectileID.WoodenArrowFriendly, damage, knockback, player.whoAmI);
-            }
-
-            return false; 
+            Projectile.NewProjectile(source, position, velocity, ProjectileID.CrystalPulse, damage, knockback, player.whoAmI);
         }
+        else
+        {
+            Projectile.NewProjectile(source, position, velocity, ProjectileID.WoodenArrowFriendly, damage, knockback, player.whoAmI);
+        }
+
+        return false; 
     }
 }

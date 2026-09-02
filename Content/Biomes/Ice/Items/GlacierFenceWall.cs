@@ -1,9 +1,9 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Biomes.Ice.Items
-{
+namespace TremorMod.Content.Biomes.Ice.Items;
+
 	public class GlacierFenceWall : ModWall
 	{
 		public override void SetStaticDefaults()
@@ -13,4 +13,3 @@ namespace TremorMod.Content.Biomes.Ice.Items
 		}
 
 	}
-}

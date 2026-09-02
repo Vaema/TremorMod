@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Biomes.Ice.Items
-{
+namespace TremorMod.Content.Biomes.Ice.Items;
+
 	public class FrostLance : ModItem
 	{
 		public override void SetDefaults()
@@ -31,9 +31,8 @@ namespace TremorMod.Content.Biomes.Ice.Items
 			Tooltip.SetDefault("");
 		}*/
 
-        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
-        {
-            player.AddBuff(44, 60);
-        }
+    public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
+    {
+        player.AddBuff(44, 60);
     }
 }

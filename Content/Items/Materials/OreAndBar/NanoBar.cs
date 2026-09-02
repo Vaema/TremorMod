@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Materials.OreAndBar
-{
+namespace TremorMod.Content.Items.Materials.OreAndBar;
+
 	public class NanoBar : ModItem
 	{
 		public override void SetDefaults()
@@ -31,24 +31,23 @@ namespace TremorMod.Content.Items.Materials.OreAndBar
 
 		public override void AddRecipes()
 		{
-            Recipe recipe1 = CreateRecipe();
-            recipe1.AddIngredient(ItemID.TitaniumBar, 1);
+        Recipe recipe1 = CreateRecipe();
+        recipe1.AddIngredient(ItemID.TitaniumBar, 1);
 			recipe1.AddIngredient(ItemID.SoulofNight, 1);
 			recipe1.AddIngredient(ItemID.SoulofLight, 1);
 			recipe1.AddIngredient(ItemID.Nanites, 1);
 			//recipe1.SetResult(this, 2);
 			recipe1.AddTile(134);
-            recipe1.Register();
+        recipe1.Register();
 
-            Recipe recipe2 = CreateRecipe();
-            recipe2.AddIngredient(ItemID.AdamantiteBar, 1);
+        Recipe recipe2 = CreateRecipe();
+        recipe2.AddIngredient(ItemID.AdamantiteBar, 1);
 			recipe2.AddIngredient(ItemID.SoulofNight, 1);
 			recipe2.AddIngredient(ItemID.SoulofLight, 1);
 			recipe2.AddIngredient(ItemID.Nanites, 1);
 			//recipe2.SetResult(this, 2);
 			recipe2.AddTile(134);
-            recipe2.Register();
-        }
+        recipe2.Register();
+    }
 
 	}
-}

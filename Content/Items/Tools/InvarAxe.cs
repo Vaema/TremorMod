@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 
-namespace TremorMod.Content.Items.Tools
-{
+namespace TremorMod.Content.Items.Tools;
+
 	public class InvarAxe : ModItem
 	{
 		public override void SetDefaults()
@@ -33,12 +33,11 @@ namespace TremorMod.Content.Items.Tools
 
 		public override void AddRecipes()
 		{
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<InvarBar>(), 18);
-            recipe.AddIngredient(ItemID.Wood, 3);
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ModContent.ItemType<InvarBar>(), 18);
+        recipe.AddIngredient(ItemID.Wood, 3);
 			recipe.AddTile(16);
 			//recipe.SetResult(this);
-            recipe.Register();
-        }
+        recipe.Register();
+    }
 	}
-}

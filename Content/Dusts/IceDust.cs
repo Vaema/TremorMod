@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 
-namespace TremorMod.Content.Dusts
-{
+namespace TremorMod.Content.Dusts;
+
 	public class IceDust : ModDust
 	{
 		public override void OnSpawn(Dust dust)
@@ -11,4 +11,3 @@ namespace TremorMod.Content.Dusts
 			dust.noGravity = true;
 		}
 	}
-}

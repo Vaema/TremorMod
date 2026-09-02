@@ -1,16 +1,16 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 
-namespace TremorMod.Content.Items.Armor.Chlorophyte
-{
+namespace TremorMod.Content.Items.Armor.Chlorophyte;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class ChlorophyteHat : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 
 			Item.width = 24;
@@ -25,8 +25,8 @@ namespace TremorMod.Content.Items.Armor.Chlorophyte
 		{
 			// DisplayName.SetDefault("Chlorophyte Hat");
 			// Tooltip.SetDefault("25% increased minion damage");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases your max number of minions and summons a powerful leaf crystal to shoot at nearby enemies");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases your max number of minions and summons a powerful leaf crystal to shoot at nearby enemies");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -40,8 +40,8 @@ namespace TremorMod.Content.Items.Armor.Chlorophyte
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Increases your max number of minions and summons a powerful leaf crystal to shoot at nearby enemies.";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Increases your max number of minions and summons a powerful leaf crystal to shoot at nearby enemies.";
 			player.maxMinions += 3;
 			player.AddBuff(60, 60, true);
 		}
@@ -59,4 +59,3 @@ namespace TremorMod.Content.Items.Armor.Chlorophyte
 			recipe.Register();
 		}
 	}
-}

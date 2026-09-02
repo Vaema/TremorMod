@@ -1,12 +1,12 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Crystal;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Placeable
-{
+namespace TremorMod.Content.Items.Placeable;
+
 	public class CursedBanner : ModItem
 	{
 		public override void SetDefaults()
@@ -33,14 +33,13 @@ namespace TremorMod.Content.Items.Placeable
 			// Tooltip.SetDefault("Increases all critical strike chance by 25 if placed");
 		}
 
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<Gloomstone>(), 10);
-            recipe.AddIngredient(ModContent.ItemType<UnstableCrystal>(), 2);
-            recipe.AddIngredient(ItemID.AncientCloth, 25);
-            recipe.AddTile(106);
-            recipe.Register();
-        }
+    public override void AddRecipes()
+    {
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ModContent.ItemType<Gloomstone>(), 10);
+        recipe.AddIngredient(ModContent.ItemType<UnstableCrystal>(), 2);
+        recipe.AddIngredient(ItemID.AncientCloth, 25);
+        recipe.AddTile(106);
+        recipe.Register();
     }
 }

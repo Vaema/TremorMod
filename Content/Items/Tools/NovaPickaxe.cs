@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod;
@@ -6,8 +6,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics; 
 using TremorMod.Content.NPCs.Bosses.NovaPillar.Items;
 
-namespace TremorMod.Content.Items.Tools
-{
+namespace TremorMod.Content.Items.Tools;
+
 	public class NovaPickaxe : ModItem
 	{
 		public override void SetDefaults()
@@ -46,9 +46,8 @@ namespace TremorMod.Content.Items.Tools
 			recipe.Register();
 		}
 
-        private void AddGlowMask(int itemType, string texturePath)
-        {
-            Texture2D texture = ModContent.Request<Texture2D>(texturePath).Value;
-        }
+    private void AddGlowMask(int itemType, string texturePath)
+    {
+        Texture2D texture = ModContent.Request<Texture2D>(texturePath).Value;
     }
 }

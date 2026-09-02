@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -6,8 +6,8 @@ using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.NPCs.Bosses.Jellyfish;
 
-namespace TremorMod.Content.Items.BossSumonItems
-{
+namespace TremorMod.Content.Items.BossSumonItems;
+
 	public class StormJelly : ModItem
 	{
 		public override void SetDefaults()
@@ -56,4 +56,3 @@ namespace TremorMod.Content.Items.BossSumonItems
 			recipe.Register();
 		}
 	}
-}

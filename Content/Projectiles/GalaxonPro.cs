@@ -4,8 +4,8 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class GalaxonPro : ModProjectile
 	{
 
@@ -128,4 +128,3 @@ namespace TremorMod.Content.Projectiles
 		}
 
 	}
-}

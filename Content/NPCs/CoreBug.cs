@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using TremorMod.Content.Items.Placeable.Banners;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class CoreBug : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -56,9 +56,8 @@ namespace TremorMod.Content.NPCs
 			}
 		}
 
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            return spawnInfo.Player.ZoneMeteor ? 1f : 0f;
-        }
+    public override float SpawnChance(NPCSpawnInfo spawnInfo)
+    {
+        return spawnInfo.Player.ZoneMeteor ? 1f : 0f;
     }
 }

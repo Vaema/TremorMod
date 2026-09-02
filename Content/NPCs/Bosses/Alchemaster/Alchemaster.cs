@@ -16,8 +16,8 @@ using TremorMod.Content.Items.Accessories;
 using TremorMod.Content.Items.Bag;
 using TremorMod.Content.Items;
 
-namespace TremorMod.Content.NPCs.Bosses.Alchemaster
-{
+namespace TremorMod.Content.NPCs.Bosses.Alchemaster;
+
 	[AutoloadBossHead]
 	public class Alchemaster : ModNPC
 	{
@@ -91,17 +91,17 @@ namespace TremorMod.Content.NPCs.Bosses.Alchemaster
 			NPC.noTileCollide = true;
 		}
 
-        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float bossLifeScale, float balance)
-        {
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.625f * bossLifeScale);
-            NPC.damage = (int)(NPC.damage * 0.6f);
-        }
+    public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float bossLifeScale, float balance)
+    {
+        NPC.lifeMax = (int)(NPC.lifeMax * 0.625f * bossLifeScale);
+        NPC.damage = (int)(NPC.damage * 0.6f);
+    }
 
-        public override void HitEffect(NPC.HitInfo hit)
+    public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
 				{
@@ -109,12 +109,12 @@ namespace TremorMod.Content.NPCs.Bosses.Alchemaster
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 74, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 74, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				}
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AlchemasterGore1").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AlchemasterGore2").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AlchemasterGore3").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AlchemasterGore3").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AlchemasterGore4").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AlchemasterGore4").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AlchemasterGore1").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AlchemasterGore2").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AlchemasterGore3").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AlchemasterGore3").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AlchemasterGore4").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AlchemasterGore4").Type, 1f);
 				Dust.NewDust(NPC.position, NPC.width, NPC.height, 74, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				Dust.NewDust(NPC.position, NPC.width, NPC.height, 74, 2.5f * hitDirection, -2.5f, 0, default(Color), 2.7f);
 				Dust.NewDust(NPC.position, NPC.width, NPC.height, 74, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
@@ -241,20 +241,19 @@ namespace TremorMod.Content.NPCs.Bosses.Alchemaster
 			spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, new Rectangle((int)(NPC.position.X - Main.screenPosition.X), (int)(NPC.position.Y - Main.screenPosition.Y), 248, 240), new Rectangle(0, Frame * 240, 248, 240), drawColor, 0, new Vector2(0, 0), Direction, 0);
 			return false;
 		}
-        public override void OnKill()
+    public override void OnKill()
 		{
-            TremorSpawnEnemys.downedAlchemaster = true;
-        }
+        TremorSpawnEnemys.downedAlchemaster = true;
+    }
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AlchemasterMask>(), 7));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PlagueFlask>(), 1, 60, 158));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<LongFuse>(), 1));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TheGlorch>(), 3));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BadApple>(), 3));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AlchemasterTrophy>(), 10));
-            npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<AlchemasterTreasureBag>(), 1));
-        }
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AlchemasterMask>(), 7));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PlagueFlask>(), 1, 60, 158));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<LongFuse>(), 1));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TheGlorch>(), 3));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BadApple>(), 3));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AlchemasterTrophy>(), 10));
+        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<AlchemasterTreasureBag>(), 1));
     }
 }

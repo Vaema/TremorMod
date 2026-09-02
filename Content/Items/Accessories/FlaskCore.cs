@@ -1,12 +1,12 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
 using TremorMod.Content.Items.HeaterOfWorldsItems;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class FlaskCore : ModItem
 	{
 		public override void SetDefaults()
@@ -25,11 +25,10 @@ namespace TremorMod.Content.Items.Accessories
 			// Tooltip.SetDefault("Flasks now have autoreuse");
 		}
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
-        {
-            player.AddBuff(ModContent.BuffType<FlaskCoreBuff>(), 2);
-            MPlayer modPlayer = player.GetModPlayer<MPlayer>();
-            modPlayer.core = true;
-        }
+    public override void UpdateAccessory(Player player, bool hideVisual)
+    {
+        player.AddBuff(ModContent.BuffType<FlaskCoreBuff>(), 2);
+        MPlayer modPlayer = player.GetModPlayer<MPlayer>();
+        modPlayer.core = true;
     }
 }

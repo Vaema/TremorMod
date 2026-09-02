@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Items.Weapons.Magic
-{
+namespace TremorMod.Content.Items.Weapons.Magic;
+
 	public class GoldfishStaff : ModItem
 	{
 		public override void SetDefaults()
@@ -35,13 +35,13 @@ namespace TremorMod.Content.Items.Weapons.Magic
 			//Tooltip.SetDefault("Causes goldfishes to fall from the sky");
 		}
 
-        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-        {
-            Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<GoldFishPro>(), damage, knockback, player.whoAmI);
-            return false; 
-        }
+    public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    {
+        Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<GoldFishPro>(), damage, knockback, player.whoAmI);
+        return false; 
+    }
 
-        public override void AddRecipes()
+    public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Wood, 16);
@@ -60,4 +60,3 @@ namespace TremorMod.Content.Items.Weapons.Magic
 			recipe1.Register();
 		}
 	}
-}

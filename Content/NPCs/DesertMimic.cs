@@ -1,11 +1,11 @@
-using Terraria;
+ï»¿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
 using TremorMod.Content.Items.NPCsDrop;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class DesertMimic : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -30,28 +30,27 @@ namespace TremorMod.Content.NPCs
 			AnimationType = NPCID.BigMimicHallow;
 		}
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AntlionFury>(), 4));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Hurricane>(), 4));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SandShuriken>(), 4));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CrawlerHook>(), 4));
-            npcLoot.Add(ItemDropRule.Common(ItemID.GreaterManaPotion, 1, 1, 10));
-            npcLoot.Add(ItemDropRule.Common(ItemID.GreaterHealingPotion, 1, 1, 10));
-        }
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AntlionFury>(), 4));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Hurricane>(), 4));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SandShuriken>(), 4));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CrawlerHook>(), 4));
+        npcLoot.Add(ItemDropRule.Common(ItemID.GreaterManaPotion, 1, 1, 10));
+        npcLoot.Add(ItemDropRule.Common(ItemID.GreaterHealingPotion, 1, 1, 10));
+    }
 
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            bool normalSpawn = !spawnInfo.PlayerInTown; // Ïðèìåð óñëîâèÿ íîðìàëüíîãî ñïàâíà.
-            bool noZoneAllowWater = !spawnInfo.Player.ZoneDungeon && !spawnInfo.Player.ZoneCorrupt && !spawnInfo.Player.ZoneCrimson;
+    public override float SpawnChance(NPCSpawnInfo spawnInfo)
+    {
+        bool normalSpawn = !spawnInfo.PlayerInTown; // ÃÃ°Ã¨Ã¬Ã¥Ã° Ã³Ã±Ã«Ã®Ã¢Ã¨Ã¿ Ã­Ã®Ã°Ã¬Ã Ã«Ã¼Ã­Ã®Ã£Ã® Ã±Ã¯Ã Ã¢Ã­Ã .
+        bool noZoneAllowWater = !spawnInfo.Player.ZoneDungeon && !spawnInfo.Player.ZoneCorrupt && !spawnInfo.Player.ZoneCrimson;
 
-            // Óñëîâèÿ äëÿ ñïàóíà â ïîäçåìíîé ïóñòûíå â õàðäìîäå
-            bool inUndergroundDesert = spawnInfo.Player.ZoneDesert && spawnInfo.SpawnTileY > Main.rockLayer;
+        // Ã“Ã±Ã«Ã®Ã¢Ã¨Ã¿ Ã¤Ã«Ã¿ Ã±Ã¯Ã Ã³Ã­Ã  Ã¢ Ã¯Ã®Ã¤Ã§Ã¥Ã¬Ã­Ã®Ã© Ã¯Ã³Ã±Ã²Ã»Ã­Ã¥ Ã¢ ÃµÃ Ã°Ã¤Ã¬Ã®Ã¤Ã¥
+        bool inUndergroundDesert = spawnInfo.Player.ZoneDesert && spawnInfo.SpawnTileY > Main.rockLayer;
 
-            return normalSpawn && (spawnInfo.SpawnTileType == 53 || spawnInfo.SpawnTileType == 112 || spawnInfo.SpawnTileType == 116 || spawnInfo.SpawnTileType == 234)
-                && noZoneAllowWater && spawnInfo.Water && Main.hardMode && inUndergroundDesert
-                && (spawnInfo.SpawnTileX < 250 || spawnInfo.SpawnTileX > Main.maxTilesX - 250) && !spawnInfo.PlayerSafe
-                ? 0.01f : 0f;
-        }
+        return normalSpawn && (spawnInfo.SpawnTileType == 53 || spawnInfo.SpawnTileType == 112 || spawnInfo.SpawnTileType == 116 || spawnInfo.SpawnTileType == 234)
+            && noZoneAllowWater && spawnInfo.Water && Main.hardMode && inUndergroundDesert
+            && (spawnInfo.SpawnTileX < 250 || spawnInfo.SpawnTileX > Main.maxTilesX - 250) && !spawnInfo.PlayerSafe
+            ? 0.01f : 0f;
     }
 }

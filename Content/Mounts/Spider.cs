@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
@@ -7,8 +7,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Mounts
-{
+namespace TremorMod.Content.Mounts;
+
 	public class Spider : ModMount
 	{
 		public override void SetStaticDefaults()
@@ -55,11 +55,10 @@ namespace TremorMod.Content.Mounts
 			MountData.swimFrameCount = MountData.inAirFrameCount;
 			MountData.swimFrameDelay = MountData.inAirFrameDelay;
 			MountData.swimFrameStart = MountData.inAirFrameStart;
-            if (Main.netMode != 2)
-            {
-                MountData.textureWidth = MountData.backTexture.Value.Width;
-                MountData.textureHeight = MountData.backTexture.Value.Height;
-            }
+        if (Main.netMode != 2)
+        {
+            MountData.textureWidth = MountData.backTexture.Value.Width;
+            MountData.textureHeight = MountData.backTexture.Value.Height;
         }
+    }
 	}
-}

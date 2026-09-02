@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Items.Weapons.Magic
-{
+namespace TremorMod.Content.Items.Weapons.Magic;
+
 	public class TitaniumStaff : ModItem
 	{
 		public override void SetDefaults()
@@ -27,7 +27,7 @@ namespace TremorMod.Content.Items.Weapons.Magic
 			Item.UseSound = SoundID.Item24;
 			Item.autoReuse = true;
 			Item.shoot = ModContent.ProjectileType<TitaniumBolt>();
-            Item.staff[Item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
+        Item.staff[Item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
 			Item.shootSpeed = 15f;
 		}
 
@@ -46,4 +46,3 @@ namespace TremorMod.Content.Items.Weapons.Magic
 			recipe.Register();
 		}
 	}
-}

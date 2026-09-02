@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.Audio;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class BicholmereSpearPro : ModProjectile
 	{
 		public override void SetDefaults()
@@ -29,8 +29,8 @@ namespace TremorMod.Content.Projectiles
 			{
 				int dust = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 37, Projectile.oldVelocity.X * 0.1f, Projectile.oldVelocity.Y * 0.1f);
 			}
-            SoundEngine.PlaySound(SoundID.Item1, Projectile.position);
-        }
+        SoundEngine.PlaySound(SoundID.Item1, Projectile.position);
+    }
 
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
@@ -38,4 +38,3 @@ namespace TremorMod.Content.Projectiles
 			Projectile.velocity *= 0.75f;
 		}
 	}
-}

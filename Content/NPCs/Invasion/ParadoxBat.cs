@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -16,8 +16,8 @@ using TremorMod.Content.Items.Weapons.Melee;
 using TremorMod.Content.NPCs.Invasion.ParadoxTitan;
 using TremorMod.Content.Items.Accessories;
 
-namespace TremorMod.Content.NPCs.Invasion
-{
+namespace TremorMod.Content.NPCs.Invasion;
+
 	public class ParadoxBat : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -59,9 +59,9 @@ namespace TremorMod.Content.NPCs.Invasion
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 10; k++)
 				{
@@ -89,21 +89,21 @@ namespace TremorMod.Content.NPCs.Invasion
 		//int Frame = 0;
 
 		/*void PlayAnimation()
+    {
+        if (--TimeToAnimation <= 0)
         {
-            if (--TimeToAnimation <= 0)
-            {
-                TimeToAnimation = (int)Helper.DistortFloat(AnimationRate, DistortPercent);
-                if (++Frame >= FrameCount)
-                    Frame = 0;
-            }
+            TimeToAnimation = (int)Helper.DistortFloat(AnimationRate, DistortPercent);
+            if (++Frame >= FrameCount)
+                Frame = 0;
         }
+    }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color drawColor)
-        {
-            SpriteEffects Direction = (npc.target == -1) ? SpriteEffects.None : ((Main.player[npc.target].position.X < npc.position.X) ? SpriteEffects.None : SpriteEffects.FlipHorizontally);
-            spriteBatch.Draw(Main.npcTexture[npc.type], new Rectangle((int)(npc.position.X - Main.screenPosition.X), (int)(npc.position.Y - Main.screenPosition.Y), npc.width, npc.height), new Rectangle(0, Frame * npc.height, npc.width, npc.height), drawColor, 0, new Vector2(0, 0), Direction, 0);
-            return false;
-        }  */
+    public override bool PreDraw(SpriteBatch spriteBatch, Color drawColor)
+    {
+        SpriteEffects Direction = (npc.target == -1) ? SpriteEffects.None : ((Main.player[npc.target].position.X < npc.position.X) ? SpriteEffects.None : SpriteEffects.FlipHorizontally);
+        spriteBatch.Draw(Main.npcTexture[npc.type], new Rectangle((int)(npc.position.X - Main.screenPosition.X), (int)(npc.position.Y - Main.screenPosition.Y), npc.width, npc.height), new Rectangle(0, Frame * npc.height, npc.width, npc.height), drawColor, 0, new Vector2(0, 0), Direction, 0);
+        return false;
+    }  */
 
 		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
 		{
@@ -111,19 +111,19 @@ namespace TremorMod.Content.NPCs.Invasion
 			NPC.damage = NPC.damage * 1;
 		}
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        if (Main.netMode != 1)
         {
-            if (Main.netMode != 1)
-            {
-                int centerX = (int)(NPC.position.X + NPC.width / 2) / 16;
-                int centerY = (int)(NPC.position.Y + NPC.height / 2) / 16;
-                int halfLength = NPC.width / 2 / 16 + 1;
-                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ParadoxElement>(), 1, 3, 5));
-                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SecondHand>(), 50));
-            }
+            int centerX = (int)(NPC.position.X + NPC.width / 2) / 16;
+            int centerY = (int)(NPC.position.Y + NPC.height / 2) / 16;
+            int halfLength = NPC.width / 2 / 16 + 1;
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ParadoxElement>(), 1, 3, 5));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SecondHand>(), 50));
         }
+    }
 
-        float customAi1;
+    float customAi1;
 		bool FirstState;
 		bool SecondState;
 		public override void AI()
@@ -454,4 +454,3 @@ namespace TremorMod.Content.NPCs.Invasion
 			}
 		}
 	}
-}

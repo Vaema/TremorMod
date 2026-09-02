@@ -1,12 +1,12 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.BossLoot.TheDarkEmperor;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.ShadowMaster
-{
+namespace TremorMod.Content.Items.Armor.ShadowMaster;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class ShadowMasterChestplate : ModItem
 	{
@@ -45,4 +45,3 @@ namespace TremorMod.Content.Items.Armor.ShadowMaster
 			recipe.Register();
 		}
 	}
-}

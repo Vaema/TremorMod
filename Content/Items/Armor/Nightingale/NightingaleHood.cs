@@ -1,17 +1,17 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using Terraria.Localization;
 
-namespace TremorMod.Content.Items.Armor.Nightingale
-{
+namespace TremorMod.Content.Items.Armor.Nightingale;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class NightingaleHood : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.defense = 5;
 			Item.width = 26;
@@ -39,7 +39,7 @@ namespace TremorMod.Content.Items.Armor.Nightingale
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
+        player.setBonus = SetBonusText.Value;
 			player.AddBuff(106, 300, true);
 		}
 
@@ -50,12 +50,11 @@ namespace TremorMod.Content.Items.Armor.Nightingale
 
 		public override void AddRecipes()
 		{
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<SteelBar>(), 5);
-            recipe.AddIngredient(ModContent.ItemType<PhantomSoul>(), 3);
-            //recipe.SetResult(this);
-            recipe.AddTile(16);
-            recipe.Register();
-        }
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ModContent.ItemType<SteelBar>(), 5);
+        recipe.AddIngredient(ModContent.ItemType<PhantomSoul>(), 3);
+        //recipe.SetResult(this);
+        recipe.AddTile(16);
+        recipe.Register();
+    }
 	}
-}

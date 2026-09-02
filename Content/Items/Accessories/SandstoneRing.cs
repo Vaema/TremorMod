@@ -1,9 +1,9 @@
-using Terraria;
+п»їusing Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class SandstoneRing : ModItem
 	{
 
@@ -17,17 +17,16 @@ namespace TremorMod.Content.Items.Accessories
 			Item.defense = 3;
 		}
 
-        /*public override void SetStaticDefaults()
+    /*public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Sandstone Ring ");
 			Tooltip.SetDefault("5% increased melee damage\n" +
 			"Increases melee critical strike chance by 5");
 		}*/
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
-        {
-            player.GetDamage(DamageClass.Melee) += 0.05f; // Увеличение урона ближнего боя на 5%
-            player.GetCritChance(DamageClass.Melee) += 5; // Увеличение шанса критического удара на 5%
-        }
+    public override void UpdateAccessory(Player player, bool hideVisual)
+    {
+        player.GetDamage(DamageClass.Melee) += 0.05f; // Г“ГўГҐГ«ГЁГ·ГҐГ­ГЁГҐ ГіГ°Г®Г­Г  ГЎГ«ГЁГ¦Г­ГҐГЈГ® ГЎГ®Гї Г­Г  5%
+        player.GetCritChance(DamageClass.Melee) += 5; // Г“ГўГҐГ«ГЁГ·ГҐГ­ГЁГҐ ГёГ Г­Г±Г  ГЄГ°ГЁГІГЁГ·ГҐГ±ГЄГ®ГЈГ® ГіГ¤Г Г°Г  Г­Г  5%
     }
 }

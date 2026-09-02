@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items
-{
+namespace TremorMod.Content.Items;
+
 	public class ClockofTime : ModItem
 	{
 		public override void SetDefaults()
@@ -51,4 +51,3 @@ namespace TremorMod.Content.Items
 			return true;
 		}
 	}
-}

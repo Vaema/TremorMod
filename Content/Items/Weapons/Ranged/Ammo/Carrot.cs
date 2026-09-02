@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Items.Weapons.Ranged.Ammo
-{
+namespace TremorMod.Content.Items.Weapons.Ranged.Ammo;
+
 	public class Carrot : ModItem
 	{
 		public override void SetDefaults()
@@ -29,4 +29,3 @@ namespace TremorMod.Content.Items.Weapons.Ranged.Ammo
 			//Tooltip.SetDefault("");
 		}
 	}
-}

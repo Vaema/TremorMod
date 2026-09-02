@@ -12,8 +12,8 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Placeable.Banners;
 using TremorMod.Content.Items.Vanity;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class DesertPrincess : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -515,20 +515,19 @@ namespace TremorMod.Content.NPCs
 			return spawnInfo.Player.ZoneDesert && NPC.downedPlantBoss ? 0.001f : 0f;
 		}
 
-        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float bossLifeScale, float balance)
-        {
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.625f * bossLifeScale);
-            NPC.damage = (int)(NPC.damage * 0.6f);
-        }
+    public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float bossLifeScale, float balance)
+    {
+        NPC.lifeMax = (int)(NPC.lifeMax * 0.625f * bossLifeScale);
+        NPC.damage = (int)(NPC.damage * 0.6f);
+    }
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            npcLoot.Add(ItemDropRule.OneFromOptions(1,
-                ModContent.ItemType<DesertExplorerVisage>(),
-                ModContent.ItemType<DesertExplorerGreaves>(),
-                ModContent.ItemType<DesertExplorerBreastplate>()));
-            npcLoot.Add(ItemDropRule.Common(ItemID.GreaterHealingPotion, 1, 5, 15));
-            npcLoot.Add(ItemDropRule.Common(ItemID.GreaterManaPotion, 1, 5, 15));
-        }
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.OneFromOptions(1,
+            ModContent.ItemType<DesertExplorerVisage>(),
+            ModContent.ItemType<DesertExplorerGreaves>(),
+            ModContent.ItemType<DesertExplorerBreastplate>()));
+        npcLoot.Add(ItemDropRule.Common(ItemID.GreaterHealingPotion, 1, 5, 15));
+        npcLoot.Add(ItemDropRule.Common(ItemID.GreaterManaPotion, 1, 5, 15));
     }
 }

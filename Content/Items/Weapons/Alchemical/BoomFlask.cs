@@ -1,4 +1,4 @@
-using Terraria;
+п»їusing Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
@@ -7,54 +7,53 @@ using TremorMod;
 using TremorMod.Content.Projectiles;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items.Weapons.Alchemical
+namespace TremorMod.Content.Items.Weapons.Alchemical;
+
+public class BoomFlask : ModItem
 {
-    public class BoomFlask : ModItem
+    public override void SetDefaults()
     {
-        public override void SetDefaults()
+        Item.DamageType = TremorMod.alchemicalDamage ?? DamageClass.Generic;
+        Item.crit = 4;
+        Item.damage = 18;
+        Item.width = 26;
+        Item.noUseGraphic = true;
+        Item.maxStack = 999;
+        Item.consumable = true;
+        Item.height = 30;
+        Item.useTime = 40;
+        Item.useAnimation = 40;
+        Item.shoot = ModContent.ProjectileType<BoomFlaskPro>();
+        Item.shootSpeed = 10f;
+        Item.useStyle = ItemUseStyleID.Swing; // Г€Г§Г¬ГҐГ­ГЁГІГҐ Г­Г  ГЇГ°Г ГўГЁГ«ГјГ­Г»Г© Г±ГІГЁГ«Гј ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГї
+        Item.knockBack = 1;
+        Item.UseSound = SoundID.Item106;
+        Item.value = 145;
+        Item.rare = 2;
+        Item.autoReuse = false;
+        Item.ammo = Item.type; // Г“ГЎГҐГ¤ГЁГІГҐГ±Гј, Г·ГІГ® ГЇГ°ГҐГ¤Г¬ГҐГІ Г­Г Г±ГІГ°Г®ГҐГ­ ГЄГ ГЄ ГЎГ®ГҐГЇГ°ГЁГЇГ Г±
+    }
+
+    public override void UpdateInventory(Player player)
+    {
+        TremorPlayer modPlayer = player.GetModPlayer<TremorPlayer>();
+
+        if (player.FindBuffIndex(ModContent.BuffType<LongFuseBuff>()) != -1)
         {
-            Item.DamageType = TremorMod.alchemicalDamage ?? DamageClass.Generic;
-            Item.crit = 4;
-            Item.damage = 18;
-            Item.width = 26;
-            Item.noUseGraphic = true;
-            Item.maxStack = 999;
-            Item.consumable = true;
-            Item.height = 30;
-            Item.useTime = 40;
-            Item.useAnimation = 40;
-            Item.shoot = ModContent.ProjectileType<BoomFlaskPro>();
-            Item.shootSpeed = 10f;
-            Item.useStyle = ItemUseStyleID.Swing; // Измените на правильный стиль использования
-            Item.knockBack = 1;
-            Item.UseSound = SoundID.Item106;
-            Item.value = 145;
-            Item.rare = 2;
-            Item.autoReuse = false;
-            Item.ammo = Item.type; // Убедитесь, что предмет настроен как боеприпас
+            Item.shootSpeed = 11f;
+        }
+        else
+        {
+            Item.shootSpeed = 8f;
         }
 
-        public override void UpdateInventory(Player player)
+        if (modPlayer != null && modPlayer.core)
         {
-            TremorPlayer modPlayer = player.GetModPlayer<TremorPlayer>();
-
-            if (player.FindBuffIndex(ModContent.BuffType<LongFuseBuff>()) != -1)
-            {
-                Item.shootSpeed = 11f;
-            }
-            else
-            {
-                Item.shootSpeed = 8f;
-            }
-
-            if (modPlayer != null && modPlayer.core)
-            {
-                Item.autoReuse = true;
-            }
-            else
-            {
-                Item.autoReuse = false;
-            }
+            Item.autoReuse = true;
+        }
+        else
+        {
+            Item.autoReuse = false;
         }
     }
 }

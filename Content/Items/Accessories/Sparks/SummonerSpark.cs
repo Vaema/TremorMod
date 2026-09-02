@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Accessories.Sparks
-{
+namespace TremorMod.Content.Items.Accessories.Sparks;
+
 	public class SummonerSpark : ModItem
 	{
 		public override void SetStaticDefaults()
@@ -26,9 +26,9 @@ namespace TremorMod.Content.Items.Accessories.Sparks
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-            player.maxMinions += 1;
-            player.GetDamage(DamageClass.Summon) += 0.05f;
-        }
+        player.maxMinions += 1;
+        player.GetDamage(DamageClass.Summon) += 0.05f;
+    }
 
 		public override void AddRecipes()
 		{
@@ -38,4 +38,3 @@ namespace TremorMod.Content.Items.Accessories.Sparks
 			recipe.Register();
 		}
 	}
-}

@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.MagicalArmor
-{
+namespace TremorMod.Content.Items.Armor.MagicalArmor;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class MagicalRobe : ModItem
 	{
@@ -31,21 +31,20 @@ namespace TremorMod.Content.Items.Armor.MagicalArmor
 			player.statManaMax2 += 20;
 		}
 
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.Silk, 14);
-            recipe.AddIngredient(ItemID.LeadBar, 5);
-            recipe.AddTile(18);
-            recipe.Register();
+    public override void AddRecipes()
+    {
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ItemID.Silk, 14);
+        recipe.AddIngredient(ItemID.LeadBar, 5);
+        recipe.AddTile(18);
+        recipe.Register();
 
-            Recipe recipe1 = CreateRecipe();
-            recipe1.AddIngredient(ItemID.Silk, 14);
-            recipe1.AddIngredient(ItemID.IronBar, 6);
-            recipe1.AddTile(18);
-            recipe1.Register();
-
-        }
+        Recipe recipe1 = CreateRecipe();
+        recipe1.AddIngredient(ItemID.Silk, 14);
+        recipe1.AddIngredient(ItemID.IronBar, 6);
+        recipe1.AddTile(18);
+        recipe1.Register();
 
     }
+
 }

@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Biomes.Ice
-{
+namespace TremorMod.Content.Biomes.Ice;
+
 	public class IceKey : ModItem
 	{
 		public override void SetDefaults()
@@ -21,4 +21,3 @@ namespace TremorMod.Content.Biomes.Ice
 			Tooltip.SetDefault("Opens the Frozen Chest once");
 		}*/
 	}
-}

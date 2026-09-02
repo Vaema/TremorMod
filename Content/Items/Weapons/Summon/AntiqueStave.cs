@@ -1,71 +1,70 @@
-using Microsoft.Xna.Framework;
+ï»¿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles.Minions;
 
-namespace TremorMod.Content.Items.Weapons.Summon
+namespace TremorMod.Content.Items.Weapons.Summon;
+
+public class AntiqueStave : ModItem
 {
-    public class AntiqueStave : ModItem
+    public override void SetDefaults()
     {
-        public override void SetDefaults()
+        Item.damage = 21;
+        Item.mana = 10;
+        Item.width = 44;
+        Item.height = 44;
+        Item.useTime = 25;
+        Item.useAnimation = 25;
+        Item.useStyle = ItemUseStyleID.Swing;
+        Item.noMelee = true;
+        Item.knockBack = 2.5f;
+        Item.value = Item.buyPrice(0, 1, 0, 0);
+        Item.rare = ItemRarityID.Green;
+        Item.UseSound = SoundID.Item44;
+        Item.autoReuse = true;
+        Item.shoot = ModContent.ProjectileType<AntiqueStavePro>();
+        Item.DamageType = (DamageClass.Summon);
+        Item.sentry = true;
+    }
+
+    /*public override void SetStaticDefaults()
+    {
+        DisplayName.SetDefault("Antique Stave");
+        Tooltip.SetDefault("Summons an antique spirit to shoot bolts at your enemies");
+    }*/
+
+    public override bool AltFunctionUse(Player player)
+    {
+        return true;
+    }
+
+    public override bool? UseItem(Player player)
+    {
+        if (player.altFunctionUse == 2)
         {
-            Item.damage = 21;
-            Item.mana = 10;
-            Item.width = 44;
-            Item.height = 44;
-            Item.useTime = 25;
-            Item.useAnimation = 25;
-            Item.useStyle = ItemUseStyleID.Swing;
-            Item.noMelee = true;
-            Item.knockBack = 2.5f;
-            Item.value = Item.buyPrice(0, 1, 0, 0);
-            Item.rare = ItemRarityID.Green;
-            Item.UseSound = SoundID.Item44;
-            Item.autoReuse = true;
-            Item.shoot = ModContent.ProjectileType<AntiqueStavePro>();
-            Item.DamageType = (DamageClass.Summon);
-            Item.sentry = true;
+            player.MinionNPCTargetAim(true); // ÃˆÃ«Ã¨ false, Ã¢ Ã§Ã Ã¢Ã¨Ã±Ã¨Ã¬Ã®Ã±Ã²Ã¨ Ã®Ã² Ã²Ã®Ã£Ã®, Ã·Ã²Ã® Ã¢Ã Ã¬ Ã­Ã³Ã¦Ã­Ã®
         }
+        return base.UseItem(player);
+    }
 
-        /*public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Antique Stave");
-            Tooltip.SetDefault("Summons an antique spirit to shoot bolts at your enemies");
-        }*/
 
-        public override bool AltFunctionUse(Player player)
-        {
-            return true;
-        }
+    public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockBack)
+    {
+        Vector2 SPos = Main.screenPosition + new Vector2(Main.mouseX, Main.mouseY);
+        position = SPos;
 
-        public override bool? UseItem(Player player)
+        // Ã„Ã¥Ã ÃªÃ²Ã¨Ã¢Ã Ã¶Ã¨Ã¿ Ã±Ã²Ã Ã°Ã»Ãµ Ã±Ã­Ã Ã°Ã¿Ã¤Ã®Ã¢ Ã²Ã®Ã£Ã® Ã¦Ã¥ Ã²Ã¨Ã¯Ã 
+        for (int l = 0; l < Main.projectile.Length; l++)
         {
-            if (player.altFunctionUse == 2)
+            Projectile proj = Main.projectile[l];
+            if (proj.active && proj.type == Item.shoot && proj.owner == player.whoAmI)
             {
-                player.MinionNPCTargetAim(true); // Èëè false, â çàâèñèìîñòè îò òîãî, ÷òî âàì íóæíî
+                proj.active = false;
             }
-            return base.UseItem(player);
         }
 
-
-        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockBack)
-        {
-            Vector2 SPos = Main.screenPosition + new Vector2(Main.mouseX, Main.mouseY);
-            position = SPos;
-
-            // Äåàêòèâàöèÿ ñòàðûõ ñíàðÿäîâ òîãî æå òèïà
-            for (int l = 0; l < Main.projectile.Length; l++)
-            {
-                Projectile proj = Main.projectile[l];
-                if (proj.active && proj.type == Item.shoot && proj.owner == player.whoAmI)
-                {
-                    proj.active = false;
-                }
-            }
-
-            // Âûñòðåë òîëüêî ïðè îñíîâíîé ôóíêöèè
-            return player.altFunctionUse != 2;
-        }
+        // Ã‚Ã»Ã±Ã²Ã°Ã¥Ã« Ã²Ã®Ã«Ã¼ÃªÃ® Ã¯Ã°Ã¨ Ã®Ã±Ã­Ã®Ã¢Ã­Ã®Ã© Ã´Ã³Ã­ÃªÃ¶Ã¨Ã¨
+        return player.altFunctionUse != 2;
     }
 }

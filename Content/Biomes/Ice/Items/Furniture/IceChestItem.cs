@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Biomes.Ice.Items.Furniture
-{
+namespace TremorMod.Content.Biomes.Ice.Items.Furniture;
+
 	public class IceChestItem : ModItem
 	{
 		public override void SetDefaults()
@@ -28,4 +28,3 @@ namespace TremorMod.Content.Biomes.Ice.Items.Furniture
 			Tooltip.SetDefault("");
 		}*/
 	}
-}

@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Items.Tools
-{
+namespace TremorMod.Content.Items.Tools;
+
 
 	public class CrystalChainmer : ModItem
 	{
@@ -49,4 +49,3 @@ namespace TremorMod.Content.Items.Tools
 			recipe.Register();
 		}
 	}
-}

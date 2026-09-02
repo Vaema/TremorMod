@@ -1,12 +1,12 @@
-using Microsoft.Xna.Framework;
+п»їusing Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.NPCsDrop
-{
+namespace TremorMod.Content.Items.NPCsDrop;
+
 	class SquidTentacle : ModItem
 	{
 		public override void SetDefaults()
@@ -110,63 +110,62 @@ namespace TremorMod.Content.Items.NPCsDrop
 			speed = 10;
 		}
 
-        public override bool PreDraw(ref Color lightColor)
-        {
-            Vector2 playerCenter = Main.player[Projectile.owner].MountedCenter;
-            Vector2 center = Projectile.Center;
-            Vector2 distToProj = playerCenter - Projectile.Center;
-            float projRotation = distToProj.ToRotation() - 1.57f;
-            float distance = distToProj.Length();
+    public override bool PreDraw(ref Color lightColor)
+    {
+        Vector2 playerCenter = Main.player[Projectile.owner].MountedCenter;
+        Vector2 center = Projectile.Center;
+        Vector2 distToProj = playerCenter - Projectile.Center;
+        float projRotation = distToProj.ToRotation() - 1.57f;
+        float distance = distToProj.Length();
 
-			// Загружаем текстуру один раз, чтобы избежать повторного запроса.
+			// Г‡Г ГЈГ°ГіГ¦Г ГҐГ¬ ГІГҐГЄГ±ГІГіГ°Гі Г®Г¤ГЁГ­ Г°Г Г§, Г·ГІГ®ГЎГ» ГЁГ§ГЎГҐГ¦Г ГІГј ГЇГ®ГўГІГ®Г°Г­Г®ГЈГ® Г§Г ГЇГ°Г®Г±Г .
 			var texture = ModContent.Request<Texture2D>("TremorMod/Content/Items/NPCsDrop/SquidTentacleChain").Value;
 
-            while (distance > 30f && !float.IsNaN(distance))
-            {
-                distToProj.Normalize();                 // Получаем единичный вектор.
-                distToProj *= 24f;                      // Скорость цепи.
-                center += distToProj;                   // Обновляем позицию для отрисовки.
-                distToProj = playerCenter - center;     // Обновляем расстояние.
-                distance = distToProj.Length();
-                Color drawColor = lightColor;
+        while (distance > 30f && !float.IsNaN(distance))
+        {
+            distToProj.Normalize();                 // ГЏГ®Г«ГіГ·Г ГҐГ¬ ГҐГ¤ГЁГ­ГЁГ·Г­Г»Г© ГўГҐГЄГІГ®Г°.
+            distToProj *= 24f;                      // Г‘ГЄГ®Г°Г®Г±ГІГј Г¶ГҐГЇГЁ.
+            center += distToProj;                   // ГЋГЎГ­Г®ГўГ«ГїГҐГ¬ ГЇГ®Г§ГЁГ¶ГЁГѕ Г¤Г«Гї Г®ГІГ°ГЁГ±Г®ГўГЄГЁ.
+            distToProj = playerCenter - center;     // ГЋГЎГ­Г®ГўГ«ГїГҐГ¬ Г°Г Г±Г±ГІГ®ГїГ­ГЁГҐ.
+            distance = distToProj.Length();
+            Color drawColor = lightColor;
 
-                // Координаты для отрисовки.
-                Vector2 position = new Vector2(center.X - Main.screenPosition.X, center.Y - Main.screenPosition.Y);
-                Rectangle sourceRectangle = new Rectangle(0, 0, texture.Width, texture.Height);
-                Vector2 origin = new Vector2(texture.Width * 0.5f, texture.Height * 0.5f);
+            // ГЉГ®Г®Г°Г¤ГЁГ­Г ГІГ» Г¤Г«Гї Г®ГІГ°ГЁГ±Г®ГўГЄГЁ.
+            Vector2 position = new Vector2(center.X - Main.screenPosition.X, center.Y - Main.screenPosition.Y);
+            Rectangle sourceRectangle = new Rectangle(0, 0, texture.Width, texture.Height);
+            Vector2 origin = new Vector2(texture.Width * 0.5f, texture.Height * 0.5f);
 
-                // Рисуем цепь.
-                Main.spriteBatch.Draw(
-                    texture,
-                    position,
-                    sourceRectangle,
-                    drawColor,
-                    projRotation,
-                    origin,
-                    1f, // Масштаб.
-                    SpriteEffects.None,
-                    0f
-                );
-            }
-
-            // Возвращаем значение, чтобы устранить ошибку.
-            return true;
+            // ГђГЁГ±ГіГҐГ¬ Г¶ГҐГЇГј.
+            Main.spriteBatch.Draw(
+                texture,
+                position,
+                sourceRectangle,
+                drawColor,
+                projRotation,
+                origin,
+                1f, // ГЊГ Г±ГёГІГ ГЎ.
+                SpriteEffects.None,
+                0f
+            );
         }
 
-
-        // Animated hook example
-        // Multiple, 
-        // only 1 connected, spawn mult
-        // Light the path
-        // Gem Hooks: 1 spawn only
-        // Thorn: 4 spawns, 3 connected
-        // Dual: 2/1 
-        // Lunar: 5/4 -- Cycle hooks, more than 1 at once
-        // AntiGravity -- Push player to position
-        // Static -- move player with keys, don't pull to wall
-        // Christmas -- light ends
-        // Web slinger -- 9/8, can shoot more than 1 at once
-        // Bat hook -- Fast reeling
-
+        // Г‚Г®Г§ГўГ°Г Г№Г ГҐГ¬ Г§Г­Г Г·ГҐГ­ГЁГҐ, Г·ГІГ®ГЎГ» ГіГ±ГІГ°Г Г­ГЁГІГј Г®ГёГЁГЎГЄГі.
+        return true;
     }
+
+
+    // Animated hook example
+    // Multiple, 
+    // only 1 connected, spawn mult
+    // Light the path
+    // Gem Hooks: 1 spawn only
+    // Thorn: 4 spawns, 3 connected
+    // Dual: 2/1 
+    // Lunar: 5/4 -- Cycle hooks, more than 1 at once
+    // AntiGravity -- Push player to position
+    // Static -- move player with keys, don't pull to wall
+    // Christmas -- light ends
+    // Web slinger -- 9/8, can shoot more than 1 at once
+    // Bat hook -- Fast reeling
+
 }

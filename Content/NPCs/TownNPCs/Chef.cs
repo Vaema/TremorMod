@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
@@ -50,16 +50,16 @@ using TremorMod.Content.Projectiles;
 using TremorMod.Utilities;
 using TremorMod;
 
-namespace TremorMod.Content.NPCs.TownNPCs
-{
+namespace TremorMod.Content.NPCs.TownNPCs;
+
 	[AutoloadHead]
 	public class Chef : ModNPC
 	{
 		public override string Texture => $"{typeof(Chef).NamespaceToPath()}/Chef";
 
-        public override bool IsLoadingEnabled(Mod mod) => true;
+    public override bool IsLoadingEnabled(Mod mod) => true;
 
-        public override void SetStaticDefaults()
+    public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Chef");
 			Main.npcFrameCount[NPC.type] = 25;
@@ -87,83 +87,83 @@ namespace TremorMod.Content.NPCs.TownNPCs
 			AnimationType = NPCID.GoblinTinkerer;
 		}
 
-        public override bool CanTownNPCSpawn(int numTownNPCs)
-        {
-            if (!NPC.downedBoss2)
-                return false;
-
-            foreach (Player player in Main.ActivePlayers)
-            {
-                if (!player.dead)
-                {
-                    return true; 
-                }
-            }
-
+    public override bool CanTownNPCSpawn(int numTownNPCs)
+    {
+        if (!NPC.downedBoss2)
             return false;
+
+        foreach (Player player in Main.ActivePlayers)
+        {
+            if (!player.dead)
+            {
+                return true; 
+            }
         }
 
-        public override List<string> SetNPCNameList() => new List<string>()
-        {
-            this.GetLocalizedValue("Name.Richard"),
-            this.GetLocalizedValue("Name.Oliver"),
-            this.GetLocalizedValue("Name.Alan"),
-            this.GetLocalizedValue("Name.Gordon"),
-            this.GetLocalizedValue("Name.Umeril"),
-            this.GetLocalizedValue("Name.Anthony"),
-            this.GetLocalizedValue("Name.Jerome"),
-            this.GetLocalizedValue("Name.Liam")
-        };
+        return false;
+    }
 
-        public override string GetChat()
-        {
-            WeightedRandom<string> dialogue = new WeightedRandom<string>();
+    public override List<string> SetNPCNameList() => new List<string>()
+    {
+        this.GetLocalizedValue("Name.Richard"),
+        this.GetLocalizedValue("Name.Oliver"),
+        this.GetLocalizedValue("Name.Alan"),
+        this.GetLocalizedValue("Name.Gordon"),
+        this.GetLocalizedValue("Name.Umeril"),
+        this.GetLocalizedValue("Name.Anthony"),
+        this.GetLocalizedValue("Name.Jerome"),
+        this.GetLocalizedValue("Name.Liam")
+    };
 
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal1"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal2"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal3"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal4"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal5"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal6"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal7"));
+    public override string GetChat()
+    {
+        WeightedRandom<string> dialogue = new WeightedRandom<string>();
 
-            return dialogue;
-        }
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal1"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal2"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal3"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal4"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal5"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal6"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal7"));
+
+        return dialogue;
+    }
 
 		public override void SetChatButtons(ref string button, ref string button2)
 		{
 			button = Lang.inter[28].Value;
 		}
 	
-        public override void OnChatButtonClicked(bool firstButton, ref string shopName)
-        {
-            if (firstButton)
-                shopName = "Chef";
-        }
+    public override void OnChatButtonClicked(bool firstButton, ref string shopName)
+    {
+        if (firstButton)
+            shopName = "Chef";
+    }
 
-        public override void AddShops()
-        {
-            var farmerPresentCondition = new Condition("FarmerPresent", () => NPC.AnyNPCs(ModContent.NPCType<Farmer>()));
-            var downedBoss2Condition = new Condition("DownedBoss2", () => NPC.downedBoss2);
-            var bloodMoonCondition = new Condition("BloodMoon", () => Main.bloodMoon);
+    public override void AddShops()
+    {
+        var farmerPresentCondition = new Condition("FarmerPresent", () => NPC.AnyNPCs(ModContent.NPCType<Farmer>()));
+        var downedBoss2Condition = new Condition("DownedBoss2", () => NPC.downedBoss2);
+        var bloodMoonCondition = new Condition("BloodMoon", () => Main.bloodMoon);
 
-            NPCShop shop = new(Type, "Chef");
+        NPCShop shop = new(Type, "Chef");
 
-            shop.Add(ModContent.ItemType<Knife>())
-                .Add(ModContent.ItemType<Durian>())
-                .Add(ModContent.ItemType<ChefHat>())
-                .Add(ModContent.ItemType<ButcherAxe>());
+        shop.Add(ModContent.ItemType<Knife>())
+            .Add(ModContent.ItemType<Durian>())
+            .Add(ModContent.ItemType<ChefHat>())
+            .Add(ModContent.ItemType<ButcherAxe>());
 
-            shop.Add(ModContent.ItemType<Carrow>(), farmerPresentCondition);
+        shop.Add(ModContent.ItemType<Carrow>(), farmerPresentCondition);
 
-            shop.Add(ModContent.ItemType<ChickenLegMace>(), downedBoss2Condition);
+        shop.Add(ModContent.ItemType<ChickenLegMace>(), downedBoss2Condition);
 
-            shop.Add(ModContent.ItemType<CursedPopcorn>(), bloodMoonCondition);
+        shop.Add(ModContent.ItemType<CursedPopcorn>(), bloodMoonCondition);
 
-            shop.Register(); 
-        }
+        shop.Register(); 
+    }
 
-        public override void TownNPCAttackStrength(ref int damage, ref float knockback)
+    public override void TownNPCAttackStrength(ref int damage, ref float knockback)
 		{
 			damage = 25;
 			knockback = 4f;
@@ -190,17 +190,16 @@ namespace TremorMod.Content.NPCs.TownNPCs
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
 				for(int i = 0; i < 3; ++i)
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ChefGore1").Type, 1f);
-            
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ChefGore1").Type, 1f);
+        
 			}
 		}
 	}
-}

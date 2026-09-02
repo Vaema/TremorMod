@@ -1,10 +1,10 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace TremorMod.Content.Tiles
-{
+namespace TremorMod.Content.Tiles;
+
 	public class RedSteelBarTile : ModTile
 	{
 		public override void SetStaticDefaults()
@@ -15,7 +15,7 @@ namespace TremorMod.Content.Tiles
 			Main.tileLavaDeath[Type] = true;
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
 			TileObjectData.newTile.Height = 1;
-			TileObjectData.newTile.CoordinateHeights = new[] { 16 };
+			TileObjectData.newTile.CoordinateHeights = [16];
 			TileObjectData.newTile.StyleHorizontal = true;
 			TileObjectData.newTile.StyleWrapLimit = 111;
 			TileObjectData.addTile(Type);
@@ -24,4 +24,3 @@ namespace TremorMod.Content.Tiles
 			Main.tileSolid[Type] = true;
 		}
 	}
-}

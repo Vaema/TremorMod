@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Buffs
-{
+namespace TremorMod.Content.Buffs;
+
 	public class ShootSpeedBuff2 : ModBuff
 	{
 		public override void SetStaticDefaults()
@@ -12,4 +12,3 @@ namespace TremorMod.Content.Buffs
 			Main.buffNoTimeDisplay[Type] = true;
 		}
 	}
-}

@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
@@ -50,16 +50,16 @@ using TremorMod.Content.Projectiles;
 using TremorMod.Utilities;
 using TremorMod;
 
-namespace TremorMod.Content.NPCs.TownNPCs
-{
+namespace TremorMod.Content.NPCs.TownNPCs;
+
 	[AutoloadHead]
 	public class ForgeMaster : ModNPC
 	{
 		public override string Texture => $"{typeof(ForgeMaster).NamespaceToPath()}/ForgeMaster";
 
-        public override bool IsLoadingEnabled(Mod mod) => true;
+    public override bool IsLoadingEnabled(Mod mod) => true;
 
-        public override void SetStaticDefaults()
+    public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Forge Master");
 			Main.npcFrameCount[NPC.type] = 25;
@@ -87,109 +87,109 @@ namespace TremorMod.Content.NPCs.TownNPCs
 			AnimationType = NPCID.Guide;
 		}
 
-        public override bool CanTownNPCSpawn(int numTownNPCs)
+    public override bool CanTownNPCSpawn(int numTownNPCs)
+    {
+        foreach (Player player in Main.ActivePlayers)
         {
-            foreach (Player player in Main.ActivePlayers)
+            if (player.InventoryHas(ModContent.ItemType<JungleAlloy>()))
             {
-                if (player.InventoryHas(ModContent.ItemType<JungleAlloy>()))
-                {
-                    return true;
-                }
+                return true;
             }
-
-            return false; 
         }
 
-        public override List<string> SetNPCNameList() => new List<string>()
-        {
-            this.GetLocalizedValue("Name.Gefest"),
-            this.GetLocalizedValue("Name.Aule"),
-            this.GetLocalizedValue("Name.Agarorn"),
-            this.GetLocalizedValue("Name.Treak"),
-            this.GetLocalizedValue("Name.Haymer"),
-            this.GetLocalizedValue("Name.Golan")
-        };
+        return false; 
+    }
 
-        public override string GetChat()
-        {
-            WeightedRandom<string> dialogue = new WeightedRandom<string>();
+    public override List<string> SetNPCNameList() => new List<string>()
+    {
+        this.GetLocalizedValue("Name.Gefest"),
+        this.GetLocalizedValue("Name.Aule"),
+        this.GetLocalizedValue("Name.Agarorn"),
+        this.GetLocalizedValue("Name.Treak"),
+        this.GetLocalizedValue("Name.Haymer"),
+        this.GetLocalizedValue("Name.Golan")
+    };
 
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal1"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal2"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal3"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal4"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal5"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal6"));
-            dialogue.Add(this.GetLocalizedValue("Chat.Normal7"));
+    public override string GetChat()
+    {
+        WeightedRandom<string> dialogue = new WeightedRandom<string>();
 
-            return dialogue;
-        }
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal1"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal2"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal3"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal4"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal5"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal6"));
+        dialogue.Add(this.GetLocalizedValue("Chat.Normal7"));
 
-        public override void SetChatButtons(ref string button, ref string button2)
+        return dialogue;
+    }
+
+    public override void SetChatButtons(ref string button, ref string button2)
 		{
 			button = Lang.inter[28].Value;
 		}
 
-        public override void OnChatButtonClicked(bool firstButton, ref string shopName)
-        {
-            if (firstButton)
-                shopName = "ForgeMaster";
-        }
+    public override void OnChatButtonClicked(bool firstButton, ref string shopName)
+    {
+        if (firstButton)
+            shopName = "ForgeMaster";
+    }
 
-        public override void AddShops()
-        {
-            var dayCondition = new Condition("DayTime", () => Main.dayTime);
-            var nightCondition = new Condition("NightTime", () => !Main.dayTime);
-            var downedBoss2Condition = new Condition("DownedBoss2", () => NPC.downedBoss2);
-            var downedBoss3Condition = new Condition("DownedBoss3", () => NPC.downedBoss3);
-            var downedMechBossAnyCondition = new Condition("DownedMechBossAny", () => NPC.downedMechBossAny);
-            var downedPlantBossCondition = new Condition("DownedPlantBoss", () => NPC.downedPlantBoss);
-            var downedGolemBossCondition = new Condition("DownedGolemBoss", () => NPC.downedGolemBoss);
-            var downedAncientCultistCondition = new Condition("DownedAncientCultist", () => NPC.downedAncientCultist);
-            var hardmodeCondition = new Condition("Hardmode", () => Main.hardMode);
+    public override void AddShops()
+    {
+        var dayCondition = new Condition("DayTime", () => Main.dayTime);
+        var nightCondition = new Condition("NightTime", () => !Main.dayTime);
+        var downedBoss2Condition = new Condition("DownedBoss2", () => NPC.downedBoss2);
+        var downedBoss3Condition = new Condition("DownedBoss3", () => NPC.downedBoss3);
+        var downedMechBossAnyCondition = new Condition("DownedMechBossAny", () => NPC.downedMechBossAny);
+        var downedPlantBossCondition = new Condition("DownedPlantBoss", () => NPC.downedPlantBoss);
+        var downedGolemBossCondition = new Condition("DownedGolemBoss", () => NPC.downedGolemBoss);
+        var downedAncientCultistCondition = new Condition("DownedAncientCultist", () => NPC.downedAncientCultist);
+        var hardmodeCondition = new Condition("Hardmode", () => Main.hardMode);
 
-            NPCShop shop = new(Type, "ForgeMaster");
+        NPCShop shop = new(Type, "ForgeMaster");
 
-            shop.Add(ModContent.ItemType<GreatAnvil>());
+        shop.Add(ModContent.ItemType<GreatAnvil>());
 
-            shop.Add(ItemID.CopperBar, dayCondition)
-                .Add(ItemID.IronBar, dayCondition)
-                .Add(ItemID.SilverBar, dayCondition);
+        shop.Add(ItemID.CopperBar, dayCondition)
+            .Add(ItemID.IronBar, dayCondition)
+            .Add(ItemID.SilverBar, dayCondition);
 
-            shop.Add(ItemID.GoldBar, dayCondition, downedBoss2Condition);
-            shop.Add(ItemID.DemoniteBar, dayCondition, downedBoss3Condition);
-            shop.Add(ItemID.CobaltBar, dayCondition, downedMechBossAnyCondition)
-                .Add(ItemID.MythrilBar, dayCondition, downedMechBossAnyCondition)
-                .Add(ItemID.AdamantiteBar, dayCondition, downedMechBossAnyCondition);
+        shop.Add(ItemID.GoldBar, dayCondition, downedBoss2Condition);
+        shop.Add(ItemID.DemoniteBar, dayCondition, downedBoss3Condition);
+        shop.Add(ItemID.CobaltBar, dayCondition, downedMechBossAnyCondition)
+            .Add(ItemID.MythrilBar, dayCondition, downedMechBossAnyCondition)
+            .Add(ItemID.AdamantiteBar, dayCondition, downedMechBossAnyCondition);
 
-            shop.Add(ItemID.TinBar, nightCondition)
-                .Add(ItemID.LeadBar, nightCondition)
-                .Add(ItemID.TungstenBar, nightCondition);
+        shop.Add(ItemID.TinBar, nightCondition)
+            .Add(ItemID.LeadBar, nightCondition)
+            .Add(ItemID.TungstenBar, nightCondition);
 
-            shop.Add(ItemID.PlatinumBar, nightCondition, downedBoss2Condition);
-            shop.Add(ItemID.CrimtaneBar, nightCondition, downedBoss3Condition);
-            shop.Add(ItemID.PalladiumBar, nightCondition, downedMechBossAnyCondition)
-                .Add(ItemID.OrichalcumBar, nightCondition, downedMechBossAnyCondition)
-                .Add(ItemID.TitaniumBar, nightCondition, downedMechBossAnyCondition);
+        shop.Add(ItemID.PlatinumBar, nightCondition, downedBoss2Condition);
+        shop.Add(ItemID.CrimtaneBar, nightCondition, downedBoss3Condition);
+        shop.Add(ItemID.PalladiumBar, nightCondition, downedMechBossAnyCondition)
+            .Add(ItemID.OrichalcumBar, nightCondition, downedMechBossAnyCondition)
+            .Add(ItemID.TitaniumBar, nightCondition, downedMechBossAnyCondition);
 
-            shop.Add(ModContent.ItemType<PoisonRod>(), downedBoss2Condition);
+        shop.Add(ModContent.ItemType<PoisonRod>(), downedBoss2Condition);
 
-            shop.Add(ModContent.ItemType<BurningHammer>(), downedBoss3Condition)
-                .Add(ModContent.ItemType<PerfectBehemoth>(), downedBoss3Condition);
+        shop.Add(ModContent.ItemType<BurningHammer>(), downedBoss3Condition)
+            .Add(ModContent.ItemType<PerfectBehemoth>(), downedBoss3Condition);
 
-            shop.Add(ItemID.HallowedBar, downedPlantBossCondition);
+        shop.Add(ItemID.HallowedBar, downedPlantBossCondition);
 
-            shop.Add(ItemID.ChlorophyteBar, downedGolemBossCondition);
+        shop.Add(ItemID.ChlorophyteBar, downedGolemBossCondition);
 
-            shop.Add(ItemID.SpectreBar, downedAncientCultistCondition);
+        shop.Add(ItemID.SpectreBar, downedAncientCultistCondition);
 
-            shop.Add(ModContent.ItemType<GoldenMace>(), hardmodeCondition)
-                .Add(ItemID.HellstoneBar, hardmodeCondition);
+        shop.Add(ModContent.ItemType<GoldenMace>(), hardmodeCondition)
+            .Add(ItemID.HellstoneBar, hardmodeCondition);
 
-            shop.Register(); 
-        }
+        shop.Register(); 
+    }
 
-        public override void TownNPCAttackStrength(ref int damage, ref float knockback)
+    public override void TownNPCAttackStrength(ref int damage, ref float knockback)
 		{
 			damage = 22;
 			knockback = 3f;
@@ -215,16 +215,15 @@ namespace TremorMod.Content.NPCs.TownNPCs
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
 				for (int i = 0; i < 4; ++i)
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FarmerGore1").Type, 1f);
-            }
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FarmerGore1").Type, 1f);
+        }
 		}
 	}
-}

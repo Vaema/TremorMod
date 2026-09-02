@@ -1,15 +1,15 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 
-namespace TremorMod.Content.Biomes.Ice.Items
-{
+namespace TremorMod.Content.Biomes.Ice.Items;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class GlacierWoodHelmet : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
-        public override void SetDefaults()
+    public static LocalizedText SetBonusText { get; private set; }
+    public override void SetDefaults()
 		{
 			Item.width = 32;
 			Item.height = 26;
@@ -31,9 +31,9 @@ namespace TremorMod.Content.Biomes.Ice.Items
 
 		public override void UpdateArmorSet(Player player)
 		{
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("1 defense");
-            player.setBonus = Language.GetTextValue("Mods.TremorMod.ArmorSetBonus.Adamantite");
-            player.setBonus = "1 defense";
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("1 defense");
+        player.setBonus = Language.GetTextValue("Mods.TremorMod.ArmorSetBonus.Adamantite");
+        player.setBonus = "1 defense";
 			player.statDefense += 1;
 		}
 
@@ -46,4 +46,3 @@ namespace TremorMod.Content.Biomes.Ice.Items
 			recipe.Register();
 		}
 	}
-}

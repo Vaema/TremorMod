@@ -4,8 +4,8 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items
-{
+namespace TremorMod.Content.Items;
+
 	class UnpredictableСompass : ModItem
 	{
 		public override void SetDefaults()
@@ -37,4 +37,3 @@ namespace TremorMod.Content.Items
 			return false;
 		}
 	}
-}

@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Items.BossLoot.TheDarkEmperor
-{
+namespace TremorMod.Content.Items.BossLoot.TheDarkEmperor;
+
 	public class NastyJavelin : ModItem
 	{
 		public override void SetDefaults()
@@ -34,4 +34,3 @@ namespace TremorMod.Content.Items.BossLoot.TheDarkEmperor
 			//Tooltip.SetDefault("");
 		}
 	}
-}

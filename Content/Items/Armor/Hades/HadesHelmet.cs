@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
@@ -13,14 +13,14 @@ using TremorMod.Content.Tiles;
 using TremorMod.Content.Buffs;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.Hades
-{
+namespace TremorMod.Content.Items.Armor.Hades;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class HadesHelmet : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 20;
 			Item.height = 20;
@@ -31,12 +31,12 @@ namespace TremorMod.Content.Items.Armor.Hades
 
 		public override void SetStaticDefaults()
 		{
-            //DisplayName.SetDefault("Hades Helmet");
-            //Tooltip.SetDefault("Melee attacks inflict fire damage\n" +
-            //"30% decreased mana cost\n" +
-            //"Increases maximum life by 150");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Summons a molten watcher to protect you");
-        }
+        //DisplayName.SetDefault("Hades Helmet");
+        //Tooltip.SetDefault("Melee attacks inflict fire damage\n" +
+        //"30% decreased mana cost\n" +
+        //"Increases maximum life by 150");
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Summons a molten watcher to protect you");
+    }
 
 		public override void AddRecipes()
 		{
@@ -51,19 +51,19 @@ namespace TremorMod.Content.Items.Armor.Hades
 			recipe.Register();
 		}
 
-        public override void ModifyTooltips(List<TooltipLine> tooltips)
+    public override void ModifyTooltips(List<TooltipLine> tooltips)
+    {
+        foreach (var tooltip in tooltips)
         {
-            foreach (var tooltip in tooltips)
+            if (tooltip.Mod == "Terraria" && tooltip.Name == "ItemName")
             {
-                if (tooltip.Mod == "Terraria" && tooltip.Name == "ItemName")
-                {
-                    tooltip.OverrideColor = new Color(238, 194, 73);
-                }
+                tooltip.OverrideColor = new Color(238, 194, 73);
             }
         }
+    }
 
 
-        public override void UpdateEquip(Player player)
+    public override void UpdateEquip(Player player)
 		{
 			player.magmaStone = true;
 			player.manaCost -= 0.3f;
@@ -85,7 +85,7 @@ namespace TremorMod.Content.Items.Armor.Hades
 		public override void UpdateArmorSet(Player player)
 		{
 			player.setBonus = SetBonusText.Value;
-            player.setBonus = "Summons a molten watcher to protect you";
+        player.setBonus = "Summons a molten watcher to protect you";
 			player.AddBuff(ModContent.BuffType<MoltenWatcherBuff>(), 2);
 
 			if (Math.Abs(player.velocity.X) + Math.Abs(player.velocity.Y) > 1f && !player.rocketFrame) // Makes sure the player is actually moving
@@ -102,4 +102,3 @@ namespace TremorMod.Content.Items.Armor.Hades
 			}
 		}
 	}
-}

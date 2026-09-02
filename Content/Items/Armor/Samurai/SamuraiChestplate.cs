@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.Samurai
-{
+namespace TremorMod.Content.Items.Armor.Samurai;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class SamuraiChestplate : ModItem
 	{
@@ -25,7 +25,6 @@ namespace TremorMod.Content.Items.Armor.Samurai
 
 		public override void UpdateEquip(Player player)
 		{
-            player.GetAttackSpeed(DamageClass.Generic) += 0.25f;
-        }
+        player.GetAttackSpeed(DamageClass.Generic) += 0.25f;
+    }
 	}
-}

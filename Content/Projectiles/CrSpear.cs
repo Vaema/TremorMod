@@ -1,11 +1,11 @@
-using System;
+﻿using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Audio;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class CrSpear : ModProjectile
 	{
 		public override void SetDefaults()
@@ -34,14 +34,14 @@ namespace TremorMod.Content.Projectiles
 		}
 
 		
-        public override void OnKill(int timeLeft)
+    public override void OnKill(int timeLeft)
 		{
 			for (int k = 0; k < 10; k++)
 			{
 				int dust = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 16, Projectile.oldVelocity.X * 0.7f, Projectile.oldVelocity.Y * 0.7f);
 			}
-            SoundEngine.PlaySound(SoundID.Item20, Projectile.position);
-        }
+        SoundEngine.PlaySound(SoundID.Item20, Projectile.position);
+    }
 
 		public void CreateDust()
 		{
@@ -54,4 +54,3 @@ namespace TremorMod.Content.Projectiles
 			}
 		}
 	}
-}

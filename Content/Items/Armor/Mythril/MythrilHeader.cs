@@ -1,16 +1,16 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 
-namespace TremorMod.Content.Items.Armor.Mythril
-{
+namespace TremorMod.Content.Items.Armor.Mythril;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class MythrilHeader : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 28;
 			Item.height = 26;
@@ -21,10 +21,10 @@ namespace TremorMod.Content.Items.Armor.Mythril
 
 		public override void SetStaticDefaults()
 		{
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases thrown weapon velocity");
-            //DisplayName.SetDefault("Mythril Header");
-            //Tooltip.SetDefault("20% increased thrown damage");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases thrown weapon velocity");
+        //DisplayName.SetDefault("Mythril Header");
+        //Tooltip.SetDefault("20% increased thrown damage");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -38,8 +38,8 @@ namespace TremorMod.Content.Items.Armor.Mythril
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Increases thrown weapon velocity";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Increases thrown weapon velocity";
 			player.GetAttackSpeed(DamageClass.Throwing) += 0.25f;
 		}
 
@@ -57,4 +57,3 @@ namespace TremorMod.Content.Items.Armor.Mythril
 			recipe.Register();
 		}
 	}
-}

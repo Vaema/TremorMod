@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Weapons.Magic
-{
+namespace TremorMod.Content.Items.Weapons.Magic;
+
 	public class MoonLash : ModItem
 	{
 		public override void SetDefaults()
@@ -34,16 +34,16 @@ namespace TremorMod.Content.Items.Weapons.Magic
 			//Tooltip.SetDefault("Erupts three moon flame bolts");
 		}
 
-        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-        {
+    public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    {
 			for (int i = 0; i < 1; ++i) // Will shoot 3 bullets.
 			{
-                Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), type, damage, knockback, Main.myPlayer);
-                Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer);
-                Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer);
-                Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer);
-                Projectile.NewProjectile(source, position, velocity - new Vector2(1, 1), type, damage, knockback, Main.myPlayer);
-            }
+            Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), type, damage, knockback, Main.myPlayer);
+            Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer);
+            Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer);
+            Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer);
+            Projectile.NewProjectile(source, position, velocity - new Vector2(1, 1), type, damage, knockback, Main.myPlayer);
+        }
 			return false;
 		}
 
@@ -60,4 +60,3 @@ namespace TremorMod.Content.Items.Weapons.Magic
 			recipe.Register();
 		}
 	}
-}

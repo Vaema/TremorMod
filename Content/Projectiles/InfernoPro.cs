@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.Xna.Framework;
@@ -16,8 +16,8 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Filters = Terraria.Graphics.Effects.Filters;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class InfernoPro : ModProjectile
 	{
 		public override void SetDefaults()
@@ -38,71 +38,71 @@ namespace TremorMod.Content.Projectiles
 			Projectile.hide = true;
 		}
 
-        /*public override void SetStaticDefaults()
+    /*public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Inferno");
 		}*/
 
-        public override void AI()
+    public override void AI()
+    {
+        Player player = Main.player[Projectile.owner];
+
+        // ГЋГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ Г­Г ГЇГ°Г ГўГ«ГҐГ­ГЁГї ГЁГЈГ°Г®ГЄГ  ГЁ ГЇГ°ГЁГўГїГ§ГЄГ  ГЇГ°Г®ГҐГЄГІГЁГ«Гї
+        player.direction = Projectile.direction;
+        player.heldProj = Projectile.whoAmI;
+        player.itemTime = player.itemAnimation;
+
+        // Г–ГҐГ­ГІГ°ГЁГ°Г®ГўГ Г­ГЁГҐ ГЇГ°Г®ГҐГЄГІГЁГ«Гї Г®ГІГ­Г®Г±ГЁГІГҐГ«ГјГ­Г® ГЁГЈГ°Г®ГЄГ 
+        Projectile.position.X = player.position.X + player.width / 2 - Projectile.width / 2;
+        Projectile.position.Y = player.position.Y + player.height / 2 - Projectile.height / 2;
+
+        // ГЋГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ ГЇГ®Г§ГЁГ¶ГЁГЁ ГЇГ°Г®ГҐГЄГІГЁГ«Гї Г± ГіГ·ВёГІГ®Г¬ ГҐГЈГ® Г±ГЄГ®Г°Г®Г±ГІГЁ
+        Projectile.position += Projectile.velocity * Projectile.ai[0];
+
+        if (Projectile.ai[0] == 0f)
         {
-            Player player = Main.player[Projectile.owner];
+            Projectile.ai[0] = 3f; // Г“Г±ГІГ Г­Г®ГўГЄГ  Г­Г Г·Г Г«ГјГ­Г®ГЈГ® Г§Г­Г Г·ГҐГ­ГЁГї ai[0]
+            Projectile.netUpdate = true;
+        }
 
-            // Обновление направления игрока и привязка проектиля
-            player.direction = Projectile.direction;
-            player.heldProj = Projectile.whoAmI;
-            player.itemTime = player.itemAnimation;
+        // ГЏГ°Г®ГўГҐГ°ГЄГ  Г Г­ГЁГ¬Г Г¶ГЁГЁ ГЇГ°ГҐГ¤Г¬ГҐГІГ 
+        if (player.itemAnimation < player.itemAnimationMax / 3)
+        {
+            Projectile.ai[0] -= 1.1f;
 
-            // Центрирование проектиля относительно игрока
-            Projectile.position.X = player.position.X + player.width / 2 - Projectile.width / 2;
-            Projectile.position.Y = player.position.Y + player.height / 2 - Projectile.height / 2;
-
-            // Обновление позиции проектиля с учётом его скорости
-            Projectile.position += Projectile.velocity * Projectile.ai[0];
-
-            if (Projectile.ai[0] == 0f)
+            // ГЏГ°Г®ГўГҐГ°ГЄГ  Г«Г®ГЄГ Г«ГјГ­Г®ГЈГ® AI ГЇГ°Г®ГҐГЄГІГЁГ«Гї
+            if (Projectile.localAI[0] == 0f && Main.myPlayer == Projectile.owner)
             {
-                Projectile.ai[0] = 3f; // Установка начального значения ai[0]
-                Projectile.netUpdate = true;
-            }
+                Projectile.localAI[0] = 1f;
 
-            // Проверка анимации предмета
-            if (player.itemAnimation < player.itemAnimationMax / 3)
-            {
-                Projectile.ai[0] -= 1.1f;
+                // ГЏГ°Г®ГўГҐГ°ГЄГ  Г±ГІГ®Г«ГЄГ­Г®ГўГҐГ­ГЁГ©
+                Vector2 futurePosition = new Vector2(
+                    Projectile.Center.X + Projectile.velocity.X * Projectile.ai[0],
+                    Projectile.Center.Y + Projectile.velocity.Y * Projectile.ai[0]
+                );
 
-                // Проверка локального AI проектиля
-                if (Projectile.localAI[0] == 0f && Main.myPlayer == Projectile.owner)
+                if (Collision.CanHit(player.position, player.width, player.height, futurePosition, Projectile.width, Projectile.height))
                 {
-                    Projectile.localAI[0] = 1f;
+                    var source = Projectile.GetSource_FromAI();
 
-                    // Проверка столкновений
-                    Vector2 futurePosition = new Vector2(
-                        Projectile.Center.X + Projectile.velocity.X * Projectile.ai[0],
-                        Projectile.Center.Y + Projectile.velocity.Y * Projectile.ai[0]
+                    // Г‘Г®Г§Г¤Г Г­ГЁГҐ Г­Г®ГўГ®ГЈГ® ГЇГ°Г®ГҐГЄГІГЁГ«Гї
+                    int z = Projectile.NewProjectile(
+                        source,
+                        Projectile.Center,
+                        Projectile.velocity * 1.5f,
+                        706, // Г’ГЁГЇ Г­Г®ГўГ®ГЈГ® ГЇГ°Г®ГҐГЄГІГЁГ«Гї
+                        Projectile.damage,
+                        Projectile.knockBack * 0.85f,
+                        Projectile.owner
                     );
 
-                    if (Collision.CanHit(player.position, player.width, player.height, futurePosition, Projectile.width, Projectile.height))
-                    {
-                        var source = Projectile.GetSource_FromAI();
-
-                        // Создание нового проектиля
-                        int z = Projectile.NewProjectile(
-                            source,
-                            Projectile.Center,
-                            Projectile.velocity * 1.5f,
-                            706, // Тип нового проектиля
-                            Projectile.damage,
-                            Projectile.knockBack * 0.85f,
-                            Projectile.owner
-                        );
-
-                        // Настройка нового проектиля
-                        Main.projectile[z].tileCollide = false;
-                        Main.projectile[z].timeLeft = 240;
-                    }
+                    // ГЌГ Г±ГІГ°Г®Г©ГЄГ  Г­Г®ГўГ®ГЈГ® ГЇГ°Г®ГҐГЄГІГЁГ«Гї
+                    Main.projectile[z].tileCollide = false;
+                    Main.projectile[z].timeLeft = 240;
                 }
             }
-        
+        }
+    
 
 			else
 			{
@@ -115,4 +115,3 @@ namespace TremorMod.Content.Projectiles
 			}
 		}
 	}
-}

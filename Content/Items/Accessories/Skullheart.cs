@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
 using Terraria.DataStructures;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class Skullheart : ModItem
 	{
 		const int ShootType = 270; 
@@ -39,9 +39,9 @@ namespace TremorMod.Content.Items.Accessories
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-            MPlayer modPlayer = player.GetModPlayer<MPlayer>();
-            modPlayer.HeatRayF = true;
-            if (--TimeToShoot <= 0)
+        MPlayer modPlayer = player.GetModPlayer<MPlayer>();
+        modPlayer.HeatRayF = true;
+        if (--TimeToShoot <= 0)
 			{
 				TimeToShoot = ShootRate;
 				int Target = GetTarget();
@@ -63,27 +63,26 @@ namespace TremorMod.Content.Items.Accessories
 			return Target;
 		}
 
-        int GetDamage()
-        {
-            float totalDamage = Main.player[Item.playerIndexTheItemIsReservedFor].GetDamage(DamageClass.Magic).ApplyTo(1) +
-                                Main.player[Item.playerIndexTheItemIsReservedFor].GetDamage(DamageClass.Melee).ApplyTo(1) +
-                                Main.player[Item.playerIndexTheItemIsReservedFor].GetDamage(DamageClass.Summon).ApplyTo(1) +
-                                Main.player[Item.playerIndexTheItemIsReservedFor].GetDamage(DamageClass.Ranged).ApplyTo(1) +
-                                Main.player[Item.playerIndexTheItemIsReservedFor].GetDamage(DamageClass.Throwing).ApplyTo(1);
+    int GetDamage()
+    {
+        float totalDamage = Main.player[Item.playerIndexTheItemIsReservedFor].GetDamage(DamageClass.Magic).ApplyTo(1) +
+                            Main.player[Item.playerIndexTheItemIsReservedFor].GetDamage(DamageClass.Melee).ApplyTo(1) +
+                            Main.player[Item.playerIndexTheItemIsReservedFor].GetDamage(DamageClass.Summon).ApplyTo(1) +
+                            Main.player[Item.playerIndexTheItemIsReservedFor].GetDamage(DamageClass.Ranged).ApplyTo(1) +
+                            Main.player[Item.playerIndexTheItemIsReservedFor].GetDamage(DamageClass.Throwing).ApplyTo(1);
 
-            return (int)(10 * totalDamage) + 15;
-        }
+        return (int)(10 * totalDamage) + 15;
+    }
 
 
-        void Shoot(int Target, int Damage)
+    void Shoot(int Target, int Damage)
 		{
 			Vector2 velocity = Helper.VelocityToPoint(Main.player[Item.playerIndexTheItemIsReservedFor].Center, Main.npc[Target].Center, ShootSpeed);
 			for (int l = 0; l < ShootCount; l++)
 			{
 				velocity.X = velocity.X + Main.rand.Next(-spread, spread + 1) * spreadMult;
 				velocity.Y = velocity.Y + Main.rand.Next(-spread, spread + 1) * spreadMult;
-                int i = Projectile.NewProjectile(Item.GetSource_FromThis(), Main.player[Item.playerIndexTheItemIsReservedFor].Center.X, Main.player[Item.playerIndexTheItemIsReservedFor].Center.Y, velocity.X, velocity.Y, ShootType, Damage, ShootKN, Item.playerIndexTheItemIsReservedFor);
-            }
+            int i = Projectile.NewProjectile(Item.GetSource_FromThis(), Main.player[Item.playerIndexTheItemIsReservedFor].Center.X, Main.player[Item.playerIndexTheItemIsReservedFor].Center.Y, velocity.X, velocity.Y, ShootType, Damage, ShootKN, Item.playerIndexTheItemIsReservedFor);
         }
+    }
 	}
-}

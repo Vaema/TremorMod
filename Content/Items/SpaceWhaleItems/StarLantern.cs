@@ -1,9 +1,9 @@
-using Terraria;
+п»їusing Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.SpaceWhaleItems
-{
+namespace TremorMod.Content.Items.SpaceWhaleItems;
+
 	public class StarLantern : ModItem
 	{
 
@@ -25,8 +25,7 @@ namespace TremorMod.Content.Items.SpaceWhaleItems
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-            player.AddBuff(BuffID.Shine, 600); // Бафф длится 10 секунд (600 тиков)
-            player.GetDamage(DamageClass.Magic) += 0.25f;
+        player.AddBuff(BuffID.Shine, 600); // ГЃГ ГґГґ Г¤Г«ГЁГІГ±Гї 10 Г±ГҐГЄГіГ­Г¤ (600 ГІГЁГЄГ®Гў)
+        player.GetDamage(DamageClass.Magic) += 0.25f;
 		}
 	}
-}

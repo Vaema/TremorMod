@@ -1,37 +1,36 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using TremorMod.Content.Projectiles.Minions;
 
-namespace TremorMod.Content.Buffs
+namespace TremorMod.Content.Buffs;
+
+public class Omnibuff : ModBuff
 {
-    public class Omnibuff : ModBuff
+    int MinionType = -1;
+    int MinionID = -1;
+
+    public override void SetStaticDefaults()
     {
-        int MinionType = -1;
-        int MinionID = -1;
+        Main.buffNoTimeDisplay[Type] = true;
+        // DisplayName.SetDefault("Omnibuff");
+        // Description.SetDefault("Summons a monster that destroys your enemies");
+    }
 
-        public override void SetStaticDefaults()
+    public override void Update(Player player, ref int buffIndex)
+    {
+        if (MinionType == -1)
+            MinionType = ModContent.ProjectileType<OmnikronBeast>();
+
+        if (MinionID == -1 || Main.projectile[MinionID].type != MinionType || !Main.projectile[MinionID].active || Main.projectile[MinionID].owner != player.whoAmI)
         {
-            Main.buffNoTimeDisplay[Type] = true;
-            // DisplayName.SetDefault("Omnibuff");
-            // Description.SetDefault("Summons a monster that destroys your enemies");
+            IEntitySource source = player.GetSource_Buff(buffIndex);
+            MinionID = Projectile.NewProjectile(source, player.Center, Vector2.Zero, MinionType, 0, 0, player.whoAmI);
         }
-
-        public override void Update(Player player, ref int buffIndex)
+        else
         {
-            if (MinionType == -1)
-                MinionType = ModContent.ProjectileType<OmnikronBeast>();
-
-            if (MinionID == -1 || Main.projectile[MinionID].type != MinionType || !Main.projectile[MinionID].active || Main.projectile[MinionID].owner != player.whoAmI)
-            {
-                IEntitySource source = player.GetSource_Buff(buffIndex);
-                MinionID = Projectile.NewProjectile(source, player.Center, Vector2.Zero, MinionType, 0, 0, player.whoAmI);
-            }
-            else
-            {
-                Main.projectile[MinionID].timeLeft = 5;
-            }
+            Main.projectile[MinionID].timeLeft = 5;
         }
     }
 }

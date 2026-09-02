@@ -1,17 +1,17 @@
-using Terraria;
+п»їusing Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.Hallowed
-{
+namespace TremorMod.Content.Items.Armor.Hallowed;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class HallowedHat : ModItem
 	{
 		public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 24;
 			Item.height = 24;
@@ -29,8 +29,8 @@ namespace TremorMod.Content.Items.Armor.Hallowed
 
 		public override void UpdateEquip(Player player)
 		{
-			player.GetDamage(DamageClass.Summon) += 0.25f; // 25% возможно надо будет изменить на 15%
-        }
+			player.GetDamage(DamageClass.Summon) += 0.25f; // 25% ГўГ®Г§Г¬Г®Г¦Г­Г® Г­Г Г¤Г® ГЎГіГ¤ГҐГІ ГЁГ§Г¬ГҐГ­ГЁГІГј Г­Г  15%
+    }
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
@@ -40,7 +40,7 @@ namespace TremorMod.Content.Items.Armor.Hallowed
 		public override void UpdateArmorSet(Player player)
 		{
 			player.setBonus = SetBonusText.Value;
-            player.setBonus = "Increases your max number of minions";
+        player.setBonus = "Increases your max number of minions";
 			player.maxMinions += 3;
 		}
 
@@ -58,4 +58,3 @@ namespace TremorMod.Content.Items.Armor.Hallowed
 			recipe.Register();
 		}
 	}
-}

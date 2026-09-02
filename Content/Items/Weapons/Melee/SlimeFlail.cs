@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Items.Weapons.Melee
-{
+namespace TremorMod.Content.Items.Weapons.Melee;
+
 	public class SlimeFlail : ModItem
 	{
 		public override void SetDefaults()
@@ -35,4 +35,3 @@ namespace TremorMod.Content.Items.Weapons.Melee
 		}
 
 	}
-}

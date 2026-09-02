@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
@@ -6,8 +6,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class MagusBall : ModProjectile
 	{
 		public override void SetDefaults()
@@ -94,4 +94,3 @@ namespace TremorMod.Content.Projectiles
 			return false;
 		}
 	}
-}

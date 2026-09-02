@@ -1,12 +1,12 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Audio;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class CyberCutterPro : ModProjectile
 	{
 		public override void SetDefaults()
@@ -14,13 +14,13 @@ namespace TremorMod.Content.Projectiles
 			Projectile.width = 38;
 			Projectile.height = 38;
 			Projectile.scale = 1.1f;
-            Projectile.aiStyle = 0;
+        Projectile.aiStyle = 0;
 			Projectile.friendly = true;
 			Projectile.hostile = false;
 			Projectile.tileCollide = true;
 			Projectile.ignoreWater = true;
 			Projectile.DamageType = DamageClass.Melee;
-            Projectile.penetrate = 50;
+        Projectile.penetrate = 50;
 		}
 
 		/*public override void SetStaticDefaults()
@@ -164,8 +164,8 @@ namespace TremorMod.Content.Projectiles
 				Projectile.rotation += Projectile.direction * 0.8f;
 			}
 			if (Projectile.timeLeft % 60 == 0)
-                SoundEngine.PlaySound(SoundID.Item23, Projectile.position);
-        }
+            SoundEngine.PlaySound(SoundID.Item23, Projectile.position);
+    }
 		public override bool OnTileCollide(Vector2 velocityChange)
 		{
 			if (Projectile.velocity.X != velocityChange.X)
@@ -180,4 +180,3 @@ namespace TremorMod.Content.Projectiles
 			return false;
 		}
 	}
-}

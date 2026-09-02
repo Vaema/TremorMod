@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
@@ -12,8 +12,8 @@ using TremorMod.Content.Items.Bag;
 using TremorMod.Content.Items;
 using TremorMod.Content.Items.Placeable;
 
-namespace TremorMod.Content.Items.Bag
-{
+namespace TremorMod.Content.Items.Bag;
+
 	public class ParadoxTitanBag : ModItem
 	{
 		public override void SetDefaults()
@@ -48,4 +48,3 @@ namespace TremorMod.Content.Items.Bag
 			itemLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<ClockofTime>(), 1));
 		}
 	}
-}

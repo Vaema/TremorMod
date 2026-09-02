@@ -4,8 +4,8 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class FlowerofAntimonyPro : ModProjectile
 	{
 		public override void SetDefaults()
@@ -70,7 +70,7 @@ namespace TremorMod.Content.Projectiles
 
 		public override void OnKill(int timeLeft)
 		{
-            Projectile.NewProjectile(
+        Projectile.NewProjectile(
 			Projectile.GetSource_Death(), // Источник
 			Projectile.Center,             // Позиция (Vector2)
 			Vector2.Zero,                  // Скорость (Vector2)
@@ -80,7 +80,6 @@ namespace TremorMod.Content.Projectiles
 			Projectile.owner                // Владелец (int)
 			);
 
-        }
-
     }
+
 }

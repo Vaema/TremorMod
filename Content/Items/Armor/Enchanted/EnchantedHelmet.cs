@@ -1,16 +1,16 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items.Armor.Enchanted
-{
+namespace TremorMod.Content.Items.Armor.Enchanted;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class EnchantedHelmet : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 24;
 			Item.height = 24;
@@ -21,11 +21,11 @@ namespace TremorMod.Content.Items.Armor.Enchanted
 
 		public override void SetStaticDefaults()
 		{
-            //DisplayName.SetDefault("Enchanted Helmet");
-            //Tooltip.SetDefault("Increases maximum mana by 20\n" +
-            //"Increases maximum health by 15");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("8% increased magic damage, increases power of enchanted weapons");
-        }
+        //DisplayName.SetDefault("Enchanted Helmet");
+        //Tooltip.SetDefault("Increases maximum mana by 20\n" +
+        //"Increases maximum health by 15");
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("8% increased magic damage, increases power of enchanted weapons");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -40,10 +40,9 @@ namespace TremorMod.Content.Items.Armor.Enchanted
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
+        player.setBonus = SetBonusText.Value;
 			player.GetDamage(DamageClass.Magic) += 0.08f;
 			player.AddBuff(ModContent.BuffType<EnchantedBuff>(), 2);
 		}
 
 	}
-}

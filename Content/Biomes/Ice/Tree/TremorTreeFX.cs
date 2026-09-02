@@ -1,10 +1,10 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Biomes.Ice.Tree
-{
+namespace TremorMod.Content.Biomes.Ice.Tree;
+
 	public class TremorTreeFX : ModGore
 	{
 		public override void OnSpawn(Gore gore, IEntitySource source)
@@ -16,4 +16,3 @@ namespace TremorMod.Content.Biomes.Ice.Tree
 			UpdateType = 910;
 		}
 	}
-}

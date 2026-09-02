@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
 using TremorMod.Content.NPCs.Bosses.TheDarkEmperor;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class FallingDarkServant : ModProjectile
 	{
 
@@ -44,8 +44,7 @@ namespace TremorMod.Content.Projectiles
 		}
 		public override void OnKill(int timeLeft)
 		{
-            IEntitySource source = Projectile.GetSource_FromThis();
-            NPC.NewNPC(source, (int)Projectile.Center.X, (int)Projectile.Center.Y, ModContent.NPCType<DarkServant>());
-        }
+        IEntitySource source = Projectile.GetSource_FromThis();
+        NPC.NewNPC(source, (int)Projectile.Center.X, (int)Projectile.Center.Y, ModContent.NPCType<DarkServant>());
+    }
 	}
-}

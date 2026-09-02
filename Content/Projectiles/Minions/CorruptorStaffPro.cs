@@ -1,97 +1,96 @@
-using Microsoft.Xna.Framework;
+п»їusing Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Projectiles.Minions
+namespace TremorMod.Content.Projectiles.Minions;
+
+public class CorruptorStaffPro : ModProjectile
 {
-    public class CorruptorStaffPro : ModProjectile
+    private int attackTimer;
+
+    public override void SetDefaults()
     {
-        private int attackTimer;
+        Projectile.width = 26;
+        Projectile.height = 28;
+        Projectile.friendly = true;
+        Projectile.minion = true;
+        Main.projFrames[Projectile.type] = 3;
+        Projectile.minionSlots = 1;
+        Projectile.penetrate = -1;
+        Projectile.timeLeft = 18000;
+        Projectile.ignoreWater = true;
+        Projectile.tileCollide = false;
+    }
 
-        public override void SetDefaults()
+    public override void AI()
+    {
+        Player player = Main.player[Projectile.owner];
+        if (player.dead || !player.active)
         {
-            Projectile.width = 26;
-            Projectile.height = 28;
-            Projectile.friendly = true;
-            Projectile.minion = true;
-            Main.projFrames[Projectile.type] = 3;
-            Projectile.minionSlots = 1;
-            Projectile.penetrate = -1;
-            Projectile.timeLeft = 18000;
-            Projectile.ignoreWater = true;
-            Projectile.tileCollide = false;
+            player.ClearBuff(ModContent.BuffType<CorruptorBuff>());
+        }
+        if (player.HasBuff(ModContent.BuffType<CorruptorBuff>()))
+        {
+            Projectile.timeLeft = 2;
         }
 
-        public override void AI()
+        Vector2 targetPosition = player.Center + new Vector2(0f, -48f);
+        float speed = 10f;
+        Vector2 direction = targetPosition - Projectile.Center;
+        float distance = direction.Length();
+
+        NPC target = FindTarget();
+        bool targetInRange = target != null && Vector2.Distance(Projectile.Center, target.Center) <= 100 * 16; // 100 ГЎГ«Г®ГЄГ®Гў
+
+        if (!targetInRange) // Г…Г±Г«ГЁ ГўГ°Г ГЈ Г­ГҐ Гў ГЇГ°ГҐГ¤ГҐГ«Г Гµ 100 ГЎГ«Г®ГЄГ®Гў
         {
-            Player player = Main.player[Projectile.owner];
-            if (player.dead || !player.active)
+            if (distance > 2000f) // Г…Г±Г«ГЁ ГЇГЁГІГ®Г¬ГҐГ¶ Г±Г«ГЁГёГЄГ®Г¬ Г¤Г Г«ГҐГЄГ®, ГІГҐГ«ГҐГЇГ®Г°ГІГЁГ°ГіГҐГ¬
             {
-                player.ClearBuff(ModContent.BuffType<CorruptorBuff>());
+                Projectile.Center = player.Center;
             }
-            if (player.HasBuff(ModContent.BuffType<CorruptorBuff>()))
+            else if (distance > 10f)
             {
-                Projectile.timeLeft = 2;
+                direction.Normalize();
+                direction *= speed;
+                Projectile.velocity = (Projectile.velocity * 20f + direction) / 21f;
             }
-
-            Vector2 targetPosition = player.Center + new Vector2(0f, -48f);
-            float speed = 10f;
-            Vector2 direction = targetPosition - Projectile.Center;
-            float distance = direction.Length();
-
-            NPC target = FindTarget();
-            bool targetInRange = target != null && Vector2.Distance(Projectile.Center, target.Center) <= 100 * 16; // 100 блоков
-
-            if (!targetInRange) // Если враг не в пределах 100 блоков
+            else
             {
-                if (distance > 2000f) // Если питомец слишком далеко, телепортируем
-                {
-                    Projectile.Center = player.Center;
-                }
-                else if (distance > 10f)
-                {
-                    direction.Normalize();
-                    direction *= speed;
-                    Projectile.velocity = (Projectile.velocity * 20f + direction) / 21f;
-                }
-                else
-                {
-                    Projectile.velocity *= 0.95f; // Замедление
-                }
-            }
-
-            // Логика атаки с интервалом в 1 секунду
-            attackTimer++;
-            if (attackTimer >= 60) // 60 кадров = 1 секунда
-            {
-                attackTimer = 0;
-                if (target != null)
-                {
-                    Projectile.velocity = (target.Center - Projectile.Center).SafeNormalize(Vector2.Zero) * 5f; // Уменьшение скорости тарана
-                }
+                Projectile.velocity *= 0.95f; // Г‡Г Г¬ГҐГ¤Г«ГҐГ­ГЁГҐ
             }
         }
 
-        private NPC FindTarget()
+        // Г‹Г®ГЈГЁГЄГ  Г ГІГ ГЄГЁ Г± ГЁГ­ГІГҐГ°ГўГ Г«Г®Г¬ Гў 1 Г±ГҐГЄГіГ­Г¤Гі
+        attackTimer++;
+        if (attackTimer >= 60) // 60 ГЄГ Г¤Г°Г®Гў = 1 Г±ГҐГЄГіГ­Г¤Г 
         {
-            NPC closestNPC = null;
-            float closestDistance = 500f; // Максимальная дистанция поиска цели
-
-            foreach (NPC npc in Main.npc)
+            attackTimer = 0;
+            if (target != null)
             {
-                if (npc.CanBeChasedBy(this))
+                Projectile.velocity = (target.Center - Projectile.Center).SafeNormalize(Vector2.Zero) * 5f; // Г“Г¬ГҐГ­ГјГёГҐГ­ГЁГҐ Г±ГЄГ®Г°Г®Г±ГІГЁ ГІГ Г°Г Г­Г 
+            }
+        }
+    }
+
+    private NPC FindTarget()
+    {
+        NPC closestNPC = null;
+        float closestDistance = 500f; // ГЊГ ГЄГ±ГЁГ¬Г Г«ГјГ­Г Гї Г¤ГЁГ±ГІГ Г­Г¶ГЁГї ГЇГ®ГЁГ±ГЄГ  Г¶ГҐГ«ГЁ
+
+        foreach (NPC npc in Main.npc)
+        {
+            if (npc.CanBeChasedBy(this))
+            {
+                float distance = Vector2.Distance(Projectile.Center, npc.Center);
+                if (distance < closestDistance)
                 {
-                    float distance = Vector2.Distance(Projectile.Center, npc.Center);
-                    if (distance < closestDistance)
-                    {
-                        closestDistance = distance;
-                        closestNPC = npc;
-                    }
+                    closestDistance = distance;
+                    closestNPC = npc;
                 }
             }
-
-            return closestNPC;
         }
+
+        return closestNPC;
     }
 }

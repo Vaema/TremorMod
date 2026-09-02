@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles.Glass;
 
-namespace TremorMod.Content.Items.Placeable.Glass
-{
+namespace TremorMod.Content.Items.Placeable.Glass;
+
 	public class GlassDoor : ModItem
 	{
 		public override void SetDefaults()
@@ -37,4 +37,3 @@ namespace TremorMod.Content.Items.Placeable.Glass
 			recipe.Register();
 		}
 	}
-}

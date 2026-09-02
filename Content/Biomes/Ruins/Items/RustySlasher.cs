@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Biomes.Ruins.Items
-{
+namespace TremorMod.Content.Biomes.Ruins.Items;
+
 	public class RustySlasher : ModItem
 	{
 		public override void SetDefaults()
@@ -29,4 +29,3 @@ namespace TremorMod.Content.Biomes.Ruins.Items
 			Tooltip.SetDefault("");
 		}*/
 	}
-}

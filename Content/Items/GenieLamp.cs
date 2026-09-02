@@ -4,8 +4,8 @@ using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items
-{
+namespace TremorMod.Content.Items;
+
 	public class GenieLamp : ModItem
 	{
 		public override void SetDefaults()
@@ -36,4 +36,3 @@ namespace TremorMod.Content.Items
 			return true;
 		}
 	}
-}

@@ -3,8 +3,8 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles
-{
+namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles;
+
 	public class NovaSkull : ModProjectile
 	{
 		public override void SetDefaults()
@@ -64,4 +64,3 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles
 			}
 		}
 	}
-}

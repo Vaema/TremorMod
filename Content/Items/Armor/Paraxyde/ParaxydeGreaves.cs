@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Armor.Paraxyde
-{
+namespace TremorMod.Content.Items.Armor.Paraxyde;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class ParaxydeGreaves : ModItem
 	{
@@ -39,4 +39,3 @@ namespace TremorMod.Content.Items.Armor.Paraxyde
 			recipe.Register();
 		}
 	}
-}

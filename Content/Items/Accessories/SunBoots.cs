@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class SunBoots : ModItem
 	{
 
@@ -34,4 +34,3 @@ namespace TremorMod.Content.Items.Accessories
 			player.gravControl = true;
 		}
 	}
-}

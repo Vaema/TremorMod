@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class PoisonCloudPro : ModProjectile
-    {
+{
 		public override void SetDefaults()
 		{
 			Projectile.width = 16;
@@ -29,4 +29,3 @@ namespace TremorMod.Content.Projectiles
 			}
 		}
 	}
-}

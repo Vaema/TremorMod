@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 
-namespace TremorMod.Content.Items.Armor.Chaos
-{
+namespace TremorMod.Content.Items.Armor.Chaos;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class ChaosBreastplate : ModItem
 	{
@@ -32,11 +32,10 @@ namespace TremorMod.Content.Items.Armor.Chaos
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<ChaosBar>(), 22);
-            recipe.AddIngredient(ItemID.CrystalShard, 15);
+        recipe.AddIngredient(ModContent.ItemType<ChaosBar>(), 22);
+        recipe.AddIngredient(ItemID.CrystalShard, 15);
 			//recipe.SetResult(this);
 			recipe.AddTile(134);
 			recipe.Register();
 		}
 	}
-}

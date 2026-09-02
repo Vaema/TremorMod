@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Dusts
-{
+namespace TremorMod.Content.Dusts;
+
 	public class CyberDust : ModDust
 	{
 		public override void OnSpawn(Dust dust)
@@ -23,4 +23,3 @@ namespace TremorMod.Content.Dusts
 			return false;
 		}
 	}
-}

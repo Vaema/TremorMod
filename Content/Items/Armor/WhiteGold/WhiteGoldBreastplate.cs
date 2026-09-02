@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Armor.WhiteGold
-{
+namespace TremorMod.Content.Items.Armor.WhiteGold;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class WhiteGoldBreastplate : ModItem
 	{
@@ -42,4 +42,3 @@ namespace TremorMod.Content.Items.Armor.WhiteGold
 			recipe.Register();
 		}
 	}
-}

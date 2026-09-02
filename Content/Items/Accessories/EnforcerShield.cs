@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	[AutoloadEquip(EquipType.Shield)]
 	public class EnforcerShield : ModItem
 	{
@@ -31,24 +31,23 @@ namespace TremorMod.Content.Items.Accessories
 			if (player.statLife <= (player.statLifeMax2 * 0.8f))
 			{
 				player.GetDamage(DamageClass.Melee) *= 1.2f;
-                player.GetAttackSpeed(DamageClass.Melee) *= 1.05f;
+            player.GetAttackSpeed(DamageClass.Melee) *= 1.05f;
 			}
 			else if (player.statLife <= (player.statLifeMax2 * 0.6f))
 			{
-                player.GetDamage(DamageClass.Melee) *= 1.1f;
-                player.GetAttackSpeed(DamageClass.Melee) *= 1.4f;
-            }
+            player.GetDamage(DamageClass.Melee) *= 1.1f;
+            player.GetAttackSpeed(DamageClass.Melee) *= 1.4f;
+        }
 			else if (player.statLife <= (player.statLifeMax2 * 0.4f))
 			{
-                player.GetDamage(DamageClass.Melee) *= 1.15f;
-                player.GetAttackSpeed(DamageClass.Melee) *= 1.6f;
-            }
+            player.GetDamage(DamageClass.Melee) *= 1.15f;
+            player.GetAttackSpeed(DamageClass.Melee) *= 1.6f;
+        }
 			else if (player.statLife <= (player.statLifeMax2 * 0.2f))
 			{
-                player.GetDamage(DamageClass.Melee) *= 1.2f;
-                player.GetAttackSpeed(DamageClass.Melee) *= 1.8f;
-            }
+            player.GetDamage(DamageClass.Melee) *= 1.2f;
+            player.GetAttackSpeed(DamageClass.Melee) *= 1.8f;
+        }
 		}
 
 	}
-}

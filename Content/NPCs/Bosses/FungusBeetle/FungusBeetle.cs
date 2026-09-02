@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -15,8 +15,8 @@ using TremorMod.Content.Items.Bag;
 using TremorMod.Content.Items;
 using TremorMod.Content.Items.Fungus;
 
-namespace TremorMod.Content.NPCs.Bosses.FungusBeetle
-{
+namespace TremorMod.Content.NPCs.Bosses.FungusBeetle;
+
 	[AutoloadBossHead]
 	public class FungusBeetle : ModNPC
 	{
@@ -46,26 +46,26 @@ namespace TremorMod.Content.NPCs.Bosses.FungusBeetle
 			NPC.noTileCollide = true;
 		}
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FungusBeetleMask>(), 7));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FungusElement>(), 1, 10, 23));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FungusBeetleTrophy>(), 10));
-            npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<FungusBeetleBag>(), 1));
-        }
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FungusBeetleMask>(), 7));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FungusElement>(), 1, 10, 23));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FungusBeetleTrophy>(), 10));
+        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<FungusBeetleBag>(), 1));
+    }
 
-        public override void HitEffect(NPC.HitInfo hit)
+    public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FungusBeetleGore1").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FungusBeetleGore2").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FungusBeetleGore2").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FungusBeetleGore3").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FungusBeetleGore4").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FungusBeetleGore4").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FungusBeetleGore1").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FungusBeetleGore2").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FungusBeetleGore2").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FungusBeetleGore3").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FungusBeetleGore4").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FungusBeetleGore4").Type, 1f);
 				for (int k = 0; k < 10; k++)
 				{
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 67, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
@@ -78,13 +78,13 @@ namespace TremorMod.Content.NPCs.Bosses.FungusBeetle
 			}
 		}
 
-        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float bossLifeScale, float balance)
-        {
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.625f * bossLifeScale);
-            NPC.damage = (int)(NPC.damage * 0.6f);
-        }
+    public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float bossLifeScale, float balance)
+    {
+        NPC.lifeMax = (int)(NPC.lifeMax * 0.625f * bossLifeScale);
+        NPC.damage = (int)(NPC.damage * 0.6f);
+    }
 
-        const string Boss_Left_Hand_Type = "Violeum_LeftArm";
+    const string Boss_Left_Hand_Type = "Violeum_LeftArm";
 		const string Boss_Right_Hand_Type = "Violeum_RightArm";
 		const string Boss_Up_Hand_Type = "Violeum_LeftArm";
 		const string Boss_Down_Hand_Type = "Violeum_RightArm";
@@ -113,33 +113,33 @@ namespace TremorMod.Content.NPCs.Bosses.FungusBeetle
 					Hands.Y = -1;
 		}
 
-        public override void ModifyHitByProjectile(Projectile projectile, ref NPC.HitModifiers modifiers)
-        {
-            CheckHands();
-            if (Hands.Y != -1)
-                modifiers.FinalDamage /= 10;
-        }
+    public override void ModifyHitByProjectile(Projectile projectile, ref NPC.HitModifiers modifiers)
+    {
+        CheckHands();
+        if (Hands.Y != -1)
+            modifiers.FinalDamage /= 10;
+    }
 
-        public override void ModifyHitByItem(Player player, Item item, ref NPC.HitModifiers modifiers)
-        {
-            CheckHands();
-            if (Hands.Y != -1)
-                modifiers.FinalDamage /= 10;
-        }
+    public override void ModifyHitByItem(Player player, Item item, ref NPC.HitModifiers modifiers)
+    {
+        CheckHands();
+        if (Hands.Y != -1)
+            modifiers.FinalDamage /= 10;
+    }
 
-        public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
-        {
-            CheckHands();
-            if (Hands.Y != -1)
-                modifiers.FinalDamage /= 10;
-        }
+    public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
+    {
+        CheckHands();
+        if (Hands.Y != -1)
+            modifiers.FinalDamage /= 10;
+    }
 
-        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
-        {
-            CheckHands();
-            if (Hands.Y != -1)
-                modifiers.FinalDamage /= 10;
-        }
+    public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
+    {
+        CheckHands();
+        if (Hands.Y != -1)
+            modifiers.FinalDamage /= 10;
+    }
 
 		float customAi1;
 		bool FirstState;
@@ -317,9 +317,8 @@ namespace TremorMod.Content.NPCs.Bosses.FungusBeetle
 			}
 		}
 
-        public override void OnKill()
-        {
-            TremorSpawnEnemys.downedFungusBeetle = true;
-        }
+    public override void OnKill()
+    {
+        TremorSpawnEnemys.downedFungusBeetle = true;
     }
 }

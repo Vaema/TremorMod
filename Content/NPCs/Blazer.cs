@@ -1,11 +1,11 @@
-using Terraria;
+п»їusing Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using TremorMod.Content.Items.Placeable.Banners;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class Blazer : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -31,24 +31,23 @@ namespace TremorMod.Content.NPCs
 			NPC.value = Item.buyPrice(0, 0, 10, 0);
 			Banner = NPC.type;
 			BannerItem = ModContent.ItemType<BlazerBanner>();
-            ItemID.Sets.KillsToBanner[BannerItem] = 50; // 50 убийств для баннера
-        }
+        ItemID.Sets.KillsToBanner[BannerItem] = 50; // 50 ГіГЎГЁГ©Г±ГІГў Г¤Г«Гї ГЎГ Г­Г­ГҐГ°Г 
+    }
 
 		public override void HitEffect(NPC.HitInfo hit)
+    {
+        if (NPC.life <= 0)
         {
-            if (NPC.life <= 0)
-            {
-                for (int k = 0; k < 20; k++)
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, 6, 2.5f * hit.HitDirection, -2.5f, 0, default(Color), 0.7f);
+            for (int k = 0; k < 20; k++)
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, 6, 2.5f * hit.HitDirection, -2.5f, 0, default(Color), 0.7f);
 
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                    NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y - 48, NPCID.LavaSlime);
-            }
+            if (Main.netMode != NetmodeID.MultiplayerClient)
+                NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y - 48, NPCID.LavaSlime);
         }
+    }
 
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            return (spawnInfo.Player.ZoneUnderworldHeight && Main.hardMode && spawnInfo.SpawnTileY > Main.maxTilesY - 200) ? 0.05f : 0f;
-        }
+    public override float SpawnChance(NPCSpawnInfo spawnInfo)
+    {
+        return (spawnInfo.Player.ZoneUnderworldHeight && Main.hardMode && spawnInfo.SpawnTileY > Main.maxTilesY - 200) ? 0.05f : 0f;
     }
 }

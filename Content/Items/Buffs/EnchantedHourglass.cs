@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items.Buffs
-{
+namespace TremorMod.Content.Items.Buffs;
+
 	public class EnchantedHourglass : ModItem
 	{
 		public override void SetDefaults()
@@ -46,4 +46,3 @@ namespace TremorMod.Content.Items.Buffs
 			return false;
 		}
 	}
-}

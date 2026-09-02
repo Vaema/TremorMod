@@ -1,17 +1,17 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.Hallowed
-{
+namespace TremorMod.Content.Items.Armor.Hallowed;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class HallowedVisage : ModItem
 	{
 		public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 26;
 			Item.height = 20;
@@ -22,10 +22,10 @@ namespace TremorMod.Content.Items.Armor.Hallowed
 
 		public override void SetStaticDefaults()
 		{
-            //DisplayName.SetDefault("Hallowed Visage");
-            //Tooltip.SetDefault("27% increased alchemical damage");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("23% increased alchemical critical strike chance");
-        }
+        //DisplayName.SetDefault("Hallowed Visage");
+        //Tooltip.SetDefault("27% increased alchemical damage");
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("23% increased alchemical critical strike chance");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -39,8 +39,8 @@ namespace TremorMod.Content.Items.Armor.Hallowed
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "23% increased alchemical critical strike chance";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "23% increased alchemical critical strike chance";
 			player.GetModPlayer<MPlayer>().alchemicalCrit += 23;
 		}
 
@@ -58,4 +58,3 @@ namespace TremorMod.Content.Items.Armor.Hallowed
 			recipe.Register();
 		}
 	}
-}

@@ -2,8 +2,8 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.NPCs.Bosses.TikiTotem
-{
+namespace TremorMod.Content.NPCs.Bosses.TikiTotem;
+
 	public class TikiSoulPro : ModProjectile
 	{
 		//private const float length = 2400f;
@@ -59,4 +59,3 @@ namespace TremorMod.Content.NPCs.Bosses.TikiTotem
 			}
 		}
 	}
-}

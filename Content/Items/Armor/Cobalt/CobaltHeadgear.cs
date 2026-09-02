@@ -1,17 +1,17 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.Cobalt
-{
+namespace TremorMod.Content.Items.Armor.Cobalt;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class CobaltHeadgear : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 
 			Item.width = 20;
@@ -26,8 +26,8 @@ namespace TremorMod.Content.Items.Armor.Cobalt
 		{
 			// DisplayName.SetDefault("Cobalt Headgear");
 			// Tooltip.SetDefault("18% increased minion damage");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases your max number of minions");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases your max number of minions");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -41,8 +41,8 @@ namespace TremorMod.Content.Items.Armor.Cobalt
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Increases your max number of minions";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Increases your max number of minions";
 			player.maxMinions += 1;
 		}
 
@@ -58,4 +58,3 @@ namespace TremorMod.Content.Items.Armor.Cobalt
 			recipe.Register();
 		}
 	}
-}

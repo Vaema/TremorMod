@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -10,8 +10,8 @@ using TremorMod.Content.Projectiles;
 using TremorMod.Content.Dusts;
 using TremorMod.Content.Event;
 
-namespace TremorMod.Content.NPCs.Invasion.ParadoxTitan
-{
+namespace TremorMod.Content.NPCs.Invasion.ParadoxTitan;
+
 	[AutoloadBossHead]
 	public class Titan_ : ModNPC
 	{
@@ -129,4 +129,3 @@ namespace TremorMod.Content.NPCs.Invasion.ParadoxTitan
 			}
 		}
 	}
-}

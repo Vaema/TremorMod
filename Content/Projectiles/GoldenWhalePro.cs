@@ -1,12 +1,12 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class GoldenWhalePro : ModProjectile
 	{
 		public override void SetDefaults()
@@ -34,10 +34,9 @@ namespace TremorMod.Content.Projectiles
 			return true;
 		}
 
-        public override void AI()
-        {
-            Lighting.AddLight(Projectile.Center, new Vector3(0, 0, 1.5f));
-            Projectile.alpha = 0;
-        }
+    public override void AI()
+    {
+        Lighting.AddLight(Projectile.Center, new Vector3(0, 0, 1.5f));
+        Projectile.alpha = 0;
     }
 }

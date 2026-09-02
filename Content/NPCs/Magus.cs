@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -14,8 +14,8 @@ using TremorMod.Content.Items.Weapons.Magic;
 using TremorMod.Content.Items.Placeable.Banners;
 using TremorMod.Content.Items.Vanity;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class Magus : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -83,7 +83,7 @@ namespace TremorMod.Content.NPCs
 			}
 		}
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
 		{
 			if (Main.invasionType == InvasionID.GoblinArmy)
 			{
@@ -95,10 +95,9 @@ namespace TremorMod.Content.NPCs
 				if (Main.netMode == 2)
 					NetMessage.SendData(78, -1, -1, null, Main.invasionProgress, Main.invasionProgressMax, Main.invasionProgressIcon, 0f, 0, 0, 0);
 			}
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MagusTome>(), 50));
-        }
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MagusTome>(), 50));
+    }
 
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+    public override float SpawnChance(NPCSpawnInfo spawnInfo)
 			=> Main.invasionType == InvasionID.GoblinArmy && Main.hardMode && spawnInfo.SpawnTileY < Main.worldSurface ? 0.08f : 0f;
 	}
-}

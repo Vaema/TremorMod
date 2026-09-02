@@ -1,12 +1,12 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.Graphics.Effects;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Event
-{
+namespace TremorMod.Content.Event;
+
 	public class InvasionSky : CustomSky
 	{
 		private bool isActive;
@@ -40,9 +40,9 @@ namespace TremorMod.Content.Event
 		{
 			if (maxDepth >= 0 && minDepth < 0)
 			{
-                spriteBatch.Draw(TextureAssets.MagicPixel.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), new Color(200, 200, 200) * intensity);
-            }
+            spriteBatch.Draw(TextureAssets.MagicPixel.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), new Color(200, 200, 200) * intensity);
         }
+    }
 
 		public override float GetCloudAlpha()
 		{
@@ -69,4 +69,3 @@ namespace TremorMod.Content.Event
 			return isActive || intensity > 0f;
 		}
 	}
-}

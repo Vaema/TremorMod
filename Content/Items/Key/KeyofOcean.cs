@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.NPCsDrop;
 
-namespace TremorMod.Content.Items.Key
-{
+namespace TremorMod.Content.Items.Key;
+
 	public class KeyofOcean : ModItem
 	{
 		public override void SetDefaults()
@@ -32,4 +32,3 @@ namespace TremorMod.Content.Items.Key
 			recipe.Register();
 		}
 	}
-}

@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Biomes.Ice;
 
-namespace TremorMod.Content.Biomes.Ice.Items
-{
+namespace TremorMod.Content.Biomes.Ice.Items;
+
 	public class GlacierWoodTile : ModTile
 	{
 		public override void SetStaticDefaults()
@@ -24,4 +24,3 @@ namespace TremorMod.Content.Biomes.Ice.Items
 			Main.tileMerge[Type][TileID.SnowBlock] = true; // snow
 		}
 	}
-}

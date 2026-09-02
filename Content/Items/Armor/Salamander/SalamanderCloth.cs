@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Armor.Salamander
-{
+namespace TremorMod.Content.Items.Armor.Salamander;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class SalamanderCloth : ModItem
 	{
@@ -37,4 +37,3 @@ namespace TremorMod.Content.Items.Armor.Salamander
 			recipe.Register();
 		}
 	}
-}

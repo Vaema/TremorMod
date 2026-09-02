@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Fungus;
 
-namespace TremorMod.Content.Items.Tools
-{
+namespace TremorMod.Content.Items.Tools;
+
 	public class FungusHamaxe : ModItem
 	{
 		public override void SetDefaults()
@@ -35,7 +35,7 @@ namespace TremorMod.Content.Items.Tools
 		{
 			Recipe recipe1 = CreateRecipe();
 			recipe1.AddIngredient(ModContent.ItemType<FungusElement>(), 11);
-            recipe1.AddIngredient(ItemID.GlowingMushroom, 8);
+        recipe1.AddIngredient(ItemID.GlowingMushroom, 8);
 			recipe1.AddIngredient(ItemID.GoldAxe, 1);
 			recipe1.AddIngredient(ItemID.GoldHammer, 1);
 			recipe1.AddTile(16);
@@ -43,8 +43,8 @@ namespace TremorMod.Content.Items.Tools
 			recipe1.Register();
 
 			Recipe recipe2 = CreateRecipe();
-            recipe2.AddIngredient(ModContent.ItemType<FungusElement>(), 11);
-            recipe2.AddIngredient(ItemID.GlowingMushroom, 8);
+        recipe2.AddIngredient(ModContent.ItemType<FungusElement>(), 11);
+        recipe2.AddIngredient(ItemID.GlowingMushroom, 8);
 			recipe2.AddIngredient(ItemID.PlatinumAxe, 1);
 			recipe2.AddIngredient(ItemID.PlatinumHammer, 1);
 			recipe2.AddTile(16);
@@ -52,4 +52,3 @@ namespace TremorMod.Content.Items.Tools
 			recipe2.Register();
 		}
 	}
-}

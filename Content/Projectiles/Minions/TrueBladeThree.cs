@@ -9,19 +9,19 @@ using Terraria.ModLoader;
 using Terraria.DataStructures;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Projectiles.Minions
-{
+namespace TremorMod.Content.Projectiles.Minions;
+
 	public class TrueBladeThree : ModProjectile
 	{
 
-        const float RotationSpeed = 5f;
-        const float Distanse = 150;
-        const int HitCooldown = 12;  // 10 - 12 или 12 - 15
+    const float RotationSpeed = 5f;
+    const float Distanse = 150;
+    const int HitCooldown = 12;  // 10 - 12 или 12 - 15
 
-        float Rotation;
-        int lastHitTime;
+    float Rotation;
+    int lastHitTime;
 
-        public override Color? GetAlpha(Color lightColor)
+    public override Color? GetAlpha(Color lightColor)
 		{
 			return Color.White;
 		}
@@ -48,21 +48,20 @@ namespace TremorMod.Content.Projectiles.Minions
 			Rotation += RotationSpeed;
 			Projectile.Center = Helper.PolarPos(Main.LocalPlayer.Center, Distanse, MathHelper.ToRadians(Rotation));
 			Projectile.rotation = Helper.rotateBetween2Points(Main.LocalPlayer.Center, Projectile.Center) - MathHelper.ToRadians(90);
-            if (lastHitTime > 0)
-            {
-                lastHitTime--;
-            }
-        }
-
-        public override bool? CanHitNPC(NPC target)
+        if (lastHitTime > 0)
         {
-
-            if (lastHitTime <= 0 && !target.friendly)
-            {
-                lastHitTime = HitCooldown;
-                return true;
-            }
-            return false;
+            lastHitTime--;
         }
+    }
+
+    public override bool? CanHitNPC(NPC target)
+    {
+
+        if (lastHitTime <= 0 && !target.friendly)
+        {
+            lastHitTime = HitCooldown;
+            return true;
+        }
+        return false;
+    }
 	}
-}

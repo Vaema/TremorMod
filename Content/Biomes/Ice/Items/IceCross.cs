@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Biomes.Ice.Items
-{
+namespace TremorMod.Content.Biomes.Ice.Items;
+
 	public class IceCross : ModItem
 	{
 		public override void SetDefaults()
@@ -30,4 +30,3 @@ namespace TremorMod.Content.Biomes.Ice.Items
 			//Tooltip.SetDefault("Summons an giant stationary frozen boulder that damages enemies and explodes into icicles after some time");
 		}
 	}
-}

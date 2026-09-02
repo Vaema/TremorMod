@@ -1,20 +1,20 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class IchorCleaverPro : ModProjectile
 	{
 		public override void SetDefaults()
 		{
-            Projectile.CloneDefaults(595);
+        Projectile.CloneDefaults(595);
 
-            Projectile.width = 100;
-            Projectile.height = 70;
-            AIType = 595;
-            Main.projFrames[Projectile.type] = 28;
-        }
+        Projectile.width = 100;
+        Projectile.height = 70;
+        AIType = 595;
+        Main.projFrames[Projectile.type] = 28;
+    }
 
 		public override Color? GetAlpha(Color lightColor)
 		{
@@ -29,4 +29,3 @@ namespace TremorMod.Content.Projectiles
 			}
 		}
 	}
-}

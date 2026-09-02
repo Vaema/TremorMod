@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -8,8 +8,8 @@ using TremorMod.Content.Items.BossLoot.TheDarkEmperor;
 using TremorMod.Content.Items.SpaceWhaleItems;
 using TremorMod.Content.NPCs.Bosses.Trinity;
 
-namespace TremorMod.Content.Items.BossSumonItems
-{
+namespace TremorMod.Content.Items.BossSumonItems;
+
 	public class StoneofKnowledge : ModItem
 	{
 		public override void SetDefaults()
@@ -76,4 +76,3 @@ namespace TremorMod.Content.Items.BossSumonItems
 		}
 
 	}
-}

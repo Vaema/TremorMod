@@ -1,46 +1,45 @@
-using System;
+п»їusing System;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 
-namespace TremorMod.Content.Projectiles
+namespace TremorMod.Content.Projectiles;
+
+public class CyberRingPro : ModProjectile
 {
-    public class CyberRingPro : ModProjectile
+    public override void SetDefaults()
     {
-        public override void SetDefaults()
+        Projectile.width = 90;
+        Projectile.height = 90;
+        Projectile.hostile = true;
+        Projectile.timeLeft = 500;
+        Projectile.light = 0.8f;
+        Projectile.tileCollide = false; // ГЏГ°Г®ГµГ®Г¤ГЁГІ Г±ГЄГўГ®Г§Гј ГЎГ«Г®ГЄГЁ
+        Projectile.penetrate = -1; // ГЌГҐ ГЁГ±Г·ГҐГ§Г ГҐГІ ГЇГ°ГЁ Г±ГІГ®Г«ГЄГ­Г®ГўГҐГ­ГЁГЁ
+    }
+
+    public override void AI()
+    {
+        // ГЏГ®ГЁГ±ГЄ Г¶ГҐГ«ГЁ (ГЁГЈГ°Г®ГЄГ )
+        Player target = Main.player[Player.FindClosest(Projectile.Center, Projectile.width, Projectile.height)];
+        if (target != null && target.active && !target.dead)
         {
-            Projectile.width = 90;
-            Projectile.height = 90;
-            Projectile.hostile = true;
-            Projectile.timeLeft = 500;
-            Projectile.light = 0.8f;
-            Projectile.tileCollide = false; // Проходит сквозь блоки
-            Projectile.penetrate = -1; // Не исчезает при столкновении
+            // ГЌГ ГЇГ°Г ГўГ«ГҐГ­ГЁГҐ Г­Г  ГЁГЈГ°Г®ГЄГ 
+            Vector2 direction = (target.Center - Projectile.Center).SafeNormalize(Vector2.Zero);
+
+            // ГЏГ«Г ГўГ­Г®ГҐ ГЁГ§Г¬ГҐГ­ГҐГ­ГЁГҐ Г­Г ГЇГ°Г ГўГ«ГҐГ­ГЁГї Г±Г­Г Г°ГїГ¤Г 
+            float turnSpeed = 0.1f; // Г—ГҐГ¬ Г¬ГҐГ­ГјГёГҐ Г§Г­Г Г·ГҐГ­ГЁГҐ, ГІГҐГ¬ Г¬ГҐГ¤Г«ГҐГ­Г­ГҐГҐ Г±Г­Г Г°ГїГ¤ ГЎГіГ¤ГҐГІ ГЇГ®ГўГ®Г°Г Г·ГЁГўГ ГІГј
+            Projectile.velocity = Vector2.Lerp(Projectile.velocity, direction * Projectile.velocity.Length(), turnSpeed);
         }
 
-        public override void AI()
+        // Г‚Г°Г Г№ГҐГ­ГЁГҐ Г±Г­Г Г°ГїГ¤Г 
+        Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
+
+        // ГќГґГґГҐГЄГІ ГЇГ»Г«ГЁ
+        if (Main.rand.NextBool(3)) // ГЏГ»Г«Гј ГЇГ®ГїГўГ«ГїГҐГІГ±Гї Г°ГҐГ¦ГҐ
         {
-            // Поиск цели (игрока)
-            Player target = Main.player[Player.FindClosest(Projectile.Center, Projectile.width, Projectile.height)];
-            if (target != null && target.active && !target.dead)
-            {
-                // Направление на игрока
-                Vector2 direction = (target.Center - Projectile.Center).SafeNormalize(Vector2.Zero);
-
-                // Плавное изменение направления снаряда
-                float turnSpeed = 0.1f; // Чем меньше значение, тем медленнее снаряд будет поворачивать
-                Projectile.velocity = Vector2.Lerp(Projectile.velocity, direction * Projectile.velocity.Length(), turnSpeed);
-            }
-
-            // Вращение снаряда
-            Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
-
-            // Эффект пыли
-            if (Main.rand.NextBool(3)) // Пыль появляется реже
-            {
-                Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.Electric, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
-            }
+            Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.Electric, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
         }
     }
 }

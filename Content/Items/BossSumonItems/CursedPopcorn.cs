@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.NPCs.Bosses.EvilCorn;
 
-namespace TremorMod.Content.Items.BossSumonItems
-{
+namespace TremorMod.Content.Items.BossSumonItems;
+
 	public class CursedPopcorn : ModItem
 	{
 		public override void SetDefaults()
@@ -30,14 +30,13 @@ namespace TremorMod.Content.Items.BossSumonItems
 
 		public override bool CanUseItem(Player player)
 		{
-            return !NPC.AnyNPCs(ModContent.NPCType<EvilCorn>()) && !Main.dayTime;
-        }
+        return !NPC.AnyNPCs(ModContent.NPCType<EvilCorn>()) && !Main.dayTime;
+    }
 
 		public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
 		{
 			NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<EvilCorn>());
-            SoundEngine.PlaySound(SoundID.Roar, player.position);
-            return true;
+        SoundEngine.PlaySound(SoundID.Roar, player.position);
+        return true;
 		}
-    }
 }

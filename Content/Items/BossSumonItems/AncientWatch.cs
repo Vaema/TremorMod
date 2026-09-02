@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -10,8 +10,8 @@ using TremorMod.Content.Items.BossLoot.TheDarkEmperor;
 using TremorMod.Content.NPCs.Invasion.ParadoxTitan;
 using TremorMod.Content.NPCs.Invasion;
 
-namespace TremorMod.Content.Items.BossSumonItems
-{
+namespace TremorMod.Content.Items.BossSumonItems;
+
 	public class AncientWatch : ModItem
 	{
 		public override void SetDefaults()
@@ -69,4 +69,3 @@ namespace TremorMod.Content.Items.BossSumonItems
 			recipe.Register();
 		}
 	}
-}

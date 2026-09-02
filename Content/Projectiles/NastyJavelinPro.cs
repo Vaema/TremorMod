@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -7,8 +7,8 @@ using Terraria.ModLoader;
 using TremorMod.Content.Dusts;
 using TremorMod.Content.Items.BossLoot.TheDarkEmperor;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class NastyJavelinPro : ModProjectile
 	{
 		public override void SetDefaults()
@@ -35,25 +35,24 @@ namespace TremorMod.Content.Projectiles
 			Main.dust[dust].noGravity = true;
 		}
 
-        public override void OnKill(int timeLeft)
+    public override void OnKill(int timeLeft)
+    {
+        for (int k = 0; k < 5; k++)
         {
-            for (int k = 0; k < 5; k++)
-            {
-                Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, ModContent.DustType<NightmareFlame>(), Projectile.oldVelocity.X * 0.5f, Projectile.oldVelocity.Y * 2f, 100, default(Color), 2f);
-            }
-            SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
-
-            if (Main.rand.NextBool(3))
-            {
-                IEntitySource source = Projectile.GetSource_DropAsItem();
-                Item.NewItem(source, Projectile.position, Projectile.Size, ModContent.ItemType<NastyJavelin>());
-            }
+            Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, ModContent.DustType<NightmareFlame>(), Projectile.oldVelocity.X * 0.5f, Projectile.oldVelocity.Y * 2f, 100, default(Color), 2f);
         }
+        SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
 
-        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        if (Main.rand.NextBool(3))
+        {
+            IEntitySource source = Projectile.GetSource_DropAsItem();
+            Item.NewItem(source, Projectile.position, Projectile.Size, ModContent.ItemType<NastyJavelin>());
+        }
+    }
+
+    public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
 			Projectile.ai[0] += 0.1f;
 			Projectile.velocity *= 0.75f;
 		}
 	}
-}

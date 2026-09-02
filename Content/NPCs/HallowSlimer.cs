@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -10,8 +10,8 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Placeable.Banners;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class HallowSlimer : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -35,23 +35,23 @@ namespace TremorMod.Content.NPCs
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath6;
 			NPC.value = Item.buyPrice(0, 0, 5, 0);
-            Banner = NPC.type;
-            BannerItem = ModContent.ItemType<HallowSlimerBanner>();
-            ItemID.Sets.KillsToBanner[BannerItem] = 50;
-        }
+        Banner = NPC.type;
+        BannerItem = ModContent.ItemType<HallowSlimerBanner>();
+        ItemID.Sets.KillsToBanner[BannerItem] = 50;
+    }
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                    NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y - 48, NPCID.IlluminantSlime);
-            }
+            if (Main.netMode != NetmodeID.MultiplayerClient)
+                NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y - 48, NPCID.IlluminantSlime);
+        }
 		}
 
 		//public override void AI()
@@ -63,22 +63,21 @@ namespace TremorMod.Content.NPCs
 		//	NPC.oldPos[0] = NPC.position;
 		//}
 
-  //      public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
-  //      {
-  //          Vector2 drawOrigin = new Vector2(TextureAssets.Npc[NPC.type].Value.Width, TextureAssets.Npc[NPC.type].Value.Height * 0.8f);
-  //          for (int k = 0; k < NPC.oldPos.Length; k++)
-  //          {
-  //              SpriteEffects effect = NPC.direction == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
-  //              Color color = NPC.GetAlpha(drawColor) * ((NPC.oldPos.Length - k) / (float)NPC.oldPos.Length);
-  //              Rectangle frame = new Rectangle(0, 0, 90, 42);
-  //              frame.Y += 164 * (k / 60);
+//      public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+//      {
+//          Vector2 drawOrigin = new Vector2(TextureAssets.Npc[NPC.type].Value.Width, TextureAssets.Npc[NPC.type].Value.Height * 0.8f);
+//          for (int k = 0; k < NPC.oldPos.Length; k++)
+//          {
+//              SpriteEffects effect = NPC.direction == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+//              Color color = NPC.GetAlpha(drawColor) * ((NPC.oldPos.Length - k) / (float)NPC.oldPos.Length);
+//              Rectangle frame = new Rectangle(0, 0, 90, 42);
+//              frame.Y += 164 * (k / 60);
 
-  //              spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.oldPos[k] - Main.screenPosition, frame, color, 0, Vector2.Zero, NPC.scale, effect, 1f);
-  //          }
-  //          return true;
-  //      }
+//              spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.oldPos[k] - Main.screenPosition, frame, color, 0, Vector2.Zero, NPC.scale, effect, 1f);
+//          }
+//          return true;
+//      }
 
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+    public override float SpawnChance(NPCSpawnInfo spawnInfo)
 			=> Helper.NormalSpawn(spawnInfo) && Helper.NoZoneAllowWater(spawnInfo) && spawnInfo.Player.ZoneHallow && spawnInfo.SpawnTileY < Main.worldSurface ? 0.01f : 0f;
 	}
-}

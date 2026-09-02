@@ -1,18 +1,18 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Buffs;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Items.CogLordItems
-{
+namespace TremorMod.Content.Items.CogLordItems;
+
 	public class BrassRapier : ModItem
 	{
 		public override void SetDefaults()
 		{
 			Item.damage = 69;
-            Item.DamageType = DamageClass.Melee;
-            Item.width = 52;
+        Item.DamageType = DamageClass.Melee;
+        Item.width = 52;
 			Item.height = 54;
 			Item.useTime = 25;
 			Item.useAnimation = 25;
@@ -48,4 +48,3 @@ namespace TremorMod.Content.Items.CogLordItems
 			}
 		}
 	}
-}

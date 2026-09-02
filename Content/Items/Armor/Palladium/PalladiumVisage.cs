@@ -1,17 +1,17 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.Palladium
-{
+namespace TremorMod.Content.Items.Armor.Palladium;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class PalladiumVisage : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 26;
 			Item.height = 20;
@@ -22,10 +22,10 @@ namespace TremorMod.Content.Items.Armor.Palladium
 
 		public override void SetStaticDefaults()
 		{
-            //DisplayName.SetDefault("Palladium Visage");
-            //Tooltip.SetDefault("18% increased alchemical damage");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("12% increased alchemical critical strike chance and greatly increases life regeneration after striking an enemy");
-        }
+        //DisplayName.SetDefault("Palladium Visage");
+        //Tooltip.SetDefault("18% increased alchemical damage");
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("12% increased alchemical critical strike chance and greatly increases life regeneration after striking an enemy");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -39,8 +39,8 @@ namespace TremorMod.Content.Items.Armor.Palladium
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Greatly increases life regeneration after striking an enemy\n" +
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Greatly increases life regeneration after striking an enemy\n" +
 			"12% increased alchemical critical strike chance";
 			player.GetModPlayer<MPlayer>().alchemicalCrit += 12;
 			player.onHitRegen = true;
@@ -60,4 +60,3 @@ namespace TremorMod.Content.Items.Armor.Palladium
 			recipe.Register();
 		}
 	}
-}

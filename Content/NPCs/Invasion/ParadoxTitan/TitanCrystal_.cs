@@ -1,4 +1,4 @@
-using System.IO;
+﻿using System.IO;
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -10,8 +10,8 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Projectiles;
 using TremorMod.Content.Dusts;
 
-namespace TremorMod.Content.NPCs.Invasion.ParadoxTitan
-{
+namespace TremorMod.Content.NPCs.Invasion.ParadoxTitan;
+
 	public class TitanCrystal_ : ModProjectile
 	{
 		private int timer;
@@ -67,19 +67,19 @@ namespace TremorMod.Content.NPCs.Invasion.ParadoxTitan
 			Projectile.Center = center.Center + Projectile.localAI[0] * new Vector2((float)Math.Cos(Projectile.ai[1]), (float)Math.Sin(Projectile.ai[1]));
 		}
 
-        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+    public override void OnHitPlayer(Player target, Player.HurtInfo info)
+    {
+        for (int k = 0; k < target.buffType.Length; k++)
         {
-            for (int k = 0; k < target.buffType.Length; k++)
+            if (target.buffType[k] > 0 && target.buffTime[k] > 0 && !BuffID.Sets.NurseCannotRemoveDebuff[target.buffType[k]] && Main.rand.NextBool(2))
             {
-                if (target.buffType[k] > 0 && target.buffTime[k] > 0 && !BuffID.Sets.NurseCannotRemoveDebuff[target.buffType[k]] && Main.rand.NextBool(2))
-                {
-                    target.DelBuff(k);
-                    k--;
-                }
+                target.DelBuff(k);
+                k--;
             }
         }
+    }
 
-     
+ 
 		public override Color? GetAlpha(Color lightColor)
 		{
 			return Color.White * ((255 - Projectile.alpha) / 255f);
@@ -95,12 +95,12 @@ namespace TremorMod.Content.NPCs.Invasion.ParadoxTitan
 			}
 			Vector2 drawPos = Projectile.Center - Main.screenPosition;
 			Vector2 drawCenter = new Vector2(24f, 24f);
-            for (int k = 2; k <= 24; k += 2)
-            {
-                float scale = 2f * k / 48f;
-                SpriteBatch spriteBatch = Main.spriteBatch;
-                spriteBatch.Draw(ModContent.Request<Texture2D>("TremorMod/Content/NPCs/Invasion/TitanCrystalRing").Value, drawPos, null, Color.White * ShieldTransparency(k), 0f, drawCenter, scale, SpriteEffects.None, 0f);
-            }
+        for (int k = 2; k <= 24; k += 2)
+        {
+            float scale = 2f * k / 48f;
+            SpriteBatch spriteBatch = Main.spriteBatch;
+            spriteBatch.Draw(ModContent.Request<Texture2D>("TremorMod/Content/NPCs/Invasion/TitanCrystalRing").Value, drawPos, null, Color.White * ShieldTransparency(k), 0f, drawCenter, scale, SpriteEffects.None, 0f);
+        }
 		}
 
 		private float ShieldTransparency(int radius)
@@ -128,4 +128,3 @@ namespace TremorMod.Content.NPCs.Invasion.ParadoxTitan
 			}
 		}
 	}
-}

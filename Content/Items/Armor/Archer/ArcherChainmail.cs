@@ -1,7 +1,7 @@
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.Archer
-{
+namespace TremorMod.Content.Items.Armor.Archer;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class ArcherChainmail : ModItem
 	{
@@ -21,4 +21,3 @@ namespace TremorMod.Content.Items.Armor.Archer
 		}
 
 	}
-}

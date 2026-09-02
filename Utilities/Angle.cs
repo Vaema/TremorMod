@@ -1,7 +1,7 @@
-using System;
+﻿using System;
 
-namespace TremorMod.Utilities
-{
+namespace TremorMod.Utilities;
+
 	public struct Angle
 	{
 		public float Value;
@@ -50,4 +50,3 @@ namespace TremorMod.Utilities
 			return Value >= cLimit.Value || Value <= ccLimit.Value;
 		}
 	}
-}

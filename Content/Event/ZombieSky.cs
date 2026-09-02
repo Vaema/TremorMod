@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.Graphics.Effects;
 
-namespace TremorMod.Content.Event
-{
+namespace TremorMod.Content.Event;
+
 	public class ZombieSky : CustomSky
 	{
 		private bool isActive;
@@ -98,4 +98,3 @@ namespace TremorMod.Content.Event
 			return isActive || intensity > 0f;
 		}
 	}
-}

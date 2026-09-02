@@ -16,8 +16,8 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Filters = Terraria.Graphics.Effects.Filters;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class HellStormArrow : ModProjectile
 	{
 		public override void SetDefaults()
@@ -40,16 +40,16 @@ namespace TremorMod.Content.Projectiles
 		{
 			return Color.White;
 		}
-        public override void OnKill(int timeLeft)
+    public override void OnKill(int timeLeft)
 		{
 			for (int k = 0; k < 5; k++)
 			{
 				int dust = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 6, Projectile.oldVelocity.X * 0.1f, Projectile.oldVelocity.Y * 0.1f);
 			}
-            SoundEngine.PlaySound(SoundID.NPCDeath1, Projectile.position);
-        }
+        SoundEngine.PlaySound(SoundID.NPCDeath1, Projectile.position);
+    }
 
-        public override void AI()
+    public override void AI()
 		{
 			Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
 			Projectile.frameCounter++;
@@ -104,4 +104,3 @@ namespace TremorMod.Content.Projectiles
 			}
 		}
 	}
-}

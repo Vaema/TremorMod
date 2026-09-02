@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Biomes.Ice
-{
+namespace TremorMod.Content.Biomes.Ice;
+
 	public class IceWallW : ModItem
 	{
 		public override void SetDefaults()
@@ -28,4 +28,3 @@ namespace TremorMod.Content.Biomes.Ice
 		}
 
 	}
-}

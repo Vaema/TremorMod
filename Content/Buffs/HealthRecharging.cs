@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Buffs
-{
+namespace TremorMod.Content.Buffs;
+
 	public class HealthRecharging : ModBuff
 	{
 		public override void SetStaticDefaults()
@@ -12,4 +12,3 @@ namespace TremorMod.Content.Buffs
 			//Description.SetDefault("Wait before you can use the hourglass again");
 		}
 	}
-}

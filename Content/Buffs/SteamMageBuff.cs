@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Buffs
-{
+namespace TremorMod.Content.Buffs;
+
 	public class SteamMageBuff : ModBuff
 	{
 		public override void SetStaticDefaults()
@@ -15,4 +15,3 @@ namespace TremorMod.Content.Buffs
 			Main.buffNoTimeDisplay[Type] = true;
 		}
 	}
-}

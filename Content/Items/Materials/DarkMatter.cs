@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Materials
-{
+namespace TremorMod.Content.Items.Materials;
+
 	public class DarkMatter : ModItem
 	{
 		public override void SetDefaults()
@@ -23,4 +23,3 @@ namespace TremorMod.Content.Items.Materials
 			Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(8, 4));
 		}
 	}
-}

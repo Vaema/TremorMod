@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class ParatrooperLens : ModItem
 	{
 
@@ -28,4 +28,3 @@ namespace TremorMod.Content.Items.Accessories
 			player.AddBuff(ModContent.BuffType<ShootSpeedBuff2>(), 2);
 		}
 	}
-}

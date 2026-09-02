@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -8,14 +8,14 @@ using TremorMod.Content.Buffs;
 using TremorMod.Utilities;
 using TremorMod;
 
-namespace TremorMod.Content.Items.Weapons.Alchemical
-{
+namespace TremorMod.Content.Items.Weapons.Alchemical;
+
 	public class MartianSprayer : ModItem
-    {
+{
 		public override void SetDefaults()
 		{
-            Item.DamageType = TremorMod.alchemicalDamage ?? DamageClass.Generic;
-            Item.damage = 45;
+        Item.DamageType = TremorMod.alchemicalDamage ?? DamageClass.Generic;
+        Item.damage = 45;
 			Item.width = 80;
 			Item.height = 36;
 			Item.useTime = 15;
@@ -82,51 +82,50 @@ namespace TremorMod.Content.Items.Weapons.Alchemical
 			}
 		}
 
-        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    {
+        MPlayer modPlayer = MPlayer.GetModPlayer(player);
+        if (modPlayer.glove)
         {
-            MPlayer modPlayer = MPlayer.GetModPlayer(player);
-            if (modPlayer.glove)
+            for (int i = 0; i < 1; ++i)
             {
-                for (int i = 0; i < 1; ++i)
-                {
-                    if (player.FindBuffIndex(ModContent.BuffType<BottledSpiritBuffs>()) != -1)
-                    {
-                        Projectile.NewProjectile(source, position, velocity + new Vector2(2, 2), 297, damage, knockback, Main.myPlayer);
-                    }
-                    if (player.FindBuffIndex(ModContent.BuffType<BigBottledSpiritBuffs>()) != -1)
-                    {
-                        Projectile.NewProjectile(source, position, velocity + new Vector2(3, 3), 297, damage, knockback, Main.myPlayer);
-                        Projectile.NewProjectile(source, position, velocity + new Vector2(2, 2), 297, damage, knockback, Main.myPlayer);
-                    }
-                    Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), type, damage, knockback, Main.myPlayer);
-                    Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), type, damage, knockback, Main.myPlayer);
-                    int k = Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer);
-                    Main.projectile[k].friendly = true;
-                }
-                return false;
-            }
-            if (player.FindBuffIndex(ModContent.BuffType<BottledSpiritBuffs>()) != -1 && !modPlayer.glove)
-            {
-                for (int i = 0; i < 1; ++i)
-                {
-                    Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), 297, damage, knockback, Main.myPlayer);
-                    int k = Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer);
-                    Main.projectile[k].friendly = true;
-                }
-                return false;
-            }
-            if (player.FindBuffIndex(ModContent.BuffType<BigBottledSpiritBuffs>()) != -1 && !modPlayer.glove)
-            {
-                for (int i = 0; i < 1; ++i)
+                if (player.FindBuffIndex(ModContent.BuffType<BottledSpiritBuffs>()) != -1)
                 {
                     Projectile.NewProjectile(source, position, velocity + new Vector2(2, 2), 297, damage, knockback, Main.myPlayer);
-                    Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), 297, damage, knockback, Main.myPlayer);
-                    int k = Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer);
-                    Main.projectile[k].friendly = true;
                 }
-                return false;
+                if (player.FindBuffIndex(ModContent.BuffType<BigBottledSpiritBuffs>()) != -1)
+                {
+                    Projectile.NewProjectile(source, position, velocity + new Vector2(3, 3), 297, damage, knockback, Main.myPlayer);
+                    Projectile.NewProjectile(source, position, velocity + new Vector2(2, 2), 297, damage, knockback, Main.myPlayer);
+                }
+                Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), type, damage, knockback, Main.myPlayer);
+                Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), type, damage, knockback, Main.myPlayer);
+                int k = Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer);
+                Main.projectile[k].friendly = true;
             }
-            return true;
+            return false;
         }
+        if (player.FindBuffIndex(ModContent.BuffType<BottledSpiritBuffs>()) != -1 && !modPlayer.glove)
+        {
+            for (int i = 0; i < 1; ++i)
+            {
+                Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), 297, damage, knockback, Main.myPlayer);
+                int k = Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer);
+                Main.projectile[k].friendly = true;
+            }
+            return false;
+        }
+        if (player.FindBuffIndex(ModContent.BuffType<BigBottledSpiritBuffs>()) != -1 && !modPlayer.glove)
+        {
+            for (int i = 0; i < 1; ++i)
+            {
+                Projectile.NewProjectile(source, position, velocity + new Vector2(2, 2), 297, damage, knockback, Main.myPlayer);
+                Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), 297, damage, knockback, Main.myPlayer);
+                int k = Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer);
+                Main.projectile[k].friendly = true;
+            }
+            return false;
+        }
+        return true;
     }
 }

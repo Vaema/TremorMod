@@ -10,8 +10,8 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Projectiles;
 using TremorMod.Content.Dusts;
 
-namespace TremorMod.Content.NPCs.Invasion.ParadoxTitan
-{
+namespace TremorMod.Content.NPCs.Invasion.ParadoxTitan;
+
 	public class TitanCrystal : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -38,50 +38,50 @@ namespace TremorMod.Content.NPCs.Invasion.ParadoxTitan
 			NPC.DeathSound = SoundID.NPCDeath1;
 		}
 
-        public override bool PreAI()
+    public override bool PreAI()
+    {
+        bool expertMode = Main.expertMode;
+        NPC.TargetClosest(true);
+        if (NPC.target < 0 || NPC.target >= Main.maxPlayers || !Main.player[NPC.target].active)
         {
-            bool expertMode = Main.expertMode;
-            NPC.TargetClosest(true);
-            if (NPC.target < 0 || NPC.target >= Main.maxPlayers || !Main.player[NPC.target].active)
-            {
-                return false;
-            }
-            Player player = Main.player[NPC.target];
-
-            int parentIndex = NPC.FindFirstNPC(Mod.Find<ModNPC>("Titan").Type);
-            if (parentIndex == -1)
-            {
-                return false;
-            }
-            NPC parent = Main.npc[parentIndex];
-
-            Vector2 direction = player.Center - NPC.Center;
-            direction.Normalize();
-            direction *= 9f;
-            NPC.rotation = 0f;
-
-            double deg = (double)NPC.ai[1] / 2;
-            double rad = deg * (Math.PI / 180);
-            double dist = 250;
-            NPC.position.X = parent.Center.X - (int)(Math.Cos(rad) * dist) - NPC.width / 2;
-            NPC.position.Y = parent.Center.Y - (int)(Math.Sin(rad) * dist) - NPC.height / 2;
-            NPC.ai[1] += 2f;
-
             return false;
         }
+        Player player = Main.player[NPC.target];
 
-
-        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float bossLifeScale, float balance)
+        int parentIndex = NPC.FindFirstNPC(Mod.Find<ModNPC>("Titan").Type);
+        if (parentIndex == -1)
         {
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.625f * bossLifeScale);
-            NPC.damage = (int)(NPC.damage * 0.6f);
+            return false;
         }
+        NPC parent = Main.npc[parentIndex];
 
-        public override void HitEffect(NPC.HitInfo hit)
+        Vector2 direction = player.Center - NPC.Center;
+        direction.Normalize();
+        direction *= 9f;
+        NPC.rotation = 0f;
+
+        double deg = (double)NPC.ai[1] / 2;
+        double rad = deg * (Math.PI / 180);
+        double dist = 250;
+        NPC.position.X = parent.Center.X - (int)(Math.Cos(rad) * dist) - NPC.width / 2;
+        NPC.position.Y = parent.Center.Y - (int)(Math.Sin(rad) * dist) - NPC.height / 2;
+        NPC.ai[1] += 2f;
+
+        return false;
+    }
+
+
+    public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float bossLifeScale, float balance)
+    {
+        NPC.lifeMax = (int)(NPC.lifeMax * 0.625f * bossLifeScale);
+        NPC.damage = (int)(NPC.damage * 0.6f);
+    }
+
+    public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            for (int k = 0; k < 5; k++)
+        for (int k = 0; k < 5; k++)
 			{
 				Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<CyberDust>(), hitDirection, -1f, 0, default(Color), 1f);
 			}
@@ -92,4 +92,3 @@ namespace TremorMod.Content.NPCs.Invasion.ParadoxTitan
 			return false;
 		}
 	}
-}

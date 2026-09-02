@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Buffs
-{
+namespace TremorMod.Content.Buffs;
+
 	public class AncientBannerBuff : ModBuff
 	{
 		public override void SetStaticDefaults()
@@ -18,4 +18,3 @@ namespace TremorMod.Content.Buffs
 			player.lifeRegen += 40;
 		}
 	}
-}

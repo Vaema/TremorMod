@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Armor.Abyss
-{
+namespace TremorMod.Content.Items.Armor.Abyss;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class AbyssBreastplate : ModItem
 	{
@@ -45,4 +45,3 @@ namespace TremorMod.Content.Items.Armor.Abyss
 		}
 
 	}
-}

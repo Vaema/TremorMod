@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Vanity
-{
+namespace TremorMod.Content.Items.Vanity;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class ProfessorGlasses : ModItem
 	{
@@ -19,10 +19,9 @@ namespace TremorMod.Content.Items.Vanity
 
 		public override void SetStaticDefaults()
 		{
-            //DisplayName.SetDefault("Professor Glasses");
-            //Tooltip.SetDefault("");
-            base.SetStaticDefaults();
-            ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
-        }
+        //DisplayName.SetDefault("Professor Glasses");
+        //Tooltip.SetDefault("");
+        base.SetStaticDefaults();
+        ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
+    }
 	}
-}

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
@@ -7,14 +7,14 @@ using Terraria.Localization;
 using TremorMod.Content.Items.Materials.OreAndBar;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items.Armor.Nano
-{
+namespace TremorMod.Content.Items.Armor.Nano;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class NanoHelmet : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 32;
 			Item.height = 26;
@@ -23,7 +23,7 @@ namespace TremorMod.Content.Items.Armor.Nano
 			Item.defense = 12;
 		}
 
-        public override void SetStaticDefaults()
+    public override void SetStaticDefaults()
 		{
 			/*DisplayName.SetDefault("Nano Helmet");
 			Tooltip.SetDefault("Maximum mana increased by 60\n" +
@@ -31,13 +31,13 @@ namespace TremorMod.Content.Items.Armor.Nano
 		    SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Summons a Nano Drone to fight for you");
 		}
 
-        public override void UpdateEquip(Player player)
+    public override void UpdateEquip(Player player)
 		{
-            player.statManaMax2 += 60;
-            player.GetCritChance(DamageClass.Melee) += 20;
+        player.statManaMax2 += 60;
+        player.GetCritChance(DamageClass.Melee) += 20;
 			player.GetCritChance(DamageClass.Ranged) += 20;
-            player.GetCritChance(DamageClass.Magic) += 20;
-            player.GetCritChance(DamageClass.Throwing) += 20;
+        player.GetCritChance(DamageClass.Magic) += 20;
+        player.GetCritChance(DamageClass.Throwing) += 20;
 			//player.GetModPlayer<MPlayer>(mod).alchemicalCrit += 8;
 		}
 
@@ -48,7 +48,7 @@ namespace TremorMod.Content.Items.Armor.Nano
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
+        player.setBonus = SetBonusText.Value;
 			player.AddBuff(ModContent.BuffType<NanoDronBuff>(), 2);
 			player.nightVision = true;
 			if (Math.Abs(player.velocity.X) + Math.Abs(player.velocity.Y) > 1f && !player.rocketFrame) // Makes sure the player is actually moving
@@ -67,11 +67,10 @@ namespace TremorMod.Content.Items.Armor.Nano
 
 		public override void AddRecipes()
 		{
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<NanoBar>(), 12);
-            //recipe.SetResult(this);
-            recipe.AddTile(134);
-            recipe.Register();
-        }
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ModContent.ItemType<NanoBar>(), 12);
+        //recipe.SetResult(this);
+        recipe.AddTile(134);
+        recipe.Register();
+    }
 	}
-}

@@ -1,12 +1,12 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class ManiacChainsawPro : ModProjectile
 	{
 		public override void SetDefaults()
@@ -110,4 +110,3 @@ namespace TremorMod.Content.Projectiles
 			SoundEngine.PlaySound(SoundID.Item22, Projectile.position);
 		}
 	}
-}

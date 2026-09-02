@@ -1,12 +1,12 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
 using TremorMod.Utilities;
 using TremorMod.Content.Items.Vanity;
 
-namespace TremorMod.Content.Items.EvilCornItems
-{
+namespace TremorMod.Content.Items.EvilCornItems;
+
 	public class EvilCornBag : ModItem
 	{
 		public override void SetDefaults()
@@ -50,4 +50,3 @@ namespace TremorMod.Content.Items.EvilCornItems
 			itemLoot.Add(ItemDropRule.ByCondition(new MissingItemCondition(ModContent.ItemType<FarmerShovel>()), ModContent.ItemType<FarmerShovel>(), 1));
 		}
 	}
-}

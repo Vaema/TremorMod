@@ -1,10 +1,10 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Biomes.Ruins.Items
-{
+namespace TremorMod.Content.Biomes.Ruins.Items;
+
 	public class Decayed : ModItem
 	{
 		public override void SetDefaults()
@@ -37,4 +37,3 @@ namespace TremorMod.Content.Biomes.Ruins.Items
 			return new Vector2(-16, 0);
 		}
 	}
-}

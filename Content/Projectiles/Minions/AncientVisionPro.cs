@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Terraria;
 using System;
@@ -10,23 +10,23 @@ using Terraria.DataStructures;
 using TremorMod.Utilities;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Projectiles.Minions
-{
+namespace TremorMod.Content.Projectiles.Minions;
+
 	public class AncientVisionPro : ModProjectile
-    {
-        const int ShootRate = 30; 
-        const float ShootDistance = 300f; 
-        const float ShootSpeed = 12f; 
-        const int ShootDamage = 80; 
-        const float ShootKnockback = 2; 
-        int ShootType = 122; 
-        int TimeToShoot = ShootRate;
+{
+    const int ShootRate = 30; 
+    const float ShootDistance = 300f; 
+    const float ShootSpeed = 12f; 
+    const int ShootDamage = 80; 
+    const float ShootKnockback = 2; 
+    int ShootType = 122; 
+    int TimeToShoot = ShootRate;
 
 		public override void SetDefaults()
 		{
 			Projectile.netImportant = true;
 			Projectile.CloneDefaults(317);
-                         Projectile.aiStyle = 62;
+                     Projectile.aiStyle = 62;
 
 			Projectile.width = 44;
 			Projectile.height = 38;
@@ -37,61 +37,61 @@ namespace TremorMod.Content.Projectiles.Minions
 			Projectile.penetrate = -1;
 			Projectile.timeLeft = 18000;
 			Projectile.ignoreWater = true;
-                                   Projectile.tileCollide = false;
-                        ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
+                               Projectile.tileCollide = false;
+                    ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 		}
 
-    public override void SetStaticDefaults()
+public override void SetStaticDefaults()
+{
+  // DisplayName.SetDefault("Ancient Vision");
+   
+}
+
+    void Shoot()
     {
-      // DisplayName.SetDefault("Ancient Vision");
-       
+        if (--TimeToShoot <= 0)
+        {
+            TimeToShoot = ShootRate;
+
+            float NearestNPCDist = ShootDistance;
+            int NearestNPC = -1;
+            foreach (NPC npc in Main.npc)
+            {
+                if (!npc.active)
+                    continue;
+                if (npc.friendly || npc.lifeMax <= 5)
+                    continue;
+                if (NearestNPCDist == -1 || npc.Distance(Projectile.Center) < NearestNPCDist && Collision.CanHitLine(Projectile.Center, 16, 16, npc.Center, 16, 16))
+                {
+                    NearestNPCDist = npc.Distance(Projectile.Center);
+                    NearestNPC = npc.whoAmI;
+                }
+            }
+            if (NearestNPC == -1)
+                return;
+            Vector2 Velocity = Helper.VelocityToPoint(Projectile.Center, Main.npc[NearestNPC].Center, ShootSpeed);
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, Velocity.X, Velocity.Y, ShootType, ShootDamage, ShootKnockback, Projectile.owner);
+        }
     }
 
-        void Shoot()
+    public override Color? GetAlpha(Color lightColor) 
+    { 
+        return Color.White; 
+    }
+
+    public override void AI()
+    {
+        Shoot();
+        base.AI();
+        Player player = Main.player[Projectile.owner];
+        if (!player.active || player.dead || !player.HasBuff(ModContent.BuffType<AncientVisionBuff>()))
         {
-            if (--TimeToShoot <= 0)
-            {
-                TimeToShoot = ShootRate;
-
-                float NearestNPCDist = ShootDistance;
-                int NearestNPC = -1;
-                foreach (NPC npc in Main.npc)
-                {
-                    if (!npc.active)
-                        continue;
-                    if (npc.friendly || npc.lifeMax <= 5)
-                        continue;
-                    if (NearestNPCDist == -1 || npc.Distance(Projectile.Center) < NearestNPCDist && Collision.CanHitLine(Projectile.Center, 16, 16, npc.Center, 16, 16))
-                    {
-                        NearestNPCDist = npc.Distance(Projectile.Center);
-                        NearestNPC = npc.whoAmI;
-                    }
-                }
-                if (NearestNPC == -1)
-                    return;
-                Vector2 Velocity = Helper.VelocityToPoint(Projectile.Center, Main.npc[NearestNPC].Center, ShootSpeed);
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, Velocity.X, Velocity.Y, ShootType, ShootDamage, ShootKnockback, Projectile.owner);
-            }
+            Projectile.Kill();
+            return;
         }
+    }
 
-        public override Color? GetAlpha(Color lightColor) 
-        { 
-            return Color.White; 
-        }
-
-        public override void AI()
-        {
-            Shoot();
-            base.AI();
-            Player player = Main.player[Projectile.owner];
-            if (!player.active || player.dead || !player.HasBuff(ModContent.BuffType<AncientVisionBuff>()))
-            {
-                Projectile.Kill();
-                return;
-            }
-        }
-
-        public override bool OnTileCollide(Vector2 oldVelocity)
+    public override bool OnTileCollide(Vector2 oldVelocity)
 		{
 				if (Projectile.velocity.X != oldVelocity.X)
 				{
@@ -101,7 +101,6 @@ namespace TremorMod.Content.Projectiles.Minions
 				{
 					Projectile.tileCollide = false;
 				}
-      return false;
+  return false;
 		}
 	}
-}

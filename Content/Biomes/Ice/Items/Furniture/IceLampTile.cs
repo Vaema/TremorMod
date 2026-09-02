@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace TremorMod.Content.Biomes.Ice.Items.Furniture
-{
+namespace TremorMod.Content.Biomes.Ice.Items.Furniture;
+
 	public class IceLampTile : ModTile
 	{
 		public override void SetStaticDefaults()
@@ -14,7 +14,7 @@ namespace TremorMod.Content.Biomes.Ice.Items.Furniture
 			Main.tileLavaDeath[Type] = true;
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2);
 			TileObjectData.newTile.Height = 3;
-			TileObjectData.newTile.CoordinateHeights = new[] { 16, 16, 16 };
+			TileObjectData.newTile.CoordinateHeights = [16, 16, 16];
 			TileObjectData.newTile.StyleHorizontal = true;
 			TileObjectData.newTile.StyleWrapLimit = 36;
 			TileObjectData.addTile(Type);
@@ -31,4 +31,3 @@ namespace TremorMod.Content.Biomes.Ice.Items.Furniture
 			b = 0.9f;
 		}
 	}
-}

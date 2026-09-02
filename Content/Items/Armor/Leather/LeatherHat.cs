@@ -1,16 +1,16 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 
-namespace TremorMod.Content.Items.Armor.Leather
-{
+namespace TremorMod.Content.Items.Armor.Leather;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class LeatherHat : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 18;
 			Item.height = 20;
@@ -21,10 +21,10 @@ namespace TremorMod.Content.Items.Armor.Leather
 
 		public override void SetStaticDefaults()
 		{
-            //DisplayName.SetDefault("Leather Hat");
-            //Tooltip.SetDefault("");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("You smell like leather...");
-        }
+        //DisplayName.SetDefault("Leather Hat");
+        //Tooltip.SetDefault("");
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("You smell like leather...");
+    }
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
@@ -34,7 +34,7 @@ namespace TremorMod.Content.Items.Armor.Leather
 		public override void UpdateArmorSet(Player player)
 		{
 			player.setBonus = SetBonusText.Value;
-            player.setBonus = "You smell like leather...";
+        player.setBonus = "You smell like leather...";
 		}
 
 		public override void AddRecipes()
@@ -50,4 +50,3 @@ namespace TremorMod.Content.Items.Armor.Leather
 			recipe1.Register();
 		}
 	}
-}

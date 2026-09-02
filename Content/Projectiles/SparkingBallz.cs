@@ -1,12 +1,12 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class SparkingBallz : ModProjectile
-    {
+{
 		public override void SetStaticDefaults()
 		{
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
@@ -48,4 +48,3 @@ namespace TremorMod.Content.Projectiles
 			Main.projectile[ses].scale = Projectile.scale;
 		}
 	}
-}

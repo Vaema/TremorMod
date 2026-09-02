@@ -19,8 +19,8 @@ using TremorMod.Content.Items.Bag;
 using TremorMod.Content.Items;
 using TremorMod.Content.Items.Placeable;
 
-namespace TremorMod.Content.NPCs.Invasion.ParadoxTitan
-{
+namespace TremorMod.Content.NPCs.Invasion.ParadoxTitan;
+
 	[AutoloadBossHead]
 	public class Titan : ModNPC
 	{
@@ -70,8 +70,8 @@ namespace TremorMod.Content.NPCs.Invasion.ParadoxTitan
 		public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
 		{
 			//spriteBatch.Draw(mod.GetTexture("NPCs/CogLordBody"), npc.Center - Main.screenPosition, null, Color.White, 0f, new Vector2(74, -18), 1f, SpriteEffects.None, 0f);
-            spriteBatch.Draw(ModContent.Request<Texture2D>("TremorMod/Content/NPCs/Invasion/ParadoxTitan/Hand_").Value, NPC.Center - Main.screenPosition, null, Color.White, 0.0f, new Vector2(draw, -10), 1f, SpriteEffects.None, 1);
-            spriteBatch.Draw(ModContent.Request<Texture2D>("TremorMod/Content/NPCs/Invasion/ParadoxTitan/Hand").Value, NPC.Center - Main.screenPosition, null, Color.White, 0.0f, new Vector2(draw_, -10), 1f, SpriteEffects.None, 1);
+        spriteBatch.Draw(ModContent.Request<Texture2D>("TremorMod/Content/NPCs/Invasion/ParadoxTitan/Hand_").Value, NPC.Center - Main.screenPosition, null, Color.White, 0.0f, new Vector2(draw, -10), 1f, SpriteEffects.None, 1);
+        spriteBatch.Draw(ModContent.Request<Texture2D>("TremorMod/Content/NPCs/Invasion/ParadoxTitan/Hand").Value, NPC.Center - Main.screenPosition, null, Color.White, 0.0f, new Vector2(draw_, -10), 1f, SpriteEffects.None, 1);
 			//spriteBatch.Draw(mod.GetTexture("Invasion/Titan"), new Vector2(npc.Center.X, npc.Center.Y), null, Color.White, 0.0f, new Vector2(-10, -25), 1f, SpriteEffects.None, 1);				
 		}
 
@@ -305,25 +305,24 @@ namespace TremorMod.Content.NPCs.Invasion.ParadoxTitan
 			}
 		}
 
-        public override void OnKill()
-        {
-            TremorSpawnEnemys.downedTitan = true;
-        }
+    public override void OnKill()
+    {
+        TremorSpawnEnemys.downedTitan = true;
+    }
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
 			if (Main.netMode != 1)
 			{
 				int centerX = (int)(NPC.position.X + NPC.width / 2) / 16;
 				int centerY = (int)(NPC.position.Y + NPC.height / 2) / 16;
 				int halfLength = NPC.width / 2 / 16 + 1;
-                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ParadoxTitanMask>(), 7));
-                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TimeTissue>(), 1, 20, 32));
-                npcLoot.Add(ItemDropRule.OneFromOptions(1,ModContent.ItemType<RocketWand>(),ModContent.ItemType<TheEtherealm>(),  ModContent.ItemType<SoulFlames>()));
-                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ParadoxTitanTrophy>(), 10));
-                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<VioleumWings>(), 20));
-                npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<ParadoxTitanBag>(), 1));
-            }
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ParadoxTitanMask>(), 7));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TimeTissue>(), 1, 20, 32));
+            npcLoot.Add(ItemDropRule.OneFromOptions(1,ModContent.ItemType<RocketWand>(),ModContent.ItemType<TheEtherealm>(),  ModContent.ItemType<SoulFlames>()));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ParadoxTitanTrophy>(), 10));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<VioleumWings>(), 20));
+            npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<ParadoxTitanBag>(), 1));
         }
     }
 }

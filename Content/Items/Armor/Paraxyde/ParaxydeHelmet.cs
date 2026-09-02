@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
@@ -7,14 +7,14 @@ using TremorMod.Content.Tiles;
 using TremorMod.Utilities;
 using TremorMod;
 
-namespace TremorMod.Content.Items.Armor.Paraxyde
-{
+namespace TremorMod.Content.Items.Armor.Paraxyde;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class ParaxydeHelmet : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 38;
 			Item.height = 22;
@@ -25,11 +25,11 @@ namespace TremorMod.Content.Items.Armor.Paraxyde
 
 		public override void SetStaticDefaults()
 		{
-            //DisplayName.SetDefault("Paraxyde Helmet");
-            //Tooltip.SetDefault("12% increased magic damage\n" +
-            //"16% increased melee damage");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Shadow knives will fall on your target for extra damage");
-        }
+        //DisplayName.SetDefault("Paraxyde Helmet");
+        //Tooltip.SetDefault("12% increased magic damage\n" +
+        //"16% increased melee damage");
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Shadow knives will fall on your target for extra damage");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -44,12 +44,12 @@ namespace TremorMod.Content.Items.Armor.Paraxyde
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Shadow knives will fall on your target for extra damage";
-            player.GetModPlayer<MPlayer>().paraxydeSetBonusActive = true; 
-        }
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Shadow knives will fall on your target for extra damage";
+        player.GetModPlayer<MPlayer>().paraxydeSetBonusActive = true; 
+    }
 
-        public override void ArmorSetShadows(Player player)
+    public override void ArmorSetShadows(Player player)
 		{
 			player.armorEffectDrawOutlines = true; //�।��� ����஢����
 			player.armorEffectDrawShadow = true;
@@ -64,4 +64,3 @@ namespace TremorMod.Content.Items.Armor.Paraxyde
 			recipe.Register();
 		}
 	}
-}

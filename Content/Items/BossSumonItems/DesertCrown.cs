@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -7,8 +7,8 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Content.NPCs.Bosses.Rukh;
 using TremorMod.Content.NPCs.Bosses.Rukh.Romert;
 
-namespace TremorMod.Content.Items.BossSumonItems
-{
+namespace TremorMod.Content.Items.BossSumonItems;
+
 	public class DesertCrown : ModItem
 	{
 		public override void SetDefaults()
@@ -30,24 +30,24 @@ namespace TremorMod.Content.Items.BossSumonItems
 
 		}
 
-        public override bool CanUseItem(Player player)
-        {
-            //if (Romert.romertActive)
-            //{
-            //    return !NPC.AnyNPCs(ModContent.NPCType<Rukh>()) && player.ZoneDesert;
-            //}
-            return !NPC.AnyNPCs(ModContent.NPCType<npcVultureKing>()) && player.ZoneDesert;
-        }
+    public override bool CanUseItem(Player player)
+    {
+        //if (Romert.romertActive)
+        //{
+        //    return !NPC.AnyNPCs(ModContent.NPCType<Rukh>()) && player.ZoneDesert;
+        //}
+        return !NPC.AnyNPCs(ModContent.NPCType<npcVultureKing>()) && player.ZoneDesert;
+    }
 
-        public override bool? UseItem(Player player)
-        {
-            NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<npcVultureKing>());
+    public override bool? UseItem(Player player)
+    {
+        NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<npcVultureKing>());
 
-            SoundEngine.PlaySound(SoundID.Roar, player.position);
-            return true;
-        }
+        SoundEngine.PlaySound(SoundID.Roar, player.position);
+        return true;
+    }
 
-        public override void AddRecipes()
+    public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.GoldCrown);
@@ -66,4 +66,3 @@ namespace TremorMod.Content.Items.BossSumonItems
 			recipe1.Register();
 		}
 	}
-}

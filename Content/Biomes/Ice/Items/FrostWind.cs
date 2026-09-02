@@ -1,10 +1,10 @@
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Biomes.Ice.Items
-{
+namespace TremorMod.Content.Biomes.Ice.Items;
+
 	public class FrostWind : ModItem
 	{
 		public override void SetDefaults()
@@ -31,4 +31,3 @@ namespace TremorMod.Content.Biomes.Ice.Items
 			Tooltip.SetDefault("");
 		}*/
 	}
-}

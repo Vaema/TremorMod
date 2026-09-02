@@ -1,16 +1,16 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 
-namespace TremorMod.Content.Items.Armor.Meteor
-{
+namespace TremorMod.Content.Items.Armor.Meteor;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class MeteorMask : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 18;
 			Item.height = 28;
@@ -21,10 +21,10 @@ namespace TremorMod.Content.Items.Armor.Meteor
 
 		public override void SetStaticDefaults()
 		{
-            //DisplayName.SetDefault("Meteor Mask");
-            //Tooltip.SetDefault("Increases magic critical strike chance by 9");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases magic critical strike chance by 9");
-        }
+        //DisplayName.SetDefault("Meteor Mask");
+        //Tooltip.SetDefault("Increases magic critical strike chance by 9");
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases magic critical strike chance by 9");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -38,8 +38,8 @@ namespace TremorMod.Content.Items.Armor.Meteor
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Reduces the mana cost of the Space Gun to zero";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Reduces the mana cost of the Space Gun to zero";
 			player.spaceGun = true;
 		}
 
@@ -52,4 +52,3 @@ namespace TremorMod.Content.Items.Armor.Meteor
 			recipe.Register();
 		}
 	}
-}

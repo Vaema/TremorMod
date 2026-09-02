@@ -1,11 +1,11 @@
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using Terraria.ID;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 
-namespace TremorMod.Content.Items.HeaterOfWorldsItems
-{
+namespace TremorMod.Content.Items.HeaterOfWorldsItems;
+
 	public class HeaterOfWorldsBag : ModItem
 	{
 		public override void SetDefaults()
@@ -29,17 +29,16 @@ namespace TremorMod.Content.Items.HeaterOfWorldsItems
 			return true;
 		}
 
-        public override void ModifyItemLoot(ItemLoot itemLoot)
-        {
+    public override void ModifyItemLoot(ItemLoot itemLoot)
+    {
 
-            // Add CyberStaff drop only in Expert mode
-            itemLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<InfernalShield>()));
+        // Add CyberStaff drop only in Expert mode
+        itemLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<InfernalShield>()));
 
-            // Add CyberKingMask with a 1/7 chance
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<HeaterOfWorldsMask>(), 7));
+        // Add CyberKingMask with a 1/7 chance
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<HeaterOfWorldsMask>(), 7));
 
-            // Add other drops as necessary
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<MoltenParts>(), 1, 1));
-        }
+        // Add other drops as necessary
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<MoltenParts>(), 1, 1));
+    }
 	}
-}

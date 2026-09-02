@@ -1,10 +1,10 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Weapons.Melee
-{
+namespace TremorMod.Content.Items.Weapons.Melee;
+
 	public class MoltenLance : ModItem
 	{
 		public override void SetDefaults()
@@ -21,8 +21,8 @@ namespace TremorMod.Content.Items.Weapons.Melee
 			Item.rare = 3;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
-            Item.useTurn = true;
-        }
+        Item.useTurn = true;
+    }
 
 		public override void SetStaticDefaults()
 		{
@@ -53,4 +53,3 @@ namespace TremorMod.Content.Items.Weapons.Melee
 			}
 		}
 	}
-}

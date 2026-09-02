@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,10 +6,10 @@ using TremorMod.Content;
 using TremorMod;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Projectiles.Minions
-{
+namespace TremorMod.Content.Projectiles.Minions;
+
 	public class ZombatStaffPro : ModProjectile
-    {
+{
 		public override void SetDefaults()
 		{
 			Projectile.netImportant = true;
@@ -25,14 +25,14 @@ namespace TremorMod.Content.Projectiles.Minions
 			Projectile.penetrate = -1;
 			Projectile.timeLeft = 18000;
 			Projectile.ignoreWater = true;
-                        Projectile.tileCollide = false;
-                        ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
+                    Projectile.tileCollide = false;
+                    ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 		}
 
 		public override void SetStaticDefaults()
 		{
 		  // DisplayName.SetDefault("Zombat Staff");
-       
+   
 		}
 
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
@@ -43,17 +43,17 @@ namespace TremorMod.Content.Projectiles.Minions
 			}
 		}
 
-        public override void AI()
+    public override void AI()
+    {
+        Player player = Main.player[Projectile.owner];
+        if (!player.active || player.dead || !player.HasBuff(ModContent.BuffType<ZombatBuff>()))
         {
-            Player player = Main.player[Projectile.owner];
-            if (!player.active || player.dead || !player.HasBuff(ModContent.BuffType<ZombatBuff>()))
-            {
-                Projectile.Kill();
-                return;
-            }
+            Projectile.Kill();
+            return;
         }
+    }
 
-        public override bool OnTileCollide(Vector2 oldVelocity)
+    public override bool OnTileCollide(Vector2 oldVelocity)
 		{
 				if (Projectile.velocity.X != oldVelocity.X)
 				{
@@ -63,7 +63,6 @@ namespace TremorMod.Content.Projectiles.Minions
 				{
 					Projectile.velocity.Y = oldVelocity.Y;
 				}
-      return false;
+  return false;
 		}
 	}
-}

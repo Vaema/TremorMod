@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class StardustRing : ModItem
 	{
 
@@ -26,8 +26,8 @@ namespace TremorMod.Content.Items.Accessories
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-            player.GetDamage(DamageClass.Summon) += 0.2f;
-            player.maxMinions += 2;
+        player.GetDamage(DamageClass.Summon) += 0.2f;
+        player.maxMinions += 2;
 		}
 
 		public override void AddRecipes()
@@ -41,4 +41,3 @@ namespace TremorMod.Content.Items.Accessories
 			recipe.Register();
 		}
 	}
-}

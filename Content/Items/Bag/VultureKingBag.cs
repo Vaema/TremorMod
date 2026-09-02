@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
 using TremorMod.Content.Items.Placeable;
@@ -11,8 +11,8 @@ using TremorMod.Content.Items.Weapons.Throwing;
 using TremorMod.Content.Items.Vanity;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Bag
-{
+namespace TremorMod.Content.Items.Bag;
+
 	public class VultureKingBag : ModItem
 	{
 		public override void SetDefaults()
@@ -36,15 +36,14 @@ namespace TremorMod.Content.Items.Bag
 			return true;
 		}
 
-        public override void ModifyItemLoot(ItemLoot itemLoot)
-        {
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<VultureKingMask>(), 7));
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<VultureFeather>(), 4));
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<CactusBow>(), 3));
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<SandKnife>(), 3));
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<SandstoneBar>(), 1, 10, 18));
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<VultureKingTrophy>(), 10));
-            itemLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<DesertClaymore>(), 1));
-        }
+    public override void ModifyItemLoot(ItemLoot itemLoot)
+    {
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<VultureKingMask>(), 7));
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<VultureFeather>(), 4));
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<CactusBow>(), 3));
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<SandKnife>(), 3));
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<SandstoneBar>(), 1, 10, 18));
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<VultureKingTrophy>(), 10));
+        itemLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<DesertClaymore>(), 1));
     }
 }

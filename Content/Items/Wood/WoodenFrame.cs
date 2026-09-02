@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Wood
-{
+namespace TremorMod.Content.Items.Wood;
+
 	public class WoodenFrame : ModItem
 	{
 		public override void SetDefaults()
@@ -21,4 +21,3 @@ namespace TremorMod.Content.Items.Wood
 			//Tooltip.SetDefault("");
 		}
 	}
-}

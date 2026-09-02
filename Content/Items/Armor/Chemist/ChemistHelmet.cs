@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
@@ -8,14 +8,14 @@ using TremorMod.Content.Items.Accessories;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.Chemist
-{
+namespace TremorMod.Content.Items.Armor.Chemist;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class ChemistHelmet : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 
 			Item.width = 38;
@@ -30,8 +30,8 @@ namespace TremorMod.Content.Items.Armor.Chemist
 		{
 			// DisplayName.SetDefault("Chemist Helmet");
 			// Tooltip.SetDefault("6% increased alchemical damage");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("10% increased alchemical critical strike chance");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("10% increased alchemical critical strike chance");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -45,8 +45,8 @@ namespace TremorMod.Content.Items.Armor.Chemist
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "10% increased alchemical critical strike chance";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "10% increased alchemical critical strike chance";
 			player.GetModPlayer<MPlayer>().alchemicalCrit += 10;
 		}
 
@@ -62,4 +62,3 @@ namespace TremorMod.Content.Items.Armor.Chemist
 		}
 
 	}
-}

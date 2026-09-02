@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Biomes.Ice.Tree;
 
-namespace TremorMod.Content.Biomes.Ice
-{
+namespace TremorMod.Content.Biomes.Ice;
+
 	public class IceBlockB : ModItem
 	{
 		public override void SetDefaults()
@@ -27,4 +27,3 @@ namespace TremorMod.Content.Biomes.Ice
 			Tooltip.SetDefault("");
 		}*/
 	}
-}

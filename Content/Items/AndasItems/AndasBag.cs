@@ -1,11 +1,11 @@
-using Terraria.ModLoader;
+п»їusing Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using Terraria.ID;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 
-namespace TremorMod.Content.Items.AndasItems
-{
+namespace TremorMod.Content.Items.AndasItems;
+
 	public class AndasBag : ModItem
 	{
 		public override void SetDefaults()
@@ -40,9 +40,8 @@ namespace TremorMod.Content.Items.AndasItems
 				ModContent.ItemType<Pandemonium>()));
 
 			itemLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<AndasCore>()));
-			itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<AndasMask>(), 7)); // Маска с шансом 1/7.
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<InfernoSoul>(), 1, 8, 15)); // Маска с шансом 1/7.
-            itemLoot.Add(ItemDropRule.Common(ItemID.SuperHealingPotion, 1, 10, 25));
-        }
+			itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<AndasMask>(), 7)); // ГЊГ Г±ГЄГ  Г± ГёГ Г­Г±Г®Г¬ 1/7.
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<InfernoSoul>(), 1, 8, 15)); // ГЊГ Г±ГЄГ  Г± ГёГ Г­Г±Г®Г¬ 1/7.
+        itemLoot.Add(ItemDropRule.Common(ItemID.SuperHealingPotion, 1, 10, 25));
+    }
 	}
-}

@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.AndasItems
-{
+namespace TremorMod.Content.Items.AndasItems;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class AndasMask : ModItem
 	{
@@ -23,4 +23,3 @@ namespace TremorMod.Content.Items.AndasItems
 			Tooltip.SetDefault("");
 		}*/
 	}
-}

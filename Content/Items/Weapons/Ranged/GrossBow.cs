@@ -1,12 +1,12 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Items.Weapons.Ranged
-{
+namespace TremorMod.Content.Items.Weapons.Ranged;
+
 	public class GrossBow : ModItem
 	{
 		public override void SetDefaults()
@@ -34,13 +34,13 @@ namespace TremorMod.Content.Items.Weapons.Ranged
 			//Tooltip.SetDefault("");
 		}
 
-        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-        {
-            Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<DemonEyePro>(), damage, knockback, player.whoAmI);
-            return false;
-        }
+    public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    {
+        Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<DemonEyePro>(), damage, knockback, player.whoAmI);
+        return false;
+    }
 
-        public override void AddRecipes()
+    public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.DemoniteBar, 5);
@@ -58,4 +58,3 @@ namespace TremorMod.Content.Items.Weapons.Ranged
 			recipe1.Register();
 		}
 	}
-}

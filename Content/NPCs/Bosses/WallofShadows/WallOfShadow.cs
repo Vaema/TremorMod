@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -21,8 +21,8 @@ using TremorMod.Utilities;
 // wallBottom = Wall of Flesh bottom
 // wallTop = Wall of flesh Top
 
-namespace TremorMod.Content.NPCs.Bosses.WallofShadows
-{
+namespace TremorMod.Content.NPCs.Bosses.WallofShadows;
+
 	// todo: REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
 	[AutoloadBossHead]
 	public class WallOfShadow : ModNPC
@@ -58,18 +58,18 @@ namespace TremorMod.Content.NPCs.Bosses.WallofShadows
 		private const bool Shoots = true;
 
 		private int _timeToShoot = ShootRate;
-        //private int _state = 0;
-        //private int _timeToState = StateTimeFlying;
-        //private bool _runAway = false;
-        private int wallBottom = -1;
-        private int wallTop = -1;
-        private static int wallIndex = -1;
-        private int wallFrameCounter = 0;
-        public int phase = 1;
-        private int frameCounter = 0;
-        private int frame = 0;
+    //private int _state = 0;
+    //private int _timeToState = StateTimeFlying;
+    //private bool _runAway = false;
+    private int wallBottom = -1;
+    private int wallTop = -1;
+    private static int wallIndex = -1;
+    private int wallFrameCounter = 0;
+    public int phase = 1;
+    private int frameCounter = 0;
+    private int frame = 0;
 
-        private int MagicBoltCooldown
+    private int MagicBoltCooldown
 		{
 			get { return (int)NPC.ai[2]; }
 			set { NPC.ai[2] = value; }
@@ -83,9 +83,9 @@ namespace TremorMod.Content.NPCs.Bosses.WallofShadows
 
 		public override void SetStaticDefaults()
 		{
-            // DisplayName.SetDefault("Wall of Shadows");
-            Main.npcFrameCount[NPC.type] = 4;
-        }
+        // DisplayName.SetDefault("Wall of Shadows");
+        Main.npcFrameCount[NPC.type] = 4;
+    }
 
 		public override void SetDefaults()
 		{
@@ -108,13 +108,13 @@ namespace TremorMod.Content.NPCs.Bosses.WallofShadows
 			Music = MusicID.Boss4;
 		}
 
-        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float bossLifeScale, float balance)
-        {
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.625f * bossLifeScale);
-            NPC.damage = (int)(NPC.damage * 0.6f);
-        }
+    public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float bossLifeScale, float balance)
+    {
+        NPC.lifeMax = (int)(NPC.lifeMax * 0.625f * bossLifeScale);
+        NPC.damage = (int)(NPC.damage * 0.6f);
+    }
 
-        public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
+    public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
 		{
 			if (Main.expertMode)
 			{
@@ -143,17 +143,17 @@ namespace TremorMod.Content.NPCs.Bosses.WallofShadows
 
 		private void Shoot()
 		{
-			if (--_timeToShoot > 0) //если таймер меньше нуля, то вырубаем автоматом
+			if (--_timeToShoot > 0) //ГҐГ±Г«ГЁ ГІГ Г©Г¬ГҐГ° Г¬ГҐГ­ГјГёГҐ Г­ГіГ«Гї, ГІГ® ГўГ»Г°ГіГЎГ ГҐГ¬ Г ГўГІГ®Г¬Г ГІГ®Г¬
 				return;
-			_timeToShoot = (int)Helper.DistortFloat(ShootRate, DistortPercent); //устанавливаем частоту выстрела
-			for (int i = 0; i < ((Main.expertMode) ? 3 : 1); i++) //в цикле указываем кол-во перьев при выстреле
+			_timeToShoot = (int)Helper.DistortFloat(ShootRate, DistortPercent); //ГіГ±ГІГ Г­Г ГўГ«ГЁГўГ ГҐГ¬ Г·Г Г±ГІГ®ГІГі ГўГ»Г±ГІГ°ГҐГ«Г 
+			for (int i = 0; i < ((Main.expertMode) ? 3 : 1); i++) //Гў Г¶ГЁГЄГ«ГҐ ГіГЄГ Г§Г»ГўГ ГҐГ¬ ГЄГ®Г«-ГўГ® ГЇГҐГ°ГјГҐГў ГЇГ°ГЁ ГўГ»Г±ГІГ°ГҐГ«ГҐ
 			{
 				if (Main.expertMode)
 				{
 					_shootSpeed = 25;
 				}
-				Vector2 velocity = Helper.VelocityToPoint(NPC.Center, Helper.RandomPointInArea(new Vector2(Main.player[NPC.target].Center.X - 10, Main.player[NPC.target].Center.Y - 10), new Vector2(Main.player[NPC.target].Center.X + 20, Main.player[NPC.target].Center.Y + 20)), _shootSpeed); //здесь устанавливаем позиции (здесь от перса в плеера)
-				int proj = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, velocity.X, velocity.Y, 83, (int)Helper.DistortFloat(ShootDamage, DistortPercent), Helper.DistortFloat(ShootKnockback, DistortPercent)); //подтверждаем все выше действие: от перса к мобу, от моба к персу (второе выстрел)
+				Vector2 velocity = Helper.VelocityToPoint(NPC.Center, Helper.RandomPointInArea(new Vector2(Main.player[NPC.target].Center.X - 10, Main.player[NPC.target].Center.Y - 10), new Vector2(Main.player[NPC.target].Center.X + 20, Main.player[NPC.target].Center.Y + 20)), _shootSpeed); //Г§Г¤ГҐГ±Гј ГіГ±ГІГ Г­Г ГўГ«ГЁГўГ ГҐГ¬ ГЇГ®Г§ГЁГ¶ГЁГЁ (Г§Г¤ГҐГ±Гј Г®ГІ ГЇГҐГ°Г±Г  Гў ГЇГ«ГҐГҐГ°Г )
+				int proj = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, velocity.X, velocity.Y, 83, (int)Helper.DistortFloat(ShootDamage, DistortPercent), Helper.DistortFloat(ShootKnockback, DistortPercent)); //ГЇГ®Г¤ГІГўГҐГ°Г¦Г¤Г ГҐГ¬ ГўГ±ГҐ ГўГ»ГёГҐ Г¤ГҐГ©Г±ГІГўГЁГҐ: Г®ГІ ГЇГҐГ°Г±Г  ГЄ Г¬Г®ГЎГі, Г®ГІ Г¬Г®ГЎГ  ГЄ ГЇГҐГ°Г±Гі (ГўГІГ®Г°Г®ГҐ ГўГ»Г±ГІГ°ГҐГ«)
 				Main.projectile[proj].Center = NPC.Center;
 			}
 		}
@@ -163,8 +163,8 @@ namespace TremorMod.Content.NPCs.Bosses.WallofShadows
 			LaserCooldown--;
 			if (LaserCooldown <= 60 && LaserCooldown % ((Main.expertMode) ? 4 : 7) == 0 && Main.netMode != 1)
 			{
-				Vector2 velocity = Helper.VelocityToPoint(NPC.Center, Helper.RandomPointInArea(new Vector2(Main.player[NPC.target].Center.X - 100, Main.player[NPC.target].Center.Y - 100), new Vector2(Main.player[NPC.target].Center.X + 20, Main.player[NPC.target].Center.Y + 20)), ((Main.expertMode) ? 20 : 15)); //здесь устанавливаем позиции (здесь от перса в плеера)
-				int proj = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, velocity.X, velocity.Y, 83, (int)Helper.DistortFloat(ShootDamage, DistortPercent), Helper.DistortFloat(ShootKnockback, DistortPercent)); //подтверждаем все выше действие: от перса к мобу, от моба к персу (второе выстрел)
+				Vector2 velocity = Helper.VelocityToPoint(NPC.Center, Helper.RandomPointInArea(new Vector2(Main.player[NPC.target].Center.X - 100, Main.player[NPC.target].Center.Y - 100), new Vector2(Main.player[NPC.target].Center.X + 20, Main.player[NPC.target].Center.Y + 20)), ((Main.expertMode) ? 20 : 15)); //Г§Г¤ГҐГ±Гј ГіГ±ГІГ Г­Г ГўГ«ГЁГўГ ГҐГ¬ ГЇГ®Г§ГЁГ¶ГЁГЁ (Г§Г¤ГҐГ±Гј Г®ГІ ГЇГҐГ°Г±Г  Гў ГЇГ«ГҐГҐГ°Г )
+				int proj = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, velocity.X, velocity.Y, 83, (int)Helper.DistortFloat(ShootDamage, DistortPercent), Helper.DistortFloat(ShootKnockback, DistortPercent)); //ГЇГ®Г¤ГІГўГҐГ°Г¦Г¤Г ГҐГ¬ ГўГ±ГҐ ГўГ»ГёГҐ Г¤ГҐГ©Г±ГІГўГЁГҐ: Г®ГІ ГЇГҐГ°Г±Г  ГЄ Г¬Г®ГЎГі, Г®ГІ Г¬Г®ГЎГ  ГЄ ГЇГҐГ°Г±Гі (ГўГІГ®Г°Г®ГҐ ГўГ»Г±ГІГ°ГҐГ«)
 				Main.projectile[proj].Center = NPC.Center;
 			}
 			if (LaserCooldown <= 0)
@@ -204,26 +204,26 @@ namespace TremorMod.Content.NPCs.Bosses.WallofShadows
 
 			ShootBall();
 			ShootSuper();
-            HandleAnimation();
-            if (NPC.life < NPC.lifeMax * 0.5f)
+        HandleAnimation();
+        if (NPC.life < NPC.lifeMax * 0.5f)
 			{
-                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[NPC.type]] = ModContent.Request<Texture2D>("TremorMod/Content/NPCs/Bosses/WallofShadows/WallOfShadow_Head_Boss1");
+            TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[NPC.type]] = ModContent.Request<Texture2D>("TremorMod/Content/NPCs/Bosses/WallofShadows/WallOfShadow_Head_Boss1");
 				Shoot();
 
-                if ((int)(Main.time % 360) == 0) 
+            if ((int)(Main.time % 360) == 0) 
+            {
+                int shadowSteedCount = NPC.CountNPCS(ModContent.NPCType<ShadowSteed>());
+                if (shadowSteedCount < 1)
                 {
-                    int shadowSteedCount = NPC.CountNPCS(ModContent.NPCType<ShadowSteed>());
-                    if (shadowSteedCount < 1)
-                    {
-                        int index = NPC.NewNPC(NPC.GetSource_FromThis(),
-                            (int)(NPC.position.X + (NPC.width / 2)),
-                            (int)(NPC.position.Y + (NPC.height / 2) + 20),
-                            ModContent.NPCType<ShadowSteed>());
-                        Main.npc[index].velocity.X = NPC.direction * 6;
-                    }
+                    int index = NPC.NewNPC(NPC.GetSource_FromThis(),
+                        (int)(NPC.position.X + (NPC.width / 2)),
+                        (int)(NPC.position.Y + (NPC.height / 2) + 20),
+                        ModContent.NPCType<ShadowSteed>());
+                    Main.npc[index].velocity.X = NPC.direction * 6;
                 }
+            }
 
-                if (NPC.localAI[0] == 0.0)
+            if (NPC.localAI[0] == 0.0)
 				{
 					NPC.localAI[0] = 1f;
 					wallBottom = -1;
@@ -262,8 +262,8 @@ namespace TremorMod.Content.NPCs.Bosses.WallofShadows
 					}
 				}
 
-                WallOfShadow.wallIndex = NPC.whoAmI;
-                int npcTileX = (int)(NPC.position.X / 16);
+            WallOfShadow.wallIndex = NPC.whoAmI;
+            int npcTileX = (int)(NPC.position.X / 16);
 				int npcRightXTile = (int)((NPC.position.X + NPC.width) / 16);
 				int npcCenterYTile = (int)((NPC.position.Y + (NPC.height / 2)) / 16);
 				int solidTiles = 0;
@@ -440,7 +440,7 @@ namespace TremorMod.Content.NPCs.Bosses.WallofShadows
 
 			if (NPC.life > NPC.lifeMax * 0.5f)
 			{
-                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[NPC.type]] = ModContent.Request<Texture2D>("TremorMod/Content/NPCs/Bosses/WallofShadows/WallOfShadow_Head_Boss");
+            TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[NPC.type]] = ModContent.Request<Texture2D>("TremorMod/Content/NPCs/Bosses/WallofShadows/WallOfShadow_Head_Boss");
 				Shoot();
 				if (NPC.position.X < 160 || NPC.position.X > (Main.maxTilesX - 10) * 16)
 					NPC.active = false;
@@ -757,8 +757,8 @@ namespace TremorMod.Content.NPCs.Bosses.WallofShadows
 			}
 
 			NPC.frame.Width = frameWidth;
-            NPC.frame.Y = frame * frameHeight;
-        }
+        NPC.frame.Y = frame * frameHeight;
+    }
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{
@@ -772,76 +772,76 @@ namespace TremorMod.Content.NPCs.Bosses.WallofShadows
 						: i <= 18 ? 3f
 						: i <= 26 ? 4f
 						: 5f;
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 99, x);
-                }
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 99, x);
+            }
 
 				for (int i = 1; i <= 13; i++)
 				{
 					int x = i <= 2 ? 1 : 2;
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("WallOfShadowGore1").Type, x);
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("WallOfShadowGore2").Type, x);
-                }
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("WallOfShadowGore1").Type, x);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("WallOfShadowGore2").Type, x);
+            }
 			}
 		}
 
-        public override void OnKill()
+    public override void OnKill()
+    {
+        TremorSpawnEnemys.downedWallOfShadow = true;
+
+        if (Main.netMode != NetmodeID.MultiplayerClient)
         {
-            TremorSpawnEnemys.downedWallOfShadow = true;
-
-            if (Main.netMode != NetmodeID.MultiplayerClient)
-            {
-                SpawnLootBox();
-            }
-
-            IEntitySource source = NPC.GetSource_Death();
+            SpawnLootBox();
         }
 
-        private void SpawnLootBox()
+        IEntitySource source = NPC.GetSource_Death();
+    }
+
+    private void SpawnLootBox()
+    {
+
+        int width = 20;
+        int height = 20;
+        int centerX = (int)(NPC.Center.X / 16);
+        int centerY = (int)(NPC.Center.Y / 16);
+
+        int halfWidth = width / 2;
+        int halfHeight = height / 2;
+
+        for (int x = -halfWidth; x <= halfWidth; x++)
         {
-
-            int width = 20;
-            int height = 20;
-            int centerX = (int)(NPC.Center.X / 16);
-            int centerY = (int)(NPC.Center.Y / 16);
-
-            int halfWidth = width / 2;
-            int halfHeight = height / 2;
-
-            for (int x = -halfWidth; x <= halfWidth; x++)
+            for (int y = -halfHeight; y <= halfHeight; y++)
             {
-                for (int y = -halfHeight; y <= halfHeight; y++)
+                int tileX = centerX + x;
+                int tileY = centerY + y;
+
+                Tile tile = Main.tile[tileX, tileY];
+                if (tile != null)
                 {
-                    int tileX = centerX + x;
-                    int tileY = centerY + y;
+                    tile.LiquidAmount = 0;
+                    WorldGen.SquareTileFrame(tileX, tileY);
+                    if (Main.netMode == NetmodeID.Server)
+                    {
+                        NetMessage.SendTileSquare(-1, tileX, tileY, 1);
+                    }
+                }
 
-                    Tile tile = Main.tile[tileX, tileY];
-                    if (tile != null)
-                    {
-                        tile.LiquidAmount = 0;
-                        WorldGen.SquareTileFrame(tileX, tileY);
-                        if (Main.netMode == NetmodeID.Server)
-                        {
-                            NetMessage.SendTileSquare(-1, tileX, tileY, 1);
-                        }
-                    }
-
-                    if (x == -halfWidth || x == halfWidth || y == -halfHeight || y == halfHeight)
-                    {
-                        WorldGen.PlaceTile(tileX, tileY, TileID.Demonite);
-                    }
-                    else
-                    {
-                        WorldGen.KillTile(tileX, tileY);
-                    }
+                if (x == -halfWidth || x == halfWidth || y == -halfHeight || y == halfHeight)
+                {
+                    WorldGen.PlaceTile(tileX, tileY, TileID.Demonite);
+                }
+                else
+                {
+                    WorldGen.KillTile(tileX, tileY);
                 }
             }
         }
+    }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+    public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
 		{
-            Texture2D shadowChain = ModContent.Request<Texture2D>("TremorMod/Content/NPCs/Bosses/WallofShadows/WallOfShadowChain").Value;
-            Texture2D shadowWall = ModContent.Request<Texture2D>("TremorMod/Content/NPCs/Bosses/WallofShadows/WallOfShadow_Wall").Value;
-            for (int i = 0; i < 255; i++)
+        Texture2D shadowChain = ModContent.Request<Texture2D>("TremorMod/Content/NPCs/Bosses/WallofShadows/WallOfShadowChain").Value;
+        Texture2D shadowWall = ModContent.Request<Texture2D>("TremorMod/Content/NPCs/Bosses/WallofShadows/WallOfShadow_Wall").Value;
+        for (int i = 0; i < 255; i++)
 			{
 				if (Main.player[i].active && Main.player[i].tongued && !Main.player[i].dead)
 				{
@@ -945,14 +945,14 @@ namespace TremorMod.Content.NPCs.Bosses.WallofShadows
 			int num19 = 0;
 			if (!Main.gamePaused)
 			{
-                wallFrameCounter++;
+            wallFrameCounter++;
 			}
 			if (wallFrameCounter > 12)
 			{
 				num19 = 280;
 				if (wallFrameCounter > 17)
 				{
-                    wallFrameCounter = 0;
+                wallFrameCounter = 0;
 				}
 			}
 			else if (wallFrameCounter > 6)
@@ -999,55 +999,54 @@ namespace TremorMod.Content.NPCs.Bosses.WallofShadows
 			return false;
 		}
 
-        private void HandleAnimation()
+    private void HandleAnimation()
+    {
+        int previousPhase = phase;
+
+        if (NPC.life < NPC.lifeMax * 0.5)
         {
-            int previousPhase = phase;
-
-            if (NPC.life < NPC.lifeMax * 0.5)
-            {
-                phase = 2;
-            }
-
-            if (previousPhase != phase)
-            {
-                frameCounter = 0;
-                frame = (phase == 1) ? 0 : 2;
-            }
-
-            AnimateNPC();
+            phase = 2;
         }
 
-        private void AnimateNPC()
+        if (previousPhase != phase)
         {
-            frameCounter++;
-            if (frameCounter >= 30)
-            {
-                frameCounter = 0;
+            frameCounter = 0;
+            frame = (phase == 1) ? 0 : 2;
+        }
 
-                if (phase == 1)
-                {
-                    frame = (frame == 0) ? 1 : 0;
-                }
-                else if (phase == 2)
-                {
-                    frame = (frame == 2) ? 3 : 2;
-                }
+        AnimateNPC();
+    }
+
+    private void AnimateNPC()
+    {
+        frameCounter++;
+        if (frameCounter >= 30)
+        {
+            frameCounter = 0;
+
+            if (phase == 1)
+            {
+                frame = (frame == 0) ? 1 : 0;
+            }
+            else if (phase == 2)
+            {
+                frame = (frame == 2) ? 3 : 2;
             }
         }
+    }
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WallofShadowTrophy>(), 10));
-            npcLoot.Add(ItemDropRule.Common(ItemID.GreaterHealingPotion, 1, 5, 15));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WallofShadowMask>(), 7));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DarknessCloth>(), 1, 8, 15));
-            npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<WallofShadowBag>(), 1));
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WallofShadowTrophy>(), 10));
+        npcLoot.Add(ItemDropRule.Common(ItemID.GreaterHealingPotion, 1, 5, 15));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WallofShadowMask>(), 7));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DarknessCloth>(), 1, 8, 15));
+        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<WallofShadowBag>(), 1));
 
-            // Гарантированное выпадение одного из трёх предметов.
-            npcLoot.Add(ItemDropRule.OneFromOptions(1,
-                ModContent.ItemType<HeavyBeamCannon>(),
-                ModContent.ItemType<Bolter>(),
-                ModContent.ItemType<StrikerBlade>()));
-        }
+        // ГѓГ Г°Г Г­ГІГЁГ°Г®ГўГ Г­Г­Г®ГҐ ГўГ»ГЇГ Г¤ГҐГ­ГЁГҐ Г®Г¤Г­Г®ГЈГ® ГЁГ§ ГІГ°ВёГµ ГЇГ°ГҐГ¤Г¬ГҐГІГ®Гў.
+        npcLoot.Add(ItemDropRule.OneFromOptions(1,
+            ModContent.ItemType<HeavyBeamCannon>(),
+            ModContent.ItemType<Bolter>(),
+            ModContent.ItemType<StrikerBlade>()));
     }
 }

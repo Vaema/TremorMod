@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Weapons.Melee
-{
+namespace TremorMod.Content.Items.Weapons.Melee;
+
 	public class YinYangLance : ModItem
 	{
 		public override void SetDefaults()
@@ -24,7 +24,7 @@ namespace TremorMod.Content.Items.Weapons.Melee
 			Item.useTurn = true;
 		}
 
-        public override void SetStaticDefaults()
+    public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Yin Yang Lance");
 			// Tooltip.SetDefault("");
@@ -46,4 +46,3 @@ namespace TremorMod.Content.Items.Weapons.Melee
 			recipe.Register();
 		}
 	}
-}

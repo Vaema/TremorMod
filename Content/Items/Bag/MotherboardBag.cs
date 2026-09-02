@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
@@ -7,8 +7,8 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Placeable;
 using TremorMod.Content.Items.Vanity;
 
-namespace TremorMod.Content.Items.Bag
-{
+namespace TremorMod.Content.Items.Bag;
+
 	public class MotherboardBag : ModItem
 	{
 		public override void SetDefaults()
@@ -33,13 +33,12 @@ namespace TremorMod.Content.Items.Bag
 			return true;
 		}
 
-        public override void ModifyItemLoot(ItemLoot itemLoot)
-        {
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<SoulofMind>(), 1, 20, 40));
-            itemLoot.Add(ItemDropRule.Common(ItemID.MechanicalWagonPiece, 1));
-            itemLoot.Add(ItemDropRule.Common(ItemID.GreaterHealingPotion, 1, 5, 16));
-            itemLoot.Add(ItemDropRule.Common(ItemID.HallowedBar, 1, 15, 35));
-        }
-
+    public override void ModifyItemLoot(ItemLoot itemLoot)
+    {
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<SoulofMind>(), 1, 20, 40));
+        itemLoot.Add(ItemDropRule.Common(ItemID.MechanicalWagonPiece, 1));
+        itemLoot.Add(ItemDropRule.Common(ItemID.GreaterHealingPotion, 1, 5, 16));
+        itemLoot.Add(ItemDropRule.Common(ItemID.HallowedBar, 1, 15, 35));
     }
+
 }

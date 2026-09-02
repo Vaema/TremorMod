@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.Graphics.Shaders;
 
-namespace TremorMod.Content.Event
-{
+namespace TremorMod.Content.Event;
+
 	public class ZombieScreenShaderData : ScreenShaderData
 	{
 		private int CalIndex;
@@ -40,4 +40,3 @@ namespace TremorMod.Content.Event
 			base.Apply();
 		}
 	}
-}

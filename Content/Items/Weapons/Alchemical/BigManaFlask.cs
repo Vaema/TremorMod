@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
@@ -6,14 +6,14 @@ using TremorMod.Content.Projectiles;
 using TremorMod.Content.Buffs;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Weapons.Alchemical
-{
+namespace TremorMod.Content.Items.Weapons.Alchemical;
+
 	public class BigManaFlask : ModItem
-    {
+{
 		public override void SetDefaults()
 		{
-            Item.DamageType = TremorMod.alchemicalDamage ?? DamageClass.Generic;
-            Item.crit = 4;
+        Item.DamageType = TremorMod.alchemicalDamage ?? DamageClass.Generic;
+        Item.crit = 4;
 			Item.damage = 22;
 			//item.thrown = true;
 			Item.width = 26;
@@ -85,4 +85,3 @@ namespace TremorMod.Content.Items.Weapons.Alchemical
 		}
 
 	}
-}

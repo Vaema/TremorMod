@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.Coral
-{
+namespace TremorMod.Content.Items.Armor.Coral;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class CoralChestplate : ModItem
 	{
@@ -32,4 +32,3 @@ namespace TremorMod.Content.Items.Armor.Coral
 			recipe.Register();
 		}
 	}
-}

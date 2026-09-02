@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Items.NPCsDrop
-{
+namespace TremorMod.Content.Items.NPCsDrop;
+
 	public class SandShuriken : ModItem
 	{
 		public override void SetDefaults()
@@ -33,4 +33,3 @@ namespace TremorMod.Content.Items.NPCsDrop
 			Tooltip.SetDefault("Can be used infinitely");
 		}*/
 	}
-}

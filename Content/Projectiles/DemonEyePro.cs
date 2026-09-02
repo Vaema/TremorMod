@@ -1,11 +1,11 @@
-using Terraria;
+ï»¿using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class DemonEyePro : ModProjectile
 	{
 		public override void SetDefaults()
@@ -34,16 +34,16 @@ namespace TremorMod.Content.Projectiles
 				int dust = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 1, Projectile.oldVelocity.X * 0.1f, Projectile.oldVelocity.Y * 0.1f);
 			}
 			SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
-            if (Main.netMode != NetmodeID.Server) // Ìåòîä äëÿ Gore
-            {
-                Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.position,
-                new Vector2(Projectile.velocity.X, Projectile.velocity.Y),
-                1, 1f);
+        if (Main.netMode != NetmodeID.Server) // ÃŒÃ¥Ã²Ã®Ã¤ Ã¤Ã«Ã¿ Gore
+        {
+            Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.position,
+            new Vector2(Projectile.velocity.X, Projectile.velocity.Y),
+            1, 1f);
 
-                Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.position,
-                new Vector2(Projectile.velocity.X, Projectile.velocity.Y),
-                2, 1f);
-            }
+            Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.position,
+            new Vector2(Projectile.velocity.X, Projectile.velocity.Y),
+            2, 1f);
+        }
 		}
 
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
@@ -52,4 +52,3 @@ namespace TremorMod.Content.Projectiles
 			Projectile.velocity *= 0.75f;
 		}
 	}
-}

@@ -1,12 +1,12 @@
-using System;
+п»їusing System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles
-{
+namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles;
+
 	public class NovaFlask_ProjFire : ModProjectile
 	{
 		public override void SetDefaults()
@@ -115,40 +115,39 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles
 			return false;
 		}
 
-        public static class Helper
+    public static class Helper
+    {
+        public static void Explode(int whoAmI, int radiusX, int radiusY, Action explosionCallback)
         {
-            public static void Explode(int whoAmI, int radiusX, int radiusY, Action explosionCallback)
-            {
-                // Логика для взрыва, например, проверка на области действия, урон и т.д.
+            // Г‹Г®ГЈГЁГЄГ  Г¤Г«Гї ГўГ§Г°Г»ГўГ , Г­Г ГЇГ°ГЁГ¬ГҐГ°, ГЇГ°Г®ГўГҐГ°ГЄГ  Г­Г  Г®ГЎГ«Г Г±ГІГЁ Г¤ГҐГ©Г±ГІГўГЁГї, ГіГ°Г®Г­ ГЁ ГІ.Г¤.
 
-                // Вызов коллбека после выполнения взрыва
-                explosionCallback?.Invoke();
-            }
+            // Г‚Г»Г§Г®Гў ГЄГ®Г«Г«ГЎГҐГЄГ  ГЇГ®Г±Г«ГҐ ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї ГўГ§Г°Г»ГўГ 
+            explosionCallback?.Invoke();
         }
-
-
-        public override void OnKill(int timeLeft)
-        {
-            SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
-
-            // Вызов метода взрыва с соответствующими параметрами
-            Helper.Explode(Projectile.whoAmI, 120, 120, delegate
-            {
-                for (int i = 0; i < 40; i++)
-                {
-                    int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 57, 0f, -2f, 0, default(Color), 2f);
-                    Main.dust[num].noGravity = true;
-                    Dust expr_62_cp_0 = Main.dust[num];
-                    expr_62_cp_0.position.X = expr_62_cp_0.position.X + (Main.rand.Next(-50, 51) / 20 - 1.5f);
-                    Dust expr_92_cp_0 = Main.dust[num];
-                    expr_92_cp_0.position.Y = expr_92_cp_0.position.Y + (Main.rand.Next(-50, 51) / 20 - 1.5f);
-                    if (Main.dust[num].position != Projectile.Center)
-                    {
-                        Main.dust[num].velocity = Projectile.DirectionTo(Main.dust[num].position) * 6f;
-                    }
-                }
-            });
-        }
-
     }
+
+
+    public override void OnKill(int timeLeft)
+    {
+        SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
+
+        // Г‚Г»Г§Г®Гў Г¬ГҐГІГ®Г¤Г  ГўГ§Г°Г»ГўГ  Г± Г±Г®Г®ГІГўГҐГІГ±ГІГўГіГѕГ№ГЁГ¬ГЁ ГЇГ Г°Г Г¬ГҐГІГ°Г Г¬ГЁ
+        Helper.Explode(Projectile.whoAmI, 120, 120, delegate
+        {
+            for (int i = 0; i < 40; i++)
+            {
+                int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 57, 0f, -2f, 0, default(Color), 2f);
+                Main.dust[num].noGravity = true;
+                Dust expr_62_cp_0 = Main.dust[num];
+                expr_62_cp_0.position.X = expr_62_cp_0.position.X + (Main.rand.Next(-50, 51) / 20 - 1.5f);
+                Dust expr_92_cp_0 = Main.dust[num];
+                expr_92_cp_0.position.Y = expr_92_cp_0.position.Y + (Main.rand.Next(-50, 51) / 20 - 1.5f);
+                if (Main.dust[num].position != Projectile.Center)
+                {
+                    Main.dust[num].velocity = Projectile.DirectionTo(Main.dust[num].position) * 6f;
+                }
+            }
+        });
+    }
+
 }

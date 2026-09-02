@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -8,8 +8,8 @@ using TremorMod;
 using TremorMod.Content.Buffs;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Projectiles.Minions
-{
+namespace TremorMod.Content.Projectiles.Minions;
+
 	public class DesertSigil : ModProjectile
 	{
 		const int ShootRate = 22; 
@@ -83,18 +83,17 @@ namespace TremorMod.Content.Projectiles.Minions
 				SoundEngine.PlaySound(SoundID.Item20, Projectile.position);
 			}
 			Projectile.localAI[0] += 1f;
-            if (Projectile.localAI[0] > 3f)
+        if (Projectile.localAI[0] > 3f)
+        {
+            if (Projectile.localAI[0] > 5f)
             {
-                if (Projectile.localAI[0] > 5f)
-                {
-                    // Additional logic can be added here if needed
-                }
-                if (Projectile.wet && !Projectile.lavaWet)
-                {
-                    Projectile.Kill();
-                }
+                // Additional logic can be added here if needed
             }
+            if (Projectile.wet && !Projectile.lavaWet)
+            {
+                Projectile.Kill();
+            }
+        }
 		}
 
 	}
-}

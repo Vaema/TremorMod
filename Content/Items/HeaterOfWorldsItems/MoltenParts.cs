@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.HeaterOfWorldsItems
-{
+namespace TremorMod.Content.Items.HeaterOfWorldsItems;
+
 	public class MoltenParts : ModItem
 	{
 
@@ -23,4 +23,3 @@ namespace TremorMod.Content.Items.HeaterOfWorldsItems
 			Tooltip.SetDefault("");
 		}*/
 	}
-}

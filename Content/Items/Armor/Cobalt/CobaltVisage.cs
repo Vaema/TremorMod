@@ -1,17 +1,17 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.Cobalt
-{
+namespace TremorMod.Content.Items.Armor.Cobalt;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class CobaltVisage : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 
 			Item.width = 26;
@@ -26,8 +26,8 @@ namespace TremorMod.Content.Items.Armor.Cobalt
 		{
 			// DisplayName.SetDefault("Cobalt Visage");
 			// Tooltip.SetDefault("18% increased alchemical damage");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("12% increased alchemical critical strike chance");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("12% increased alchemical critical strike chance");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -41,8 +41,8 @@ namespace TremorMod.Content.Items.Armor.Cobalt
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "12% increased alchemical critical strike chance";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "12% increased alchemical critical strike chance";
 			player.GetModPlayer<MPlayer>().alchemicalCrit += 12;
 		}
 
@@ -59,4 +59,3 @@ namespace TremorMod.Content.Items.Armor.Cobalt
 			recipe.Register();
 		}
 	}
-}

@@ -1,10 +1,10 @@
-using System;
+п»їusing System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class CorfirePro : ModProjectile
 	{
 		public override void SetDefaults()
@@ -35,16 +35,15 @@ namespace TremorMod.Content.Projectiles
 		{
 			if (Main.rand.NextBool(2))
 			{
-                target.AddBuff(BuffID.CursedInferno, 280); // Применяет эффект Cursed Inferno на 280 кадров.
-            }
+            target.AddBuff(BuffID.CursedInferno, 280); // ГЏГ°ГЁГ¬ГҐГ­ГїГҐГІ ГЅГґГґГҐГЄГІ Cursed Inferno Г­Г  280 ГЄГ Г¤Г°Г®Гў.
+        }
 		}
 
-        public override void OnHitPlayer(Player target, Player.HurtInfo info)
-        {
-            if (info.PvP && Main.rand.NextBool(2))
+    public override void OnHitPlayer(Player target, Player.HurtInfo info)
+    {
+        if (info.PvP && Main.rand.NextBool(2))
 			{
-                target.AddBuff(BuffID.CursedInferno, 280); 
-            }
+            target.AddBuff(BuffID.CursedInferno, 280); 
+        }
 		}
-    }
 }

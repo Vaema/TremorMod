@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Content.Biomes.Ice;
 using TremorMod.Content.Dusts;
 
-namespace TremorMod.Content.Biomes.Ice.Dungeon
-{
+namespace TremorMod.Content.Biomes.Ice.Dungeon;
+
 	public class DungeonBlock : ModTile
 	{
 		public override void SetStaticDefaults()
@@ -31,4 +31,3 @@ namespace TremorMod.Content.Biomes.Ice.Dungeon
 			b = 0.5f;
 		}
 	}
-}

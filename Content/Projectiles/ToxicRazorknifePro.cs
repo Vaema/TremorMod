@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	//ported from my tAPI mod because I don't want to make artwork
 	public class ToxicRazorknifePro : ModProjectile
 	{
@@ -33,4 +33,3 @@ namespace TremorMod.Content.Projectiles
 			}
 		}
 	}
-}

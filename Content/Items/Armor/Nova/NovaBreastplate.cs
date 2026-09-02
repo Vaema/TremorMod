@@ -1,12 +1,12 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.NPCs.Bosses.NovaPillar.Items;
 using TremorMod;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.Nova
-{
+namespace TremorMod.Content.Items.Armor.Nova;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class NovaBreastplate : ModItem
 	{
@@ -44,4 +44,3 @@ namespace TremorMod.Content.Items.Armor.Nova
 			recipe.Register();
 		}
 	}
-}

@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.Stone
-{
+namespace TremorMod.Content.Items.Armor.Stone;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class StoneChestplate : ModItem
 	{
@@ -25,7 +25,7 @@ namespace TremorMod.Content.Items.Armor.Stone
 		public override void UpdateEquip(Player player)
 		{
 			player.GetAttackSpeed(DamageClass.Melee) -= 0.1f;
-        }
+    }
 
 		public override void AddRecipes()
 		{
@@ -36,4 +36,3 @@ namespace TremorMod.Content.Items.Armor.Stone
 			recipe.Register();
 		}
 	}
-}

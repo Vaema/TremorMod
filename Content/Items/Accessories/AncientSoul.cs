@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class AncientSoul : ModItem
 	{
 		public override void SetDefaults()
@@ -26,15 +26,14 @@ namespace TremorMod.Content.Items.Accessories
 			Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(6, 3));
 		}
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
+    public override void UpdateAccessory(Player player, bool hideVisual)
+    {
+        if (Main.rand.Next(250) == 0)
         {
-            if (Main.rand.Next(250) == 0)
+            if (player.ownedProjectileCounts[ModContent.ProjectileType<AncientShield>()] <= 4)
             {
-                if (player.ownedProjectileCounts[ModContent.ProjectileType<AncientShield>()] <= 4)
-                {
-                    IEntitySource source = player.GetSource_Accessory(this.Item); 
-                    Projectile.NewProjectile(source, player.position, Vector2.Zero, ModContent.ProjectileType<AncientShield>(), 20, 0, player.whoAmI);
-                }
+                IEntitySource source = player.GetSource_Accessory(this.Item); 
+                Projectile.NewProjectile(source, player.position, Vector2.Zero, ModContent.ProjectileType<AncientShield>(), 20, 0, player.whoAmI);
             }
         }
     }

@@ -1,18 +1,18 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Materials.OreAndBar;
 
-namespace TremorMod.Content.Items.Armor.Magium
-{
+namespace TremorMod.Content.Items.Armor.Magium;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class MagiumHelmet : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 38;
 			Item.height = 22;
@@ -23,15 +23,15 @@ namespace TremorMod.Content.Items.Armor.Magium
 
 		public override void SetStaticDefaults()
 		{
-            //DisplayName.SetDefault("Magium Helmet");
-            //Tooltip.SetDefault("9% increased magic critical strike chance\n" +
-            //"Increases maximum mana by 40");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("25% decreased mana cost");
-        }
+        //DisplayName.SetDefault("Magium Helmet");
+        //Tooltip.SetDefault("9% increased magic critical strike chance\n" +
+        //"Increases maximum mana by 40");
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("25% decreased mana cost");
+    }
 
 		public override void UpdateEquip(Player player)
 		{			
-            player.GetCritChance(DamageClass.Magic) += 9;
+        player.GetCritChance(DamageClass.Magic) += 9;
 			player.statManaMax2 += 40;
 		}
 
@@ -57,4 +57,3 @@ namespace TremorMod.Content.Items.Armor.Magium
 			recipe.Register();
 		}
 	}
-}

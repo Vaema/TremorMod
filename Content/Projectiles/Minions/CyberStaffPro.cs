@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+п»їusing Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,117 +6,116 @@ using TremorMod.Content;
 using TremorMod;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Projectiles.Minions
+namespace TremorMod.Content.Projectiles.Minions;
+
+public class CyberStaffPro : ModProjectile
 {
-    public class CyberStaffPro : ModProjectile
+    public override void SetDefaults()
     {
-        public override void SetDefaults()
+        // Г€Г±ГЇГ®Г«ГјГ§ГіГҐГ¬ ГЇГ Г°Г Г¬ГҐГІГ°Г» Г±ГІГ Г­Г¤Г Г°ГІГ­Г®ГЈГ® Г±Г­Г Г°ГїГ¤Г  (Г­Г ГЇГ°ГЁГ¬ГҐГ°, 533 - ГЅГІГ® ГІГЁГЇ Г±Г­Г Г°ГїГ¤Г  Г¬ГЁГ­ГјГ®Г­Г )
+        Projectile.CloneDefaults(533);
+        Projectile.aiStyle = 533;
+        Projectile.width = 50;
+        Projectile.height = 50;
+        Main.projFrames[Projectile.type] = 1;
+        Projectile.friendly = true;
+        Projectile.damage = 60; // ГЌГ Г±ГІГ°Г ГЁГўГ ГҐГ¬ ГіГ°Г®Г­
+        Projectile.minion = true; // Г“ГЄГ Г§Г»ГўГ ГҐГ¬, Г·ГІГ® ГЅГІГ® Г¬ГЁГ­ГјГ®Г­
+        Projectile.minionSlots = 1; // ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® Г±Г«Г®ГІГ®Гў Г¤Г«Гї Г¬ГЁГ­ГјГ®Г­Г®Гў, ГЄГ®ГІГ®Г°Г»ГҐ Г¬Г®Г¦ГҐГІ ГЁГ¬ГҐГІГј ГЁГЈГ°Г®ГЄ
+        Projectile.penetrate = -1; // ГЊГЁГ­ГјГ®Г­ Г¬Г®Г¦ГҐГІ ГЇГ°Г®ГЎГЁГўГ ГІГј Г¤Г® ГЎГҐГ±ГЄГ®Г­ГҐГ·Г­Г®Г±ГІГЁ (ГЇГ® Г±ГіГІГЁ ГЅГІГ® "Г­ГҐГіГЎГЁГўГ ГҐГ¬Г»Г©" Г®ГЎГєГҐГЄГІ)
+        Projectile.timeLeft = 18000; // Г‚Г°ГҐГ¬Гї Г¦ГЁГ§Г­ГЁ Г¬ГЁГ­ГјГ®Г­Г 
+        Projectile.ignoreWater = true;
+        Projectile.tileCollide = false; // ГЊГЁГ­ГјГ®Г­ Г­ГҐ Г±ГІГ Г«ГЄГЁГўГ ГҐГІГ±Гї Г± ГЇГ«ГЁГІГЄГ Г¬ГЁ
+        ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true; // Г‚ГЄГ«ГѕГ·Г ГҐГ¬ ГўГ®Г§Г¬Г®Г¦Г­Г®Г±ГІГј Г¤Г«Гї Г¬ГЁГ­ГјГ®Г­Г  Г ГІГ ГЄГ®ГўГ ГІГј Г¶ГҐГ«ГЁ
+    }
+
+    public override void SetStaticDefaults()
+    {
+       // DisplayName.SetDefault("CyberStaffPro");
+        //Main.projPet[Projectile.type] = true; // ГЏГ®Г¬ГҐГІГЄГ  ГЄГ ГЄ ГЇГЁГІГ®Г¬Г¶Г 
+    }
+
+    public override bool OnTileCollide(Vector2 oldVelocity)
+    {
+        // ГЏГ°ГЁ Г±ГІГ®Г«ГЄГ­Г®ГўГҐГ­ГЁГЁ Г± ГЇГ«ГЁГІГЄГ Г¬ГЁ, Г±Г®ГµГ°Г Г­ГїГҐГ¬ ГЇГ°ГҐГ¦Г­ГѕГѕ Г±ГЄГ®Г°Г®Г±ГІГј
+        if (Projectile.velocity.X != oldVelocity.X)
         {
-            // Используем параметры стандартного снаряда (например, 533 - это тип снаряда миньона)
-            Projectile.CloneDefaults(533);
-            Projectile.aiStyle = 533;
-            Projectile.width = 50;
-            Projectile.height = 50;
-            Main.projFrames[Projectile.type] = 1;
-            Projectile.friendly = true;
-            Projectile.damage = 60; // Настраиваем урон
-            Projectile.minion = true; // Указываем, что это миньон
-            Projectile.minionSlots = 1; // Количество слотов для миньонов, которые может иметь игрок
-            Projectile.penetrate = -1; // Миньон может пробивать до бесконечности (по сути это "неубиваемый" объект)
-            Projectile.timeLeft = 18000; // Время жизни миньона
-            Projectile.ignoreWater = true;
-            Projectile.tileCollide = false; // Миньон не сталкивается с плитками
-            ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true; // Включаем возможность для миньона атаковать цели
+            Projectile.velocity.X = oldVelocity.X;
+        }
+        if (Projectile.velocity.Y != oldVelocity.Y)
+        {
+            Projectile.velocity.Y = oldVelocity.Y;
+        }
+        return false; // ГЌГҐ ГіГ­ГЁГ·ГІГ®Г¦Г ГҐГ¬ Г¬ГЁГ­ГјГ®Г­Г  ГЇГ°ГЁ Г±ГІГ®Г«ГЄГ­Г®ГўГҐГ­ГЁГЁ Г± ГЇГ«ГЁГІГЄГ Г¬ГЁ
+    }
+
+    public override void AI()
+    {
+        Player player = Main.player[Projectile.owner];
+
+        // ГЏГ°Г®ГўГҐГ°ГЄГ , Г ГЄГІГЁГўГҐГ­ Г«ГЁ ГЇГЁГІГ®Г¬ГҐГ¶
+        if (!player.active || player.dead || !player.HasBuff(ModContent.BuffType<CyberSawBuff>()))
+        {
+            Projectile.Kill();
+            return;
         }
 
-        public override void SetStaticDefaults()
+        // ГЏГ°ГЁГўГїГ§ГЄГ  ГЄ ГЁГЈГ°Г®ГЄГі
+        Vector2 targetPosition = player.Center + new Vector2(0f, -48f);
+        float speed = 10f;
+        Vector2 direction = targetPosition - Projectile.Center;
+        float distance = direction.Length();
+
+        if (distance > 2000f) // Г…Г±Г«ГЁ ГЇГЁГІГ®Г¬ГҐГ¶ Г±Г«ГЁГёГЄГ®Г¬ Г¤Г Г«ГҐГЄГ®, ГІГҐГ«ГҐГЇГ®Г°ГІГЁГ°ГіГҐГ¬
         {
-           // DisplayName.SetDefault("CyberStaffPro");
-            //Main.projPet[Projectile.type] = true; // Пометка как питомца
+            Projectile.Center = player.Center;
+        }
+        else if (distance > 10f)
+        {
+            direction.Normalize();
+            direction *= speed;
+            Projectile.velocity = (Projectile.velocity * 20f + direction) / 21f;
+        }
+        else
+        {
+            Projectile.velocity *= 0.95f; // Г‡Г Г¬ГҐГ¤Г«ГҐГ­ГЁГҐ
         }
 
-        public override bool OnTileCollide(Vector2 oldVelocity)
+        Projectile.rotation += 0.1f; // ГќГґГґГҐГЄГІ ГўГ°Г Г№ГҐГ­ГЁГї
+
+        // ГЂГІГ ГЄГ  ГўГ°Г ГЈГ®Гў
+        NPC target = FindTarget();
+        if (target != null)
         {
-            // При столкновении с плитками, сохраняем прежнюю скорость
-            if (Projectile.velocity.X != oldVelocity.X)
-            {
-                Projectile.velocity.X = oldVelocity.X;
-            }
-            if (Projectile.velocity.Y != oldVelocity.Y)
-            {
-                Projectile.velocity.Y = oldVelocity.Y;
-            }
-            return false; // Не уничтожаем миньона при столкновении с плитками
-        }
+            Vector2 attackDirection = target.Center - Projectile.Center;
+            attackDirection.Normalize();
+            attackDirection *= speed;
+            Projectile.velocity = (Projectile.velocity * 10f + attackDirection) / 11f;
 
-        public override void AI()
-        {
-            Player player = Main.player[Projectile.owner];
-
-            // Проверка, активен ли питомец
-            if (!player.active || player.dead || !player.HasBuff(ModContent.BuffType<CyberSawBuff>()))
+            // ГЏГ°Г®ГўГҐГ°ГїГҐГ¬ Г°Г Г±Г±ГІГ®ГїГ­ГЁГҐ Г¤Г® Г¶ГҐГ«ГЁ
+            if (Vector2.Distance(Projectile.Center, target.Center) < 50f)
             {
-                Projectile.Kill();
-                return;
-            }
-
-            // Привязка к игроку
-            Vector2 targetPosition = player.Center + new Vector2(0f, -48f);
-            float speed = 10f;
-            Vector2 direction = targetPosition - Projectile.Center;
-            float distance = direction.Length();
-
-            if (distance > 2000f) // Если питомец слишком далеко, телепортируем
-            {
-                Projectile.Center = player.Center;
-            }
-            else if (distance > 10f)
-            {
-                direction.Normalize();
-                direction *= speed;
-                Projectile.velocity = (Projectile.velocity * 20f + direction) / 21f;
-            }
-            else
-            {
-                Projectile.velocity *= 0.95f; // Замедление
-            }
-
-            Projectile.rotation += 0.1f; // Эффект вращения
-
-            // Атака врагов
-            NPC target = FindTarget();
-            if (target != null)
-            {
-                Vector2 attackDirection = target.Center - Projectile.Center;
-                attackDirection.Normalize();
-                attackDirection *= speed;
-                Projectile.velocity = (Projectile.velocity * 10f + attackDirection) / 11f;
-
-                // Проверяем расстояние до цели
-                if (Vector2.Distance(Projectile.Center, target.Center) < 50f)
-                {
-                    int damage = Projectile.damage; // Урон питомца
-                    //float knockBack = 2f; // Отбрасывание
-                    //bool crit = Main.rand.Next(100) < player.meleeCrit; // Критический удар
-                    //target.StrikeNPC(damage, knockBack, Projectile.direction, crit); // Наносим урон
-                }
+                int damage = Projectile.damage; // Г“Г°Г®Г­ ГЇГЁГІГ®Г¬Г¶Г 
+                //float knockBack = 2f; // ГЋГІГЎГ°Г Г±Г»ГўГ Г­ГЁГҐ
+                //bool crit = Main.rand.Next(100) < player.meleeCrit; // ГЉГ°ГЁГІГЁГ·ГҐГ±ГЄГЁГ© ГіГ¤Г Г°
+                //target.StrikeNPC(damage, knockBack, Projectile.direction, crit); // ГЌГ Г­Г®Г±ГЁГ¬ ГіГ°Г®Г­
             }
         }
-        private NPC FindTarget()
+    }
+    private NPC FindTarget()
+    {
+        NPC closestNPC = null;
+        float closestDistance = 500f; // ГђГ Г¤ГЁГіГ± ГЇГ®ГЁГ±ГЄГ  ГўГ°Г ГЈГ®Гў
+
+        foreach (NPC npc in Main.npc)
         {
-            NPC closestNPC = null;
-            float closestDistance = 500f; // Радиус поиска врагов
-
-            foreach (NPC npc in Main.npc)
+            if (npc.CanBeChasedBy(this) && Vector2.Distance(Projectile.Center, npc.Center) < closestDistance)
             {
-                if (npc.CanBeChasedBy(this) && Vector2.Distance(Projectile.Center, npc.Center) < closestDistance)
-                {
-                    closestNPC = npc;
-                    closestDistance = Vector2.Distance(Projectile.Center, npc.Center);
-                }
+                closestNPC = npc;
+                closestDistance = Vector2.Distance(Projectile.Center, npc.Center);
             }
-
-            return closestNPC;
         }
+
+        return closestNPC;
     }
 }

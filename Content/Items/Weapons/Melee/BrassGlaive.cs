@@ -1,25 +1,25 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 using TremorMod.Content.Items.Materials.OreAndBar;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items.Weapons.Melee
-{
+namespace TremorMod.Content.Items.Weapons.Melee;
+
 	public class BrassGlaive : ModItem
 	{
 		public override void SetDefaults()
 		{
-            Item.damage = 60;
+        Item.damage = 60;
 			Item.width = 76;
 			Item.height = 78;
 			Item.noUseGraphic = true;
 			Item.DamageType = DamageClass.Melee;
 			Item.useTime = 30;
-            Item.useStyle = ItemUseStyleID.Shoot;
-            Item.shoot = ModContent.ProjectileType<BrassGlaivePro>();
-            Item.shootSpeed = 19f;
+        Item.useStyle = ItemUseStyleID.Shoot;
+        Item.shoot = ModContent.ProjectileType<BrassGlaivePro>();
+        Item.shootSpeed = 19f;
 			Item.useAnimation = 30;
 			Item.useStyle = 5;
 			Item.knockBack = 6;
@@ -47,4 +47,3 @@ namespace TremorMod.Content.Items.Weapons.Melee
 			}
 		}
 	}
-}

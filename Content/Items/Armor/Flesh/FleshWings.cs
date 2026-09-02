@@ -1,12 +1,12 @@
-using System.Linq;
+﻿using System.Linq;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Armor.Flesh
-{
+namespace TremorMod.Content.Items.Armor.Flesh;
+
 	[AutoloadEquip(EquipType.Wings)]
 	public class FleshWings : ModItem
 	{
@@ -20,14 +20,14 @@ namespace TremorMod.Content.Items.Armor.Flesh
 			Item.accessory = true;
 		}
 
-        public override void SetStaticDefaults()
+    public override void SetStaticDefaults()
 		{
 			//DisplayName.SetDefault("Flesh Wings");
 			//Tooltip.SetDefault("The wings of skin and teeth.");
 			ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(120, 6f, 1f);
 		}
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
+    public override void UpdateAccessory(Player player, bool hideVisual)
 		{
 			player.wingTimeMax = 120;
 		}
@@ -58,4 +58,3 @@ namespace TremorMod.Content.Items.Armor.Flesh
 			recipe.Register();
 		}
 	}
-}

@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
@@ -6,8 +6,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace TremorMod.Content.Tiles
-{
+namespace TremorMod.Content.Tiles;
+
 	public class EbonstoneDoorClosed : ModTile
 	{
 		public override void SetStaticDefaults()
@@ -26,7 +26,7 @@ namespace TremorMod.Content.Tiles
 			TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile, TileObjectData.newTile.Width, 0);
 			TileObjectData.newTile.UsesCustomCanPlace = true;
 			TileObjectData.newTile.LavaDeath = true;
-			TileObjectData.newTile.CoordinateHeights = new[]{ 16, 16, 16 };
+			TileObjectData.newTile.CoordinateHeights = [16, 16, 16];
 			TileObjectData.newTile.CoordinateWidth = 16;
 			TileObjectData.newTile.CoordinatePadding = 2;
 			TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
@@ -38,13 +38,12 @@ namespace TremorMod.Content.Tiles
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
 			AddMapEntry(new Color(121,14,203), CreateMapEntryName());
-			AdjTiles = new int[]{ TileID.ClosedDoor };
-            TileID.Sets.OpenDoorID[Type] = ModContent.TileType<EbonstoneDoorOpen>();
-        }
+			AdjTiles = [TileID.ClosedDoor];
+        TileID.Sets.OpenDoorID[Type] = ModContent.TileType<EbonstoneDoorOpen>();
+    }
 
 		public override void NumDust(int i, int j, bool fail, ref int num)
 		{
 			num = 1;
 		}
 	}
-}

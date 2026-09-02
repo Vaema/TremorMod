@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
@@ -11,8 +11,8 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Tiles;
 using TremorMod.Content.Items.Weapons.Alchemical;
 
-namespace TremorMod.Content.Items.Bag
-{
+namespace TremorMod.Content.Items.Bag;
+
 	public class WallofShadowBag : ModItem
 	{
 		public override void SetDefaults()
@@ -36,19 +36,18 @@ namespace TremorMod.Content.Items.Bag
 			return true;
 		}
 
-        public override void ModifyItemLoot(ItemLoot itemLoot)
-        {
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<WallofShadowTrophy>(), 10));
-            itemLoot.Add(ItemDropRule.Common(ItemID.GreaterHealingPotion, 1, 5, 15));
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<WallofShadowMask>(), 7));
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<WallOfShadowsFlask>(), 1));
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<DarknessCloth>(), 1, 8, 15));
+    public override void ModifyItemLoot(ItemLoot itemLoot)
+    {
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<WallofShadowTrophy>(), 10));
+        itemLoot.Add(ItemDropRule.Common(ItemID.GreaterHealingPotion, 1, 5, 15));
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<WallofShadowMask>(), 7));
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<WallOfShadowsFlask>(), 1));
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<DarknessCloth>(), 1, 8, 15));
 
-            itemLoot.Add(ItemDropRule.OneFromOptions(1,
-                ModContent.ItemType<HeavyBeamCannon>(),
-                ModContent.ItemType<Bolter>(),
-                ModContent.ItemType<StrikerBlade>()));
-        }
-
+        itemLoot.Add(ItemDropRule.OneFromOptions(1,
+            ModContent.ItemType<HeavyBeamCannon>(),
+            ModContent.ItemType<Bolter>(),
+            ModContent.ItemType<StrikerBlade>()));
     }
+
 }

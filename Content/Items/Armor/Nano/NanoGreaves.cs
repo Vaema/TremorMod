@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 
-namespace TremorMod.Content.Items.Armor.Nano
-{
+namespace TremorMod.Content.Items.Armor.Nano;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class NanoGreaves : ModItem
 	{
@@ -30,11 +30,10 @@ namespace TremorMod.Content.Items.Armor.Nano
 		}
 		public override void AddRecipes()
 		{
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<NanoBar>(), 15);
-            //recipe.SetResult(this);
-            recipe.AddTile(134);
-            recipe.Register();
-        }
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ModContent.ItemType<NanoBar>(), 15);
+        //recipe.SetResult(this);
+        recipe.AddTile(134);
+        recipe.Register();
+    }
 	}
-}

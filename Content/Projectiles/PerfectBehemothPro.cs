@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class PerfectBehemothPro : ModProjectile
 	{
 		public override void SetDefaults()
@@ -60,4 +60,3 @@ namespace TremorMod.Content.Projectiles
 			SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
 		}
 	}
-}

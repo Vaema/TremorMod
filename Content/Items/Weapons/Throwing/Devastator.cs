@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.DataStructures;
@@ -6,8 +6,8 @@ using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Weapons.Throwing
-{
+namespace TremorMod.Content.Items.Weapons.Throwing;
+
 	public class Devastator : ModItem
 	{
 		public override void SetDefaults()
@@ -36,18 +36,18 @@ namespace TremorMod.Content.Items.Weapons.Throwing
 			//Tooltip.SetDefault("");
 		}
 
-        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    {
+        for (int i = 0; i < 1; ++i)
         {
-            for (int i = 0; i < 1; ++i)
-            {
-                Projectile.NewProjectile(source, position, velocity + new Vector2(2, 2), type, damage, knockback, Main.myPlayer);
-                Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer);
-                Projectile.NewProjectile(source, position, velocity - new Vector2(2, 2), type, damage, knockback, Main.myPlayer);
-            }
-            return false;
+            Projectile.NewProjectile(source, position, velocity + new Vector2(2, 2), type, damage, knockback, Main.myPlayer);
+            Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer);
+            Projectile.NewProjectile(source, position, velocity - new Vector2(2, 2), type, damage, knockback, Main.myPlayer);
         }
+        return false;
+    }
 
-        public override void AddRecipes()
+    public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<VoidBar>(), 20);
@@ -58,4 +58,3 @@ namespace TremorMod.Content.Items.Weapons.Throwing
 			recipe.Register();
 		}
 	}
-}

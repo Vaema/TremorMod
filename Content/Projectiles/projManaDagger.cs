@@ -2,8 +2,8 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class projManaDagger : ModProjectile
 	{
 		const int ManaPerHit = 2; // Маны за удар по мобу
@@ -79,4 +79,3 @@ namespace TremorMod.Content.Projectiles
 			Projectile.aiStyle = 3;
 		}
 	}
-}

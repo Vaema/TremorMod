@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.Xna.Framework;
@@ -17,8 +17,8 @@ using Terraria.ModLoader;
 using Filters = Terraria.Graphics.Effects.Filters;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Items.AndasItems
-{
+namespace TremorMod.Content.Items.AndasItems;
+
 	public class Inferno : ModItem
 	{
 		public override void SetDefaults()
@@ -29,8 +29,8 @@ namespace TremorMod.Content.Items.AndasItems
 			Item.noUseGraphic = true;
 			Item.DamageType = DamageClass.Melee;
 			Item.useTime = 20;
-            Item.shoot = 706;
-            Item.shootSpeed = 12f;
+        Item.shoot = 706;
+        Item.shootSpeed = 12f;
 			Item.useAnimation = 20;
 			Item.useStyle = 5;
 			Item.knockBack = 4;
@@ -40,15 +40,14 @@ namespace TremorMod.Content.Items.AndasItems
 			Item.autoReuse = false;
 		}
 
-        public override void ModifyTooltips(List<TooltipLine> tooltips)
+    public override void ModifyTooltips(List<TooltipLine> tooltips)
+    {
+        foreach (var tooltip in tooltips)
         {
-            foreach (var tooltip in tooltips)
+            // ГЊГҐГ­ГїГҐГ¬ Г¶ГўГҐГІ ГІГҐГЄГ±ГІГ  Г¤Г«Гї Г­Г Г§ГўГ Г­ГЁГї ГЇГ°ГҐГ¤Г¬ГҐГІГ 
+            if (tooltip.Mod == "Terraria" && tooltip.Name == "ItemName")
             {
-                // Меняем цвет текста для названия предмета
-                if (tooltip.Mod == "Terraria" && tooltip.Name == "ItemName")
-                {
-                    tooltip.OverrideColor = new Color(238, 194, 73); // Цвет золота
-                }
+                tooltip.OverrideColor = new Color(238, 194, 73); // Г–ГўГҐГІ Г§Г®Г«Г®ГІГ 
             }
         }
     }

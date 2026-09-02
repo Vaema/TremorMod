@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+п»їusing System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -7,8 +7,8 @@ using TremorMod.Content.Buffs;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Buffs
-{
+namespace TremorMod.Content.Items.Buffs;
+
 	public class HeroPotion : ModItem
 	{
 		public override void SetDefaults()
@@ -22,8 +22,8 @@ namespace TremorMod.Content.Items.Buffs
 			Item.useStyle = 2;
 			Item.UseSound = SoundID.Item3;
 			Item.consumable = true;
-            Item.buffType = ModContent.BuffType<HeroBuff>();
-        }
+        Item.buffType = ModContent.BuffType<HeroBuff>();
+    }
 
 		public override void SetStaticDefaults()
 		{
@@ -41,19 +41,19 @@ namespace TremorMod.Content.Items.Buffs
 			return true;
 		}
 
-        public override void ModifyTooltips(List<TooltipLine> tooltips)
+    public override void ModifyTooltips(List<TooltipLine> tooltips)
+    {
+        foreach (var tooltip in tooltips)
         {
-            foreach (var tooltip in tooltips)
+            // ГЊГҐГ­ГїГҐГ¬ Г¶ГўГҐГІ ГІГҐГЄГ±ГІГ  Г¤Г«Гї Г­Г Г§ГўГ Г­ГЁГї ГЇГ°ГҐГ¤Г¬ГҐГІГ 
+            if (tooltip.Mod == "Terraria" && tooltip.Name == "ItemName")
             {
-                // Меняем цвет текста для названия предмета
-                if (tooltip.Mod == "Terraria" && tooltip.Name == "ItemName")
-                {
-                    tooltip.OverrideColor = new Color(238, 194, 73); // Цвет золота
-                }
+                tooltip.OverrideColor = new Color(238, 194, 73); // Г–ГўГҐГІ Г§Г®Г«Г®ГІГ 
             }
         }
+    }
 
-        public override void AddRecipes()
+    public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.BottledWater, 1);
@@ -73,4 +73,3 @@ namespace TremorMod.Content.Items.Buffs
 			recipe.Register();
 		}
 	}
-}

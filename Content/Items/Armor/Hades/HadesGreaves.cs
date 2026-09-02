@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -10,8 +10,8 @@ using TremorMod.Content.Items.AndasItems;
 using TremorMod.Content.Tiles;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.Hades
-{
+namespace TremorMod.Content.Items.Armor.Hades;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class HadesGreaves : ModItem
 	{
@@ -47,23 +47,22 @@ namespace TremorMod.Content.Items.Armor.Hades
 			recipe.Register();
 		}
 
-        public override void ModifyTooltips(List<TooltipLine> tooltips)
+    public override void ModifyTooltips(List<TooltipLine> tooltips)
+    {
+        foreach (var tooltip in tooltips)
         {
-            foreach (var tooltip in tooltips)
+            if (tooltip.Mod == "Terraria" && tooltip.Name == "ItemName")
             {
-                if (tooltip.Mod == "Terraria" && tooltip.Name == "ItemName")
-                {
-                    tooltip.OverrideColor = new Color(238, 194, 73);
-                }
+                tooltip.OverrideColor = new Color(238, 194, 73);
             }
         }
+    }
 
-        public override void UpdateEquip(Player player)
+    public override void UpdateEquip(Player player)
 		{
-            player.GetModPlayer<HadesDashPlayer>().DashAccessoryEquipped = true;
-            player.moveSpeed += 0.8f;
+        player.GetModPlayer<HadesDashPlayer>().DashAccessoryEquipped = true;
+        player.moveSpeed += 0.8f;
 			player.dash = 1;
 			player.waterWalk = true;
 		}
 	}
-}

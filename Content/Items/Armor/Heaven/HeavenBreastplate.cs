@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.Heaven
-{
+namespace TremorMod.Content.Items.Armor.Heaven;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class HeavenBreastplate : ModItem
 	{
@@ -30,4 +30,3 @@ namespace TremorMod.Content.Items.Armor.Heaven
 		}
 
 	}
-}

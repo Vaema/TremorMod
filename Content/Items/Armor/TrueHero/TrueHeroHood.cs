@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -7,14 +7,14 @@ using Terraria.Localization;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items.Armor.TrueHero
-{
+namespace TremorMod.Content.Items.Armor.TrueHero;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class TrueHeroHood : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 
 			Item.width = 32;
@@ -29,21 +29,21 @@ namespace TremorMod.Content.Items.Armor.TrueHero
 		{
 			// DisplayName.SetDefault("True Hero Hood");
 			// Tooltip.SetDefault("Gives one of three true blades");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases maximum defense by 20");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases maximum defense by 20");
+    }
 
-        public override void ModifyTooltips(List<TooltipLine> tooltips)
+    public override void ModifyTooltips(List<TooltipLine> tooltips)
+    {
+        foreach (var tooltip in tooltips)
         {
-            foreach (var tooltip in tooltips)
+            if (tooltip.Mod == "Terraria" && tooltip.Name == "ItemName")
             {
-                if (tooltip.Mod == "Terraria" && tooltip.Name == "ItemName")
-                {
-                    tooltip.OverrideColor = new Color(238, 194, 73);
-                }
+                tooltip.OverrideColor = new Color(238, 194, 73);
             }
         }
+    }
 
-        public override void UpdateEquip(Player player)
+    public override void UpdateEquip(Player player)
 		{
 			player.AddBuff(ModContent.BuffType<FirstTrueBlade>(), 2);
 		}
@@ -55,21 +55,20 @@ namespace TremorMod.Content.Items.Armor.TrueHero
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Increases maximum defense by 20";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Increases maximum defense by 20";
 			player.statDefense += 20;
 		}
 
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(247, 1);
-            recipe.AddIngredient(ModContent.ItemType<GiantShell>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<BrokenHeroArmorplate>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<TrueEssense>(), 5);
-            //recipe.SetResult(this);
-            recipe.AddTile(412);
-            recipe.Register();
-        }
+    public override void AddRecipes()
+    {
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(247, 1);
+        recipe.AddIngredient(ModContent.ItemType<GiantShell>(), 1);
+        recipe.AddIngredient(ModContent.ItemType<BrokenHeroArmorplate>(), 1);
+        recipe.AddIngredient(ModContent.ItemType<TrueEssense>(), 5);
+        //recipe.SetResult(this);
+        recipe.AddTile(412);
+        recipe.Register();
     }
 }

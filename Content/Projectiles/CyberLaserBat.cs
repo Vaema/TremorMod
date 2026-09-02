@@ -1,11 +1,11 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Content.Dusts;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class CyberLaserBat : ModProjectile
 	{
 
@@ -37,4 +37,3 @@ namespace TremorMod.Content.Projectiles
 			}
 		}
 	}
-}

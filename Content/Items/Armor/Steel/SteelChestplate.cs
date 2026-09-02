@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Armor.Leather;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Armor.Steel
-{
+namespace TremorMod.Content.Items.Armor.Steel;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class SteelChestplate : ModItem
 	{
@@ -40,4 +40,3 @@ namespace TremorMod.Content.Items.Armor.Steel
 			recipe.Register();
 		}
 	}
-}

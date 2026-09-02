@@ -1,16 +1,16 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 
-namespace TremorMod.Content.Items.Armor.Golden
-{
+namespace TremorMod.Content.Items.Armor.Golden;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class GoldenHat : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 26;
 			Item.height = 22;
@@ -21,11 +21,11 @@ namespace TremorMod.Content.Items.Armor.Golden
 
 		public override void SetStaticDefaults()
 		{
-            //DisplayName.SetDefault("Golden Hat");
-            //Tooltip.SetDefault("5% decreased magic damage\n" +
-            //"6% increased magic critical strike chance");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases maximum mana by 40");
-        }
+        //DisplayName.SetDefault("Golden Hat");
+        //Tooltip.SetDefault("5% decreased magic damage\n" +
+        //"6% increased magic critical strike chance");
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases maximum mana by 40");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -41,7 +41,7 @@ namespace TremorMod.Content.Items.Armor.Golden
 		public override void UpdateArmorSet(Player player)
 		{
 			player.setBonus = SetBonusText.Value;
-            player.setBonus = "Increases maximum mana by 40";
+        player.setBonus = "Increases maximum mana by 40";
 			player.statManaMax2 += 40;
 		}
 
@@ -51,4 +51,3 @@ namespace TremorMod.Content.Items.Armor.Golden
 		}
 
 	}
-}

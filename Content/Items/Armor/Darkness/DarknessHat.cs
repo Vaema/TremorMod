@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -7,14 +7,14 @@ using Terraria.Localization;
 using TremorMod.Content.Items.BossLoot.TheDarkEmperor;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Armor.Darkness
-{
+namespace TremorMod.Content.Items.Armor.Darkness;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class DarknessHat : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 
 			Item.defense = 22;
@@ -30,8 +30,8 @@ namespace TremorMod.Content.Items.Armor.Darkness
 			// DisplayName.SetDefault("Hat of Darkness");
 			/* Tooltip.SetDefault("Increases life regeneration\n" +
 			"Increases maximum mana by 80"); */
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Your magic stats are increased during the night!");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Your magic stats are increased during the night!");
+    }
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
@@ -46,8 +46,8 @@ namespace TremorMod.Content.Items.Armor.Darkness
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Your magic stats are increased during the night!";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Your magic stats are increased during the night!";
 
 			if (Math.Abs(player.velocity.X) + Math.Abs(player.velocity.Y) > 1f && !player.rocketFrame) // Makes sure the player is actually moving
 			{
@@ -84,4 +84,3 @@ namespace TremorMod.Content.Items.Armor.Darkness
 			recipe.Register();
 		}
 	}
-}

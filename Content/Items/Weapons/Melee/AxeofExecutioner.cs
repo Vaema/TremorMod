@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Items.Weapons.Melee
-{
+namespace TremorMod.Content.Items.Weapons.Melee;
+
 	public class AxeofExecutioner : ModItem
 	{
 		public override void SetDefaults()
@@ -22,8 +22,8 @@ namespace TremorMod.Content.Items.Weapons.Melee
 			Item.noUseGraphic = true;
 			Item.value = 500000;
 			Item.knockBack = 5f;
-            Item.DamageType = DamageClass.Melee;
-            Item.rare = 10;
+        Item.DamageType = DamageClass.Melee;
+        Item.rare = 10;
 		}
 
 		/*public override void SetStaticDefaults()
@@ -32,4 +32,3 @@ namespace TremorMod.Content.Items.Weapons.Melee
 			Tooltip.SetDefault("");
 		}*/
 	}
-}

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -8,8 +8,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Biomes.Ice.Mobs
-{
+namespace TremorMod.Content.Biomes.Ice.Mobs;
+
 	public class ColdtrapChain : ModProjectile
 	{
 		public float width
@@ -255,38 +255,37 @@ namespace TremorMod.Content.Biomes.Ice.Mobs
 			}
 		}
 
-        public override bool PreDraw(ref Color lightColor)
+    public override bool PreDraw(ref Color lightColor)
+    {
+        Texture2D unit = TextureAssets.Projectile[Projectile.type].Value;
+        int unitLength = unit.Width;
+        int numUnits = (int)Math.Ceiling(length / unitLength);
+        float increment = 0f;
+        if (numUnits > 1)
         {
-            Texture2D unit = TextureAssets.Projectile[Projectile.type].Value;
-            int unitLength = unit.Width;
-            int numUnits = (int)Math.Ceiling(length / unitLength);
-            float increment = 0f;
-            if (numUnits > 1)
-            {
-                increment = (length - unitLength) / (numUnits - 1);
-            }
-            Vector2 direction = new Vector2((float)Math.Cos(Projectile.rotation), (float)Math.Sin(Projectile.rotation));
-            SpriteEffects effects = SpriteEffects.None;
-            if (Projectile.spriteDirection == -1)
-            {
-                effects = SpriteEffects.FlipVertically;
-            }
-            for (int k = 1; k <= numUnits; k++)
-            {
-                Texture2D image = unit;
-                if (k == numUnits)
-                {
-                    image = ModContent.Request<Texture2D>("TremorMod/Content/Biomes/Ice/Mobs/Coldtrap").Value;
-                }
-                Vector2 pos = Projectile.position + direction * (increment * (k - 1) + unitLength / 2f);
-                Color color = Lighting.GetColor((int)(pos.X / 16f), (int)(pos.Y / 16f));
-                Main.spriteBatch.Draw(image, pos - Main.screenPosition, null, Projectile.GetAlpha(color), Projectile.rotation, new Vector2(unit.Width / 2, unit.Height / 2), 1f, effects, 0f);
-            }
-            return false;
+            increment = (length - unitLength) / (numUnits - 1);
         }
-        public override void PostDraw(Color lightColor)
+        Vector2 direction = new Vector2((float)Math.Cos(Projectile.rotation), (float)Math.Sin(Projectile.rotation));
+        SpriteEffects effects = SpriteEffects.None;
+        if (Projectile.spriteDirection == -1)
+        {
+            effects = SpriteEffects.FlipVertically;
+        }
+        for (int k = 1; k <= numUnits; k++)
+        {
+            Texture2D image = unit;
+            if (k == numUnits)
+            {
+                image = ModContent.Request<Texture2D>("TremorMod/Content/Biomes/Ice/Mobs/Coldtrap").Value;
+            }
+            Vector2 pos = Projectile.position + direction * (increment * (k - 1) + unitLength / 2f);
+            Color color = Lighting.GetColor((int)(pos.X / 16f), (int)(pos.Y / 16f));
+            Main.spriteBatch.Draw(image, pos - Main.screenPosition, null, Projectile.GetAlpha(color), Projectile.rotation, new Vector2(unit.Width / 2, unit.Height / 2), 1f, effects, 0f);
+        }
+        return false;
+    }
+    public override void PostDraw(Color lightColor)
 		{
 			Main.instance.DrawNPC(arm, false);
 		}
 	}
-}

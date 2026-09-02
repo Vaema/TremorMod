@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Biomes.Ice.Items
-{
+namespace TremorMod.Content.Biomes.Ice.Items;
+
 	public class BlueQuartz : ModItem
 	{
 		public override void SetDefaults()
@@ -29,12 +29,11 @@ namespace TremorMod.Content.Biomes.Ice.Items
 		{
 			if (player.ZoneSnow)
 			{
-                player.GetDamage(DamageClass.Melee) += 0.06f;
-                player.GetDamage(DamageClass.Ranged) += 0.06f;
-                player.GetDamage(DamageClass.Magic) += 0.06f;
-                player.GetDamage(DamageClass.Throwing) += 0.06f;
-                player.GetModPlayer<MPlayer>().alchemicalDamage += 0.06f;
-            }
+            player.GetDamage(DamageClass.Melee) += 0.06f;
+            player.GetDamage(DamageClass.Ranged) += 0.06f;
+            player.GetDamage(DamageClass.Magic) += 0.06f;
+            player.GetDamage(DamageClass.Throwing) += 0.06f;
+            player.GetModPlayer<MPlayer>().alchemicalDamage += 0.06f;
+        }
 		}
 	}
-}

@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class HeartAmulet : ModItem
 	{
 		public override void SetDefaults()
@@ -16,17 +16,16 @@ namespace TremorMod.Content.Items.Accessories
 			Item.accessory = true;
 		}
 
-        /*public override void SetStaticDefaults()
+    /*public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Heart Amulet");
 			Tooltip.SetDefault("You respawn with 80% of maximum health after death");
 		}*/
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
-        {
-            TremorPlayer modPlayer = player.GetModPlayer<TremorPlayer>();
-            modPlayer.heartAmulet = true;
-        }
-
+    public override void UpdateAccessory(Player player, bool hideVisual)
+    {
+        TremorPlayer modPlayer = player.GetModPlayer<TremorPlayer>();
+        modPlayer.heartAmulet = true;
     }
+
 }

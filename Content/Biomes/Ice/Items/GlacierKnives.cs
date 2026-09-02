@@ -1,12 +1,12 @@
-using System;
+п»їusing System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Biomes.Ice.Items
-{
+namespace TremorMod.Content.Biomes.Ice.Items;
+
 	public class GlacierKnives : ModItem
 	{
 		public override void SetDefaults()
@@ -27,38 +27,37 @@ namespace TremorMod.Content.Biomes.Ice.Items
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
 			Item.shoot = ModContent.ProjectileType<GlacierKnivesProj>();
-            Item.shootSpeed = 10f;
+        Item.shootSpeed = 10f;
 
-        }
+    }
 
-        public override void SetStaticDefaults()
+    public override void SetStaticDefaults()
 		{
 			//DisplayName.SetDefault("Glacier Knives");
 			//Tooltip.SetDefault("Spreads out glacier knives");
 
 		}
 
-        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    {
+        int ShotAmt = 5; // ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГўГ»Г±ГІГ°ГҐГ«Г®Гў
+        int spread = 15; // ГЊГ ГЄГ±ГЁГ¬Г Г«ГјГ­Г®ГҐ Г®ГІГЄГ«Г®Г­ГҐГ­ГЁГҐ
+        float spreadMult = 0.35f; // ГЉГ®ГЅГґГґГЁГ¶ГЁГҐГ­ГІ Г¬Г­Г®Г¦ГЁГІГҐГ«Гї Г®ГІГЄГ«Г®Г­ГҐГ­ГЁГї
+
+        for (int i = 0; i < ShotAmt; i++)
         {
-            int ShotAmt = 5; // Количество выстрелов
-            int spread = 15; // Максимальное отклонение
-            float spreadMult = 0.35f; // Коэффициент множителя отклонения
+            // ГѓГҐГ­ГҐГ°Г Г¶ГЁГї Г®ГІГЄГ«Г®Г­ГҐГ­ГЁГї Г±ГЄГ®Г°Г®Г±ГІГЁ
+            float vX = velocity.X + Main.rand.NextFloat(-spread, spread) * spreadMult;
+            float vY = velocity.Y + Main.rand.NextFloat(-spread, spread) * spreadMult;
 
-            for (int i = 0; i < ShotAmt; i++)
-            {
-                // Генерация отклонения скорости
-                float vX = velocity.X + Main.rand.NextFloat(-spread, spread) * spreadMult;
-                float vY = velocity.Y + Main.rand.NextFloat(-spread, spread) * spreadMult;
+            // ГЏГ®Г§ГЁГ¶ГЁГї ГЇГ®ГїГўГ«ГҐГ­ГЁГї Г±Г­Г Г°ГїГ¤Г 
+            Vector2 spawnPosition = position + Vector2.Normalize(velocity) * 40f;
 
-                // Позиция появления снаряда
-                Vector2 spawnPosition = position + Vector2.Normalize(velocity) * 40f;
-
-                // Создание нового снаряда
-                Projectile.NewProjectile(source, spawnPosition, new Vector2(vX, vY), ModContent.ProjectileType<GlacierKnivesProj>(), damage, knockback, player.whoAmI);
-            }
-
-            return false; // Предотвращает стандартный выстрел
+            // Г‘Г®Г§Г¤Г Г­ГЁГҐ Г­Г®ГўГ®ГЈГ® Г±Г­Г Г°ГїГ¤Г 
+            Projectile.NewProjectile(source, spawnPosition, new Vector2(vX, vY), ModContent.ProjectileType<GlacierKnivesProj>(), damage, knockback, player.whoAmI);
         }
 
+        return false; // ГЏГ°ГҐГ¤Г®ГІГўГ°Г Г№Г ГҐГІ Г±ГІГ Г­Г¤Г Г°ГІГ­Г»Г© ГўГ»Г±ГІГ°ГҐГ«
     }
+
 }

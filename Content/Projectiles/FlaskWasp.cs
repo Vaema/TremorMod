@@ -1,58 +1,57 @@
-using Microsoft.Xna.Framework;
+п»їusing Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
+namespace TremorMod.Content.Projectiles;
+
+public class FlaskWasp : ModProjectile
 {
-    public class FlaskWasp : ModProjectile
+    public override void SetStaticDefaults()
     {
-        public override void SetStaticDefaults()
-        {
-            Main.projFrames[Projectile.type] = 3; // Устанавливаем количество кадров анимации
-        }
+        Main.projFrames[Projectile.type] = 3; // Г“Г±ГІГ Г­Г ГўГ«ГЁГўГ ГҐГ¬ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГЄГ Г¤Г°Г®Гў Г Г­ГЁГ¬Г Г¶ГЁГЁ
+    }
 
-        public override void SetDefaults()
-        {
-            Projectile.netImportant = true;
-            Projectile.CloneDefaults(388); // Клонируем поведение снаряда ID 388 (Hornet)
-            AIType = 388; // Используем ту же логику AI
-            Projectile.width = 40;
-            Projectile.height = 36;
-            Projectile.friendly = true;
-            Projectile.penetrate = 1;
-            Projectile.timeLeft = 600;
-            Projectile.ignoreWater = true;
-            Projectile.tileCollide = false;
-        }
+    public override void SetDefaults()
+    {
+        Projectile.netImportant = true;
+        Projectile.CloneDefaults(388); // ГЉГ«Г®Г­ГЁГ°ГіГҐГ¬ ГЇГ®ГўГҐГ¤ГҐГ­ГЁГҐ Г±Г­Г Г°ГїГ¤Г  ID 388 (Hornet)
+        AIType = 388; // Г€Г±ГЇГ®Г«ГјГ§ГіГҐГ¬ ГІГі Г¦ГҐ Г«Г®ГЈГЁГЄГі AI
+        Projectile.width = 40;
+        Projectile.height = 36;
+        Projectile.friendly = true;
+        Projectile.penetrate = 1;
+        Projectile.timeLeft = 600;
+        Projectile.ignoreWater = true;
+        Projectile.tileCollide = false;
+    }
 
-        public override Color? GetAlpha(Color lightColor)
-        {
-            return Color.White;
-        }
+    public override Color? GetAlpha(Color lightColor)
+    {
+        return Color.White;
+    }
 
-        public void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-        {
-            target.AddBuff(BuffID.Poisoned, 80); // Накладываем эффект "Poisoned" на 80 тиков
-        }
+    public void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+    {
+        target.AddBuff(BuffID.Poisoned, 80); // ГЌГ ГЄГ«Г Г¤Г»ГўГ ГҐГ¬ ГЅГґГґГҐГЄГІ "Poisoned" Г­Г  80 ГІГЁГЄГ®Гў
+    }
 
-        public override void AI()
-        {
-            Projectile.spriteDirection = Projectile.direction; // Направление спрайта соответствует движению
-            Projectile.rotation = 0f; // Снаряд не вращается
-        }
+    public override void AI()
+    {
+        Projectile.spriteDirection = Projectile.direction; // ГЌГ ГЇГ°Г ГўГ«ГҐГ­ГЁГҐ Г±ГЇГ°Г Г©ГІГ  Г±Г®Г®ГІГўГҐГІГ±ГІГўГіГҐГІ Г¤ГўГЁГ¦ГҐГ­ГЁГѕ
+        Projectile.rotation = 0f; // Г‘Г­Г Г°ГїГ¤ Г­ГҐ ГўГ°Г Г№Г ГҐГІГ±Гї
+    }
 
-        public override bool OnTileCollide(Vector2 oldVelocity)
+    public override bool OnTileCollide(Vector2 oldVelocity)
+    {
+        if (Projectile.velocity.X != oldVelocity.X)
         {
-            if (Projectile.velocity.X != oldVelocity.X)
-            {
-                Projectile.velocity.X = oldVelocity.X; // Сохраняем старую скорость по X
-            }
-            if (Projectile.velocity.Y != oldVelocity.Y)
-            {
-                Projectile.velocity.Y = oldVelocity.Y; // Сохраняем старую скорость по Y
-            }
-            return false; // Снаряд не уничтожается при столкновении с плитой
+            Projectile.velocity.X = oldVelocity.X; // Г‘Г®ГµГ°Г Г­ГїГҐГ¬ Г±ГІГ Г°ГіГѕ Г±ГЄГ®Г°Г®Г±ГІГј ГЇГ® X
         }
+        if (Projectile.velocity.Y != oldVelocity.Y)
+        {
+            Projectile.velocity.Y = oldVelocity.Y; // Г‘Г®ГµГ°Г Г­ГїГҐГ¬ Г±ГІГ Г°ГіГѕ Г±ГЄГ®Г°Г®Г±ГІГј ГЇГ® Y
+        }
+        return false; // Г‘Г­Г Г°ГїГ¤ Г­ГҐ ГіГ­ГЁГ·ГІГ®Г¦Г ГҐГІГ±Гї ГЇГ°ГЁ Г±ГІГ®Г«ГЄГ­Г®ГўГҐГ­ГЁГЁ Г± ГЇГ«ГЁГІГ®Г©
     }
 }

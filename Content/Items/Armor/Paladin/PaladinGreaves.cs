@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.Paladin
-{
+namespace TremorMod.Content.Items.Armor.Paladin;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class PaladinGreaves : ModItem
 	{
@@ -25,7 +25,6 @@ namespace TremorMod.Content.Items.Armor.Paladin
 
 		public override void UpdateEquip(Player player)
 		{
-            player.GetDamage(DamageClass.Melee) += 0.22f;
+        player.GetDamage(DamageClass.Melee) += 0.22f;
 		}
 	}
-}

@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Fungus;
 
-namespace TremorMod.Content.Items.Weapons.Melee
-{
+namespace TremorMod.Content.Items.Weapons.Melee;
+
 	public class FungusBroadsword : ModItem
 	{
 		public override void SetDefaults()
@@ -42,11 +42,10 @@ namespace TremorMod.Content.Items.Weapons.Melee
 
 			Recipe recipe2 = CreateRecipe();
 			recipe2.AddIngredient(ModContent.ItemType<FungusElement>(), 12);
-            recipe2.AddIngredient(ItemID.GlowingMushroom, 9);
+        recipe2.AddIngredient(ItemID.GlowingMushroom, 9);
 			recipe2.AddIngredient(ItemID.PlatinumBroadsword, 1);
 			recipe2.AddTile(16);
 			//recipe2.SetResult(this);
 			recipe2.Register();
-        }
+    }
 	}
-}

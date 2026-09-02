@@ -17,8 +17,8 @@ using TremorMod.Content.NPCs;
 using TremorMod.Utilities;
 using TremorMod;
 
-namespace TremorMod.Content.NPCs.Bosses.PixieQueen
-{
+namespace TremorMod.Content.NPCs.Bosses.PixieQueen;
+
 	[AutoloadBossHead]
 	public class PixieQueen : ModNPC
 	{
@@ -94,13 +94,13 @@ namespace TremorMod.Content.NPCs.Bosses.PixieQueen
 			Music = 12;
 		}
 
-        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float bossLifeScale, float balance)
-        {
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.625f * bossLifeScale);
-            NPC.damage = (int)(NPC.damage * 0.6f);
-        }
+    public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float bossLifeScale, float balance)
+    {
+        NPC.lifeMax = (int)(NPC.lifeMax * 0.625f * bossLifeScale);
+        NPC.damage = (int)(NPC.damage * 0.6f);
+    }
 
-        public override void AI()
+    public override void AI()
 		{
 			NPC.TargetClosest(true);
 			NPC.spriteDirection = NPC.direction;
@@ -495,28 +495,28 @@ namespace TremorMod.Content.NPCs.Bosses.PixieQueen
 						NPC.ai[2] += 1f;
 						flag103 = true;
 					}
-                    if (Collision.CanHit(vector119, 1, 1, Main.player[NPC.target].position, Main.player[NPC.target].width, Main.player[NPC.target].height) && flag103)
+                if (Collision.CanHit(vector119, 1, 1, Main.player[NPC.target].position, Main.player[NPC.target].width, Main.player[NPC.target].height) && flag103)
+                {
+                    SoundEngine.PlaySound(SoundID.NPCHit25, NPC.position);
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
-                        SoundEngine.PlaySound(SoundID.NPCHit25, NPC.position);
-                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                        /*int num1061; Не было обнаружено 
+                        if (Main.rand.NextBool(4))
                         {
-                            /*int num1061; Не было обнаружено 
-                            if (Main.rand.NextBool(4))
-                            {
-                                num1061 = ModContent.NPCType<AquaticAberration>(); //Aquatic entity spawns
-                            }
-                            else
-                            {
-                                num1061 = ModContent.NPCType<Parasea>();
-                            }
-                            int num1062 = NPC.NewNPC(NPC.GetSource_FromAI(), (int)vector119.X, (int)vector119.Y, num1061, 0);
-                            Main.npc[num1062].velocity.X = Main.rand.Next(-200, 201) * 0.01f;
-                            Main.npc[num1062].velocity.Y = Main.rand.Next(-200, 201) * 0.01f;
-                            Main.npc[num1062].localAI[0] = 60f;
-                            Main.npc[num1062].netUpdate = true;*/
+                            num1061 = ModContent.NPCType<AquaticAberration>(); //Aquatic entity spawns
                         }
+                        else
+                        {
+                            num1061 = ModContent.NPCType<Parasea>();
+                        }
+                        int num1062 = NPC.NewNPC(NPC.GetSource_FromAI(), (int)vector119.X, (int)vector119.Y, num1061, 0);
+                        Main.npc[num1062].velocity.X = Main.rand.Next(-200, 201) * 0.01f;
+                        Main.npc[num1062].velocity.Y = Main.rand.Next(-200, 201) * 0.01f;
+                        Main.npc[num1062].localAI[0] = 60f;
+                        Main.npc[num1062].netUpdate = true;*/
                     }
-                    if (num1060 > 400f || !Collision.CanHit(new Vector2(vector119.X, vector119.Y - 30f), 1, 1, Main.player[NPC.target].position, Main.player[NPC.target].width, Main.player[NPC.target].height))
+                }
+                if (num1060 > 400f || !Collision.CanHit(new Vector2(vector119.X, vector119.Y - 30f), 1, 1, Main.player[NPC.target].position, Main.player[NPC.target].width, Main.player[NPC.target].height))
 					{
 						float num1063 = 14f; //changed from 14 not a prob
 						float num1064 = 0.1f; //changed from 0.1 not a prob
@@ -617,41 +617,41 @@ namespace TremorMod.Content.NPCs.Bosses.PixieQueen
 					NPC.ai[1] = 0;
 				}
 			}
-            if (timer >= 1250)
-            {
-                NPC.velocity.Y = 0;
-                NPC.velocity.X = 0;
-                NPC.rotation = 0f;
-                if (Main.rand.Next(70) == 0)
-                {
-                    NPC.NewNPC(Entity.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<PixieQueenGuardian>());
-                }
-            }
-        }
-
-        public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
+        if (timer >= 1250)
         {
-            if (Main.rand.NextBool())
+            NPC.velocity.Y = 0;
+            NPC.velocity.X = 0;
+            NPC.rotation = 0f;
+            if (Main.rand.Next(70) == 0)
             {
-                target.AddBuff(BuffID.Confused, 60, true);
-            }
-
-            if (Main.rand.NextBool())
-            {
-                target.AddBuff(BuffID.Slow, 60, true);
-            }
-
-            if (Main.rand.NextBool(3))
-            {
-                target.AddBuff(BuffID.Cursed, 60, true);
+                NPC.NewNPC(Entity.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<PixieQueenGuardian>());
             }
         }
+    }
 
-        public override void HitEffect(NPC.HitInfo hit)
+    public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
+    {
+        if (Main.rand.NextBool())
+        {
+            target.AddBuff(BuffID.Confused, 60, true);
+        }
+
+        if (Main.rand.NextBool())
+        {
+            target.AddBuff(BuffID.Slow, 60, true);
+        }
+
+        if (Main.rand.NextBool(3))
+        {
+            target.AddBuff(BuffID.Cursed, 60, true);
+        }
+    }
+
+    public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
 				{
@@ -669,11 +669,11 @@ namespace TremorMod.Content.NPCs.Bosses.PixieQueen
 				Dust.NewDust(NPC.position, NPC.width, NPC.height, 57, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				Dust.NewDust(NPC.position, NPC.width, NPC.height, 57, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				Dust.NewDust(NPC.position, NPC.width, NPC.height, 57, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PixieQueenGore1").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PixieQueenGore2").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PixieQueenGore3").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PixieQueenGore4").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PixieQueenGore5").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PixieQueenGore1").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PixieQueenGore2").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PixieQueenGore3").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PixieQueenGore4").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PixieQueenGore5").Type, 1f);
 			}
 		}
 
@@ -734,39 +734,38 @@ namespace TremorMod.Content.NPCs.Bosses.PixieQueen
 			return false;
 		}
 
-        void Shoot()
+    void Shoot()
+    {
+        if (!Shoots && NPC.target < 0) //если не время для не стрельбы, то вырубаем автоматом
+            return;
+        if (--TimeToShoot > 0) //если таймер меньше нуля, то вырубаем автоматом
+            return;
+        TimeToShoot = (int)Helper.DistortFloat(ShootRate, DistortPercent); //устанавливаем частоту выстрела
+        for (int i = 0; i < ((Main.expertMode) ? 4 : 2); i++) //в цикле указываем кол-во перьев при выстреле
         {
-            if (!Shoots && NPC.target < 0) //если не время для не стрельбы, то вырубаем автоматом
-                return;
-            if (--TimeToShoot > 0) //если таймер меньше нуля, то вырубаем автоматом
-                return;
-            TimeToShoot = (int)Helper.DistortFloat(ShootRate, DistortPercent); //устанавливаем частоту выстрела
-            for (int i = 0; i < ((Main.expertMode) ? 4 : 2); i++) //в цикле указываем кол-во перьев при выстреле
-            {
-                Player player = Main.player[NPC.target];
-                Vector2 position1 = player.Center;
-                Vector2 vector2 = new Vector2(player.position.X + 75f * (float)Math.Cos(12), player.position.Y + 1075f * (float)Math.Sin(12));
-                Vector2 Velocity = Helper.VelocityToPoint(vector2, Helper.RandomPointInArea(new Vector2(Main.player[NPC.target].Center.X - 10, Main.player[NPC.target].Center.Y - 10), new Vector2(Main.player[NPC.target].Center.X + 20, Main.player[NPC.target].Center.Y + 20)), ShootSpeed); //здесь устанавливаем позиции (здесь от перса в плеера)
-                int Proj = Projectile.NewProjectile(NPC.GetSource_FromThis(), vector2.X, vector2.Y, Velocity.X, Velocity.Y, 671, (int)Helper.DistortFloat(ShootDamage, DistortPercent), Helper.DistortFloat(ShootKnockback, DistortPercent)); //подтверждаем все выше действие: от перса к мобу, от моба к персу (второе выстрел)
-                Main.projectile[Proj].friendly = false;
-                Main.projectile[Proj].damage = NPC.damage;
-            }
+            Player player = Main.player[NPC.target];
+            Vector2 position1 = player.Center;
+            Vector2 vector2 = new Vector2(player.position.X + 75f * (float)Math.Cos(12), player.position.Y + 1075f * (float)Math.Sin(12));
+            Vector2 Velocity = Helper.VelocityToPoint(vector2, Helper.RandomPointInArea(new Vector2(Main.player[NPC.target].Center.X - 10, Main.player[NPC.target].Center.Y - 10), new Vector2(Main.player[NPC.target].Center.X + 20, Main.player[NPC.target].Center.Y + 20)), ShootSpeed); //здесь устанавливаем позиции (здесь от перса в плеера)
+            int Proj = Projectile.NewProjectile(NPC.GetSource_FromThis(), vector2.X, vector2.Y, Velocity.X, Velocity.Y, 671, (int)Helper.DistortFloat(ShootDamage, DistortPercent), Helper.DistortFloat(ShootKnockback, DistortPercent)); //подтверждаем все выше действие: от перса к мобу, от моба к персу (второе выстрел)
+            Main.projectile[Proj].friendly = false;
+            Main.projectile[Proj].damage = NPC.damage;
         }
-
-        public override void OnKill()
-        {
-            TremorSpawnEnemys.downedPixieQueen = true;
-        }
-
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PixieQueenMask>(), 7));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EtherealFeather>(), 6));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PixiePulse>(), 6));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<HeartMagnet>(), 6));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PixieQueenTrophy>(), 10));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ChaosBar>(), 1, 25, 30));
-            npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<PixieQueenBag>(), 1));
-        }      
     }
+
+    public override void OnKill()
+    {
+        TremorSpawnEnemys.downedPixieQueen = true;
+    }
+
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PixieQueenMask>(), 7));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EtherealFeather>(), 6));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PixiePulse>(), 6));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<HeartMagnet>(), 6));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PixieQueenTrophy>(), 10));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ChaosBar>(), 1, 25, 30));
+        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<PixieQueenBag>(), 1));
+    }      
 }

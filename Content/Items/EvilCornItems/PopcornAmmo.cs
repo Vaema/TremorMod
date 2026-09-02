@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Items.EvilCornItems
-{
+namespace TremorMod.Content.Items.EvilCornItems;
+
 	public class PopcornAmmo : ModItem
 	{
 		public override void SetDefaults()
@@ -36,4 +36,3 @@ namespace TremorMod.Content.Items.EvilCornItems
 			recipe.Register();
 		}
 	}
-}

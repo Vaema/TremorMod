@@ -1,7 +1,7 @@
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items
-{
+namespace TremorMod.Content.Items;
+
 	public class SuspiciousLookingPresent : ModItem
 	{
 		public override void SetDefaults()
@@ -22,4 +22,3 @@ namespace TremorMod.Content.Items
 		}
 
 	}
-}

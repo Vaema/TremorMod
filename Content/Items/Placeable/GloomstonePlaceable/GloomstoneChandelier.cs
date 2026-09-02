@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles.GloomstoneTiles;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Placeable.GloomstonePlaceable
-{
+namespace TremorMod.Content.Items.Placeable.GloomstonePlaceable;
+
 	public class GloomstoneChandelier : ModItem
 	{
 		public override void SetDefaults()
@@ -41,4 +41,3 @@ namespace TremorMod.Content.Items.Placeable.GloomstonePlaceable
 			recipe.Register();
 		}
 	}
-}

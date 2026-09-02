@@ -9,18 +9,18 @@ using Terraria.ModLoader;
 using Terraria.DataStructures;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Projectiles.Minions
-{
+namespace TremorMod.Content.Projectiles.Minions;
+
 	public class PaladinHammerPro : ModProjectile
 	{
 		const float RotationSpeed = 5f;
 		const float Distanse = 48;
-        const int HitCooldown = 12;  // 10 - 12 или 12 - 15
+    const int HitCooldown = 12;  // 10 - 12 или 12 - 15
 
-        float Rotation;
-        int lastHitTime;
+    float Rotation;
+    int lastHitTime;
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Projectile.width = 18;
 			Projectile.height = 34;
@@ -48,27 +48,27 @@ namespace TremorMod.Content.Projectiles.Minions
 			Projectile.Center = Helper.PolarPos(Main.LocalPlayer.Center, Distanse, MathHelper.ToRadians(Rotation));
 			Projectile.rotation = Helper.rotateBetween2Points(Main.LocalPlayer.Center, Projectile.Center) - MathHelper.ToRadians(90);
 
-            if (lastHitTime > 0)
-            {
-                lastHitTime--;
-            }
+        if (lastHitTime > 0)
+        {
+            lastHitTime--;
+        }
 		}
 
-        public override bool? CanHitNPC(NPC target)
+    public override bool? CanHitNPC(NPC target)
 		{
 
-            if (lastHitTime <= 0 && !target.friendly)
-            {
-                lastHitTime = HitCooldown;
-                return true;
-            }
-            return false;
+        if (lastHitTime <= 0 && !target.friendly)
+        {
+            lastHitTime = HitCooldown;
+            return true;
         }
+        return false;
+    }
 
 		public override bool PreDraw(ref Color lightColor)
 		{
-            SpriteBatch spriteBatch = Main.spriteBatch;
-            Vector2 drawOrigin = new Vector2(TextureAssets.Projectile[Projectile.type].Value.Width * 0.5f, Projectile.height * 0.5f);
+        SpriteBatch spriteBatch = Main.spriteBatch;
+        Vector2 drawOrigin = new Vector2(TextureAssets.Projectile[Projectile.type].Value.Width * 0.5f, Projectile.height * 0.5f);
 			for (int k = 0; k < Projectile.oldPos.Length; k++)
 			{
 				Vector2 drawPos = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
@@ -78,4 +78,3 @@ namespace TremorMod.Content.Projectiles.Minions
 			return true;
 		}
 	}
-}

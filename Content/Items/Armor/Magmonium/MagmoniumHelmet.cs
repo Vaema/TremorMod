@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using TremorMod.Content.Items.Materials.OreAndBar;
 
-namespace TremorMod.Content.Items.Armor.Magmonium
-{
+namespace TremorMod.Content.Items.Armor.Magmonium;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class MagmoniumHelmet : ModItem
 	{
@@ -22,10 +22,10 @@ namespace TremorMod.Content.Items.Armor.Magmonium
 
 		public override void SetStaticDefaults()
 		{
-            /*DisplayName.SetDefault("Magmonium Helmet");
+        /*DisplayName.SetDefault("Magmonium Helmet");
 			Tooltip.SetDefault("Inflicts fire damage on attack");*/
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Provides immunity to lava and fire");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Provides immunity to lava and fire");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -39,8 +39,8 @@ namespace TremorMod.Content.Items.Armor.Magmonium
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.buffImmune[BuffID.OnFire] = true;
+        player.setBonus = SetBonusText.Value;
+        player.buffImmune[BuffID.OnFire] = true;
 			player.buffImmune[BuffID.Burning] = true;
 			player.lavaImmune = true;
 		}
@@ -52,11 +52,10 @@ namespace TremorMod.Content.Items.Armor.Magmonium
 
 		public override void AddRecipes()
 		{
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<MagmoniumBar>(), 15);
-            //recipe.SetResult(this);
-            recipe.AddTile(134);
-            recipe.Register();
-        }
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ModContent.ItemType<MagmoniumBar>(), 15);
+        //recipe.SetResult(this);
+        recipe.AddTile(134);
+        recipe.Register();
+    }
 	}
-}

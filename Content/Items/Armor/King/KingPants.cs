@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.King
-{
+namespace TremorMod.Content.Items.Armor.King;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class KingPants : ModItem
 	{
@@ -21,4 +21,3 @@ namespace TremorMod.Content.Items.Armor.King
 			//Tooltip.SetDefault("");
 		}
 	}
-}

@@ -1,12 +1,12 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Accessories.Sparks
-{
+namespace TremorMod.Content.Items.Accessories.Sparks;
+
 	public class SummonerFocus : ModItem
 	{
 
@@ -32,8 +32,8 @@ namespace TremorMod.Content.Items.Accessories.Sparks
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
 			player.maxMinions += 1;
-            player.GetDamage(DamageClass.Summon) += 0.08f;
-        }
+        player.GetDamage(DamageClass.Summon) += 0.08f;
+    }
 
 		public override void AddRecipes()
 		{
@@ -46,4 +46,3 @@ namespace TremorMod.Content.Items.Accessories.Sparks
 			recipe.Register();
 		}
 	}
-}

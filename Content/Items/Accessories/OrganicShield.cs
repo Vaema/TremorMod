@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	[AutoloadEquip(EquipType.Shield)]
 	public class OrganicShield : ModItem
 	{
@@ -42,11 +42,10 @@ namespace TremorMod.Content.Items.Accessories
 			recipe.Register();
 
 			Recipe recipe1 = CreateRecipe();
-            recipe1.AddIngredient(ModContent.ItemType<MeatShield>(), 1);
-            recipe1.AddIngredient(ModContent.ItemType<PatronoftheMind>(), 1);
-            //recipe.SetResult(this);
-            recipe1.AddTile(114);
-            recipe1.Register();
-        }
+        recipe1.AddIngredient(ModContent.ItemType<MeatShield>(), 1);
+        recipe1.AddIngredient(ModContent.ItemType<PatronoftheMind>(), 1);
+        //recipe.SetResult(this);
+        recipe1.AddTile(114);
+        recipe1.Register();
+    }
 	}
-}

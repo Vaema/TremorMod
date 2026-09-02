@@ -1,9 +1,9 @@
-using Terraria;
+п»їusing Terraria;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 
-namespace TremorMod.Content.Items.Armor.Nano
-{
+namespace TremorMod.Content.Items.Armor.Nano;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class NanoBreastplate : ModItem
 	{
@@ -26,21 +26,20 @@ namespace TremorMod.Content.Items.Armor.Nano
 
 		public override void UpdateEquip(Player player)
 		{
-			player.GetDamage(DamageClass.Melee) += 0.08f;   // +8% к ближнему урону
-			player.GetDamage(DamageClass.Magic) += 0.08f;   // +8% к магическому урону
-			player.GetDamage(DamageClass.Ranged) += 0.08f;  // +8% к дальнему урону
-			player.GetDamage(DamageClass.Throwing) += 0.08f; // +8% к урону бросков
-			player.GetDamage(DamageClass.Summon) += 0.08f;  // +8% к урону прислужников
+			player.GetDamage(DamageClass.Melee) += 0.08f;   // +8% ГЄ ГЎГ«ГЁГ¦Г­ГҐГ¬Гі ГіГ°Г®Г­Гі
+			player.GetDamage(DamageClass.Magic) += 0.08f;   // +8% ГЄ Г¬Г ГЈГЁГ·ГҐГ±ГЄГ®Г¬Гі ГіГ°Г®Г­Гі
+			player.GetDamage(DamageClass.Ranged) += 0.08f;  // +8% ГЄ Г¤Г Г«ГјГ­ГҐГ¬Гі ГіГ°Г®Г­Гі
+			player.GetDamage(DamageClass.Throwing) += 0.08f; // +8% ГЄ ГіГ°Г®Г­Гі ГЎГ°Г®Г±ГЄГ®Гў
+			player.GetDamage(DamageClass.Summon) += 0.08f;  // +8% ГЄ ГіГ°Г®Г­Гі ГЇГ°ГЁГ±Г«ГіГ¦Г­ГЁГЄГ®Гў
 			player.GetAttackSpeed(DamageClass.Melee) += 0.10f;
 		}
 
 		public override void AddRecipes()
 		{
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<NanoBar>(), 20);
-            //recipe.SetResult(this);
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ModContent.ItemType<NanoBar>(), 20);
+        //recipe.SetResult(this);
 			recipe.AddTile(134);
-            recipe.Register();
-        }
+        recipe.Register();
+    }
 	}
-}

@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod;
@@ -9,15 +9,15 @@ using TremorMod.Content.Items;
 using TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles;
 using TremorMod.Content.NPCs.Bosses.NovaPillar.Items;
 
-namespace TremorMod.Content.Items.Weapons.Alchemical
-{
+namespace TremorMod.Content.Items.Weapons.Alchemical;
+
 	public class NovaFlask : ModItem
-    {
+{
 
 		public override void SetDefaults()
 		{
-            Item.DamageType = TremorMod.alchemicalDamage ?? DamageClass.Generic;
-            Item.damage = 46;
+        Item.DamageType = TremorMod.alchemicalDamage ?? DamageClass.Generic;
+        Item.damage = 46;
 			Item.width = 18;
 			Item.noUseGraphic = true;
 			Item.maxStack = 999;
@@ -84,4 +84,3 @@ namespace TremorMod.Content.Items.Weapons.Alchemical
 			recipe.Register();
 		}
 	}
-}

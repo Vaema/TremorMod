@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -7,10 +7,10 @@ using TremorMod.Utilities;
 using TremorMod;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class Mini_Cyber : ModProjectile
-    {
+{
 		const int ShootRate = 30;
 		const float ShootDistance = 450f;
 		const float ShootSpeed = 20f;
@@ -87,12 +87,11 @@ namespace TremorMod.Content.Projectiles
 		{
 			Shoot();
 			base.AI();
-            Player player = Main.player[Projectile.owner];
-            if (!player.active || player.dead || !player.HasBuff(ModContent.BuffType<CyberBuff>()))
-            {
-                Projectile.Kill();
-                return;
-            }
+        Player player = Main.player[Projectile.owner];
+        if (!player.active || player.dead || !player.HasBuff(ModContent.BuffType<CyberBuff>()))
+        {
+            Projectile.Kill();
+            return;
         }
+    }
 	}
-}

@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Materials.OreAndBar;
 
-namespace TremorMod.Content.Items.Armor.Sandstone
-{
+namespace TremorMod.Content.Items.Armor.Sandstone;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class SandStoneGreaves : ModItem
 	{
@@ -32,13 +32,12 @@ namespace TremorMod.Content.Items.Armor.Sandstone
 
 		public override void AddRecipes()
 		{
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<SandstoneBar>(), 10);
-            recipe.AddIngredient(ModContent.ItemType<AntlionShell>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<PetrifiedSpike>(), 4);
-            //recipe.SetResult(this);
-            recipe.AddTile(16);
-            recipe.Register();
-        }
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ModContent.ItemType<SandstoneBar>(), 10);
+        recipe.AddIngredient(ModContent.ItemType<AntlionShell>(), 1);
+        recipe.AddIngredient(ModContent.ItemType<PetrifiedSpike>(), 4);
+        //recipe.SetResult(this);
+        recipe.AddTile(16);
+        recipe.Register();
+    }
 	}
-}

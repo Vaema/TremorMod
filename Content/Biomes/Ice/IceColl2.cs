@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework.Graphics;
+п»їusing Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.Audio;
@@ -7,8 +7,8 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using TremorMod.Content.Dusts;
 
-namespace TremorMod.Content.Biomes.Ice
-{
+namespace TremorMod.Content.Biomes.Ice;
+
 	public class IceColl2 : ModTile
 	{
 		public override void SetStaticDefaults()
@@ -33,21 +33,20 @@ namespace TremorMod.Content.Biomes.Ice
 			}
 		}
 
-        public override void RandomUpdate(int i, int j)
+    public override void RandomUpdate(int i, int j)
+    {
+        var tile = Framing.GetTileSafely(i, j); // ГЃГҐГ§Г®ГЇГ Г±Г­Г»Г© Г¤Г®Г±ГІГіГЇ ГЄ Tile.
+        if (tile.TileFrameX == 0)
         {
-            var tile = Framing.GetTileSafely(i, j); // Безопасный доступ к Tile.
-            if (tile.TileFrameX == 0)
-            {
-                tile.TileFrameX += 18;
-            }
-            else if (tile.TileFrameX == 18)
-            {
-                tile.TileFrameX += 18;
-            }
+            tile.TileFrameX += 18;
         }
-        //public override void RightClick(int i, int j)
-        //{
-        //	base.RightClick(i, j);
-        //}
+        else if (tile.TileFrameX == 18)
+        {
+            tile.TileFrameX += 18;
+        }
     }
+    //public override void RightClick(int i, int j)
+    //{
+    //	base.RightClick(i, j);
+    //}
 }

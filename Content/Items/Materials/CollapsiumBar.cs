@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+п»їusing System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -6,8 +6,8 @@ using Terraria.ModLoader;
 using Terraria.DataStructures;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Materials
-{
+namespace TremorMod.Content.Items.Materials;
+
 	public class CollapsiumBar : ModItem
 	{
 		public override void SetDefaults()
@@ -26,26 +26,26 @@ namespace TremorMod.Content.Items.Materials
 			Item.consumable = true;
 		}
 
-        /*public override void SetStaticDefaults()
+    /*public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Collapsium Bar");
 			Tooltip.SetDefault("");
 		}*/
 
-        public override void ModifyTooltips(List<TooltipLine> tooltips)
+    public override void ModifyTooltips(List<TooltipLine> tooltips)
+    {
+        foreach (var tooltip in tooltips)
         {
-            foreach (var tooltip in tooltips)
+            // ГЊГҐГ­ГїГҐГ¬ Г¶ГўГҐГІ ГІГҐГЄГ±ГІГ  Г¤Г«Гї Г­Г Г§ГўГ Г­ГЁГї ГЇГ°ГҐГ¤Г¬ГҐГІГ 
+            if (tooltip.Mod == "Terraria" && tooltip.Name == "ItemName")
             {
-                // Меняем цвет текста для названия предмета
-                if (tooltip.Mod == "Terraria" && tooltip.Name == "ItemName")
-                {
-                    tooltip.OverrideColor = new Color(238, 194, 73); // Цвет золота
-                }
+                tooltip.OverrideColor = new Color(238, 194, 73); // Г–ГўГҐГІ Г§Г®Г«Г®ГІГ 
             }
         }
+    }
 
 
-        public override void AddRecipes()
+    public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<CollapsiumOre>(), 6);
@@ -54,4 +54,3 @@ namespace TremorMod.Content.Items.Materials
 			recipe.Register();
 		}
 	}
-}

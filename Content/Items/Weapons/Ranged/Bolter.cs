@@ -1,10 +1,10 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Weapons.Ranged
-{
+namespace TremorMod.Content.Items.Weapons.Ranged;
+
 	public class Bolter : ModItem
 	{
 		public override void SetDefaults()
@@ -33,20 +33,19 @@ namespace TremorMod.Content.Items.Weapons.Ranged
 			//"Has 50% chance to shoot a Hellfire arrow");
 		}
 
-        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    {
+        Vector2 muzzleOffset = Vector2.Normalize(velocity) * 50f;
+        position += muzzleOffset;
+        if (Main.rand.NextBool(4))
         {
-            Vector2 muzzleOffset = Vector2.Normalize(velocity) * 50f;
-            position += muzzleOffset;
-            if (Main.rand.NextBool(4))
-            {
-                Projectile.NewProjectile(source, position, velocity, ProjectileID.HellfireArrow, damage, knockback, player.whoAmI);
-            }
-            else
-            {
-                Projectile.NewProjectile(source, position, velocity, ProjectileID.WoodenArrowFriendly, damage, knockback, player.whoAmI);
-            }
-
-            return false; 
+            Projectile.NewProjectile(source, position, velocity, ProjectileID.HellfireArrow, damage, knockback, player.whoAmI);
         }
+        else
+        {
+            Projectile.NewProjectile(source, position, velocity, ProjectileID.WoodenArrowFriendly, damage, knockback, player.whoAmI);
+        }
+
+        return false; 
     }
 }

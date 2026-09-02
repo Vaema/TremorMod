@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items.Fungus
-{
+namespace TremorMod.Content.Items.Fungus;
+
 	public class GoldenGlowingRing : ModItem
 	{
 		public override void SetDefaults()
@@ -29,4 +29,3 @@ namespace TremorMod.Content.Items.Fungus
 			player.AddBuff(ModContent.BuffType<GoldenGlowingRingBuff>(), 2);
 		}
 	}
-}

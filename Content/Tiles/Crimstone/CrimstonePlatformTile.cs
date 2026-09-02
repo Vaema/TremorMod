@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace TremorMod.Content.Tiles.Crimstone
-{
+namespace TremorMod.Content.Tiles.Crimstone;
+
 	public class CrimstonePlatformTile : ModTile
 	{
 		public override void SetStaticDefaults()
@@ -17,7 +17,7 @@ namespace TremorMod.Content.Tiles.Crimstone
 			Main.tileNoAttach[Type] = true;
 			Main.tileTable[Type] = true;
 			Main.tileLavaDeath[Type] = true;
-			TileObjectData.newTile.CoordinateHeights = new[]{ 16 };
+			TileObjectData.newTile.CoordinateHeights = [16];
 			TileObjectData.newTile.CoordinateWidth = 16;
 			TileObjectData.newTile.CoordinatePadding = 2;
 			TileObjectData.newTile.StyleHorizontal = true;
@@ -28,7 +28,7 @@ namespace TremorMod.Content.Tiles.Crimstone
 			TileObjectData.addTile(19);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
 			AddMapEntry(new Color(111, 22, 22), CreateMapEntryName()); 
-			AdjTiles = new int[]{ TileID.Platforms };
+			AdjTiles = [TileID.Platforms];
 			TileID.Sets.Platforms[Type] = true;
 		}
 
@@ -42,4 +42,3 @@ namespace TremorMod.Content.Tiles.Crimstone
 			num = fail ? 1 : 3;
 		}
 	}
-}

@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.CraftingStations
-{
+namespace TremorMod.Content.Items.CraftingStations;
+
 	public class FleshWorkstation : ModItem
 	{
 		public override void SetDefaults()
@@ -39,4 +39,3 @@ namespace TremorMod.Content.Items.CraftingStations
 			recipe.Register();
 		}
 	}
-}

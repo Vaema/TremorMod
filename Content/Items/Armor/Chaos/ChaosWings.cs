@@ -1,12 +1,12 @@
-using System.Linq;
+﻿using System.Linq;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 using TremorMod.Content.Items.Materials.OreAndBar;
 
-namespace TremorMod.Content.Items.Armor.Chaos
-{
+namespace TremorMod.Content.Items.Armor.Chaos;
+
 	[AutoloadEquip(EquipType.Wings)]
 	public class ChaosWings : ModItem
 	{
@@ -22,10 +22,10 @@ namespace TremorMod.Content.Items.Armor.Chaos
 
 		public override void SetStaticDefaults()
 		{
-            //DisplayName.SetDefault("Chaos Wings");
-            //Tooltip.SetDefault("Allows flight and slow fall");
-            ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(127, 9f, 1f);
-        }
+        //DisplayName.SetDefault("Chaos Wings");
+        //Tooltip.SetDefault("Allows flight and slow fall");
+        ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(127, 9f, 1f);
+    }
 
 		//these wings use the same values as the solar wings
 
@@ -61,4 +61,3 @@ namespace TremorMod.Content.Items.Armor.Chaos
 			recipe.Register();
 		}
 	}
-}

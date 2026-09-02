@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Fungus
-{
+namespace TremorMod.Content.Items.Fungus;
+
 	public class FungusElement : ModItem
 	{
 
@@ -22,4 +22,3 @@ namespace TremorMod.Content.Items.Fungus
 		}*/
 
 	}
-}

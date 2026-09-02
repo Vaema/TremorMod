@@ -1,12 +1,12 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class ShadowCloudPro : ModProjectile
-    {
+{
 		public override void SetDefaults()
 		{
 			Projectile.width = 48;
@@ -41,4 +41,3 @@ namespace TremorMod.Content.Projectiles
 		}
 
 	}
-}

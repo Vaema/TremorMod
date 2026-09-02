@@ -1,10 +1,10 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Weapons.Ranged
-{
+namespace TremorMod.Content.Items.Weapons.Ranged;
+
 	public class AdamantiteRifle : ModItem
 	{
 		public override void SetDefaults()
@@ -12,7 +12,7 @@ namespace TremorMod.Content.Items.Weapons.Ranged
 
 			Item.damage = 40;
 			Item.DamageType = DamageClass.Ranged;
-            Item.width = 40;
+        Item.width = 40;
 			Item.height = 20;
 			Item.useTime = 15;
 			Item.useAnimation = 15;
@@ -41,11 +41,10 @@ namespace TremorMod.Content.Items.Weapons.Ranged
 
 		public override void AddRecipes()
 		{
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.AdamantiteBar, 15);
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ItemID.AdamantiteBar, 15);
 			//recipe.SetResult(this);
 			recipe.AddTile(134);
-            recipe.Register();
-        }
+        recipe.Register();
+    }
 	}
-}

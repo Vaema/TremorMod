@@ -1,12 +1,12 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class EternalAgonyPro : ModProjectile
 	{
 		public override void SetDefaults()
@@ -35,7 +35,7 @@ namespace TremorMod.Content.Projectiles
 			}
 		}
 
-        /*public override void OnHitPvp(Player target, int damage, bool crit) // tModPorter Note: Removed. Use OnHitPlayer and check info.PvP 
+    /*public override void OnHitPvp(Player target, int damage, bool crit) // tModPorter Note: Removed. Use OnHitPlayer and check info.PvP 
 		{
 			if (Main.rand.NextBool(3))
 			{
@@ -43,9 +43,9 @@ namespace TremorMod.Content.Projectiles
 			}
 		}*/
 
-        public override bool PreDraw(ref Color lightColor)
-        {
-            Texture2D texture = ModContent.Request<Texture2D>("TremorMod/Content/Projectiles/EternalAgony_Chain").Value;
+    public override bool PreDraw(ref Color lightColor)
+    {
+        Texture2D texture = ModContent.Request<Texture2D>("TremorMod/Content/Projectiles/EternalAgony_Chain").Value;
 
 			Vector2 position = Projectile.Center;
 			Vector2 mountedCenter = Main.player[Projectile.owner].MountedCenter;
@@ -80,4 +80,3 @@ namespace TremorMod.Content.Projectiles
 			return true;
 		}
 	}
-}

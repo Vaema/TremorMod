@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -6,14 +6,14 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Armor.Bone
-{
+namespace TremorMod.Content.Items.Armor.Bone;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class BoneHelmet : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 
 			Item.defense = 5;
@@ -27,8 +27,8 @@ namespace TremorMod.Content.Items.Armor.Bone
 		{
 			// DisplayName.SetDefault("Bone Helmet");
 			// Tooltip.SetDefault("25% increased throwing velocity");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases defense by 6");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases defense by 6");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -42,8 +42,8 @@ namespace TremorMod.Content.Items.Armor.Bone
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Increases defense by 6";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Increases defense by 6";
 			player.boneArmor = true;
 			player.statDefense += 6;
 
@@ -74,4 +74,3 @@ namespace TremorMod.Content.Items.Armor.Bone
 			recipe.Register();
 		}
 	}
-}

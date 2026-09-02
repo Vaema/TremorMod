@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+ï»¿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 
-namespace TremorMod.Content.Tiles
-{
+namespace TremorMod.Content.Tiles;
+
 	public class HardCometiteOreTile : ModTile
 	{
 		public override void SetStaticDefaults()
@@ -15,8 +15,8 @@ namespace TremorMod.Content.Tiles
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = true;
 			DustType = 27;
-            HitSound = SoundID.Tink;
-            AddMapEntry(new Color(255, 20, 147), CreateMapEntryName());
+        HitSound = SoundID.Tink;
+        AddMapEntry(new Color(255, 20, 147), CreateMapEntryName());
 			MineResist = 12f;
 			MinPick = 225;
 		}
@@ -33,15 +33,14 @@ namespace TremorMod.Content.Tiles
 			b = 0.7f;
 		}
 
-        public override void NearbyEffects(int i, int j, bool closer)
+    public override void NearbyEffects(int i, int j, bool closer)
+    {
+        if (closer)
         {
-            if (closer)
-            {
-                Player player = Main.player[Main.myPlayer];
-                int style = Main.tile[i, j].TileFrameX / 100; // Èñïîëüçóåì TileFrameX âìåñòî frameX
-                //string type;
-                player.AddBuff(44, 60, true);
-            }
+            Player player = Main.player[Main.myPlayer];
+            int style = Main.tile[i, j].TileFrameX / 100; // ÃˆÃ±Ã¯Ã®Ã«Ã¼Ã§Ã³Ã¥Ã¬ TileFrameX Ã¢Ã¬Ã¥Ã±Ã²Ã® frameX
+            //string type;
+            player.AddBuff(44, 60, true);
         }
     }
 }

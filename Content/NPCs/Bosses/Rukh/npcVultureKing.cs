@@ -17,8 +17,8 @@ using TremorMod.Content.Items.Bag;
 using TremorMod.Content.Projectiles;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.NPCs.Bosses.Rukh
-{
+namespace TremorMod.Content.NPCs.Bosses.Rukh;
+
 	[AutoloadBossHead]
 	public class npcVultureKing : ModNPC
 	{
@@ -92,13 +92,13 @@ namespace TremorMod.Content.NPCs.Bosses.Rukh
 			NPC.noTileCollide = true;
 		}
 
-        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float bossLifeScale, float balance)
-        {
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.625f * bossLifeScale);
-            NPC.damage = (int)(NPC.damage * 0.6f);
-        }
+    public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float bossLifeScale, float balance)
+    {
+        NPC.lifeMax = (int)(NPC.lifeMax * 0.625f * bossLifeScale);
+        NPC.damage = (int)(NPC.damage * 0.6f);
+    }
 
-        public override void AI()
+    public override void AI()
 		{
 			PlayAnimation(); // Проигрывание анимации
 			if (CheckRunConditions())
@@ -215,31 +215,30 @@ namespace TremorMod.Content.NPCs.Bosses.Rukh
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life <= 0)
+        if (NPC.life <= 0)
 			{
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TRGore1").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TRGore2").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TRGore3").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TRGore2").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TRGore1").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TRGore2").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TRGore3").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TRGore2").Type, 1f);
 			}
 		}
 
-        public override void OnKill()
-        {
-            TremorSpawnEnemys.downedRukh = true;
-        }
+    public override void OnKill()
+    {
+        TremorSpawnEnemys.downedRukh = true;
+    }
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<VultureKingMask>(), 7));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<VultureFeather>(), 4));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CactusBow>(), 3));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SandKnife>(), 3));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SandstoneBar>(), 1, 10, 18));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<VultureKingTrophy>(), 10));
-            npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<VultureKingBag>(), 1));
-        }
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<VultureKingMask>(), 7));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<VultureFeather>(), 4));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CactusBow>(), 3));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SandKnife>(), 3));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SandstoneBar>(), 1, 10, 18));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<VultureKingTrophy>(), 10));
+        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<VultureKingBag>(), 1));
     }
 }

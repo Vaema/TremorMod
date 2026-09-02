@@ -1,19 +1,19 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Tiles;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Items.Weapons.Magic
-{
+namespace TremorMod.Content.Items.Weapons.Magic;
+
 	public class DeadFlower : ModItem
 	{
 		public override void SetDefaults()
 		{
 			Item.damage = 12;
 			Item.DamageType = DamageClass.Magic;
-            Item.mana = 4;
+        Item.mana = 4;
 			Item.width = 40;
 			Item.height = 40;
 			Item.useTime = 25;
@@ -47,4 +47,3 @@ namespace TremorMod.Content.Items.Weapons.Magic
 			recipe.Register();
 		}
 	}
-}

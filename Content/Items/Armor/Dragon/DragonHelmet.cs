@@ -1,17 +1,17 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Armor.Dragon
-{
+namespace TremorMod.Content.Items.Armor.Dragon;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class DragonHelmet : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 32;
 			Item.height = 22;
@@ -22,9 +22,9 @@ namespace TremorMod.Content.Items.Armor.Dragon
 
 		public override void SetStaticDefaults()
 		{
-            //DisplayName.SetDefault("Dragon Helmet");
-            //Tooltip.SetDefault("Increases arrow speed and damage");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Allows you to detect enemies and increases ranged critical strike chance by 25");
+        //DisplayName.SetDefault("Dragon Helmet");
+        //Tooltip.SetDefault("Increases arrow speed and damage");
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Allows you to detect enemies and increases ranged critical strike chance by 25");
 		}
 
 		public override void UpdateEquip(Player player)
@@ -39,9 +39,9 @@ namespace TremorMod.Content.Items.Armor.Dragon
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;        
+        player.setBonus = SetBonusText.Value;        
 			player.GetCritChance(DamageClass.Ranged) += 25;
-            player.detectCreature = true;
+        player.detectCreature = true;
 		}
 
 		public override void ArmorSetShadows(Player player)
@@ -59,4 +59,3 @@ namespace TremorMod.Content.Items.Armor.Dragon
 			recipe.Register();
 		}
 	}
-}

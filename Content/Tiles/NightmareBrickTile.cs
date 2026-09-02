@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Dusts;
 
-namespace TremorMod.Content.Tiles
-{
+namespace TremorMod.Content.Tiles;
+
 	public class NightmareBrickTile : ModTile
 	{
 		public override void SetStaticDefaults()
@@ -15,9 +15,9 @@ namespace TremorMod.Content.Tiles
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = true;
 			DustType = ModContent.DustType<NightmareFlame>();
-            HitSound = SoundID.Tink;
-            AddMapEntry(new Color(90, 0, 157), CreateMapEntryName());
-        }
+        HitSound = SoundID.Tink;
+        AddMapEntry(new Color(90, 0, 157), CreateMapEntryName());
+    }
 
 		public override void NumDust(int i, int j, bool fail, ref int num)
 		{
@@ -31,4 +31,3 @@ namespace TremorMod.Content.Tiles
 			b = 0.7f;
 		}
 	}
-}

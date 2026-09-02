@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,50 +24,49 @@ using TremorMod.Content.Biomes.Ice.Items.Furniture;
 using TremorMod.Utilities;
 using TremorMod.Content.Event;
 
-namespace TremorMod
+namespace TremorMod;
+
+public class TremorMod : Mod
 {
-    public class TremorMod : Mod
+
+    public static DamageClass alchemicalDamage;
+
+    public static Texture2D Ice3;
+    public static bool HasGeneratedLunarRootTile;
+    public static bool HasGeneratedCometiteOre;
+    public static TremorMod Instance;
+    public static bool DungeonBlock;
+    public static bool IceChest;
+
+
+
+    public override void Load()
     {
-
-        public static DamageClass alchemicalDamage;
-
-        public static Texture2D Ice3;
-        public static bool HasGeneratedLunarRootTile;
-        public static bool HasGeneratedCometiteOre;
-        public static TremorMod Instance;
-        public static bool DungeonBlock;
-        public static bool IceChest;
-
-
-
-        public override void Load()
+        if (!Main.dedServ)
         {
-            if (!Main.dedServ)
-            {
-                ModContent.GetInstance<CyberWrathUISystem>().Load();
-            }
-            ModContent.TileType<LunarRootTile>();
-            ModContent.TileType<CometiteOreTile>();
-            ModContent.TileType<HardCometiteOreTile>();
-            ModContent.TileType<DungeonBlock>();
-            ModContent.TileType<IceChest>();
-
-            // Инициализация флагов
-            HasGeneratedLunarRootTile = false;
-            HasGeneratedCometiteOre = false;
-            alchemicalDamage = ModContent.GetInstance<AlchemicalClass>();
+            ModContent.GetInstance<CyberWrathUISystem>().Load();
         }
+        ModContent.TileType<LunarRootTile>();
+        ModContent.TileType<CometiteOreTile>();
+        ModContent.TileType<HardCometiteOreTile>();
+        ModContent.TileType<DungeonBlock>();
+        ModContent.TileType<IceChest>();
+
+        // Г€Г­ГЁГ¶ГЁГ Г«ГЁГ§Г Г¶ГЁГї ГґГ«Г ГЈГ®Гў
+        HasGeneratedLunarRootTile = false;
+        HasGeneratedCometiteOre = false;
+        alchemicalDamage = ModContent.GetInstance<AlchemicalClass>();
+    }
 
 
-        public TremorMod()
-        {
-            Instance = this; // Присваиваем текущий экземпляр мода
-        }
+    public TremorMod()
+    {
+        Instance = this; // ГЏГ°ГЁГ±ГўГ ГЁГўГ ГҐГ¬ ГІГҐГЄГіГ№ГЁГ© ГЅГЄГ§ГҐГ¬ГЇГ«ГїГ° Г¬Г®Г¤Г 
+    }
 
-        private void LoadClient()
-        {
-            Ice3 = ModContent.Request<Texture2D>("TremorMod/Utilities/Ice3", AssetRequestMode.ImmediateLoad).Value;
-        }
+    private void LoadClient()
+    {
+        Ice3 = ModContent.Request<Texture2D>("TremorMod/Utilities/Ice3", AssetRequestMode.ImmediateLoad).Value;
     }
 }
 // Please read https://github.com/tModLoader/tModLoader/wiki/Basic-tModLoader-Modding-Guide#mod-skeleton-contents for more information about the various files in a mod.

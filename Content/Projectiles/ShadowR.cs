@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -6,8 +6,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Dusts;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class ShadowR : ModProjectile
 	{
 		public override void SetDefaults()
@@ -88,4 +88,3 @@ namespace TremorMod.Content.Projectiles
 			}
 		}
 	}
-}

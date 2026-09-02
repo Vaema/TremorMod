@@ -5,8 +5,8 @@ using Terraria.ModLoader;
 using Terraria.Audio;
 using System;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class AngelTearsPro : ModProjectile
 	{
 
@@ -18,8 +18,8 @@ namespace TremorMod.Content.Projectiles
 			Projectile.alpha = 255;
 			Projectile.penetrate = 4;
 			Projectile.timeLeft /= 2;
-            Projectile.DamageType = DamageClass.Magic;
-        }
+        Projectile.DamageType = DamageClass.Magic;
+    }
 
 		/*public override void SetStaticDefaults()
 		{
@@ -86,13 +86,12 @@ namespace TremorMod.Content.Projectiles
 			}
 			return false;
 		}
-        public override void OnKill(int timeLeft)
+    public override void OnKill(int timeLeft)
+    {
+        SoundEngine.PlaySound(SoundID.Item10, Projectile.position); // Use SoundEngine.PlaySound here
+        for (int k = 0; k < 5; k++)
         {
-            SoundEngine.PlaySound(SoundID.Item10, Projectile.position); // Use SoundEngine.PlaySound here
-            for (int k = 0; k < 5; k++)
-            {
-                Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 57, Projectile.oldVelocity.X * 0.5f, Projectile.oldVelocity.Y * 0.5f);
-            }
+            Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 57, Projectile.oldVelocity.X * 0.5f, Projectile.oldVelocity.Y * 0.5f);
         }
     }
 }

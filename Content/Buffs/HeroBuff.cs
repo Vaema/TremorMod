@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Buffs
-{
+namespace TremorMod.Content.Buffs;
+
 	public class HeroBuff : ModBuff
 	{
 		public override void SetStaticDefaults()
@@ -63,4 +63,3 @@ namespace TremorMod.Content.Buffs
 			player.buffImmune[197] = true;
 		}
 	}
-}

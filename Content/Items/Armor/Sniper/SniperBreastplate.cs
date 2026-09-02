@@ -1,8 +1,8 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.Sniper
-{
+namespace TremorMod.Content.Items.Armor.Sniper;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class SniperBreastplate : ModItem
 	{
@@ -27,9 +27,8 @@ namespace TremorMod.Content.Items.Armor.Sniper
 
 		public override void UpdateEquip(Player player)
 		{
-            player.GetDamage(DamageClass.Ranged) *= 1.2f;
-            player.moveSpeed -= 0.20f;
+        player.GetDamage(DamageClass.Ranged) *= 1.2f;
+        player.moveSpeed -= 0.20f;
 		}
 
 	}
-}

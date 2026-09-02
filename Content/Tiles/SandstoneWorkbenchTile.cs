@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace TremorMod.Content.Tiles
-{
+namespace TremorMod.Content.Tiles;
+
 	public class SandstoneWorkbenchTile : ModTile
 	{
 		public override void SetStaticDefaults()
@@ -16,11 +16,10 @@ namespace TremorMod.Content.Tiles
 			Main.tileTable[Type] = true;
 			Main.tileLavaDeath[Type] = true;
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style2x1);
-			TileObjectData.newTile.CoordinateHeights = new[]{ 16, 16 };
+			TileObjectData.newTile.CoordinateHeights = [16, 16];
 			TileObjectData.addTile(Type);
-			AdjTiles = new int[]{ TileID.WorkBenches };
+			AdjTiles = [TileID.WorkBenches];
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
 			AddMapEntry(new Color(233, 211, 123), CreateMapEntryName());
 		}
 	}
-}

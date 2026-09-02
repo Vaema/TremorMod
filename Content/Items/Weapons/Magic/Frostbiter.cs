@@ -1,12 +1,12 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Weapons.Magic
-{
+namespace TremorMod.Content.Items.Weapons.Magic;
+
 	public class Frostbiter : ModItem
 	{
 		public override void SetDefaults()
@@ -47,22 +47,21 @@ namespace TremorMod.Content.Items.Weapons.Magic
 			recipe.Register();
 		}
 
-        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    {
+        int shotAmt = 2;
+        int spread = 5;
+        float spreadMult = 0.3f;
+
+        for (int i = 0; i < shotAmt; i++)
         {
-            int shotAmt = 2;
-            int spread = 5;
-            float spreadMult = 0.3f;
+            float vX = velocity.X + Main.rand.NextFloat(-spread, spread) * spreadMult;
+            float vY = velocity.Y + Main.rand.NextFloat(-spread, spread) * spreadMult;
 
-            for (int i = 0; i < shotAmt; i++)
-            {
-                float vX = velocity.X + Main.rand.NextFloat(-spread, spread) * spreadMult;
-                float vY = velocity.Y + Main.rand.NextFloat(-spread, spread) * spreadMult;
+            Vector2 newVelocity = new Vector2(vX, vY);
 
-                Vector2 newVelocity = new Vector2(vX, vY);
-
-                Projectile.NewProjectile(source, position, newVelocity, type, damage, knockback, Main.myPlayer);
-            }
-            return false;
+            Projectile.NewProjectile(source, position, newVelocity, type, damage, knockback, Main.myPlayer);
         }
+        return false;
     }
 }

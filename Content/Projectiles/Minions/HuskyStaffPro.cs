@@ -1,56 +1,55 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Buffs;  
 
-namespace TremorMod.Content.Projectiles.Minions
-{
+namespace TremorMod.Content.Projectiles.Minions;
+
 	public class HuskyStaffPro : ModProjectile
-    {
+{
 		public override void SetDefaults()
 		{
 
-            Projectile.width = 68;
-            Projectile.height = 28;
-            Projectile.netImportant = true;
-            Projectile.friendly = true;
-            Projectile.minionSlots = 1;
-            Projectile.aiStyle = 26;
-            Projectile.timeLeft = 18000;
-            Main.projFrames[Projectile.type] = 1;
-            ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
-            Projectile.penetrate = -1;
-            Projectile.timeLeft *= 5;
-            Projectile.minion = true;
-            AIType = 266;
-            Projectile.tileCollide = false;
-            ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
-        }
+        Projectile.width = 68;
+        Projectile.height = 28;
+        Projectile.netImportant = true;
+        Projectile.friendly = true;
+        Projectile.minionSlots = 1;
+        Projectile.aiStyle = 26;
+        Projectile.timeLeft = 18000;
+        Main.projFrames[Projectile.type] = 1;
+        ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
+        Projectile.penetrate = -1;
+        Projectile.timeLeft *= 5;
+        Projectile.minion = true;
+        AIType = 266;
+        Projectile.tileCollide = false;
+        ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
+    }
 
-        public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac) 
-        { 
-            fallThrough = false; 
-            return true; 
-        }
+    public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac) 
+    { 
+        fallThrough = false; 
+        return true; 
+    }
 
-        public override bool OnTileCollide(Vector2 oldVelocity)
+    public override bool OnTileCollide(Vector2 oldVelocity)
+    {
+        if (Projectile.penetrate == 0)
         {
-            if (Projectile.penetrate == 0)
-            {
-                Projectile.Kill();
-            }
-            return false;
+            Projectile.Kill();
         }
+        return false;
+    }
 
-        public override void AI()
+    public override void AI()
+    {
+        Player player = Main.player[Projectile.owner];
+        if (!player.active || player.dead || !player.HasBuff(ModContent.BuffType<HuskyBuff>()))
         {
-            Player player = Main.player[Projectile.owner];
-            if (!player.active || player.dead || !player.HasBuff(ModContent.BuffType<HuskyBuff>()))
-            {
-                Projectile.Kill();
-                return;
-            }
+            Projectile.Kill();
+            return;
         }
     }
 }

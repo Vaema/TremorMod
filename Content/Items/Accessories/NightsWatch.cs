@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class NightsWatch : ModItem
 	{
 		public override void SetDefaults()
@@ -31,7 +31,7 @@ namespace TremorMod.Content.Items.Accessories
 			player.GetDamage(DamageClass.Melee) += 0.08f;
 			player.GetDamage(DamageClass.Summon) += 0.08f;
 			player.GetCritChance(DamageClass.Magic) += 10;
-            player.GetCritChance(DamageClass.Melee) += 10;
+        player.GetCritChance(DamageClass.Melee) += 10;
 			player.statManaMax2 += 60;
 			player.statLifeMax2 += 60;
 		}
@@ -48,4 +48,3 @@ namespace TremorMod.Content.Items.Accessories
 			recipe.Register();
 		}
 	}
-}

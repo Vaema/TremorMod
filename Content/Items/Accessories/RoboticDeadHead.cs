@@ -1,12 +1,12 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Tiles;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class RoboticDeadHead : ModItem
 	{
 		public override void SetDefaults()
@@ -33,8 +33,8 @@ namespace TremorMod.Content.Items.Accessories
 			player.GetCritChance(DamageClass.Generic) += 12;
 			player.moveSpeed += 0.25f;
 			player.maxRunSpeed += 0.25f;
-            MPlayer modPlayer = player.GetModPlayer<MPlayer>();
-            modPlayer.alchemicalDamage += 0.15f;
+        MPlayer modPlayer = player.GetModPlayer<MPlayer>();
+        modPlayer.alchemicalDamage += 0.15f;
 			modPlayer.alchemicalCrit += 12;
 		}
 
@@ -52,4 +52,3 @@ namespace TremorMod.Content.Items.Accessories
 			recipe.Register();
 		}
 	}
-}

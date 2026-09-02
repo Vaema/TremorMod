@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.Crystal
-{
+namespace TremorMod.Content.Items.Armor.Crystal;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class CrystalChestplate : ModItem
 	{
@@ -25,8 +25,8 @@ namespace TremorMod.Content.Items.Armor.Crystal
 
 		public override void UpdateEquip(Player player)
 		{
-            player.GetAttackSpeed(DamageClass.Throwing) += 0.3f;
-        }
+        player.GetAttackSpeed(DamageClass.Throwing) += 0.3f;
+    }
 
 		public override void AddRecipes()
 		{
@@ -38,4 +38,3 @@ namespace TremorMod.Content.Items.Armor.Crystal
 			recipe.Register();
 		}
 	}
-}

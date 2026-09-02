@@ -1,18 +1,18 @@
-using Terraria;
+п»їusing Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 
-namespace TremorMod.Content.Items.Weapons.Melee
-{
+namespace TremorMod.Content.Items.Weapons.Melee;
+
 	public class InvarBroadsword : ModItem
 	{
 		public override void SetDefaults()
 		{
 
 			Item.damage = 11;
-            Item.DamageType = DamageClass.Melee;
-            Item.width = 36;
+        Item.DamageType = DamageClass.Melee;
+        Item.width = 36;
 			Item.height = 36;
 			Item.useTime = 21;
 			Item.useAnimation = 20;
@@ -32,11 +32,10 @@ namespace TremorMod.Content.Items.Weapons.Melee
 
 		public override void AddRecipes()
 		{
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<InvarBar>(), 9); // Указываем тип предмета и количество
-            //recipe.SetResult(this); // Устанавливаем результат рецепта
-            recipe.AddTile(TileID.Anvils); // Указываем плитку для создания предмета
-            recipe.Register();
-        }
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ModContent.ItemType<InvarBar>(), 9); // Г“ГЄГ Г§Г»ГўГ ГҐГ¬ ГІГЁГЇ ГЇГ°ГҐГ¤Г¬ГҐГІГ  ГЁ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ®
+        //recipe.SetResult(this); // Г“Г±ГІГ Г­Г ГўГ«ГЁГўГ ГҐГ¬ Г°ГҐГ§ГіГ«ГјГІГ ГІ Г°ГҐГ¶ГҐГЇГІГ 
+        recipe.AddTile(TileID.Anvils); // Г“ГЄГ Г§Г»ГўГ ГҐГ¬ ГЇГ«ГЁГІГЄГі Г¤Г«Гї Г±Г®Г§Г¤Г Г­ГЁГї ГЇГ°ГҐГ¤Г¬ГҐГІГ 
+        recipe.Register();
+    }
 	}
-}

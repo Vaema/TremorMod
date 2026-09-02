@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.DesertExplorer
-{
+namespace TremorMod.Content.Items.Armor.DesertExplorer;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class DesertExplorerGreaves : ModItem
 	{
@@ -43,4 +43,3 @@ namespace TremorMod.Content.Items.Armor.DesertExplorer
 
 		}
 	}
-}

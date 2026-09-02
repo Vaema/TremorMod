@@ -1,19 +1,19 @@
-using TremorMod.Content.Items.CyberKing;
+п»їusing TremorMod.Content.Items.CyberKing;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using Terraria.ID;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 
-namespace TremorMod.Content.Items.CyberKing
-{
+namespace TremorMod.Content.Items.CyberKing;
+
 	public class CyberKingBag : ModItem
 	{
 		/*public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Treasure Bag");
-            Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
-        }*/
+    {
+        DisplayName.SetDefault("Treasure Bag");
+        Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+    }*/
 
 		public override void SetDefaults()
 		{
@@ -33,7 +33,7 @@ namespace TremorMod.Content.Items.CyberKing
 
 		public override void ModifyItemLoot(ItemLoot itemLoot)
 		{
-			// Гарантированное выпадение одного из трёх предметов.
+			// ГѓГ Г°Г Г­ГІГЁГ°Г®ГўГ Г­Г­Г®ГҐ ГўГ»ГЇГ Г¤ГҐГ­ГЁГҐ Г®Г¤Г­Г®ГЈГ® ГЁГ§ ГІГ°ВёГµ ГЇГ°ГҐГ¤Г¬ГҐГІГ®Гў.
 			itemLoot.Add(ItemDropRule.OneFromOptions(1,
 				ModContent.ItemType<RedStorm>(),
 				ModContent.ItemType<CyberCutter>(),
@@ -41,10 +41,9 @@ namespace TremorMod.Content.Items.CyberKing
 
 			itemLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<CyberStaff>()));
 
-            // Пример добавления других предметов.
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<CyberKingMask>(), 7)); // Маска с шансом 1/7.
+        // ГЏГ°ГЁГ¬ГҐГ° Г¤Г®ГЎГ ГўГ«ГҐГ­ГЁГї Г¤Г°ГіГЈГЁГµ ГЇГ°ГҐГ¤Г¬ГҐГІГ®Гў.
+        itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<CyberKingMask>(), 7)); // ГЊГ Г±ГЄГ  Г± ГёГ Г­Г±Г®Г¬ 1/7.
 
 			//public override int BossBagNPC => NPCType<NPCs.Abomination>();
 		}
 	}
-}

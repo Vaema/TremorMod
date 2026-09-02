@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Buffs
-{
+namespace TremorMod.Content.Items.Buffs;
+
 
 	public class ParadoxPotion : ModItem
 	{
@@ -15,15 +15,15 @@ namespace TremorMod.Content.Items.Buffs
 			Item.width = 38;
 			Item.height = 32;
 			Item.maxStack = 20;
-            Item.potion = true;
-            Item.rare = 11;
+        Item.potion = true;
+        Item.rare = 11;
 			Item.useAnimation = 15;
 			Item.useTime = 15;
 			Item.useStyle = 2;
 			Item.UseSound = SoundID.Item3;
 			Item.consumable = true;
-            Item.healLife = 300;
-        }
+        Item.healLife = 300;
+    }
 
 		public override void SetStaticDefaults()
 		{
@@ -61,4 +61,3 @@ namespace TremorMod.Content.Items.Buffs
 			recipe.Register();
 		}
 	}
-}

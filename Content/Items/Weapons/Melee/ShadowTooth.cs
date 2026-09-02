@@ -1,12 +1,12 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Weapons.Melee
-{
+namespace TremorMod.Content.Items.Weapons.Melee;
+
 	public class ShadowTooth : ModItem
 	{
 		public override void SetDefaults()
@@ -47,9 +47,9 @@ namespace TremorMod.Content.Items.Weapons.Melee
 			recipe1.AddIngredient(ItemID.SoulofNight, 8);
 			recipe1.AddIngredient(ItemID.SoulofSight, 8);
 			recipe1.AddIngredient(ModContent.ItemType<FlamingTooth>(), 1);
-            recipe1.AddTile(ModContent.TileType<GreatAnvilTile>());
-            //recipe.SetResult(this);
-            recipe1.Register();
+        recipe1.AddTile(ModContent.TileType<GreatAnvilTile>());
+        //recipe.SetResult(this);
+        recipe1.Register();
 		}
 
 		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
@@ -65,4 +65,3 @@ namespace TremorMod.Content.Items.Weapons.Melee
 			}
 		}
 	}
-}

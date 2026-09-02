@@ -1,11 +1,11 @@
-using Terraria;
+п»їusing Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	[AutoloadEquip(EquipType.Shield)]
 	public class RedSteelGuardian : ModItem
 	{
@@ -30,7 +30,7 @@ namespace TremorMod.Content.Items.Accessories
 			player.moveSpeed += 0.2f;
 		}
 		/*
-		public override bool CanEquipAccessory(Player player, int slot) // странно за что оно отвечало? Возможно если надет один из них то тогда ни каких бонусов не должен получать игрок.
+		public override bool CanEquipAccessory(Player player, int slot) // Г±ГІГ°Г Г­Г­Г® Г§Г  Г·ГІГ® Г®Г­Г® Г®ГІГўГҐГ·Г Г«Г®? Г‚Г®Г§Г¬Г®Г¦Г­Г® ГҐГ±Г«ГЁ Г­Г Г¤ГҐГІ Г®Г¤ГЁГ­ ГЁГ§ Г­ГЁГµ ГІГ® ГІГ®ГЈГ¤Г  Г­ГЁ ГЄГ ГЄГЁГµ ГЎГ®Г­ГіГ±Г®Гў Г­ГҐ Г¤Г®Г«Г¦ГҐГ­ ГЇГ®Г«ГіГ·Г ГІГј ГЁГЈГ°Г®ГЄ.
 				{
 					bool canequip = true;
 					for (int l = 3; l < 8 + player.extraAccessorySlots; l++)
@@ -135,4 +135,3 @@ namespace TremorMod.Content.Items.Accessories
 			recipe.Register();
 		}
 	}
-}

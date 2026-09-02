@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;	
 
-namespace TremorMod.Content.Items.Armor.Flesh
-{
+namespace TremorMod.Content.Items.Armor.Flesh;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class FleshBreastplate : ModItem
 	{
@@ -28,8 +28,8 @@ namespace TremorMod.Content.Items.Armor.Flesh
 		public override void UpdateEquip(Player player)
 		{
 			player.maxMinions += 1;
-            player.GetDamage(DamageClass.Summon) += 0.05f;
-        }
+        player.GetDamage(DamageClass.Summon) += 0.05f;
+    }
 
 		public override void AddRecipes()
 		{
@@ -40,4 +40,3 @@ namespace TremorMod.Content.Items.Armor.Flesh
 			recipe.Register();
 		}
 	}
-}

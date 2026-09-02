@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace TremorMod.Content.Tiles.Crimstone
-{
+namespace TremorMod.Content.Tiles.Crimstone;
+
 	public class CrimstoneBookcaseTile : ModTile
 	{
 		public override void SetStaticDefaults()
@@ -16,11 +16,10 @@ namespace TremorMod.Content.Tiles.Crimstone
 			Main.tileTable[Type] = true;
 			Main.tileLavaDeath[Type] = true;
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style3x4);
-			TileObjectData.newTile.CoordinateHeights = new[]{ 16, 16, 16, 16 };
+			TileObjectData.newTile.CoordinateHeights = [16, 16, 16, 16];
 			TileObjectData.addTile(Type);
-            AdjTiles = new int[] { TileID.Bookcases };
-            AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
+        AdjTiles = [TileID.Bookcases];
+        AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
 			AddMapEntry(new Color(111, 22, 22), CreateMapEntryName());
 		}
 	}
-}

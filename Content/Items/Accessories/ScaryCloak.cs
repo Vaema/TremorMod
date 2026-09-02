@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class ScaryCloak : ModItem
 	{
 
@@ -37,4 +37,3 @@ namespace TremorMod.Content.Items.Accessories
 			player.shroomiteStealth = true;
 		}
 	}
-}

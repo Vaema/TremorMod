@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 
-namespace TremorMod.Content.Biomes.Ice.Items
-{
+namespace TremorMod.Content.Biomes.Ice.Items;
+
 	[AutoloadEquip(EquipType.Shield)]
 	public class FrostGuardian : ModItem
 	{
@@ -33,11 +33,10 @@ namespace TremorMod.Content.Biomes.Ice.Items
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
 			player.GetDamage(DamageClass.Melee) += 0.05f;
-            player.GetAttackSpeed(DamageClass.Melee) += 0.05f; 
-            player.buffImmune[44] = true;
+        player.GetAttackSpeed(DamageClass.Melee) += 0.05f; 
+        player.buffImmune[44] = true;
 			player.buffImmune[45] = true;
 			player.buffImmune[46] = true;
 			player.buffImmune[47] = true;
 		}
 	}
-}

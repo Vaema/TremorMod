@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
@@ -7,8 +7,8 @@ using Microsoft.Xna.Framework;
 using Terraria.GameContent.ItemDropRules;
 using TremorMod.Content.Items.Placeable.Banners;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class Snowcopter : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -34,28 +34,27 @@ namespace TremorMod.Content.NPCs
 			NPC.HitSound = SoundID.NPCHit4;
 			NPC.DeathSound = SoundID.NPCDeath6;
 			NPC.value = Item.buyPrice(0, 0, 8, 7);
-            Banner = NPC.type;
-            BannerItem = ModContent.ItemType<SnowcopterBanner>();
-            ItemID.Sets.KillsToBanner[BannerItem] = 50;
-        }
+        Banner = NPC.type;
+        BannerItem = ModContent.ItemType<SnowcopterBanner>();
+        ItemID.Sets.KillsToBanner[BannerItem] = 50;
+    }
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
-            if (NPC.life <= 0)
+        int hitDirection = hit.HitDirection;
+        if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 6, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 61, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 61, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 62, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 62, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 63, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 61, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 61, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 62, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 62, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 63, 1f);
 			}
 		}
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 			=> NPC.AnyNPCs(NPCID.SnowBalla) && Main.hardMode && spawnInfo.SpawnTileY < Main.worldSurface ? 0.06f : 0f;
 	}
-}

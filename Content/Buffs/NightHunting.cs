@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Buffs
-{
+namespace TremorMod.Content.Buffs;
+
 	public class NightHunting : ModBuff
 	{
 		public override void SetStaticDefaults()
@@ -22,4 +22,3 @@ namespace TremorMod.Content.Buffs
 			}
 		}
 	}
-}

@@ -10,55 +10,54 @@ using Terraria.DataStructures;
 using TremorMod.Utilities;
 
 
-namespace TremorMod.Content.Projectiles.Minions
+namespace TremorMod.Content.Projectiles.Minions;
+
+public class BerserkerPro : ModProjectile
 {
-    public class BerserkerPro : ModProjectile
+    const float RotationSpeed = 4.1f;
+    const float Distanse = 48;
+
+    const int HitCooldown = 11;  // 10 - 12 или 12 - 15
+
+    float Rotation;
+    int lastHitTime;
+
+
+    public override void SetDefaults()
     {
-        const float RotationSpeed = 4.1f;
-        const float Distanse = 48;
+        Projectile.width = 18;
+        Projectile.height = 34;
+        Projectile.timeLeft = 6;
+        Projectile.DamageType = DamageClass.Melee;
+        Projectile.aiStyle = -1;
+        Projectile.penetrate = -1;
+        Projectile.tileCollide = false;
+        Projectile.ignoreWater = true;
+    }
 
-        const int HitCooldown = 11;  // 10 - 12 или 12 - 15
+    public override void SetStaticDefaults()
+    {
+        // DisplayName.SetDefault("Berserker Sword");
+    }
 
-        float Rotation;
-        int lastHitTime;
-
-
-        public override void SetDefaults()
+    public override void AI()
+    {
+        Rotation += RotationSpeed;
+        Projectile.Center = Helper.PolarPos(Main.LocalPlayer.Center, Distanse, MathHelper.ToRadians(Rotation));
+        Projectile.rotation = Helper.rotateBetween2Points(Main.LocalPlayer.Center, Projectile.Center) - MathHelper.ToRadians(90);
+        if (lastHitTime > 0)
         {
-            Projectile.width = 18;
-            Projectile.height = 34;
-            Projectile.timeLeft = 6;
-            Projectile.DamageType = DamageClass.Melee;
-            Projectile.aiStyle = -1;
-            Projectile.penetrate = -1;
-            Projectile.tileCollide = false;
-            Projectile.ignoreWater = true;
+            lastHitTime--;
         }
+    }
 
-        public override void SetStaticDefaults()
+    public override bool? CanHitNPC(NPC target)
+    {
+        if (lastHitTime <= 0 && !target.friendly)
         {
-            // DisplayName.SetDefault("Berserker Sword");
+            lastHitTime = HitCooldown;
+            return true;
         }
-
-        public override void AI()
-        {
-            Rotation += RotationSpeed;
-            Projectile.Center = Helper.PolarPos(Main.LocalPlayer.Center, Distanse, MathHelper.ToRadians(Rotation));
-            Projectile.rotation = Helper.rotateBetween2Points(Main.LocalPlayer.Center, Projectile.Center) - MathHelper.ToRadians(90);
-            if (lastHitTime > 0)
-            {
-                lastHitTime--;
-            }
-        }
-
-        public override bool? CanHitNPC(NPC target)
-        {
-            if (lastHitTime <= 0 && !target.friendly)
-            {
-                lastHitTime = HitCooldown;
-                return true;
-            }
-            return false;
-        }
+        return false;
     }
 }

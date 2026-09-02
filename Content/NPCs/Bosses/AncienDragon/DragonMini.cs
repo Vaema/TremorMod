@@ -5,8 +5,8 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace TremorMod.Content.NPCs.Bosses.AncienDragon
-{
+namespace TremorMod.Content.NPCs.Bosses.AncienDragon;
+
 	public class DragonMini : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -50,4 +50,3 @@ namespace TremorMod.Content.NPCs.Bosses.AncienDragon
 			return false;
 		}
 	}
-}

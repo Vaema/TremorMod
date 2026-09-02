@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Items.Weapons.Magic
-{
+namespace TremorMod.Content.Items.Weapons.Magic;
+
 	public class CrystalSpear : ModItem
 	{
 		public override void SetDefaults()
@@ -32,4 +32,3 @@ namespace TremorMod.Content.Items.Weapons.Magic
 			Tooltip.SetDefault("Shoots sharp crystal spears");
 		}*/
 	}
-}

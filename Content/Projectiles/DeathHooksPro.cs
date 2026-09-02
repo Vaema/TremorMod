@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -8,8 +8,8 @@ using Terraria.ModLoader;
 using TremorMod.Content.Dusts;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class DeathHooksPro : ModProjectile
 	{
 		public override void SetDefaults()
@@ -29,9 +29,9 @@ namespace TremorMod.Content.Projectiles
 
 		public override bool PreDraw(ref Color lightColor)
 		{
-            Texture2D texture = ModContent.Request<Texture2D>("TremorMod/Content/Projectiles/DeathHooks_Chain").Value;
+        Texture2D texture = ModContent.Request<Texture2D>("TremorMod/Content/Projectiles/DeathHooks_Chain").Value;
 
-            Vector2 position = Projectile.Center;
+        Vector2 position = Projectile.Center;
 			Vector2 mountedCenter = Main.player[Projectile.owner].MountedCenter;
 			Rectangle? sourceRectangle = new Rectangle?();
 			Vector2 origin = new Vector2(texture.Width * 0.5f, texture.Height * 0.5f);
@@ -80,12 +80,11 @@ namespace TremorMod.Content.Projectiles
 			SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
 		}
 
-        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+    public override void OnHitPlayer(Player target, Player.HurtInfo info)
+    {
+        if (info.PvP && Main.rand.NextBool(2))
         {
-            if (info.PvP && Main.rand.NextBool(2))
-            {
-                target.AddBuff(ModContent.BuffType<DeathFear>(), 480, false);
-            }
+            target.AddBuff(ModContent.BuffType<DeathFear>(), 480, false);
         }
     }
 }

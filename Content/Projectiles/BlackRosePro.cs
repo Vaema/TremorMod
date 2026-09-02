@@ -1,10 +1,10 @@
-using Microsoft.Xna.Framework;
+п»їusing Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class BlackRosePro : ModProjectile
 	{
 		public override void SetDefaults()
@@ -29,12 +29,11 @@ namespace TremorMod.Content.Projectiles
 			Main.dust[dust].noGravity = true;
 		}
 
-        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
+    public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
+    {
+        if (Main.rand.Next(10) == 0)
         {
-            if (Main.rand.Next(10) == 0)
-            {
-                target.AddBuff(BuffID.OnFire, 180); // Применяет эффект "Горение" на 60 кадров.
-            }
+            target.AddBuff(BuffID.OnFire, 180); // ГЏГ°ГЁГ¬ГҐГ­ГїГҐГІ ГЅГґГґГҐГЄГІ "ГѓГ®Г°ГҐГ­ГЁГҐ" Г­Г  60 ГЄГ Г¤Г°Г®Гў.
         }
+    }
 	}
-}

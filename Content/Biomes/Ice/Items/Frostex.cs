@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Biomes.Ice.Items
-{
+namespace TremorMod.Content.Biomes.Ice.Items;
+
 	public class Frostex : ModItem
 	{
 		public override void SetDefaults()
@@ -27,4 +27,3 @@ namespace TremorMod.Content.Biomes.Ice.Items
 			player.GetDamage(DamageClass.Ranged) += 0.1f;
 		}
 	}
-}

@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
 
-namespace TremorMod.Content.Biomes.Ice.Items
-{
+namespace TremorMod.Content.Biomes.Ice.Items;
+
 	public class Icoj : ModProjectile
 	{
 		public override void SetStaticDefaults()
@@ -42,21 +42,20 @@ namespace TremorMod.Content.Biomes.Ice.Items
 				Projectile.alpha++;
 			}
 
-            if (Projectile.alpha >= 255)
-            {
-                var source = Projectile.GetSource_FromThis(); 
+        if (Projectile.alpha >= 255)
+        {
+            var source = Projectile.GetSource_FromThis(); 
 
-                Projectile.NewProjectile(source, Projectile.position + new Vector2(40, 40), new Vector2(-7, 0), 119, Projectile.damage, 0, Main.myPlayer);
-                Projectile.NewProjectile(source, Projectile.position + new Vector2(40, 40), new Vector2(7, 0), 119, Projectile.damage, 0, Main.myPlayer);
-                Projectile.NewProjectile(source, Projectile.position + new Vector2(40, 40), new Vector2(0, 7), 119, Projectile.damage, 0, Main.myPlayer);
-                Projectile.NewProjectile(source, Projectile.position + new Vector2(40, 40), new Vector2(0, -7), 119, Projectile.damage, 0, Main.myPlayer);
-                Projectile.NewProjectile(source, Projectile.position + new Vector2(40, 40), new Vector2(-7, -7), 119, Projectile.damage, 0, Main.myPlayer);
-                Projectile.NewProjectile(source, Projectile.position + new Vector2(40, 40), new Vector2(7, -7), 119, Projectile.damage, 0, Main.myPlayer);
-                Projectile.NewProjectile(source, Projectile.position + new Vector2(40, 40), new Vector2(-7, 7), 119, Projectile.damage, 0, Main.myPlayer);
-                Projectile.NewProjectile(source, Projectile.position + new Vector2(40, 40), new Vector2(7, 7), 119, Projectile.damage, 0, Main.myPlayer);
+            Projectile.NewProjectile(source, Projectile.position + new Vector2(40, 40), new Vector2(-7, 0), 119, Projectile.damage, 0, Main.myPlayer);
+            Projectile.NewProjectile(source, Projectile.position + new Vector2(40, 40), new Vector2(7, 0), 119, Projectile.damage, 0, Main.myPlayer);
+            Projectile.NewProjectile(source, Projectile.position + new Vector2(40, 40), new Vector2(0, 7), 119, Projectile.damage, 0, Main.myPlayer);
+            Projectile.NewProjectile(source, Projectile.position + new Vector2(40, 40), new Vector2(0, -7), 119, Projectile.damage, 0, Main.myPlayer);
+            Projectile.NewProjectile(source, Projectile.position + new Vector2(40, 40), new Vector2(-7, -7), 119, Projectile.damage, 0, Main.myPlayer);
+            Projectile.NewProjectile(source, Projectile.position + new Vector2(40, 40), new Vector2(7, -7), 119, Projectile.damage, 0, Main.myPlayer);
+            Projectile.NewProjectile(source, Projectile.position + new Vector2(40, 40), new Vector2(-7, 7), 119, Projectile.damage, 0, Main.myPlayer);
+            Projectile.NewProjectile(source, Projectile.position + new Vector2(40, 40), new Vector2(7, 7), 119, Projectile.damage, 0, Main.myPlayer);
 
-                Projectile.Kill();
-            }
+            Projectile.Kill();
         }
+    }
 	}
-}

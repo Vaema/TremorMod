@@ -1,39 +1,38 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Buffs
+namespace TremorMod.Content.Buffs;
+
+public class BrainSmasherBuff : ModBuff
 {
-    public class BrainSmasherBuff : ModBuff
+    int MinionType = -1;
+    int MinionID = -1;
+
+    const int Damage = 90;
+    const float KB = 1;
+
+    public override void SetStaticDefaults()
     {
-        int MinionType = -1;
-        int MinionID = -1;
+        Main.buffNoTimeDisplay[Type] = true;
+        // DisplayName.SetDefault("Third True Blade");
+    }
 
-        const int Damage = 90;
-        const float KB = 1;
-
-        public override void SetStaticDefaults()
+    public override void Update(Player player, ref int buffIndex)
+    {
+        if (MinionType == -1)
+            MinionType = ModContent.ProjectileType<BrainSmasherPro>();
+        if (MinionID == -1 || Main.projectile[MinionID].type != MinionType || !Main.projectile[MinionID].active || Main.projectile[MinionID].owner != player.whoAmI)
         {
-            Main.buffNoTimeDisplay[Type] = true;
-            // DisplayName.SetDefault("Third True Blade");
+            IEntitySource source = player.GetSource_Buff(buffIndex);
+            MinionID = Projectile.NewProjectile(source, player.Center, Vector2.Zero, MinionType, (int)(Damage * player.GetDamage(DamageClass.Melee).ApplyTo(1f)), KB, player.whoAmI);
         }
-
-        public override void Update(Player player, ref int buffIndex)
+        else
         {
-            if (MinionType == -1)
-                MinionType = ModContent.ProjectileType<BrainSmasherPro>();
-            if (MinionID == -1 || Main.projectile[MinionID].type != MinionType || !Main.projectile[MinionID].active || Main.projectile[MinionID].owner != player.whoAmI)
-            {
-                IEntitySource source = player.GetSource_Buff(buffIndex);
-                MinionID = Projectile.NewProjectile(source, player.Center, Vector2.Zero, MinionType, (int)(Damage * player.GetDamage(DamageClass.Melee).ApplyTo(1f)), KB, player.whoAmI);
-            }
-            else
-            {
-                Main.projectile[MinionID].timeLeft = 5;
-            }
+            Main.projectile[MinionID].timeLeft = 5;
         }
     }
 }

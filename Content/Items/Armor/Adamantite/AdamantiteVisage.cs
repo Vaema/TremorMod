@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.GameContent.Creative;
@@ -6,19 +6,19 @@ using Terraria.Localization;
 using TremorMod;
 using TremorMod.Utilities;
 
-namespace TremorMod.Content.Items.Armor.Adamantite
-{
+namespace TremorMod.Content.Items.Armor.Adamantite;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class AdamantiteVisage : ModItem
 	{
 		public static LocalizedText SetBonusText { get; private set; }
 
 		public override void SetStaticDefaults()
-        {
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+    {
+        CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 			ArmorIDs.Head.Sets.DrawsBackHairWithoutHeadgear[Item.headSlot] = true;
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("20% increased alchemical critical strike chance");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("20% increased alchemical critical strike chance");
+    }
 		public override void SetDefaults()
 		{
 
@@ -47,18 +47,17 @@ namespace TremorMod.Content.Items.Armor.Adamantite
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("20% increased alchemical critical strike chance");
+        player.setBonus = SetBonusText.Value;
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("20% increased alchemical critical strike chance");
 			player.GetModPlayer<MPlayer>().alchemicalCrit += 20;
 		}
 
 		public override void AddRecipes()
 		{
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.AdamantiteBar, 10);
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ItemID.AdamantiteBar, 10);
 			//recipe.SetResult(this);
 			recipe.AddTile(134);
-            recipe.Register();
-        }
+        recipe.Register();
+    }
 	}
-}

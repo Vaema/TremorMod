@@ -10,8 +10,8 @@ using TremorMod;
 
 ////////////////////
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class projEyeofInfinity : ModProjectile
 	{
 		const float Distanse = 25f; // Дистанция на которой вращяются половины друг от друга
@@ -119,76 +119,76 @@ namespace TremorMod.Content.Projectiles
 			return false;
 		}
 
-        /*public override bool PreDraw(ref Color lightColor) // 1 и 2  метод
+    /*public override bool PreDraw(ref Color lightColor) // 1 и 2  метод
+    {
+        SpriteBatch spriteBatch = Main.spriteBatch;
+        Color color = new Color(250, 250, 250, 0);
+        Color color2 = new Color(0, 0, 0, 250);
+
+        // Отрисовка текущих позиций следов
+        for (int i = 0; i < DrawCount; i++)
         {
-            SpriteBatch spriteBatch = Main.spriteBatch;
-            Color color = new Color(250, 250, 250, 0);
-            Color color2 = new Color(0, 0, 0, 250);
+            Vector2 leftPos = Helper.PolarPos(Projectile.position, Distanse, AngleLeft - (AngleStep * i * 1.5f), 0, 0) - Main.screenPosition;
+            Vector2 rightPos = Helper.PolarPos(Projectile.position, Distanse, AngleRight - (AngleStep * i * 1.5f), 0, 0) - Main.screenPosition - Projectile.Size / 2;
 
-            // Отрисовка текущих позиций следов
-            for (int i = 0; i < DrawCount; i++)
-            {
-                Vector2 leftPos = Helper.PolarPos(Projectile.position, Distanse, AngleLeft - (AngleStep * i * 1.5f), 0, 0) - Main.screenPosition;
-                Vector2 rightPos = Helper.PolarPos(Projectile.position, Distanse, AngleRight - (AngleStep * i * 1.5f), 0, 0) - Main.screenPosition - Projectile.Size / 2;
+            spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, leftPos, null, color, AngleLeft, new Vector2(2, 2), 1, SpriteEffects.None, 0f);
+            spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, rightPos, null, color, AngleRight, new Vector2(2, 2), 1, SpriteEffects.None, 0f);
 
-                spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, leftPos, null, color, AngleLeft, new Vector2(2, 2), 1, SpriteEffects.None, 0f);
-                spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, rightPos, null, color, AngleRight, new Vector2(2, 2), 1, SpriteEffects.None, 0f);
+            color = new Color(color.R - 250 / DrawCount, color.G - 250 / DrawCount, color.B - 250 / DrawCount, color.A + 250 / DrawCount);
+            color2 = new Color(color2.R + 250 / DrawCount, color2.G + 250 / DrawCount, color2.B + 250 / DrawCount, color2.A - 250 / DrawCount);
+        }
 
-                color = new Color(color.R - 250 / DrawCount, color.G - 250 / DrawCount, color.B - 250 / DrawCount, color.A + 250 / DrawCount);
-                color2 = new Color(color2.R + 250 / DrawCount, color2.G + 250 / DrawCount, color2.B + 250 / DrawCount, color2.A - 250 / DrawCount);
-            }
-
-            // Отрисовка сохранённых предыдущих позиций (эффект следа)
-            color = new Color(250, 250, 250, 0);
-            for (int i = 0; i < OldPositionsLeft.Count; i++)
-            {
-                color = new Color(color.R - 250 / DrawCount, color.G - 250 / DrawCount, color.B - 250 / DrawCount, color.A + 250 / (OldPositionsLeft.Count * 2));
-
-                spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, OldPositionsLeft[i], null, color, OldRotations[i], new Vector2(2, 2), 1, SpriteEffects.None, 0);
-                spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, OldPositionsRight[i], null, color, -OldRotations[i], new Vector2(2, 2), 1, SpriteEffects.None, 0);
-            }
-
-            return false;
-        }*/
-
-
-        /*public override bool PreDraw(ref Color lightColor) // метод 1 в комментариях 
+        // Отрисовка сохранённых предыдущих позиций (эффект следа)
+        color = new Color(250, 250, 250, 0);
+        for (int i = 0; i < OldPositionsLeft.Count; i++)
         {
-            SpriteBatch spriteBatch = Main.spriteBatch;
-            Color color = new Color(250, 250, 250, 0);
-            Color color2 = new Color(0, 0, 0, 250);
+            color = new Color(color.R - 250 / DrawCount, color.G - 250 / DrawCount, color.B - 250 / DrawCount, color.A + 250 / (OldPositionsLeft.Count * 2));
 
-            for (int i = 0; i < DrawCount; i++)
-            {
-                spriteBatch.Draw(
-                    TextureAssets.Projectile[Projectile.type].Value,
-                    Helper.PolarPos(Projectile.position, Distanse, AngleLeft - (AngleStep * i * 1.5f), 0, 0) - Main.screenPosition,
-                    null, color, AngleLeft, new Vector2(2, 2), 1, SpriteEffects.None, 0f);
+            spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, OldPositionsLeft[i], null, color, OldRotations[i], new Vector2(2, 2), 1, SpriteEffects.None, 0);
+            spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, OldPositionsRight[i], null, color, -OldRotations[i], new Vector2(2, 2), 1, SpriteEffects.None, 0);
+        }
 
-                spriteBatch.Draw(
-                    TextureAssets.Projectile[Projectile.type].Value,
-                    Helper.PolarPos(Projectile.position, Distanse, AngleRight - (AngleStep * i * 1.5f), 0, 0) - Main.screenPosition - Projectile.Size / 2,
-                    null, color, AngleRight, new Vector2(2, 2), 1, SpriteEffects.None, 0f);
+        return false;
+    }*/
 
-                color = new Color(
-                    color.R - 250 / DrawCount,
-                    color.G - 250 / DrawCount,
-                    color.B - 250 / DrawCount,
-                    color.A + 250 / DrawCount);
 
-                color2 = new Color(
-                    color2.R + 250 / DrawCount,
-                    color2.G + 250 / DrawCount,
-                    color2.B + 250 / DrawCount,
-                    color2.A - 250 / DrawCount);
-            }
-            return false;
-        }*/
+    /*public override bool PreDraw(ref Color lightColor) // метод 1 в комментариях 
+    {
+        SpriteBatch spriteBatch = Main.spriteBatch;
+        Color color = new Color(250, 250, 250, 0);
+        Color color2 = new Color(0, 0, 0, 250);
 
-        public override bool PreDraw(ref Color lightColor) // 2 метод 
+        for (int i = 0; i < DrawCount; i++)
+        {
+            spriteBatch.Draw(
+                TextureAssets.Projectile[Projectile.type].Value,
+                Helper.PolarPos(Projectile.position, Distanse, AngleLeft - (AngleStep * i * 1.5f), 0, 0) - Main.screenPosition,
+                null, color, AngleLeft, new Vector2(2, 2), 1, SpriteEffects.None, 0f);
+
+            spriteBatch.Draw(
+                TextureAssets.Projectile[Projectile.type].Value,
+                Helper.PolarPos(Projectile.position, Distanse, AngleRight - (AngleStep * i * 1.5f), 0, 0) - Main.screenPosition - Projectile.Size / 2,
+                null, color, AngleRight, new Vector2(2, 2), 1, SpriteEffects.None, 0f);
+
+            color = new Color(
+                color.R - 250 / DrawCount,
+                color.G - 250 / DrawCount,
+                color.B - 250 / DrawCount,
+                color.A + 250 / DrawCount);
+
+            color2 = new Color(
+                color2.R + 250 / DrawCount,
+                color2.G + 250 / DrawCount,
+                color2.B + 250 / DrawCount,
+                color2.A - 250 / DrawCount);
+        }
+        return false;
+    }*/
+
+    public override bool PreDraw(ref Color lightColor) // 2 метод 
 		{
-            SpriteBatch spriteBatch = Main.spriteBatch;
-            Color color = new Color(250, 250, 250, 0);
+        SpriteBatch spriteBatch = Main.spriteBatch;
+        Color color = new Color(250, 250, 250, 0);
 			for (int i = 0; i < OldPositionsLeft.Count; i++)
 			{
 				color = new Color(color.R - 250 / DrawCount, color.G - 250 / DrawCount, color.B - 250 / DrawCount, color.A + 250 / (OldPositionsLeft.Count * 2));
@@ -198,4 +198,3 @@ namespace TremorMod.Content.Projectiles
 			return false;
 		}
 	}
-}

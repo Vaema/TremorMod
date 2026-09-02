@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.Xna.Framework;
@@ -14,110 +14,109 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Filters = Terraria.Graphics.Effects.Filters;
 
-namespace TremorMod.Content.Projectiles
-{
+namespace TremorMod.Content.Projectiles;
+
 	public class GurdPet : ModProjectile
 	{
 		public override void SetDefaults()
 		{
-            Main.projFrames[Projectile.type] = 8;
-            Projectile.width = 46;
-            Projectile.height = 38;
-            Projectile.aiStyle = -1; // Убираем стандартный AI
-            Projectile.friendly = true;
-            Projectile.penetrate = -1; // Питомец не уничтожается
-            Projectile.timeLeft = 2; // Постоянно обновляется
-            Projectile.ignoreWater = false;
-            Projectile.tileCollide = true; // Питомец может сталкиваться с плитками
-        }
+        Main.projFrames[Projectile.type] = 8;
+        Projectile.width = 46;
+        Projectile.height = 38;
+        Projectile.aiStyle = -1; // Г“ГЎГЁГ°Г ГҐГ¬ Г±ГІГ Г­Г¤Г Г°ГІГ­Г»Г© AI
+        Projectile.friendly = true;
+        Projectile.penetrate = -1; // ГЏГЁГІГ®Г¬ГҐГ¶ Г­ГҐ ГіГ­ГЁГ·ГІГ®Г¦Г ГҐГІГ±Гї
+        Projectile.timeLeft = 2; // ГЏГ®Г±ГІГ®ГїГ­Г­Г® Г®ГЎГ­Г®ГўГ«ГїГҐГІГ±Гї
+        Projectile.ignoreWater = false;
+        Projectile.tileCollide = true; // ГЏГЁГІГ®Г¬ГҐГ¶ Г¬Г®Г¦ГҐГІ Г±ГІГ Г«ГЄГЁГўГ ГІГјГ±Гї Г± ГЇГ«ГЁГІГЄГ Г¬ГЁ
+    }
 
-        public override void SetStaticDefaults()
+    public override void SetStaticDefaults()
 		{
 			//DisplayName.SetDefault("Gurd Pet");
-            Main.projPet[Projectile.type] = true; // Пометка как питомца
+        Main.projPet[Projectile.type] = true; // ГЏГ®Г¬ГҐГІГЄГ  ГЄГ ГЄ ГЇГЁГІГ®Г¬Г¶Г 
 		}
 
-        public override void AI()
+    public override void AI()
+    {
+        Player player = Main.player[Projectile.owner];
+
+        // ГЏГ°Г®ГўГҐГ°ГїГҐГ¬, Г¦ГЁГў Г«ГЁ ГЁГЈГ°Г®ГЄ
+        if (player.dead || !player.active)
         {
-            Player player = Main.player[Projectile.owner];
+            player.ClearBuff(ModContent.BuffType<Buffs.GurdPetBuff>());
+        }
 
-            // Проверяем, жив ли игрок
-            if (player.dead || !player.active)
-            {
-                player.ClearBuff(ModContent.BuffType<Buffs.GurdPetBuff>());
-            }
+        // ГЏГ°Г®ГўГҐГ°ГїГҐГ¬, ГҐГ±ГІГј Г«ГЁ ГЎГ ГґГґ ГЇГЁГІГ®Г¬Г¶Г 
+        if (player.HasBuff(ModContent.BuffType<Buffs.GurdPetBuff>()))
+        {
+            Projectile.timeLeft = 2; // ГЏГ®Г¤Г¤ГҐГ°Г¦ГЁГўГ ГҐГ¬ Г±ГіГ№ГҐГ±ГІГўГ®ГўГ Г­ГЁГҐ
+        }
 
-            // Проверяем, есть ли бафф питомца
-            if (player.HasBuff(ModContent.BuffType<Buffs.GurdPetBuff>()))
-            {
-                Projectile.timeLeft = 2; // Поддерживаем существование
-            }
+        // ГЏГ°ГЁГўГїГ§ГЄГ  ГЄ ГЁГЈГ°Г®ГЄГі
+        Vector2 playerPosition = player.Center + new Vector2(-50f, 0f); // Г‘Г¬ГҐГ№ГҐГ­ГЁГҐ Г®ГІГ­Г®Г±ГЁГІГҐГ«ГјГ­Г® ГЁГЈГ°Г®ГЄГ 
+        float distanceToPlayer = Vector2.Distance(Projectile.Center, playerPosition);
 
-            // Привязка к игроку
-            Vector2 playerPosition = player.Center + new Vector2(-50f, 0f); // Смещение относительно игрока
-            float distanceToPlayer = Vector2.Distance(Projectile.Center, playerPosition);
+        if (distanceToPlayer > 1000f) // Г…Г±Г«ГЁ ГЇГЁГІГ®Г¬ГҐГ¶ Г±Г«ГЁГёГЄГ®Г¬ Г¤Г Г«ГҐГЄГ®, ГІГҐГ«ГҐГЇГ®Г°ГІГЁГ°ГіГҐГ¬ ГҐГЈГ®
+        {
+            Projectile.Center = playerPosition;
+        }
 
-            if (distanceToPlayer > 1000f) // Если питомец слишком далеко, телепортируем его
-            {
-                Projectile.Center = playerPosition;
-            }
+        // Г•Г®Г¤ГјГЎГ  ГЇГ® ГЇГ«ГЁГІГЄГ Г¬
+        float speed = 2f; // Г‘ГЄГ®Г°Г®Г±ГІГј Г¤ГўГЁГ¦ГҐГ­ГЁГї
+        float inertia = 20f;
 
-            // Ходьба по плиткам
-            float speed = 2f; // Скорость движения
-            float inertia = 20f;
+        if (Projectile.Center.X < player.Center.X - 60f) // Г€Г¤ГІГЁ ГўГЇГ°Г ГўГ®
+        {
+            Projectile.velocity.X = (Projectile.velocity.X * (inertia - 1) + speed) / inertia;
+        }
+        else if (Projectile.Center.X > player.Center.X + 60f) // Г€Г¤ГІГЁ ГўГ«ГҐГўГ®
+        {
+            Projectile.velocity.X = (Projectile.velocity.X * (inertia - 1) - speed) / inertia;
+        }
+        else // Г…Г±Г«ГЁ Г°ГїГ¤Г®Г¬ Г± ГЁГЈГ°Г®ГЄГ®Г¬, Г§Г Г¬ГҐГ¤Г«ГїГҐГ¬Г±Гї
+        {
+            Projectile.velocity.X *= 0.9f;
+        }
 
-            if (Projectile.Center.X < player.Center.X - 60f) // Идти вправо
-            {
-                Projectile.velocity.X = (Projectile.velocity.X * (inertia - 1) + speed) / inertia;
-            }
-            else if (Projectile.Center.X > player.Center.X + 60f) // Идти влево
-            {
-                Projectile.velocity.X = (Projectile.velocity.X * (inertia - 1) - speed) / inertia;
-            }
-            else // Если рядом с игроком, замедляемся
-            {
-                Projectile.velocity.X *= 0.9f;
-            }
+        // ГЏГ°Г®ГўГҐГ°ГЄГ  Г­Г  Г§ГҐГ¬Г«Гѕ
+        Point tileBelowPosition = (Projectile.Bottom / 16).ToPoint() + new Point(0, 1); // ГЉГ®Г®Г°Г¤ГЁГ­Г ГІГ» ГЇГ«ГЁГІГЄГЁ ГЇГ®Г¤ ГЇГЁГІГ®Г¬Г¶ГҐГ¬
+        Tile tileBelow = Framing.GetTileSafely(tileBelowPosition.X, tileBelowPosition.Y);
 
-            // Проверка на землю
-            Point tileBelowPosition = (Projectile.Bottom / 16).ToPoint() + new Point(0, 1); // Координаты плитки под питомцем
-            Tile tileBelow = Framing.GetTileSafely(tileBelowPosition.X, tileBelowPosition.Y);
-
-            if (Projectile.velocity.Y == 0f) // Если на земле
-            {
-                if (!tileBelow.HasTile || !Main.tileSolid[tileBelow.TileType]) // Если плитки нет, падаем
-                {
-                    Projectile.velocity.Y += 0.4f;
-                }
-            }
-            else // Если в воздухе, ускоряем падение
+        if (Projectile.velocity.Y == 0f) // Г…Г±Г«ГЁ Г­Г  Г§ГҐГ¬Г«ГҐ
+        {
+            if (!tileBelow.HasTile || !Main.tileSolid[tileBelow.TileType]) // Г…Г±Г«ГЁ ГЇГ«ГЁГІГЄГЁ Г­ГҐГІ, ГЇГ Г¤Г ГҐГ¬
             {
                 Projectile.velocity.Y += 0.4f;
             }
+        }
+        else // Г…Г±Г«ГЁ Гў ГўГ®Г§Г¤ГіГµГҐ, ГіГ±ГЄГ®Г°ГїГҐГ¬ ГЇГ Г¤ГҐГ­ГЁГҐ
+        {
+            Projectile.velocity.Y += 0.4f;
+        }
 
-            // Ограничение вертикальной скорости
-            if (Projectile.velocity.Y > 10f)
-            {
-                Projectile.velocity.Y = 10f;
-            }
+        // ГЋГЈГ°Г Г­ГЁГ·ГҐГ­ГЁГҐ ГўГҐГ°ГІГЁГЄГ Г«ГјГ­Г®Г© Г±ГЄГ®Г°Г®Г±ГІГЁ
+        if (Projectile.velocity.Y > 10f)
+        {
+            Projectile.velocity.Y = 10f;
+        }
 
-            // Устанавливаем направление питомца
-            Projectile.spriteDirection = Projectile.velocity.X > 0 ? 1 : -1;
+        // Г“Г±ГІГ Г­Г ГўГ«ГЁГўГ ГҐГ¬ Г­Г ГЇГ°Г ГўГ«ГҐГ­ГЁГҐ ГЇГЁГІГ®Г¬Г¶Г 
+        Projectile.spriteDirection = Projectile.velocity.X > 0 ? 1 : -1;
 
-            // Анимация
-            if (Projectile.velocity.X != 0)
+        // ГЂГ­ГЁГ¬Г Г¶ГЁГї
+        if (Projectile.velocity.X != 0)
+        {
+            Projectile.frameCounter++;
+            if (Projectile.frameCounter >= 8) // Г‘ГЄГ®Г°Г®Г±ГІГј Г±Г¬ГҐГ­Г» ГЄГ Г¤Г°Г®Гў
             {
-                Projectile.frameCounter++;
-                if (Projectile.frameCounter >= 8) // Скорость смены кадров
-                {
-                    Projectile.frameCounter = 0;
-                    Projectile.frame = (Projectile.frame + 1) % Main.projFrames[Projectile.type];
-                }
+                Projectile.frameCounter = 0;
+                Projectile.frame = (Projectile.frame + 1) % Main.projFrames[Projectile.type];
             }
-            else
-            {
-                Projectile.frame = 0; // Если стоит, показываем первый кадр
-            }
+        }
+        else
+        {
+            Projectile.frame = 0; // Г…Г±Г«ГЁ Г±ГІГ®ГЁГІ, ГЇГ®ГЄГ Г§Г»ГўГ ГҐГ¬ ГЇГҐГ°ГўГ»Г© ГЄГ Г¤Г°
         }
     }
 }

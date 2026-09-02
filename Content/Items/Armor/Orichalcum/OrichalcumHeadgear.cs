@@ -1,16 +1,16 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 
-namespace TremorMod.Content.Items.Armor.Orichalcum
-{
+namespace TremorMod.Content.Items.Armor.Orichalcum;
+
 	[AutoloadEquip(EquipType.Head)]
 	public class OrichalcumHeadgear : ModItem
 	{
-        public static LocalizedText SetBonusText { get; private set; }
+    public static LocalizedText SetBonusText { get; private set; }
 
-        public override void SetDefaults()
+    public override void SetDefaults()
 		{
 			Item.width = 22;
 			Item.height = 26;
@@ -23,8 +23,8 @@ namespace TremorMod.Content.Items.Armor.Orichalcum
 		{
 			//DisplayName.SetDefault("Orichalcum Headgear");
 			//Tooltip.SetDefault("20% increased minion damage");
-            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases your max number of minions and flower petals will fall on your target for extra damage");
-        }
+        SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases your max number of minions and flower petals will fall on your target for extra damage");
+    }
 
 		public override void UpdateEquip(Player player)
 		{
@@ -38,8 +38,8 @@ namespace TremorMod.Content.Items.Armor.Orichalcum
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = SetBonusText.Value;
-            player.setBonus = "Increases your max number of minions and flower petals will fall on your target for extra damage";
+        player.setBonus = SetBonusText.Value;
+        player.setBonus = "Increases your max number of minions and flower petals will fall on your target for extra damage";
 			player.maxMinions += 2;
 			player.onHitPetal = true;
 		}
@@ -58,4 +58,3 @@ namespace TremorMod.Content.Items.Armor.Orichalcum
 			recipe.Register();
 		}
 	}
-}

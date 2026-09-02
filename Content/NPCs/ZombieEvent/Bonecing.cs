@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
@@ -9,8 +9,8 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Placeable.Banners;
 using TremorMod.Content.Items.Vanity;
 
-namespace TremorMod.Content.NPCs.ZombieEvent
-{
+namespace TremorMod.Content.NPCs.ZombieEvent;
+
 
 	public class Bonecing : ModNPC
 	{
@@ -39,12 +39,11 @@ namespace TremorMod.Content.NPCs.ZombieEvent
 			// Todo: bannerItem = mod.ItemType("BigCorpseBanner");
 		}
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        if (NPC.AnyNPCs(ModContent.NPCType<Cryptomage>()))
         {
-            if (NPC.AnyNPCs(ModContent.NPCType<Cryptomage>()))
-            {
-                NPC.Transform(ModContent.NPCType<SuperBonecing>());
-            }
+            NPC.Transform(ModContent.NPCType<SuperBonecing>());
         }
     }
 }

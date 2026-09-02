@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class BallnChain : ModItem
 	{
 		public override void SetDefaults()
@@ -27,4 +27,3 @@ namespace TremorMod.Content.Items.Accessories
 			player.AddBuff(ModContent.BuffType<BallnChainBuff>(), 2);
 		}
 	}
-}

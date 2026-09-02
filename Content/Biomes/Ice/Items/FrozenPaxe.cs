@@ -1,10 +1,10 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Biomes.Ice.Items
-{
+namespace TremorMod.Content.Biomes.Ice.Items;
+
 	public class FrozenPaxe : ModItem
 	{
 		public override void SetDefaults()
@@ -25,18 +25,17 @@ namespace TremorMod.Content.Biomes.Ice.Items
 			Item.autoReuse = true;
 		}
 
-        /*public override void SetStaticDefaults()
+    /*public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Frozen Paxe");
 			Tooltip.SetDefault("");
 		}*/
 
-        public override void MeleeEffects(Player player, Rectangle hitbox)
-        {
+    public override void MeleeEffects(Player player, Rectangle hitbox)
+    {
 			if (Main.rand.NextBool(3))
 			{
 				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 80);
 			}
 		}
 	}
-}

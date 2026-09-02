@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 
-namespace TremorMod.Content.Items.Armor.Argite
-{
+namespace TremorMod.Content.Items.Armor.Argite;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class ArgiteGreaves : ModItem
 	{
@@ -29,13 +29,12 @@ namespace TremorMod.Content.Items.Armor.Argite
 			player.moveSpeed += 0.1f;
 		}
 
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<ArgiteBar>(), 18);
-            //recipe.SetResult(this);
-            recipe.AddTile(16);
-            recipe.Register();
-        }
+    public override void AddRecipes()
+    {
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ModContent.ItemType<ArgiteBar>(), 18);
+        //recipe.SetResult(this);
+        recipe.AddTile(16);
+        recipe.Register();
     }
 }

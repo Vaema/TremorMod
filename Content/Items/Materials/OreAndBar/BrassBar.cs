@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
@@ -6,8 +6,8 @@ using TremorMod.Content.Items.CogLordItems;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Materials.OreAndBar
-{
+namespace TremorMod.Content.Items.Materials.OreAndBar;
+
 	public class BrassBar : ModItem
 	{
 		public override void SetDefaults()
@@ -36,11 +36,10 @@ namespace TremorMod.Content.Items.Materials.OreAndBar
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<BrassNugget>(), 2);
-            recipe.AddIngredient(ModContent.ItemType<Charcoal>(), 2);
-            //recipe.SetResult(this);
-            recipe.AddTile(ModContent.TileType<BlastFurnaceTile>());
-            recipe.Register();
+        recipe.AddIngredient(ModContent.ItemType<BrassNugget>(), 2);
+        recipe.AddIngredient(ModContent.ItemType<Charcoal>(), 2);
+        //recipe.SetResult(this);
+        recipe.AddTile(ModContent.TileType<BlastFurnaceTile>());
+        recipe.Register();
 		}
 	}
-}

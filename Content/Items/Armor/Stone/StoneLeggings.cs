@@ -1,9 +1,9 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.Items.Armor.Stone
-{
+namespace TremorMod.Content.Items.Armor.Stone;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class StoneLeggings : ModItem
 	{
@@ -37,4 +37,3 @@ namespace TremorMod.Content.Items.Armor.Stone
 			recipe.Register();
 		}
 	}
-}

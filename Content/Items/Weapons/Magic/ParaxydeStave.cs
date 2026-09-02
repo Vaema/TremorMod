@@ -1,12 +1,12 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.Weapons.Magic
-{
+namespace TremorMod.Content.Items.Weapons.Magic;
+
 	public class ParaxydeStave : ModItem
 	{
 		public override void SetDefaults()
@@ -46,14 +46,14 @@ namespace TremorMod.Content.Items.Weapons.Magic
 			recipe.Register();
 		}
 
-        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-        {
-            Projectile.NewProjectile(source, position, velocity, ProjectileID.CrystalPulse, damage, knockback, player.whoAmI);
+    public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    {
+        Projectile.NewProjectile(source, position, velocity, ProjectileID.CrystalPulse, damage, knockback, player.whoAmI);
 
-            return false; 
-        }
+        return false; 
+    }
 
-        public override void MeleeEffects(Player player, Rectangle hitbox)
+    public override void MeleeEffects(Player player, Rectangle hitbox)
 		{
 			if (Main.rand.NextBool(2))
 			{
@@ -61,4 +61,3 @@ namespace TremorMod.Content.Items.Weapons.Magic
 			}
 		}
 	}
-}

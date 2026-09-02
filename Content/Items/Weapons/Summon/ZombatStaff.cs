@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -9,8 +9,8 @@ using TremorMod.Content.Tiles;
 using TremorMod.Content.Items.Materials.OreAndBar;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Weapons.Summon
-{
+namespace TremorMod.Content.Items.Weapons.Summon;
+
 	public class ZombatStaff : ModItem
 	{
 		public override void SetDefaults()
@@ -62,4 +62,3 @@ namespace TremorMod.Content.Items.Weapons.Summon
 			recipe.Register();
 		}
 	}
-}

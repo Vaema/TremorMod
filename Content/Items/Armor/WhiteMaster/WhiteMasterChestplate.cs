@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.BossLoot.TheDarkEmperor;
@@ -7,8 +7,8 @@ using TremorMod.Content.Items.Materials;
 using TremorMod.Utilities;
 using TremorMod;
 
-namespace TremorMod.Content.Items.Armor.WhiteMaster
-{
+namespace TremorMod.Content.Items.Armor.WhiteMaster;
+
 	[AutoloadEquip(EquipType.Body)]
 	public class WhiteMasterChestplate : ModItem
 	{
@@ -32,9 +32,9 @@ namespace TremorMod.Content.Items.Armor.WhiteMaster
 
 		public override void UpdateEquip(Player player)
 		{
-            TremorPlayer modPlayer = player.GetModPlayer<TremorPlayer>();
-            modPlayer.zellariumBody = true;
-            player.lavaImmune = true;
+        TremorPlayer modPlayer = player.GetModPlayer<TremorPlayer>();
+        modPlayer.zellariumBody = true;
+        player.lavaImmune = true;
 			player.ignoreWater = true;
 			player.GetModPlayer<MPlayer>().alchemicalDamage += 0.3f;
 			player.buffImmune[BuffID.CursedInferno] = true;
@@ -69,4 +69,3 @@ namespace TremorMod.Content.Items.Armor.WhiteMaster
 			recipe.Register();
 		}
 	}
-}

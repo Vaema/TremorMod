@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Armor.Dragon
-{
+namespace TremorMod.Content.Items.Armor.Dragon;
+
 	[AutoloadEquip(EquipType.Legs)]
 	public class DragonGreaves : ModItem
 	{
@@ -43,4 +43,3 @@ namespace TremorMod.Content.Items.Armor.Dragon
 			recipe.Register();
 		}
 	}
-}

@@ -1,51 +1,50 @@
-using System;
+п»їusing System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Audio;
 
-namespace TremorMod.Content.Projectiles
+namespace TremorMod.Content.Projectiles;
+
+public class RedStormProjectile : ModProjectile
 {
-    public class RedStormProjectile : ModProjectile
+    public override void SetDefaults()
     {
-        public override void SetDefaults()
+        Projectile.width = 10;
+        Projectile.height = 10;
+        Projectile.aiStyle = 1;
+        Projectile.friendly = true;
+        Projectile.DamageType = DamageClass.Ranged;
+        Projectile.penetrate = 1;
+        Projectile.timeLeft = 300;
+        AIType = ProjectileID.WoodenArrowFriendly; // ГЏГ®ГўГҐГ¤ГҐГ­ГЁГҐ Г±ГІГ°ГҐГ«Г»
+    }
+
+    public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+    {
+        // ГЏГ°ГЁ ГЇГ®ГЇГ Г¤Г Г­ГЁГЁ Г±Г®Г§Г¤Г ГҐГ¬ Г«Г Г§ГҐГ°Г» Г± Г­ГҐГЎГ 
+        int laserCount = 5; // ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® Г«Г Г§ГҐГ°Г®Гў
+        for (int i = 0; i < laserCount; i++)
         {
-            Projectile.width = 10;
-            Projectile.height = 10;
-            Projectile.aiStyle = 1;
-            Projectile.friendly = true;
-            Projectile.DamageType = DamageClass.Ranged;
-            Projectile.penetrate = 1;
-            Projectile.timeLeft = 300;
-            AIType = ProjectileID.WoodenArrowFriendly; // Поведение стрелы
-        }
+            // ГЏГ®Г§ГЁГ¶ГЁГї Г«Г Г§ГҐГ°Г  Г­Г Г¤ ГўГ°Г ГЈГ®Г¬
+            Vector2 laserPosition = new Vector2(
+                target.Center.X + Main.rand.Next(-100, 100), // Г‘Г«ГіГ·Г Г©Г­Г®ГҐ Г±Г¬ГҐГ№ГҐГ­ГЁГҐ ГЇГ® ГЈГ®Г°ГЁГ§Г®Г­ГІГ Г«ГЁ
+                target.Center.Y - 600f                       // Г‚Г»Г±Г®ГІГ  ГЇГ®ГїГўГ«ГҐГ­ГЁГї
+            );
 
-        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
-        {
-            // При попадании создаем лазеры с неба
-            int laserCount = 5; // Количество лазеров
-            for (int i = 0; i < laserCount; i++)
-            {
-                // Позиция лазера над врагом
-                Vector2 laserPosition = new Vector2(
-                    target.Center.X + Main.rand.Next(-100, 100), // Случайное смещение по горизонтали
-                    target.Center.Y - 600f                       // Высота появления
-                );
+            Vector2 laserVelocity = new Vector2(0, 10f); // Г‹Г Г§ГҐГ° Г¤ГўГЁГ¦ГҐГІГ±Гї ГўГ­ГЁГ§
 
-                Vector2 laserVelocity = new Vector2(0, 10f); // Лазер движется вниз
-
-                // Создаем снаряд лазера
-                Projectile.NewProjectile(
-                    Projectile.GetSource_OnHit(target),
-                    laserPosition,
-                    laserVelocity,
-                    ModContent.ProjectileType<RedStormLaser>(), // Тип снаряда для лазера
-                    Projectile.damage / 2,  // Урон лазера (половина от исходного)
-                    0f,                     // Нет отдачи
-                    Projectile.owner        // Владелец
-                );
-            }
+            // Г‘Г®Г§Г¤Г ГҐГ¬ Г±Г­Г Г°ГїГ¤ Г«Г Г§ГҐГ°Г 
+            Projectile.NewProjectile(
+                Projectile.GetSource_OnHit(target),
+                laserPosition,
+                laserVelocity,
+                ModContent.ProjectileType<RedStormLaser>(), // Г’ГЁГЇ Г±Г­Г Г°ГїГ¤Г  Г¤Г«Гї Г«Г Г§ГҐГ°Г 
+                Projectile.damage / 2,  // Г“Г°Г®Г­ Г«Г Г§ГҐГ°Г  (ГЇГ®Г«Г®ГўГЁГ­Г  Г®ГІ ГЁГ±ГµГ®Г¤Г­Г®ГЈГ®)
+                0f,                     // ГЌГҐГІ Г®ГІГ¤Г Г·ГЁ
+                Projectile.owner        // Г‚Г«Г Г¤ГҐГ«ГҐГ¶
+            );
         }
     }
 }

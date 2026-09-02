@@ -5,8 +5,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TremorMod.Content.NPCs.Bosses.Motherboard
-{
+namespace TremorMod.Content.NPCs.Bosses.Motherboard;
+
 	public class SignalDrone : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -172,4 +172,3 @@ namespace TremorMod.Content.NPCs.Bosses.Motherboard
 			}
 		}
 	}
-}

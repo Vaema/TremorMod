@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 using TremorMod.Content.Items.Materials.OreAndBar;
 
-namespace TremorMod.Content.Items.Tools
-{
+namespace TremorMod.Content.Items.Tools;
+
 
 	public class NanoDrill : ModItem
 	{
@@ -48,4 +48,3 @@ namespace TremorMod.Content.Items.Tools
 			recipe.Register();
 		}
 	}
-}

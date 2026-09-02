@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 
-namespace TremorMod.Content.Items.Tools
-{
+namespace TremorMod.Content.Items.Tools;
+
 
 	public class ParadoxDrill : ModItem
 	{
@@ -68,4 +68,3 @@ namespace TremorMod.Content.Items.Tools
 			return base.CanUseItem(player);
 		}
 	}
-}

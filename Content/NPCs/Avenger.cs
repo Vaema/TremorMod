@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
@@ -10,8 +10,8 @@ using TremorMod.Content.Items.Placeable.Banners;
 using TremorMod.Content.Items.Vanity;
 using TremorMod.Content.Event;
 
-namespace TremorMod.Content.NPCs
-{
+namespace TremorMod.Content.NPCs;
+
 	public class Avenger : ModNPC
 	{
 		public override void SetStaticDefaults()
@@ -43,9 +43,9 @@ namespace TremorMod.Content.NPCs
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{
-            int hitDirection = hit.HitDirection;
+        int hitDirection = hit.HitDirection;
 
-            if (NPC.life > 0)
+        if (NPC.life > 0)
 				Main.dust[Dust.NewDust(NPC.position, NPC.width, NPC.height, 71, 0f, 0f, 200)].velocity *= 1.5F;
 			else
 			{
@@ -53,30 +53,29 @@ namespace TremorMod.Content.NPCs
 				{
 					Main.dust[Dust.NewDust(NPC.position, NPC.width, NPC.height, 71, hitDirection, 0f, 200)].velocity *= 1.5f;
 
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AvengerGore1").Type, 1f);
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AvengerGore1").Type, 1f);
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AvengerGore2").Type, 1f);
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AvengerGore2").Type, 1f);
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AvengerGore3").Type, 1f);
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AvengerGore4").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AvengerGore1").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AvengerGore1").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AvengerGore2").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AvengerGore2").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AvengerGore3").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AvengerGore4").Type, 1f);
 				}
 			}
 		}
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-           npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CarbonSteel>(), 3, 1, 3));
-           npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GoldenClaw>(), 5, 1, 5));
-           npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AngryShard>(), 10, 1, 3));
-        }
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+       npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CarbonSteel>(), 3, 1, 3));
+       npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GoldenClaw>(), 5, 1, 5));
+       npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AngryShard>(), 10, 1, 3));
+    }
 
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+    public override float SpawnChance(NPCSpawnInfo spawnInfo)
+    {
+        if (ModContent.GetInstance<TremorConfig>().DisablingspawnAvengerPhobosDeimos)
         {
-            if (ModContent.GetInstance<TremorConfig>().DisablingspawnAvengerPhobosDeimos)
-            {
-                return 0f;
-            }
-            return Helper.NormalSpawn(spawnInfo) && Helper.NoZoneAllowWater(spawnInfo) && NPC.downedMoonlord && Main.hardMode && !Main.dayTime && spawnInfo.SpawnTileY < Main.worldSurface ? 0.03f : 0f;
+            return 0f;
         }
+        return Helper.NormalSpawn(spawnInfo) && Helper.NoZoneAllowWater(spawnInfo) && NPC.downedMoonlord && Main.hardMode && !Main.dayTime && spawnInfo.SpawnTileY < Main.worldSurface ? 0.03f : 0f;
+    }
 	}
-}

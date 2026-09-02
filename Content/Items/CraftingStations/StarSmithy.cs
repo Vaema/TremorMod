@@ -1,11 +1,11 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Tiles;
 
-namespace TremorMod.Content.Items.CraftingStations
-{
+namespace TremorMod.Content.Items.CraftingStations;
+
 	public class StarSmithy : ModItem
 	{
 		public override void SetDefaults()
@@ -45,11 +45,10 @@ namespace TremorMod.Content.Items.CraftingStations
 			recipe2.AddIngredient(ItemID.MeteoriteBar, 15);
 			recipe2.AddIngredient(ItemID.PlatinumBar, 15);
 			recipe2.AddIngredient(ModContent.ItemType<VoidBar>(), 15);
-            recipe2.AddIngredient(ModContent.ItemType<Squorb>(), 3);
-            recipe2.AddIngredient(ItemID.FallenStar, 5);
+        recipe2.AddIngredient(ModContent.ItemType<Squorb>(), 3);
+        recipe2.AddIngredient(ItemID.FallenStar, 5);
 			//recipe.SetResult(this);
 			recipe2.AddTile(412);
 			recipe2.Register();
 		}
 	}
-}

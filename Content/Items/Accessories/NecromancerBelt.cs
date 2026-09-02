@@ -1,10 +1,10 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
-namespace TremorMod.Content.Items.Accessories
-{
+namespace TremorMod.Content.Items.Accessories;
+
 	public class NecromancerBelt : ModItem
 	{
 		public override void SetDefaults()
@@ -25,8 +25,8 @@ namespace TremorMod.Content.Items.Accessories
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-            player.GetKnockback(DamageClass.Summon) += 0.2f;
-            player.maxMinions += 1;
+        player.GetKnockback(DamageClass.Summon) += 0.2f;
+        player.maxMinions += 1;
 		}
 
 		public override void AddRecipes()
@@ -41,4 +41,3 @@ namespace TremorMod.Content.Items.Accessories
 			recipe.Register();
 		}
 	}
-}

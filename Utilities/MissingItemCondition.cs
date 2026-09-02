@@ -1,39 +1,38 @@
-using Terraria.GameContent.ItemDropRules;
+﻿using Terraria.GameContent.ItemDropRules;
 using Terraria.ModLoader;
 
-namespace TremorMod.Utilities
+namespace TremorMod.Utilities;
+
+public class MissingItemCondition : IItemDropRuleCondition
 {
-    public class MissingItemCondition : IItemDropRuleCondition
+    private readonly int itemType;
+
+    public MissingItemCondition(int itemType)
     {
-        private readonly int itemType;
+        this.itemType = itemType;
+    }
 
-        public MissingItemCondition(int itemType)
-        {
-            this.itemType = itemType;
-        }
+    public bool CanDrop(DropAttemptInfo info)
+    {
+        if (info.player == null)
+            return false;
 
-        public bool CanDrop(DropAttemptInfo info)
+        for (int i = 0; i < info.player.inventory.Length; i++)
         {
-            if (info.player == null)
+            if (info.player.inventory[i].type == itemType)
                 return false;
-
-            for (int i = 0; i < info.player.inventory.Length; i++)
-            {
-                if (info.player.inventory[i].type == itemType)
-                    return false;
-            }
-
-            return true;
         }
 
-        public bool CanShowItemDropInUI()
-        {
-            return true;
-        }
+        return true;
+    }
 
-        public string GetConditionDescription()
-        {
-            return null;
-        }
+    public bool CanShowItemDropInUI()
+    {
+        return true;
+    }
+
+    public string GetConditionDescription()
+    {
+        return null;
     }
 }

@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
@@ -6,15 +6,15 @@ using TremorMod.Content.Projectiles;
 using TremorMod.Utilities;
 using TremorMod.Content.Buffs;
 
-namespace TremorMod.Content.Items.Weapons.Alchemical
-{
+namespace TremorMod.Content.Items.Weapons.Alchemical;
+
 	public class CrystalFlask : ModItem
-    {
+{
 
 		public override void SetDefaults()
 		{
-            Item.DamageType = TremorMod.alchemicalDamage ?? DamageClass.Generic;
-            Item.crit = 4;
+        Item.DamageType = TremorMod.alchemicalDamage ?? DamageClass.Generic;
+        Item.crit = 4;
 			Item.damage = 56;
 			Item.width = 26;
 			Item.noUseGraphic = true;
@@ -41,42 +41,42 @@ namespace TremorMod.Content.Items.Weapons.Alchemical
 			// Tooltip.SetDefault("Throws a flask that explodes into crystal clouds");
 		}
 
-        public override void PickAmmo(Item weapon, Player player, ref int type, ref float speed, ref StatModifier damage, ref float knockback)
+    public override void PickAmmo(Item weapon, Player player, ref int type, ref float speed, ref StatModifier damage, ref float knockback)
+    {
+        type = ModContent.ProjectileType<CrystalCloudPro>();
+    }
+
+    public override void UpdateInventory(Player player)
+    {
+        MPlayer modPlayer = MPlayer.GetModPlayer(player);
+        if (modPlayer.novaHelmet)
         {
-            type = ModContent.ProjectileType<CrystalCloudPro>();
+            Item.autoReuse = true;
+        }
+        if (!modPlayer.novaHelmet)
+        {
+            Item.autoReuse = false;
         }
 
-        public override void UpdateInventory(Player player)
+        if (player.FindBuffIndex(ModContent.BuffType<LongFuseBuff>()) != -1)
         {
-            MPlayer modPlayer = MPlayer.GetModPlayer(player);
-            if (modPlayer.novaHelmet)
-            {
-                Item.autoReuse = true;
-            }
-            if (!modPlayer.novaHelmet)
-            {
-                Item.autoReuse = false;
-            }
-
-            if (player.FindBuffIndex(ModContent.BuffType<LongFuseBuff>()) != -1)
-            {
-                Item.shootSpeed = 11f;
-            }
-            if (player.FindBuffIndex(ModContent.BuffType<LongFuseBuff>()) < 1)
-            {
-                Item.shootSpeed = 8f;
-            }
-            if (modPlayer.core)
-            {
-                Item.autoReuse = true;
-            }
-            if (!modPlayer.core)
-            {
-                Item.autoReuse = false;
-            }
+            Item.shootSpeed = 11f;
         }
+        if (player.FindBuffIndex(ModContent.BuffType<LongFuseBuff>()) < 1)
+        {
+            Item.shootSpeed = 8f;
+        }
+        if (modPlayer.core)
+        {
+            Item.autoReuse = true;
+        }
+        if (!modPlayer.core)
+        {
+            Item.autoReuse = false;
+        }
+    }
 
-        public override void AddRecipes()
+    public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe(50);
 			recipe.AddIngredient(ItemID.BottledWater, 1);
@@ -86,4 +86,3 @@ namespace TremorMod.Content.Items.Weapons.Alchemical
 		}
 
 	}
-}

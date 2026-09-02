@@ -21,7 +21,7 @@ namespace TremorMod.Content.Tiles;
         TileObjectData.newTile.StyleHorizontal = true;
         TileObjectData.newTile.StyleWrapLimit = 111;
         TileObjectData.addTile(Type);
-        DustType = 59;
+        DustType = DustID.BlueTorch;
 	        AddMapEntry(new Color(90, 0, 150), CreateMapEntryName());
         Main.tileShine[Type] = 1100;
         Main.tileSolid[Type] = true;

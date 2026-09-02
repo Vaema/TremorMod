@@ -17,10 +17,10 @@ namespace TremorMod.Content.Items.Tools;
 			Item.useTime = 15;
 			Item.useAnimation = 20;
 			Item.pick = 85;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 2;
 			Item.value = 1000;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 		}
@@ -37,7 +37,7 @@ namespace TremorMod.Content.Items.Tools;
 			recipe1.AddIngredient(ModContent.ItemType<FungusElement>(), 13);
 			recipe1.AddIngredient(ItemID.GlowingMushroom, 10);
 			recipe1.AddIngredient(ItemID.GoldPickaxe, 1);
-			recipe1.AddTile(16);
+			recipe1.AddTile(TileID.Anvils);
 			//recipe.SetResult(this);
 			recipe1.Register();
 
@@ -45,7 +45,7 @@ namespace TremorMod.Content.Items.Tools;
 			recipe2.AddIngredient(ModContent.ItemType<FungusElement>(), 13);
 			recipe2.AddIngredient(ItemID.GlowingMushroom, 10);
 			recipe2.AddIngredient(ItemID.PlatinumPickaxe, 1);
-			recipe2.AddTile(16);
+			recipe2.AddTile(TileID.Anvils);
 			//recipe.SetResult(this);
 			recipe2.Register();
 		}

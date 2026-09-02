@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
@@ -12,7 +13,7 @@ namespace TremorMod.Content.Items.Armor.Dragon;
 			Item.width = 30;
 			Item.height = 26;
 			Item.value = 35000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.defense = 29;
 		}
 
@@ -39,7 +40,7 @@ namespace TremorMod.Content.Items.Armor.Dragon;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<DragonCapsule>(), 12);
 			recipe.AddIngredient(ModContent.ItemType<EarthFragment>(), 10);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			//recipe.SetResult(this);
 			recipe.Register();
 		}

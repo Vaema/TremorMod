@@ -20,7 +20,7 @@ namespace TremorMod.Content.NPCs;
 		{
 			NPC.width = 36;
 			NPC.height = 26;
-			NPC.aiStyle = 17;
+			NPC.aiStyle = NPCAIStyleID.Vulture;
 			NPC.damage = 22;
 			NPC.defense = 5;
 			NPC.lifeMax = 58;
@@ -28,7 +28,7 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.85f;
 			NPC.DeathSound = SoundID.NPCDeath1;
 			NPC.value = 50f;
-			AnimationType = 301;
+			AnimationType = NPCID.Raven;
 		}
 
     public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
@@ -51,7 +51,7 @@ namespace TremorMod.Content.NPCs;
         if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SeaSnail, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("GrayRavenGore1").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("GrayRavenGore1").Type, 1f);

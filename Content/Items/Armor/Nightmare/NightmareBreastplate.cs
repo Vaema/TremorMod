@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
@@ -13,7 +14,7 @@ namespace TremorMod.Content.Items.Armor.Nightmare;
 			Item.width = 22;
 			Item.height = 30;
 			Item.value = 25000;
-			Item.rare = 10;
+			Item.rare = ItemRarityID.Red;
 		}
 
 		public override void SetStaticDefaults()
@@ -28,7 +29,7 @@ namespace TremorMod.Content.Items.Armor.Nightmare;
 			recipe.AddIngredient(ModContent.ItemType<NightmareBar>(), 25);
 			recipe.AddIngredient(ModContent.ItemType<Phantaplasm>(), 10);
 			//recipe.SetResult(this);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

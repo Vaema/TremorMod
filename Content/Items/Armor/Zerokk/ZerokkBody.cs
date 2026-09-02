@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items.Armor.Zerokk;
@@ -14,7 +15,7 @@ namespace TremorMod.Content.Items.Armor.Zerokk;
 			Item.height = 18;
 			Item.value = 30000;
 
-			Item.rare = 9;
+			Item.rare = ItemRarityID.Cyan;
 		}
 
 		public override void SetStaticDefaults()

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Projectiles;
@@ -11,7 +12,7 @@ namespace TremorMod.Content.Projectiles;
 			Projectile.CloneDefaults(435);
 
 			Main.projFrames[Projectile.type] = 4;
-			AIType = 435;
+			AIType = ProjectileID.MartianTurretBolt;
 			Projectile.penetrate = -1;
 		}
 

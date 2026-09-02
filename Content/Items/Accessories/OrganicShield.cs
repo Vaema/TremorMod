@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items.Accessories;
@@ -11,7 +12,7 @@ namespace TremorMod.Content.Items.Accessories;
 			Item.width = 26;
 			Item.height = 26;
 			Item.value = 12600;
-			Item.rare = 8;
+			Item.rare = ItemRarityID.Yellow;
 			Item.accessory = true;
 			Item.defense = 12;
 		}
@@ -37,14 +38,14 @@ namespace TremorMod.Content.Items.Accessories;
 			recipe.AddIngredient(ModContent.ItemType<MeatShield>(), 1);
 			recipe.AddIngredient(ModContent.ItemType<DarkAbsorber>(), 1);
 			//recipe.SetResult(this);
-			recipe.AddTile(114);
+			recipe.AddTile(TileID.TinkerersWorkbench);
 			recipe.Register();
 
 			Recipe recipe1 = CreateRecipe();
         recipe1.AddIngredient(ModContent.ItemType<MeatShield>(), 1);
         recipe1.AddIngredient(ModContent.ItemType<PatronoftheMind>(), 1);
         //recipe.SetResult(this);
-        recipe1.AddTile(114);
+        recipe1.AddTile(TileID.TinkerersWorkbench);
         recipe1.Register();
     }
 	}

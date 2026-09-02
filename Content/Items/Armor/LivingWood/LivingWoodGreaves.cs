@@ -15,7 +15,7 @@ namespace TremorMod.Content.Items.Armor.LivingWood;
 			Item.height = 18;
 			Item.value = 200;
 
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.defense = 1;
 		}
 
@@ -34,7 +34,7 @@ namespace TremorMod.Content.Items.Armor.LivingWood;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Wood, 25);
-			recipe.AddTile(304);
+			recipe.AddTile(TileID.LivingLoom);
 			recipe.Register();
 		}
 

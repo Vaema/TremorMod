@@ -14,15 +14,15 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.height = 44;
 			Item.useTime = 35;
 			Item.useAnimation = 35;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTurn = true;
 			Item.knockBack = 6f;
 			Item.value = 30000;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 			Item.shootSpeed = 15f;
-			Item.shoot = 270;
+			Item.shoot = ProjectileID.Skull;
 		}
 
 		public override void SetStaticDefaults()

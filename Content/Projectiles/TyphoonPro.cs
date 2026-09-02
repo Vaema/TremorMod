@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Projectiles;
@@ -37,7 +38,7 @@ namespace TremorMod.Content.Projectiles;
 			int num617 = 42;
 			if (Main.rand.Next(15) == 0)
 			{
-				Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 172, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
+				Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.DungeonWater, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
 			}
 			if (Projectile.velocity.X != 0f)
 			{

@@ -12,13 +12,13 @@ namespace TremorMod.Content.Items.Placeable;
 			Item.width = 48;
 			Item.height = 32;
 			Item.maxStack = 9999;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.createTile = ModContent.TileType<ChristmasFireplaceTile>();
 			Item.useTurn = true;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 		}
 
@@ -35,7 +35,7 @@ namespace TremorMod.Content.Items.Placeable;
 			recipe.AddIngredient(ItemID.Wood, 4);
 			recipe.AddIngredient(ItemID.Torch, 2);
 			//recipe.SetResult(this);
-			recipe.AddTile(18);
+			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
 		}
 	}

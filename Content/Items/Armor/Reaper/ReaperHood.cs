@@ -2,6 +2,7 @@
 using Terraria.ModLoader;
 using Terraria.Localization;
 using TremorMod.Utilities;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.Armor.Reaper;
 
@@ -15,7 +16,7 @@ namespace TremorMod.Content.Items.Armor.Reaper;
 			Item.width = 38;
 			Item.height = 22;
 			Item.value = 10000;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.defense = 8;
 		}
 

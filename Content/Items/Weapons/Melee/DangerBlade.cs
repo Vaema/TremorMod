@@ -18,7 +18,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.useTime = 6;
 			Item.useAnimation = 30;
 			Item.autoReuse = true;
-			Item.rare = 0;
+			Item.rare = ItemRarityID.White;
 			Item.damage = 255;
 			Item.DamageType = DamageClass.Melee;
     }

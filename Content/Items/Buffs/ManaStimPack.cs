@@ -15,10 +15,10 @@ namespace TremorMod.Content.Items.Buffs;
 		{
 			Item.Size = new Vector2(36);
 			Item.maxStack = 999;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.useAnimation = 15;
 			Item.useTime = 15;
-			Item.useStyle = 2;
+			Item.useStyle = ItemUseStyleID.EatFood;
 			Item.UseSound = SoundID.Item3;
 			Item.consumable = true;
 		}
@@ -52,7 +52,7 @@ namespace TremorMod.Content.Items.Buffs;
 			recipe.AddIngredient(ItemID.BottledWater);
 			recipe.AddIngredient(ModContent.ItemType<NightmareBar>(), 5);
 			//recipe.SetResult(this);
-			recipe.AddTile(13);
+			recipe.AddTile(TileID.Bottles);
 			recipe.Register();
 		}
 	}

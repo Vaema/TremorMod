@@ -26,7 +26,7 @@ public class BoomFlask : ModItem
         Item.knockBack = 1;
         Item.UseSound = SoundID.Item106;
         Item.value = 145;
-        Item.rare = 2;
+        Item.rare = ItemRarityID.Green;
         Item.autoReuse = false;
         Item.ammo = Item.type; // Óáåäèòåñü, ÷òî ïðåäìåò íàñòðîåí êàê áîåïðèïàñ
     }

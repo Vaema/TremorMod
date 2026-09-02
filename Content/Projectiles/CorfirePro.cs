@@ -27,7 +27,7 @@ namespace TremorMod.Content.Projectiles;
 			Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
 			if (Main.rand.NextBool())
 			{
-				Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 74, Projectile.velocity.X * 0.9f, Projectile.velocity.Y * 0.9f);
+				Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.GreenFairy, Projectile.velocity.X * 0.9f, Projectile.velocity.Y * 0.9f);
 			}
 		}
 

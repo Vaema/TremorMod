@@ -36,7 +36,7 @@ public class NovaAlchemist : ModNPC
         NPC.knockBackResist = 0.4f;
         NPC.width = 34;
         NPC.height = 56;
-        NPC.aiStyle = 3;
+        NPC.aiStyle = NPCAIStyleID.Fighter;
         AIType = NPCID.AngryBones;
         NPC.npcSlots = 0.5f;
         NPC.HitSound = SoundID.NPCHit55;
@@ -72,7 +72,7 @@ public class NovaAlchemist : ModNPC
 
             for (int i = 0; i < 5; i++)
             {
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, 57, Main.rand.NextFloat(-3f, 3f), Main.rand.NextFloat(-3f, 3f));
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Enchanted_Gold, Main.rand.NextFloat(-3f, 3f), Main.rand.NextFloat(-3f, 3f));
             }
 
             for (int i = 0; i < 2; i++)

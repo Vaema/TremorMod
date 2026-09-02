@@ -13,7 +13,7 @@ namespace TremorMod.Content.Items.Bag;
 			Item.consumable = true;
 			Item.width = 32;
 			Item.height = 32;
-			Item.rare = 0;
+			Item.rare = ItemRarityID.White;
 		}
 
 		public override void SetStaticDefaults()

@@ -36,7 +36,7 @@ namespace TremorMod.Content.Projectiles;
 		{
 			if (Main.rand.NextBool(4))
 			{
-				target.AddBuff(44, 180, false);
+				target.AddBuff(BuffID.Frostburn, 180, false);
 			}
 		}
 

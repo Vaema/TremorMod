@@ -18,13 +18,13 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			Item.height = 56;
 			Item.useTime = 32;
 			Item.useAnimation = 30;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 4;
 			Item.value = 100000;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.UseSound = SoundID.Item36;
 			Item.autoReuse = false;
-			Item.shoot = 166;
+			Item.shoot = ProjectileID.SnowBallFriendly;
 			Item.shootSpeed = 10f;
 			Item.useAmmo = AmmoID.Snowball;
 		}

@@ -17,10 +17,10 @@ namespace TremorMod.Content.Items.Tools;
 			Item.useAnimation = 18;
 			Item.axe = 13;
 			Item.hammer = 75;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 2;
 			Item.value = 1000;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 		}
@@ -38,7 +38,7 @@ namespace TremorMod.Content.Items.Tools;
         recipe1.AddIngredient(ItemID.GlowingMushroom, 8);
 			recipe1.AddIngredient(ItemID.GoldAxe, 1);
 			recipe1.AddIngredient(ItemID.GoldHammer, 1);
-			recipe1.AddTile(16);
+			recipe1.AddTile(TileID.Anvils);
 			//recipe.SetResult(this);
 			recipe1.Register();
 
@@ -47,7 +47,7 @@ namespace TremorMod.Content.Items.Tools;
         recipe2.AddIngredient(ItemID.GlowingMushroom, 8);
 			recipe2.AddIngredient(ItemID.PlatinumAxe, 1);
 			recipe2.AddIngredient(ItemID.PlatinumHammer, 1);
-			recipe2.AddTile(16);
+			recipe2.AddTile(TileID.Anvils);
 			//recipe.SetResult(this);
 			recipe2.Register();
 		}

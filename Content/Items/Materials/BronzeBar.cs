@@ -13,13 +13,13 @@ namespace TremorMod.Content.Items.Materials;
 			Item.height = 24;
 			Item.maxStack = 9999;
 			Item.value = 100;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.createTile = ModContent.TileType<BronzeBarTile>();
 			Item.useTurn = true;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 		}
 

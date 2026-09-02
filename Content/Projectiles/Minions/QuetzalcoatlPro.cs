@@ -12,7 +12,7 @@ namespace TremorMod.Content.Projectiles.Minions;
 		{
 			Projectile.netImportant = true;
 			Projectile.CloneDefaults(388);
-			AIType = 388;
+			AIType = ProjectileID.Spazmamini;
 			Projectile.width = 32;
 			Projectile.height = 28;
 			Main.projFrames[Projectile.type] = 3;

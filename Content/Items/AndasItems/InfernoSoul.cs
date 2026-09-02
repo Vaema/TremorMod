@@ -13,7 +13,7 @@ namespace TremorMod.Content.Items.AndasItems;
 			Item.width = 26;
 			Item.height = 38;
 			Item.value = 10000;
-			Item.rare = 0;
+			Item.rare = ItemRarityID.White;
 			Item.maxStack = 9999;
 			ItemID.Sets.ItemIconPulse[Item.type] = true;
 			ItemID.Sets.ItemNoGravity[Item.type] = true;

@@ -19,7 +19,7 @@ namespace TremorMod.Content.Items.Accessories;
 			Item.width = 30;
 			Item.height = 26;
 			Item.value = 1000000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.accessory = true;
 			Item.defense = 7;
 		}
@@ -36,7 +36,7 @@ namespace TremorMod.Content.Items.Accessories;
 			recipe.AddIngredient(ModContent.ItemType<EarthFragment>(), 8);
 			recipe.AddIngredient(ItemID.Sapphire, 6);
 			//recipe.SetResult(this);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

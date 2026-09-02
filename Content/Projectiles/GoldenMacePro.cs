@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Projectiles;
@@ -11,7 +12,7 @@ namespace TremorMod.Content.Projectiles;
 		{
 			for (int k = 0; k < 5; k++)
 			{
-				int dust = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 246, Projectile.oldVelocity.X * 0.1f, Projectile.oldVelocity.Y * 0.1f);
+				int dust = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.GoldCoin, Projectile.oldVelocity.X * 0.1f, Projectile.oldVelocity.Y * 0.1f);
 			}
 		}
 		public override void SetDefaults()
@@ -81,7 +82,7 @@ namespace TremorMod.Content.Projectiles;
 		{
 			if (Main.rand.NextBool(5))
 			{
-				target.AddBuff(72, 500, false);
+				target.AddBuff(BuffID.Midas, 500, false);
 			}
 		}
 	}

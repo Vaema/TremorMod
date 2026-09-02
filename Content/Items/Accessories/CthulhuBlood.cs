@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
 
@@ -12,7 +13,7 @@ namespace TremorMod.Content.Items.Accessories;
 			Item.height = 30;
 			Item.maxStack = 1;
 			Item.value = 255000;
-			Item.rare = 8;
+			Item.rare = ItemRarityID.Yellow;
 			Item.accessory = true;
 		}
 

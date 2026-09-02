@@ -23,8 +23,8 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.3f;
 			NPC.width = 22;
 			NPC.height = 18;
-			AnimationType = 49;
-			NPC.aiStyle = 14;
+			AnimationType = NPCID.CaveBat;
+			NPC.aiStyle = NPCAIStyleID.Bat;
 			NPC.npcSlots = 0.2f;
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.noGravity = true;
@@ -47,13 +47,13 @@ namespace TremorMod.Content.NPCs;
 			{
 				for (int k = 0; k < 20; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 76, 2.5f * hitDirection, -2.5f, 0, default(Color), 1f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 76, 2.5f * hitDirection, -2.5f, 0, default(Color), 1f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Snow, 2.5f * hitDirection, -2.5f, 0, default(Color), 1f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Snow, 2.5f * hitDirection, -2.5f, 0, default(Color), 1f);
 				}
 
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 76, 2.5f * hitDirection, -2.5f, 0, default(Color), 3f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 76, 2.5f * hitDirection, -2.5f, 0, default(Color), 2f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 76, 2.5f * hitDirection, -2.5f, 0, default(Color), 3f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Snow, 2.5f * hitDirection, -2.5f, 0, default(Color), 3f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Snow, 2.5f * hitDirection, -2.5f, 0, default(Color), 2f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Snow, 2.5f * hitDirection, -2.5f, 0, default(Color), 3f);
 			}
 		}
 

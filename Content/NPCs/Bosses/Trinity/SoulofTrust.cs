@@ -55,7 +55,7 @@ namespace TremorMod.Content.NPCs.Bosses.Trinity;
 			NPC.knockBackResist = 0.0f;
 			NPC.width = 170;
 			NPC.height = 254;
-			NPC.aiStyle = 5;
+			NPC.aiStyle = NPCAIStyleID.Flying;
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
 			NPC.HitSound = SoundID.NPCHit1;
@@ -79,7 +79,7 @@ namespace TremorMod.Content.NPCs.Bosses.Trinity;
 			{
 				for (int i = 0; i < 50; i++)
 				{
-					int dust = Dust.NewDust(NPC.position, NPC.width, NPC.height, 6);
+					int dust = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch);
 					Main.dust[dust].scale = 1.5f;
 					Main.dust[dust].noGravity = true;
 					Main.dust[dust].velocity *= 0f;
@@ -98,7 +98,7 @@ namespace TremorMod.Content.NPCs.Bosses.Trinity;
 				float num1245 = (float)Math.Sqrt(num1243 * num1243 + num1244 * num1244);
 				if (NPC.ai[1] == 0f)
 				{
-					if (Main.netMode != 1)
+					if (Main.netMode != NetmodeID.MultiplayerClient)
 					{
 						NPC.localAI[1] += 1f;
 						if (NPC.localAI[1] >= 120 + Main.rand.Next(200))
@@ -167,13 +167,13 @@ namespace TremorMod.Content.NPCs.Bosses.Trinity;
 
 			if (Main.expertMode && Main.rand.Next(4500) == 0)
 			{
-				NPC.NewNPC(Entity.GetSource_FromThis(), (int)NPC.position.X - 100, (int)NPC.position.Y - 50, 418);
-				NPC.NewNPC(Entity.GetSource_FromThis(), (int)NPC.position.X + 100, (int)NPC.position.Y - 50, 418);
+				NPC.NewNPC(Entity.GetSource_FromThis(), (int)NPC.position.X - 100, (int)NPC.position.Y - 50, NPCID.SolarCorite);
+				NPC.NewNPC(Entity.GetSource_FromThis(), (int)NPC.position.X + 100, (int)NPC.position.Y - 50, NPCID.SolarCorite);
 			}
 
 			if (Main.rand.NextBool(2))
 			{
-				int num706 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 6, 0f, 0f, 200, NPC.color, 0.5f);
+				int num706 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, 0f, 0f, 200, NPC.color, 0.5f);
 				Main.dust[num706].velocity *= 0.6f;
 			}
 
@@ -198,7 +198,7 @@ namespace TremorMod.Content.NPCs.Bosses.Trinity;
             if (Main.npc[(int)NPC.ai[3]].type == ModContent.NPCType<SoulofTruth>() && Main.npc[(int)NPC.ai[3]].active)//если(Мой.нпс[(значение)нпс.ИИ[2]].тип равен мод.НПС Тип("МОБ") и Мой.нпс[(значение)нпс.ИИ[2]].активен равен да)
                 Main.npc[(int)NPC.ai[3]].localAI[3] = 1; //Мой.нпс[(значение)нпс.ИИ[2]].местный ИИ[3] варно 1
 				NPC.life += 11; //нпс.жизнь прибавить
-				NPC.aiStyle = 0; //нпс.ИИ Стиль - 0
+				NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer; //нпс.ИИ Стиль - 0
 				NPC.rotation = 0;
 				NPC.velocity = Helper.VelocityFPTP(NPC.Center, new Vector2(NPC.Center.X, NPC.Center.Y - 4815162342), 30.0f); //нпс.поворот = Помощьник.ПоворотФПТП(нпс.Центр, новый Вектор2(нпс.Центр.X, нпс.Центр.Y - 4815162342))
 				CreateDust();
@@ -257,7 +257,7 @@ namespace TremorMod.Content.NPCs.Bosses.Trinity;
 		void CreateDust()
 		{
 			if (Main.rand.NextBool(3))
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 6);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch);
 		}
 
 		void SetRotation()
@@ -309,7 +309,7 @@ namespace TremorMod.Content.NPCs.Bosses.Trinity;
 			{
 				for (int k = 0; k < 20; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 6, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				}
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TrustGore1").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TrustGore2").Type, 1f);

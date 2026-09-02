@@ -16,10 +16,10 @@ namespace TremorMod.Content.Items.BossSumonItems;
 			Item.width = 30;
 			Item.height = 30;
 			Item.maxStack = 1;
-			Item.rare = 10;
+			Item.rare = ItemRarityID.Red;
 			Item.useAnimation = 45;
 			Item.useTime = 45;
-			Item.useStyle = 4;
+			Item.useStyle = ItemUseStyleID.HoldUp;
 			Item.UseSound = SoundID.Item44;
 			Item.consumable = true;
 		}
@@ -39,7 +39,7 @@ namespace TremorMod.Content.Items.BossSumonItems;
 		{
 			Main.NewText("The Trinity has awoken!", 175, 75, 255);
 			SoundEngine.PlaySound(SoundID.Roar, player.position);
-			if (Main.netMode != 1)
+			if (Main.netMode != NetmodeID.MultiplayerClient)
 			{
 				int b1ID = NPC.NewNPC(Entity.GetSource_FromThis(), (int)player.Center.X - 300, (int)player.Center.Y - 800, ModContent.NPCType<SoulofHope>());
 				int b2ID = NPC.NewNPC(Entity.GetSource_FromThis(), (int)player.Center.X, (int)player.Center.Y - 300, ModContent.NPCType<SoulofTrust>());
@@ -57,7 +57,7 @@ namespace TremorMod.Content.Items.BossSumonItems;
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(3467, 20);
+			recipe.AddIngredient(ItemID.LunarBar, 20);
 			recipe.AddIngredient(ModContent.ItemType<StoneDice>(), 1);
 			recipe.AddIngredient(ItemID.CelestialSigil, 1);
 			recipe.AddIngredient(ModContent.ItemType<NightmareBar>(), 10);
@@ -70,7 +70,7 @@ namespace TremorMod.Content.Items.BossSumonItems;
 			recipe.AddIngredient(ModContent.ItemType<Phantaplasm>(), 5);
 			recipe.AddIngredient(ModContent.ItemType<CosmicFuel>(), 1);
 			//recipe.SetResult(this);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 

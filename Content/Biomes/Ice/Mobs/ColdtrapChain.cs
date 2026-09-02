@@ -194,7 +194,7 @@ namespace TremorMod.Content.Biomes.Ice.Mobs;
 			Projectile.rotation += angleSpeed;
 			length += lengthSpeed;
 
-			if (Main.netMode == 2)
+			if (Main.netMode == NetmodeID.Server)
 			{
 				netUpdateCounter++;
 				if (netUpdateCounter >= 300)

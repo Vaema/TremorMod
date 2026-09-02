@@ -24,7 +24,7 @@ internal class InvarBreastPlate : ModItem
 			Item.width = 26;
 			Item.height = 18;
 			Item.value = Item.sellPrice(silver: 19);
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.defense = 3;
 		}
 

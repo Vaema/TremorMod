@@ -16,12 +16,12 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.height = 55;
 			Item.useTime = 25;
 			Item.useAnimation = 25;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.shoot = ModContent.ProjectileType<BoneSpike>();
 			Item.shootSpeed = 6f;
 			Item.knockBack = 4;
 			Item.value = 66600;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
 		}
@@ -34,6 +34,6 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 
 		public override void MeleeEffects(Player player, Rectangle hitbox)
 		{
-			int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 26);
+			int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.Bone);
 		}
 	}

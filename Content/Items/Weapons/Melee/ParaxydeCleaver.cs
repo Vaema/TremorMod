@@ -17,13 +17,13 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.height = 60;
 			Item.useTime = 25;
 			Item.useAnimation = 25;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 5;
 			Item.value = 216000;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
-			Item.shoot = 522;
+			Item.shoot = ProjectileID.CrystalPulse2;
 			Item.shootSpeed = 23f;
 		}
 
@@ -37,7 +37,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<ParaxydeShard>(), 15);
-			recipe.AddIngredient(426, 1);
+			recipe.AddIngredient(ItemID.BreakerBlade, 1);
 			//recipe.SetResult(this);
 			recipe.AddTile(ModContent.TileType<AlchematorTile>());
 			recipe.Register();
@@ -47,7 +47,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 		{
 			if (Main.rand.NextBool(2))
 			{
-				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 27);
+				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.Shadowflame);
 			}
 		}
 	}

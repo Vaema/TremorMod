@@ -13,13 +13,13 @@ namespace TremorMod.Content.Items.Materials.OreAndBar;
 			Item.height = 30;
 			Item.maxStack = 9999;
 			Item.value = 10000;
-			Item.rare = 6;
+			Item.rare = ItemRarityID.LightPurple;
 			Item.createTile = ModContent.TileType<NanoBarTile>();
 			Item.useTurn = true;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 		}
 
@@ -37,7 +37,7 @@ namespace TremorMod.Content.Items.Materials.OreAndBar;
 			recipe1.AddIngredient(ItemID.SoulofLight, 1);
 			recipe1.AddIngredient(ItemID.Nanites, 1);
 			//recipe1.SetResult(this, 2);
-			recipe1.AddTile(134);
+			recipe1.AddTile(TileID.MythrilAnvil);
         recipe1.Register();
 
         Recipe recipe2 = CreateRecipe();
@@ -46,7 +46,7 @@ namespace TremorMod.Content.Items.Materials.OreAndBar;
 			recipe2.AddIngredient(ItemID.SoulofLight, 1);
 			recipe2.AddIngredient(ItemID.Nanites, 1);
 			//recipe2.SetResult(this, 2);
-			recipe2.AddTile(134);
+			recipe2.AddTile(TileID.MythrilAnvil);
         recipe2.Register();
     }
 

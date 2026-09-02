@@ -12,7 +12,7 @@ namespace TremorMod.Content.Projectiles;
 
 			Projectile.width = 14;
 			Projectile.height = 42;
-			Projectile.aiStyle = 1;
+			Projectile.aiStyle = ProjAIStyleID.Arrow;
 			Projectile.friendly = true;
 			Projectile.penetrate = -2;
 			Projectile.tileCollide = true;

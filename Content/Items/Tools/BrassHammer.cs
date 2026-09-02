@@ -18,10 +18,10 @@ namespace TremorMod.Content.Items.Tools;
 			Item.useAnimation = 15;
 			Item.hammer = 95;
 			Item.tileBoost++;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 6;
 			Item.value = Item.buyPrice(0, 1, 50, 0);
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item71;
 			Item.autoReuse = true;
 		}
@@ -38,7 +38,7 @@ namespace TremorMod.Content.Items.Tools;
 			recipe.AddIngredient(ModContent.ItemType<BrassBar>(), 10);
 			recipe.AddIngredient(ItemID.Cog, 10);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

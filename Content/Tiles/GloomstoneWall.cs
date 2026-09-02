@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Tiles;
@@ -12,7 +13,7 @@ public class GloomstoneWall : ModWall
         Main.wallHouse[Type] = true;
         //ItemDrop = ModContent.ItemType<GloomstoneWallItem>();     
         AddMapEntry(new Color(10, 63, 98));
-        DustType = 1;
+        DustType = DustID.Stone;
     }
 
     public override void NumDust(int i, int j, bool fail, ref int num)

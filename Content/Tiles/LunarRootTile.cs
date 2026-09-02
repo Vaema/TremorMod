@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using TremorMod.Content.Items.Materials;
@@ -16,7 +17,7 @@ namespace TremorMod.Content.Tiles;
         TileObjectData.newTile.StyleWrapLimit = 36;
         TileObjectData.addTile(Type);
         TileObjectData.newTile.CoordinateHeights = [16, 16];
-        DustType = 7;
+        DustType = DustID.WoodFurniture;
         //TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.Table, TileObjectData.newTile.Width, 0);
         AddMapEntry(new Color(200, 200, 200), CreateMapEntryName());
         MineResist = 1f;

@@ -25,8 +25,8 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.2f;
 			NPC.width = 50;
 			NPC.height = 44;
-			AnimationType = 423;
-			NPC.aiStyle = 26;
+			AnimationType = NPCID.NebulaBeast;
+			NPC.aiStyle = NPCAIStyleID.Unicorn;
 			NPC.npcSlots = 0.5f;
 			NPC.HitSound = SoundID.NPCHit18;
 			NPC.DeathSound = SoundID.NPCDeath21;
@@ -55,7 +55,7 @@ namespace TremorMod.Content.NPCs;
 				if (NPC.ai[1] < 30f)
 				{
 					Vector2 newDustLocation = NPC.Center + Vector2.UnitX * NPC.spriteDirection * -20f;
-					Dust newDust = Main.dust[Dust.NewDust(newDustLocation, 0, 0, 242, 0f, 0f, 0, default(Color), 1f)];
+					Dust newDust = Main.dust[Dust.NewDust(newDustLocation, 0, 0, DustID.PinkTorch, 0f, 0f, 0, default(Color), 1f)];
 					Vector2 randomDirection = Vector2.UnitY.RotatedByRandom(Math.PI * 2);
 					newDust.position = newDustLocation + randomDirection * 20f;
 					newDust.velocity = -randomDirection * 2f;
@@ -68,7 +68,7 @@ namespace TremorMod.Content.NPCs;
 					for (int i = 0; i < 20; i++)
 					{
 						Vector2 newDustLocation = NPC.Center + Vector2.UnitX * NPC.spriteDirection * -20f;
-						Dust newDust = Main.dust[Dust.NewDust(newDustLocation, 0, 0, 242, 0f, 0f, 0, default(Color), 1f)];
+						Dust newDust = Main.dust[Dust.NewDust(newDustLocation, 0, 0, DustID.PinkTorch, 0f, 0f, 0, default(Color), 1f)];
 						Vector2 randomDirection = Vector2.UnitY.RotatedByRandom(Math.PI * 2);
 						newDust.position = newDustLocation + randomDirection * 4f;
 						newDust.velocity = randomDirection * 4f + Vector2.UnitX * Main.rand.NextFloat() * NPC.spriteDirection * -5f;
@@ -81,7 +81,7 @@ namespace TremorMod.Content.NPCs;
 				if (NPC.velocity.X > -0.5f && NPC.velocity.X < 0.5f)
 					NPC.velocity.X = 0f;
 
-				if (NPC.ai[1] == 30f && Main.netMode != 1)
+				if (NPC.ai[1] == 30f && Main.netMode != NetmodeID.MultiplayerClient)
 				{
 					int projectileDamage = Main.expertMode ? 35 : 50;
 					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X + NPC.spriteDirection * -20, NPC.Center.Y, NPC.spriteDirection * -7, 0f, ProjectileID.MartianTurretBolt, projectileDamage, 0f, Main.myPlayer, NPC.target, 0f);
@@ -123,9 +123,9 @@ namespace TremorMod.Content.NPCs;
 			{
 				for (int k = 0; k < 60; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 226, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 226, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 27, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Electric, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Electric, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Shadowflame, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				}
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ExuberantHoundGore1").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ExuberantHoundGore2").Type, 1f);
@@ -137,8 +137,8 @@ namespace TremorMod.Content.NPCs;
 			{
 				for (int k = 0; k < hit.Damage / NPC.lifeMax * 50; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 226, hitDirection, -2f, 0, default(Color), 0.7f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 27, hitDirection, -1f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Electric, hitDirection, -2f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Shadowflame, hitDirection, -1f, 0, default(Color), 0.7f);
 				}
 			}
 		}

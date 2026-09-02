@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
@@ -13,7 +14,7 @@ namespace TremorMod.Content.Items.Accessories;
 			Item.width = 30;
 			Item.height = 24;
 			Item.value = 250000;
-			Item.rare = 8;
+			Item.rare = ItemRarityID.Yellow;
 			Item.accessory = true;
 		}
 
@@ -33,11 +34,11 @@ namespace TremorMod.Content.Items.Accessories;
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(3459, 10);
-			recipe.AddIngredient(3467, 15);
+			recipe.AddIngredient(ItemID.FragmentStardust, 10);
+			recipe.AddIngredient(ItemID.LunarBar, 15);
 			recipe.AddIngredient(ModContent.ItemType<Band>());
 			//recipe.SetResult(this);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

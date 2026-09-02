@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 using TremorMod.Content.Items.Materials;
+using Terraria.ID;
 
 namespace TremorMod.Content.Tiles;
 
@@ -14,7 +15,7 @@ namespace TremorMod.Content.Tiles;
 			Main.tileMergeDirt[Type] = true;
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = true;
-			DustType = 27;
+			DustType = DustID.Shadowflame;
 			AddMapEntry(new Color(0, 191, 255), CreateMapEntryName());
 			MineResist = 8f;
 			MinPick = 225;

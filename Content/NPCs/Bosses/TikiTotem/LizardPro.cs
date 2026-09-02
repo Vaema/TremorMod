@@ -13,7 +13,7 @@ namespace TremorMod.Content.NPCs.Bosses.TikiTotem;
 
 			Projectile.width = 26;
 			Projectile.height = 26;
-			Projectile.aiStyle = 2;
+			Projectile.aiStyle = ProjAIStyleID.ThrownProjectile;
 			Projectile.timeLeft = 1200;
 			Projectile.penetrate = 5;
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;

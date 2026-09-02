@@ -13,13 +13,13 @@ namespace TremorMod.Content.Items.Materials;
 			Item.height = 24;
 			Item.maxStack = 9999;
 			Item.value = 2000;
-			Item.rare = 7;
+			Item.rare = ItemRarityID.Lime;
 			Item.createTile = ModContent.TileType<FrostoneBarTile>();
 			Item.useTurn = true;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 		}
 
@@ -35,7 +35,7 @@ namespace TremorMod.Content.Items.Materials;
 			recipe.AddIngredient(ModContent.ItemType<FrostoneOre>(), 2);
 			recipe.AddIngredient(ItemID.Ectoplasm, 1);
 			//recipe.SetResult(this);
-			recipe.AddTile(133);
+			recipe.AddTile(TileID.AdamantiteForge);
 			recipe.Register();
 		}
 	}

@@ -22,8 +22,8 @@ namespace TremorMod.Content.NPCs.Bosses.TheDarkEmperor;
 			NPC.knockBackResist = 0.3f;
 			NPC.width = 70;
 			NPC.height = 46;
-			AnimationType = 244;
-			NPC.aiStyle = 41;
+			AnimationType = NPCID.RainbowSlime;
+			NPC.aiStyle = NPCAIStyleID.Herpling;
 			NPC.npcSlots = 0.5f;
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath1;
@@ -38,14 +38,14 @@ namespace TremorMod.Content.NPCs.Bosses.TheDarkEmperor;
 			{
 				for (int k = 0; k < 20; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 191, 2.5f * hitDirection, -2.5f, 0, Color.Green, 0.7f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 191, 2.5f * hitDirection, -2.5f, 0, Color.Green, 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SpookyWood, 2.5f * hitDirection, -2.5f, 0, Color.Green, 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SpookyWood, 2.5f * hitDirection, -2.5f, 0, Color.Green, 0.7f);
 				}
 
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 191, 2.5f * hitDirection, -2.5f, 0, Color.Green, 0.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 191, 2.5f * hitDirection, -2.5f, 0, Color.Green, 0.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 191, 2.5f * hitDirection, -2.5f, 0, Color.Green, 0.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 191, 2.5f * hitDirection, -2.5f, 0, Color.Green, 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SpookyWood, 2.5f * hitDirection, -2.5f, 0, Color.Green, 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SpookyWood, 2.5f * hitDirection, -2.5f, 0, Color.Green, 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SpookyWood, 2.5f * hitDirection, -2.5f, 0, Color.Green, 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SpookyWood, 2.5f * hitDirection, -2.5f, 0, Color.Green, 0.7f);
 				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 99, 1f); 
 				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 99, 1f);
 				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 99, 1f);

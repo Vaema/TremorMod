@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles;
 
@@ -19,8 +20,8 @@ namespace TremorMod.Content.Items.EvilCornItems;
 			Item.useAnimation = 15;
 			Item.value = 100;
 			Item.useTime = 10;
-			Item.useStyle = 1;
-			Item.rare = 2;
+			Item.useStyle = ItemUseStyleID.Swing;
+			Item.rare = ItemRarityID.Green;
 			Item.consumable = true;
 
 		}

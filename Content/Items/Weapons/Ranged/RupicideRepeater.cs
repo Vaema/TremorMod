@@ -20,14 +20,14 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 
 			Item.useTime = 15;
 			Item.useAnimation = 15;
-			Item.shoot = 1;
+			Item.shoot = ProjectileID.WoodenArrowFriendly;
 			Item.useAmmo = AmmoID.Arrow;
 			Item.shootSpeed = 30f;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.damage = 26;
 			Item.knockBack = 4;
 			Item.value = 30000;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item5;
 			Item.autoReuse = true;
 		}
@@ -61,7 +61,7 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 
         if (Main.rand.NextBool(5))
 			{
-				int proj = Projectile.NewProjectile(Item.GetSource_FromThis(), position.X, position.Y, velocity.X, velocity.Y, 686, damage, Main.myPlayer);
+				int proj = Projectile.NewProjectile(Item.GetSource_FromThis(), position.X, position.Y, velocity.X, velocity.Y, ProjectileID.DD2BetsyFireball, damage, Main.myPlayer);
 				Main.projectile[proj].hostile = false;
 				Main.projectile[proj].friendly = true;
 				return false;

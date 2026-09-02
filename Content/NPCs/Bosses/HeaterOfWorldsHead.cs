@@ -27,7 +27,7 @@ public abstract class HeaterofWorldsPart : ModNPC
         NPC.lifeMax = 6500;
         NPC.damage = 39;
         NPC.defense = 40;
-        NPC.aiStyle = 6;
+        NPC.aiStyle = NPCAIStyleID.Worm;
         NPC.npcSlots = 5f;
         NPC.knockBackResist = 0f;
 

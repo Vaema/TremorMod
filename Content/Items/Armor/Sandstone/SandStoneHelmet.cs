@@ -4,6 +4,7 @@ using Terraria.Localization;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Materials.OreAndBar;
 using TremorMod.Content.Buffs;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.Armor.Sandstone;
 
@@ -17,7 +18,7 @@ namespace TremorMod.Content.Items.Armor.Sandstone;
 			Item.width = 32;
 			Item.height = 26;
 			Item.value = 400;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.defense = 4;
 		}
 
@@ -56,7 +57,7 @@ namespace TremorMod.Content.Items.Armor.Sandstone;
         recipe.AddIngredient(ModContent.ItemType<AntlionShell>(), 1);
         recipe.AddIngredient(ModContent.ItemType<PetrifiedSpike>(), 4);
         //recipe.SetResult(this);
-        recipe.AddTile(16);
+        recipe.AddTile(TileID.Anvils);
         recipe.Register();
     }
 	}

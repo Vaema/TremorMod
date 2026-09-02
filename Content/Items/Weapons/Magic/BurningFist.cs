@@ -20,11 +20,11 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.shoot = ModContent.ProjectileType<BurningFistPro>();
 			Item.shootSpeed = 15f;
 			Item.mana = 16;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 3;
 			Item.value = 30000;
 			Item.noUseGraphic = true;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item116;
 			Item.autoReuse = true;
 		}

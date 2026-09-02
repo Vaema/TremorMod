@@ -24,13 +24,13 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.3f;
 			NPC.width = 38;
 			NPC.height = 50;
-			AnimationType = 75;
-			NPC.aiStyle = 3;
+			AnimationType = NPCID.Pixie;
+			NPC.aiStyle = NPCAIStyleID.Fighter;
 			NPC.npcSlots = 1f;
 			NPC.HitSound = SoundID.NPCHit40;
 			NPC.DeathSound = SoundID.NPCDeath24;
 			NPC.value = Item.buyPrice(0, 0, 3, 20);
-			AIType = 21;
+			AIType = NPCID.Skeleton;
         Banner = NPC.type;
         BannerItem = ModContent.ItemType<MushroomCreatureBanner>();
         ItemID.Sets.KillsToBanner[BannerItem] = 50;
@@ -49,7 +49,7 @@ namespace TremorMod.Content.NPCs;
         if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SeaSnail, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 			}
 		}
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)

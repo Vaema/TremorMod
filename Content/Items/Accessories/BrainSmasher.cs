@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Buffs;
 using TremorMod.Content.Items.Materials;
@@ -12,7 +13,7 @@ namespace TremorMod.Content.Items.Accessories;
 			Item.width = 22;
 			Item.height = 44;
 			Item.value = 250000;
-			Item.rare = 7;
+			Item.rare = ItemRarityID.Lime;
 			Item.accessory = true;
 			Item.defense = 4;
 		}
@@ -33,9 +34,9 @@ namespace TremorMod.Content.Items.Accessories;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<BallnChain>(), 1);
 			recipe.AddIngredient(ModContent.ItemType<GolemCore>(), 1);
-			recipe.AddIngredient(2766, 25);
+			recipe.AddIngredient(ItemID.LunarTabletFragment, 25);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

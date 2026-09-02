@@ -16,12 +16,12 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.height = 46;
 			Item.useTime = 20;
 			Item.useAnimation = 20;
-			Item.shoot = 121;
+			Item.shoot = ProjectileID.AmethystBolt;
 			Item.shootSpeed = 6f;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 2;
 			Item.value = 46000;
-			Item.rare = 8;
+			Item.rare = ItemRarityID.Yellow;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
 		}
@@ -53,14 +53,14 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 
 		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			target.AddBuff(153, 120);
+			target.AddBuff(BuffID.ShadowFlame, 120);
 		}
 
 		public override void MeleeEffects(Player player, Rectangle hitbox)
 		{
 			if (Main.rand.NextBool())
 			{
-				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 65);
+				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.DemonTorch);
 			}
 		}
 	}

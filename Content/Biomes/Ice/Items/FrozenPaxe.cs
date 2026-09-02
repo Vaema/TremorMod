@@ -15,10 +15,10 @@ namespace TremorMod.Content.Biomes.Ice.Items;
 			Item.height = 40;
 			Item.useTime = 13;
 			Item.useAnimation = 22;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 5;
 			Item.value = 20000;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.axe = 10;
 			Item.pick = 60;
 			Item.UseSound = SoundID.Item1;
@@ -35,7 +35,7 @@ namespace TremorMod.Content.Biomes.Ice.Items;
     {
 			if (Main.rand.NextBool(3))
 			{
-				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 80);
+				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.Ice);
 			}
 		}
 	}

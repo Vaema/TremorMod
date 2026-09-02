@@ -214,7 +214,7 @@ namespace TremorMod.Content.NPCs;
 						//Main.tile[Num5 + NPC.direction, Num6 + 1] = new Tile();
 					}
 
-					if (Main.tile[Num5, Num6 - 1].HasTile && Main.tile[Num5, Num6 - 1].TileType == 10 && Flag2)
+					if (Main.tile[Num5, Num6 - 1].HasTile && Main.tile[Num5, Num6 - 1].TileType == TileID.ClosedDoor && Flag2)
 					{
 						NPC.ai[2] += 1f;
 						NPC.ai[3] = 0f;
@@ -230,7 +230,7 @@ namespace TremorMod.Content.NPCs;
 								NPC.ai[1] = 10f;
 							}
 							WorldGen.KillTile(Num5, Num6 - 1, true, false, false);
-							if ((Main.netMode != 1 || !Flag4) && Flag4 && Main.netMode != 1)
+							if ((Main.netMode != NetmodeID.MultiplayerClient || !Flag4) && Flag4 && Main.netMode != NetmodeID.MultiplayerClient)
 							{
 								bool Flag5 = WorldGen.OpenDoor(Num5, Num6, NPC.direction);
 								if (!Flag5)
@@ -238,7 +238,7 @@ namespace TremorMod.Content.NPCs;
 									NPC.ai[3] = Num;
 									NPC.netUpdate = true;
 								}
-								if (Main.netMode == 2 && Flag5)
+								if (Main.netMode == NetmodeID.Server && Flag5)
 								{
 									//NetMessage.SendData(19, -1, -1, "", 0, (float)Num5, (float)Num6, (float)npc.direction, 0);
 								}
@@ -451,7 +451,7 @@ namespace TremorMod.Content.NPCs;
 						//Main.tile[Num5 + NPC.direction, Num6 + 1] = new Tile();
 					}
 
-					if (Main.tile[Num5, Num6 - 1].HasTile && Main.tile[Num5, Num6 - 1].TileType == 10 && Flag2)
+					if (Main.tile[Num5, Num6 - 1].HasTile && Main.tile[Num5, Num6 - 1].TileType == TileID.ClosedDoor && Flag2)
 					{
 						NPC.ai[2] += 1f;
 						NPC.ai[3] = 0f;
@@ -467,7 +467,7 @@ namespace TremorMod.Content.NPCs;
 								NPC.ai[1] = 10f;
 							}
 							WorldGen.KillTile(Num5, Num6 - 1, true, false, false);
-							if ((Main.netMode != 1 || !Flag4) && Flag4 && Main.netMode != 1)
+							if ((Main.netMode != NetmodeID.MultiplayerClient || !Flag4) && Flag4 && Main.netMode != NetmodeID.MultiplayerClient)
 							{
 								bool Flag5 = WorldGen.OpenDoor(Num5, Num6, NPC.direction);
 								if (!Flag5)
@@ -475,7 +475,7 @@ namespace TremorMod.Content.NPCs;
 									NPC.ai[3] = Num;
 									NPC.netUpdate = true;
 								}
-								if (Main.netMode == 2 && Flag5)
+								if (Main.netMode == NetmodeID.Server && Flag5)
 								{
 									//NetMessage.SendData(19, -1, -1, "", 0, (float)Num5, (float)Num6, (float)npc.direction, 0);
 								}

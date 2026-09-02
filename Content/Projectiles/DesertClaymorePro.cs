@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Projectiles;
@@ -64,9 +65,9 @@ namespace TremorMod.Content.Projectiles;
 			if (Projectile.timeLeft == 2)
 			{
 				++Projectile.timeLeft;
-				Projectile.aiStyle = 3;
+				Projectile.aiStyle = ProjAIStyleID.Boomerang;
 			}
-			if (Projectile.aiStyle == 3)
+			if (Projectile.aiStyle == ProjAIStyleID.Boomerang)
 				Projectile.position += Projectile.velocity * (SpeedMulti - 1);
 		}
 	}

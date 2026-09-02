@@ -44,7 +44,7 @@ namespace TremorMod.Content.Projectiles;
 				}
 				for (int num91 = 0; num91 < num90; num91++)
 				{
-					int num92 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height, 62, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100, default(Color), 2f);
+					int num92 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height, DustID.PurpleTorch, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100, default(Color), 2f);
 					Main.dust[num92].noGravity = true;
 					Dust expr_46AC_cp_0 = Main.dust[num92];
 					expr_46AC_cp_0.velocity.X = expr_46AC_cp_0.velocity.X * 0.3f;
@@ -63,7 +63,7 @@ namespace TremorMod.Content.Projectiles;
 		{
 			for (int k = 0; k < 5; k++)
 			{
-				int dust = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 73, Projectile.oldVelocity.X * 0.7f, Projectile.oldVelocity.Y * 0.7f);
+				int dust = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.PinkFairy, Projectile.oldVelocity.X * 0.7f, Projectile.oldVelocity.Y * 0.7f);
 			}
 			SoundEngine.PlaySound(SoundID.Item78, Projectile.position);
 		}

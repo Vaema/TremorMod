@@ -19,10 +19,10 @@ namespace TremorMod.Content.Items.BossSumonItems;
 			Item.height = 28;
 			Item.maxStack = 20;
 			Item.value = 100;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.useAnimation = 15;
 			Item.useTime = 15;
-			Item.useStyle = 4;
+			Item.useStyle = ItemUseStyleID.HoldUp;
 			Item.consumable = true;
 
 		}
@@ -46,7 +46,7 @@ namespace TremorMod.Content.Items.BossSumonItems;
 			recipe.AddIngredient(ItemID.LifeCrystal, 1);
 			recipe.AddIngredient(ModContent.ItemType<FireFragment>(), 12);
 			//recipe.SetResult(this);
-			recipe.AddTile(26);
+			recipe.AddTile(TileID.DemonAltar);
 			recipe.Register();
 		}
 

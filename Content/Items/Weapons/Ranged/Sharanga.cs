@@ -15,14 +15,14 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			Item.height = 32;
 			Item.DamageType = DamageClass.Ranged;
 			Item.useTime = 20;
-			Item.shoot = 1;
+			Item.shoot = ProjectileID.WoodenArrowFriendly;
 			Item.shootSpeed = 12f;
 			Item.useAnimation = 20;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 5;
 			Item.value = 8340;
 			Item.useAmmo = AmmoID.Arrow;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item5;
 			Item.autoReuse = true;
 		}

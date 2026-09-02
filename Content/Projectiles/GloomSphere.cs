@@ -10,7 +10,7 @@ namespace TremorMod.Content.Projectiles;
 		{
 			Projectile.width = 32;
 			Projectile.height = 32;
-			Projectile.aiStyle = 91;
+			Projectile.aiStyle = ProjAIStyleID.ShadowFlame;
 			Projectile.friendly = true;
 			Projectile.DamageType = DamageClass.Ranged;
 			Projectile.penetrate = 6;
@@ -32,7 +32,7 @@ namespace TremorMod.Content.Projectiles;
 			Projectile.velocity.Y += Projectile.ai[0];
 			if (Main.rand.NextBool(2))
 			{
-				Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 27, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
+				Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.Shadowflame, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
 			}
 		}
 	}

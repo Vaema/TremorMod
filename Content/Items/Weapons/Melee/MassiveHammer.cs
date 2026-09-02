@@ -14,10 +14,10 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.height = 56;
 			Item.useTime = 25;
 			Item.useAnimation = 45;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 6;
 			Item.value = 12000;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
 		}

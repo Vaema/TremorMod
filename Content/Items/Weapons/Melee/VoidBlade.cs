@@ -16,12 +16,12 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.height = 48;
 			Item.useTime = 44;
 			Item.useAnimation = 44;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 3;
 			Item.shoot = ModContent.ProjectileType<VoidBladePro>();
 			Item.shootSpeed = 12f;
 			Item.value = 12400;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.UseSound = SoundID.Item15;
 			Item.autoReuse = false;
 			Item.useTurn = false;
@@ -44,7 +44,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			recipe.AddIngredient(ModContent.ItemType<FireFragment>(), 10);
 			recipe.AddIngredient(ModContent.ItemType<MultidimensionalFragment>(), 8);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

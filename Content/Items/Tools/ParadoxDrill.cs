@@ -21,10 +21,10 @@ namespace TremorMod.Content.Items.Tools;
 
 			Item.noUseGraphic = true;
 			Item.noMelee = true;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 6;
 			Item.value = Item.buyPrice(0, 10, 0, 0);
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.UseSound = SoundID.Item23;
 			Item.autoReuse = true;
 			Item.shoot = ModContent.ProjectileType<ParadoxDrillPro>();
@@ -47,7 +47,7 @@ namespace TremorMod.Content.Items.Tools;
 		{
 			if (player.altFunctionUse == 2)
 			{
-				Item.useStyle = 5;
+				Item.useStyle = ItemUseStyleID.Shoot;
 				Item.useTime = 15;
 				Item.useAnimation = 15;
 				Item.axe = 40;
@@ -57,7 +57,7 @@ namespace TremorMod.Content.Items.Tools;
 			}
 			else
 			{
-				Item.useStyle = 5;
+				Item.useStyle = ItemUseStyleID.Shoot;
 				Item.useTime = 4;
 				Item.useAnimation = 12;
 				Item.axe = 0;

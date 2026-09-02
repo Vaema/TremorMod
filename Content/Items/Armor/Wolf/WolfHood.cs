@@ -2,6 +2,7 @@
 using Terraria.ModLoader;
 using Terraria.Localization;
 using TremorMod.Content.Items.Materials;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.Armor.Wolf;
 
@@ -15,7 +16,7 @@ namespace TremorMod.Content.Items.Armor.Wolf;
 
 			Item.width = 28;
 			Item.height = 22;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 
 			Item.value = 100;
 			Item.defense = 2;
@@ -50,7 +51,7 @@ namespace TremorMod.Content.Items.Armor.Wolf;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<WolfPelt>(), 8);
 			recipe.AddIngredient(ModContent.ItemType<AlphaClaw>(), 1);
-			recipe.AddTile(18);
+			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
 		}
 	}

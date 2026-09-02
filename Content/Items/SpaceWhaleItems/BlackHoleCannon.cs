@@ -15,12 +15,12 @@ namespace TremorMod.Content.Items.SpaceWhaleItems;
 			Item.height = 28;
 			Item.useTime = 60;
 			Item.useAnimation = 60;
-			Item.shoot = 617;
+			Item.shoot = ProjectileID.NebulaArcanum;
 			Item.shootSpeed = 15f;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 4;
 			Item.value = 20000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.UseSound = SoundID.Item12;
 			Item.autoReuse = true;
 		}

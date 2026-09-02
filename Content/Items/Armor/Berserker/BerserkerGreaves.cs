@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
@@ -13,7 +14,7 @@ namespace TremorMod.Content.Items.Armor.Berserker;
 			Item.width = 22;
 			Item.height = 18;
 			Item.value = 500;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.defense = 5;
 		}
 
@@ -33,7 +34,7 @@ namespace TremorMod.Content.Items.Armor.Berserker;
         recipe.AddIngredient(ModContent.ItemType<SteelBar>(), 16);
         recipe.AddIngredient(ModContent.ItemType<MinotaurHorn>(), 1);
         recipe.AddIngredient(ModContent.ItemType<EarthFragment>(), 8);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

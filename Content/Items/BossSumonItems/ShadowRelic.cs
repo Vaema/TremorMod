@@ -13,7 +13,7 @@ namespace TremorMod.Content.Items.BossSumonItems;
 		{
 			Item.width = 14;
 			Item.height = 26;
-			Item.rare = 7;
+			Item.rare = ItemRarityID.Lime;
 			Item.value = 50000;
 		}
 
@@ -32,7 +32,7 @@ namespace TremorMod.Content.Items.BossSumonItems;
 			recipe.AddIngredient(ModContent.ItemType<SteelBar>(), 12);
 			recipe.AddIngredient(ItemID.Amethyst, 7);
 			recipe.AddIngredient(ItemID.ChlorophyteBar, 15);
-			recipe.AddTile(26);
+			recipe.AddTile(TileID.DemonAltar);
 			//recipe.SetResult(this);
 			recipe.Register();
 		}
@@ -50,7 +50,7 @@ namespace TremorMod.Content.Items.BossSumonItems;
                     SpawnShadowWall(Item.position);
                     //Main.npc[i].StrikeNPC(9999, 10f, -Main.npc[i].direction, false, false, false);
                     Item.active = false;
-                    Item.type = 0;
+                    Item.type = ItemID.None;
                     // item.name = ""; 
                     Item.stack = 0;
                     Main.NewText("The shadows are gathering around you...", 42, 10, 74);
@@ -62,7 +62,7 @@ namespace TremorMod.Content.Items.BossSumonItems;
 
 		public void SpawnShadowWall(Vector2 pos)
 		{
-        if (pos.Y / 16.0 < (Main.maxTilesY - 205) || Main.netMode == 1)
+        if (pos.Y / 16.0 < (Main.maxTilesY - 205) || Main.netMode == NetmodeID.MultiplayerClient)
 
             return;
 			int num1 = Player.FindClosest(pos, 16, 16);

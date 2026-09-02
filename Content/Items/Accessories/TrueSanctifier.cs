@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Utilities;
@@ -12,7 +13,7 @@ namespace TremorMod.Content.Items.Accessories;
 			Item.width = 22;
 			Item.height = 44;
 			Item.value = 30000;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.maxStack = 1;
 			Item.defense = 3;
 			Item.accessory = true;
@@ -36,7 +37,7 @@ namespace TremorMod.Content.Items.Accessories;
 			recipe.AddIngredient(ModContent.ItemType<Sanctifier>(), 1);
 			recipe.AddIngredient(ModContent.ItemType<BrokenHeroAmulet>(), 1);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

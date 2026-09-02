@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Projectiles;
@@ -10,7 +11,7 @@ namespace TremorMod.Content.Projectiles;
 		{
 			Projectile.CloneDefaults(566);
 
-			AIType = 566;
+			AIType = ProjectileID.GiantBee;
 			Projectile.tileCollide = false;
 			Main.projFrames[Projectile.type] = 4;
 			Projectile.width = 20;

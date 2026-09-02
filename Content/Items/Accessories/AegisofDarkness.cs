@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items.Accessories;
@@ -12,7 +13,7 @@ namespace TremorMod.Content.Items.Accessories;
 			Item.width = 26;
 			Item.height = 30;
 			Item.value = 110;
-			Item.rare = 0;
+			Item.rare = ItemRarityID.White;
 
 			Item.accessory = true;
 			Item.defense = 1;
@@ -40,7 +41,7 @@ namespace TremorMod.Content.Items.Accessories;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<EnchantedShield>(), 1);
 			recipe.AddIngredient(ModContent.ItemType<NecroShield>(), 1);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

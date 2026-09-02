@@ -21,11 +21,11 @@ public class ShadowStaff : ModItem
         Item.useTime = 36;
         Item.channel = true;
         Item.useAnimation = 36;
-        Item.useStyle = 4;
+        Item.useStyle = ItemUseStyleID.HoldUp;
         Item.noMelee = true;
         Item.knockBack = 3;
         Item.value = Item.buyPrice(0, 3, 0, 0);
-        Item.rare = 3;
+        Item.rare = ItemRarityID.Orange;
         Item.UseSound = SoundID.Item44;
         Item.shoot = ModContent.ProjectileType<ShadowStaffPro>();
         Item.shootSpeed = 2f;
@@ -55,7 +55,7 @@ public class ShadowStaff : ModItem
         recipe.AddIngredient(ItemID.SoulofNight, 8);
         recipe.AddIngredient(ItemID.SpookyWood, 15);
         recipe.AddIngredient(ModContent.ItemType<DarknessCloth>(), 9);
-        recipe.AddTile(134);
+        recipe.AddTile(TileID.MythrilAnvil);
         //recipe.SetResult(this);
         recipe.Register();
     }

@@ -10,7 +10,7 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 		public override void SetDefaults()
 		{
 			Item.autoReuse = true;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 
 			Item.shootSpeed = 8f;
 			Item.shoot = ModContent.ProjectileType<BonecrusherPro>();
@@ -24,7 +24,7 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			Item.noMelee = true;
 			Item.value = 6000;
 			Item.knockBack = 4f;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.DamageType = DamageClass.Ranged;
 		}
 

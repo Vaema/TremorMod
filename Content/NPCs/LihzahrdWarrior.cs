@@ -22,9 +22,9 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.05f;
 			NPC.width = 32;
 			NPC.height = 50;
-			AnimationType = 198;
-			NPC.aiStyle = 3;
-			AIType = 529;
+			AnimationType = NPCID.Lihzahrd;
+			NPC.aiStyle = NPCAIStyleID.Fighter;
+			AIType = NPCID.DesertLamiaDark;
 			NPC.npcSlots = 0.5f;
 			NPC.HitSound = SoundID.NPCHit4;
 			NPC.DeathSound = SoundID.NPCDeath2;
@@ -45,7 +45,7 @@ namespace TremorMod.Content.NPCs;
         if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SeaSnail, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
 
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("LWGore1").Type, 1f);

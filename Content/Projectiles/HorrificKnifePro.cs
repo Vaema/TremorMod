@@ -16,7 +16,7 @@ namespace TremorMod.Content.Projectiles;
 			Projectile.width = 14;
 			Projectile.height = 32;
 			Projectile.friendly = true;
-			Projectile.aiStyle = 1;
+			Projectile.aiStyle = ProjAIStyleID.Arrow;
 			Projectile.timeLeft = 1200;
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
 			ProjectileID.Sets.TrailingMode[Projectile.type] = 2;

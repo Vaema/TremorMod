@@ -23,11 +23,11 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.2f;
 			NPC.width = 80;
 			NPC.height = 65;
-			AnimationType = 289;
+			AnimationType = NPCID.GiantCursedSkull;
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
-			NPC.aiStyle = 10;
-			AIType = 289;
+			NPC.aiStyle = NPCAIStyleID.CursedSkull;
+			AIType = NPCID.GiantCursedSkull;
 			NPC.npcSlots = 5f;
 			NPC.HitSound = SoundID.NPCHit2;
 			NPC.DeathSound = SoundID.NPCDeath2;
@@ -44,25 +44,25 @@ namespace TremorMod.Content.NPCs;
 			{
 				for (int k = 0; k < 60; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 15, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 15, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 15, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.MagicMirror, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.MagicMirror, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.MagicMirror, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				}
 
 				for (int k = 0; k < 20; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 15, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.MagicMirror, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				}
 
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 15, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 15, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 15, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);				
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.MagicMirror, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.MagicMirror, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.MagicMirror, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);				
 			}
 			else
 			{
 				for (int k = 0; k < hit.Damage / NPC.lifeMax * 50; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 15, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.MagicMirror, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				}
 			}
 				

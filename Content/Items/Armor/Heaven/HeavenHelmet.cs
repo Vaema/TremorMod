@@ -1,6 +1,7 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.Armor.Heaven;
 
@@ -16,7 +17,7 @@ namespace TremorMod.Content.Items.Armor.Heaven;
 			Item.height = 26;
 
 			Item.value = 6000;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.defense = 6;
 		}
 

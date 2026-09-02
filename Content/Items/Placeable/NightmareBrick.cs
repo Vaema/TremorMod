@@ -18,8 +18,8 @@ namespace TremorMod.Content.Items.Placeable;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.rare = 11;
-			Item.useStyle = 1;
+			Item.rare = ItemRarityID.Purple;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.createTile = ModContent.TileType<NightmareBrickTile>();
 		}
@@ -35,14 +35,14 @@ namespace TremorMod.Content.Items.Placeable;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<NightmareBrickWall>(), 4);
 			//recipe.SetResult(this, 1);
-			recipe.AddTile(17);
+			recipe.AddTile(TileID.Furnaces);
 			recipe.Register();
 
 			Recipe recipe1 = CreateRecipe(2);
 			recipe1.AddIngredient(ModContent.ItemType<NightmareOre>(), 1);
 			recipe1.AddIngredient(ItemID.StoneBlock, 1);
 			//recipe.SetResult(this, 2);
-			recipe1.AddTile(17);
+			recipe1.AddTile(TileID.Furnaces);
 			recipe1.Register();
 		}
 	}

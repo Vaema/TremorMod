@@ -23,8 +23,8 @@ namespace TremorMod.Content.NPCs.Bosses.PixieQueen;
 			NPC.knockBackResist = 0f;
 			NPC.width = 28;
 			NPC.height = 30;
-			AnimationType = 116;
-			NPC.aiStyle = 44;
+			AnimationType = NPCID.TheHungryII;
+			NPC.aiStyle = NPCAIStyleID.FlyingFish;
 			NPC.npcSlots = 15f;
 			NPC.noTileCollide = true;
 			NPC.HitSound = SoundID.NPCHit5;
@@ -52,13 +52,13 @@ namespace TremorMod.Content.NPCs.Bosses.PixieQueen;
 
         if (NPC.life <= 0)
 			{
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 57, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 57, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 57, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 57, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Enchanted_Gold, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Enchanted_Gold, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Enchanted_Gold, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Enchanted_Gold, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 57, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Enchanted_Gold, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 			}
 		}
 

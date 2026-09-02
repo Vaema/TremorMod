@@ -14,7 +14,7 @@ namespace TremorMod.Content.Projectiles;
 
 			Projectile.width = 26;
 			Projectile.height = 36;
-			AIType = 3;
+			AIType = ProjectileID.Shuriken;
 		}
 
 		public override void SetStaticDefaults()
@@ -35,7 +35,7 @@ namespace TremorMod.Content.Projectiles;
 
 		public override void AI()
 		{
-			int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 6, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 136, default(Color), 2.9f);
+			int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 136, default(Color), 2.9f);
 			Main.dust[dust].noGravity = true;
 		}
 
@@ -43,7 +43,7 @@ namespace TremorMod.Content.Projectiles;
 		{
 			for (int k = 0; k < 5; k++)
 			{
-				Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 6, Projectile.oldVelocity.X * 0.5f, Projectile.oldVelocity.Y * 2f, 100, default(Color), 2f);
+				Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.Torch, Projectile.oldVelocity.X * 0.5f, Projectile.oldVelocity.Y * 2f, 100, default(Color), 2f);
 			}
 			SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
 		}

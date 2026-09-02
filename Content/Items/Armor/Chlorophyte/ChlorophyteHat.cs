@@ -17,7 +17,7 @@ namespace TremorMod.Content.Items.Armor.Chlorophyte;
 			Item.height = 26;
 
 			Item.value = 60000;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.defense = 8;
 		}
 
@@ -35,7 +35,7 @@ namespace TremorMod.Content.Items.Armor.Chlorophyte;
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == 1004 && legs.type == 1005;
+			return body.type == ItemID.ChlorophytePlateMail && legs.type == ItemID.ChlorophyteGreaves;
 		}
 
 		public override void UpdateArmorSet(Player player)
@@ -43,7 +43,7 @@ namespace TremorMod.Content.Items.Armor.Chlorophyte;
         player.setBonus = SetBonusText.Value;
         player.setBonus = "Increases your max number of minions and summons a powerful leaf crystal to shoot at nearby enemies.";
 			player.maxMinions += 3;
-			player.AddBuff(60, 60, true);
+			player.AddBuff(BuffID.LeafCrystal, 60, true);
 		}
 
 		public override void ArmorSetShadows(Player player)
@@ -55,7 +55,7 @@ namespace TremorMod.Content.Items.Armor.Chlorophyte;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.ChlorophyteBar, 12);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

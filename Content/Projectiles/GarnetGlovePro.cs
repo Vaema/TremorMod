@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Projectiles;
@@ -11,7 +12,7 @@ namespace TremorMod.Content.Projectiles;
 			Projectile.CloneDefaults(303);
 			Projectile.width = 28;
 			Projectile.height = 38;
-			AIType = 303;
+			AIType = ProjectileID.RocketSkeleton;
 			Projectile.timeLeft = 400;
 		}
 

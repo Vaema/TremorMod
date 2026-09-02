@@ -24,7 +24,7 @@ internal class InvarHelmet : ModItem
         Item.width = 32;
         Item.height = 26;
         Item.value = Item.sellPrice(silver: 9);
-        Item.rare = 1;
+        Item.rare = ItemRarityID.Blue;
         Item.defense = 3;
     }
 

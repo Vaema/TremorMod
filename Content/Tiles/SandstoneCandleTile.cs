@@ -16,7 +16,7 @@ public class SandstoneCandleTile : ModTile
         TileObjectData.newTile.StyleHorizontal = true;
         TileObjectData.newTile.StyleWrapLimit = 36;
         TileObjectData.addTile(Type);
-        DustType = 7;
+        DustType = DustID.WoodFurniture;
         Main.tileLighted[Type] = true;
         AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
         AddMapEntry(new Color(233, 211, 123), CreateMapEntryName());

@@ -16,8 +16,8 @@ namespace TremorMod.Content.Items.Placeable;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.useStyle = 1;
-			Item.rare = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
+			Item.rare = ItemRarityID.Blue;
 			Item.consumable = true;
 			Item.value = 150;
 			Item.createTile = ModContent.TileType<ScaryDoorClosed>();
@@ -35,7 +35,7 @@ namespace TremorMod.Content.Items.Placeable;
 			recipe.AddIngredient(ItemID.Wood, 6);
 			recipe.AddIngredient(ItemID.Cobweb, 6);
 			//recipe.SetResult(this);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

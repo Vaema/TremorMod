@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles.Stone;
 
@@ -15,8 +16,8 @@ namespace TremorMod.Content.Items.Placeable.Stone;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 15;
-			Item.useStyle = 1;
-			Item.rare = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
+			Item.rare = ItemRarityID.Blue;
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.createTile = ModContent.TileType<StoneSinkTile>();
@@ -31,10 +32,10 @@ namespace TremorMod.Content.Items.Placeable.Stone;
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(3, 6);
-			recipe.AddIngredient(206);
+			recipe.AddIngredient(ItemID.StoneBlock, 6);
+			recipe.AddIngredient(ItemID.WaterBucket);
 			//recipe.SetResult(this);
-			recipe.AddTile(17);
+			recipe.AddTile(TileID.Furnaces);
 			recipe.Register();
 		}
 	}

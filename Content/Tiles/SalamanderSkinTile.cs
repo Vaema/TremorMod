@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -15,7 +16,7 @@ namespace TremorMod.Content.Tiles;
         TileObjectData.newTile.StyleHorizontal = true;
         TileObjectData.newTile.StyleWrapLimit = 36;
         TileObjectData.addTile(Type);
-        DustType = 7;
+        DustType = DustID.WoodFurniture;
 	        AddMapEntry(new Color(179, 179, 179), CreateMapEntryName());
     }
 }

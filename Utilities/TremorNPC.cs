@@ -34,7 +34,7 @@ public class TremorNPC : GlobalNPC
 
         if (NPC.downedMechBossAny)
         {
-            if ((npc.type == 134 || npc.type == 125 || npc.type == 126 || npc.type == 127))
+            if ((npc.type == NPCID.TheDestroyer || npc.type == NPCID.Retinazer || npc.type == NPCID.Spazmatism || npc.type == NPCID.SkeletronPrime))
             {
                 if (Main.rand.NextFloat() < 0.10f)
                 {
@@ -68,7 +68,7 @@ public class TremorNPC : GlobalNPC
                 }
             }
 
-            if (npc.type == 125 || npc.type == 126 || npc.type == 127 || npc.type == 134)
+            if (npc.type == NPCID.Retinazer || npc.type == NPCID.Spazmatism || npc.type == NPCID.SkeletronPrime || npc.type == NPCID.TheDestroyer)
             {
                 if (Main.rand.NextFloat() < 0.12f) 
                 {
@@ -79,13 +79,13 @@ public class TremorNPC : GlobalNPC
 
             if (Main.rand.NextFloat() < 0.060f)
             {
-                if ((npc.aiStyle == 1))
+                if ((npc.aiStyle == NPCAIStyleID.Slime))
                 {
                     Item.NewItem(npc.GetSource_Loot(), npc.position, ModContent.ItemType<DarkMass>());
                 }
             }
 
-            if (npc.type == 290)
+            if (npc.type == NPCID.Paladin)
             {
                 if (Main.rand.NextFloat() < 0.20f)
                 {
@@ -95,8 +95,8 @@ public class TremorNPC : GlobalNPC
                 }
             }
 
-            if ((npc.type == 98 || npc.type == 94 || npc.type == 101 || npc.type == 170 || npc.type == 180 ||
-            npc.type == 182))
+            if ((npc.type == NPCID.SeekerHead || npc.type == NPCID.Corruptor || npc.type == NPCID.Clinger || npc.type == NPCID.PigronCorruption || npc.type == NPCID.PigronCrimson ||
+            npc.type == NPCID.FloatyGross))
             {
                 if (Main.rand.NextFloat() < 0.7f)
                 {
@@ -105,7 +105,7 @@ public class TremorNPC : GlobalNPC
                 }
             }
 
-            if ((npc.type == 75 || npc.type == 86 || npc.type == 244 || npc.type == 122 || npc.type == 80 || npc.type == 527))
+            if ((npc.type == NPCID.Pixie || npc.type == NPCID.Unicorn || npc.type == NPCID.RainbowSlime || npc.type == NPCID.Gastropod || npc.type == NPCID.LightMummy || npc.type == NPCID.DesertGhoulHallow))
             {
                 if (Main.rand.NextFloat() < 0.50f)
                 {
@@ -113,7 +113,7 @@ public class TremorNPC : GlobalNPC
                 }
             }
 
-            if ((npc.type == 175 || npc.type == 205 || npc.type == 226))
+            if ((npc.type == NPCID.AngryTrapper || npc.type == NPCID.Moth || npc.type == NPCID.FlyingSnake))
             {
                 if (Main.rand.NextFloat() < 0.4f)
                 {
@@ -158,7 +158,7 @@ public class TremorNPC : GlobalNPC
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<StoneofLife>(), 4));
         }
 
-        if (npc.type == 140)
+        if (npc.type == NPCID.PossessedArmor)
         {
             npcLoot.Add(ItemDropRule.OneFromOptions(25, ModContent.ItemType<PossessedHelmet>(), ModContent.ItemType<PossessedChestplate>(), ModContent.ItemType<PossessedGreaves>()));
         }
@@ -169,23 +169,23 @@ public class TremorNPC : GlobalNPC
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ThrowerEmblem>(), 4));
         }
 
-        if (!Main.expertMode && npc.type == 134)
+        if (!Main.expertMode && npc.type == NPCID.TheDestroyer)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Destructor>(), 6));
         }
 
-        if (((npc.type == 381) || (npc.type == 382) || (npc.type == 383) || (npc.type == 385) || (npc.type == 386) ||
-        (npc.type == 388) || (npc.type == 389) || (npc.type == 390) || (npc.type == 391) || (npc.type == 520)))
+        if (((npc.type == NPCID.BrainScrambler) || (npc.type == NPCID.RayGunner) || (npc.type == NPCID.MartianOfficer) || (npc.type == NPCID.GrayGrunt) || (npc.type == NPCID.MartianEngineer) ||
+        (npc.type == NPCID.MartianDrone) || (npc.type == NPCID.GigaZapper) || (npc.type == NPCID.ScutlixRider) || (npc.type == NPCID.Scutlix) || (npc.type == NPCID.MartianWalker)))
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Transistor>(), 500));
         }
 
-        if (!Main.expertMode && npc.type == 113)
+        if (!Main.expertMode && npc.type == NPCID.WallofFlesh)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PieceofFlesh>(), 1, 8, 17));
         }
 
-        if (npc.type == 489)
+        if (npc.type == NPCID.BloodZombie)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Stigmata>(), 30));
         }
@@ -197,12 +197,12 @@ public class TremorNPC : GlobalNPC
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DemonBlood>(), 2));
         }
 
-        if (npc.type == 111)
+        if (npc.type == NPCID.GoblinArcher)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<LongBow>(), 20));
         }
 
-        if (npc.type == 127)
+        if (npc.type == NPCID.SkeletronPrime)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BenderHead>(), 3));
 
@@ -212,12 +212,12 @@ public class TremorNPC : GlobalNPC
             }
         }
 
-        if (npc.type == 125 || npc.type == 126)
+        if (npc.type == NPCID.Retinazer || npc.type == NPCID.Spazmatism)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BenderBody>(), 5));
         }
 
-        if (npc.type == 134)
+        if (npc.type == NPCID.TheDestroyer)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BenderLegs>(), 3));
         }
@@ -229,33 +229,33 @@ public class TremorNPC : GlobalNPC
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ToxicHilt>(), 30));
         }
 
-        if (npc.type == 6)
+        if (npc.type == NPCID.EaterofSouls)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PiercingQuartz>(), 30));
         }
 
-        if (npc.type == 239)
+        if (npc.type == NPCID.BloodCrawler)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Vertebrow>(), 28));
         }
 
-        if (npc.type == 166)
+        if (npc.type == NPCID.SwampThing)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SwampClump>(), 28));
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FiercePaw>(), 25));
         }
 
-        if (npc.type == 469)
+        if (npc.type == NPCID.ThePossessed)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<LeechingSeed>(), 28));
         }
 
-        if (npc.type == 460)
+        if (npc.type == NPCID.Butcher)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ButcherMask>(), 20));
         }
 
-        if (npc.type == 175)
+        if (npc.type == NPCID.AngryTrapper)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ThornBall>(), 2, 6, 15));
         }
@@ -272,7 +272,7 @@ public class TremorNPC : GlobalNPC
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MechanicalBrain>(), 2500));
         }
 
-        if (npc.type == 532)
+        if (npc.type == NPCID.DesertBeast)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PetrifiedSpike>(), 3, 5, 10));
         }
@@ -284,22 +284,22 @@ public class TremorNPC : GlobalNPC
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ScorpionStinger>(), 16));
         }
 
-        if (npc.type == 23)
+        if (npc.type == NPCID.MeteorHead)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientMeteorHelmet>(), 100));
         }
 
-        if (npc.type == 346)
+        if (npc.type == NPCID.SantaNK1)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SantaNK1Mask>(), 7));
         }
 
-        if (npc.type == 345)
+        if (npc.type == NPCID.IceQueen)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<IceQueenMask>(), 7));
         }
 
-        if (npc.type == 344)
+        if (npc.type == NPCID.Everscream)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EverscreamMask>(), 7));
         }
@@ -311,75 +311,75 @@ public class TremorNPC : GlobalNPC
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PumpkingMask>(), 7));
         }
 
-        if (npc.type == 325)
+        if (npc.type == NPCID.MourningWood)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MourningWoodMask>(), 7));
         }
 
-        if (npc.type == 491)
+        if (npc.type == NPCID.PirateShip)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PirateChest>(), 3));
         }
 
-        if (!Main.expertMode && npc.type == 245)
+        if (!Main.expertMode && npc.type == NPCID.Golem)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GolemCore>(), 1));
         }
 
-        if (npc.type == 124)
+        if (npc.type == NPCID.Mechanic)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ThrowingWrench>(), 1, 10, 20));
         }
 
-        if (npc.type == 513)
+        if (npc.type == NPCID.TombCrawlerHead)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<IonBlaster>(), 25));
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PetrifiedSpike>(), 3, 5, 10));
         }
 
-        if ((npc.type == 3 || npc.type == 186 || npc.type == 187 || npc.type == 188 ||
-        npc.type == 189 || npc.type == 200 || npc.type == 132 || npc.type == 319 || npc.type == 320 ||
-        npc.type == 321 || npc.type == 331 || npc.type == 332 || npc.type == 430 || npc.type == 432 ||
-        npc.type == 433 || npc.type == 434 || npc.type == 435 || npc.type == 436))
+        if ((npc.type == NPCID.Zombie || npc.type == NPCID.PincushionZombie || npc.type == NPCID.SlimedZombie || npc.type == NPCID.SwampZombie ||
+        npc.type == NPCID.TwiggyZombie || npc.type == NPCID.FemaleZombie || npc.type == NPCID.BaldZombie || npc.type == NPCID.ZombieDoctor || npc.type == NPCID.ZombieSuperman ||
+        npc.type == NPCID.ZombiePixie || npc.type == NPCID.ZombieXmas || npc.type == NPCID.ZombieSweater || npc.type == NPCID.ArmedZombie || npc.type == NPCID.ArmedZombiePincussion ||
+        npc.type == NPCID.ArmedZombieSlimed || npc.type == NPCID.ArmedZombieSwamp || npc.type == NPCID.ArmedZombieTwiggy || npc.type == NPCID.ArmedZombieCenx))
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<UntreatedFlesh>(), 3));
         }
 
-        if ((npc.type == 48 || npc.type == 75 || npc.type == 87))
+        if ((npc.type == NPCID.Harpy || npc.type == NPCID.Pixie || npc.type == NPCID.WyvernHead))
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AirFragment>(), 3));
         }
 
-        if ((npc.type == 58 || npc.type == 65 || npc.type == 63 || npc.type == 64 || npc.type == 102 ||
-        npc.type == 103 || npc.type == 157))
+        if ((npc.type == NPCID.Piranha || npc.type == NPCID.Shark || npc.type == NPCID.BlueJellyfish || npc.type == NPCID.PinkJellyfish || npc.type == NPCID.AnglerFish ||
+        npc.type == NPCID.GreenJellyfish || npc.type == NPCID.Arapaima))
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SeaFragment>(), 2));
         }
 
-        if ((npc.type == 10 || npc.type == 95 || npc.type == 56 || npc.type == 153 || npc.type == 175 ||
-        npc.type == 176 || npc.type == 205 || npc.type == 231 || npc.type == 232 || npc.type == 233 ||
-        npc.type == 234 || npc.type == 235 || npc.type == 236 || npc.type == 237))
+        if ((npc.type == NPCID.GiantWormHead || npc.type == NPCID.DiggerHead || npc.type == NPCID.Snatcher || npc.type == NPCID.GiantTortoise || npc.type == NPCID.AngryTrapper ||
+        npc.type == NPCID.MossHornet || npc.type == NPCID.Moth || npc.type == NPCID.HornetFatty || npc.type == NPCID.HornetHoney || npc.type == NPCID.HornetLeafy ||
+        npc.type == NPCID.HornetSpikey || npc.type == NPCID.HornetStingy || npc.type == NPCID.JungleCreeper || npc.type == NPCID.JungleCreeperWall))
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EarthFragment>(), 4));
         }
 
-        if ((npc.type == 24 || npc.type == 59 || npc.type == 60 || npc.type == 151 || npc.type == 62 ||
-        npc.type == 66))
+        if ((npc.type == NPCID.FireImp || npc.type == NPCID.LavaSlime || npc.type == NPCID.Hellbat || npc.type == NPCID.Lavabat || npc.type == NPCID.Demon ||
+        npc.type == NPCID.VoodooDemon))
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FireFragment>(), 3));
         }
 
-        if ((npc.type == 466 || npc.type == 467 || npc.type == 468 || npc.type == 463 || npc.type == 460))
+        if ((npc.type == NPCID.Psycho || npc.type == NPCID.DeadlySphere || npc.type == NPCID.DrManFly || npc.type == NPCID.Nailhead || npc.type == NPCID.Butcher))
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DarkMatter>(), 2));
         }
 
-        if (npc.type == 496)
+        if (npc.type == NPCID.GiantShelly)
         {
             //npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PurpleShellmet>(), 22));
         }
 
-        if (npc.type == 497)
+        if (npc.type == NPCID.GiantShelly2)
         {
             //npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<OrangeShellmet>(), 22));
         }
@@ -424,12 +424,12 @@ public class TremorNPC : GlobalNPC
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<HeavenLeggings>(), 5));
         }
 
-        if (npc.type == 13)
+        if (npc.type == NPCID.EaterofWorldsHead)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CorruptorStaff>(), 20));
         }
 
-        if (npc.type == 266)
+        if (npc.type == NPCID.BrainofCthulhu)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CreeperStaff>(), 20));
         }
@@ -453,48 +453,48 @@ public class TremorNPC : GlobalNPC
             }
         }
 
-        if (npc.type == 7)
+        if (npc.type == NPCID.DevourerHead)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CorruptorGun>(), 26));
         }
 
-        if ((npc.type == 69 || npc.type == 508))
+        if ((npc.type == NPCID.Antlion || npc.type == NPCID.GiantWalkingAntlion))
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AntlionShell>(), 6));
         }
 
-        if (npc.type == 298)
+        if (npc.type == NPCID.BirdRed)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RedMask>(), 100));
         }
 
-        if (npc.type == 494)
+        if (npc.type == NPCID.Crawdad)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RedClaw>(), 29));
         }
 
-        if (npc.type == 495)
+        if (npc.type == NPCID.Crawdad2)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GreenClaw>(), 29));
         }
 
-        if ((npc.type == 498 || npc.type == 499 || npc.type == 500 || npc.type == 501 || npc.type == 502 ||
-        npc.type == 503 || npc.type == 504 || npc.type == 505 || npc.type == 506))
+        if ((npc.type == NPCID.Salamander || npc.type == NPCID.Salamander2 || npc.type == NPCID.Salamander3 || npc.type == NPCID.Salamander4 || npc.type == NPCID.Salamander5 ||
+        npc.type == NPCID.Salamander6 || npc.type == NPCID.Salamander7 || npc.type == NPCID.Salamander8 || npc.type == NPCID.Salamander9))
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SalamanderSkin>(), 2));
         }
 
-        if ((npc.type == 173))
+        if ((npc.type == NPCID.Crimera))
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CrimCudgel>(), 173));
         }
 
-        if ((npc.type == 4))
+        if ((npc.type == NPCID.EyeofCthulhu))
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TriangleMask>(), 10));
         }
 
-        if ((npc.type == 35))
+        if ((npc.type == NPCID.SkeletronHead))
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TheArtifact>(), 6));
         }
@@ -504,7 +504,7 @@ public class TremorNPC : GlobalNPC
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ToothofAbraxas>(), 10000));
         }
 
-        if ((npc.type == 125 || npc.type == 126 || npc.type == 127 || npc.type == 134))
+        if ((npc.type == NPCID.Retinazer || npc.type == NPCID.Spazmatism || npc.type == NPCID.SkeletronPrime || npc.type == NPCID.TheDestroyer))
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CarbonSteel>(), 1, 6, 120000));
         }
@@ -518,53 +518,53 @@ public class TremorNPC : GlobalNPC
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ChippyRedSteelSword>(), 8));
         }
 
-        if ((npc.type == 489))
+        if ((npc.type == NPCID.BloodZombie))
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TheBrain>(), 24));
         }
 
-        if ((npc.type == 490))
+        if ((npc.type == NPCID.Drippler))
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DrippingRoot>(), 4));
         }
 
-        if ((npc.aiStyle == 1))
+        if ((npc.aiStyle == NPCAIStyleID.Slime))
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DarkMass>(), 60000));
         }
 
-        if ((npc.type == 164 || npc.type == 165))
+        if ((npc.type == NPCID.WallCreeper || npc.type == NPCID.WallCreeperWall))
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SpiderMeat>(), 5, 1, 3));
         }
 
-        if ((npc.type == 98 || npc.type == 94 || npc.type == 101 || npc.type == 170 || npc.type == 180 ||
-        npc.type == 182))
+        if ((npc.type == NPCID.SeekerHead || npc.type == NPCID.Corruptor || npc.type == NPCID.Clinger || npc.type == NPCID.PigronCorruption || npc.type == NPCID.PigronCrimson ||
+        npc.type == NPCID.FloatyGross))
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ClusterShard>(), 7000, 1, 2));
         }
 
-        if ((npc.type == 175 || npc.type == 205 || npc.type == 226))
+        if ((npc.type == NPCID.AngryTrapper || npc.type == NPCID.Moth || npc.type == NPCID.FlyingSnake))
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DragonCapsule>(), 4000, 1, 2));
         }
 
-        if (npc.type == 290)
+        if (npc.type == NPCID.Paladin)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PaladinHelmet>(), 20000));
         }
 
-        if (npc.type == 290)
+        if (npc.type == NPCID.Paladin)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PaladinBreastplate>(), 200000));
         }
 
-        if (npc.type == 290)
+        if (npc.type == NPCID.Paladin)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PaladinGreaves>(), 20000));
         }
 
-        if (!Main.expertMode && npc.type == 35)
+        if (!Main.expertMode && npc.type == NPCID.SkeletronHead)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TearsofDeath>(), 1, 1, 3));
         }
@@ -576,7 +576,7 @@ public class TremorNPC : GlobalNPC
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FrostCore>(), 5, 1, 3));
         }
 
-        if (npc.type == 477)
+        if (npc.type == NPCID.Mothron)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BrokenHeroAmulet>(), 4));
         }
@@ -589,35 +589,35 @@ public class TremorNPC : GlobalNPC
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<KeyKnife>(), 40));
         }
 
-        if (!Main.expertMode && npc.type == 4)
+        if (!Main.expertMode && npc.type == NPCID.EyeofCthulhu)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EyeMonolith>(), 5));
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MonsterTooth>(), 3, 20, 40));
         }
 
-        if (npc.type == 167)
+        if (npc.type == NPCID.UndeadViking)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<NorthAxe>(), 32));
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<NorthHammer>(), 32));
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<NorthCutlass>(), 32));
         }
 
-        if (npc.type == 82)
+        if (npc.type == NPCID.Wraith)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WrathofWraith>(), 40));
         }
 
-        if (npc.type == 439)
+        if (npc.type == NPCID.CultistBoss)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientTablet>(), 1, 12, 22));
         }
 
-        if (npc.type == 262)
+        if (npc.type == NPCID.Plantera)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EssenseofJungle>(), 1, 2, 3));
         }
 
-        if (npc.type == 370 && !Main.expertMode)
+        if (npc.type == NPCID.DukeFishron && !Main.expertMode)
         {
             //npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DukesCannon>(), 1, 2, 3));
         }
@@ -629,90 +629,90 @@ public class TremorNPC : GlobalNPC
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CrystalSpear>(), 35, 2, 3));
         }
 
-        if (npc.type == 39)
+        if (npc.type == NPCID.BoneSerpentHead)
         {
             //npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GunBlade>(), 1, 2, 3));
         }
 
-        if (npc.type == 346)
+        if (npc.type == NPCID.SantaNK1)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SpiK3Ball>(), 1, 50, 100));
         }
 
-        if ((npc.type == 75 || npc.type == 86 || npc.type == 244 || npc.type == 122 || npc.type == 80 || npc.type == 527))
+        if ((npc.type == NPCID.Pixie || npc.type == NPCID.Unicorn || npc.type == NPCID.RainbowSlime || npc.type == NPCID.Gastropod || npc.type == NPCID.LightMummy || npc.type == NPCID.DesertGhoulHallow))
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<UnstableCrystal>(), 5000));
         }
 
-        if (npc.type == 17)
+        if (npc.type == NPCID.Merchant)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MoneySack>(), 2, 2, 4));
         }
 
-        if (npc.type == 398)
+        if (npc.type == NPCID.MoonLordCore)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MultidimensionalFragment>(), 1, 2, 4));
         }
 
-        if (!Main.expertMode && npc.type == 222)
+        if (!Main.expertMode && npc.type == NPCID.QueenBee)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<YellowPuzzleFragment>(), 3));
         }
 
-        if ((npc.type == 381 || npc.type == 382 || npc.type == 383 || npc.type == 385 || npc.type == 386 || npc.type == 387 || npc.type == 388 || npc.type == 389 || npc.type == 390))
+        if ((npc.type == NPCID.BrainScrambler || npc.type == NPCID.RayGunner || npc.type == NPCID.MartianOfficer || npc.type == NPCID.GrayGrunt || npc.type == NPCID.MartianEngineer || npc.type == NPCID.MartianTurret || npc.type == NPCID.MartianDrone || npc.type == NPCID.GigaZapper || npc.type == NPCID.ScutlixRider))
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WarpPad>(), 100));
         }
 
-        if ((npc.type == 273 || npc.type == 274 || npc.type == 275 || npc.type == 276 || npc.type == 269 || npc.type == 270 || npc.type == 271 || npc.type == 272 || npc.type == 277 || npc.type == 278 || npc.type == 279 || npc.type == 280 || npc.type == 283 || npc.type == 284 || npc.type == 281 || npc.type == 282 || npc.type == 285 || npc.type == 286))
+        if ((npc.type == NPCID.BlueArmoredBones || npc.type == NPCID.BlueArmoredBonesMace || npc.type == NPCID.BlueArmoredBonesNoPants || npc.type == NPCID.BlueArmoredBonesSword || npc.type == NPCID.RustyArmoredBonesAxe || npc.type == NPCID.RustyArmoredBonesFlail || npc.type == NPCID.RustyArmoredBonesSword || npc.type == NPCID.RustyArmoredBonesSwordNoArmor || npc.type == NPCID.HellArmoredBones || npc.type == NPCID.HellArmoredBonesSpikeShield || npc.type == NPCID.HellArmoredBonesMace || npc.type == NPCID.HellArmoredBonesSword || npc.type == NPCID.Necromancer || npc.type == NPCID.NecromancerArmored || npc.type == NPCID.RaggedCaster || npc.type == NPCID.RaggedCasterOpenCoat || npc.type == NPCID.DiabolistRed || npc.type == NPCID.DiabolistWhite))
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BottledSpirit>(), 25));
         }
 
-        if ((npc.type == 134 || npc.type == 125 || npc.type == 126 || npc.type == 127))
+        if ((npc.type == NPCID.TheDestroyer || npc.type == NPCID.Retinazer || npc.type == NPCID.Spazmatism || npc.type == NPCID.SkeletronPrime))
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FlaskCore>(), 10000));
         }
 
-        if (npc.type == 175)
+        if (npc.type == NPCID.AngryTrapper)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RichMahoganySeed>(), 50));
         }
 
-        if (!Main.expertMode && npc.type == 126 && !NPC.AnyNPCs(125))
+        if (!Main.expertMode && npc.type == NPCID.Spazmatism && !NPC.AnyNPCs(125))
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BottledSpirit>(), 25));
         }
 
         if (!Main.expertMode && Main.rand.NextBool(6))
         {
-            if ((npc.type == 126 && !NPC.AnyNPCs(125)) || (npc.type == 125 && !NPC.AnyNPCs(126)))
+            if ((npc.type == NPCID.Spazmatism && !NPC.AnyNPCs(125)) || (npc.type == NPCID.Retinazer && !NPC.AnyNPCs(126)))
             {
                 npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MechaSprayer>(), 1));
             }
         }
 
-        if (npc.type == 395)
+        if (npc.type == NPCID.MartianSaucerCore)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MartianSprayer>(), 20));
         }
 
-        if (npc.type == 370)
+        if (npc.type == NPCID.DukeFishron)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DukeFlask>(), 1, 550, 750));
         }
 
-        if (npc.type == 120)
+        if (npc.type == NPCID.ChaosElemental)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ChaosElement>(), 20));
         }
 
-        if ((npc.type == 361 || npc.type == 445))
+        if ((npc.type == NPCID.Frog || npc.type == NPCID.GoldFrog))
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FrogMask>(), 33));
         }
 
-        if (npc.type == 35)
+        if (npc.type == NPCID.SkeletronHead)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CursedSoul>(), 1, 1, 5));
         }
@@ -727,72 +727,72 @@ public class TremorNPC : GlobalNPC
     }
     public override void SetDefaults(NPC npc)
     {
-        if (npc.type == 46)
+        if (npc.type == NPCID.Bunny)
         {
             npc.lifeMax = 10;
         }
 
-        if (npc.type == 140)
+        if (npc.type == NPCID.PossessedArmor)
         {
             npc.lifeMax = 280;
         }
 
-        if (npc.type == 82)
+        if (npc.type == NPCID.Wraith)
         {
             npc.lifeMax = 200;
         }
 
-        if (npc.type == 141)
+        if (npc.type == NPCID.ToxicSludge)
         {
             npc.lifeMax = 175;
         }
 
-        if (npc.type == 45)
+        if (npc.type == NPCID.Tim)
         {
             npc.lifeMax = 250;
         }
 
-        if (npc.type == 58)
+        if (npc.type == NPCID.Piranha)
         {
             npc.lifeMax = 35;
         }
 
-        if (npc.type == 49)
+        if (npc.type == NPCID.CaveBat)
         {
             npc.lifeMax = 22;
         }
 
-        if (npc.type == 93)
+        if (npc.type == NPCID.GiantBat)
         {
             npc.lifeMax = 150;
         }
 
-        if (npc.type == 77)
+        if (npc.type == NPCID.ArmoredSkeleton)
         {
             npc.lifeMax = 300;
         }
 
-        if (npc.type == 110)
+        if (npc.type == NPCID.SkeletonArcher)
         {
             npc.lifeMax = 250;
         }
 
-        if (npc.type == 63 && Main.hardMode)
+        if (npc.type == NPCID.BlueJellyfish && Main.hardMode)
         {
             npc.catchItem = 2436;
         }
 
-        if (npc.type == 103 && Main.hardMode)
+        if (npc.type == NPCID.GreenJellyfish && Main.hardMode)
         {
             npc.catchItem = 2437;
         }
 
-        if (npc.type == 64 && Main.hardMode)
+        if (npc.type == NPCID.PinkJellyfish && Main.hardMode)
         {
             npc.catchItem = 2438;
         }
 
-        if (NPC.downedMoonlord && npc.boss == false && npc.townNPC == false && npc.type >= 0 && npc.type <= 579)
+        if (NPC.downedMoonlord && npc.boss == false && npc.townNPC == false && npc.type >= NPCID.None && npc.type <= NPCID.BartenderUnconscious)
         {
             npc.lifeMax = npc.lifeMax * 2;
             npc.defense = npc.defense * 2;

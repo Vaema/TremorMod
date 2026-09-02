@@ -12,7 +12,7 @@ namespace TremorMod.Content.Items.Accessories;
 			Item.width = 26;
 			Item.height = 26;
 			Item.value = 12000;
-			Item.rare = 7;
+			Item.rare = ItemRarityID.Lime;
 			Item.accessory = true;
 			Item.defense = 6;
 		}
@@ -33,7 +33,7 @@ namespace TremorMod.Content.Items.Accessories;
 			recipe.AddIngredient(ItemID.PaladinsShield, 1);
 			recipe.AddIngredient(ItemID.CrossNecklace, 1);
 			//recipe.SetResult(this);
-			recipe.AddTile(114);
+			recipe.AddTile(TileID.TinkerersWorkbench);
 			recipe.Register();
 		}
 	}

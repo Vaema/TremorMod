@@ -20,10 +20,10 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.shoot = ModContent.ProjectileType<CursedTwisterPro>();
 			Item.shootSpeed = 14f;
 			Item.mana = 6;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 3;
 			Item.value = 122355;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item21;
 			Item.autoReuse = true;
 		}
@@ -40,7 +40,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			recipe.AddIngredient(ItemID.CursedFlames, 1);
 			recipe.AddIngredient(ModContent.ItemType<NightmareBar>(), 10);
 			recipe.AddIngredient(ModContent.ItemType<ConcentratedEther>(), 8);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

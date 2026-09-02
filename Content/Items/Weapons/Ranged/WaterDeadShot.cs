@@ -16,15 +16,15 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			Item.height = 48;
 			Item.useTime = 30;
 			Item.DamageType = DamageClass.Ranged;
-			Item.shoot = 27;
+			Item.shoot = ProjectileID.WaterBolt;
 
 			Item.shootSpeed = 23f;
 			Item.useAnimation = 30;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 5;
 			Item.value = 250;
 			Item.useAmmo = AmmoID.Arrow;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.UseSound = SoundID.Item5;
 			Item.autoReuse = true;
 		}
@@ -49,7 +49,7 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			recipe.AddIngredient(ModContent.ItemType<SeaFragment>(), 8);
 			recipe.AddIngredient(ItemID.Sapphire, 10);
 			recipe.AddIngredient(ItemID.GoldBar, 6);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			//recipe.SetResult(this);
 			recipe.Register();
 
@@ -57,7 +57,7 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			recipe1.AddIngredient(ModContent.ItemType<SeaFragment>(), 8);
 			recipe1.AddIngredient(ItemID.Sapphire, 10);
 			recipe1.AddIngredient(ItemID.PlatinumBar, 6);
-			recipe1.AddTile(16);
+			recipe1.AddTile(TileID.Anvils);
 			//recipe.SetResult(this);
 			recipe1.Register();
 		}

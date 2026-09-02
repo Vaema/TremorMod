@@ -24,7 +24,7 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0f;
 			NPC.width = 48;
 			NPC.height = 40;
-			NPC.aiStyle = 87;
+			NPC.aiStyle = NPCAIStyleID.BiomeMimic;
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath42;
 			NPC.value = Item.buyPrice(0, 3, 0, 0);
@@ -36,7 +36,7 @@ namespace TremorMod.Content.NPCs;
 		public override void AI()
 		{
 			if (Main.rand.NextBool(4))
-				Main.dust[Dust.NewDust(NPC.position, NPC.width, NPC.height, 6, 0f, 0f, 200, NPC.color)].velocity *= 0.3f;
+				Main.dust[Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, 0f, 0f, 200, NPC.color)].velocity *= 0.3f;
 		}
 
     public override void ModifyNPCLoot(NPCLoot npcLoot)
@@ -50,9 +50,9 @@ namespace TremorMod.Content.NPCs;
 
         if (NPC.life <= 0)
 			{
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 6, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 6, 2.5f * hitDirection, -2.5f, 0, default(Color), 2.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 6, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, 2.5f * hitDirection, -2.5f, 0, default(Color), 2.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("CoretaurGore1").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("CoretaurGore2").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("CoretaurGore2").Type, 1f);
@@ -62,8 +62,8 @@ namespace TremorMod.Content.NPCs;
 				{
 					for (int i = 0; i < 3; ++i)
 					{
-						Dust.NewDust(NPC.position, NPC.width, NPC.height, 6, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
-						Dust.NewDust(NPC.position, NPC.width, NPC.height, 6, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.6f);
+						Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
+						Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.6f);
 					}
 				}
 			}

@@ -21,11 +21,11 @@ namespace TremorMod.Content.Items.Weapons.Summon;
 			Item.useTime = 36;
 			Item.channel = true;
 			Item.useAnimation = 36;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			//Item.noMelee = true;
 			Item.knockBack = 3;
 			Item.value = Item.buyPrice(0, 3, 0, 0);
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item44;
 			Item.shoot = ModContent.ProjectileType<HungryStaffPro>();
 			Item.shootSpeed = 2f;
@@ -53,7 +53,7 @@ namespace TremorMod.Content.Items.Weapons.Summon;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<PieceofFlesh>(), 9);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			//recipe.SetResult(this);
 			recipe.Register();
 		}

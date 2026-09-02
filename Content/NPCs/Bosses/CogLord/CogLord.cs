@@ -64,7 +64,7 @@ public class CogLord : ModNPC
         NPC.knockBackResist = 0.0f;
         NPC.width = 86;
         NPC.height = 124;
-        NPC.aiStyle = 11;
+        NPC.aiStyle = NPCAIStyleID.SkeletronHead;
         NPC.noGravity = true;
         NPC.noTileCollide = true;
         NPC.HitSound = SoundID.NPCHit4;
@@ -128,7 +128,7 @@ public class CogLord : ModNPC
         }
         foreach (NPC npc2 in Main.npc)
         {
-            if (npc2.type == 36)
+            if (npc2.type == NPCID.SkeletronHand)
             {
                 npc2.active = false;
                 npc2.life = 0;
@@ -212,7 +212,7 @@ public class CogLord : ModNPC
                 for (int k = 0; k < ((Main.expertMode) ? 2 : 1); k++)
                 {
                     Vector2 velocity = Helper.VelocityToPoint(NPC.Center, Helper.RandomPointInArea(new Vector2(Main.player[Main.myPlayer].Center.X - 10, Main.player[Main.myPlayer].Center.Y - 10), new Vector2(Main.player[Main.myPlayer].Center.X + 20, Main.player[Main.myPlayer].Center.Y + 20)), 20);
-                    int i = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, velocity.X, velocity.Y, 134, GetLaserDamage * ((Main.expertMode) ? 3 : 2), 1f);
+                    int i = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, velocity.X, velocity.Y, ProjectileID.RocketI, GetLaserDamage * ((Main.expertMode) ? 3 : 2), 1f);
                     Main.projectile[i].hostile = true;
                     Main.projectile[i].tileCollide = true;
                     Main.projectile[i].friendly = false;
@@ -232,7 +232,7 @@ public class CogLord : ModNPC
         if (_timer >= 500 && _timer < 800)
         {
             //_previousRageRotation = 0f;
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 _laserRotation += 0.01f;
                 if (--_timeToShoot <= 0)
@@ -284,7 +284,7 @@ public class CogLord : ModNPC
             {
                 var shootPos = Main.player[NPC.target].position + new Vector2(Main.rand.Next(-1000, 1000), -1000);
                 var shootVel = new Vector2(Main.rand.NextFloat(-3f, 3f), Main.rand.NextFloat(15f, 20f));
-                int i = Projectile.NewProjectile(NPC.GetSource_FromThis(), shootPos, shootVel, 134, GetLaserDamage * ((Main.expertMode) ? 3 : 2), 1f);
+                int i = Projectile.NewProjectile(NPC.GetSource_FromThis(), shootPos, shootVel, ProjectileID.RocketI, GetLaserDamage * ((Main.expertMode) ? 3 : 2), 1f);
                 Main.projectile[i].hostile = true;
                 Main.projectile[i].tileCollide = true;
                 Main.projectile[i].friendly = false;
@@ -333,7 +333,7 @@ public class CogLord : ModNPC
     public void CogMessage(string message)
     {
         string text = "[CL-AI]: " + message;
-        if (Main.netMode != 2)
+        if (Main.netMode != NetmodeID.Server)
         {
             Main.NewText("[CL-AI]: " + message, 208, 137, 55);
         }

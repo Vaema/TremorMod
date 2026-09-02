@@ -17,14 +17,14 @@ public class Deadling : ModNPC
 
     public override void SetDefaults()
     {
-        NPC.aiStyle = 87;
+        NPC.aiStyle = NPCAIStyleID.BiomeMimic;
         NPC.damage = 60;
         NPC.width = 24;
         NPC.height = 26;
         NPC.defense = 50;
         NPC.lifeMax = 1000;
         NPC.knockBackResist = 0f;
-        AnimationType = 81;
+        AnimationType = NPCID.CorruptSlime;
         NPC.noGravity = false;
         NPC.noTileCollide = false;
         NPC.HitSound = SoundID.NPCHit55;
@@ -56,7 +56,7 @@ public class Deadling : ModNPC
         }
         for (int i = 0; i < 5; i++)
         {
-            Dust.NewDust(NPC.position, NPC.width, NPC.height, 57, Main.rand.NextFloat(-3f, 3f), Main.rand.NextFloat(-3f, 3f));
+            Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Enchanted_Gold, Main.rand.NextFloat(-3f, 3f), Main.rand.NextFloat(-3f, 3f));
         }
         for (int k = 0; k < 30; k++)
         {

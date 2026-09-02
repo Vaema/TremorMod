@@ -23,10 +23,10 @@ namespace TremorMod.Content.Items.Tools;
 			Item.noMelee = true;
 			Item.pick = 200;
 			Item.tileBoost++;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 6;
 			Item.value = Item.buyPrice(0, 4, 50, 0);
-			Item.rare = 6;
+			Item.rare = ItemRarityID.LightPurple;
 			Item.UseSound = SoundID.Item23;
 			Item.autoReuse = true;
 			Item.shoot = ModContent.ProjectileType<NanoDrillPro>();
@@ -44,7 +44,7 @@ namespace TremorMod.Content.Items.Tools;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<NanoBar>(), 16);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

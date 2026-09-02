@@ -32,7 +32,7 @@ public class Abomination : ModNPC
         NPC.height = 40;
         NPC.value = 60f;
         AnimationType = NPCID.Zombie;
-        NPC.aiStyle = 3; // AI ñòèëÿ Zombie
+        NPC.aiStyle = NPCAIStyleID.Fighter; // AI ñòèëÿ Zombie
         NPC.HitSound = SoundID.NPCHit31;
         AIType = NPCID.Zombie;
         NPC.DeathSound = SoundID.NPCDeath2;

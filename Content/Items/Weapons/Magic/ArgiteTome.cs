@@ -19,12 +19,12 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.useTime = 30;
 			Item.mana = 8;
 			Item.useAnimation = 30;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.shoot = ModContent.ProjectileType<ArgiteSpherePro>();
 			Item.shootSpeed = 12f;
 			Item.knockBack = 4;
 			Item.value = 32000;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item9;
 			Item.autoReuse = true;
 		}

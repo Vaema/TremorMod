@@ -19,10 +19,10 @@ namespace TremorMod.Content.Items.Weapons.Summon;
 			Item.height = 28;
 			Item.useTime = 25;
 			Item.useAnimation = 25;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;
 			Item.value = 8000;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.UseSound = SoundID.Item44;
 			Item.shoot = ModContent.ProjectileType<CrabStaffPro>();
 			Item.shootSpeed = 1f;
@@ -58,7 +58,7 @@ namespace TremorMod.Content.Items.Weapons.Summon;
 			recipe.AddIngredient(ItemID.Seashell, 2);
 			recipe.AddIngredient(ItemID.Wood, 8);
 			//recipe.SetResult(this);
-			recipe.AddTile(18);
+			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
 		}
 	}

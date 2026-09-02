@@ -1,5 +1,6 @@
 ﻿using Terraria;
 using Terraria.DataStructures;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.NPCs.Bosses.TheDarkEmperor;
 
@@ -18,7 +19,7 @@ namespace TremorMod.Content.Projectiles;
 			Projectile.DamageType = DamageClass.Magic;
 			Projectile.penetrate = 6;
 			Main.projFrames[Projectile.type] = 4;
-			Projectile.aiStyle = 1;
+			Projectile.aiStyle = ProjAIStyleID.Arrow;
 			Projectile.timeLeft = 600;
 		}
 

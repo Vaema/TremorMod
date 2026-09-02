@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items.EvilCornItems;
@@ -11,7 +12,7 @@ namespace TremorMod.Content.Items.EvilCornItems;
 			Item.height = 26;
 			Item.maxStack = 99;
 			Item.value = 10;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 		}
 
 		public override void SetStaticDefaults()

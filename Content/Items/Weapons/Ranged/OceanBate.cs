@@ -20,12 +20,12 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			Item.useTime = 15;
 			Item.useAnimation = 15;
 			Item.useAmmo = AmmoID.Arrow;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.shootSpeed = 30f;
 			Item.knockBack = 3;
 			Item.value = 85000;
-			Item.rare = 10;
-			Item.shoot = 408;
+			Item.rare = ItemRarityID.Red;
+			Item.shoot = ProjectileID.MiniSharkron;
 			Item.shootSpeed = 19f;
 			Item.UseSound = SoundID.Item5;
 			Item.autoReuse = true;
@@ -51,7 +51,7 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			recipe.AddIngredient(ItemID.SharkFin, 8);
 			recipe.AddIngredient(ModContent.ItemType<ConcentratedEther>(), 25);
 			//recipe.SetResult(this);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

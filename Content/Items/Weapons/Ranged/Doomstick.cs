@@ -18,14 +18,14 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			Item.height = 20;
 			Item.useTime = 29;
 			Item.useAnimation = 29;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true;
 			Item.knockBack = 6;
 			Item.value = 75000;
-			Item.rare = 7;
+			Item.rare = ItemRarityID.Lime;
 			Item.UseSound = SoundID.Item36;
 			Item.autoReuse = false;
-			Item.shoot = 10;
+			Item.shoot = ProjectileID.PurificationPowder;
 			Item.shootSpeed = 8f;
 			Item.useAmmo = AmmoID.Bullet;
 		}
@@ -55,7 +55,7 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			recipe.AddIngredient(ItemID.Boomstick, 1);
 			recipe.AddIngredient(ModContent.ItemType<EarthFragment>(), 15);
 			recipe.AddIngredient(ModContent.ItemType<DarkMatter>(), 30);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

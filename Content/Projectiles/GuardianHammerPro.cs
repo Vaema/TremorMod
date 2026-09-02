@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Projectiles;
@@ -13,7 +14,7 @@ namespace TremorMod.Content.Projectiles;
 			Projectile.CloneDefaults(301);
 			Projectile.width = 32;
 			Projectile.height = 32;
-			AIType = 301;
+			AIType = ProjectileID.PaladinsHammerFriendly;
 		}
 
 		public override void SetStaticDefaults()
@@ -42,7 +43,7 @@ namespace TremorMod.Content.Projectiles;
 			Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
 			if (Main.rand.NextBool())
 			{
-				Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 62, Projectile.velocity.X * 0.9f, Projectile.velocity.Y * 0.9f);
+				Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.PurpleTorch, Projectile.velocity.X * 0.9f, Projectile.velocity.Y * 0.9f);
 			}
 		}
 

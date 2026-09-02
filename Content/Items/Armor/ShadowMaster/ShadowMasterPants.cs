@@ -16,7 +16,7 @@ namespace TremorMod.Content.Items.Armor.ShadowMaster;
 			Item.width = 38;
 			Item.height = 22;
 			Item.value = 10000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.defense = 20;
 		}
 
@@ -44,7 +44,7 @@ namespace TremorMod.Content.Items.Armor.ShadowMaster;
         recipe.AddIngredient(ModContent.ItemType<DarkGel>(), 12);
         recipe.AddIngredient(ModContent.ItemType<DarknessCloth>(), 7);
         //recipe.SetResult(this);
-        recipe.AddTile(412);
+        recipe.AddTile(TileID.LunarCraftingStation);
         recipe.Register();
     }
 	}

@@ -12,7 +12,7 @@ namespace TremorMod.Content.Items.Accessories;
 			Item.width = 26;
 			Item.height = 20;
 			Item.value = 110000;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.accessory = true;
 		}
 
@@ -34,7 +34,7 @@ namespace TremorMod.Content.Items.Accessories;
 			recipe.AddIngredient(ItemID.Leather, 10);
 			recipe.AddIngredient(ModContent.ItemType<RockHorn>(), 10);
 			//recipe.SetResult(this);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

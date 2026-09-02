@@ -14,13 +14,13 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.height = 30;
 			Item.useTime = 12;
 			Item.useAnimation = 12;
-			Item.shoot = 585;
+			Item.shoot = ProjectileID.ClothiersCurse;
 			Item.shootSpeed = 11f;
 			Item.mana = 4;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 3;
 			Item.value = 99999;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
 		}
@@ -38,7 +38,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			recipe.AddIngredient(ItemID.SpellTome, 1);
 			recipe.AddIngredient(ItemID.SoulofNight, 15);
 			//recipe.SetResult(this);
-			recipe.AddTile(101);
+			recipe.AddTile(TileID.Bookcases);
 			recipe.Register();
 		}
 	}

@@ -13,7 +13,7 @@ public class BouncingCasing : ModItem
         Item.width = 22;
         Item.height = 44;
         Item.value = 25000;
-        Item.rare = 5;
+        Item.rare = ItemRarityID.Pink;
         Item.accessory = true;
         Item.defense = 1;
     }
@@ -37,7 +37,7 @@ public class BouncingCasing : ModItem
         recipe.AddIngredient(ItemID.SoulofLight, 9);
         recipe.AddIngredient(ItemID.SoulofNight, 9);
         //recipe.SetResult(this);
-        recipe.AddTile(16);
+        recipe.AddTile(TileID.Anvils);
         recipe.Register();
     }
 }

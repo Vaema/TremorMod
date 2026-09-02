@@ -17,12 +17,12 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.useTime = 14;
 			Item.mana = 7;
 			Item.useAnimation = 14;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.shoot = ModContent.ProjectileType<LightningTomePro>();
 			Item.shootSpeed = 12f;
 			Item.knockBack = 4;
 			Item.value = 50000;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item9;
 			Item.autoReuse = false;
 		}

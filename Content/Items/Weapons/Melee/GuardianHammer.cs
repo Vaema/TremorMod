@@ -13,7 +13,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 		public override void SetDefaults()
 		{
 			//item.noMelee = true;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.shootSpeed = 14f;
 			Item.shoot = ModContent.ProjectileType<GuardianHammerPro>();
 			Item.damage = 125;
@@ -24,7 +24,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.useAnimation = 15;
 			Item.useTime = 15;
 			Item.noUseGraphic = true;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.value = Item.sellPrice(0, 20, 0, 0);
 			Item.DamageType = DamageClass.Melee;
 		}
@@ -51,7 +51,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.PaladinsHammer, 1);
 			recipe.AddIngredient(ModContent.ItemType<NightmareBar>(), 16);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			//recipe.SetResult(this);
 			recipe.Register();
 		}

@@ -17,15 +17,15 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			Item.height = 12;
 			Item.useTime = 20;
 			Item.useAnimation = 20;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 6;
 			Item.value = Item.buyPrice(0, 12, 5, 0);
-			Item.rare = 9;
-			Item.useStyle = 5;
+			Item.rare = ItemRarityID.Cyan;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.UseSound = SoundID.Item36;
 			Item.noMelee = true;
 			Item.autoReuse = false;
-			Item.shoot = 10;
+			Item.shoot = ProjectileID.PurificationPowder;
 			Item.shootSpeed = 23f;
 			Item.useAmmo = AmmoID.Bullet;
 		}
@@ -62,7 +62,7 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			recipe.AddIngredient(ItemID.SoulofLight, 25);
 			recipe.AddIngredient(ItemID.SoulofNight, 25);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

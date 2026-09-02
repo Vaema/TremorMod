@@ -13,11 +13,11 @@ namespace TremorMod.Content.Items.BossSumonItems;
 			Item.width = 26;
 			Item.height = 34;
 			Item.maxStack = 20;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.value = 50000;
 			Item.useAnimation = 45;
 			Item.useTime = 45;
-			Item.useStyle = 4;
+			Item.useStyle = ItemUseStyleID.HoldUp;
 			Item.consumable = true;
 		}
 

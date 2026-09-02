@@ -27,8 +27,8 @@ namespace TremorMod.Content.NPCs.ZombieEvent;
 			NPC.width = 42;
 			NPC.height = 82;
 			NPC.alpha = 100;
-			AnimationType = 82;
-			NPC.aiStyle = 22;
+			AnimationType = NPCID.Wraith;
+			NPC.aiStyle = NPCAIStyleID.HoveringFighter;
 			NPC.npcSlots = 0.5f;
 			NPC.noTileCollide = true;
 			NPC.HitSound = SoundID.NPCHit52;
@@ -49,7 +49,7 @@ namespace TremorMod.Content.NPCs.ZombieEvent;
 
     public override void ModifyNPCLoot(NPCLoot npcLoot)
     {
-        if (Main.netMode != 1)
+        if (Main.netMode != NetmodeID.MultiplayerClient)
         {
             int centerX = (int)(NPC.position.X + NPC.width / 2) / 16;
             int centerY = (int)(NPC.position.Y + NPC.height / 2) / 16;

@@ -25,7 +25,7 @@ namespace TremorMod.Content.Biomes.Ice.Mobs;
 			NPC.knockBackResist = 0.2f;
 			NPC.width = 25;
 			NPC.height = 20;
-			AnimationType = 3;
+			AnimationType = NPCID.Zombie;
 			NPC.aiStyle = -1;
 			NPC.npcSlots = 1f;
 			NPC.value = Item.buyPrice(silver: 10, copper : 5);
@@ -66,16 +66,16 @@ namespace TremorMod.Content.Biomes.Ice.Mobs;
 			int tileX = (int)(NPC.Bottom.Y / 16f), tileY = (int)(NPC.Bottom.Y / 16f);
 			int height = Math.Min(10, tileX);
 			float velX = MathHelper.Lerp(5f, 3f, height / 10f), velY = MathHelper.Lerp(-3f, -6f, height / 10f);
-			NPC.aiStyle = 1;
+			NPC.aiStyle = NPCAIStyleID.Slime;
 			if (NPC.target >= 0 && NPC.target <= 255 && Main.player[NPC.target].Bottom.Y < NPC.Center.Y && NPC.collideX && NPC.velocity.Y != 0)
 			{
 				NPC.netUpdate = true;
-				if (Main.netMode != 2)
+				if (Main.netMode != NetmodeID.Server)
 				{
 					for (int m = 0; m < 2; m++)
 					{
 						float xPos = NPC.velocity.X > 0 ? NPC.Right.X : NPC.Left.X;
-						int dustID = Dust.NewDust(new Vector2(xPos, NPC.Center.Y), 1, 1, 80, xPos < NPC.Center.X ? -4f : 4f, Math.Abs(NPC.velocity.Y) * 0.2f, 100, Color.White, 1.5f);
+						int dustID = Dust.NewDust(new Vector2(xPos, NPC.Center.Y), 1, 1, DustID.Ice, xPos < NPC.Center.X ? -4f : 4f, Math.Abs(NPC.velocity.Y) * 0.2f, 100, Color.White, 1.5f);
 						Main.dust[dustID].noGravity = true;
 					}
 				}

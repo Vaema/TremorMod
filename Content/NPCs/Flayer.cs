@@ -26,10 +26,10 @@ namespace TremorMod.Content.NPCs;
 			NPC.DeathSound = SoundID.NPCDeath1;
 			NPC.value = Item.buyPrice(0, 0, 85, 7);
 			NPC.knockBackResist = 0.5f;
-			NPC.aiStyle = 3;
-			AIType = 434;
-			NPC.aiStyle = 3;
-			AnimationType = 434;
+			NPC.aiStyle = NPCAIStyleID.Fighter;
+			AIType = NPCID.ArmedZombieSwamp;
+			NPC.aiStyle = NPCAIStyleID.Fighter;
+			AnimationType = NPCID.ArmedZombieSwamp;
         Banner = NPC.type;
         BannerItem = ModContent.ItemType<FlayerBanner>();
         ItemID.Sets.KillsToBanner[BannerItem] = 50;
@@ -42,7 +42,7 @@ namespace TremorMod.Content.NPCs;
         if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SeaSnail, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FlayerGore1").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FlayerGore2").Type, 1f);

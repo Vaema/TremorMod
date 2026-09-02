@@ -24,8 +24,8 @@ namespace TremorMod.Content.Biomes.Ice.Mobs;
 			NPC.knockBackResist = 0.3f;
 			NPC.width = 56;
 			NPC.height = 48;
-			AnimationType = 3;
-			NPC.aiStyle = 3;
+			AnimationType = NPCID.Zombie;
+			NPC.aiStyle = NPCAIStyleID.Fighter;
 			NPC.npcSlots = 1f;
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath1;
@@ -81,7 +81,7 @@ namespace TremorMod.Content.Biomes.Ice.Mobs;
         {
             for (int k = 0; k < 20; k++)
             {
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitInfo.HitDirection, -2.5f, 0, default(Color), 0.7f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SeaSnail, 2.5f * hitInfo.HitDirection, -2.5f, 0, default(Color), 0.7f);
             }
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("WhiteWalkerGore1").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("WhiteWalkerGore1").Type, 1f);

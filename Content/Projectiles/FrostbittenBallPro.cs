@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Projectiles;
@@ -17,7 +18,7 @@ namespace TremorMod.Content.Projectiles;
 			Projectile.penetrate = -1; // Penetrates NPCs infinitely.
 			Projectile.DamageType = DamageClass.Melee; // Deals melee dmg.
 
-			Projectile.aiStyle = 15; // Set the aiStyle to that of a flail.
+			Projectile.aiStyle = ProjAIStyleID.Flail; // Set the aiStyle to that of a flail.
 		}
 
 		public override void SetStaticDefaults()
@@ -28,7 +29,7 @@ namespace TremorMod.Content.Projectiles;
 
 		public override void AI()
 		{
-			int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 15, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100, default(Color), 1.9f);
+			int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.MagicMirror, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100, default(Color), 1.9f);
 			Main.dust[dust].noGravity = true;
 		}
 
@@ -36,7 +37,7 @@ namespace TremorMod.Content.Projectiles;
 		{
 			if (Main.rand.NextBool(3))
 			{
-				target.AddBuff(44, 280, false);
+				target.AddBuff(BuffID.Frostburn, 280, false);
 			}
 		}
 

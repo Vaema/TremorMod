@@ -25,8 +25,8 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.2f;
 			NPC.width = 34;
 			NPC.height = 48;
-			AnimationType = 48;
-			NPC.aiStyle = 14;
+			AnimationType = NPCID.Harpy;
+			NPC.aiStyle = NPCAIStyleID.Bat;
 			NPC.scale = 1.3f;
 			NPC.npcSlots = 0.5f;
 			NPC.HitSound = SoundID.NPCHit35;
@@ -50,7 +50,7 @@ namespace TremorMod.Content.NPCs;
         if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 44, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.JungleSpore, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ZootalooGore1").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ZootalooGore2").Type, 1f);
@@ -59,7 +59,7 @@ namespace TremorMod.Content.NPCs;
 			else
 			{
 				for (int k = 0; k < hit.Damage / NPC.lifeMax * 50; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 44, hitDirection, -1f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.JungleSpore, hitDirection, -1f, 0, default(Color), 0.7f);
 			}
 		}
 

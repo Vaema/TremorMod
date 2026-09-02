@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 
@@ -13,7 +14,7 @@ namespace TremorMod.Content.Items.Armor.Chaos;
 			Item.width = 22;
 			Item.height = 18;
 			Item.value = 6000;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.defense = 11;
 		}
 
@@ -35,7 +36,7 @@ namespace TremorMod.Content.Items.Armor.Chaos;
         Recipe recipe = CreateRecipe();
         recipe.AddIngredient(ModContent.ItemType<ChaosBar>(), 17);
         //recipe.SetResult(this);
-        recipe.AddTile(134);
+        recipe.AddTile(TileID.MythrilAnvil);
         recipe.Register();
     }
 }

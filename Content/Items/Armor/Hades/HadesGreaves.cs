@@ -20,7 +20,7 @@ namespace TremorMod.Content.Items.Armor.Hades;
 			Item.width = 22;
 			Item.height = 18;
 			Item.value = 500;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.defense = 42;
 		}
 

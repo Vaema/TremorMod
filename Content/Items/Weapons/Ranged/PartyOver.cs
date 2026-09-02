@@ -12,19 +12,19 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 	{
 		public override void SetDefaults()
 		{
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useAnimation = 24;
 			Item.useTime = 9;
 			Item.width = 24;
 			Item.height = 14;
-			Item.shoot = 587;
+			Item.shoot = ProjectileID.PainterPaintball;
 			Item.damage = 122;
 			Item.shootSpeed = 10f;
 			Item.noMelee = true;
 			Item.value = Item.sellPrice(0, 0, 50, 0);
 			Item.knockBack = 1.25f;
 			Item.scale = 0.85f;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.DamageType = DamageClass.Ranged;
 			Item.crit = 7;
 		}
@@ -60,7 +60,7 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			recipe.AddIngredient(ItemID.SoulofFlight, 20);
 			recipe.AddIngredient(ModContent.ItemType<ConcentratedEther>(), 8);
 			recipe.AddIngredient(ModContent.ItemType<CandyBar>(), 15);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			//recipe.SetResult(this);
 			recipe.Register();
 		}

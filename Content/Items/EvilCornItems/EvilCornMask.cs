@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items.EvilCornItems;
@@ -10,7 +11,7 @@ namespace TremorMod.Content.Items.EvilCornItems;
 		{
 			Item.width = 30;
 			Item.height = 22;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.vanity = true;
 		}
 

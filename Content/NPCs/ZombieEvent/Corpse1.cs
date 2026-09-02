@@ -22,9 +22,9 @@ namespace TremorMod.Content.NPCs.ZombieEvent;
 			NPC.knockBackResist = 0.3f;
 			NPC.width = 34;
 			NPC.height = 34;
-			AnimationType = 462;
-			AIType = 462;
-			NPC.aiStyle = 3;
+			AnimationType = NPCID.Fritz;
+			AIType = NPCID.Fritz;
+			NPC.aiStyle = NPCAIStyleID.Fighter;
 			NPC.npcSlots = 0.2f;
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath2;
@@ -41,7 +41,7 @@ namespace TremorMod.Content.NPCs.ZombieEvent;
 			{
 				for (int k = 0; k < 20; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SeaSnail, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				}
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("CorpseGore1").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("CorpseGore2").Type, 1f);

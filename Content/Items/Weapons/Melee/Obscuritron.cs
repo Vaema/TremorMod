@@ -12,7 +12,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 		public override void SetDefaults()
 		{
 			Item.autoReuse = true;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useAnimation = 25;
 			Item.useTime = 25;
 			Item.knockBack = 5.5f;
@@ -21,7 +21,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.damage = 260;
 			Item.scale = 1.15f;
 			Item.UseSound = SoundID.Item1;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.value = 430000;
 			Item.DamageType = DamageClass.Melee;
 		}
@@ -47,7 +47,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			recipe.AddIngredient(ModContent.ItemType<PhantomSoul>(), 15);
 			recipe.AddIngredient(ModContent.ItemType<Phantaplasm>(), 20);
 			recipe.AddIngredient(ModContent.ItemType<ConcentratedEther>(), 25);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			//recipe.SetResult(this);
 			recipe.Register();
 		}

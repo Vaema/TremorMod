@@ -18,12 +18,12 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.height = 40;
 			Item.useTime = 35;
 			Item.useAnimation = 35;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.staff[Item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
 			Item.noMelee = true; //so the item's animation doesn't do damage
 			Item.knockBack = 5;
 			Item.value = 700;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item75;
 			Item.autoReuse = true;
 			Item.shoot = ModContent.ProjectileType<SacredCrossPro>();
@@ -43,7 +43,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			recipe.AddIngredient(ModContent.ItemType<Opal>(), 3);
 			recipe.AddIngredient(ItemID.HallowedBar, 12);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

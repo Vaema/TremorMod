@@ -16,11 +16,11 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			Item.noUseGraphic = true;
 			Item.useTime = 30;
 			Item.useAnimation = 20;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			//Item.noMelee = true;
 			Item.knockBack = 6;
 			Item.value = 10000;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item45;
 			Item.autoReuse = false;
 			Item.shoot = ModContent.ProjectileType<GarnetGlovePro>();
@@ -40,7 +40,7 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			recipe.AddIngredient(ItemID.Ruby, 13);
 			recipe.AddIngredient(ItemID.Sapphire, 13);
 			//recipe.SetResult(this);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

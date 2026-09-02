@@ -15,7 +15,7 @@ namespace TremorMod.Content.Biomes.Ice.Items.Furniture;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.value = 150;
 			Item.createTile = ModContent.TileType<IceChest>();

@@ -16,10 +16,10 @@ namespace TremorMod.Content.Items.Tools;
 			Item.useTime = 5;
 			Item.useAnimation = 16;
 			Item.hammer = 100;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 5;
 			Item.value = 200000;
-			Item.rare = 7;
+			Item.rare = ItemRarityID.Lime;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 		}
@@ -34,7 +34,7 @@ namespace TremorMod.Content.Items.Tools;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<FrostoneBar>(), 10);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			//recipe.SetResult(this);
 			recipe.Register();
 		}

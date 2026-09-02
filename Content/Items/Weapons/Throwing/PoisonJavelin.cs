@@ -22,10 +22,10 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			Item.useAnimation = 32;
 			Item.shoot = ModContent.ProjectileType<PoisonJavelinPro>();
 			Item.shootSpeed = 16f;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;
 			Item.value = 60;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 		}

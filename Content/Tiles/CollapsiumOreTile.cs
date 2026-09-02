@@ -13,7 +13,7 @@ public class CollapsiumOreTile : ModTile
         Main.tileMergeDirt[Type] = true;
         Main.tileBlockLight[Type] = true;
         Main.tileLighted[Type] = true;
-        DustType = 62;
+        DustType = DustID.PurpleTorch;
         HitSound = SoundID.Tink;
         //PlaceSound = SoundID.Item2;
         MinPick = 250;

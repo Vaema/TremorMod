@@ -15,10 +15,10 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.height = 44;
 			Item.useTime = 26;
 			Item.useAnimation = 26;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;
 			Item.value = 60000;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
 		}
@@ -31,17 +31,17 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 
 		public override void MeleeEffects(Player player, Rectangle hitbox)
 		{
-			int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 60);
+			int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.RedTorch);
 		}
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(795, 1);
-			recipe.AddIngredient(155, 1);
-			recipe.AddIngredient(190, 1);
-			recipe.AddIngredient(121, 1);
+			recipe.AddIngredient(ItemID.BloodButcherer, 1);
+			recipe.AddIngredient(ItemID.Muramasa, 1);
+			recipe.AddIngredient(ItemID.BladeofGrass, 1);
+			recipe.AddIngredient(ItemID.FieryGreatsword, 1);
 			//recipe.SetResult(this);
-			recipe.AddTile(26);
+			recipe.AddTile(TileID.DemonAltar);
 			recipe.Register();
 		}
 	}

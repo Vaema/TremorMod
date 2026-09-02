@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Projectiles;
@@ -42,7 +43,7 @@ namespace TremorMod.Content.Projectiles;
 		{
 			if (Main.rand.NextBool())
 			{
-				target.AddBuff(72, 10000, false);
+				target.AddBuff(BuffID.Midas, 10000, false);
 			}
 		}
 	}

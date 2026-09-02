@@ -14,12 +14,12 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.useTime = 30;
 			Item.mana = 20;
 			Item.useAnimation = 30;
-			Item.useStyle = 5;
-			Item.shoot = 9;
+			Item.useStyle = ItemUseStyleID.Shoot;
+			Item.shoot = ProjectileID.Starfury;
 			Item.shootSpeed = 30f;
 			Item.knockBack = 3;
 			Item.value = 30000;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item4;
 			Item.autoReuse = false;
 		}

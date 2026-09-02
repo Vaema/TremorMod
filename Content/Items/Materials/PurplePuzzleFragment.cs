@@ -12,7 +12,7 @@ namespace TremorMod.Content.Items.Materials;
 			Item.height = 24;
 			Item.maxStack = 9999;
 			Item.value = 10000;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 		}
 
 		public override void SetStaticDefaults()
@@ -28,7 +28,7 @@ namespace TremorMod.Content.Items.Materials;
 			recipe.AddIngredient(ItemID.Amethyst, 8);
 			recipe.AddIngredient(ItemID.SoulofNight, 2);
 			//recipe.SetResult(this);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

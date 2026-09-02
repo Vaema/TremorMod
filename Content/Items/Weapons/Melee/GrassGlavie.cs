@@ -18,10 +18,10 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.shoot = ModContent.ProjectileType<GrassGlaviePro>();
 			Item.shootSpeed = 3f;
 			Item.useAnimation = 30;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 4;
 			Item.value = 900;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
 		}
@@ -39,7 +39,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			recipe.AddIngredient(ItemID.Stinger, 1);
 			recipe.AddIngredient(ItemID.Vine, 1);
 			recipe.AddIngredient(ItemID.JungleSpores, 5);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			//recipe.SetResult(this);
 			recipe.Register();
 		}

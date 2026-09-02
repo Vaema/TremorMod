@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items.NPCsDrop;
@@ -10,7 +11,7 @@ namespace TremorMod.Content.Items.NPCsDrop;
 		{
 			Item.width = 38;
 			Item.height = 34;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.accessory = true;
 			Item.value = 50000;
 		}
@@ -26,6 +27,6 @@ namespace TremorMod.Content.Items.NPCsDrop;
 		{
 			player.fishingSkill += 12;
 			player.accDivingHelm = true;
-			player.AddBuff(122, 60, true);
+			player.AddBuff(BuffID.Sonar, 60, true);
 		}
 	}

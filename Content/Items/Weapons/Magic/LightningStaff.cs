@@ -12,20 +12,20 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 		{
 			Item.mana = 22;
 			Item.UseSound = SoundID.Item82;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.damage = 180;
 			Item.useTime = 40;
 			Item.useAnimation = 40;
 			Item.width = 36;
 			Item.height = 40;
-			Item.shoot = 580;
+			Item.shoot = ProjectileID.VortexLightning;
 			Item.shootSpeed = 13f;
 			Item.knockBack = 4.4f;
 			Item.staff[Item.type] = true;
 			Item.DamageType = DamageClass.Magic;
 			Item.autoReuse = true;
 			Item.value = 100000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			//Item.noMelee = true;
 		}
 

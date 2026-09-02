@@ -20,7 +20,7 @@ namespace TremorMod.Content.Items.Armor.Chemist;
 			Item.height = 22;
 
 			Item.value = 10000;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.defense = 2;
 		}
 
@@ -55,7 +55,7 @@ namespace TremorMod.Content.Items.Armor.Chemist;
 			recipe.AddIngredient(ModContent.ItemType<ChainCoif>(), 1);
 			recipe.AddIngredient(ItemID.Goggles, 1);
 			//recipe.SetResult(this);
-			recipe.AddTile(18);
+			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
 		}
 

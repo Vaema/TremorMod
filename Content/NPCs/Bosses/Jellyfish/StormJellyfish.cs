@@ -54,12 +54,12 @@ namespace TremorMod.Content.NPCs.Bosses.Jellyfish;
 			NPC.DeathSound = SoundID.NPCDeath28;
 			NPC.boss = true;
 			NPC.knockBackResist = 0.1f;
-			AIType = 472;
+			AIType = NPCID.ShadowFlameApparition;
 			NPC.noGravity = true;
 			NPC.noGravity = true;
 			Music = 39;
-			NPC.aiStyle = 86;
-			AnimationType = 472;
+			NPC.aiStyle = NPCAIStyleID.AncientVision;
+			AnimationType = NPCID.ShadowFlameApparition;
 			//bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("StormJellyfishBag").Type;
 		}
 
@@ -84,9 +84,9 @@ namespace TremorMod.Content.NPCs.Bosses.Jellyfish;
 			{
 				for (int k = 0; k < 60; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 226, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 226, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 226, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Electric, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Electric, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Electric, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				}
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("StormGore1").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("StormGore1").Type, 1f);
@@ -101,8 +101,8 @@ namespace TremorMod.Content.NPCs.Bosses.Jellyfish;
 
 				for (int k = 0; k < hit.Damage / NPC.lifeMax * 50.0; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 226, hitDirection, -2f, 0, default(Color), 0.7f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 27, hitDirection, -1f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Electric, hitDirection, -2f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Shadowflame, hitDirection, -1f, 0, default(Color), 0.7f);
 				}
 			}
 		}

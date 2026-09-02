@@ -15,12 +15,12 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.height = 46;
 			Item.useTime = 20;
 			Item.useAnimation = 20;
-			Item.shoot = 297;
+			Item.shoot = ProjectileID.LostSoulFriendly;
 			Item.shootSpeed = 15f;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 2;
 			Item.value = 46000;
-			Item.rare = 8;
+			Item.rare = ItemRarityID.Yellow;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 		}
@@ -36,7 +36,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
         Recipe recipe = CreateRecipe();
         recipe.AddIngredient(ItemID.SpectreBar, 18);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

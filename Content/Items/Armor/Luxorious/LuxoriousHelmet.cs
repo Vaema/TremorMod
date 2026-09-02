@@ -2,6 +2,7 @@
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 using Terraria.Localization;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.Armor.Luxorious;
 
@@ -17,7 +18,7 @@ namespace TremorMod.Content.Items.Armor.Luxorious;
 			Item.width = 26;
 			Item.height = 32;
 			Item.value = 2500;
-			Item.rare = 8;
+			Item.rare = ItemRarityID.Yellow;
 		}
 
 		public override void SetStaticDefaults()
@@ -42,7 +43,7 @@ namespace TremorMod.Content.Items.Armor.Luxorious;
         player.setBonus = SetBonusText.Value;
         player.setBonus = "Allows to detect treasures, ores and traps";
 			player.findTreasure = true;
-			player.AddBuff(111, 2);
+			player.AddBuff(BuffID.Dangersense, 2);
 		}
 
 		public override void ArmorSetShadows(Player player)
@@ -55,7 +56,7 @@ namespace TremorMod.Content.Items.Armor.Luxorious;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<EvershinyBar>(), 15);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

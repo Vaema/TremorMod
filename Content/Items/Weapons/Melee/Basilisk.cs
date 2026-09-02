@@ -15,13 +15,13 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.height = 48;
 			Item.useTime = 35;
 			Item.useAnimation = 35;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 7;
 			Item.value = 32740;
-			Item.rare = 6;
+			Item.rare = ItemRarityID.LightPurple;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
-			Item.shoot = 606;
+			Item.shoot = ProjectileID.ScutlixLaser;
 			Item.shootSpeed = 30f;
 		}
 
@@ -37,7 +37,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			recipe.AddIngredient(ModContent.ItemType<SkullTeeth>(), 5);
 			recipe.AddIngredient(ModContent.ItemType<SteelBar>(), 10);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 

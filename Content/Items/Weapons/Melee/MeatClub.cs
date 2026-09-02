@@ -15,10 +15,10 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.height = 44;
 			Item.useTime = 26;
 			Item.useAnimation = 26;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 9;
 			Item.value = 60000;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
 		}
@@ -36,7 +36,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			recipe.AddIngredient(ItemID.Rope, 5);
 			recipe.AddIngredient(ModContent.ItemType<MeatChunk>(), 15);
 			//recipe.SetResult(this);
-			recipe.AddTile(14);
+			recipe.AddTile(TileID.Tables);
 			recipe.Register();
 		}
 	}

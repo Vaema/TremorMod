@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items.Vanity;
@@ -11,7 +12,7 @@ namespace TremorMod.Content.Items.Vanity;
 			Item.width = 30;
 			Item.height = 22;
 			Item.value = 100000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.vanity = true;
 		}
 
@@ -25,9 +26,9 @@ namespace TremorMod.Content.Items.Vanity;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<FashionableHat>());
-			recipe.AddIngredient(2282);
+			recipe.AddIngredient(ItemID.LeopardSkin);
 			//recipe.SetResult(this);
-			recipe.AddTile(86);
+			recipe.AddTile(TileID.Loom);
 			recipe.Register();
 		}
 	}

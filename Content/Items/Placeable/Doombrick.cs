@@ -19,8 +19,8 @@ namespace TremorMod.Content.Items.Placeable;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.rare = 7;
-			Item.useStyle = 1;
+			Item.rare = ItemRarityID.Lime;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.createTile = ModContent.TileType<DoombrickTile>();
 		}
@@ -35,13 +35,13 @@ namespace TremorMod.Content.Items.Placeable;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<DoombrickWall>(), 4);
-			recipe.AddTile(17);
+			recipe.AddTile(TileID.Furnaces);
 			recipe.Register();
 
 			Recipe recipe1 = CreateRecipe(50);
 			recipe1.AddIngredient(ModContent.ItemType<Doomstone>(), 1);
 			recipe1.AddIngredient(ItemID.StoneBlock, 50);
-			recipe1.AddTile(17);
+			recipe1.AddTile(TileID.Furnaces);
 			recipe1.Register();
 		}
 	}

@@ -13,9 +13,9 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 
 			Item.width = 30;
 			Item.height = 10;
-			Item.rare = 10;
+			Item.rare = ItemRarityID.Red;
 			Item.noMelee = true;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useAnimation = 40;
 			Item.useTime = 40;
 			Item.knockBack = 7.5F;
@@ -40,7 +40,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<AncientTablet>(), 9);
 			recipe.AddIngredient(ItemID.Chain, 8);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

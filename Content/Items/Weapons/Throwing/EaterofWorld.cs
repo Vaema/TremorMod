@@ -17,14 +17,14 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			Item.noUseGraphic = true;
 			Item.useTime = 30;
 			Item.useAnimation = 20;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true;
 			Item.knockBack = 6;
 			Item.value = 50000;
-			Item.rare = 9;
+			Item.rare = ItemRarityID.Cyan;
 			Item.UseSound = SoundID.Item11;
 			Item.autoReuse = true;
-			Item.shoot = 306;
+			Item.shoot = ProjectileID.EatersBite;
 			Item.shootSpeed = 9f;
 		}
 
@@ -55,7 +55,7 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			recipe.AddIngredient(ModContent.ItemType<Doomstone>(), 6);
 			recipe.AddIngredient(ModContent.ItemType<Phantaplasm>(), 10);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

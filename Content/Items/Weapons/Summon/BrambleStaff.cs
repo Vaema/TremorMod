@@ -17,11 +17,11 @@ namespace TremorMod.Content.Items.Weapons.Summon;
 			Item.height = 44;
 			Item.useTime = 25;
 			Item.useAnimation = 25;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.noMelee = true;
 			Item.knockBack = 2.5f;
 			Item.value = Item.buyPrice(0, 1, 0, 0);
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.UseSound = SoundID.Item44;
 			Item.autoReuse = true;
 			Item.shoot = ModContent.ProjectileType<Bramble>();
@@ -56,7 +56,7 @@ namespace TremorMod.Content.Items.Weapons.Summon;
 			recipe.AddIngredient(ItemID.Stinger, 16);
 			recipe.AddIngredient(ItemID.Vine, 2);
 			//recipe.SetResult(this);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 

@@ -18,10 +18,10 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			Item.shoot = ModContent.ProjectileType<GurumasterPro>();
 			Item.shootSpeed = 15f;
 			Item.useAnimation = 35;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 4;
 			Item.value = 1000000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.UseSound = SoundID.Item36;
 			Item.autoReuse = false;
 		}

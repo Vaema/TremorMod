@@ -9,7 +9,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 	{
 		public override void SetDefaults()
 		{
-			Item.CloneDefaults(3279);
+			Item.CloneDefaults(ItemID.CorruptYoyo);
 			Item.damage = 56;
 			Item.DamageType = DamageClass.Melee;
         Item.width = 30;
@@ -17,7 +17,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.shoot = ModContent.ProjectileType<CorfirePro>();
 			Item.knockBack = 4;
 			Item.value = 10000;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 		}
 
 		public override void SetStaticDefaults()
@@ -29,11 +29,11 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(3290, 1);
+			recipe.AddIngredient(ItemID.HelFire, 1);
 			recipe.AddIngredient(ItemID.SoulofSight, 5);
 			recipe.AddIngredient(ItemID.CursedFlame, 18);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

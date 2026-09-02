@@ -15,7 +15,7 @@ namespace TremorMod.Content.Items.Armor.Palladium;
 			Item.width = 20;
 			Item.height = 24;
 			Item.value = 400;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.defense = 4;
 		}
 
@@ -33,7 +33,7 @@ namespace TremorMod.Content.Items.Armor.Palladium;
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == 1208 && legs.type == 1209;
+			return body.type == ItemID.PalladiumBreastplate && legs.type == ItemID.PalladiumLeggings;
 		}
 
 		public override void UpdateArmorSet(Player player)
@@ -54,7 +54,7 @@ namespace TremorMod.Content.Items.Armor.Palladium;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.PalladiumBar, 12);
 			//recipe.SetResult(this);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

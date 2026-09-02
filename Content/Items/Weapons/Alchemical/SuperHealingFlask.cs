@@ -24,12 +24,12 @@ namespace TremorMod.Content.Items.Weapons.Alchemical;
 			Item.useAnimation = 20;
 			Item.shoot = ModContent.ProjectileType<SuperHealingFlaskPro>();
 			Item.shootSpeed = 8f;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 1;
 			Item.UseSound = SoundID.Item106;
 			Item.value = 7;
 
-			Item.rare = 8;
+			Item.rare = ItemRarityID.Yellow;
 			Item.autoReuse = false;
 			//item.ammo = mod.ItemType("BoomFlask");
 		}
@@ -80,25 +80,25 @@ namespace TremorMod.Content.Items.Weapons.Alchemical;
 		{
 			Recipe recipe = CreateRecipe(20);
 			recipe.AddIngredient(ModContent.ItemType<BigHealingFlack>(), 20);
-			recipe.AddIngredient(3456, 1);
+			recipe.AddIngredient(ItemID.FragmentVortex, 1);
 			recipe.AddIngredient(ModContent.ItemType<AngryShard>(), 1);
 			recipe.Register();
 
         Recipe recipe1 = CreateRecipe(20);
         recipe1.AddIngredient(ModContent.ItemType<BigHealingFlack>(), 20);
-        recipe1.AddIngredient(3457, 1);
+        recipe1.AddIngredient(ItemID.FragmentNebula, 1);
         recipe1.AddIngredient(ModContent.ItemType<AngryShard>(), 1);
         recipe1.Register();
 
         Recipe recipe2 = CreateRecipe(20);
         recipe2.AddIngredient(ModContent.ItemType<BigHealingFlack>(), 20);
-        recipe2.AddIngredient(3458, 1);
+        recipe2.AddIngredient(ItemID.FragmentSolar, 1);
         recipe2.AddIngredient(ModContent.ItemType<AngryShard>(), 1);
         recipe2.Register();
 
         Recipe recipe3 = CreateRecipe(20);
         recipe3.AddIngredient(ModContent.ItemType<BigHealingFlack>(), 20);
-        recipe3.AddIngredient(3459, 1);
+        recipe3.AddIngredient(ItemID.FragmentStardust, 1);
         recipe3.AddIngredient(ModContent.ItemType<AngryShard>(), 1);
         recipe3.Register();
 		}

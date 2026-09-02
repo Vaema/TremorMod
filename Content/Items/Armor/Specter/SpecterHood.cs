@@ -5,6 +5,7 @@ using Terraria.Localization;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Tiles;
 using TremorMod.Utilities;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.Armor.Specter;
 
@@ -29,7 +30,7 @@ namespace TremorMod.Content.Items.Armor.Specter;
 			Item.height = 22;
 
 			Item.value = 10000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.defense = 8;
 		}
 
@@ -102,7 +103,7 @@ namespace TremorMod.Content.Items.Armor.Specter;
 			{
 				velocity.X = velocity.X + Main.rand.Next(-spread, spread + 1) * spreadMult;
 				velocity.Y = velocity.Y + Main.rand.Next(-spread, spread + 1) * spreadMult;
-				int i = Projectile.NewProjectile(Main.player[Item.playerIndexTheItemIsReservedFor].GetSource_FromThis(), Main.player[Item.playerIndexTheItemIsReservedFor].Center.X, Main.player[Item.playerIndexTheItemIsReservedFor].Center.Y, velocity.X, velocity.Y, 270, 100, ShootKN, Item.playerIndexTheItemIsReservedFor);
+				int i = Projectile.NewProjectile(Main.player[Item.playerIndexTheItemIsReservedFor].GetSource_FromThis(), Main.player[Item.playerIndexTheItemIsReservedFor].Center.X, Main.player[Item.playerIndexTheItemIsReservedFor].Center.Y, velocity.X, velocity.Y, ProjectileID.Skull, 100, ShootKN, Item.playerIndexTheItemIsReservedFor);
 			}
 		}
 

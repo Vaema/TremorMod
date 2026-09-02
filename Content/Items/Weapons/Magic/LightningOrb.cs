@@ -17,14 +17,14 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.height = 10;
 			Item.useTime = 60;
 			Item.useAnimation = 60;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.UseSound = SoundID.Item81;
 			//Item.noMelee = true;
 			Item.knockBack = 1;
 			Item.value = 10000;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.autoReuse = false;
-			Item.shoot = 580;
+			Item.shoot = ProjectileID.VortexLightning;
 			Item.shootSpeed = 7f;
 			Item.mana = 30;
 		}

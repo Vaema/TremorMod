@@ -36,7 +36,7 @@ namespace TremorMod.Content.NPCs.Bosses;
         NPC.knockBackResist = 0f;
         NPC.width = 74;
         NPC.height = 82;
-        NPC.aiStyle = 6;
+        NPC.aiStyle = NPCAIStyleID.Worm;
         NPC.npcSlots = 1f;
         NPC.noTileCollide = true;
         NPC.behindTiles = true;
@@ -54,13 +54,13 @@ namespace TremorMod.Content.NPCs.Bosses;
     {
         if (Main.rand.NextBool(3))
         {
-            Dust.NewDust(NPC.position, NPC.width, NPC.height, 6, 0f, 0f, 200, NPC.color, 1f);
-            Dust.NewDust(NPC.position, NPC.width, NPC.height, 6, 0f, 0f, 200, NPC.color, 1f);
+            Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, 0f, 0f, 200, NPC.color, 1f);
+            Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, 0f, 0f, 200, NPC.color, 1f);
         }
 
         NPC.position += NPC.velocity;
 
-        if (!TailSpawned && Main.netMode != 1)
+        if (!TailSpawned && Main.netMode != NetmodeID.MultiplayerClient)
         {
             int Previous = NPC.whoAmI;
             for (int i = 0; i < 14; i++)
@@ -79,7 +79,7 @@ namespace TremorMod.Content.NPCs.Bosses;
                 Main.npc[Previous].ai[0] = newNPCIndex;
 
 
-                NetMessage.SendData(23, -1, -1, null, newNPCIndex, 0f, 0f, 0f, 0, 0, 0);
+                NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, newNPCIndex, 0f, 0f, 0f, 0, 0, 0);
                 Previous = newNPCIndex;
             }
             TailSpawned = true;

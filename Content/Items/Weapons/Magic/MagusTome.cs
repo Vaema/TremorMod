@@ -17,12 +17,12 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.useTime = 25;
 			Item.mana = 9;
 			Item.useAnimation = 25;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.shoot = ModContent.ProjectileType<MagusBallF>();
 			Item.shootSpeed = 12f;
 			Item.knockBack = 4;
 			Item.value = 32000;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.UseSound = SoundID.Item9;
 			Item.autoReuse = true;
 

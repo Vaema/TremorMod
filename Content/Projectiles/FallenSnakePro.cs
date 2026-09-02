@@ -25,7 +25,7 @@ namespace TremorMod.Content.Projectiles;
 		{
 			if (Main.rand.NextBool(3))
 			{
-				Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 13, Projectile.velocity.X * 0.9f, Projectile.velocity.Y * 0.9f);
+				Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.Glass, Projectile.velocity.X * 0.9f, Projectile.velocity.Y * 0.9f);
 			}
 
 			return true;

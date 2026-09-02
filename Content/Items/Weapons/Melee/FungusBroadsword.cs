@@ -9,15 +9,15 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 	{
 		public override void SetDefaults()
 		{
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item1;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.damage = 26;
 			Item.useAnimation = 19;
 			Item.useTime = 19;
 			Item.width = 84;
 			Item.height = 84;
-			Item.shoot = 131;
+			Item.shoot = ProjectileID.Mushroom;
 			Item.shootSpeed = 15f;
 			Item.knockBack = 3f;
 			Item.DamageType = DamageClass.Melee;
@@ -36,7 +36,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			recipe1.AddIngredient(ModContent.ItemType<FungusElement>(), 12);
 			recipe1.AddIngredient(ItemID.GlowingMushroom, 9);
 			recipe1.AddIngredient(ItemID.GoldBroadsword, 1);
-			recipe1.AddTile(16);
+			recipe1.AddTile(TileID.Anvils);
 			//recipe.SetResult(this);
 			recipe1.Register();
 
@@ -44,7 +44,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			recipe2.AddIngredient(ModContent.ItemType<FungusElement>(), 12);
         recipe2.AddIngredient(ItemID.GlowingMushroom, 9);
 			recipe2.AddIngredient(ItemID.PlatinumBroadsword, 1);
-			recipe2.AddTile(16);
+			recipe2.AddTile(TileID.Anvils);
 			//recipe2.SetResult(this);
 			recipe2.Register();
     }

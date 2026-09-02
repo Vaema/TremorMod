@@ -23,10 +23,10 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			Item.shoot = ModContent.ProjectileType<CarrotPro>();
 			Item.shootSpeed = 19f;
 			Item.useAmmo = ModContent.ItemType<Carrot>();
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;
 			Item.value = 70000;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 		}

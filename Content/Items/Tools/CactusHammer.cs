@@ -9,7 +9,7 @@ namespace TremorMod.Content.Items.Tools;
 		public override void SetDefaults()
 		{
 			Item.autoReuse = true;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTurn = true;
 			Item.useAnimation = 30;
 			Item.useTime = 20;
@@ -34,7 +34,7 @@ namespace TremorMod.Content.Items.Tools;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Cactus, 16);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			//recipe.SetResult(this);
 			recipe.Register();
 		}

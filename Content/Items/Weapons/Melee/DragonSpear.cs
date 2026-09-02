@@ -19,10 +19,10 @@ namespace TremorMod.Content.Items.Weapons.Melee;
         Item.shoot = ModContent.ProjectileType<DragonSpearPro>();
         Item.shootSpeed = 3f;
         Item.useAnimation = 30;
-        Item.useStyle = 5;
+        Item.useStyle = ItemUseStyleID.Shoot;
         Item.knockBack = 4;
         Item.value = 210000;
-        Item.rare = 11;
+        Item.rare = ItemRarityID.Purple;
         Item.UseSound = SoundID.Item1;
         Item.autoReuse = false;
     }
@@ -38,7 +38,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<DragonCapsule>(), 10);
 			recipe.AddIngredient(ModContent.ItemType<EarthFragment>(), 15);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			//recipe.SetResult(this);
 			recipe.Register();
 		}

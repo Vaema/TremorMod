@@ -17,8 +17,8 @@ namespace TremorMod.Content.Items.Placeable;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 15;
-			Item.useStyle = 1;
-			Item.rare = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
+			Item.rare = ItemRarityID.Blue;
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.createTile = ModContent.TileType<TentTile>();
@@ -36,7 +36,7 @@ namespace TremorMod.Content.Items.Placeable;
 			recipe.AddIngredient(ItemID.Wood, 4);
 			recipe.AddIngredient(ItemID.Cobweb, 30);
 			//recipe.SetResult(this);
-			recipe.AddTile(86);
+			recipe.AddTile(TileID.Loom);
 			recipe.Register();
 		}
 	}

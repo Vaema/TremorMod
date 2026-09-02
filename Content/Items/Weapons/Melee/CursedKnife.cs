@@ -16,10 +16,10 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.height = 32;
 			Item.useTime = 11;
 			Item.useAnimation = 21;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 2;
 			Item.value = 2800;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.UseSound = SoundID.Item1;
         Item.autoReuse = true;
         Item.useTurn = true;
@@ -33,7 +33,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 
 		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			target.AddBuff(39, 60);
+			target.AddBuff(BuffID.CursedInferno, 60);
 		}
 
 		public override void AddRecipes()
@@ -41,7 +41,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<RipperKnife>());
 			recipe.AddIngredient(ItemID.CursedFlame, 20);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 
@@ -49,7 +49,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 		{
 			if (Main.rand.NextBool(3))
 			{
-				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 74);
+				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.GreenFairy);
 			}
 		}
 	}

@@ -17,14 +17,14 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			Item.height = 32;
 			Item.DamageType = DamageClass.Ranged;
 			Item.useTime = 30;
-			Item.shoot = 1;
+			Item.shoot = ProjectileID.WoodenArrowFriendly;
 			Item.shootSpeed = 60f;
 			Item.useAnimation = 30;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 5;
 			Item.value = 1040;
 			Item.useAmmo = AmmoID.Arrow;
-			Item.rare = 6;
+			Item.rare = ItemRarityID.LightPurple;
 			Item.crit = 7;
 			Item.UseSound = SoundID.Item5;
 			Item.autoReuse = true;
@@ -49,7 +49,7 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			recipe.AddIngredient(ModContent.ItemType<SkullTeeth>(), 4);
 			recipe.AddIngredient(ModContent.ItemType<SteelBar>(), 15);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

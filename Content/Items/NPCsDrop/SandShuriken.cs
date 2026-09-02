@@ -19,10 +19,10 @@ namespace TremorMod.Content.Items.NPCsDrop;
 			Item.useAnimation = 20;
 			Item.shoot = ModContent.ProjectileType<SandShurikenPro>();
 			Item.shootSpeed = 27f;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;
 			Item.value = 50000;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
 		}

@@ -17,7 +17,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.shoot = ModContent.ProjectileType<FallenSnakePro>();
 			Item.knockBack = 5;
 			Item.value = 1000000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 		}
 
 		public override void SetStaticDefaults()

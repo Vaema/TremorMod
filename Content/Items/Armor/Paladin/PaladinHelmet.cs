@@ -2,6 +2,7 @@
 using Terraria.ModLoader;
 using Terraria.Localization;
 using TremorMod.Content.Buffs;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.Armor.Paladin;
 
@@ -15,7 +16,7 @@ namespace TremorMod.Content.Items.Armor.Paladin;
 			Item.width = 32;
 			Item.height = 26;
 			Item.value = 400;
-			Item.rare = 10;
+			Item.rare = ItemRarityID.Red;
 			Item.defense = 22;
 		}
 

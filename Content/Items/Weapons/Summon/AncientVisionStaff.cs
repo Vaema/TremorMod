@@ -21,11 +21,11 @@ namespace TremorMod.Content.Items.Weapons.Summon;
 
 			Item.useTime = 36;
 			Item.useAnimation = 36;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.noMelee = true;
 			Item.knockBack = 3;
 			Item.value = Item.buyPrice(0, 2, 0, 0);
-			Item.rare = 10;
+			Item.rare = ItemRarityID.Red;
 			Item.UseSound = SoundID.Item44;
 			Item.shoot = ModContent.ProjectileType<AncientVisionPro>();
 			Item.shootSpeed = 1f;

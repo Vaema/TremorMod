@@ -25,9 +25,9 @@ namespace TremorMod.Content.NPCs.ZombieEvent;
 			NPC.knockBackResist = 0.3f;
 			NPC.width = 56;
 			NPC.height = 48;
-			AnimationType = 429;
-			AIType = 429;
-			NPC.aiStyle = 3;
+			AnimationType = NPCID.VortexSoldier;
+			AIType = NPCID.VortexSoldier;
+			NPC.aiStyle = NPCAIStyleID.Fighter;
 			NPC.npcSlots = 0.2f;
 			NPC.scale *= 0.8f;
 			NPC.HitSound = SoundID.NPCHit37;
@@ -47,7 +47,7 @@ namespace TremorMod.Content.NPCs.ZombieEvent;
 
     public override void ModifyNPCLoot(NPCLoot npcLoot)
     {
-        if (Main.netMode != 1)
+        if (Main.netMode != NetmodeID.MultiplayerClient)
         {
             int centerX = (int)(NPC.position.X + NPC.width / 2) / 16;
             int centerY = (int)(NPC.position.Y + NPC.height / 2) / 16;
@@ -79,7 +79,7 @@ namespace TremorMod.Content.NPCs.ZombieEvent;
 			{
 				for (int k = 0; k < 20; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SeaSnail, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				}
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 99, 0.8f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 99, 0.8f);

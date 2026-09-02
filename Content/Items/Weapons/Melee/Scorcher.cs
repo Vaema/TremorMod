@@ -19,10 +19,10 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.shoot = ModContent.ProjectileType<ScorcherPro>();
 			Item.shootSpeed = 4f;
 			Item.useAnimation = 30;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 4;
 			Item.value = 210000;
-			Item.rare = 10;
+			Item.rare = ItemRarityID.Red;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
 		}
@@ -37,10 +37,10 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<AncientTechnology>(), 1);
-			recipe.AddIngredient(3458, 30);
+			recipe.AddIngredient(ItemID.FragmentSolar, 30);
 			recipe.AddIngredient(ModContent.ItemType<FireFragment>(), 25);
 			//recipe.SetResult(this);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

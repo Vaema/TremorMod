@@ -16,8 +16,8 @@ namespace TremorMod.Content.Items.Placeable;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 15;
-			Item.useStyle = 1;
-			Item.rare = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
+			Item.rare = ItemRarityID.Blue;
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.createTile = ModContent.TileType<EbonstoneBookcaseTile>();
@@ -32,11 +32,11 @@ namespace TremorMod.Content.Items.Placeable;
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(61, 20);
-			recipe.AddIngredient(57, 1);
+			recipe.AddIngredient(ItemID.EbonstoneBlock, 20);
+			recipe.AddIngredient(ItemID.DemoniteBar, 1);
 			recipe.AddIngredient(ItemID.Book, 10);
 			//recipe.SetResult(this);
-			recipe.AddTile(17);
+			recipe.AddTile(TileID.Furnaces);
 			recipe.Register();
 		}
 	}

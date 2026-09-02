@@ -12,7 +12,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 		public override void SetDefaults()
 		{
 			Item.autoReuse = true;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.shootSpeed = 8f;
 			Item.shoot = ModContent.ProjectileType<ShiningAxePro>();
 			Item.damage = 234;
@@ -25,7 +25,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.value = 6000;
 			Item.knockBack = 4f;
 			Item.DamageType = DamageClass.Melee;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 		}
 
 		public override void SetStaticDefaults()

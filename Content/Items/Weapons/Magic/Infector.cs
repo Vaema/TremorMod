@@ -15,15 +15,15 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.height = 40;
 			Item.useTime = 25;
 			Item.useAnimation = 25;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.staff[Item.type] = true;
 			//Item.noMelee = true;
 			Item.knockBack = 5;
 			Item.value = 1500;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
-			Item.shoot = 568;
+			Item.shoot = ProjectileID.SporeTrap2;
 			Item.shootSpeed = 9f;
 		}
 
@@ -39,7 +39,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			recipe.AddIngredient(ItemID.RichMahogany, 18);
 			recipe.AddIngredient(ItemID.Vine, 1);
 			recipe.AddIngredient(ItemID.JungleSpores, 12);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			//recipe.SetResult(this);
 			recipe.Register();
 		}

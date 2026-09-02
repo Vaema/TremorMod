@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Biomes.Ice.Tree;
@@ -14,7 +15,7 @@ public class VeryVery : ModItem
         Item.autoReuse = true;
         Item.useAnimation = 15;
         Item.useTime = 10;
-        Item.useStyle = 1;
+        Item.useStyle = ItemUseStyleID.Swing;
         Item.consumable = true;
         Item.createTile = ModContent.TileType<VeryVeryIce>();
     }

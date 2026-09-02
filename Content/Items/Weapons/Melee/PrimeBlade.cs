@@ -14,12 +14,12 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.height = 40;
 			Item.useTime = 20;
 			Item.useAnimation = 20;
-			Item.shoot = 503;
+			Item.shoot = ProjectileID.StarWrath;
 			Item.shootSpeed = 12f;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 6;
 			Item.value = 60000;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
 		}

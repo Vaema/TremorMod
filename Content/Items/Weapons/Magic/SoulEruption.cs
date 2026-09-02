@@ -13,21 +13,21 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 
 			Item.mana = 8;
 			Item.UseSound = SoundID.Item43;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.damage = 192;
 			Item.autoReuse = true;
 			Item.useAnimation = 16;
 			Item.useTime = 16;
 			Item.width = 40;
 			Item.height = 40;
-			Item.shoot = 297;
+			Item.shoot = ProjectileID.LostSoulFriendly;
 			Item.shootSpeed = 6f;
 			Item.knockBack = 6f;
 			Item.value = Item.sellPrice(0, 12, 0, 0);
 			Item.DamageType = DamageClass.Magic;
         Item.staff[Item.type] = true;
         Item.noMelee = true;
-			Item.rare = 10;
+			Item.rare = ItemRarityID.Red;
 		}
 
 		public override void SetStaticDefaults()
@@ -53,7 +53,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			recipe.AddIngredient(ItemID.SpectreBar, 20);
 			recipe.AddIngredient(ModContent.ItemType<Phantaplasm>(), 12);
 			recipe.AddIngredient(ModContent.ItemType<PurpleQuartz>(), 15);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

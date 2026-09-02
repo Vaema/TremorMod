@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Biomes.Ice.Items;
@@ -11,7 +12,7 @@ namespace TremorMod.Content.Biomes.Ice.Items;
 			Item.width = 24;
 			Item.height = 22;
 			Item.value = 6000;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.accessory = true;
 			Item.defense = 1;
 		}

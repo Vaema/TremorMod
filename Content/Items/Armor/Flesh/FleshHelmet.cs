@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
@@ -15,7 +16,7 @@ namespace TremorMod.Content.Items.Armor.Flesh;
 			Item.width = 38;
 			Item.height = 22;
 			Item.value = 18000;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.defense = 7;
 		}
 
@@ -55,7 +56,7 @@ namespace TremorMod.Content.Items.Armor.Flesh;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<PieceofFlesh>(), 4);
         //recipe.SetResult(this);
-        recipe.AddTile(16);
+        recipe.AddTile(TileID.Anvils);
         recipe.Register();
     }
 

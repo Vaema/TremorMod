@@ -20,7 +20,7 @@ namespace TremorMod.Content.Tiles;
 			Main.tileMerge[TileID.LunarBlockNebula][Type] = true;
 			Main.tileMerge[TileID.LunarBlockStardust][Type] = true;
 			Main.tileLighted[Type] = true;
-			DustType = 57;
+			DustType = DustID.Enchanted_Gold;
 			AddMapEntry(Color.Yellow);
 		}
 

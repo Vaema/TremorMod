@@ -18,15 +18,15 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			Item.height = 12;
 			Item.useTime = 12;
 			Item.useAnimation = 20;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 6;
 			Item.value = 2100000;
-			Item.rare = 10;
-			Item.useStyle = 5;
+			Item.rare = ItemRarityID.Red;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.UseSound = SoundID.Item36;
 			Item.noMelee = true;
 			Item.autoReuse = false;
-			Item.shoot = 10;
+			Item.shoot = ProjectileID.PurificationPowder;
 			Item.shootSpeed = 23f;
 			Item.useAmmo = AmmoID.Bullet;
 		}
@@ -66,7 +66,7 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			recipe.AddIngredient(ModContent.ItemType<CarbonSteel>(), 15);
 			recipe.AddIngredient(ModContent.ItemType<ClusterShard>(), 8);
 			//recipe.SetResult(this);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

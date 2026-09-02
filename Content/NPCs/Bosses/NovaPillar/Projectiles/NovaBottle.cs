@@ -19,7 +19,7 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles;
 		{
 			Projectile.width = 18;
 			Projectile.height = 28;
-			Projectile.aiStyle = 2;
+			Projectile.aiStyle = ProjAIStyleID.ThrownProjectile;
 			Projectile.timeLeft = 1200;
 			Projectile.hostile = true;
 		}

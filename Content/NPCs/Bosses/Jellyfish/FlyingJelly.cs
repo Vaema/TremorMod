@@ -23,10 +23,10 @@ namespace TremorMod.Content.NPCs.Bosses.Jellyfish;
 			NPC.HitSound = SoundID.NPCHit25;
 			NPC.DeathSound = SoundID.NPCDeath28;
 			NPC.knockBackResist = 0.1f;
-			AIType = 472;
+			AIType = NPCID.ShadowFlameApparition;
 			NPC.noGravity = true;
-			NPC.aiStyle = 86;
-			AnimationType = 472;
+			NPC.aiStyle = NPCAIStyleID.AncientVision;
+			AnimationType = NPCID.ShadowFlameApparition;
 		}
 
 		public override void HitEffect(NPC.HitInfo hit)
@@ -36,17 +36,17 @@ namespace TremorMod.Content.NPCs.Bosses.Jellyfish;
 			{
 				for (int k = 0; k < 60; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 226, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 226, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 226, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Electric, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Electric, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Electric, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				}
 			}
 			else
 			{
 				for (int k = 0; k < hit.Damage / NPC.lifeMax * 50; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 226, hitDirection, -2f, 0, default(Color), 0.7f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 27, hitDirection, -1f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Electric, hitDirection, -2f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Shadowflame, hitDirection, -1f, 0, default(Color), 0.7f);
 				}
 			}
 		}

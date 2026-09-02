@@ -25,7 +25,7 @@ public class Galasquid : ModNPC
         NPC.lifeMax = 4250;
         NPC.damage = 125;
         NPC.defense = 75;
-        AnimationType = 82;
+        AnimationType = NPCID.Wraith;
         NPC.knockBackResist = 0.03f;
         NPC.width = 40;
         NPC.height = 60;
@@ -78,7 +78,7 @@ public class Galasquid : ModNPC
         NPC.SimpleFlyMovement(targetVelocity, 0.15f);
         NPC.rotation = NPC.velocity.X * 0.1f;
 
-        if (Main.netMode != 1 && NPC.ai[0]++ >= 70)
+        if (Main.netMode != NetmodeID.MultiplayerClient && NPC.ai[0]++ >= 70)
         {
             Vector2 projectileVelocity = Vector2.Zero;
             while (Math.Abs(projectileVelocity.X) < 1.5f)

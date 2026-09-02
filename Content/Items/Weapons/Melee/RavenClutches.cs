@@ -15,10 +15,10 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.height = 18;
 			Item.useTime = 9;
 			Item.useAnimation = 9;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 3;
 			Item.value = 6400;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 			Item.useTurn = true;
@@ -37,7 +37,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			recipe.AddIngredient(ModContent.ItemType<Opal>(), 1);
 			recipe.AddIngredient(ModContent.ItemType<RavenFeather>(), 13);
 			//recipe.SetResult(this);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 
 			Recipe recipe1 = CreateRecipe();
@@ -45,7 +45,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
         recipe1.AddIngredient(ModContent.ItemType<Opal>(), 1);
         recipe1.AddIngredient(ModContent.ItemType<RavenFeather>(), 13);
         //recipe.SetResult(this);
-			recipe1.AddTile(16);
+			recipe1.AddTile(TileID.Anvils);
 			recipe1.Register();
 		}
 	}

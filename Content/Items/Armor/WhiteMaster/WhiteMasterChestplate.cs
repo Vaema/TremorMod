@@ -16,7 +16,7 @@ namespace TremorMod.Content.Items.Armor.WhiteMaster;
 			Item.width = 34;
 			Item.height = 20;
 			Item.value = 50000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.defense = 33;
 		}
 
@@ -64,7 +64,7 @@ namespace TremorMod.Content.Items.Armor.WhiteMaster;
 			recipe.AddIngredient(ModContent.ItemType<SoulofFight>(), 14);
 			recipe.AddIngredient(ModContent.ItemType<Phantaplasm>(), 8);
 			//recipe.SetResult(this);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

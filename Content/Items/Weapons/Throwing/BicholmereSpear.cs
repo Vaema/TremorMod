@@ -18,10 +18,10 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			Item.shoot = ModContent.ProjectileType<BicholmereSpearPro>();
 			Item.shootSpeed = 15f;
 			Item.useAnimation = 30;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;
 			Item.value = 1000;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.UseSound = SoundID.Item5;
 			Item.autoReuse = true;
 		}

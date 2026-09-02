@@ -22,10 +22,10 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			Item.useAnimation = 20;
 			Item.shoot = ModContent.ProjectileType<HarpyFeather>();
 			Item.shootSpeed = 19f;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;
 			Item.value = 32000;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 		}
@@ -55,7 +55,7 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			recipe.AddIngredient(ItemID.Cloud, 5);
 			recipe.AddIngredient(ModContent.ItemType<AirFragment>(), 14);
 			//recipe.SetResult(this);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

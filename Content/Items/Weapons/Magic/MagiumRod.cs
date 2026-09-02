@@ -21,11 +21,11 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.height = 40;
 			Item.useTime = 16;
 			Item.useAnimation = 16;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true;
 			Item.knockBack = 3;
 			Item.value = 13800;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item43;
 			Item.autoReuse = false;
 			Item.staff[Item.type] = true;
@@ -113,7 +113,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			recipe.AddIngredient(ModContent.ItemType<Gloomstone>(), 15);
 			recipe.AddIngredient(ModContent.ItemType<MagiumShard>(), 8);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

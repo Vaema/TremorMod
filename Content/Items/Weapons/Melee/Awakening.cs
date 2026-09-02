@@ -15,10 +15,10 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.height = 70;
 			Item.useTime = 23;
 			Item.useAnimation = 23;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 10;
 			Item.value = 1000000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.UseSound = SoundID.Item71;
 			Item.autoReuse = true;
 			Item.useTurn = true;
@@ -34,12 +34,12 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 		{
 			if (Main.rand.NextBool(3))
 			{
-				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 13);
+				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.Glass);
 			}
 		}
 
     public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
     {
-			player.AddBuff(113, 120);
+			player.AddBuff(BuffID.Lifeforce, 120);
 		}
 	}

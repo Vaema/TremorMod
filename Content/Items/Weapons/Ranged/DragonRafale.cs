@@ -18,13 +18,13 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			Item.useTime = 10;
 			Item.useAnimation = 15;
 			//item.shoot = mod.ProjectileType("DragonLaser");
-			Item.shoot = 20;
+			Item.shoot = ProjectileID.GreenLaser;
 			Item.useAmmo = AmmoID.Bullet;
 			Item.shootSpeed = 15f;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 4;
 			Item.value = 31000; ;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.UseSound = SoundID.Item11;
 			Item.autoReuse = false;
 		}
@@ -53,7 +53,7 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			recipe.AddIngredient(ModContent.ItemType<DragonCapsule>(), 9);
 			recipe.AddIngredient(ModContent.ItemType<EarthFragment>(), 14);
 			recipe.AddIngredient(ItemID.IllegalGunParts, 1);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			//recipe.SetResult(this);
 			recipe.Register();
 		}

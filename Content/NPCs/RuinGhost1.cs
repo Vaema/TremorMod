@@ -29,7 +29,7 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.3f;
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
-			NPC.aiStyle = 22;
+			NPC.aiStyle = NPCAIStyleID.HoveringFighter;
 			AIType = NPCID.Wraith;
 			AnimationType = NPCID.Wraith;
 			NPC.stepSpeed = .5f;

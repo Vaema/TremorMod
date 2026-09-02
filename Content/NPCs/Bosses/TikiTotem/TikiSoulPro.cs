@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.NPCs.Bosses.TikiTotem;
@@ -37,7 +38,7 @@ namespace TremorMod.Content.NPCs.Bosses.TikiTotem;
 					Vector2 vector34 = Projectile.position;
 					vector34 -= Projectile.velocity * (num449 * 0.25f);
 					Projectile.alpha = 255;
-					int num450 = Dust.NewDust(vector34, 1, 1, 62, 0f, 0f, 0, default(Color), 1f);
+					int num450 = Dust.NewDust(vector34, 1, 1, DustID.PurpleTorch, 0f, 0f, 0, default(Color), 1f);
 					Main.dust[num450].position = vector34;
 					Dust expr_13F6C_cp_0 = Main.dust[num450];
 					expr_13F6C_cp_0.position.X = expr_13F6C_cp_0.position.X + Projectile.width / 2;

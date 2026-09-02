@@ -21,15 +21,15 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.height = 40;
 			Item.useTime = 16;
 			Item.useAnimation = 16;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true;
 			Item.knockBack = 3;
 			Item.value = 13800;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.UseSound = SoundID.Item43;
 			Item.autoReuse = false;
 			Item.staff[Item.type] = true;
-			Item.shoot = 12;
+			Item.shoot = ProjectileID.FallingStar;
 			Item.shootSpeed = 15f;
 		}
 
@@ -100,7 +100,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 				num149 *= num80;
 				float x4 = vector2.X;
 				float y4 = vector2.Y;
-				Projectile.NewProjectile(Item.GetSource_FromThis(), x4, y4, num148, num149, 12, num73, num74, i, 0f, 0f);
+				Projectile.NewProjectile(Item.GetSource_FromThis(), x4, y4, num148, num149, ProjectileID.FallingStar, num73, num74, i, 0f, 0f);
 			}
 			return false;
 		}

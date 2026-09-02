@@ -1,6 +1,7 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.Armor.Meteor;
 
@@ -14,7 +15,7 @@ namespace TremorMod.Content.Items.Armor.Meteor;
 			Item.width = 18;
 			Item.height = 28;
 			Item.value = 9000;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.defense = 4;
 		}
 
@@ -32,7 +33,7 @@ namespace TremorMod.Content.Items.Armor.Meteor;
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == 124 && legs.type == 125;
+			return body.type == ItemID.MeteorSuit && legs.type == ItemID.MeteorLeggings;
 		}
 
 		public override void UpdateArmorSet(Player player)
@@ -45,9 +46,9 @@ namespace TremorMod.Content.Items.Armor.Meteor;
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(117, 15);
+			recipe.AddIngredient(ItemID.MeteoriteBar, 15);
 			//recipe.SetResult(this);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

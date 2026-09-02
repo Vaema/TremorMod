@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Projectiles;
@@ -9,7 +10,7 @@ namespace TremorMod.Content.Projectiles;
 		{
 			Projectile.CloneDefaults(269);
 
-			AIType = 269;
+			AIType = ProjectileID.BabySnowman;
 			Main.projFrames[Projectile.type] = 7;
 			Projectile.width = 32;
 			Projectile.height = 28;

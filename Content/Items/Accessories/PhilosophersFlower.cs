@@ -11,7 +11,7 @@ namespace TremorMod.Content.Items.Accessories;
 			Item.width = 22;
 			Item.height = 44;
 			Item.value = 100;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.accessory = true;
 		}
 
@@ -35,7 +35,7 @@ namespace TremorMod.Content.Items.Accessories;
 			recipe.AddIngredient(ItemID.PhilosophersStone, 1);
 			recipe.AddIngredient(ItemID.ManaFlower, 1);
 			//recipe.SetResult(this);
-			recipe.AddTile(114);
+			recipe.AddTile(TileID.TinkerersWorkbench);
 			recipe.Register();
 		}
 	}

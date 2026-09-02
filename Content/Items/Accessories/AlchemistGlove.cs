@@ -2,6 +2,7 @@
 using Terraria.ModLoader;
 using TremorMod.Utilities;
 using TremorMod.Content.Buffs;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.Accessories;
 
@@ -27,7 +28,7 @@ namespace TremorMod.Content.Items.Accessories;
 			Item.height = 38;
 
 			Item.value = 1500000;
-			Item.rare = 7;
+			Item.rare = ItemRarityID.Lime;
 			Item.accessory = true;
 		}
 

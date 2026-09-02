@@ -14,7 +14,7 @@ public class CornJavelinPro : ModProjectile
         Projectile.width = 4;
         Projectile.height = 4;
         Projectile.friendly = true;
-        Projectile.aiStyle = 1;
+        Projectile.aiStyle = ProjAIStyleID.Arrow;
         Projectile.timeLeft = 1200;
         ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
         ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
@@ -29,7 +29,7 @@ public class CornJavelinPro : ModProjectile
     {
         for (int k = 0; k < 5; k++)
         {
-            Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 1, Projectile.oldVelocity.X * 0.5f, Projectile.oldVelocity.Y * 2f, 100, default(Color), 2f);
+            Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.Stone, Projectile.oldVelocity.X * 0.5f, Projectile.oldVelocity.Y * 2f, 100, default(Color), 2f);
         }
         SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
 

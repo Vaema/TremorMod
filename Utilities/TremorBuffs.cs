@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Utilities;
@@ -7,11 +8,11 @@ namespace TremorMod.Utilities;
 	{
 		public override void Update(int type, Player player, ref int buffIndex)
 		{
-			if (player.FindBuffIndex(117) != -1)
+			if (player.FindBuffIndex(BuffID.Wrath) != -1)
 			{
 				player.GetModPlayer<MPlayer>().alchemicalDamage += 0.1f;
 			}
-			if (player.FindBuffIndex(115) != -1)
+			if (player.FindBuffIndex(BuffID.Rage) != -1)
 			{
 				player.GetModPlayer<MPlayer>().alchemicalCrit += 10;
 			}

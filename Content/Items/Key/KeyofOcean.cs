@@ -12,7 +12,7 @@ namespace TremorMod.Content.Items.Key;
 			Item.width = 26;
 			Item.maxStack = 99;
 			Item.height = 26;
-			Item.rare = 0;
+			Item.rare = ItemRarityID.White;
 		}
 
 		/*public override void SetStaticDefaults()
@@ -27,7 +27,7 @@ namespace TremorMod.Content.Items.Key;
 			recipe.AddIngredient(ItemID.GoldenKey, 1);
 			recipe.AddIngredient(ModContent.ItemType<SeaFragment>(), 12);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

@@ -26,7 +26,7 @@ namespace TremorMod.Content.Projectiles.Minions;
 			Main.projFrames[Projectile.type] = 1;
 			Projectile.height = 96;
 			Projectile.timeLeft = 5;
-			Projectile.aiStyle = 62;
+			Projectile.aiStyle = ProjAIStyleID.Hornet;
 			AIType = ProjectileID.ZephyrFish;
 			Projectile.penetrate = -1;
 			Projectile.tileCollide = false;
@@ -97,7 +97,7 @@ namespace TremorMod.Content.Projectiles.Minions;
 				}
 				for (int num91 = 0; num91 < num90; num91++)
 				{
-					int num92 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height, 60, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100, default(Color), 2f);
+					int num92 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height, DustID.RedTorch, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100, default(Color), 2f);
 					Main.dust[num92].noGravity = true;
 					Dust expr_46AC_cp_0 = Main.dust[num92];
 					expr_46AC_cp_0.velocity.X = expr_46AC_cp_0.velocity.X * 0.3f;

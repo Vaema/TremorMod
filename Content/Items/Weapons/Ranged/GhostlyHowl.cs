@@ -18,14 +18,14 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			Item.height = 56;
 			Item.DamageType = DamageClass.Ranged;
 			Item.useTime = 30;
-			Item.shoot = 1;
+			Item.shoot = ProjectileID.WoodenArrowFriendly;
 			Item.shootSpeed = 12f;
 			Item.useAnimation = 30;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 5;
 			Item.value = 25000;
 			Item.useAmmo = AmmoID.Arrow;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.UseSound = SoundID.Item5;
 			Item.autoReuse = true;
 		}
@@ -108,12 +108,12 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
     public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(3467, 10);
+			recipe.AddIngredient(ItemID.LunarBar, 10);
 			recipe.AddIngredient(ModContent.ItemType<VoidBar>(), 10);
 			recipe.AddIngredient(ModContent.ItemType<Catalyst>(), 15);
 			recipe.AddIngredient(ModContent.ItemType<PhantomSoul>(), 50);
 			recipe.AddIngredient(ModContent.ItemType<TearsofDeath>(), 8);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			//recipe.SetResult(this);
 			recipe.Register();
 		}

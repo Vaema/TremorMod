@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items.Armor.Vicious;
@@ -14,7 +15,7 @@ namespace TremorMod.Content.Items.Armor.Vicious;
 			Item.height = 22;
 
 			Item.value = 30000;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.defense = 5;
 		}
 

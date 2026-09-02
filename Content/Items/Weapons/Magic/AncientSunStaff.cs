@@ -18,12 +18,12 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.height = 88;
 			Item.useTime = 45;
 			Item.useAnimation = 45;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.shoot = ModContent.ProjectileType<AncientSunPro>();
 			Item.shootSpeed = 10f;
 			Item.knockBack = 4;
 			Item.value = 10000;
-			Item.rare = 10;
+			Item.rare = ItemRarityID.Red;
 			Item.UseSound = SoundID.Item75;
 			Item.autoReuse = true;
 			Item.useTurn = false;
@@ -41,7 +41,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 		{
 			if (Main.rand.NextBool(3))
 			{
-				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 64);
+				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.YellowTorch);
 			}
 		}
 
@@ -49,7 +49,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<AncientTablet>(), 12);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

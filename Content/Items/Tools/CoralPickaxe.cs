@@ -16,10 +16,10 @@ namespace TremorMod.Content.Items.Tools;
 			Item.useTime = 20;
 			Item.useAnimation = 20;
 			Item.pick = 43;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 5;
 			Item.value = 100;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 		}
@@ -34,7 +34,7 @@ namespace TremorMod.Content.Items.Tools;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Coral, 9);
-			recipe.AddTile(18);
+			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
 		}
 	}

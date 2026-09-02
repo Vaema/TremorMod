@@ -14,13 +14,13 @@ namespace TremorMod.Content.Items.Placeable;
 			Item.height = 32;
 			Item.maxStack = 9999;
 			Item.value = 100;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.createTile = ModContent.TileType<BorealWoodArmchairTile>();
 			Item.useTurn = true;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 		}
 
@@ -35,7 +35,7 @@ namespace TremorMod.Content.Items.Placeable;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.BorealWood, 15);
 			recipe.AddIngredient(ItemID.Silk, 6);
-			recipe.AddTile(106);
+			recipe.AddTile(TileID.Sawmill);
 			recipe.Register();
 		}
 	}

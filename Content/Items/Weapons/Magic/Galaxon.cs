@@ -21,12 +21,12 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.height = 30;
 			Item.useTime = 40;
 			Item.useAnimation = 40;
-			Item.shoot = 632; //645
-			Item.useStyle = 5;
+			Item.shoot = ProjectileID.LastPrismLaser; //645
+			Item.useStyle = ItemUseStyleID.Shoot;
 			//Item.noMelee = true;
 			Item.knockBack = 4f;
 			Item.value = Item.sellPrice(0, 10, 0, 0);
-			Item.rare = 0;
+			Item.rare = ItemRarityID.White;
 			Item.UseSound = SoundID.Item12;
 			Item.autoReuse = true;
 			Item.shootSpeed = 25f;
@@ -127,7 +127,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			recipe.AddIngredient(ModContent.ItemType<Blasticyde>(), 16);
 			recipe.AddIngredient(ModContent.ItemType<HuskofDusk>(), 16);
 			//recipe.SetResult(this);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

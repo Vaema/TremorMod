@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles;
 
@@ -12,13 +13,13 @@ namespace TremorMod.Content.Items.Materials.OreAndBar;
 			Item.height = 24;
 			Item.maxStack = 9999;
 			Item.value = 200;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.useTurn = true;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
 			Item.createTile = ModContent.TileType<SandstoneBarTile>();
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 		}
 

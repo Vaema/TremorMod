@@ -15,7 +15,7 @@ namespace TremorMod.Content.Projectiles;
 			Projectile.friendly = true;
 			Projectile.DamageType = DamageClass.Magic;
 			Projectile.penetrate = 6;
-			Projectile.aiStyle = 1;
+			Projectile.aiStyle = ProjAIStyleID.Arrow;
 			Projectile.timeLeft = 600;
 		}
 

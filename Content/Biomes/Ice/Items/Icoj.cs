@@ -45,14 +45,14 @@ namespace TremorMod.Content.Biomes.Ice.Items;
         {
             var source = Projectile.GetSource_FromThis(); 
 
-            Projectile.NewProjectile(source, Projectile.position + new Vector2(40, 40), new Vector2(-7, 0), 119, Projectile.damage, 0, Main.myPlayer);
-            Projectile.NewProjectile(source, Projectile.position + new Vector2(40, 40), new Vector2(7, 0), 119, Projectile.damage, 0, Main.myPlayer);
-            Projectile.NewProjectile(source, Projectile.position + new Vector2(40, 40), new Vector2(0, 7), 119, Projectile.damage, 0, Main.myPlayer);
-            Projectile.NewProjectile(source, Projectile.position + new Vector2(40, 40), new Vector2(0, -7), 119, Projectile.damage, 0, Main.myPlayer);
-            Projectile.NewProjectile(source, Projectile.position + new Vector2(40, 40), new Vector2(-7, -7), 119, Projectile.damage, 0, Main.myPlayer);
-            Projectile.NewProjectile(source, Projectile.position + new Vector2(40, 40), new Vector2(7, -7), 119, Projectile.damage, 0, Main.myPlayer);
-            Projectile.NewProjectile(source, Projectile.position + new Vector2(40, 40), new Vector2(-7, 7), 119, Projectile.damage, 0, Main.myPlayer);
-            Projectile.NewProjectile(source, Projectile.position + new Vector2(40, 40), new Vector2(7, 7), 119, Projectile.damage, 0, Main.myPlayer);
+            Projectile.NewProjectile(source, Projectile.position + new Vector2(40, 40), new Vector2(-7, 0), ProjectileID.FrostBoltSword, Projectile.damage, 0, Main.myPlayer);
+            Projectile.NewProjectile(source, Projectile.position + new Vector2(40, 40), new Vector2(7, 0), ProjectileID.FrostBoltSword, Projectile.damage, 0, Main.myPlayer);
+            Projectile.NewProjectile(source, Projectile.position + new Vector2(40, 40), new Vector2(0, 7), ProjectileID.FrostBoltSword, Projectile.damage, 0, Main.myPlayer);
+            Projectile.NewProjectile(source, Projectile.position + new Vector2(40, 40), new Vector2(0, -7), ProjectileID.FrostBoltSword, Projectile.damage, 0, Main.myPlayer);
+            Projectile.NewProjectile(source, Projectile.position + new Vector2(40, 40), new Vector2(-7, -7), ProjectileID.FrostBoltSword, Projectile.damage, 0, Main.myPlayer);
+            Projectile.NewProjectile(source, Projectile.position + new Vector2(40, 40), new Vector2(7, -7), ProjectileID.FrostBoltSword, Projectile.damage, 0, Main.myPlayer);
+            Projectile.NewProjectile(source, Projectile.position + new Vector2(40, 40), new Vector2(-7, 7), ProjectileID.FrostBoltSword, Projectile.damage, 0, Main.myPlayer);
+            Projectile.NewProjectile(source, Projectile.position + new Vector2(40, 40), new Vector2(7, 7), ProjectileID.FrostBoltSword, Projectile.damage, 0, Main.myPlayer);
 
             Projectile.Kill();
         }

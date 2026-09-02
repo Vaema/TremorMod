@@ -15,7 +15,7 @@ internal class InvarGreaves : ModItem
 			Item.width = 22;
 			Item.height = 18;
 			Item.value = Item.sellPrice(silver: 13);
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.defense = 2;
 		}
 

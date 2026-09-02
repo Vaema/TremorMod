@@ -18,10 +18,10 @@ public class CyberStaff : ModItem
         Item.expert = true;
         Item.useTime = 36;
         Item.useAnimation = 36;
-        Item.useStyle = 1;
+        Item.useStyle = ItemUseStyleID.Swing;
         Item.knockBack = 3;
         Item.value = Item.buyPrice(0, 3, 0, 0);
-        Item.rare = 7;
+        Item.rare = ItemRarityID.Lime;
         Item.UseSound = SoundID.Item44;
         Item.shoot = ModContent.ProjectileType<CyberStaffPro>();
         Item.shootSpeed = 2f;

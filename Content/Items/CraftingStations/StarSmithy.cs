@@ -17,7 +17,7 @@ namespace TremorMod.Content.Items.CraftingStations;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.value = 150;
 			Item.createTile = ModContent.TileType<StarvilTile>();
@@ -38,7 +38,7 @@ namespace TremorMod.Content.Items.CraftingStations;
 			recipe1.AddIngredient(ModContent.ItemType<Squorb>(), 3);
 			recipe1.AddIngredient(ItemID.FallenStar, 5);
 			//recipe.SetResult(this);
-			recipe1.AddTile(412);
+			recipe1.AddTile(TileID.LunarCraftingStation);
 			recipe1.Register();
 
 			Recipe recipe2 = CreateRecipe();
@@ -48,7 +48,7 @@ namespace TremorMod.Content.Items.CraftingStations;
         recipe2.AddIngredient(ModContent.ItemType<Squorb>(), 3);
         recipe2.AddIngredient(ItemID.FallenStar, 5);
 			//recipe.SetResult(this);
-			recipe2.AddTile(412);
+			recipe2.AddTile(TileID.LunarCraftingStation);
 			recipe2.Register();
 		}
 	}

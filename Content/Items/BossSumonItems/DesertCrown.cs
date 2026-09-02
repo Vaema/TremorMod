@@ -15,10 +15,10 @@ namespace TremorMod.Content.Items.BossSumonItems;
 			Item.height = 16;
 			Item.maxStack = 20;
 
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.useAnimation = 45;
 			Item.useTime = 45;
-			Item.useStyle = 4;
+			Item.useStyle = ItemUseStyleID.HoldUp;
 			Item.value = 50000;
 			Item.consumable = true;
 		}
@@ -52,7 +52,7 @@ namespace TremorMod.Content.Items.BossSumonItems;
 			recipe.AddIngredient(ItemID.AntlionMandible, 5);
 			recipe.AddIngredient(ModContent.ItemType<AntlionShell>(), 3);
 			recipe.AddIngredient(ItemID.SandBlock, 15);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 
 			Recipe recipe1 = CreateRecipe();
@@ -60,7 +60,7 @@ namespace TremorMod.Content.Items.BossSumonItems;
 			recipe1.AddIngredient(ItemID.AntlionMandible, 5);
 			recipe1.AddIngredient(ModContent.ItemType<AntlionShell>(), 3);
 			recipe1.AddIngredient(ItemID.SandBlock, 15);
-			recipe1.AddTile(16);
+			recipe1.AddTile(TileID.Anvils);
 			recipe1.Register();
 		}
 	}

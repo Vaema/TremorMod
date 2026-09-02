@@ -14,7 +14,7 @@ namespace TremorMod.Content.Items.Armor.Nova;
 		{
 			Item.width = 36;
 			Item.height = 54;
-			Item.rare = 10;
+			Item.rare = ItemRarityID.Red;
 			Item.accessory = true;
 		}
 
@@ -55,8 +55,8 @@ namespace TremorMod.Content.Items.Armor.Nova;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<NovaFragment>(), 14);
-			recipe.AddIngredient(3467, 10);
-			recipe.AddTile(412);
+			recipe.AddIngredient(ItemID.LunarBar, 10);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			//recipe.SetResult(this, 1);
 			recipe.Register();
 		}

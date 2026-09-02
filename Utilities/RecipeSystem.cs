@@ -96,13 +96,13 @@ public class RecipeSystem : ModSystem
         goldChestRecipe.AddTile(TileID.WorkBenches); 
         goldChestRecipe.Register();
 
-        Recipe bandManaRecipe = Recipe.Create(111);
+        Recipe bandManaRecipe = Recipe.Create(ItemID.BandofStarpower);
         bandManaRecipe.AddIngredient(ModContent.ItemType<Band>());
         bandManaRecipe.AddIngredient(ItemID.ManaCrystal, 2);
         bandManaRecipe.AddTile(TileID.Anvils);
         bandManaRecipe.Register();
 
-        Recipe bandLifeRecipe = Recipe.Create(49);
+        Recipe bandLifeRecipe = Recipe.Create(ItemID.BandofRegeneration);
         bandLifeRecipe.AddIngredient(ModContent.ItemType<Band>());
         bandLifeRecipe.AddIngredient(ItemID.LifeCrystal, 2);
         bandLifeRecipe.AddTile(TileID.Anvils);
@@ -152,7 +152,7 @@ public class RecipeSystem : ModSystem
         terraBladeRecipe.AddTile(TileID.MythrilAnvil);
         terraBladeRecipe.Register();
 
-        Recipe warriorEmblemRecipe = Recipe.Create(935);
+        Recipe warriorEmblemRecipe = Recipe.Create(ItemID.AvengerEmblem);
         warriorEmblemRecipe.AddIngredient(ItemID.WarriorEmblem);
         warriorEmblemRecipe.AddIngredient(ItemID.SoulofFright, 5);
         warriorEmblemRecipe.AddIngredient(ModContent.ItemType<SoulofMind>(), 5);
@@ -204,18 +204,18 @@ public class RecipeSystem : ModSystem
         frozenKeyRecipe.AddTile(ModContent.TileType<MagicWorkbenchTile>());
         frozenKeyRecipe.Register();
 
-        Recipe boneRecipe = Recipe.Create(1320);
+        Recipe boneRecipe = Recipe.Create(ItemID.BonePickaxe);
         boneRecipe.AddIngredient(ItemID.Bone, 80);
         boneRecipe.AddTile(TileID.BoneWelder);
         boneRecipe.Register();
 
-        Recipe tikiTorchRecipe = Recipe.Create(3069);
+        Recipe tikiTorchRecipe = Recipe.Create(ItemID.WandofSparking);
         tikiTorchRecipe.AddIngredient(ItemID.Wood, 10);
         tikiTorchRecipe.AddIngredient(ItemID.Torch, 5);
         tikiTorchRecipe.AddTile(TileID.Anvils);
         tikiTorchRecipe.Register();
 
-        Recipe iceRodRecipe = Recipe.Create(602);
+        Recipe iceRodRecipe = Recipe.Create(ItemID.SnowGlobe);
         iceRodRecipe.AddIngredient(ItemID.CobaltBar, 12);
         iceRodRecipe.AddIngredient(ItemID.SnowBlock, 25);
         iceRodRecipe.AddIngredient(ItemID.IceBlock, 25);
@@ -225,15 +225,15 @@ public class RecipeSystem : ModSystem
         iceRodRecipe.AddTile(TileID.Anvils);
         iceRodRecipe.Register();
 
-        Recipe woodenChairRecipe = Recipe.Create(2196);
+        Recipe woodenChairRecipe = Recipe.Create(ItemID.LivingLoom);
         woodenChairRecipe.AddIngredient(ItemID.Wood, 30);
         woodenChairRecipe.AddTile(TileID.Sawmill);
         woodenChairRecipe.Register();
 
 
-        Recipe newRecipe5 = Recipe.Create(2766); 
-        newRecipe5.AddIngredient(1261, 75);
-        newRecipe5.AddTile(134);
+        Recipe newRecipe5 = Recipe.Create(ItemID.LunarTabletFragment); 
+        newRecipe5.AddIngredient(ItemID.StyngerBolt, 75);
+        newRecipe5.AddTile(TileID.MythrilAnvil);
         newRecipe5.Register();
     }
 }

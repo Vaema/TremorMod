@@ -12,7 +12,7 @@ public class CrystalDaggerPro : ModProjectile
         Projectile.width = 6;
         Projectile.height = 6;
         Projectile.friendly = true;
-        Projectile.aiStyle = 1;
+        Projectile.aiStyle = ProjAIStyleID.Arrow;
         Projectile.timeLeft = 1200;
         ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
         ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
@@ -27,7 +27,7 @@ public class CrystalDaggerPro : ModProjectile
     {
         for (int k = 0; k < 5; k++)
         {
-            Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 73, Projectile.oldVelocity.X * 0.7f, Projectile.oldVelocity.Y * 0.7f);
+            Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.PinkFairy, Projectile.oldVelocity.X * 0.7f, Projectile.oldVelocity.Y * 0.7f);
         }
         SoundEngine.PlaySound(SoundID.Item20, Projectile.position);
     }

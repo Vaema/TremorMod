@@ -18,7 +18,7 @@ public class BoneRepeater : ModItem
         Item.DamageType = DamageClass.Ranged;
         Item.useTime = 30;
         Item.useAnimation = 30;
-        Item.useStyle = 5;
+        Item.useStyle = ItemUseStyleID.Shoot;
         Item.knockBack = 1.8f;
         Item.value = 2500;
         Item.rare = ItemRarityID.Orange;
@@ -26,7 +26,7 @@ public class BoneRepeater : ModItem
         Item.autoReuse = true;
         Item.shootSpeed = 12f;
 
-        Item.shoot = 1; 
+        Item.shoot = ProjectileID.WoodenArrowFriendly; 
         Item.useAmmo = ItemID.Bone; 
     }
 

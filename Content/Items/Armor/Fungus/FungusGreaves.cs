@@ -14,7 +14,7 @@ namespace TremorMod.Content.Items.Armor.Fungus;
 			Item.width = 18;
 			Item.height = 18;
 			Item.value = 40000;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.defense = 7;
 		}
 
@@ -35,7 +35,7 @@ namespace TremorMod.Content.Items.Armor.Fungus;
         recipe1.AddIngredient(ItemID.GlowingMushroom, 12);
         recipe1.AddIngredient(ItemID.GoldGreaves, 1);
         //recipe1.SetResult(this);
-        recipe1.AddTile(16);
+        recipe1.AddTile(TileID.Anvils);
         recipe1.Register();
 
         Recipe recipe2 = CreateRecipe();
@@ -43,7 +43,7 @@ namespace TremorMod.Content.Items.Armor.Fungus;
         recipe2.AddIngredient(ItemID.GlowingMushroom, 12);
         recipe2.AddIngredient(ItemID.PlatinumGreaves, 1);
         //recipe2.SetResult(this);
-        recipe2.AddTile(16);
+        recipe2.AddTile(TileID.Anvils);
         recipe2.Register();
     }
 }

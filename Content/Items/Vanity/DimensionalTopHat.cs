@@ -12,7 +12,7 @@ namespace TremorMod.Content.Items.Vanity;
 			Item.width = 22;
 			Item.height = 18;
 			Item.value = 456600;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.defense = 12;
 		}
 

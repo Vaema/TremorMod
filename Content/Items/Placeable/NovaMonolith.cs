@@ -2,6 +2,7 @@
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles;
 using TremorMod.Content.NPCs.Bosses.NovaPillar.Items;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.Placeable;
 
@@ -16,9 +17,9 @@ namespace TremorMod.Content.Items.Placeable;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
-			Item.rare = 10;
+			Item.rare = ItemRarityID.Red;
 			Item.value = Item.buyPrice(0, 10, 0, 0);
 			Item.createTile = ModContent.TileType<NovaMonolithTile>();
 		}
@@ -33,7 +34,7 @@ namespace TremorMod.Content.Items.Placeable;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<NovaFragment>(), 15);
 			//recipe.SetResult(this);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

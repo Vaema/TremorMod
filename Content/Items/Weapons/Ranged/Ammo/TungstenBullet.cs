@@ -17,10 +17,10 @@ namespace TremorMod.Content.Items.Weapons.Ranged.Ammo;
 			Item.consumable = true;
 			Item.knockBack = 3;
 			Item.value = 3;
-			Item.rare = 1;
-			Item.shoot = 14;
+			Item.rare = ItemRarityID.Blue;
+			Item.shoot = ProjectileID.Bullet;
 			Item.shootSpeed = 4f;
-			Item.shoot = 14;
+			Item.shoot = ProjectileID.Bullet;
 			Item.ammo = AmmoID.Bullet;
 		}
 

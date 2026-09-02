@@ -16,8 +16,8 @@ namespace TremorMod.Content.Items.Placeable;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 15;
-			Item.useStyle = 1;
-			Item.rare = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
+			Item.rare = ItemRarityID.Blue;
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.createTile = ModContent.TileType<SandstoneChandelierTile>();
@@ -32,11 +32,11 @@ namespace TremorMod.Content.Items.Placeable;
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(607, 4);
+			recipe.AddIngredient(ItemID.SandstoneBrick, 4);
 			recipe.AddIngredient(ItemID.Torch, 4);
 			recipe.AddIngredient(ItemID.Chain, 1);
 			//recipe.SetResult(this);
-			recipe.AddTile(17);
+			recipe.AddTile(TileID.Furnaces);
 			recipe.Register();
 		}
 	}

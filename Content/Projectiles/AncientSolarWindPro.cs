@@ -60,7 +60,7 @@ public class AncientSolarWindPro : ModProjectile
     {
         if (Main.rand.NextBool(2))
         {
-            target.AddBuff(24, 180, false);
+            target.AddBuff(BuffID.OnFire, 180, false);
         }
     }
 }

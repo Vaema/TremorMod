@@ -144,7 +144,7 @@ public class Mothership : ModNPC
         {
             float angle = (float)Math.Atan2(player.Center.Y - bossCenter.Y, player.Center.X - bossCenter.X);
             Vector2 vel = new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle)) * 5;
-            Projectile.NewProjectile(NPC.GetSource_FromThis(), bossCenter.X, bossCenter.Y, vel.X, vel.Y, 465, 25, 5f);
+            Projectile.NewProjectile(NPC.GetSource_FromThis(), bossCenter.X, bossCenter.Y, vel.X, vel.Y, ProjectileID.CultistBossLightningOrb, 25, 5f);
             timeToShoot = 8;
         }
     }

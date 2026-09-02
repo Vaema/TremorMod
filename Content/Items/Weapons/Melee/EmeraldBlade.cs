@@ -15,10 +15,10 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.height = 48;
 			Item.useTime = 25;
 			Item.useAnimation = 25;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 3;
 			Item.value = 6400;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.UseSound = SoundID.Item15;
 			Item.autoReuse = true;
 			Item.useTurn = true;
@@ -32,7 +32,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 
 		public override void MeleeEffects(Player player, Rectangle hitbox)
 		{
-			int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 61);
+			int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.GreenTorch);
 		}
 
 		public override void AddRecipes()
@@ -40,7 +40,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Emerald, 12);
 			//recipe.SetResult(this);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

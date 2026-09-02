@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 
@@ -8,7 +9,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 	{
 		public override void SetDefaults()
 		{
-			Item.CloneDefaults(3279);
+			Item.CloneDefaults(ItemID.CorruptYoyo);
 
 			Item.damage = 23;
 			Item.width = 30;
@@ -16,7 +17,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.shoot = ModContent.ProjectileType<TheSpikePro>();
 			Item.knockBack = 4;
 			Item.value = 30000;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 		}
 
 		public override void SetStaticDefaults()

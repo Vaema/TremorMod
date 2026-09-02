@@ -1,6 +1,7 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.Armor.Golden;
 
@@ -14,7 +15,7 @@ namespace TremorMod.Content.Items.Armor.Golden;
 			Item.width = 26;
 			Item.height = 22;
 			Item.value = 30000;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.defense = 3;
 		}
 

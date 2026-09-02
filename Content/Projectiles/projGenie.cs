@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Projectiles;
@@ -13,7 +14,7 @@ namespace TremorMod.Content.Projectiles;
 
 			Projectile.width = 38;
 			Projectile.height = 60;
-			Projectile.aiStyle = 26;
+			Projectile.aiStyle = ProjAIStyleID.Pet;
 			Projectile.penetrate = -1;
 			Projectile.timeLeft = 10;
 			Projectile.ignoreWater = true;

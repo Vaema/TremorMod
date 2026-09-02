@@ -17,7 +17,7 @@ namespace TremorMod.Content.Projectiles;
 			Projectile.DamageType = DamageClass.Magic;
 			Projectile.penetrate = 5;
 			Projectile.timeLeft = 99999;
-			Projectile.aiStyle = 1;
+			Projectile.aiStyle = ProjAIStyleID.Arrow;
 			Projectile.tileCollide = true;
 			Projectile.ignoreWater = true;
 		}

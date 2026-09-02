@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 
@@ -13,7 +14,7 @@ namespace TremorMod.Content.Items.Armor.Argite;
 			Item.width = 22;
 			Item.height = 18;
 			Item.value = 15000;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.defense = 6;
 		}
 
@@ -33,7 +34,7 @@ namespace TremorMod.Content.Items.Armor.Argite;
         Recipe recipe = CreateRecipe();
         recipe.AddIngredient(ModContent.ItemType<ArgiteBar>(), 18);
         //recipe.SetResult(this);
-        recipe.AddTile(16);
+        recipe.AddTile(TileID.Anvils);
         recipe.Register();
     }
 }

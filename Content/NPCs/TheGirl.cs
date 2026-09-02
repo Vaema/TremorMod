@@ -24,11 +24,11 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.3f;
 			NPC.width = 34;
 			NPC.height = 54;
-			AnimationType = 529;
-			NPC.aiStyle = 3;
+			AnimationType = NPCID.DesertLamiaDark;
+			NPC.aiStyle = NPCAIStyleID.Fighter;
 			NPC.npcSlots = 0.5f;
 			NPC.HitSound = SoundID.NPCHit1;
-			AIType = 529;
+			AIType = NPCID.DesertLamiaDark;
 			NPC.DeathSound = SoundID.NPCDeath52;
 			NPC.value = Item.buyPrice(0, 3, 1, 0);
         Banner = NPC.type;
@@ -49,13 +49,13 @@ namespace TremorMod.Content.NPCs;
 			{
 				for (int k = 0; k < 60; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 54, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 54, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 54, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Wraith, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Wraith, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Wraith, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				}
 
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 54, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Wraith, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 			}
 		}
 

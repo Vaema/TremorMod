@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using TremorMod.Content.Items.Armor.Leather;
 using TremorMod.Content.Items.Materials;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.Armor.Steel;
 
@@ -18,7 +19,7 @@ namespace TremorMod.Content.Items.Armor.Steel;
 			Item.height = 26;
 
 			Item.value = 400;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.defense = 4;
 		}
 
@@ -57,7 +58,7 @@ namespace TremorMod.Content.Items.Armor.Steel;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<SteelBar>(), 12);
 			recipe.AddIngredient(ModContent.ItemType<LeatherHat>(), 1);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

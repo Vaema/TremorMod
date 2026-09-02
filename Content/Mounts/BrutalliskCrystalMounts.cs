@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Buffs;
 
@@ -54,7 +55,7 @@ public class BrutalliskCrystalMounts : ModMount
         MountData.swimFrameDelay = MountData.inAirFrameDelay;
         MountData.swimFrameStart = MountData.inAirFrameStart;
 
-        if (Main.netMode != 2)
+        if (Main.netMode != NetmodeID.Server)
         {
             MountData.textureWidth = MountData.backTexture.Value.Width + 20;
             MountData.textureHeight = MountData.backTexture.Value.Height;

@@ -16,7 +16,7 @@ namespace TremorMod.Content.Items.Armor.Crystal;
 			Item.width = 26;
 			Item.height = 22;
 			Item.value = 2500;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 		}
 
 		public override void SetStaticDefaults()
@@ -54,7 +54,7 @@ namespace TremorMod.Content.Items.Armor.Crystal;
 			recipe.AddIngredient(ItemID.CrystalShard, 30);
 			recipe.AddIngredient(ItemID.SoulofLight, 6);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

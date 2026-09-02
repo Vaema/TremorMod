@@ -2,6 +2,7 @@
 using Terraria.ModLoader;
 using Terraria.Localization;
 using TremorMod.Content.Items.Materials;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.Armor.Bronze;
 
@@ -17,7 +18,7 @@ namespace TremorMod.Content.Items.Armor.Bronze;
 			Item.height = 26;
 
 			Item.value = 400;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.defense = 4;
 		}
 
@@ -56,7 +57,7 @@ namespace TremorMod.Content.Items.Armor.Bronze;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<BronzeBar>(), 13);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

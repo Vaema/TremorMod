@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using TremorMod.Content.Projectiles;
 using TremorMod.Utilities;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.Weapons.Alchemical;
 
@@ -27,7 +28,7 @@ namespace TremorMod.Content.Items.Weapons.Alchemical;
 			Item.height = 30;
 			Item.crit = 4;
 			Item.value = Item.sellPrice(gold: 5);
-			Item.rare = 9;
+			Item.rare = ItemRarityID.Cyan;
 			Item.expert = true;
 			Item.accessory = true;
 		}

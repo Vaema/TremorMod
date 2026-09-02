@@ -13,13 +13,13 @@ namespace TremorMod.Content.Items.Materials.OreAndBar;
 			Item.height = 24;
 			Item.maxStack = 9999;
 			Item.value = 10000;
-			Item.rare = 8;
+			Item.rare = ItemRarityID.Yellow;
 			Item.createTile = ModContent.TileType<EvershinyBarTile>();
 			Item.useTurn = true;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 		}
 
@@ -35,7 +35,7 @@ namespace TremorMod.Content.Items.Materials.OreAndBar;
 			recipe.AddIngredient(ItemID.HallowedBar, 1);
 			recipe.AddIngredient(ItemID.Ectoplasm, 2);
 			//recipe.SetResult(this);
-			recipe.AddTile(133);
+			recipe.AddTile(TileID.AdamantiteForge);
 			recipe.Register();
 		}
 	}

@@ -17,7 +17,7 @@ namespace TremorMod.Content.Items.BossSumonItems;
 			Item.autoReuse = false;
 			Item.useAnimation = 18;
 			Item.useTime = 18;
-			Item.useStyle = 4;
+			Item.useStyle = ItemUseStyleID.HoldUp;
 			Item.consumable = true;
 			Item.value = 150;
 		}

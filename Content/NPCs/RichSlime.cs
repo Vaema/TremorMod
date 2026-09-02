@@ -24,9 +24,9 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.3f;
 			NPC.width = 32;
 			NPC.height = 46;
-			AnimationType = 1;
-			NPC.aiStyle = 1;
-			AIType = 1;
+			AnimationType = NPCID.BlueSlime;
+			NPC.aiStyle = NPCAIStyleID.Slime;
+			AIType = NPCID.BlueSlime;
 			NPC.npcSlots = 0.5f;
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath23;
@@ -47,14 +47,14 @@ namespace TremorMod.Content.NPCs;
 			{
 				for (int k = 0; k < 20; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 4, 2.5f * hitDirection, -2.5f, 0, Color.Yellow, 0.7f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 4, 2.5f * hitDirection, -2.5f, 0, Color.Yellow, 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.TintableDust, 2.5f * hitDirection, -2.5f, 0, Color.Yellow, 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.TintableDust, 2.5f * hitDirection, -2.5f, 0, Color.Yellow, 0.7f);
 				}
 
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 4, 2.5f * hitDirection, -2.5f, 0, Color.Yellow, 0.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 4, 2.5f * hitDirection, -2.5f, 0, Color.Yellow, 0.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 4, 2.5f * hitDirection, -2.5f, 0, Color.Yellow, 0.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 1, 2.5f * hitDirection, -2.5f, 0, Color.Yellow, 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.TintableDust, 2.5f * hitDirection, -2.5f, 0, Color.Yellow, 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.TintableDust, 2.5f * hitDirection, -2.5f, 0, Color.Yellow, 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.TintableDust, 2.5f * hitDirection, -2.5f, 0, Color.Yellow, 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Stone, 2.5f * hitDirection, -2.5f, 0, Color.Yellow, 0.7f);
 			}
 		}
 

@@ -18,12 +18,12 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.useTime = 20;
 			Item.useAnimation = 20;
 			Item.mana = 9;
-			Item.useStyle = 5;
-			Item.shoot = 376;
+			Item.useStyle = ItemUseStyleID.Shoot;
+			Item.shoot = ProjectileID.ImpFireball;
 			Item.shootSpeed = 26f;
 			Item.knockBack = 4;
 			Item.value = 12000;
-			Item.rare = 0;
+			Item.rare = ItemRarityID.White;
 			Item.UseSound = SoundID.Item100;
 			Item.autoReuse = true;
 		}

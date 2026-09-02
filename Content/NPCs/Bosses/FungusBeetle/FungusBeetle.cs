@@ -24,11 +24,11 @@ namespace TremorMod.Content.NPCs.Bosses.FungusBeetle;
 			NPC.lifeMax = 4200;
 			NPC.width = 214;
 			NPC.height = 114;
-			AnimationType = 82;
+			AnimationType = NPCID.Wraith;
 			NPC.damage = 30;
 			NPC.defense = 25;
 			NPC.knockBackResist = 0f;
-			NPC.aiStyle = 14;
+			NPC.aiStyle = NPCAIStyleID.Bat;
 			NPC.npcSlots = 0.5f;
 			NPC.HitSound = SoundID.NPCHit35;
 			NPC.noGravity = true;
@@ -60,13 +60,13 @@ namespace TremorMod.Content.NPCs.Bosses.FungusBeetle;
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FungusBeetleGore4").Type, 1f);
 				for (int k = 0; k < 10; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 67, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.IceRod, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				}
 			}
 
 			for (int k = 0; k < hit.Damage / NPC.lifeMax * 50.0; k++)
 			{
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 67, hitDirection, -1f, 0, default(Color), 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.IceRod, hitDirection, -1f, 0, default(Color), 0.7f);
 			}
 		}
 
@@ -171,12 +171,12 @@ namespace TremorMod.Content.NPCs.Bosses.FungusBeetle;
 
 			if (Main.rand.Next(120) == 0 && !Main.expertMode)
 			{
-				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X - 70, (int)NPC.Center.Y, 261);
+				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X - 70, (int)NPC.Center.Y, NPCID.FungiSpore);
 			}
 
 			if (Main.rand.Next(110) == 0 && Main.expertMode)
 			{
-				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X - 70, (int)NPC.Center.Y, 261);
+				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X - 70, (int)NPC.Center.Y, NPCID.FungiSpore);
 			}
 
 			if (Main.rand.Next(200) == 0)
@@ -201,7 +201,7 @@ namespace TremorMod.Content.NPCs.Bosses.FungusBeetle;
 
 			if (Main.rand.NextBool(2))
 			{
-				int num706 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 67, 0f, 0f, 200, NPC.color, 0.5f);
+				int num706 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.IceRod, 0f, 0f, 200, NPC.color, 0.5f);
 				Main.dust[num706].velocity *= 0.6f;
 			}
 			if (FirstState)

@@ -12,7 +12,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 		{
 			Item.mana = 9;
 			Item.UseSound = SoundID.Item105;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.damage = 40;
 			Item.useTime = 25;
 			Item.useAnimation = 25;
@@ -25,7 +25,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.DamageType = DamageClass.Magic;
 			Item.autoReuse = true;
 			Item.value = Item.sellPrice(0, 4, 0, 0);
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			//Item.noMelee = true;
 		}
 
@@ -41,9 +41,9 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			recipe.AddIngredient(ItemID.SoulofLight, 15);
 			recipe.AddIngredient(ItemID.SoulofNight, 15);
 			recipe.AddIngredient(ModContent.ItemType<FireFragment>(), 9);
-			recipe.AddIngredient(2701, 25);
+			recipe.AddIngredient(ItemID.LivingFireBlock, 25);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

@@ -23,8 +23,8 @@ namespace TremorMod.Content.NPCs.Bosses.TheDarkEmperor;
 			NPC.knockBackResist = 0.3f;
 			NPC.width = 30;
 			NPC.height = 23;
-			AnimationType = 244;
-			NPC.aiStyle = 41;
+			AnimationType = NPCID.RainbowSlime;
+			NPC.aiStyle = NPCAIStyleID.Herpling;
 			NPC.npcSlots = 0.5f;
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath1;
@@ -38,10 +38,10 @@ namespace TremorMod.Content.NPCs.Bosses.TheDarkEmperor;
         if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 191, 2.5f * hitDirection, -2.5f, 0, Color.Green, 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SpookyWood, 2.5f * hitDirection, -2.5f, 0, Color.Green, 0.7f);
 
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 191, 2.5f * hitDirection, -2.5f, 0, Color.Green, 0.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 191, 2.5f * hitDirection, -2.5f, 0, Color.Green, 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SpookyWood, 2.5f * hitDirection, -2.5f, 0, Color.Green, 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SpookyWood, 2.5f * hitDirection, -2.5f, 0, Color.Green, 0.7f);
 			}
 		}
 

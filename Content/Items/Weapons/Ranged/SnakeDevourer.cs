@@ -15,15 +15,15 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			Item.height = 26;
 			Item.useTime = 9;
 			Item.useAnimation = 9;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true;
 			Item.knockBack = 3;
 			Item.useAmmo = AmmoID.Bullet;
 			Item.value = 1000000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.UseSound = SoundID.Item11;
 			Item.autoReuse = true;
-			Item.shoot = 440;
+			Item.shoot = ProjectileID.LaserMachinegunLaser;
 			Item.shootSpeed = 6f;
 		}
 

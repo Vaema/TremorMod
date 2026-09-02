@@ -12,7 +12,7 @@ namespace TremorMod.Content.Items.Accessories;
 			Item.width = 30;
 			Item.height = 24;
 			Item.value = 30000;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.accessory = true;
 		}
 
@@ -33,11 +33,11 @@ namespace TremorMod.Content.Items.Accessories;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<StrongBelt>());
-			recipe.AddIngredient(1158, 1);
+			recipe.AddIngredient(ItemID.PygmyNecklace, 1);
 			recipe.AddIngredient(ModContent.ItemType<UntreatedFlesh>(), 25);
 			recipe.AddIngredient(ItemID.Bone, 25);
 			//recipe.SetResult(this);
-			recipe.AddTile(114);
+			recipe.AddTile(TileID.TinkerersWorkbench);
 			recipe.Register();
 		}
 	}

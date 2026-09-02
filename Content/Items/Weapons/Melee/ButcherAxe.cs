@@ -16,10 +16,10 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.useTime = 15;
 			Item.useAnimation = 27;
 			Item.axe = 9;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;
 			Item.value = 6000;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 		}

@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles;
 
@@ -15,8 +16,8 @@ namespace TremorMod.Content.Items.Weapons.Summon;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 15;
-			Item.useStyle = 1;
-			Item.rare = 3;
+			Item.useStyle = ItemUseStyleID.Swing;
+			Item.rare = ItemRarityID.Orange;
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.createTile = ModContent.TileType<EyeMonolithTile>();

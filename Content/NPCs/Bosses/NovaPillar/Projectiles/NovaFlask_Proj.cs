@@ -26,7 +26,7 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles;
 			Projectile.width = 18;
 			Projectile.height = 28;
 			Projectile.friendly = true;
-			Projectile.aiStyle = 2;
+			Projectile.aiStyle = ProjAIStyleID.ThrownProjectile;
 			Projectile.timeLeft = 1200;
 			//Projectile.penetrate = Main.LocalPlayer.HasBuff(ModContent.BuffType<BouncingCasingBuff>()) ? 3 : 1;
 		}
@@ -178,7 +178,7 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles;
                 Vector2 target = RandomPointInArea(new Vector2(Projectile.Center.X - 10, Projectile.Center.Y - 10), new Vector2(Projectile.Center.X + 20, Projectile.Center.Y + 20));
                 Vector2 velocity = Helper.VelocityToPoint(vector2, target, 24);
 
-                int a = Projectile.NewProjectile(Projectile.GetSource_FromThis(), vector2, velocity, 134, Projectile.damage, 1f);
+                int a = Projectile.NewProjectile(Projectile.GetSource_FromThis(), vector2, velocity, ProjectileID.RocketI, Projectile.damage, 1f);
                 Main.projectile[a].friendly = true;
             }
         }

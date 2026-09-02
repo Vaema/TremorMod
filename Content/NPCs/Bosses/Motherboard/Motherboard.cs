@@ -288,7 +288,7 @@ namespace TremorMod.Content.NPCs.Bosses.Motherboard;
 			}
 
 			boss.NPC.dontTakeDamage = false;
-			boss.NPC.aiStyle = 2;
+			boss.NPC.aiStyle = NPCAIStyleID.DemonEye;
 
 			SoundEngine.PlaySound(SoundID.ScaryScream.WithPitchOffset(Main.rand.NextFloat()), boss.NPC.position); // high tonal boss screech
 			//SoundEngine.PlaySound(SoundID.DD2_LightningBugDeath.AsSound().WithPitchVariance(Main.rand.NextFloat()).WithVolume(Main.soundVolume * 1.5f), boss.NPC.position);
@@ -353,7 +353,7 @@ namespace TremorMod.Content.NPCs.Bosses.Motherboard;
 			if (boss.NPC.ai[1] == 0f)
 			{
 				// runs only SP/server side
-				if (Main.netMode != 1)
+				if (Main.netMode != NetmodeID.MultiplayerClient)
 				{
 					// increment the something timer
 					boss.NPC.localAI[1] += 1f;
@@ -477,7 +477,7 @@ namespace TremorMod.Content.NPCs.Bosses.Motherboard;
 			NPC.defense = 30;
 			NPC.width = 170;
 			NPC.height = 160;
-			NPC.aiStyle = 2;
+			NPC.aiStyle = NPCAIStyleID.DemonEye;
 			NPC.npcSlots = 50f;
 			Music = MusicID.Boss3;
 
@@ -509,7 +509,7 @@ namespace TremorMod.Content.NPCs.Bosses.Motherboard;
 			{
 				for (int k = 0; k < 20; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SeaSnail, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				}
 
 				const int goreAmount = 4;
@@ -622,13 +622,13 @@ namespace TremorMod.Content.NPCs.Bosses.Motherboard;
 			// fly away/enrage/whatever if needed (skeletron aiStyle)
 			if (Helper.GetNearestPlayer(NPC.position, true) == -1 || Main.dayTime)
 			{
-				NPC.aiStyle = 11;
+				NPC.aiStyle = NPCAIStyleID.SkeletronHead;
 				NPC.damage = 1000;
 				NPC.ai[0] = 2;
 			}
 
 			// if flying away
-			if (NPC.aiStyle == 11)
+			if (NPC.aiStyle == NPCAIStyleID.SkeletronHead)
 			{
 				NPC.rotation = 0;
 				return;

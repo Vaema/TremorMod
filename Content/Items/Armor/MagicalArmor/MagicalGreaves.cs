@@ -15,7 +15,7 @@ namespace TremorMod.Content.Items.Armor.MagicalArmor;
 			Item.height = 18;
 			Item.value = 250;
 
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.defense = 2;
 		}
 
@@ -35,13 +35,13 @@ namespace TremorMod.Content.Items.Armor.MagicalArmor;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Silk, 8);
 			recipe.AddIngredient(ItemID.LeadBar, 3);
-			recipe.AddTile(18);
+			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
 
 			Recipe recipe1 = CreateRecipe();
 			recipe1.AddIngredient(ItemID.Silk, 8);
 			recipe1.AddIngredient(ItemID.IronBar, 3);
-			recipe1.AddTile(18);
+			recipe1.AddTile(TileID.WorkBenches);
 			recipe1.Register();
 
 		}

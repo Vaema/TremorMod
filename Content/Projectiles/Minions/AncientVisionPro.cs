@@ -21,7 +21,7 @@ namespace TremorMod.Content.Projectiles.Minions;
 		{
 			Projectile.netImportant = true;
 			Projectile.CloneDefaults(317);
-                     Projectile.aiStyle = 62;
+                     Projectile.aiStyle = ProjAIStyleID.Hornet;
 
 			Projectile.width = 44;
 			Projectile.height = 38;

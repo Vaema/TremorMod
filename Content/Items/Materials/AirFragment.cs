@@ -14,7 +14,7 @@ namespace TremorMod.Content.Items.Materials;
 			Item.height = 24;
 			Item.maxStack = 9999;
 			Item.value = 100;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
         ItemID.Sets.ItemNoGravity[Item.type] = true;
         ItemID.Sets.AnimatesAsSoul[Item.type] = true;
         ItemID.Sets.ItemIconPulse[Item.type] = true;

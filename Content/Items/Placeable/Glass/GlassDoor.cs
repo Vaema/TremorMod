@@ -16,7 +16,7 @@ namespace TremorMod.Content.Items.Placeable.Glass;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.value = 150;
 			Item.createTile = ModContent.TileType<GlassDoorClosed>();
@@ -33,7 +33,7 @@ namespace TremorMod.Content.Items.Placeable.Glass;
 			recipe.AddIngredient(ItemID.Wood, 4);
 			recipe.AddIngredient(ItemID.Glass, 3);
 			//recipe.SetResult(this);
-			recipe.AddTile(106);
+			recipe.AddTile(TileID.Sawmill);
 			recipe.Register();
 		}
 	}

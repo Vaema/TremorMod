@@ -13,7 +13,7 @@ public class NovaFragment : ModItem
         Item.width = 48;
         Item.height = 48;
         Item.value = 2000;
-        Item.rare = 9;
+        Item.rare = ItemRarityID.Cyan;
         Item.maxStack = 999;
         ItemID.Sets.ItemIconPulse[Item.type] = true;
         ItemID.Sets.ItemNoGravity[Item.type] = true;
@@ -39,12 +39,12 @@ public class NovaFragment : ModItem
     public override void AddRecipes()
     {
         Recipe recipe = CreateRecipe();
-        recipe.AddIngredient(3456, 1);
-        recipe.AddIngredient(3457, 1);
-        recipe.AddIngredient(3458, 1);
-        recipe.AddIngredient(3459, 1);
+        recipe.AddIngredient(ItemID.FragmentVortex, 1);
+        recipe.AddIngredient(ItemID.FragmentNebula, 1);
+        recipe.AddIngredient(ItemID.FragmentSolar, 1);
+        recipe.AddIngredient(ItemID.FragmentStardust, 1);
         // recipe.SetResult(this);
-        recipe.AddTile(412);
+        recipe.AddTile(TileID.LunarCraftingStation);
         recipe.Register();
     }
 

@@ -13,7 +13,7 @@ namespace TremorMod.Content.Biomes.Ice.Items;
 			Main.tileMergeDirt[Type] = true;
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = true;
-			DustType = 80;
+			DustType = DustID.Ice;
 			AddMapEntry(new Color(0, 191, 255), CreateMapEntryName());
 			Main.tileMerge[Type][ModContent.TileType<IceBlock>()] = true;
 			Main.tileMerge[Type][TileID.IceBlock] = true; // normal ice

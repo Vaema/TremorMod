@@ -39,8 +39,8 @@ public class Banshee : ModNPC
         NPC.DeathSound = SoundID.NPCDeath6;
         NPC.value = Item.buyPrice(0, 0, 5, 7);
         NPC.knockBackResist = 0.3f;
-        NPC.aiStyle = 3;
-        AnimationType = 529;
+        NPC.aiStyle = NPCAIStyleID.Fighter;
+        AnimationType = NPCID.DesertLamiaDark;
         NPC.buffImmune[20] = true;
         NPC.buffImmune[31] = false;
         NPC.buffImmune[24] = true;
@@ -134,13 +134,13 @@ public class Banshee : ModNPC
 
             for (int k = 0; k < 20; k++)
             {
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, 59, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, 59, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.BlueTorch, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.BlueTorch, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
             }
 
-            Dust.NewDust(NPC.position, NPC.width, NPC.height, 59, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
-            Dust.NewDust(NPC.position, NPC.width, NPC.height, 59, 2.5f * hitDirection, -2.5f, 0, default(Color), 2.7f);
-            Dust.NewDust(NPC.position, NPC.width, NPC.height, 59, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+            Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.BlueTorch, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
+            Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.BlueTorch, 2.5f * hitDirection, -2.5f, 0, default(Color), 2.7f);
+            Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.BlueTorch, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
         }
     }
 

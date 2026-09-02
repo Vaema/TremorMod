@@ -23,7 +23,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.useStyle = 100;
 			Item.knockBack = 8f;
 			Item.value = Item.sellPrice(0, 10, 0, 0);
-			Item.rare = 8;
+			Item.rare = ItemRarityID.Yellow;
 			Item.autoReuse = true;
 			Item.shoot = ModContent.ProjectileType<TrueDeathSickleProj>();
 			Item.shootSpeed = 0f;
@@ -44,9 +44,9 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(1327);
-			recipe.AddIngredient(1570);
-			recipe.AddIngredient(548, 10);
+			recipe.AddIngredient(ItemID.DeathSickle);
+			recipe.AddIngredient(ItemID.BrokenHeroSword);
+			recipe.AddIngredient(ItemID.SoulofMight, 10);
 			recipe.AddTile(TileID.MythrilAnvil);
 			//recipe.SetResult(this, 1);
 			recipe.Register();

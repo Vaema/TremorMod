@@ -26,7 +26,7 @@ namespace TremorMod.Content.Items.Accessories;
 			Item.width = 22;
 			Item.height = 44;
 			Item.value = 80000;
-			Item.rare = 7;
+			Item.rare = ItemRarityID.Lime;
 			Item.accessory = true;
 			Item.defense = 4;
 		}
@@ -54,7 +54,7 @@ namespace TremorMod.Content.Items.Accessories;
 			recipe.AddIngredient(ItemID.Sapphire, 8);
 			recipe.AddIngredient(ModContent.ItemType<BottledSpirit>(), 1);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

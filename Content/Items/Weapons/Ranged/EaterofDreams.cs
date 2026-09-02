@@ -16,12 +16,12 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			Item.height = 36;
 			Item.useTime = 10;
 			Item.useAnimation = 30;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true;
 			Item.knockBack = 2f;
 			Item.UseSound = SoundID.Item34;
 			Item.value = 1253000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.autoReuse = true;
 			Item.shoot = ModContent.ProjectileType<EaterofDreamsPro>();
 			Item.shootSpeed = 7.5f;
@@ -43,7 +43,7 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			recipe.AddIngredient(ModContent.ItemType<PurpleQuartz>(), 15);
 			recipe.AddIngredient(ModContent.ItemType<TearsofDeath>(), 8);
 			//recipe.SetResult(this);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

@@ -27,9 +27,9 @@ namespace TremorMod.Content.NPCs.ZombieEvent;
 			NPC.DeathSound = SoundID.NPCDeath6;
 			NPC.value = Item.buyPrice(0, 0, 28, 7);
 			NPC.knockBackResist = 0.3f;
-			NPC.aiStyle = 3;
-			AIType = 343;
-			AnimationType = 343;
+			NPC.aiStyle = NPCAIStyleID.Fighter;
+			AIType = NPCID.Yeti;
+			AnimationType = NPCID.Yeti;
 			NPC.buffImmune[20] = true;
 			NPC.buffImmune[31] = false;
 			NPC.buffImmune[24] = true;
@@ -43,7 +43,7 @@ namespace TremorMod.Content.NPCs.ZombieEvent;
 
 		public override void ModifyNPCLoot(NPCLoot npcLoot)
 		{
-			if (Main.netMode != 1)
+			if (Main.netMode != NetmodeID.MultiplayerClient)
 			{
 				int centerX = (int)(NPC.position.X + NPC.width / 2) / 16;
 				int centerY = (int)(NPC.position.Y + NPC.height / 2) / 16;
@@ -64,7 +64,7 @@ namespace TremorMod.Content.NPCs.ZombieEvent;
 			{
 				for (int k = 0; k < 20; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 31, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Smoke, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				}
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 99, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 99, 1f);

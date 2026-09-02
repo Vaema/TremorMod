@@ -17,11 +17,11 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.useTime = 20;
 			Item.shootSpeed = 12f;
 			Item.useAnimation = 20;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 3f;
 			Item.shoot = ModContent.ProjectileType<CobaltDiscPro>();
 			Item.value = 27600;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.noUseGraphic = true;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
@@ -48,7 +48,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.CobaltBar, 12);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

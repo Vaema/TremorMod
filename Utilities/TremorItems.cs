@@ -10,112 +10,112 @@ namespace TremorMod.Utilities;
 		public override void UpdateEquip(Item item, Player player)
 		{
 			//items damage
-			if (item.type == 1865)
+			if (item.type == ItemID.CelestialStone)
 			{
 				player.GetModPlayer<MPlayer>().alchemicalDamage += 0.1f;
 			}
-			if (item.type == 3110)
+			if (item.type == ItemID.CelestialShell)
 			{
 				player.GetModPlayer<MPlayer>().alchemicalDamage += 0.1f;
 			}
-			if (item.type == 899)
+			if (item.type == ItemID.SunStone)
 			{
 				player.GetModPlayer<MPlayer>().alchemicalDamage += 0.1f;
 			}
-			if (item.type == 900)
+			if (item.type == ItemID.MoonStone)
 			{
 				player.GetModPlayer<MPlayer>().alchemicalDamage += 0.1f;
 			}
-			if (item.type == 935)
+			if (item.type == ItemID.AvengerEmblem)
 			{
 				player.GetModPlayer<MPlayer>().alchemicalDamage += 0.12f;
 			}
-			if (item.type == 1301)
+			if (item.type == ItemID.DestroyerEmblem)
 			{
 				player.GetModPlayer<MPlayer>().alchemicalDamage += 0.1f;
 			}
-			if (item.type == 552)
+			if (item.type == ItemID.HallowedGreaves)
 			{
 				player.GetModPlayer<MPlayer>().alchemicalDamage += 0.07f;
 			}
-			if (item.type == 1208)
+			if (item.type == ItemID.PalladiumBreastplate)
 			{
 				player.GetModPlayer<MPlayer>().alchemicalDamage += 0.03f;
 			}
-			if (item.type == 1209)
+			if (item.type == ItemID.PalladiumLeggings)
 			{
 				player.GetModPlayer<MPlayer>().alchemicalDamage += 0.02f;
 			}
-			if (item.type == 379)
+			if (item.type == ItemID.MythrilChainmail)
 			{
 				player.GetModPlayer<MPlayer>().alchemicalDamage += 0.05f;
 			}
-			if (item.type == 403)
+			if (item.type == ItemID.AdamantiteBreastplate)
 			{
 				player.GetModPlayer<MPlayer>().alchemicalDamage += 0.06f;
 			}
-			if (item.type == 1218)
+			if (item.type == ItemID.TitaniumBreastplate)
 			{
 				player.GetModPlayer<MPlayer>().alchemicalDamage += 0.04f;
 			}
-			if (item.type == 1219)
+			if (item.type == ItemID.TitaniumLeggings)
 			{
 				player.GetModPlayer<MPlayer>().alchemicalDamage += 0.03f;
 			}
-			if (item.type == 1004)
+			if (item.type == ItemID.ChlorophytePlateMail)
 			{
 				player.GetModPlayer<MPlayer>().alchemicalDamage += 0.05f;
 			}
 			//items crit chance
-			if (item.type == 374)
+			if (item.type == ItemID.CobaltBreastplate)
 			{
 				player.GetModPlayer<MPlayer>().alchemicalCrit += 3;
 			}
-			if (item.type == 1208)
+			if (item.type == ItemID.PalladiumBreastplate)
 			{
 				player.GetModPlayer<MPlayer>().alchemicalCrit += 2;
 			}
-			if (item.type == 1209)
+			if (item.type == ItemID.PalladiumLeggings)
 			{
 				player.GetModPlayer<MPlayer>().alchemicalCrit += 1;
 			}
-			if (item.type == 380)
+			if (item.type == ItemID.MythrilGreaves)
 			{
 				player.GetModPlayer<MPlayer>().alchemicalCrit += 5;
 			}
-			if (item.type == 1213)
+			if (item.type == ItemID.OrichalcumBreastplate)
 			{
 				player.GetModPlayer<MPlayer>().alchemicalCrit += 6;
 			}
-			if (item.type == 404)
+			if (item.type == ItemID.AdamantiteLeggings)
 			{
 				player.GetModPlayer<MPlayer>().alchemicalCrit += 4;
 			}
-			if (item.type == 1218)
+			if (item.type == ItemID.TitaniumBreastplate)
 			{
 				player.GetModPlayer<MPlayer>().alchemicalCrit += 3;
 			}
-			if (item.type == 1219)
+			if (item.type == ItemID.TitaniumLeggings)
 			{
 				player.GetModPlayer<MPlayer>().alchemicalCrit += 3;
 			}
-			if (item.type == 3808)
+			if (item.type == ItemID.MonkPants)
 			{
 				player.GetModPlayer<MPlayer>().alchemicalCrit += 10;
 			}
-			if (item.type == 551)
+			if (item.type == ItemID.HallowedPlateMail)
 			{
 				player.GetModPlayer<MPlayer>().alchemicalCrit += 7;
 			}
-			if (item.type == 1004)
+			if (item.type == ItemID.ChlorophytePlateMail)
 			{
 				player.GetModPlayer<MPlayer>().alchemicalCrit += 7;
 			}
-			if (item.type == 1317)
+			if (item.type == ItemID.TurtleScaleMail)
 			{
 				player.GetModPlayer<MPlayer>().alchemicalCrit += 8;
 			}
-			if (item.type == 3873)
+			if (item.type == ItemID.SquireAltPants)
 			{
 				player.GetModPlayer<MPlayer>().alchemicalCrit += 30;
 			}
@@ -133,7 +133,7 @@ namespace TremorMod.Utilities;
 				item.shootSpeed *= 2f;
 			}
 			*/
-			if (item.type == 2196)
+			if (item.type == ItemID.LivingLoom)
 			{
 				item.value = 30;
 			}
@@ -141,7 +141,7 @@ namespace TremorMod.Utilities;
 			{
 				item.value = 500000;
 			}
-			if (item.type == 3)
+			if (item.type == ItemID.StoneBlock)
 			{
 
 			}

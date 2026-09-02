@@ -19,7 +19,7 @@ namespace TremorMod.Content.Items.BossSumonItems;
 			Item.autoReuse = false;
 			Item.useAnimation = 18;
 			Item.useTime = 18;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.value = 150;
 		}
@@ -50,7 +50,7 @@ namespace TremorMod.Content.Items.BossSumonItems;
 			recipe.AddIngredient(ModContent.ItemType<SeaFragment>(), 12);
 			recipe.AddIngredient(ItemID.Glowstick, 15);
 			recipe.AddIngredient(ItemID.Seashell, 3);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			//recipe.SetResult(this);
 			recipe.Register();
 		}

@@ -24,9 +24,9 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.1f;
 			NPC.width = 40;
 			NPC.height = 40;
-			AnimationType = 121;
-			NPC.aiStyle = 14;
-			AIType = 75;
+			AnimationType = NPCID.Slimer;
+			NPC.aiStyle = NPCAIStyleID.Bat;
+			AIType = NPCID.Pixie;
 			NPC.noGravity = true;
 			NPC.npcSlots = 0.5f;
 			NPC.HitSound = SoundID.NPCHit5;
@@ -55,19 +55,19 @@ namespace TremorMod.Content.NPCs;
 
         if (NPC.life <= 0)
 			{
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 57, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 57, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 57, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 57, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Enchanted_Gold, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Enchanted_Gold, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Enchanted_Gold, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Enchanted_Gold, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 57, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Enchanted_Gold, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 			}
 		}
 
 		public override void AI()
 		{
 			if (Main.rand.NextBool(6))
-				Main.dust[Dust.NewDust(NPC.position, NPC.width, NPC.height, 55, 0f, 0f, 200, NPC.color)].velocity *= 0.3f;
+				Main.dust[Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Pixie, 0f, 0f, 200, NPC.color)].velocity *= 0.3f;
 			if (Main.rand.Next(40) == 0)
 				SoundEngine.PlaySound(SoundID.Pixie, NPC.position);
 		}

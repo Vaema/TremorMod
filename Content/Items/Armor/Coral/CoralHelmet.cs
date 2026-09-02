@@ -18,7 +18,7 @@ namespace TremorMod.Content.Items.Armor.Coral;
 			Item.height = 26;
 
 			Item.value = 100;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.defense = 2;
 		}
 
@@ -60,7 +60,7 @@ namespace TremorMod.Content.Items.Armor.Coral;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Coral, 8);
 			recipe.AddIngredient(ItemID.Starfish, 6);
-			recipe.AddTile(18);
+			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
 		}
 

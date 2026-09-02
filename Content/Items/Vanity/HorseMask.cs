@@ -12,7 +12,7 @@ namespace TremorMod.Content.Items.Vanity;
 		{
 			Item.width = 26;
 			Item.height = 24;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.vanity = true;
     }
 
@@ -27,7 +27,7 @@ namespace TremorMod.Content.Items.Vanity;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Leather, 8);
 			//recipe.SetResult(this);
-			recipe.AddTile(86);
+			recipe.AddTile(TileID.Loom);
 			recipe.Register();
 		}
 	}

@@ -24,9 +24,9 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.1f;
 			NPC.width = 40;
 			NPC.height = 40;
-			AnimationType = 482;
-			NPC.aiStyle = 3;
-			AIType = 482;
+			AnimationType = NPCID.GraniteGolem;
+			NPC.aiStyle = NPCAIStyleID.Fighter;
+			AIType = NPCID.GraniteGolem;
 			NPC.npcSlots = 0.8f;
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.buffImmune[20] = true;
@@ -51,9 +51,9 @@ namespace TremorMod.Content.NPCs;
 
         if (NPC.life <= 0)
 			{
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 5, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 5, 2.5f * hitDirection, -2.5f, 0, default(Color), 2.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 5, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, 2.5f * hitDirection, -2.5f, 0, default(Color), 2.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TTGore1").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TTGore2").Type, 1f);
@@ -65,8 +65,8 @@ namespace TremorMod.Content.NPCs;
 
 				for (int k = 0; k < 20; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 5, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 5, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.6f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.6f);
 				}
 			}
 		}

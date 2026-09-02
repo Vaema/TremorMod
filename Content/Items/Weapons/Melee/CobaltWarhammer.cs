@@ -16,10 +16,10 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.useTime = 39;
 			Item.useAnimation = 39;
 			Item.hammer = 80;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 5;
 			Item.value = 13800;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 		}
@@ -34,7 +34,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.CobaltBar, 10);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

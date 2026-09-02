@@ -13,7 +13,7 @@ namespace TremorMod.Content.Projectiles;
 
 			Projectile.width = 18;
 			Projectile.height = 18;
-			Projectile.aiStyle = 14;
+			Projectile.aiStyle = ProjAIStyleID.GroundProjectile;
 			Projectile.friendly = true;
 			Projectile.DamageType = DamageClass.Ranged;
 			Projectile.penetrate = 5;
@@ -55,7 +55,7 @@ namespace TremorMod.Content.Projectiles;
 		{
 			for (int k = 0; k < 30; k++)
 			{
-				int dust = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 21, Projectile.oldVelocity.X * 0.7f, Projectile.oldVelocity.Y * 0.7f);
+				int dust = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.VilePowder, Projectile.oldVelocity.X * 0.7f, Projectile.oldVelocity.Y * 0.7f);
 			}
 			SoundEngine.PlaySound(SoundID.Grass, Projectile.position);
 		}

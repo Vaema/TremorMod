@@ -15,7 +15,7 @@ namespace TremorMod.Content.Projectiles;
 			Projectile.height = 44;
 			Projectile.friendly = true;
 			Projectile.DamageType = DamageClass.Magic;
-			Projectile.aiStyle = 27;
+			Projectile.aiStyle = ProjAIStyleID.Beam;
 			Projectile.penetrate = 3;
 			AIType = ProjectileID.Bullet;
 			Projectile.timeLeft = 1200;
@@ -45,7 +45,7 @@ namespace TremorMod.Content.Projectiles;
 				}
 				for (int num91 = 0; num91 < num90; num91++)
 				{
-					int num92 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height, 64, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.1f, 100, default(Color), 0.4f);
+					int num92 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height, DustID.YellowTorch, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.1f, 100, default(Color), 0.4f);
 					Main.dust[num92].noGravity = true;
 					Dust expr_46AC_cp_0 = Main.dust[num92];
 					expr_46AC_cp_0.velocity.X = expr_46AC_cp_0.velocity.X * 0.3f;
@@ -65,7 +65,7 @@ namespace TremorMod.Content.Projectiles;
 			SoundEngine.PlaySound(SoundID.Item64, Projectile.position);
 			for (int num158 = 0; num158 < 20; num158++)
 			{
-				int num159 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 64, Projectile.velocity.X * 0.1f, Projectile.velocity.Y * 0.1f, 0, default(Color), 0.5f);
+				int num159 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.YellowTorch, Projectile.velocity.X * 0.1f, Projectile.velocity.Y * 0.1f, 0, default(Color), 0.5f);
 				if (Main.rand.NextBool(3))
 				{
 					Main.dust[num159].fadeIn = 1.1f + Main.rand.Next(-10, 11) * 0.01f;
@@ -92,7 +92,7 @@ namespace TremorMod.Content.Projectiles;
 					}
 					value12.Normalize();
 					value12 *= Main.rand.Next(70, 101) * 0.1f;
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.oldPosition.X + Projectile.width / 2, Projectile.oldPosition.Y + Projectile.height / 2, value12.X, value12.Y, 400, (int)(Projectile.damage * 0.8), Projectile.knockBack * 0.8f, Projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.oldPosition.X + Projectile.width / 2, Projectile.oldPosition.Y + Projectile.height / 2, value12.X, value12.Y, ProjectileID.MolotovFire, (int)(Projectile.damage * 0.8), Projectile.knockBack * 0.8f, Projectile.owner, 0f, 0f);
             }
 			}
 		}

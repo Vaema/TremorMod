@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Content.Buffs;
 using TremorMod.Content.Items.Weapons.Alchemical;
+using Terraria.ID;
 
 namespace TremorMod.Utilities;
 
@@ -97,15 +98,15 @@ namespace TremorMod.Utilities;
             {
                 if (player.FindBuffIndex(ModContent.BuffType<BottledSpiritBuffs>()) != -1)
                 {
-                    Projectile.NewProjectile(source, position.X, position.Y, velocity.X + 2, velocity.Y + 2, 297, damage, knockback, Main.myPlayer);
-                    Projectile.NewProjectile(source, position.X, position.Y, velocity.X - 1, velocity.Y - 1, 297, damage, knockback, Main.myPlayer);
+                    Projectile.NewProjectile(source, position.X, position.Y, velocity.X + 2, velocity.Y + 2, ProjectileID.LostSoulFriendly, damage, knockback, Main.myPlayer);
+                    Projectile.NewProjectile(source, position.X, position.Y, velocity.X - 1, velocity.Y - 1, ProjectileID.LostSoulFriendly, damage, knockback, Main.myPlayer);
                 }
                 if (player.FindBuffIndex(ModContent.BuffType<BigBottledSpiritBuffs>()) != -1)
                 {
-                    Projectile.NewProjectile(source, position.X, position.Y, velocity.X + 3, velocity.Y + 3, 297, damage, knockback, Main.myPlayer);
-                    Projectile.NewProjectile(source, position.X, position.Y, velocity.X + 2, velocity.Y + 2, 297, damage, knockback, Main.myPlayer);
-                    Projectile.NewProjectile(source, position.X, position.Y, velocity.X - 1, velocity.Y - 1, 297, damage, knockback, Main.myPlayer);
-                    Projectile.NewProjectile(source, position.X, position.Y, velocity.X - 2, velocity.Y - 2, 297, damage, knockback, Main.myPlayer);
+                    Projectile.NewProjectile(source, position.X, position.Y, velocity.X + 3, velocity.Y + 3, ProjectileID.LostSoulFriendly, damage, knockback, Main.myPlayer);
+                    Projectile.NewProjectile(source, position.X, position.Y, velocity.X + 2, velocity.Y + 2, ProjectileID.LostSoulFriendly, damage, knockback, Main.myPlayer);
+                    Projectile.NewProjectile(source, position.X, position.Y, velocity.X - 1, velocity.Y - 1, ProjectileID.LostSoulFriendly, damage, knockback, Main.myPlayer);
+                    Projectile.NewProjectile(source, position.X, position.Y, velocity.X - 2, velocity.Y - 2, ProjectileID.LostSoulFriendly, damage, knockback, Main.myPlayer);
                 }
                 Projectile.NewProjectile(source, position.X, position.Y, velocity.X + 1, velocity.Y + 1, type, damage, knockback, Main.myPlayer);
                 int k = Projectile.NewProjectile(source, position.X, position.Y, velocity.X, velocity.Y, type, damage, knockback, Main.myPlayer);
@@ -117,9 +118,9 @@ namespace TremorMod.Utilities;
         {
             for (int i = 0; i < 1; ++i)
             {
-                Projectile.NewProjectile(source, position.X, position.Y, velocity.X + 1, velocity.Y + 1, 297, damage, knockback, Main.myPlayer);
+                Projectile.NewProjectile(source, position.X, position.Y, velocity.X + 1, velocity.Y + 1, ProjectileID.LostSoulFriendly, damage, knockback, Main.myPlayer);
                 int k = Projectile.NewProjectile(source, position.X, position.Y, velocity.X, velocity.Y, type, damage, knockback, Main.myPlayer);
-                Projectile.NewProjectile(source, position.X, position.Y, velocity.X - 1, velocity.Y - 1, 297, damage, knockback, Main.myPlayer);
+                Projectile.NewProjectile(source, position.X, position.Y, velocity.X - 1, velocity.Y - 1, ProjectileID.LostSoulFriendly, damage, knockback, Main.myPlayer);
                 Main.projectile[k].friendly = true;
             }
             return false;
@@ -128,11 +129,11 @@ namespace TremorMod.Utilities;
         {
             for (int i = 0; i < 1; ++i)
             {
-                Projectile.NewProjectile(source, position.X, position.Y, velocity.X + 2, velocity.Y + 2, 297, damage, knockback, Main.myPlayer);
-                Projectile.NewProjectile(source, position.X, position.Y, velocity.X + 1, velocity.Y + 1, 297, damage, knockback, Main.myPlayer);
+                Projectile.NewProjectile(source, position.X, position.Y, velocity.X + 2, velocity.Y + 2, ProjectileID.LostSoulFriendly, damage, knockback, Main.myPlayer);
+                Projectile.NewProjectile(source, position.X, position.Y, velocity.X + 1, velocity.Y + 1, ProjectileID.LostSoulFriendly, damage, knockback, Main.myPlayer);
                 int k = Projectile.NewProjectile(source, position.X, position.Y, velocity.X, velocity.Y, type, damage, knockback, Main.myPlayer);
-                Projectile.NewProjectile(source, position.X, position.Y, velocity.X - 1, velocity.Y - 1, 297, damage, knockback, Main.myPlayer);
-                Projectile.NewProjectile(source, position.X, position.Y, velocity.X - 2, velocity.Y - 2, 297, damage, knockback, Main.myPlayer);
+                Projectile.NewProjectile(source, position.X, position.Y, velocity.X - 1, velocity.Y - 1, ProjectileID.LostSoulFriendly, damage, knockback, Main.myPlayer);
+                Projectile.NewProjectile(source, position.X, position.Y, velocity.X - 2, velocity.Y - 2, ProjectileID.LostSoulFriendly, damage, knockback, Main.myPlayer);
                 Main.projectile[k].friendly = true;
             }
             return false;

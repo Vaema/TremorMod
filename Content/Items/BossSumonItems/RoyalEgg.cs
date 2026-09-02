@@ -14,11 +14,11 @@ namespace TremorMod.Content.Items.BossSumonItems;
 			Item.width = 30;
 			Item.height = 34;
 			Item.maxStack = 20;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.value = 150000;
 			Item.useAnimation = 45;
 			Item.useTime = 45;
-			Item.useStyle = 4;
+			Item.useStyle = ItemUseStyleID.HoldUp;
 			Item.consumable = true;
 		}
 
@@ -55,7 +55,7 @@ namespace TremorMod.Content.Items.BossSumonItems;
 			recipe.AddIngredient(ModContent.ItemType<ClusterShard>(), 5);
 			recipe.AddIngredient(ModContent.ItemType<Phantaplasm>(), 8);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

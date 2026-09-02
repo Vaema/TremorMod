@@ -11,7 +11,7 @@ namespace TremorMod.Content.Items.Accessories;
 			Item.width = 34;
 			Item.height = 34;
 			Item.value = 120000;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.defense = 5;
 			Item.accessory = true;
 		}
@@ -27,7 +27,7 @@ namespace TremorMod.Content.Items.Accessories;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Shackle, 5);
 			//recipe.SetResult(this);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

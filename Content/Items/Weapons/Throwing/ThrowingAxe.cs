@@ -20,10 +20,10 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			Item.useAnimation = 20;
 			Item.shoot = ModContent.ProjectileType<ThrowingAxePro>();
 			Item.shootSpeed = 10f;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;
 			Item.value = 14;
-			Item.rare = 0;
+			Item.rare = ItemRarityID.White;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
 		}

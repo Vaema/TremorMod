@@ -15,14 +15,14 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			Item.height = 20;
 			Item.useTime = 7;
 			Item.useAnimation = 7;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true;
 			Item.knockBack = 2;
 			Item.value = 35000;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item11;
 			Item.autoReuse = true;
-			Item.shoot = 166;
+			Item.shoot = ProjectileID.SnowBallFriendly;
 			Item.shootSpeed = 8f;
 			Item.useAmmo = AmmoID.Snowball;
 		}
@@ -47,7 +47,7 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			recipe.AddIngredient(ItemID.SnowBlock, 75);
 			recipe.AddIngredient(ItemID.SoulofLight, 5);
 			recipe.AddIngredient(ItemID.SoulofNight, 5);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

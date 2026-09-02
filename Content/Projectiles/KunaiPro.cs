@@ -14,7 +14,7 @@ namespace TremorMod.Content.Projectiles;
 			Projectile.width = 1;
 			Projectile.height = 1;
 			Projectile.friendly = true;
-			Projectile.aiStyle = 1;
+			Projectile.aiStyle = ProjAIStyleID.Arrow;
 			Projectile.timeLeft = 1200;
 		}
 
@@ -29,7 +29,7 @@ namespace TremorMod.Content.Projectiles;
 			SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
 			for (int num431 = 0; num431 < 10; num431++)
 			{
-				Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 1, Projectile.velocity.X * 0.1f, Projectile.velocity.Y * 0.1f, 0, default(Color), 0.75f);
+				Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Stone, Projectile.velocity.X * 0.1f, Projectile.velocity.Y * 0.1f, 0, default(Color), 0.75f);
 			}
 		}
 

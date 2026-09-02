@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Terraria;
 using TremorMod.Content.Projectiles;
 using TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles;
+using Terraria.ID;
 
 namespace TremorMod.Content.NPCs.Bosses.NovaPillar.NPCs;
 
@@ -22,8 +23,8 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.NPCs;
 			NPC.knockBackResist = 0.3f;
 			NPC.width = 40;
 			NPC.height = 20;
-			AnimationType = 75;
-			NPC.aiStyle = 14;
+			AnimationType = NPCID.Pixie;
+			NPC.aiStyle = NPCAIStyleID.Bat;
 			NPC.npcSlots = 0.5f;
 			NPC.noGravity = true;
 		}
@@ -69,7 +70,7 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.NPCs;
 
             for (int i = 0; i < 5; i++)
             {
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, 57, Main.rand.NextFloat(-3f, 3f), Main.rand.NextFloat(-3f, 3f));
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Enchanted_Gold, Main.rand.NextFloat(-3f, 3f), Main.rand.NextFloat(-3f, 3f));
             }
 
             for (int i = 0; i < 2; i++)

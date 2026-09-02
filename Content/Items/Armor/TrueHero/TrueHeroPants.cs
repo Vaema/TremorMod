@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Buffs;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.Armor.TrueHero;
 
@@ -18,7 +19,7 @@ namespace TremorMod.Content.Items.Armor.TrueHero;
 			Item.height = 18;
 			Item.value = 25000;
 
-			Item.rare = 0;
+			Item.rare = ItemRarityID.White;
 			Item.defense = 20;
 		}
 
@@ -47,12 +48,12 @@ namespace TremorMod.Content.Items.Armor.TrueHero;
     public override void AddRecipes()
     {
         Recipe recipe = CreateRecipe();
-        recipe.AddIngredient(249, 1);
+        recipe.AddIngredient(ItemID.HerosPants, 1);
         recipe.AddIngredient(ModContent.ItemType<GiantShell>(), 1);
         recipe.AddIngredient(ModContent.ItemType<BrokenHeroArmorplate>(), 1);
         recipe.AddIngredient(ModContent.ItemType<TrueEssense>(), 3);
         //recipe.SetResult(this);
-        recipe.AddTile(412);
+        recipe.AddTile(TileID.LunarCraftingStation);
         recipe.Register();
     }
 }

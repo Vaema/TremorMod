@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using TremorMod.Content.Items.Materials.OreAndBar;
 using TremorMod.Content.Buffs;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.Armor.Nano;
 
@@ -18,7 +19,7 @@ namespace TremorMod.Content.Items.Armor.Nano;
 			Item.width = 32;
 			Item.height = 26;
 			Item.value = 60000;
-			Item.rare = 6;
+			Item.rare = ItemRarityID.LightPurple;
 			Item.defense = 12;
 		}
 
@@ -54,7 +55,7 @@ namespace TremorMod.Content.Items.Armor.Nano;
 			{
 				for (int k = 0; k < 2; k++)
 				{
-					int index = Dust.NewDust(new Vector2(player.position.X - player.velocity.X * 2f, player.position.Y - 2f - player.velocity.Y * 2f), player.width, player.height, 226, 0f, 0f, 100, default(Color), 0.4f);
+					int index = Dust.NewDust(new Vector2(player.position.X - player.velocity.X * 2f, player.position.Y - 2f - player.velocity.Y * 2f), player.width, player.height, DustID.Electric, 0f, 0f, 100, default(Color), 0.4f);
 					Main.dust[index].noGravity = true;
 					Main.dust[index].noLight = true;
 					Dust dust = Main.dust[index];
@@ -69,7 +70,7 @@ namespace TremorMod.Content.Items.Armor.Nano;
         Recipe recipe = CreateRecipe();
         recipe.AddIngredient(ModContent.ItemType<NanoBar>(), 12);
         //recipe.SetResult(this);
-        recipe.AddTile(134);
+        recipe.AddTile(TileID.MythrilAnvil);
         recipe.Register();
     }
 	}

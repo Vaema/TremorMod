@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 
@@ -16,7 +17,7 @@ namespace TremorMod.Content.Items.BossLoot.TheDarkEmperor;
 			Item.consumable = true;
 			Item.knockBack = 1.5f;
 			Item.value = 1000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.shoot = ModContent.ProjectileType<SuperBigCannonPro>();
 			Item.ammo = Item.type;
 		}

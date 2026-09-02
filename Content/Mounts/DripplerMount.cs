@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Mounts;
@@ -50,7 +51,7 @@ namespace TremorMod.Content.Mounts;
 			MountData.idleFrameLoop = true;
 			MountData.standingFrameDelay = 8;
 
-        if (Main.netMode != 2)
+        if (Main.netMode != NetmodeID.Server)
         {
             MountData.textureWidth = MountData.backTexture.Value.Width;
             MountData.textureHeight = MountData.backTexture.Value.Height;

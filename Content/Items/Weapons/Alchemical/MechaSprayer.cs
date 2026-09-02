@@ -19,14 +19,14 @@ namespace TremorMod.Content.Items.Weapons.Alchemical;
 			Item.height = 30;
 			Item.useTime = 16;
 			Item.useAnimation = 16;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true;
 			Item.knockBack = 4;
 			Item.value = 30000;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = false;
-			Item.shoot = 10;
+			Item.shoot = ProjectileID.PurificationPowder;
 			Item.shootSpeed = 6f;
 			Item.crit = 4;
 			Item.useAmmo = ModContent.ItemType<BoomFlask>();
@@ -90,12 +90,12 @@ namespace TremorMod.Content.Items.Weapons.Alchemical;
             {
                 if (player.FindBuffIndex(ModContent.BuffType<BottledSpiritBuffs>()) != -1)
                 {
-                    Projectile.NewProjectile(source, position, velocity + new Vector2(2, 2), 297, damage, knockback, Main.myPlayer);
+                    Projectile.NewProjectile(source, position, velocity + new Vector2(2, 2), ProjectileID.LostSoulFriendly, damage, knockback, Main.myPlayer);
                 }
                 if (player.FindBuffIndex(ModContent.BuffType<BigBottledSpiritBuffs>()) != -1)
                 {
-                    Projectile.NewProjectile(source, position, velocity + new Vector2(3, 3), 297, damage, knockback, Main.myPlayer);
-                    Projectile.NewProjectile(source, position, velocity + new Vector2(2, 2), 297, damage, knockback, Main.myPlayer);
+                    Projectile.NewProjectile(source, position, velocity + new Vector2(3, 3), ProjectileID.LostSoulFriendly, damage, knockback, Main.myPlayer);
+                    Projectile.NewProjectile(source, position, velocity + new Vector2(2, 2), ProjectileID.LostSoulFriendly, damage, knockback, Main.myPlayer);
                 }
                 Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), type, damage, knockback, Main.myPlayer);
                 Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), type, damage, knockback, Main.myPlayer);
@@ -108,7 +108,7 @@ namespace TremorMod.Content.Items.Weapons.Alchemical;
         {
             for (int i = 0; i < 1; ++i)
             {
-                Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), 297, damage, knockback, Main.myPlayer);
+                Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), ProjectileID.LostSoulFriendly, damage, knockback, Main.myPlayer);
                 int k = Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer);
                 Main.projectile[k].friendly = true;
             }
@@ -118,8 +118,8 @@ namespace TremorMod.Content.Items.Weapons.Alchemical;
         {
             for (int i = 0; i < 1; ++i)
             {
-                Projectile.NewProjectile(source, position, velocity + new Vector2(2, 2), 297, damage, knockback, Main.myPlayer);
-                Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), 297, damage, knockback, Main.myPlayer);
+                Projectile.NewProjectile(source, position, velocity + new Vector2(2, 2), ProjectileID.LostSoulFriendly, damage, knockback, Main.myPlayer);
+                Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), ProjectileID.LostSoulFriendly, damage, knockback, Main.myPlayer);
                 int k = Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer);
                 Main.projectile[k].friendly = true;
             }

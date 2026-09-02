@@ -14,9 +14,9 @@ namespace TremorMod.Content.Items;
 		    Item.height = 36;
 			Item.useTime = 30;
 			Item.useAnimation = 30;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.value = 8000;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item44;
 			Item.noMelee = true;
 			Item.mountType = ModContent.MountType<DripplerMount>();
@@ -30,7 +30,7 @@ namespace TremorMod.Content.Items;
         recipe.AddIngredient(ModContent.ItemType<AtisBlood>(), 10);
         recipe.AddIngredient(ModContent.ItemType<DrippingRoot>(), 15);
         //recipe.SetResult(this);
-        recipe.AddTile(134);
+        recipe.AddTile(TileID.MythrilAnvil);
         recipe.Register();    
 
         Recipe recipe1 = CreateRecipe();
@@ -38,7 +38,7 @@ namespace TremorMod.Content.Items;
         recipe1.AddIngredient(ModContent.ItemType<AtisBlood>(), 10);
         recipe1.AddIngredient(ModContent.ItemType<DrippingRoot>(), 15);
         //recipe1.SetResult(this);
-        recipe1.AddTile(134);
+        recipe1.AddTile(TileID.MythrilAnvil);
         recipe1.Register();
     }
 }

@@ -12,7 +12,7 @@ namespace TremorMod.Content.Items.Materials.OreAndBar;
 			Item.height = 24;
 			Item.maxStack = 9999;
 			Item.value = Item.sellPrice(silver: 1, copper: 25);
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 		}
 
 		/*public override void SetStaticDefaults()

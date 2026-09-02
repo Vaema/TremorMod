@@ -26,7 +26,7 @@ namespace TremorMod.Content.Items.Accessories;
 			Item.width = 22;
 			Item.height = 44;
 			Item.value = 300000;
-			Item.rare = 6;
+			Item.rare = ItemRarityID.LightPurple;
 			Item.accessory = true;
 		}
 
@@ -44,7 +44,7 @@ namespace TremorMod.Content.Items.Accessories;
 			recipe.AddIngredient(ItemID.SoulofLight, 10);
 			recipe.AddIngredient(ItemID.SoulofNight, 10);
 			recipe.AddIngredient(ItemID.HallowedBar, 15);
-			recipe.AddTile(114);
+			recipe.AddTile(TileID.TinkerersWorkbench);
 			recipe.Register();
 		}
 

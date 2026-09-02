@@ -16,10 +16,10 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.height = 52;
 			Item.useTime = 21;
 			Item.useAnimation = 21;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 6;
 			Item.value = 660;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 		}
@@ -34,7 +34,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 		{
 			if (Main.rand.NextBool(3))
 			{
-				target.AddBuff(70, 1200);
+				target.AddBuff(BuffID.Venom, 1200);
 			}
 		}
 
@@ -42,7 +42,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 		{
 			if (Main.rand.NextBool(3))
 			{
-				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 74);
+				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.GreenFairy);
 			}
 		}
 	}

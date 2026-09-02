@@ -8,7 +8,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 	{
 		public override void SetDefaults()
 		{
-			Item.useStyle = 3;
+			Item.useStyle = ItemUseStyleID.Thrust;
 			Item.useTurn = false;
 			Item.useAnimation = 12;
 			Item.useTime = 12;

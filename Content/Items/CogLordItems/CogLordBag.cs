@@ -1,6 +1,7 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.CogLordItems;
 
@@ -12,7 +13,7 @@ namespace TremorMod.Content.Items.CogLordItems;
 			Item.consumable = true;
 			Item.width = 24;
 			Item.height = 24;
-			Item.rare = 9;
+			Item.rare = ItemRarityID.Cyan;
 			Item.expert = true;
 		}
 

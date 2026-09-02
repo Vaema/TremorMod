@@ -12,7 +12,7 @@ namespace TremorMod.Content.Items.Materials;
 			Item.height = 20;
 			Item.maxStack = 9999;
 			Item.value = 100;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 		}
 
 		/*public override void SetStaticDefaults()
@@ -26,13 +26,13 @@ namespace TremorMod.Content.Items.Materials;
 			Recipe recipe1 = CreateRecipe();
 			recipe1.AddIngredient(ItemID.SilverBar, 15);
 			//recipe.SetResult(this);
-			recipe1.AddTile(16);
+			recipe1.AddTile(TileID.Anvils);
 			recipe1.Register();
 
 			Recipe recipe2 = CreateRecipe();
 			recipe2.AddIngredient(ItemID.TungstenBar, 15);
 			//recipe2.SetResult(this);
-			recipe2.AddTile(16);
+			recipe2.AddTile(TileID.Anvils);
 			recipe2.Register();
 		}
 	}

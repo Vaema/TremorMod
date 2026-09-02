@@ -25,8 +25,8 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.3f;
 			NPC.width = 42;
 			NPC.height = 82;
-			AnimationType = 82;
-			NPC.aiStyle = 22;
+			AnimationType = NPCID.Wraith;
+			NPC.aiStyle = NPCAIStyleID.HoveringFighter;
 			NPC.npcSlots = 0.5f;
 			NPC.noTileCollide = true;
 			NPC.HitSound = SoundID.NPCHit52;
@@ -57,15 +57,15 @@ namespace TremorMod.Content.NPCs;
         if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 60; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 27, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Shadowflame, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 			}
 			else
 			{
 				for (int k = 0; k < hit.Damage / NPC.lifeMax * 50.0; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 27, hitDirection, -1f, 0, default(Color), 0.7f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 27, hitDirection, -1f, 0, default(Color), 0.7f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 27, hitDirection, -1f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Shadowflame, hitDirection, -1f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Shadowflame, hitDirection, -1f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Shadowflame, hitDirection, -1f, 0, default(Color), 0.7f);
 				}
 			}
 		}

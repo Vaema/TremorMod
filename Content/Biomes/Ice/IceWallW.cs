@@ -15,7 +15,7 @@ namespace TremorMod.Content.Biomes.Ice;
 			Item.autoReuse = false;
 			Item.useAnimation = 15;
 			Item.useTime = 7;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.createWall = ModContent.WallType<IceWall>();
 		}

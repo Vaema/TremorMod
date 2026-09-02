@@ -11,14 +11,14 @@ namespace TremorMod.Content.Items;
 		{
 
 			Item.UseSound = SoundID.Item6;
-			Item.useStyle = 4;
+			Item.useStyle = ItemUseStyleID.HoldUp;
 			Item.useAnimation = 30;
 			Item.useTime = 30;
 			Item.width = 32;
 			Item.height = 32;
 
 			Item.value = 60000;
-			Item.rare = 8;
+			Item.rare = ItemRarityID.Yellow;
 			Item.mana = 10;
 		}
 

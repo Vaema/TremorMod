@@ -152,7 +152,7 @@ namespace TremorMod.Content.NPCs;
 				{
 					NPC.ai[1] += Main.rand.Next(10, 30);
 				}
-				if (NPC.ai[1] >= 180f && Main.netMode != 1)
+				if (NPC.ai[1] >= 180f && Main.netMode != NetmodeID.MultiplayerClient)
 				{
 					NPC.ai[1] = 0f;
 					NPC.ai[2] = 0f;
@@ -387,7 +387,7 @@ namespace TremorMod.Content.NPCs;
 						{
 							NPC.ai[0] = 0f;
 							NPC.TargetClosest(true);
-							if (Main.netMode != 1)
+							if (Main.netMode != NetmodeID.MultiplayerClient)
 							{
 								NPC.ai[1] = -1f;
 								NPC.ai[2] = -1f;
@@ -464,7 +464,7 @@ namespace TremorMod.Content.NPCs;
 							vector208 -= NPC.Center;
 							float num1323 = 4f;
 							float num1324 = 2f;
-							if (Main.netMode != 1 && vector208.Length() < 4f)
+							if (Main.netMode != NetmodeID.MultiplayerClient && vector208.Length() < 4f)
 							{
 								int num1325 = 70;
 								if (Main.expertMode)

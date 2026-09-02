@@ -20,10 +20,10 @@ namespace TremorMod.Content.Items.Weapons.Melee;
         Item.shoot = ModContent.ProjectileType<FungusSpearPro>();
 			Item.shootSpeed = 3f;
 			Item.useAnimation = 30;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 3;
 			Item.value = 1000;
-			Item.rare = 0;
+			Item.rare = ItemRarityID.White;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
 
@@ -42,7 +42,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			recipe1.AddIngredient(ItemID.GlowingMushroom, 10);
 			recipe1.AddIngredient(ModContent.ItemType<GoldSpear>(), 1);
 			//recipe.SetResult(this);
-			recipe1.AddTile(16);
+			recipe1.AddTile(TileID.Anvils);
 			recipe1.Register();
 
 			Recipe recipe2 = CreateRecipe();
@@ -50,7 +50,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
         recipe2.AddIngredient(ItemID.GlowingMushroom, 10);
         recipe2.AddIngredient(ModContent.ItemType<GoldSpear>(), 1);
         //recipe.SetResult(this);
-			recipe2.AddTile(16);
+			recipe2.AddTile(TileID.Anvils);
 			recipe2.Register();
 		}
 	}

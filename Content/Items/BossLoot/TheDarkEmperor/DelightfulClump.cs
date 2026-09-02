@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items.BossLoot.TheDarkEmperor;
@@ -11,7 +12,7 @@ namespace TremorMod.Content.Items.BossLoot.TheDarkEmperor;
 			Item.width = 22;
 			Item.height = 18;
 			Item.value = 250000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 		}
 
 		public override void SetStaticDefaults()

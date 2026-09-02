@@ -16,12 +16,12 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.height = 66;
 			Item.useTime = 35;
 			Item.useAnimation = 35;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 7;
-			Item.shoot = 379;
+			Item.shoot = ProjectileID.BabySpider;
 			Item.shootSpeed = 17f;
 			Item.value = 12500;
-			Item.rare = 8;
+			Item.rare = ItemRarityID.Yellow;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 		}
@@ -48,7 +48,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<Arachnophobia>(), 1);
 			recipe.AddIngredient(ItemID.BrokenHeroSword, 1);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

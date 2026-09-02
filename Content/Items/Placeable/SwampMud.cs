@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items.Placeable;
@@ -11,13 +12,13 @@ namespace TremorMod.Content.Items.Placeable;
 			Item.width = 30;
 			Item.height = 24;
 			Item.maxStack = 9999;
-			Item.rare = 0;
+			Item.rare = ItemRarityID.White;
 			//item.createTile = ModContent.TileType<SwampMudTile>(); // Íå ñóùåñòâóåò 
 			Item.useTurn = true;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 		}
 

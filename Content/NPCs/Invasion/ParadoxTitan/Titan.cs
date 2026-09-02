@@ -52,8 +52,8 @@ namespace TremorMod.Content.NPCs.Invasion.ParadoxTitan;
 			NPC.noTileCollide = true;
 			NPC.width = 180;
 			NPC.height = 200;
-			AnimationType = 82;
-			NPC.aiStyle = 14;
+			AnimationType = NPCID.Wraith;
+			NPC.aiStyle = NPCAIStyleID.Bat;
 			NPC.npcSlots = 50f;
 			NPC.HitSound = SoundID.NPCHit31;
 			NPC.DeathSound = SoundID.NPCDeath2;
@@ -95,7 +95,7 @@ namespace TremorMod.Content.NPCs.Invasion.ParadoxTitan;
 
 		private void SetupCrystals(int radius, bool clockwise)
 		{
-			if (Main.netMode == 1)
+			if (Main.netMode == NetmodeID.MultiplayerClient)
 			{
 				return;
 			}
@@ -309,7 +309,7 @@ namespace TremorMod.Content.NPCs.Invasion.ParadoxTitan;
 
     public override void ModifyNPCLoot(NPCLoot npcLoot)
     {
-			if (Main.netMode != 1)
+			if (Main.netMode != NetmodeID.MultiplayerClient)
 			{
 				int centerX = (int)(NPC.position.X + NPC.width / 2) / 16;
 				int centerY = (int)(NPC.position.Y + NPC.height / 2) / 16;

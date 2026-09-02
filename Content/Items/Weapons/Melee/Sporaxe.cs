@@ -18,12 +18,12 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.height = 48;
 			Item.useTime = 24;
 			Item.useAnimation = 24;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 5;
 			Item.shootSpeed = 10f;
 			Item.value = 22000;
-			Item.shoot = 569;
-			Item.rare = 3;
+			Item.shoot = ProjectileID.SporeGas;
+			Item.rare = ItemRarityID.Orange;
 			Item.axe = 8;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
@@ -62,7 +62,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 		{
 			if (Main.rand.NextBool(3))
 			{
-				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 61);
+				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.GreenTorch);
 			}
 		}
 	}

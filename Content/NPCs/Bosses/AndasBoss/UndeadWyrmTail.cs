@@ -23,7 +23,7 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss;
         NPC.behindTiles = true;
         NPC.friendly = false;
         NPC.noGravity = true;
-        NPC.aiStyle = 6;
+        NPC.aiStyle = NPCAIStyleID.Worm;
         NPC.dontTakeDamage = false;
         NPC.HitSound = SoundID.NPCHit2;
         NPC.buffImmune[24] = true;

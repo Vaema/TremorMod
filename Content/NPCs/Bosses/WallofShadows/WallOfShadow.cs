@@ -123,7 +123,7 @@ namespace TremorMod.Content.NPCs.Bosses.WallofShadows;
 		private void ShootBall()
 		{
 			MagicBoltCooldown--;
-			if (MagicBoltCooldown <= 60 && MagicBoltCooldown % ((Main.expertMode) ? 12 : 20) == 0 && Main.netMode != 1)
+			if (MagicBoltCooldown <= 60 && MagicBoltCooldown % ((Main.expertMode) ? 12 : 20) == 0 && Main.netMode != NetmodeID.MultiplayerClient)
 			{
 				var targetPos = NPC.HasPlayerTarget ? Main.player[NPC.target].Center : Main.npc[NPC.target].Center;
 				var shootPos = (NPC.Top + new Vector2(0, 60)).RotatedBy(NPC.rotation, NPC.Center);
@@ -131,7 +131,7 @@ namespace TremorMod.Content.NPCs.Bosses.WallofShadows;
 				var shootVel = targetPos - shootPos + new Vector2(Main.rand.NextFloat(-inaccuracy, inaccuracy), Main.rand.NextFloat(-inaccuracy, inaccuracy));
 				shootVel.Normalize();
 				shootVel *= 10f;
-				Projectile.NewProjectile(NPC.GetSource_FromThis(), shootPos, shootVel, 290, NPC.damage, 5f, Main.myPlayer);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), shootPos, shootVel, ProjectileID.ShadowBeamHostile, NPC.damage, 5f, Main.myPlayer);
 			}
 			if (MagicBoltCooldown <= 0)
 			{
@@ -151,7 +151,7 @@ namespace TremorMod.Content.NPCs.Bosses.WallofShadows;
 					_shootSpeed = 25;
 				}
 				Vector2 velocity = Helper.VelocityToPoint(NPC.Center, Helper.RandomPointInArea(new Vector2(Main.player[NPC.target].Center.X - 10, Main.player[NPC.target].Center.Y - 10), new Vector2(Main.player[NPC.target].Center.X + 20, Main.player[NPC.target].Center.Y + 20)), _shootSpeed); //çäåñü óñòàíàâëèâàåì ïîçèöèè (çäåñü îò ïåðñà â ïëååðà)
-				int proj = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, velocity.X, velocity.Y, 83, (int)Helper.DistortFloat(ShootDamage, DistortPercent), Helper.DistortFloat(ShootKnockback, DistortPercent)); //ïîäòâåðæäàåì âñå âûøå äåéñòâèå: îò ïåðñà ê ìîáó, îò ìîáà ê ïåðñó (âòîðîå âûñòðåë)
+				int proj = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, velocity.X, velocity.Y, ProjectileID.EyeLaser, (int)Helper.DistortFloat(ShootDamage, DistortPercent), Helper.DistortFloat(ShootKnockback, DistortPercent)); //ïîäòâåðæäàåì âñå âûøå äåéñòâèå: îò ïåðñà ê ìîáó, îò ìîáà ê ïåðñó (âòîðîå âûñòðåë)
 				Main.projectile[proj].Center = NPC.Center;
 			}
 		}
@@ -159,10 +159,10 @@ namespace TremorMod.Content.NPCs.Bosses.WallofShadows;
 		private void ShootSuper()
 		{
 			LaserCooldown--;
-			if (LaserCooldown <= 60 && LaserCooldown % ((Main.expertMode) ? 4 : 7) == 0 && Main.netMode != 1)
+			if (LaserCooldown <= 60 && LaserCooldown % ((Main.expertMode) ? 4 : 7) == 0 && Main.netMode != NetmodeID.MultiplayerClient)
 			{
 				Vector2 velocity = Helper.VelocityToPoint(NPC.Center, Helper.RandomPointInArea(new Vector2(Main.player[NPC.target].Center.X - 100, Main.player[NPC.target].Center.Y - 100), new Vector2(Main.player[NPC.target].Center.X + 20, Main.player[NPC.target].Center.Y + 20)), ((Main.expertMode) ? 20 : 15)); //çäåñü óñòàíàâëèâàåì ïîçèöèè (çäåñü îò ïåðñà â ïëååðà)
-				int proj = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, velocity.X, velocity.Y, 83, (int)Helper.DistortFloat(ShootDamage, DistortPercent), Helper.DistortFloat(ShootKnockback, DistortPercent)); //ïîäòâåðæäàåì âñå âûøå äåéñòâèå: îò ïåðñà ê ìîáó, îò ìîáà ê ïåðñó (âòîðîå âûñòðåë)
+				int proj = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, velocity.X, velocity.Y, ProjectileID.EyeLaser, (int)Helper.DistortFloat(ShootDamage, DistortPercent), Helper.DistortFloat(ShootKnockback, DistortPercent)); //ïîäòâåðæäàåì âñå âûøå äåéñòâèå: îò ïåðñà ê ìîáó, îò ìîáà ê ïåðñó (âòîðîå âûñòðåë)
 				Main.projectile[proj].Center = NPC.Center;
 			}
 			if (LaserCooldown <= 0)
@@ -178,7 +178,7 @@ namespace TremorMod.Content.NPCs.Bosses.WallofShadows;
 			{
 				Player player = Main.player[NPC.target];
 				NPC.position.Y = player.position.Y;
-				player.AddBuff(22, 1);
+				player.AddBuff(BuffID.Darkness, 1);
 				if (player.dead)
 				{
 					NPC.TargetClosest(false);
@@ -248,7 +248,7 @@ namespace TremorMod.Content.NPCs.Bosses.WallofShadows;
 					if (NPC.ai[2] > spawnCooldown)
 						NPC.ai[2] = 0;
 
-					if (Main.netMode != 1)
+					if (Main.netMode != NetmodeID.MultiplayerClient)
 					{
 						// Spawn... a Shadow Steed?
 						//int index = NPC.NewNPC((int)(npc.position.X + (npc.width / 2)), (int)(npc.position.Y + (npc.height / 2) + 20.0), mod.NPCType("ShadowSteed"), 1, 0.0f, 0.0f, 0.0f, 0.0f, (int)byte.MaxValue);
@@ -431,7 +431,7 @@ namespace TremorMod.Content.NPCs.Bosses.WallofShadows;
 					}
 				}
 
-				if (NPC.localAI[0] != 1.0 || Main.netMode == 1)
+				if (NPC.localAI[0] != 1.0 || Main.netMode == NetmodeID.MultiplayerClient)
 					return false;
 				NPC.localAI[0] = 2f;
 			}
@@ -469,7 +469,7 @@ namespace TremorMod.Content.NPCs.Bosses.WallofShadows;
 					if (NPC.ai[2] > spawnCooldown)
 						NPC.ai[2] = 0;
 
-					if (Main.netMode != 1)
+					if (Main.netMode != NetmodeID.MultiplayerClient)
 					{
 
 					}
@@ -703,7 +703,7 @@ namespace TremorMod.Content.NPCs.Bosses.WallofShadows;
 					}
 				}
 				//}
-				if (NPC.localAI[0] != 1.0 || Main.netMode == 1)
+				if (NPC.localAI[0] != 1.0 || Main.netMode == NetmodeID.MultiplayerClient)
 					return false;
 				NPC.localAI[0] = 2f;
 

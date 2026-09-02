@@ -15,7 +15,7 @@ namespace TremorMod.Content.Items.Armor.Orichalcum;
 			Item.width = 22;
 			Item.height = 26;
 			Item.value = 400;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.defense = 6;
 		}
 
@@ -33,7 +33,7 @@ namespace TremorMod.Content.Items.Armor.Orichalcum;
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == 1213 && legs.type == 1214;
+			return body.type == ItemID.OrichalcumBreastplate && legs.type == ItemID.OrichalcumLeggings;
 		}
 
 		public override void UpdateArmorSet(Player player)
@@ -54,7 +54,7 @@ namespace TremorMod.Content.Items.Armor.Orichalcum;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.OrichalcumBar, 12);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

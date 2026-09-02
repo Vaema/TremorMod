@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Wood;
 
@@ -11,7 +12,7 @@ namespace TremorMod.Content.Items.Accessories;
 			Item.width = 34;
 			Item.height = 34;
 			Item.value = 150000;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.defense = 8;
 			Item.accessory = true;
 		}
@@ -27,7 +28,7 @@ namespace TremorMod.Content.Items.Accessories;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<HardBulwark>(), 1);
 			recipe.AddIngredient(ModContent.ItemType<WoodenFrame>(), 1);
-			recipe.AddTile(114);
+			recipe.AddTile(TileID.TinkerersWorkbench);
 			//recipe.SetResult(this);
 			recipe.Register();
 		}

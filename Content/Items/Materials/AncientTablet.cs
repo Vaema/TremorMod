@@ -1,5 +1,6 @@
 ﻿using Terraria;
 using Terraria.DataStructures;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items.Materials;
@@ -13,7 +14,7 @@ namespace TremorMod.Content.Items.Materials;
 			Item.height = 40;
 			Item.maxStack = 9999;
 			Item.value = 10000;
-			Item.rare = 10;
+			Item.rare = ItemRarityID.Red;
 		}
 
 		public override void SetStaticDefaults()

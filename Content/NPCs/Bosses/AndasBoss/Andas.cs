@@ -98,7 +98,7 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss;
 					velocity.Y += Main.rand.Next(-spread, spread + 1) * spreadMult;
 
 					IEntitySource entitySource = NPC.GetSource_FromAI();
-					int projectileIndex = Projectile.NewProjectile(entitySource, NPC.Center, velocity, 258, ShootDamage, ShootKnockback, Main.myPlayer);
+					int projectileIndex = Projectile.NewProjectile(entitySource, NPC.Center, velocity, ProjectileID.Fireball, ShootDamage, ShootKnockback, Main.myPlayer);
 
 					if (projectileIndex >= 0 && projectileIndex < Main.maxProjectiles)
 					{
@@ -156,7 +156,7 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss;
 			{
 				for (int i = 0; i < 50; i++)
 				{
-					int dust = Dust.NewDust(NPC.position, NPC.width, NPC.height, 6);
+					int dust = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch);
 					Main.dust[dust].scale = 1.5f;
 					Main.dust[dust].noGravity = true;
 					Main.dust[dust].velocity *= 0f;
@@ -171,7 +171,7 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss;
 			{
 				for (int i = 0; i < 50; i++)
 				{
-					int dust = Dust.NewDust(NPC.position, NPC.width, NPC.height, 6);
+					int dust = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch);
 					Main.dust[dust].scale = 1.5f;
 					Main.dust[dust].noGravity = true;
 					Main.dust[dust].velocity *= 0f;
@@ -186,7 +186,7 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss;
 			{
 				for (int i = 0; i < 50; i++)
 				{
-					int dust = Dust.NewDust(NPC.position, NPC.width, NPC.height, 6);
+					int dust = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch);
 					Main.dust[dust].scale = 1.5f;
 					Main.dust[dust].noGravity = true;
 					Main.dust[dust].velocity *= 0f;
@@ -201,7 +201,7 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss;
 			{
 				for (int i = 0; i < 50; i++)
 				{
-					int dust = Dust.NewDust(NPC.position, NPC.width, NPC.height, 6);
+					int dust = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch);
 					Main.dust[dust].scale = 1.5f;
 					Main.dust[dust].noGravity = true;
 					Main.dust[dust].velocity *= 0f;
@@ -216,7 +216,7 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss;
 			{
 				for (int i = 0; i < 50; i++)
 				{
-					int dust = Dust.NewDust(NPC.position, NPC.width, NPC.height, 6);
+					int dust = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch);
 					Main.dust[dust].scale = 1.5f;
 					Main.dust[dust].noGravity = true;
 					Main.dust[dust].velocity *= 0f;

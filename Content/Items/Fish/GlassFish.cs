@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items.Fish;
@@ -12,7 +13,7 @@ namespace TremorMod.Content.Items.Fish;
 			Item.width = 26;
 			Item.height = 26;
 			Item.uniqueStack = true;
-			Item.rare = -11;
+			Item.rare = ItemRarityID.Quest;
 		}
 
 		public override void SetStaticDefaults()

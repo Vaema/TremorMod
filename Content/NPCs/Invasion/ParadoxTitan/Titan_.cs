@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Event;
 
@@ -18,7 +19,7 @@ namespace TremorMod.Content.NPCs.Invasion.ParadoxTitan;
 		public static readonly int arenaWidth = (int)(1.3f * NPC.sWidth);
 		public override void SetDefaults()
 		{
-			NPC.aiStyle = 94;
+			NPC.aiStyle = NPCAIStyleID.CelestialPillar;
 			NPC.lifeMax = 1;
 			NPC.dontTakeDamage = true;
 			NPC.defense = 15;
@@ -102,7 +103,7 @@ namespace TremorMod.Content.NPCs.Invasion.ParadoxTitan;
 
 		private void SetupCrystals(int radius, bool clockwise)
 		{
-			if (Main.netMode == 1)
+			if (Main.netMode == NetmodeID.MultiplayerClient)
 			{
 				return;
 			}

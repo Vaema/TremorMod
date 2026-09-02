@@ -14,7 +14,7 @@ namespace TremorMod.Content.Items.Armor.Chaos;
 			Item.width = 26;
 			Item.height = 18;
 			Item.value = 6000;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.defense = 13;
 		}
 
@@ -35,7 +35,7 @@ namespace TremorMod.Content.Items.Armor.Chaos;
         recipe.AddIngredient(ModContent.ItemType<ChaosBar>(), 22);
         recipe.AddIngredient(ItemID.CrystalShard, 15);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

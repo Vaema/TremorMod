@@ -11,13 +11,13 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 		{
 			Item.width = 14;
 			Item.height = 28;
-			Item.rare = 7;
+			Item.rare = ItemRarityID.Lime;
 			Item.damage = 30;
 			Item.DamageType = DamageClass.Magic;
 			Item.mana = 12;
 			Item.useTime = 8;
 			Item.useAnimation = 8;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true;
 			Item.knockBack = 1;
 			Item.value = 270000;

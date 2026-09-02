@@ -23,7 +23,7 @@ namespace TremorMod.Content.Projectiles;
 			Projectile.width = 18;
 			Projectile.height = 28;
 			Projectile.friendly = true;
-			Projectile.aiStyle = 2;
+			Projectile.aiStyle = ProjAIStyleID.ThrownProjectile;
 			Projectile.timeLeft = 1200;
 			Projectile.penetrate = 1;
 		}
@@ -160,7 +160,7 @@ namespace TremorMod.Content.Projectiles;
             {
                 Vector2 vector2 = new Vector2(player.position.X + 75f * (float)Math.Cos(12), player.position.Y + 1075f * (float)Math.Sin(12));
                 Vector2 velocity = Helper.VelocityToPoint(vector2, Helper.RandomPointInArea(new Vector2(Projectile.Center.X - 10, Projectile.Center.Y - 10), new Vector2(Projectile.Center.X + 20, Projectile.Center.Y + 20)), 24);
-                int a = Projectile.NewProjectile(Projectile.GetSource_FromThis(), vector2, velocity, 134, Projectile.damage, Projectile.knockBack, Projectile.owner);
+                int a = Projectile.NewProjectile(Projectile.GetSource_FromThis(), vector2, velocity, ProjectileID.RocketI, Projectile.damage, Projectile.knockBack, Projectile.owner);
                 Main.projectile[a].friendly = true;
             }
         }

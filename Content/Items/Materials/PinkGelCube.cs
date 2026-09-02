@@ -12,7 +12,7 @@ namespace TremorMod.Content.Items.Materials;
 			Item.height = 24;
 			Item.maxStack = 9999;
 			Item.value = 60;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 		}
 
 		public override void SetStaticDefaults()
@@ -26,7 +26,7 @@ namespace TremorMod.Content.Items.Materials;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.PinkGel, 5);
 			//recipe.SetResult(this);
-			recipe.AddTile(13);
+			recipe.AddTile(TileID.Bottles);
 			recipe.Register();
 		}
 	}

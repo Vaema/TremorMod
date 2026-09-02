@@ -22,10 +22,10 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			Item.useAnimation = 20;
         Item.shoot = ModContent.ProjectileType<AlphaKnifePro>(); 
         Item.shootSpeed = 22f;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;
 			Item.value = 7;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
 		}
@@ -40,7 +40,7 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 		{
         Recipe recipe = CreateRecipe(75);
         recipe.AddIngredient(ModContent.ItemType<AlphaClaw>(), 1);
-			recipe.AddTile(14);
+			recipe.AddTile(TileID.Tables);
         recipe.Register();
     }
 	}

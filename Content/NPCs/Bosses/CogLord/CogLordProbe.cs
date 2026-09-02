@@ -23,7 +23,7 @@ namespace TremorMod.Content.NPCs.Bosses.CogLord;
         NPC.knockBackResist = 0f;
         NPC.width = 42;
         NPC.height = 42;
-        NPC.aiStyle = 14;
+        NPC.aiStyle = NPCAIStyleID.Bat;
         NPC.noGravity = true;
         NPC.noTileCollide = true;
 			NPC.HitSound = SoundID.NPCHit4;

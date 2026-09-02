@@ -17,10 +17,10 @@ namespace TremorMod.Content.Items.Tools;
 			Item.useTime = 12;
 			Item.useAnimation = 22;
 			Item.pick = 100;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 5;
 			Item.value = 600;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.useTurn = true;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
@@ -36,7 +36,7 @@ namespace TremorMod.Content.Items.Tools;
 		{
 			if (Main.rand.NextBool(5))
 			{
-				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 60);
+				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.RedTorch);
 			}
 		}
 
@@ -47,7 +47,7 @@ namespace TremorMod.Content.Items.Tools;
 			recipe.AddIngredient(ItemID.BonePickaxe, 1);
 			recipe.AddIngredient(ModContent.ItemType<PickaxeofBloom>(), 1);
 			recipe.AddIngredient(ItemID.DeathbringerPickaxe, 1);
-			recipe.AddTile(26);
+			recipe.AddTile(TileID.DemonAltar);
 			//recipe.SetResult(this);
 			recipe.Register();
 		}

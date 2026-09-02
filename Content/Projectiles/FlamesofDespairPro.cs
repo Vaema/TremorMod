@@ -15,7 +15,7 @@ public class FlamesofDespairPro : ModProjectile
     {
         Projectile.CloneDefaults(405);
 
-        AIType = 405;
+        AIType = ProjectileID.FlaironBubble;
         Projectile.friendly = true;
         Projectile.timeLeft = 150;
         Projectile.width = 18;
@@ -35,7 +35,7 @@ public class FlamesofDespairPro : ModProjectile
     {
         if (Main.rand.NextBool(3))
         {
-            Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 6, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
+            Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.Torch, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
         }
     }
 

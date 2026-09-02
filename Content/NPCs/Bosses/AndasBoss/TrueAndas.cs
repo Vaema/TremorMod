@@ -125,7 +125,7 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss;
 			{
 				for (int i = 0; i < 50; i++)
 				{
-					int dust = Dust.NewDust(NPC.position, NPC.width, NPC.height, 57);
+					int dust = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Enchanted_Gold);
 					Main.dust[dust].scale = 1.5f;
 				}
 				DoAndasShoot();
@@ -137,7 +137,7 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss;
 			{
 				for (int i = 0; i < 50; i++)
 				{
-					int dust = Dust.NewDust(NPC.position, NPC.width, NPC.height, 57);
+					int dust = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Enchanted_Gold);
 					Main.dust[dust].scale = 1.5f;
 				}
 				DoAndasShoot();
@@ -149,7 +149,7 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss;
 			{
 				for (int i = 0; i < 50; i++)
 				{
-					int dust = Dust.NewDust(NPC.position, NPC.width, NPC.height, 57);
+					int dust = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Enchanted_Gold);
 					Main.dust[dust].scale = 1.5f;
 				}
 
@@ -164,7 +164,7 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss;
 			{
 				for (int i = 0; i < 50; i++)
 				{
-					int dust = Dust.NewDust(NPC.position, NPC.width, NPC.height, 57);
+					int dust = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Enchanted_Gold);
 					Main.dust[dust].scale = 1.5f;
 				}
 				DoAndasShoot();
@@ -176,7 +176,7 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss;
 			{
 				for (int i = 0; i < 50; i++)
 				{
-					int dust = Dust.NewDust(NPC.position, NPC.width, NPC.height, 57);
+					int dust = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Enchanted_Gold);
 					Main.dust[dust].scale = 1.5f;
 				}
 

@@ -51,7 +51,7 @@ public class MeteorScepterPro : ModProjectile
 
         if (Main.rand.NextBool(8))
         {
-            Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 41, Projectile.velocity.X * 0.9f, Projectile.velocity.Y * 0.9f);
+            Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.GlowingMushroom, Projectile.velocity.X * 0.9f, Projectile.velocity.Y * 0.9f);
         }
 
         Player player = Main.player[Projectile.owner];

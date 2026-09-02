@@ -16,14 +16,14 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			Item.height = 20;
 			Item.useTime = 15;
 			Item.useAnimation = 15;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true;
 			Item.knockBack = 6;
 			Item.value = 10000;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item11;
 			Item.autoReuse = true;
-			Item.shoot = 10;
+			Item.shoot = ProjectileID.PurificationPowder;
 			Item.shootSpeed = 12f;
 			Item.useAmmo = AmmoID.Bullet;
 		}
@@ -44,7 +44,7 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
         Recipe recipe = CreateRecipe();
         recipe.AddIngredient(ItemID.AdamantiteBar, 15);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
         recipe.Register();
     }
 	}

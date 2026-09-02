@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Projectiles;
@@ -11,7 +12,7 @@ namespace TremorMod.Content.Projectiles;
 
 			Projectile.width = 22;
 			Projectile.height = 22;
-			Projectile.aiStyle = 20;
+			Projectile.aiStyle = ProjAIStyleID.Drill;
 			Projectile.friendly = true;
 			Projectile.penetrate = -1;
 			Projectile.tileCollide = false;
@@ -27,7 +28,7 @@ namespace TremorMod.Content.Projectiles;
 
 		public override void AI()
 		{
-			int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 59, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100, default(Color), 1.6f);
+			int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.BlueTorch, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100, default(Color), 1.6f);
 			Main.dust[dust].noGravity = true;
 		}
 
@@ -35,7 +36,7 @@ namespace TremorMod.Content.Projectiles;
 		{
 			if (Main.rand.Next(10) == 0)
 			{
-				target.AddBuff(44, 60, false);
+				target.AddBuff(BuffID.Frostburn, 60, false);
 			}
 		}
 	}

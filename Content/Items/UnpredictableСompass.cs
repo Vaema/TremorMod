@@ -16,11 +16,11 @@ namespace TremorMod.Content.Items;
 
 			Item.useTime = 30;
 			Item.useAnimation = 30;
-			Item.useStyle = 4;
+			Item.useStyle = ItemUseStyleID.HoldUp;
 			Item.knockBack = 0;
-			Item.shoot = 1;
+			Item.shoot = ProjectileID.WoodenArrowFriendly;
 			Item.value = 240000;
-			Item.rare = 9;
+			Item.rare = ItemRarityID.Cyan;
 			Item.expert = true;
 			Item.UseSound = SoundID.Item6;
 		}

@@ -8,11 +8,11 @@ namespace TremorMod.Content.Items.Buffs;
 	{
 		public override void SetDefaults()
 		{
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.maxStack = 1;
 			Item.useAnimation = 20;
 			Item.useTime = 20;
-			Item.useStyle = 2;
+			Item.useStyle = ItemUseStyleID.EatFood;
 			Item.potion = true;
 			Item.healLife = 100;
 			Item.UseSound = SoundID.Item3;

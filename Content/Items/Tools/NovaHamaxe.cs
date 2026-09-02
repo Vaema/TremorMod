@@ -18,10 +18,10 @@ namespace TremorMod.Content.Items.Tools;
 			Item.useAnimation = 27;
 			Item.axe = 20;
 			Item.hammer = 150;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 5;
 			Item.value = 50000;
-			Item.rare = 10;
+			Item.rare = ItemRarityID.Red;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 			Item.tileBoost += 4;
@@ -40,8 +40,8 @@ namespace TremorMod.Content.Items.Tools;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<NovaFragment>(), 14);
-			recipe.AddIngredient(3467, 12);
-			recipe.AddTile(412);
+			recipe.AddIngredient(ItemID.LunarBar, 12);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			//recipe.SetResult(this);
 			recipe.Register();
 		}

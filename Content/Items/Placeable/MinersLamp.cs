@@ -17,8 +17,8 @@ namespace TremorMod.Content.Items.Placeable;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 15;
-			Item.useStyle = 1;
-			Item.rare = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
+			Item.rare = ItemRarityID.Blue;
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.createTile = ModContent.TileType<MinersLampTile>();
@@ -37,7 +37,7 @@ namespace TremorMod.Content.Items.Placeable;
 			recipe.AddIngredient(ModContent.ItemType<SteelBar>(), 4);
 			recipe.AddIngredient(ModContent.ItemType<Charcoal>(), 4);
 			//recipe.SetResult(this);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

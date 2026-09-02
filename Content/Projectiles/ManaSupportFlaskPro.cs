@@ -21,7 +21,7 @@ namespace TremorMod.Content.Projectiles;
 			Projectile.width = 18;
 			Projectile.height = 28;
 			Projectile.friendly = true;
-			Projectile.aiStyle = 2;
+			Projectile.aiStyle = ProjAIStyleID.ThrownProjectile;
 			Projectile.timeLeft = 1200;
 		}
     public override void OnKill(int timeLeft)

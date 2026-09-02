@@ -14,7 +14,7 @@ namespace TremorMod.Content.Items.Armor.Raven;
 			Item.width = 18;
 			Item.height = 18;
 			Item.value = 10000;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.defense = 9;
 		}
 
@@ -38,7 +38,7 @@ namespace TremorMod.Content.Items.Armor.Raven;
 			recipe.AddIngredient(ItemID.IronBar, 7);
         recipe.AddIngredient(ModContent.ItemType<RavenFeather>(), 10);
         //recipe.SetResult(this);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
         recipe.Register();
 
         Recipe recipe1 = CreateRecipe();
@@ -46,7 +46,7 @@ namespace TremorMod.Content.Items.Armor.Raven;
 			recipe1.AddIngredient(ItemID.LeadBar, 7);
         recipe1.AddIngredient(ModContent.ItemType<RavenFeather>(), 12);
         //recipe.SetResult(this);
-			recipe1.AddTile(16);
+			recipe1.AddTile(TileID.Anvils);
         recipe1.Register();
     }
 	}

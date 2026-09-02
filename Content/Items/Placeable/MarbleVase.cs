@@ -14,13 +14,13 @@ namespace TremorMod.Content.Items.Placeable;
 			Item.height = 22;
 			Item.maxStack = 9999;
 			Item.value = 100;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.createTile = ModContent.TileType<MarbleVaseTile>();
 			Item.useTurn = true;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 		}
 
@@ -34,7 +34,7 @@ namespace TremorMod.Content.Items.Placeable;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.MarbleBlock, 10);
-			recipe.AddTile(17);
+			recipe.AddTile(TileID.Furnaces);
 			recipe.Register();
 		}
 	}

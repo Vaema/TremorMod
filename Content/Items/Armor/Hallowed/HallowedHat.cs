@@ -15,7 +15,7 @@ namespace TremorMod.Content.Items.Armor.Hallowed;
 			Item.width = 24;
 			Item.height = 24;
 			Item.value = 400;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.defense = 9;
 		}
 
@@ -33,7 +33,7 @@ namespace TremorMod.Content.Items.Armor.Hallowed;
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == 551 && legs.type == 552;
+			return body.type == ItemID.HallowedPlateMail && legs.type == ItemID.HallowedGreaves;
 		}
 
 		public override void UpdateArmorSet(Player player)
@@ -53,7 +53,7 @@ namespace TremorMod.Content.Items.Armor.Hallowed;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.HallowedBar, 12);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

@@ -15,7 +15,7 @@ namespace TremorMod.Content.Projectiles;
 			Projectile.scale = 1.5f;
 			Projectile.width = 14;
 			Projectile.height = 14;
-			Projectile.aiStyle = 1;
+			Projectile.aiStyle = ProjAIStyleID.Arrow;
 			Projectile.light = 0.5f;
 			Projectile.damage = 50;
 			Projectile.friendly = true;
@@ -23,7 +23,7 @@ namespace TremorMod.Content.Projectiles;
 			Projectile.DamageType = DamageClass.Magic;
 			Projectile.ignoreWater = true;
 			Projectile.tileCollide = false;
-			AIType = 598;
+			AIType = ProjectileID.BoneJavelin;
 		}
 
     public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)

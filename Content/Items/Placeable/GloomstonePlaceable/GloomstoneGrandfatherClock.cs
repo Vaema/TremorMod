@@ -17,8 +17,8 @@ namespace TremorMod.Content.Items.Placeable.GloomstonePlaceable;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 15;
-			Item.useStyle = 1;
-			Item.rare = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
+			Item.rare = ItemRarityID.Blue;
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.createTile = ModContent.TileType<GloomstoneGrandfatherClockTile>();
@@ -37,7 +37,7 @@ namespace TremorMod.Content.Items.Placeable.GloomstonePlaceable;
 			recipe.AddIngredient(ItemID.Glass, 6);
 			recipe.AddIngredient(ModContent.ItemType<Gloomstone>(), 10);
 			//recipe.SetResult(this);
-			recipe.AddTile(17);
+			recipe.AddTile(TileID.Furnaces);
 			recipe.Register();
 
 			Recipe recipe1 = CreateRecipe();
@@ -45,7 +45,7 @@ namespace TremorMod.Content.Items.Placeable.GloomstonePlaceable;
 			recipe1.AddIngredient(ItemID.Glass, 6);
 			recipe1.AddIngredient(ModContent.ItemType<Gloomstone>(), 10);
 			//recipe.SetResult(this);
-			recipe1.AddTile(17);
+			recipe1.AddTile(TileID.Furnaces);
 			recipe1.Register();
 		}
 	}

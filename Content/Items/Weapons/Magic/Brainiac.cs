@@ -20,10 +20,10 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.mana = 8;
 			Item.shoot = ModContent.ProjectileType<BrainiacWavePro>();
 			Item.shootSpeed = 5f;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 4;
 			Item.value = 325000;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.UseSound = SoundID.Item114;
 			Item.autoReuse = false;
 		}
@@ -46,7 +46,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			recipe.AddIngredient(ModContent.ItemType<AtisBlood>(), 15);
 			recipe.AddIngredient(ModContent.ItemType<DrippingRoot>(), 20);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 

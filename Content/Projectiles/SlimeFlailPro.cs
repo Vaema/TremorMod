@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Projectiles;
@@ -17,7 +18,7 @@ namespace TremorMod.Content.Projectiles;
 			Projectile.penetrate = -1; // Penetrates NPCs infinitely.
 			Projectile.DamageType = DamageClass.Melee; // Deals melee dmg.
 
-			Projectile.aiStyle = 15; // Set the aiStyle to that of a flail.
+			Projectile.aiStyle = ProjAIStyleID.Flail; // Set the aiStyle to that of a flail.
 		}
 
 		public override void SetStaticDefaults()

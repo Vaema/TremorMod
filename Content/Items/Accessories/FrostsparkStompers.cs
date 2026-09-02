@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items.Accessories; 
@@ -10,7 +11,7 @@ namespace TremorMod.Content.Items.Accessories;
 			Item.width = 26;
 			Item.height = 20;
 			Item.value = 110000;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.accessory = true;
 		}
 
@@ -34,10 +35,10 @@ namespace TremorMod.Content.Items.Accessories;
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(5000, 1); // Âìåñòî 1862
+			recipe.AddIngredient(ItemID.TerrasparkBoots, 1); // Âìåñòî 1862
         recipe.AddIngredient(ModContent.ItemType<RockStompers>(), 1);
 			//recipe.SetResult(this);
-			recipe.AddTile(114);
+			recipe.AddTile(TileID.TinkerersWorkbench);
 			recipe.Register();
 		}
 	}

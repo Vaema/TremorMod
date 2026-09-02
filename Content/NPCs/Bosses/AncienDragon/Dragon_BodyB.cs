@@ -24,9 +24,9 @@ namespace TremorMod.Content.NPCs.Bosses.AncienDragon;
 			NPC.defense = 12;
 			NPC.lifeMax = 3100;
 			NPC.damage = 28;
-			NPC.aiStyle = 6;
+			NPC.aiStyle = NPCAIStyleID.Worm;
 			AIType = -1;
-			AnimationType = 10;
+			AnimationType = NPCID.GiantWormHead;
 			NPC.knockBackResist = 1f;
 
 			NPC.value = Item.buyPrice(0, 25, 0, 0);

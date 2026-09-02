@@ -22,9 +22,9 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.1f;
 			NPC.width = 58;
 			NPC.height = 36;
-			AnimationType = 347;
-			NPC.aiStyle = 62;
-			AIType = 347;
+			AnimationType = NPCID.ElfCopter;
+			NPC.aiStyle = NPCAIStyleID.ElfCopter;
+			AIType = NPCID.ElfCopter;
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
 			NPC.npcSlots = 3f;
@@ -42,7 +42,7 @@ namespace TremorMod.Content.NPCs;
         if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 6, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 61, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 61, 1f);

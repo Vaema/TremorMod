@@ -16,7 +16,7 @@ namespace TremorMod.Content.Items.Materials;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.createTile = ModContent.TileType<CoalBlock>();
 		}
@@ -32,7 +32,7 @@ namespace TremorMod.Content.Items.Materials;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Wood, 5);
 			//recipe.SetResult(this);
-			recipe.AddTile(17);
+			recipe.AddTile(TileID.Furnaces);
 			recipe.Register();
 		}
 	}

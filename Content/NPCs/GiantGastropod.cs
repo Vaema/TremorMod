@@ -23,9 +23,9 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.1f;
 			NPC.width = 40;
 			NPC.height = 40;
-			AnimationType = 122;
-			NPC.aiStyle = 22;
-			AIType = 122;
+			AnimationType = NPCID.Gastropod;
+			NPC.aiStyle = NPCAIStyleID.HoveringFighter;
+			AIType = NPCID.Gastropod;
 			NPC.noGravity = true;
 			NPC.npcSlots = 0.5f;
 			NPC.HitSound = SoundID.NPCHit1;
@@ -43,7 +43,7 @@ namespace TremorMod.Content.NPCs;
 		public override void AI()
 		{
 			if (Main.rand.NextBool(4))
-				Main.dust[Dust.NewDust(NPC.position, NPC.width, NPC.height, 72, 0f, 0f, 200, NPC.color)].velocity *= 0.3f;
+				Main.dust[Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Gastropod, 0f, 0f, 200, NPC.color)].velocity *= 0.3f;
 		}
 
 		public override void OnKill()
@@ -60,17 +60,17 @@ namespace TremorMod.Content.NPCs;
 
         if (NPC.life <= 0)
 			{
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 72, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 72, 2.5f * hitDirection, -2.5f, 0, default(Color), 2.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 72, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Gastropod, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Gastropod, 2.5f * hitDirection, -2.5f, 0, default(Color), 2.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Gastropod, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
 				/*for(int i = 0; i < 2; ++i)
 				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot($"Gores/GGGore{i+1}"), 1f);*/
 
 				for (int k = 0; k < 20; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 72, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 72, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.6f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Gastropod, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Gastropod, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.6f);
 				}
 			}
 		}

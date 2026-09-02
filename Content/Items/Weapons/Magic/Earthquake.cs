@@ -18,11 +18,11 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.useAnimation = 12;
 			Item.shootSpeed = 15f;
 			Item.mana = 8;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.shoot = ModContent.ProjectileType<EarthquakePro>();
 			Item.knockBack = 3;
 			Item.value = 10000;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
 		}
@@ -41,7 +41,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			recipe.AddIngredient(ModContent.ItemType<EarthFragment>(), 14);
 			recipe.AddIngredient(ModContent.ItemType<SeaFragment>(), 10);
 			//recipe.SetResult(this);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

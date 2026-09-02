@@ -19,12 +19,12 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.useTime = 20;
 			Item.mana = 9;
 			Item.useAnimation = 50;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.shootSpeed = 10f;
 			Item.staff[Item.type] = true;
 			Item.knockBack = 3;
 			Item.value = 10000;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.UseSound = SoundID.Item9;
 			Item.autoReuse = true;
 		}
@@ -47,7 +47,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			recipe.AddIngredient(ItemID.Wood, 16);
 			recipe.AddIngredient(ItemID.IronBar, 6);
 			recipe.AddIngredient(ItemID.Goldfish, 3);
-			recipe.AddTile(18);
+			recipe.AddTile(TileID.WorkBenches);
 			//recipe.SetResult(this);
 			recipe.Register();
 
@@ -55,7 +55,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			recipe1.AddIngredient(ItemID.Wood, 16);
 			recipe1.AddIngredient(ItemID.LeadBar, 6);
 			recipe1.AddIngredient(ItemID.Goldfish, 3);
-			recipe1.AddTile(18);
+			recipe1.AddTile(TileID.WorkBenches);
 			//recipe1.SetResult(this);
 			recipe1.Register();
 		}

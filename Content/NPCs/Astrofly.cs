@@ -26,8 +26,8 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.2f;
 			NPC.width = 56;
 			NPC.height = 12;
-			AnimationType = 156;
-			NPC.aiStyle = 22;
+			AnimationType = NPCID.RedDevil;
+			NPC.aiStyle = NPCAIStyleID.HoveringFighter;
 			NPC.npcSlots = 15f;
 			NPC.noTileCollide = true;
 			NPC.noGravity = true;
@@ -51,8 +51,8 @@ namespace TremorMod.Content.NPCs;
         {
             for (int k = 0; k < 20; k++)
             {
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, 59, 2.5f * hit.HitDirection, -2.5f, 0, default(Color), 0.7f);
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, 27, 2.5f * hit.HitDirection, -2.5f, 0, default(Color), 0.7f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.BlueTorch, 2.5f * hit.HitDirection, -2.5f, 0, default(Color), 0.7f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Shadowflame, 2.5f * hit.HitDirection, -2.5f, 0, default(Color), 0.7f);
             }
 
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AstroflyGore1").Type, 1f);
@@ -66,7 +66,7 @@ namespace TremorMod.Content.NPCs;
             int dustAmount = (int)(hit.Damage / (float)NPC.lifeMax * 50.0f); // Êîëè÷åñòâî ïûëè â çàâèñèìîñòè îò óðîíà
             for (int k = 0; k < dustAmount; k++)
             {
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, 59, hit.HitDirection, -1f, 0, default(Color), 0.7f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.BlueTorch, hit.HitDirection, -1f, 0, default(Color), 0.7f);
             }
         }
     }

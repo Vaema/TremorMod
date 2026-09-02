@@ -11,7 +11,7 @@ namespace TremorMod.Content.Items.Vanity;
 		{
 			Item.width = 26;
 			Item.height = 24;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 		}
 
 		public override void SetStaticDefaults()
@@ -27,7 +27,7 @@ namespace TremorMod.Content.Items.Vanity;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Vine, 3);
 			//recipe.SetResult(this);
-			recipe.AddTile(18);
+			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
 		}
 	}

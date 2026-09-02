@@ -91,7 +91,7 @@ namespace TremorMod;
 		public int zellariumCooldown;
 		public override void PreUpdateBuffs()
 		{
-			if (Main.netMode != 1)
+			if (Main.netMode != NetmodeID.MultiplayerClient)
 			{
 				if (Player.chest == -1 && LastChest >= 0 && Main.chest[LastChest] != null)
 				{
@@ -212,7 +212,7 @@ namespace TremorMod;
 						zellariumDash = 15;
 						for (int num22 = 0; num22 < 100; num22++)
 						{
-							int num23 = Dust.NewDust(new Vector2(Player.position.X, Player.position.Y), Player.width, Player.height, 59, 0f, 0f, 100, default(Color), 2f);
+							int num23 = Dust.NewDust(new Vector2(Player.position.X, Player.position.Y), Player.width, Player.height, DustID.BlueTorch, 0f, 0f, 100, default(Color), 2f);
 							Dust dust3 = Main.dust[num23];
 							dust3.position.X = dust3.position.X + Main.rand.Next(-5, 6);
 							Dust dust4 = Main.dust[num23];
@@ -233,11 +233,11 @@ namespace TremorMod;
 					int num14;
 					if (Player.velocity.Y == 0f)
 					{
-						num14 = Dust.NewDust(new Vector2(Player.position.X, Player.position.Y + Player.height - 4f), Player.width, 8, 59, 0f, 0f, 100, default(Color), 1.4f);
+						num14 = Dust.NewDust(new Vector2(Player.position.X, Player.position.Y + Player.height - 4f), Player.width, 8, DustID.BlueTorch, 0f, 0f, 100, default(Color), 1.4f);
 					}
 					else
 					{
-						num14 = Dust.NewDust(new Vector2(Player.position.X, Player.position.Y + (Player.height / 2) - 8f), Player.width, 16, 59, 0f, 0f, 100, default(Color), 1.4f);
+						num14 = Dust.NewDust(new Vector2(Player.position.X, Player.position.Y + (Player.height / 2) - 8f), Player.width, 16, DustID.BlueTorch, 0f, 0f, 100, default(Color), 1.4f);
 					}
 					Main.dust[num14].velocity *= 0.1f;
 					Main.dust[num14].scale *= 1f + Main.rand.Next(20) * 0.01f;
@@ -565,7 +565,7 @@ namespace TremorMod;
 
     public static bool ChestItemSummonCheck(int x, int y, Mod mod)
     {
-        if (Main.netMode == 1) return false;
+        if (Main.netMode == NetmodeID.MultiplayerClient) return false;
 
         int num = Chest.FindChest(x, y);
         if (num < 0) return false;
@@ -581,7 +581,7 @@ namespace TremorMod;
         {
             for (int i = 0; i < 40; i++)
             {
-                if (Main.chest[num].item[i] != null && Main.chest[num].item[i].type > 0)
+                if (Main.chest[num].item[i] != null && Main.chest[num].item[i].type > ItemID.None)
                 {
                     if (Main.chest[num].item[i].type == ModContent.ItemType<KeyofSands>())
                         numberDesertKey += Main.chest[num].item[i].stack;
@@ -616,7 +616,7 @@ namespace TremorMod;
                 for (int l = 0; l < 40; l++)
                     Main.chest[number].item[l] = new Item();
                 Chest.DestroyChest(x, y);
-                NetMessage.SendData(34, -1, -1, null, 1, x, y, 0f, number, 0, 0);
+                NetMessage.SendData(MessageID.ChestUpdates, -1, -1, null, 1, x, y, 0f, number, 0, 0);
                 NetMessage.SendTileSquare(-1, x, y, 3);
             }
             int npcToSpawn = ModContent.NPCType<DesertMimic>();
@@ -633,7 +633,7 @@ namespace TremorMod;
                 255
             );
             Main.npc[npcIndex].whoAmI = npcIndex;
-            NetMessage.SendData(23, -1, -1, null, npcIndex, 0f, 0f, 0f, 0, 0, 0);
+            NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, npcIndex, 0f, 0f, 0f, 0, 0, 0);
             Main.npc[npcIndex].BigMimicSpawnSmoke();
         }
         else if (numberOtherItems == 0 && numberJungleKey == 1)
@@ -661,7 +661,7 @@ namespace TremorMod;
                     Main.chest[number].item[l] = new Item(); // Î÷èùàåì ñóíäóê
 
                 Chest.DestroyChest(x, y);
-                NetMessage.SendData(34, -1, -1, null, 1, x, y, 0f, number, 0, 0);
+                NetMessage.SendData(MessageID.ChestUpdates, -1, -1, null, 1, x, y, 0f, number, 0, 0);
                 NetMessage.SendTileSquare(-1, x, y, 3);
             }
 
@@ -679,7 +679,7 @@ namespace TremorMod;
                 255
             );
             Main.npc[npcIndex].whoAmI = npcIndex;
-            NetMessage.SendData(23, -1, -1, null, npcIndex, 0f, 0f, 0f, 0, 0, 0);
+            NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, npcIndex, 0f, 0f, 0f, 0, 0, 0);
             Main.npc[npcIndex].BigMimicSpawnSmoke();
         }
         else if (numberOtherItems == 0 && numberOceanKey == 1)
@@ -707,7 +707,7 @@ namespace TremorMod;
                     Main.chest[number].item[l] = new Item();
 
                 Chest.DestroyChest(x, y);
-                NetMessage.SendData(34, -1, -1, null, 1, x, y, 0f, number, 0, 0);
+                NetMessage.SendData(MessageID.ChestUpdates, -1, -1, null, 1, x, y, 0f, number, 0, 0);
                 NetMessage.SendTileSquare(-1, x, y, 3);
             }
 
@@ -725,7 +725,7 @@ namespace TremorMod;
                 255
             );
             Main.npc[npcIndex].whoAmI = npcIndex;
-            NetMessage.SendData(23, -1, -1, null, npcIndex, 0f, 0f, 0f, 0, 0, 0);
+            NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, npcIndex, 0f, 0f, 0f, 0, 0, 0);
             Main.npc[npcIndex].BigMimicSpawnSmoke();
         }
         return false;

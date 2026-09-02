@@ -20,10 +20,10 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			Item.useAnimation = 20;
 			Item.shoot = ModContent.ProjectileType<LostTurtleKnifePro>();
 			Item.shootSpeed = 22f;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;
 			Item.value = 11;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 		}

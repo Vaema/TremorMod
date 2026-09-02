@@ -14,7 +14,7 @@ namespace TremorMod.Content.Items.Armor.Brass;
 			Item.width = 22;
 			Item.height = 18;
 			Item.value = 500;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.defense = 4;
 		}
 
@@ -35,7 +35,7 @@ namespace TremorMod.Content.Items.Armor.Brass;
         recipe.AddIngredient(ModContent.ItemType<BrassBar>(), 15);
 			recipe.AddIngredient(ItemID.Cog, 14);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

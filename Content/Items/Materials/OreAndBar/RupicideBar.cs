@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles;
 
@@ -13,13 +14,13 @@ namespace TremorMod.Content.Items.Materials.OreAndBar;
 			Item.height = 24;
 			Item.maxStack = 9999;
 			Item.value = 100;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.createTile = ModContent.TileType<RupicideBarTile>();
 			Item.useTurn = true;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 		}
 
@@ -34,7 +35,7 @@ namespace TremorMod.Content.Items.Materials.OreAndBar;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<Rupicide>(), 4);
 			//recipe.SetResult(this);
-			recipe.AddTile(17);
+			recipe.AddTile(TileID.Furnaces);
 			recipe.Register();
 		}
 	}

@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 using Terraria.Localization;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.Armor.Argite;
 
@@ -17,7 +18,7 @@ namespace TremorMod.Content.Items.Armor.Argite;
 			Item.width = 38;
 			Item.height = 22;
 			Item.value = 15000;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.defense = 6;
 		}
 
@@ -48,7 +49,7 @@ namespace TremorMod.Content.Items.Armor.Argite;
 			{
 				for (int k = 0; k < 2; k++)
 				{
-					int index = Dust.NewDust(new Vector2(player.position.X - player.velocity.X * 2f, player.position.Y - 2f - player.velocity.Y * 2f), player.width, player.height, 44, 0f, 0f, 100, default(Color), 2f);
+					int index = Dust.NewDust(new Vector2(player.position.X - player.velocity.X * 2f, player.position.Y - 2f - player.velocity.Y * 2f), player.width, player.height, DustID.JungleSpore, 0f, 0f, 100, default(Color), 2f);
 					Main.dust[index].noGravity = true;
 					Main.dust[index].noLight = true;
 					Dust dust = Main.dust[index];
@@ -63,7 +64,7 @@ namespace TremorMod.Content.Items.Armor.Argite;
         Recipe recipe = CreateRecipe();
         recipe.AddIngredient(ModContent.ItemType<ArgiteBar>(), 15);
         //recipe.SetResult(this);
-        recipe.AddTile(16);
+        recipe.AddTile(TileID.Anvils);
         recipe.Register();
     }
 }

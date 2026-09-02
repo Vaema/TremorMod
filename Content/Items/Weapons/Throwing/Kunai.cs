@@ -20,10 +20,10 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			Item.useAnimation = 19;
 			Item.shoot = ModContent.ProjectileType<KunaiPro>();
 			Item.shootSpeed = 15f;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;
 			Item.value = 60;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 		}

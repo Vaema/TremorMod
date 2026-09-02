@@ -14,10 +14,10 @@ namespace TremorMod.Content.Items.BossSumonItems;
 			Item.height = 20;
 			Item.maxStack = 20;
 			Item.value = 10000;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.useAnimation = 30;
 			Item.useTime = 30;
-			Item.useStyle = 4;
+			Item.useStyle = ItemUseStyleID.HoldUp;
 			Item.consumable = true;
 		}
 
@@ -47,7 +47,7 @@ namespace TremorMod.Content.Items.BossSumonItems;
 			recipe.AddIngredient(ItemID.Vine, 5);
 			recipe.AddIngredient(ItemID.Stinger, 5);
 			//recipe.SetResult(this);
-			recipe.AddTile(26);
+			recipe.AddTile(TileID.DemonAltar);
 			recipe.Register();
 		}
 	}

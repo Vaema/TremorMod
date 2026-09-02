@@ -17,10 +17,10 @@ namespace TremorMod.Content.Items.BossSumonItems;
 			Item.height = 24;
 			Item.maxStack = 20;
 			Item.value = 100;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.useAnimation = 15;
 			Item.useTime = 15;
-			Item.useStyle = 4;
+			Item.useStyle = ItemUseStyleID.HoldUp;
 			Item.consumable = true;
 
 		}
@@ -44,7 +44,7 @@ namespace TremorMod.Content.Items.BossSumonItems;
 			recipe.AddIngredient(ModContent.ItemType<Gloomstone>(), 8);
 			recipe.AddIngredient(ItemID.StoneBlock, 10);
 			recipe.AddIngredient(ItemID.Sapphire, 12);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 

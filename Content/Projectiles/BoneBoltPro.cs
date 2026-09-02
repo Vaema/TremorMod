@@ -13,7 +13,7 @@ namespace TremorMod.Content.Projectiles;
 			Projectile.width = 6;
 			Projectile.height = 6;
 			Projectile.friendly = true;
-			Projectile.aiStyle = 1;
+			Projectile.aiStyle = ProjAIStyleID.Arrow;
 			Projectile.timeLeft = 1200;
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 3;
 			ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
@@ -29,7 +29,7 @@ namespace TremorMod.Content.Projectiles;
 		{
 			for (int k = 0; k < 5; k++)
 			{
-				int dust = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 26, Projectile.oldVelocity.X * 0.7f, Projectile.oldVelocity.Y * 0.7f);
+				int dust = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.Bone, Projectile.oldVelocity.X * 0.7f, Projectile.oldVelocity.Y * 0.7f);
 			}
 			SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
 		}

@@ -15,15 +15,15 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			Item.height = 32;
 			Item.useTime = 30;
 		    Item.DamageType = DamageClass.Ranged;
-			Item.shoot = 1;
+			Item.shoot = ProjectileID.WoodenArrowFriendly;
 			Item.shootSpeed = 12f;
 			Item.useAnimation = 28;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useTime = 28;
 			Item.knockBack = 5;
 			Item.value = 250;
 			Item.useAmmo = AmmoID.Arrow;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.UseSound = SoundID.Item5;
 			Item.autoReuse = false;
 		}
@@ -38,7 +38,7 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 		{
 		    Recipe recipe = CreateRecipe();
         recipe.AddIngredient(ModContent.ItemType<InvarBar>(), 7);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 		    //recipe.SetResult(this);
 			recipe.Register();
 		}

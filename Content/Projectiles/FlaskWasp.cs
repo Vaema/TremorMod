@@ -16,7 +16,7 @@ public class FlaskWasp : ModProjectile
     {
         Projectile.netImportant = true;
         Projectile.CloneDefaults(388); // Êëîíèðóåì ïîâåäåíèå ñíàðÿäà ID 388 (Hornet)
-        AIType = 388; // Èñïîëüçóåì òó æå ëîãèêó AI
+        AIType = ProjectileID.Spazmamini; // Èñïîëüçóåì òó æå ëîãèêó AI
         Projectile.width = 40;
         Projectile.height = 36;
         Projectile.friendly = true;

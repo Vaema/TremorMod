@@ -22,8 +22,8 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.5f;
 			NPC.width = 40;
 			NPC.height = 40;
-			AnimationType = 121;
-			NPC.aiStyle = 14;
+			AnimationType = NPCID.Slimer;
+			NPC.aiStyle = NPCAIStyleID.Bat;
 			NPC.noGravity = true;
 			NPC.npcSlots = 0.7f;
 			NPC.HitSound = SoundID.NPCHit1;
@@ -41,7 +41,7 @@ namespace TremorMod.Content.NPCs;
 				int hitDirection = NPC.direction;
 
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SeaSnail, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
 			}
 		}

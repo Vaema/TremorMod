@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items.Accessories;
@@ -11,7 +12,7 @@ namespace TremorMod.Content.Items.Accessories;
 			Item.width = 24;
 			Item.height = 28;
 			Item.value = 150000;
-			Item.rare = 6;
+			Item.rare = ItemRarityID.LightPurple;
 			Item.accessory = true;
 			Item.defense = 1;
 		}
@@ -70,7 +71,7 @@ namespace TremorMod.Content.Items.Accessories;
 			recipe.AddIngredient(ModContent.ItemType<ChaoticAmplifier>(), 1);
 			recipe.AddIngredient(ModContent.ItemType<Stigmata>(), 1);
 			//recipe.SetResult(this);
-			recipe.AddTile(114);
+			recipe.AddTile(TileID.TinkerersWorkbench);
 			recipe.Register();
 		}
 	}

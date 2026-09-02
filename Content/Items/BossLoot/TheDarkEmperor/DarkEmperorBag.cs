@@ -2,6 +2,7 @@
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using TremorMod.Content.Items.Weapons.Melee;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.BossLoot.TheDarkEmperor;
 
@@ -13,7 +14,7 @@ namespace TremorMod.Content.Items.BossLoot.TheDarkEmperor;
 			Item.consumable = true;
 			Item.width = 24;
 			Item.height = 24;
-			Item.rare = 9;
+			Item.rare = ItemRarityID.Cyan;
 			Item.expert = true;
 		}
 

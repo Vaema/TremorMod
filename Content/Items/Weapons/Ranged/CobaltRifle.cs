@@ -16,14 +16,14 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			Item.height = 20;
 			Item.useTime = 15;
 			Item.useAnimation = 15;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true;
 			Item.knockBack = 6;
 			Item.value = 10000;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.UseSound = SoundID.Item11;
 			Item.autoReuse = true;
-			Item.shoot = 10;
+			Item.shoot = ProjectileID.PurificationPowder;
 			Item.shootSpeed = 12f;
 			Item.useAmmo = AmmoID.Bullet;
 		}
@@ -42,7 +42,7 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.CobaltBar, 15);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

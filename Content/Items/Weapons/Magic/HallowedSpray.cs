@@ -19,10 +19,10 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.shootSpeed = 7.5f;
 			Item.mana = 6;
 			Item.noMelee = true;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 3;
 			Item.value = 99999;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item21;
 			Item.autoReuse = true;
 		}
@@ -39,7 +39,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			recipe.AddIngredient(ItemID.SpellTome, 1);
 			recipe.AddIngredient(ItemID.HallowedBar, 12);
 			//recipe.SetResult(this);
-			recipe.AddTile(101);
+			recipe.AddTile(TileID.Bookcases);
 			recipe.Register();
 		}
 	}

@@ -24,7 +24,7 @@ namespace TremorMod.Content.NPCs.Bosses.Motherboard;
 			NPC.knockBackResist = 0.5f;
 			NPC.width = 90;
 			NPC.height = 90;
-			NPC.aiStyle = 0;
+			NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
 			NPC.HitSound = SoundID.NPCHit4;
 			NPC.DeathSound = SoundID.NPCDeath14;
 		}

@@ -12,7 +12,7 @@ namespace TremorMod.Content.Projectiles;
 		{
 			Projectile.width = 28;
 			Projectile.height = 28;
-			Projectile.aiStyle = 27;
+			Projectile.aiStyle = ProjAIStyleID.Beam;
 			Projectile.friendly = true;
 			Projectile.DamageType = DamageClass.Melee;
 			Projectile.penetrate = 1;
@@ -26,7 +26,7 @@ namespace TremorMod.Content.Projectiles;
 		{
 			if (Main.rand.NextBool(3))
 			{
-				int dust2 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 59, 0f, 0f, 100, default(Color), 1f);
+				int dust2 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.BlueTorch, 0f, 0f, 100, default(Color), 1f);
 				Main.dust[dust2].noGravity = true;
 				Main.dust[dust2].velocity *= 0f;
 			}
@@ -70,7 +70,7 @@ namespace TremorMod.Content.Projectiles;
 		{
 			for (int k = 0; k < 5; k++)
 			{
-				int dust = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 59, Projectile.oldVelocity.X * 0.7f, Projectile.oldVelocity.Y * 0.7f);
+				int dust = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.BlueTorch, Projectile.oldVelocity.X * 0.7f, Projectile.oldVelocity.Y * 0.7f);
 			}
 		}
 
@@ -78,7 +78,7 @@ namespace TremorMod.Content.Projectiles;
 		{
 			for (int k = 0; k < 5; k++)
 			{
-				int dust = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 59, Projectile.oldVelocity.X * 0.7f, Projectile.oldVelocity.Y * 0.7f);
+				int dust = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.BlueTorch, Projectile.oldVelocity.X * 0.7f, Projectile.oldVelocity.Y * 0.7f);
 			}
 		}
 
@@ -86,7 +86,7 @@ namespace TremorMod.Content.Projectiles;
 		{
 			for (int k = 0; k < 5; k++)
 			{
-				int dust = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 59, Projectile.oldVelocity.X * 0.7f, Projectile.oldVelocity.Y * 0.7f);
+				int dust = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.BlueTorch, Projectile.oldVelocity.X * 0.7f, Projectile.oldVelocity.Y * 0.7f);
 				Projectile.Kill();
 			}
 			return true;

@@ -1,4 +1,5 @@
-﻿using Terraria.ModLoader;
+﻿using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items.Armor.Archer;
 
@@ -11,7 +12,7 @@ namespace TremorMod.Content.Items.Armor.Archer;
 			Item.width = 26;
 			Item.height = 18;
 			Item.value = 1000;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 		}
 
 		public override void SetStaticDefaults()

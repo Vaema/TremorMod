@@ -15,13 +15,13 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			Item.height = 34;
 			Item.useTime = 25;
 			Item.useAnimation = 25;
-			Item.shoot = 134;
+			Item.shoot = ProjectileID.RocketI;
 			Item.shootSpeed = 10f;
 			Item.useAmmo = AmmoID.Rocket;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 4;
 			Item.value = 750000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.UseSound = SoundID.Item11;
 			Item.autoReuse = true;
 		}

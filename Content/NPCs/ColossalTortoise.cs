@@ -25,9 +25,9 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.0f;
 			NPC.width = 146;
 			NPC.height = 86;
-			AnimationType = 21;
-			NPC.aiStyle = 3;
-			AIType = 28;
+			AnimationType = NPCID.Skeleton;
+			NPC.aiStyle = NPCAIStyleID.Fighter;
+			AIType = NPCID.GoblinWarrior;
 			NPC.npcSlots = 0.3f;
 			NPC.HitSound = SoundID.NPCHit24;
 			NPC.DeathSound = SoundID.NPCDeath10;
@@ -38,7 +38,7 @@ namespace TremorMod.Content.NPCs;
 		{
 			Lighting.AddLight(NPC.position, 1f, 0.3f, 0.3f);
 
-			if (Main.netMode != 1 && Main.rand.Next(750) == 0)
+			if (Main.netMode != NetmodeID.MultiplayerClient && Main.rand.Next(750) == 0)
 				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, NPCID.GiantTortoise);
 		}
 
@@ -56,9 +56,9 @@ namespace TremorMod.Content.NPCs;
 			{
 				for (int k = 0; k < 60; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 3, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 3, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 5, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GrassBlades, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GrassBlades, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				}
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ColossusTortoiseGore1").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ColossusTortoiseGore2").Type, 1f);
@@ -71,8 +71,8 @@ namespace TremorMod.Content.NPCs;
 			{
 				for (int k = 0; k < hit.Damage / NPC.lifeMax * 50; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 3, hitDirection, -2f, 0, default(Color), 0.7f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 5, hitDirection, -1f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GrassBlades, hitDirection, -2f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, hitDirection, -1f, 0, default(Color), 0.7f);
 				}
 			}
 		}

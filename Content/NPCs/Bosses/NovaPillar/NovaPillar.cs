@@ -29,7 +29,7 @@ public class NovaPillar : ModNPC
 
     public override void SetDefaults()
     {
-        NPC.aiStyle = 94;
+        NPC.aiStyle = NPCAIStyleID.CelestialPillar;
         NPC.lifeMax = 20000;
         NPC.damage = 0;
         NPC.defense = 20;

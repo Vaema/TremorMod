@@ -28,7 +28,7 @@ public class CogLordArmSecond : ModNPC
         NPC.knockBackResist = 0.5f;
         NPC.width = 112;
         NPC.height = 34;
-        NPC.aiStyle = 0;
+        NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
         NPC.noGravity = true;
         NPC.noTileCollide = true;
         NPC.dontTakeDamage = true;

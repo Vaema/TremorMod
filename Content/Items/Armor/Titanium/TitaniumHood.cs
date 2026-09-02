@@ -17,7 +17,7 @@ namespace TremorMod.Content.Items.Armor.Titanium;
 			Item.height = 24;
 
 			Item.value = 400;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.defense = 8;
 		}
 
@@ -35,7 +35,7 @@ namespace TremorMod.Content.Items.Armor.Titanium;
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == 1218 && legs.type == 1219;
+			return body.type == ItemID.TitaniumBreastplate && legs.type == ItemID.TitaniumLeggings;
 		}
 
 		public override void UpdateArmorSet(Player player)
@@ -56,7 +56,7 @@ namespace TremorMod.Content.Items.Armor.Titanium;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.TitaniumBar, 12);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

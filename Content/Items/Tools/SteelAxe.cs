@@ -17,10 +17,10 @@ namespace TremorMod.Content.Items.Tools;
 			Item.useTime = 17;
 			Item.useAnimation = 27;
 			Item.axe = 9;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;
 			Item.value = 600;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 		}
@@ -36,7 +36,7 @@ namespace TremorMod.Content.Items.Tools;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<SteelBar>(), 11);
 			recipe.AddIngredient(ItemID.Wood, 3);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

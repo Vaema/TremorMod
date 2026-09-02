@@ -21,10 +21,10 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			Item.useAnimation = 20;
 			Item.shoot = ModContent.ProjectileType<DevastatorPro>();
 			Item.shootSpeed = 19f;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;
 			Item.value = 70000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 		}
@@ -53,7 +53,7 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			recipe.AddIngredient(ModContent.ItemType<Doomstone>(), 10);
 			recipe.AddIngredient(ModContent.ItemType<DarkMatter>(), 100);
 			//recipe.SetResult(this);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

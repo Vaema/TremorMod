@@ -11,29 +11,29 @@ namespace TremorMod.Content.Biomes.Ice;
 		public override void SetStaticDefaults()
 		{
 			Main.wallHouse[Type] = false;
-			DustType = 80;
+			DustType = DustID.Ice;
         HitSound = SoundID.Item21;
 			AddMapEntry(new Color(50, 123, 179), CreateMapEntryName());
 		}
 
 		public override void RandomUpdate(int i, int j)
 		{
-			if (Main.tile[i - 1, j].WallType > 0 && CanGrow(i - 1, j))
+			if (Main.tile[i - 1, j].WallType > WallID.None && CanGrow(i - 1, j))
 			{
 				Main.tile[i - 1, j].WallType = (ushort)ModContent.WallType<IceWall>();
 			}
 
-			if (Main.tile[i + 1, j].WallType > 0 && CanGrow(i + 1, j))
+			if (Main.tile[i + 1, j].WallType > WallID.None && CanGrow(i + 1, j))
 			{
 				Main.tile[i + 1, j].WallType = (ushort)ModContent.WallType<IceWall>();
         }
 
-			if (Main.tile[i, j - 1].WallType > 0 && CanGrow(i, j - 1))
+			if (Main.tile[i, j - 1].WallType > WallID.None && CanGrow(i, j - 1))
 			{
 				Main.tile[i, j - 1].WallType = (ushort)ModContent.WallType<IceWall>();
         }
 
-			if (Main.tile[i, j + 1].WallType > 0 && CanGrow(i, j + 1))
+			if (Main.tile[i, j + 1].WallType > WallID.None && CanGrow(i, j + 1))
 			{
 				Main.tile[i, j + 1].WallType = (ushort)ModContent.WallType<IceWall>();
         }

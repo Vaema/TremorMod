@@ -24,7 +24,7 @@ namespace TremorMod.Content.Items.CogLordItems;
 			Item.width = 36;
 			Item.height = 36;
 			Item.value = 240000;
-			Item.rare = 9;
+			Item.rare = ItemRarityID.Cyan;
 			Item.expert = true;
 			Item.accessory = true;
 		}

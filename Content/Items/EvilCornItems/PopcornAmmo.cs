@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 
@@ -16,7 +17,7 @@ namespace TremorMod.Content.Items.EvilCornItems;
 			Item.consumable = true;
 			Item.knockBack = 1.5f;
 			Item.value = 10;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.shoot = ModContent.ProjectileType<PopcornAmmoPro>();
 			Item.ammo = Item.type;
 		}
@@ -32,7 +33,7 @@ namespace TremorMod.Content.Items.EvilCornItems;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<Corn>(), 1);
 			//recipe.SetResult(this, 25);
-			recipe.AddTile(17);
+			recipe.AddTile(TileID.Furnaces);
 			recipe.Register();
 		}
 	}

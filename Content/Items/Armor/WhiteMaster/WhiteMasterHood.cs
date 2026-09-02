@@ -7,6 +7,7 @@ using TremorMod.Content.Items.Armor.Nova;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Projectiles;
 using TremorMod.Utilities;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.Armor.WhiteMaster;
 
@@ -28,7 +29,7 @@ namespace TremorMod.Content.Items.Armor.WhiteMaster;
 			Item.width = 30;
 			Item.height = 24;
 			Item.value = 50000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.defense = 22;
 		}
 
@@ -114,7 +115,7 @@ namespace TremorMod.Content.Items.Armor.WhiteMaster;
         recipe.AddIngredient(ModContent.ItemType<SoulofFight>(), 11);
         recipe.AddIngredient(ModContent.ItemType<Phantaplasm>(), 5);
         //recipe.SetResult(this);
-        recipe.AddTile(412);
+        recipe.AddTile(TileID.LunarCraftingStation);
         recipe.Register();
     }
 }

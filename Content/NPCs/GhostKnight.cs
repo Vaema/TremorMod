@@ -23,11 +23,11 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.6f;
 			NPC.width = 38;
 			NPC.height = 44;
-			AnimationType = 82;
+			AnimationType = NPCID.Wraith;
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
-			NPC.aiStyle = 22;
-			AIType = 82;
+			NPC.aiStyle = NPCAIStyleID.HoveringFighter;
+			AIType = NPCID.Wraith;
 			NPC.npcSlots = 1f;
 			NPC.HitSound = SoundID.NPCHit54;
 			NPC.DeathSound = SoundID.NPCDeath52;
@@ -44,9 +44,9 @@ namespace TremorMod.Content.NPCs;
         if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 60; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 54, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Wraith, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SeaSnail, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
 				for(int i = 0; i < 2; ++i)
 					Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("IBGore1").Type, 1f);
@@ -56,9 +56,9 @@ namespace TremorMod.Content.NPCs;
 			{
 				for (int k = 0; k < hit.Damage / NPC.lifeMax * 50; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 54, hitDirection, -1f, 0, default(Color), 0.7f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 54, hitDirection, -1f, 0, default(Color), 0.7f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 54, hitDirection, -1f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Wraith, hitDirection, -1f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Wraith, hitDirection, -1f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Wraith, hitDirection, -1f, 0, default(Color), 0.7f);
 				}
 			}
 		}

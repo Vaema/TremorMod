@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Tiles;
@@ -12,7 +13,7 @@ namespace TremorMod.Content.Tiles;
         Main.tileMergeDirt[Type] = true;
         Main.tileBlockLight[Type] = true;
         Main.tileLighted[Type] = true;
-        DustType = 59;
+        DustType = DustID.BlueTorch;
         AddMapEntry(new Color(0, 0, 0), CreateMapEntryName());
     }
 

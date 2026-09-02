@@ -16,13 +16,13 @@ namespace TremorMod.Content.Items.AndasItems;
 			Item.noUseGraphic = true;
 			Item.DamageType = DamageClass.Melee;
 			Item.useTime = 20;
-        Item.shoot = 706;
+        Item.shoot = ProjectileID.DD2PhoenixBowShot;
         Item.shootSpeed = 12f;
 			Item.useAnimation = 20;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 4;
 			Item.value = 600000;
-			Item.rare = 0;
+			Item.rare = ItemRarityID.White;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
 		}

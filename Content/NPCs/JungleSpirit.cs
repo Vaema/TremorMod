@@ -22,8 +22,8 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.3f;
 			NPC.width = 34;
 			NPC.height = 48;
-			AnimationType = 316;
-			NPC.aiStyle = 22;
+			AnimationType = NPCID.Ghost;
+			NPC.aiStyle = NPCAIStyleID.HoveringFighter;
 			NPC.npcSlots = 0.4f;
 			NPC.noTileCollide = true;
 			NPC.HitSound = SoundID.NPCHit44;
@@ -41,7 +41,7 @@ namespace TremorMod.Content.NPCs;
         if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SeaSnail, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
             //Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("JungleSpiritGore").Type, 1f);
         }

@@ -14,7 +14,7 @@ public class AdvancedCircuit : ModItem
         Item.width = 38;
         Item.height = 38;
         Item.maxStack = 20;
-        Item.rare = 7;
+        Item.rare = ItemRarityID.Lime;
         Item.value = 30000;
         Item.useAnimation = 45;
         Item.useTime = 45;

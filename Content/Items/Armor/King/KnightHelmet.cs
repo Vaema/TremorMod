@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items.Armor.King;
@@ -11,7 +12,7 @@ namespace TremorMod.Content.Items.Armor.King;
 			Item.width = 26;
 			Item.height = 24;
 			Item.value = 2500;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.defense = 3;
 		}
 

@@ -25,9 +25,9 @@ namespace TremorMod.Content.NPCs;
 			NPC.DeathSound = SoundID.NPCDeath42;
 			NPC.value = Item.buyPrice(0, 0, 4, 7);
 			NPC.knockBackResist = 0.5f;
-			NPC.aiStyle = 3;
-			AIType = 111;
-			AnimationType = 379;
+			NPC.aiStyle = NPCAIStyleID.Fighter;
+			AIType = NPCID.GoblinArcher;
+			AnimationType = NPCID.CultistArcherBlue;
         Banner = NPC.type;
         BannerItem = ModContent.ItemType<RogueBanner>();
         ItemID.Sets.KillsToBanner[BannerItem] = 50;
@@ -99,7 +99,7 @@ namespace TremorMod.Content.NPCs;
         if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 5, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
 				for(int i = 0; i < 3; ++i)
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RogueGore1").Type, 1f);

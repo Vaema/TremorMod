@@ -146,7 +146,7 @@ namespace TremorMod.Content.NPCs.Bosses.FrostKing;
                             IEntitySource source = Main.player[Main.myPlayer].GetSource_FromThis();
                             Vector2 position = new Vector2(bossCenter.X - 90, bossCenter.Y + 7);
 
-                            Projectile.NewProjectile(source, position, velocity, 349, 20, 5);
+                            Projectile.NewProjectile(source, position, velocity, ProjectileID.FrostShard, 20, 5);
                         }
                     }
                 }
@@ -179,7 +179,7 @@ namespace TremorMod.Content.NPCs.Bosses.FrostKing;
                                       + Main.rand.Next((int)(Math.PI * -100f), (int)(Math.PI * 100f)) / 3600f;
                         Vector2 velocity = new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle)) * 20;
                         IEntitySource source = Main.player[Main.myPlayer].GetSource_FromThis();
-                        Projectile.NewProjectile(source, shootPos, velocity, 348, 40, 5);
+                        Projectile.NewProjectile(source, shootPos, velocity, ProjectileID.FrostWave, 40, 5);
                         atackTimer = 1;
 
                     }
@@ -211,10 +211,10 @@ namespace TremorMod.Content.NPCs.Bosses.FrostKing;
                         Vector2 shootPos = bossCenter + new Vector2(-90, 25);
                         IEntitySource source = Main.player[Main.myPlayer].GetSource_FromThis(); // Èñòî÷íèê ñíàðÿäà
 
-                        Projectile.NewProjectile(source, shootPos, new Vector2(-20, 0), 464, 40, 5);
+                        Projectile.NewProjectile(source, shootPos, new Vector2(-20, 0), ProjectileID.CultistBossIceMist, 40, 5);
 
                         shootPos = bossCenter + new Vector2(90, 25);
-                        Projectile.NewProjectile(source, shootPos, new Vector2(20, 0), 464, 40, 5);
+                        Projectile.NewProjectile(source, shootPos, new Vector2(20, 0), ProjectileID.CultistBossIceMist, 40, 5);
 
                         atackTimer = 3;
 

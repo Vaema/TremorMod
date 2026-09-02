@@ -24,8 +24,8 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.3f;
 			NPC.width = 34;
 			NPC.height = 48;
-			AnimationType = 65;
-			NPC.aiStyle = 16;
+			AnimationType = NPCID.Shark;
+			NPC.aiStyle = NPCAIStyleID.Piranha;
 			NPC.npcSlots = 1f;
 			NPC.HitSound = SoundID.NPCHit31;
 			NPC.noGravity = true;
@@ -42,7 +42,7 @@ namespace TremorMod.Content.NPCs;
 			{
             int hitDirection = hit.HitDirection;
             for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SeaSnail, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
 				for (int i = 0; i < 3; ++i)
                 Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DinictisGore1").Type, 1f);

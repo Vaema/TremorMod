@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Projectiles;
@@ -30,7 +31,7 @@ namespace TremorMod.Content.Projectiles;
 		{
 			if (Main.rand.NextBool(5))
 			{
-				target.AddBuff(153, 180, false);
+				target.AddBuff(BuffID.ShadowFlame, 180, false);
 			}
 		}
 

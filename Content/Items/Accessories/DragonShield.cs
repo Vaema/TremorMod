@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
 
@@ -12,7 +13,7 @@ public class DragonShield : ModItem
         Item.width = 34;
         Item.height = 36;
         Item.value = 32000;
-        Item.rare = 11;
+        Item.rare = ItemRarityID.Purple;
         Item.accessory = true;
         Item.defense = 24;
     }

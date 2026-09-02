@@ -20,10 +20,10 @@ namespace TremorMod.Content.Items.EvilCornItems;
 			Item.useAnimation = 17;
 			Item.shoot = ModContent.ProjectileType<CornJavelinPro>();
 			Item.shootSpeed = 22f;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;
 			Item.value = 7;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
 		}

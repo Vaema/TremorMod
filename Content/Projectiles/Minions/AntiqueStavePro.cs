@@ -58,7 +58,7 @@ public class AntiqueStavePro : ModProjectile
                         Projectile.Center.Y,
                         shootToX,
                         shootToY,
-                        122, // Òèï ñíàðÿäà
+                        ProjectileID.TopazBolt, // Òèï ñíàðÿäà
                         damage,
                         0,
                         Main.myPlayer

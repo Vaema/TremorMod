@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
@@ -12,7 +13,7 @@ namespace TremorMod.Content.Items.Armor.Salamander;
 		{
 			Item.width = 22;
 			Item.height = 18;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.value = 100;
 			Item.defense = 3;
 		}
@@ -33,7 +34,7 @@ namespace TremorMod.Content.Items.Armor.Salamander;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<SalamanderSkin>(), 8);
 			//recipe.SetResult(this);
-			recipe.AddTile(18);
+			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
 		}
 	}

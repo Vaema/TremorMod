@@ -21,7 +21,7 @@ namespace TremorMod.Content.NPCs;
 
 		public override void SetDefaults()
 		{
-        NPC.aiStyle = 63;
+        NPC.aiStyle = NPCAIStyleID.Flocko;
         NPC.lifeMax = 600;
         NPC.damage = 70;
         NPC.defense = 25;

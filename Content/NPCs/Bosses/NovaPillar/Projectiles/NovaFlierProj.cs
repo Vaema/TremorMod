@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles;
@@ -17,7 +18,7 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles;
 		{
 			Projectile.CloneDefaults(348);
 			Projectile.timeLeft = 500;
-			AIType = 348;
+			AIType = ProjectileID.FrostWave;
 			Projectile.friendly = false;
 			Projectile.tileCollide = true;
 		}
@@ -36,7 +37,7 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles;
     {
         for (int i = 0; i < 5; i++)
         {
-            Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 57, Main.rand.NextFloat(-3f, 3f), Main.rand.NextFloat(-3f, 3f));
+            Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Enchanted_Gold, Main.rand.NextFloat(-3f, 3f), Main.rand.NextFloat(-3f, 3f));
         }
         for (int k = 0; k < 5; k++)
         {

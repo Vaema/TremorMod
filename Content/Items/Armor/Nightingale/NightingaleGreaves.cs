@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
@@ -14,7 +15,7 @@ namespace TremorMod.Content.Items.Armor.Nightingale;
 			Item.width = 22;
 			Item.height = 18;
 			Item.value = 2500;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 		}
 
 		/*public override void SetStaticDefaults()
@@ -35,7 +36,7 @@ namespace TremorMod.Content.Items.Armor.Nightingale;
         recipe.AddIngredient(ModContent.ItemType<SteelBar>(), 10);
         recipe.AddIngredient(ModContent.ItemType<PhantomSoul>(), 3);
         //recipe.SetResult(this);
-        recipe.AddTile(16);
+        recipe.AddTile(TileID.Anvils);
         recipe.Register();
     }
 	}

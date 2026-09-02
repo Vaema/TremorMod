@@ -17,7 +17,7 @@ namespace TremorMod.Content.Items.Armor.Vine;
 			Item.height = 26;
 
 			Item.value = 100;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.defense = 1;
 		}
 
@@ -50,7 +50,7 @@ namespace TremorMod.Content.Items.Armor.Vine;
 			recipe.AddIngredient(ItemID.VineRope, 25);
 			recipe.AddIngredient(ItemID.Daybloom, 1);
 			//recipe.SetResult(this);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 

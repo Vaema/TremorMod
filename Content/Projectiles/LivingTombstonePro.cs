@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Projectiles;
@@ -8,7 +9,7 @@ namespace TremorMod.Content.Projectiles;
 		public override void SetDefaults()
 		{
 			Projectile.CloneDefaults(198);
-			AIType = 198;
+			AIType = ProjectileID.BabyHornet;
 			Main.projFrames[Projectile.type] = 4;
 			Projectile.width = 24;
 			Projectile.height = 36;

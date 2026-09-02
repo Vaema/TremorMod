@@ -120,7 +120,7 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles;
 						if (num966 == 0)
 						{
 							Vector2 vector114 = Vector2.UnitY.RotatedByRandom(6.2831854820251465) * Projectile.scale;
-							Dust dust18 = Main.dust[Dust.NewDust(Projectile.Center - vector114 * 30f, 0, 0, 57, 0f, 0f, 0, default(Color), 1f)];
+							Dust dust18 = Main.dust[Dust.NewDust(Projectile.Center - vector114 * 30f, 0, 0, DustID.Enchanted_Gold, 0f, 0f, 0, default(Color), 1f)];
 							dust18.noGravity = true;
 							dust18.position = Projectile.Center - vector114 * Main.rand.Next(10, 21);
 							dust18.velocity = vector114.RotatedBy(1.5707963705062866, default(Vector2)) * 6f;
@@ -131,7 +131,7 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles;
 						else if (num966 == 1)
 						{
 							Vector2 vector115 = Vector2.UnitY.RotatedByRandom(6.2831854820251465) * Projectile.scale;
-							Dust dust19 = Main.dust[Dust.NewDust(Projectile.Center - vector115 * 30f, 0, 0, 57, 0f, 0f, 0, default(Color), 1f)];
+							Dust dust19 = Main.dust[Dust.NewDust(Projectile.Center - vector115 * 30f, 0, 0, DustID.Enchanted_Gold, 0f, 0f, 0, default(Color), 1f)];
 							dust19.noGravity = true;
 							dust19.position = Projectile.Center - vector115 * 30f;
 							dust19.velocity = vector115.RotatedBy(-1.5707963705062866, default(Vector2)) * 3f;
@@ -147,7 +147,7 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles;
 				if (Main.rand.NextBool(2))
 				{
 					Vector2 vector116 = Vector2.UnitY.RotatedByRandom(6.2831854820251465);
-					Dust dust20 = Main.dust[Dust.NewDust(Projectile.Center - vector116 * 30f, 0, 0, 57, 0f, 0f, 0, default(Color), 1f)];
+					Dust dust20 = Main.dust[Dust.NewDust(Projectile.Center - vector116 * 30f, 0, 0, DustID.Enchanted_Gold, 0f, 0f, 0, default(Color), 1f)];
 					dust20.noGravity = true;
 					dust20.position = Projectile.Center - vector116 * Main.rand.Next(10, 21);
 					dust20.velocity = vector116.RotatedBy(1.5707963705062866, default(Vector2)) * 6f;
@@ -157,7 +157,7 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles;
 					return;
 				}
 				Vector2 vector117 = Vector2.UnitY.RotatedByRandom(6.2831854820251465);
-				Dust dust21 = Main.dust[Dust.NewDust(Projectile.Center - vector117 * 30f, 0, 0, 57, 0f, 0f, 0, default(Color), 1f)];
+				Dust dust21 = Main.dust[Dust.NewDust(Projectile.Center - vector117 * 30f, 0, 0, DustID.Enchanted_Gold, 0f, 0f, 0, default(Color), 1f)];
 				dust21.noGravity = true;
 				dust21.position = Projectile.Center - vector117 * 30f;
 				dust21.velocity = vector117.RotatedBy(-1.5707963705062866, default(Vector2)) * 3f;

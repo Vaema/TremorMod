@@ -136,7 +136,7 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles;
         {
             for (int i = 0; i < 40; i++)
             {
-                int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 57, 0f, -2f, 0, default(Color), 2f);
+                int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Enchanted_Gold, 0f, -2f, 0, default(Color), 2f);
                 Main.dust[num].noGravity = true;
                 Dust expr_62_cp_0 = Main.dust[num];
                 expr_62_cp_0.position.X = expr_62_cp_0.position.X + (Main.rand.Next(-50, 51) / 20 - 1.5f);

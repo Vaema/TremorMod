@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Biomes.Ruins.Items;
@@ -11,7 +12,7 @@ namespace TremorMod.Content.Biomes.Ruins.Items;
 			Item.height = 32;
 			Item.maxStack = 99;
 			Item.value = 3000;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 		}
 
 		/*public override void SetStaticDefaults()

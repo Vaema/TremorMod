@@ -39,7 +39,7 @@ public class ShadowSteed : ModNPC
         NPC.checkDead();
 
         if (Main.expertMode)
-            target.AddBuff(153, 180); 
+            target.AddBuff(BuffID.ShadowFlame, 180); 
     }
 
     private int GetActiveShadowSteedCount()

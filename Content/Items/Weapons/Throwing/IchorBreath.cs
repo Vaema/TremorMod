@@ -18,10 +18,10 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			Item.useAnimation = 14;
 			Item.shoot = ModContent.ProjectileType<IchorBreathPro>();
 			Item.shootSpeed = 8f;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 3;
 			Item.value = 155;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.consumable = true;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
@@ -38,7 +38,7 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			Recipe recipe = CreateRecipe(25);
 			recipe.AddIngredient(ModContent.ItemType<DragonBreath>(), 25);
 			recipe.AddIngredient(ItemID.Ichor, 3);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

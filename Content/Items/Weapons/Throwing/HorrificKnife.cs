@@ -21,10 +21,10 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			Item.useAnimation = 20;
 			Item.shoot = ModContent.ProjectileType<HorrificKnifePro>();
 			Item.shootSpeed = 22f;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;
 			Item.value = 7;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 		}
@@ -42,7 +42,7 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			recipe.AddIngredient(ModContent.ItemType<ConcentratedEther>(), 1);
 			recipe.AddIngredient(ModContent.ItemType<NightmareBar>(), 1);
 			//recipe.SetResult(this, 50);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

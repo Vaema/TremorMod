@@ -22,8 +22,8 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0f;
 			NPC.width = 34;
 			NPC.height = 34;
-			AnimationType = 84;
-			NPC.aiStyle = 23;
+			AnimationType = NPCID.EnchantedSword;
+			NPC.aiStyle = NPCAIStyleID.EnchantedSword;
 			NPC.noGravity = true;
 			NPC.npcSlots = 15f;
 			NPC.HitSound = SoundID.NPCHit4;
@@ -34,7 +34,7 @@ namespace TremorMod.Content.NPCs;
 		public override void AI()
 		{
 			if (Main.rand.NextBool(6))
-				Main.dust[Dust.NewDust(NPC.position, NPC.width, NPC.height, 59, 0f, 0f, 200, NPC.color, 2f)].velocity *= 0.3f;
+				Main.dust[Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.BlueTorch, 0f, 0f, 200, NPC.color, 2f)].velocity *= 0.3f;
 		}
 
 		public override void HitEffect(NPC.HitInfo hit)
@@ -44,7 +44,7 @@ namespace TremorMod.Content.NPCs;
         if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 59, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.BlueTorch, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 			}
 		}
 	}

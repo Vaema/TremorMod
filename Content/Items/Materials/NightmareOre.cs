@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles;
 
@@ -16,8 +17,8 @@ namespace TremorMod.Content.Items.Materials;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.rare = 11;
-			Item.useStyle = 1;
+			Item.rare = ItemRarityID.Purple;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.createTile = ModContent.TileType<NightmareOreTile>();
 		}

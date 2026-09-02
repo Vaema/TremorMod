@@ -13,7 +13,7 @@ namespace TremorMod.Content.Items.Accessories;
 			Item.width = 24;
 			Item.height = 24;
 			Item.value = 123110;
-			Item.rare = 8;
+			Item.rare = ItemRarityID.Yellow;
 			Item.accessory = true;
 		}
 
@@ -55,7 +55,7 @@ namespace TremorMod.Content.Items.Accessories;
 			recipe.AddIngredient(ModContent.ItemType<TurtleShield>(), 1);
 			recipe.AddIngredient(ItemID.FrozenTurtleShell, 1);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

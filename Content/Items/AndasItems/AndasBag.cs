@@ -13,7 +13,7 @@ namespace TremorMod.Content.Items.AndasItems;
 			Item.consumable = true;
 			Item.width = 24;
 			Item.height = 24;
-			Item.rare = 9;
+			Item.rare = ItemRarityID.Cyan;
 			Item.expert = true;
 		}
 

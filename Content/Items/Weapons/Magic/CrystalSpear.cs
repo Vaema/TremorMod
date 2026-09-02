@@ -9,7 +9,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 	{
 		public override void SetDefaults()
 		{
-			Item.CloneDefaults(165);
+			Item.CloneDefaults(ItemID.WaterBolt);
 			Item.damage = 49;
 			Item.DamageType = DamageClass.Magic;
 			Item.width = 26;
@@ -18,9 +18,9 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.useAnimation = 25;
 			Item.shoot = ModContent.ProjectileType<CrSpear>();
 			Item.shootSpeed = 11.5f;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 4;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
 			Item.mana = 12;

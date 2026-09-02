@@ -10,7 +10,7 @@ namespace TremorMod.Content.Items.Tools;
 		public override void SetDefaults()
 		{
 			Item.autoReuse = true;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useAnimation = 30;
 			Item.knockBack = 6f;
 			Item.useTime = 15;
@@ -20,7 +20,7 @@ namespace TremorMod.Content.Items.Tools;
 			Item.axe = 15;
 			Item.scale = 1.2f;
 			Item.UseSound = SoundID.Item1;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.value = 13500;
 			Item.DamageType = DamageClass.Melee;
 		}
@@ -37,7 +37,7 @@ namespace TremorMod.Content.Items.Tools;
 			recipe.AddIngredient(ModContent.ItemType<AntlionShell>(), 1);
 			recipe.AddIngredient(ItemID.Topaz, 3);
 			recipe.AddIngredient(ItemID.AntlionMandible, 5);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			//recipe.SetResult(this);
 			recipe.Register();
 		}

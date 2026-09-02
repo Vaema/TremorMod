@@ -16,10 +16,10 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.height = 56;
 			Item.useTime = 36;
 			Item.useAnimation = 36;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 6;
 			Item.value = 122000;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item1;
 
 			Item.hammer = 100;
@@ -39,7 +39,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			recipe.AddIngredient(ModContent.ItemType<DarkBulb>(), 15);
 			recipe.AddIngredient(ItemID.Bone, 100);
 			//recipe.SetResult(this, 1);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 
 			Recipe recipe1 = CreateRecipe();
@@ -47,7 +47,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			recipe1.AddIngredient(ModContent.ItemType<DarkBulb>(), 15);
 			recipe1.AddIngredient(ItemID.Bone, 100);
 			//recipe.SetResult(this, 1);
-			recipe1.AddTile(134);
+			recipe1.AddTile(TileID.MythrilAnvil);
 			recipe1.Register();
 		}
 	}

@@ -14,14 +14,14 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			Item.height = 30;
 			Item.useTime = 40;
 			Item.useAnimation = 40;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true;
 			Item.knockBack = 6;
 			Item.value = 50000;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item11;
 			Item.autoReuse = true;
-			Item.shoot = 162;
+			Item.shoot = ProjectileID.CannonballFriendly;
 			Item.shootSpeed = 15f;
 			//item.useAmmo = 14;
 		}

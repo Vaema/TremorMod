@@ -17,10 +17,10 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			Item.useTime = 20;
 			Item.shootSpeed = 12f;
 			Item.useAnimation = 20;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 3f;
 			Item.value = 27600;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.UseSound = SoundID.Item1;
         Item.shoot = ModContent.ProjectileType<AdamantiteDiscPro>();
 			Item.shootSpeed = 12f;
@@ -46,7 +46,7 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.AdamantiteBar, 12);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

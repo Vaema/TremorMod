@@ -1,6 +1,7 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ID;
 
 namespace TremorMod.Content.Biomes.Ice.Items;
 
@@ -13,7 +14,7 @@ namespace TremorMod.Content.Biomes.Ice.Items;
 			Item.width = 32;
 			Item.height = 26;
 			Item.value = 400;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.defense = 2;
 		}
 
@@ -41,7 +42,7 @@ namespace TremorMod.Content.Biomes.Ice.Items;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<GlacierWood>(), 20);
 			//recipe.SetResult(this);
-			recipe.AddTile(18);
+			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
 		}
 	}

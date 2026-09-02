@@ -18,10 +18,10 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 
 			Item.useTime = 20;
 			Item.useAnimation = 20;
-			Item.useStyle = 2;
+			Item.useStyle = ItemUseStyleID.EatFood;
 			Item.knockBack = 0;
 			Item.value = 20000;
-			Item.rare = 6;
+			Item.rare = ItemRarityID.LightPurple;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
 			Item.shoot = ModContent.ProjectileType<projBoneHook>();
@@ -44,7 +44,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			recipe.AddIngredient(ItemID.SoulofNight, 9);
 			recipe.AddIngredient(ItemID.SoulofLight, 9);
 			recipe.AddIngredient(ItemID.Chain, 10);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

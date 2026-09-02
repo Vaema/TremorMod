@@ -24,7 +24,7 @@ public class NanoDronPro : ModProjectile
         Main.projFrames[Projectile.type] = 1;
         Projectile.height = 96;
         Projectile.timeLeft = 5;
-        Projectile.aiStyle = 62;
+        Projectile.aiStyle = ProjAIStyleID.Hornet;
         Projectile.penetrate = -1;
         Projectile.tileCollide = false;
         Projectile.ignoreWater = true;

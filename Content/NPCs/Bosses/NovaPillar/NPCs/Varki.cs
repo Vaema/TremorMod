@@ -28,7 +28,7 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.NPCs;
 			NPC.knockBackResist = 0.34f;
 			NPC.width = 26;
 			NPC.height = 34;
-			NPC.aiStyle = 14;
+			NPC.aiStyle = NPCAIStyleID.Bat;
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
 			NPC.HitSound = SoundID.NPCHit55;
@@ -85,7 +85,7 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.NPCs;
 
             for (int i = 0; i < 5; i++)
             {
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, 57, Main.rand.NextFloat(-3f, 3f), Main.rand.NextFloat(-3f, 3f));
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Enchanted_Gold, Main.rand.NextFloat(-3f, 3f), Main.rand.NextFloat(-3f, 3f));
             }
 
             for (int i = 0; i < 2; i++)

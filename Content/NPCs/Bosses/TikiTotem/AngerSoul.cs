@@ -23,8 +23,8 @@ namespace TremorMod.Content.NPCs.Bosses.TikiTotem;
 			NPC.knockBackResist = 1f;
 			NPC.width = 60;
 			NPC.height = 85;
-			AnimationType = 288;
-			NPC.aiStyle = 17;
+			AnimationType = NPCID.DungeonSpirit;
+			NPC.aiStyle = NPCAIStyleID.Vulture;
 			NPC.npcSlots = 15f;
 			NPC.noTileCollide = true;
 			NPC.HitSound = SoundID.NPCHit31;
@@ -37,7 +37,7 @@ namespace TremorMod.Content.NPCs.Bosses.TikiTotem;
 		{
 			NPC.position += NPC.velocity * 2f;
 			if (Main.rand.NextBool(6))
-				Main.dust[Dust.NewDust(NPC.position, NPC.width, NPC.height, 64, 0f, 0f, 200, NPC.color, 1f)].velocity *= 0.3F;
+				Main.dust[Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.YellowTorch, 0f, 0f, 200, NPC.color, 1f)].velocity *= 0.3F;
 		}
 
 		public override void HitEffect(NPC.HitInfo hit)
@@ -46,18 +46,18 @@ namespace TremorMod.Content.NPCs.Bosses.TikiTotem;
 
         if (NPC.life <= 0)
 			{
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 64, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 64, 2.5f * hitDirection, -2.5f, 0, default(Color), 2.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 64, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 64, 2.5f * hitDirection, -2.5f, 0, default(Color), 2.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 64, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.YellowTorch, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.YellowTorch, 2.5f * hitDirection, -2.5f, 0, default(Color), 2.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.YellowTorch, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.YellowTorch, 2.5f * hitDirection, -2.5f, 0, default(Color), 2.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.YellowTorch, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
 				for (int k = 0; k < 20; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 64, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 64, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.6f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 64, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 64, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.6f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.YellowTorch, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.YellowTorch, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.6f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.YellowTorch, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.YellowTorch, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.6f);
 				}
 			}
 		}

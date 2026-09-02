@@ -22,10 +22,10 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.noMelee = true;
 			Item.axe = 35;
 			Item.tileBoost += 5;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 6;
 			Item.value = Item.buyPrice(0, 1, 50, 0);
-			Item.rare = 10;
+			Item.rare = ItemRarityID.Red;
 			Item.UseSound = SoundID.Item23;
 			Item.autoReuse = true;
 

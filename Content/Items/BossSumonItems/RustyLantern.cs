@@ -15,7 +15,7 @@ public class RustyLantern : ModItem
         Item.height = 30;
         Item.maxStack = 20;
         Item.value = 3000;
-        Item.rare = 2;
+        Item.rare = ItemRarityID.Green;
         Item.useTime = 40;
         Item.useAnimation = 40;
         Item.useStyle = ItemUseStyleID.HoldUp;

@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items.Armor.Sniper;
@@ -13,7 +14,7 @@ namespace TremorMod.Content.Items.Armor.Sniper;
 			Item.height = 18;
 			Item.value = 1000000;
 
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.defense = 32;
 		}
 

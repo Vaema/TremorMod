@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Projectiles;
@@ -9,7 +10,7 @@ namespace TremorMod.Content.Projectiles;
 		{
 			Projectile.CloneDefaults(443);
 
-			AIType = 443;
+			AIType = ProjectileID.Electrosphere;
 			Projectile.DamageType = DamageClass.Magic;
 
 			Projectile.timeLeft = 500;

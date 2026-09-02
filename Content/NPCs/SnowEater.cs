@@ -28,7 +28,7 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.0f;
 			NPC.width = 24;
 			NPC.height = 24;
-			AnimationType = 69;
+			AnimationType = NPCID.Antlion;
 			NPC.aiStyle = -1;
 			NPC.behindTiles = true;
 			NPC.npcSlots = 0.1f;
@@ -81,7 +81,7 @@ namespace TremorMod.Content.NPCs;
 				}
 				NPC.ai[0] -= 1f;
 			}
-			if (Main.netMode != 1 && flag74 && NPC.ai[0] == 0f && Collision.CanHit(NPC.position, NPC.width, NPC.height, Main.player[NPC.target].position, Main.player[NPC.target].width, Main.player[NPC.target].height))
+			if (Main.netMode != NetmodeID.MultiplayerClient && flag74 && NPC.ai[0] == 0f && Collision.CanHit(NPC.position, NPC.width, NPC.height, Main.player[NPC.target].position, Main.player[NPC.target].width, Main.player[NPC.target].height))
 			{
 				NPC.ai[0] = 200f;
 				int num683 = 10;
@@ -128,7 +128,7 @@ namespace TremorMod.Content.NPCs;
 					NPC.noTileCollide = false;
 					if (Main.rand.NextBool(2))
 					{
-						int num690 = Dust.NewDust(new Vector2(NPC.position.X - 4f, NPC.position.Y + NPC.height - 8f), NPC.width + 8, 24, 80, 0f, NPC.velocity.Y / 2f, 0, default(Color), 1f);
+						int num690 = Dust.NewDust(new Vector2(NPC.position.X - 4f, NPC.position.Y + NPC.height - 8f), NPC.width + 8, 24, DustID.Ice, 0f, NPC.velocity.Y / 2f, 0, default(Color), 1f);
 						Dust expr_28A1C_cp_0 = Main.dust[num690];
 						expr_28A1C_cp_0.velocity.X = expr_28A1C_cp_0.velocity.X * 0.4f;
 						Dust expr_28A3C_cp_0 = Main.dust[num690];
@@ -161,9 +161,9 @@ namespace TremorMod.Content.NPCs;
 
         if (NPC.life <= 0)
 			{
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 80, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 80, 2.5f * hitDirection, -2.5f, 0, default(Color), 2.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 80, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Ice, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Ice, 2.5f * hitDirection, -2.5f, 0, default(Color), 2.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Ice, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SEGore1").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SEGore1").Type, 1f);
@@ -172,8 +172,8 @@ namespace TremorMod.Content.NPCs;
 
 				for (int k = 0; k < 20; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 80, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 80, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.6f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Ice, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Ice, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.6f);
 				}
 			}
 		}

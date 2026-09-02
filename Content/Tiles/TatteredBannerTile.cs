@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using TremorMod.Content.Buffs;
@@ -16,7 +17,7 @@ public class TatteredBannerTile : ModTile
         TileObjectData.newTile.StyleHorizontal = true;
         TileObjectData.newTile.StyleWrapLimit = 36;
         TileObjectData.addTile(Type);
-        DustType = 7;
+        DustType = DustID.WoodFurniture;
         AddMapEntry(new Color(213, 216, 167), CreateMapEntryName());
     }
 

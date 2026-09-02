@@ -15,11 +15,11 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.height = 40;
 			Item.useTime = 20;
 			Item.useAnimation = 20;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 6;
 			Item.value = 1000;
-			Item.rare = 3;
-			Item.shoot = 22;
+			Item.rare = ItemRarityID.Orange;
+			Item.shoot = ProjectileID.WaterStream;
 			Item.shootSpeed = 16f;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
@@ -37,7 +37,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			recipe.AddIngredient(ItemID.Muramasa, 1);
 			recipe.AddIngredient(ModContent.ItemType<SeaFragment>(), 16);
 			//recipe.SetResult(this);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
 
@@ -44,7 +45,7 @@ namespace TremorMod.Content.Projectiles;
 		{
 			if (--TimeToReturn <= 0)
 			{
-				Projectile.aiStyle = 3;
+				Projectile.aiStyle = ProjAIStyleID.Boomerang;
 				Projectile.ai[0] = 1;
 			}
 		}
@@ -57,7 +58,7 @@ namespace TremorMod.Content.Projectiles;
 
 		void ImproveSpeed()
 		{
-			Projectile.position += (Projectile.aiStyle == 3) ? Projectile.velocity * (SpeedMulti - 1) : new Vector2(0, 0);
+			Projectile.position += (Projectile.aiStyle == ProjAIStyleID.Boomerang) ? Projectile.velocity * (SpeedMulti - 1) : new Vector2(0, 0);
 		}
 
 		//////////////////////////////////////////////////////////////////////////////////

@@ -21,7 +21,7 @@ namespace TremorMod.Content.NPCs.Invasion.ParadoxTitan;
 			NPC.knockBackResist = 0.5f;
 			NPC.width = 44;
 			NPC.height = 84;
-			NPC.aiStyle = 12;
+			NPC.aiStyle = NPCAIStyleID.SkeletronHand;
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
 			NPC.HitSound = SoundID.NPCHit4;

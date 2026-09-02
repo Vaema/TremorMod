@@ -4,6 +4,7 @@ using Terraria.GameContent.ItemDropRules;
 using TremorMod.Content.Items.Vanity;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Placeable;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.BossLoot.TikiTotem;
 
@@ -15,7 +16,7 @@ namespace TremorMod.Content.Items.BossLoot.TikiTotem;
         Item.consumable = true;
         Item.width = 24;
         Item.height = 24;
-        Item.rare = 9;
+        Item.rare = ItemRarityID.Cyan;
         Item.expert = true;
     }
 

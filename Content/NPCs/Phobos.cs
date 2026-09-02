@@ -25,11 +25,11 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.0f;
 			NPC.width = 145;
 			NPC.height = 145;
-			AnimationType = 82;
+			AnimationType = NPCID.Wraith;
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
-			NPC.aiStyle = 22;
-			AIType = 226;
+			NPC.aiStyle = NPCAIStyleID.HoveringFighter;
+			AIType = NPCID.FlyingSnake;
 			NPC.npcSlots = 5f;
 			NPC.HitSound = SoundID.NPCHit54;
 			NPC.DeathSound = SoundID.NPCDeath52;
@@ -43,8 +43,8 @@ namespace TremorMod.Content.NPCs;
 		{
 			if (Main.rand.NextBool(6))
 			{
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 27, 0f, 0f, 200, NPC.color, 1f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 70, 0f, 0f, 200, NPC.color, 1f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Shadowflame, 0f, 0f, 200, NPC.color, 1f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.PurpleCrystalShard, 0f, 0f, 200, NPC.color, 1f);
 			}
 		}
 
@@ -63,16 +63,16 @@ namespace TremorMod.Content.NPCs;
 			{
 				for (int k = 0; k < 60; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 27, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 70, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 27, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Shadowflame, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.PurpleCrystalShard, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Shadowflame, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
 				}
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 27, 2.5f * hitDirection, -2.5f, 0, default(Color), 2.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Shadowflame, 2.5f * hitDirection, -2.5f, 0, default(Color), 2.7f);
 
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 27, 2.5f * hitDirection, -2.5f, 0, default(Color), 3.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 70, 2.5f * hitDirection, -2.5f, 0, default(Color), 2.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 27, 2.5f * hitDirection, -2.5f, 0, default(Color), 3.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Shadowflame, 2.5f * hitDirection, -2.5f, 0, default(Color), 3.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.PurpleCrystalShard, 2.5f * hitDirection, -2.5f, 0, default(Color), 2.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Shadowflame, 2.5f * hitDirection, -2.5f, 0, default(Color), 3.7f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PhobosGore1").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PhobosGore2").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PhobosGore2").Type, 1f);
@@ -82,7 +82,7 @@ namespace TremorMod.Content.NPCs;
 			else
 			{
 				for (int k = 0; k < hit.Damage / NPC.lifeMax * 50; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 27, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Shadowflame, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
 			}
 		}
 

@@ -14,7 +14,7 @@ namespace TremorMod.Content.Projectiles;
 			Projectile.width = 4;
 			Projectile.height = 4;
 
-			AIType = 295;
+			AIType = ProjectileID.InfernoFriendlyBolt;
 			Projectile.friendly = true;
 		}
 
@@ -40,7 +40,7 @@ namespace TremorMod.Content.Projectiles;
 				}
 				for (int num91 = 0; num91 < num90; num91++)
 				{
-					int num92 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height, 27, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100, default(Color), 2f);
+					int num92 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height, DustID.Shadowflame, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100, default(Color), 2f);
 					Main.dust[num92].noGravity = true;
 					Dust expr_46AC_cp_0 = Main.dust[num92];
 					expr_46AC_cp_0.velocity.X = expr_46AC_cp_0.velocity.X * 0.3f;
@@ -65,7 +65,7 @@ namespace TremorMod.Content.Projectiles;
                 new Vector2(Projectile.position.X, Projectile.position.Y),
                 Projectile.width,
                 Projectile.height,
-                27,
+                DustID.Shadowflame,
                 Projectile.velocity.X * 0.1f,
                 Projectile.velocity.Y * 0.1f,
                 0,
@@ -108,8 +108,8 @@ namespace TremorMod.Content.Projectiles;
                 Projectile.NewProjectile(
                     source, 
                     spawnPosition, 
-                    value12, 
-                    400, 
+                    value12,
+                    ProjectileID.MolotovFire, 
                     (int)(Projectile.damage * 0.8f), 
                     Projectile.knockBack * 0.8f, 
                     Projectile.owner, 

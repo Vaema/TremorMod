@@ -20,10 +20,10 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			Item.useAnimation = 32;
 			Item.shoot = ModContent.ProjectileType<HolyJavelinPro>();
 			Item.shootSpeed = 16f;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;
 			Item.value = 60;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 		}
@@ -38,7 +38,7 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 		{
 			Recipe recipe = CreateRecipe(50);
 			recipe.AddIngredient(ItemID.HallowedBar, 1);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

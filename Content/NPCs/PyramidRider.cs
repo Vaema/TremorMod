@@ -22,8 +22,8 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.6f;
 			NPC.width = 76;
 			NPC.height = 38;
-			AnimationType = 508;
-			NPC.aiStyle = 26;
+			AnimationType = NPCID.GiantWalkingAntlion;
+			NPC.aiStyle = NPCAIStyleID.Unicorn;
 			NPC.npcSlots = 0.5f;
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.value = Item.buyPrice(0, 0, 5, 0);
@@ -36,9 +36,9 @@ namespace TremorMod.Content.NPCs;
         if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 18, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.CorruptGibs, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
-				if (Main.netMode == 1) return;
+				if (Main.netMode == NetmodeID.MultiplayerClient) return;
 
 				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y + 55, NPCID.WalkingAntlion);
 				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X - 22, (int)NPC.position.Y + 55, ModContent.NPCType<PyramidHead>());

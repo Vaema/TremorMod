@@ -13,7 +13,7 @@ namespace TremorMod.Content.Items.Armor.Chain;
 			Item.width = 30;
 			Item.height = 18;
 			Item.value = Item.sellPrice(silver: 8);
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.defense = 2;
 		}
 

@@ -24,8 +24,8 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.6f;
 			NPC.width = 90;
 			NPC.height = 62;
-			AnimationType = 141;
-			NPC.aiStyle = 1;
+			AnimationType = NPCID.ToxicSludge;
+			NPC.aiStyle = NPCAIStyleID.Slime;
 			NPC.npcSlots = 1f;
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath1;
@@ -47,18 +47,18 @@ namespace TremorMod.Content.NPCs;
 			{
 				for (int k = 0; k < 20; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 4, 2.5f * hitDirection, -2.5f, 0, Color.Green, 0.7f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 4, 2.5f * hitDirection, -2.5f, 0, Color.Green, 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.TintableDust, 2.5f * hitDirection, -2.5f, 0, Color.Green, 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.TintableDust, 2.5f * hitDirection, -2.5f, 0, Color.Green, 0.7f);
 				}
 				for (int i = 0; i < 3; ++i)
 				{
                 Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("GelateenGore1").Type, 1f);
             }
 
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 4, 2.5f * hitDirection, -2.5f, 0, Color.Green, 0.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 4, 2.5f * hitDirection, -2.5f, 0, Color.Green, 0.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 4, 2.5f * hitDirection, -2.5f, 0, Color.Green, 0.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 1, 2.5f * hitDirection, -2.5f, 0, Color.Green, 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.TintableDust, 2.5f * hitDirection, -2.5f, 0, Color.Green, 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.TintableDust, 2.5f * hitDirection, -2.5f, 0, Color.Green, 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.TintableDust, 2.5f * hitDirection, -2.5f, 0, Color.Green, 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Stone, 2.5f * hitDirection, -2.5f, 0, Color.Green, 0.7f);
 			}
 		}
 

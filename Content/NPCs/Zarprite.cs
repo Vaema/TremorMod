@@ -22,8 +22,8 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.3f;
 			NPC.width = 34;
 			NPC.height = 48;
-			AnimationType = 75;
-			NPC.aiStyle = 14;
+			AnimationType = NPCID.Pixie;
+			NPC.aiStyle = NPCAIStyleID.Bat;
 			NPC.npcSlots = 0.5f;
 			NPC.HitSound = SoundID.NPCHit35;
 			NPC.noGravity = true;
@@ -42,7 +42,7 @@ namespace TremorMod.Content.NPCs;
 			{
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ZarpriteGore").Type, 1f);
 
-            if (Main.netMode == 1) return;
+            if (Main.netMode == NetmodeID.MultiplayerClient) return;
 
 				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X - 6, (int)NPC.position.Y + 6, ModContent.NPCType<Parasprite>());
 				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + 6, (int)NPC.position.Y, ModContent.NPCType<Parasprite>());

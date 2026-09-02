@@ -17,12 +17,12 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			Item.useTime = 60;
 			Item.useAmmo = AmmoID.Bullet;
 			Item.useAnimation = 60;
-			Item.shoot = 242;
+			Item.shoot = ProjectileID.BulletHighVelocity;
 			Item.shootSpeed = 15f;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 10;
 			Item.value = 96300;
-			Item.rare = 10;
+			Item.rare = ItemRarityID.Red;
 			Item.UseSound = SoundID.Item40;
 			Item.autoReuse = true;
 		}
@@ -52,7 +52,7 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			recipe.AddIngredient(ItemID.ShroomiteBar, 15);
 			recipe.AddIngredient(ModContent.ItemType<CarbonSteel>(), 15);
 			recipe.AddIngredient(ModContent.ItemType<Doomstone>(), 6);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			//recipe.SetResult(this);
 			recipe.Register();
 		}

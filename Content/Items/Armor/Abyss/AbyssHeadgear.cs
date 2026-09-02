@@ -31,7 +31,7 @@ namespace TremorMod.Content.Items.Armor.Abyss;
 			Item.height = 22;
 
 			Item.value = 18000;
-			Item.rare = 7;
+			Item.rare = ItemRarityID.Lime;
 			Item.defense = 11;
 		}
 
@@ -78,7 +78,7 @@ namespace TremorMod.Content.Items.Armor.Abyss;
 			{
 				for (int k = 0; k < 2; k++)
 				{
-					int index = Dust.NewDust(new Vector2(player.position.X - player.velocity.X * 2f, player.position.Y - 2f - player.velocity.Y * 2f), player.width, player.height, 65, 0f, 0f, 100, default(Color), 2f);
+					int index = Dust.NewDust(new Vector2(player.position.X - player.velocity.X * 2f, player.position.Y - 2f - player.velocity.Y * 2f), player.width, player.height, DustID.DemonTorch, 0f, 0f, 100, default(Color), 2f);
 					Main.dust[index].noGravity = true;
 					Main.dust[index].noLight = true;
 					Dust dust = Main.dust[index];
@@ -135,7 +135,7 @@ namespace TremorMod.Content.Items.Armor.Abyss;
         recipe.AddIngredient(ItemID.Amethyst, 7);
         recipe.AddIngredient(ModContent.ItemType<PhantomSoul>(), 4);
         //recipe.SetResult(this);
-        recipe.AddTile(134);
+        recipe.AddTile(TileID.MythrilAnvil);
         recipe.Register();
     }
 }

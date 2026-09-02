@@ -18,15 +18,15 @@ namespace TremorMod.Content.NPCs;
 
 		public override void SetDefaults()
 		{
-			AIType = 77;
+			AIType = NPCID.ArmoredSkeleton;
 			NPC.lifeMax = 500;
 			NPC.damage = 30;
 			NPC.defense = 10;
 			NPC.knockBackResist = 0.3f;
 			NPC.width = 36;
 			NPC.height = 44;
-			AnimationType = 482;
-			NPC.aiStyle = 3;
+			AnimationType = NPCID.GraniteGolem;
+			NPC.aiStyle = NPCAIStyleID.Fighter;
 			NPC.npcSlots = 0.6f;
 			NPC.HitSound = SoundID.NPCHit2;
 			NPC.DeathSound = SoundID.NPCDeath6;
@@ -38,7 +38,7 @@ namespace TremorMod.Content.NPCs;
 		public override void AI()
 		{
 			if (Main.rand.NextBool(9))
-				Main.dust[Dust.NewDust(NPC.position, NPC.width, NPC.height, 180, 0f, 0f, 200, NPC.color)].velocity *= 0.3f;
+				Main.dust[Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.DungeonSpirit, 0f, 0f, 200, NPC.color)].velocity *= 0.3f;
 		}
 
     public override void ModifyNPCLoot(NPCLoot npcLoot)
@@ -62,7 +62,7 @@ namespace TremorMod.Content.NPCs;
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TBGore5").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TBGore5").Type, 1f);
 
-				if (Main.netMode == 1) return;
+				if (Main.netMode == NetmodeID.MultiplayerClient) return;
 
 				NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X + 32, (int)NPC.position.Y - 48, ModContent.NPCType<BoneFish>());
 				NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X + 16, (int)NPC.position.Y - 48, ModContent.NPCType<BoneFish>());

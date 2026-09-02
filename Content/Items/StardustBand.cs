@@ -14,7 +14,7 @@ namespace TremorMod.Content.Items;
 		{
 			Item.CloneDefaults(ItemID.Carrot);
 
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.value = 380000;
 			Item.useTime = 25;
 			Item.useAnimation = 25;
@@ -41,9 +41,9 @@ namespace TremorMod.Content.Items;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<UnchargedBand>());
-			recipe.AddIngredient(3459, 10);
+			recipe.AddIngredient(ItemID.FragmentStardust, 10);
 			//recipe.SetResult(this);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

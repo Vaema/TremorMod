@@ -17,12 +17,12 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			Item.height = 38;
 			Item.useTime = 20;
 			Item.useAnimation = 20;
-			Item.shoot = 246;
+			Item.shoot = ProjectileID.Stynger;
 			Item.shootSpeed = 8f;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;
 			Item.value = 80;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
 		}

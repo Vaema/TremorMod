@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Utilities;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.Armor.Brutallisk;
 
@@ -15,7 +16,7 @@ namespace TremorMod.Content.Items.Armor.Brutallisk;
 			Item.width = 38;
 			Item.height = 22;
 			Item.value = 150000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.defense = 32;
 		}
 
@@ -47,7 +48,7 @@ namespace TremorMod.Content.Items.Armor.Brutallisk;
 			recipe.AddIngredient(ModContent.ItemType<EvershinyBar>(), 8);
 			recipe.AddIngredient(ModContent.ItemType<SteelBar>(), 2);
 			recipe.AddIngredient(ModContent.ItemType<Phantaplasm>(), 4);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

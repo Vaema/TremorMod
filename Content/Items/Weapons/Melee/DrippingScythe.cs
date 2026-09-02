@@ -9,7 +9,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 		public override void SetDefaults()
 		{
 			Item.autoReuse = true;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useAnimation = 20;
 			Item.useTime = 20;
 			Item.knockBack = 7f;
@@ -17,7 +17,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.height = 28;
 			Item.damage = 297;
 			Item.UseSound = SoundID.Item71;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.shootSpeed = 15f;
 			Item.value = 450000;
 			Item.DamageType = DamageClass.Melee;

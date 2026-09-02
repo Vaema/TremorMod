@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items.Weapons.Melee;
@@ -8,7 +9,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 	{
 		public override void SetDefaults()
 		{
-			Item.CloneDefaults(367);
+			Item.CloneDefaults(ItemID.Pwnhammer);
 		}
 
 		public override void SetStaticDefaults()
@@ -21,7 +22,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 		{
 			if (Main.rand.NextBool(3))
 			{
-				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 27);
+				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.Shadowflame);
 			}
 		}
 	}

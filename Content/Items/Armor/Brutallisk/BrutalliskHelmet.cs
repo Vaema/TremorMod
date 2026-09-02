@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using TremorMod.Content.Items.Materials.OreAndBar;
 using TremorMod.Content.Items.Materials;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.Armor.Brutallisk;
 
@@ -19,7 +20,7 @@ namespace TremorMod.Content.Items.Armor.Brutallisk;
 			Item.width = 38;
 			Item.height = 22;
 			Item.value = 150000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.defense = 20;
 		}
 
@@ -52,7 +53,7 @@ namespace TremorMod.Content.Items.Armor.Brutallisk;
 			{
 				for (int k = 0; k < 1; k++)
 				{
-					int index = Dust.NewDust(new Vector2(player.position.X - player.velocity.X * 2f, player.position.Y - 2f - player.velocity.Y * 2f), player.width, player.height, 13, 0f, 0f, 100, default(Color), 2f);
+					int index = Dust.NewDust(new Vector2(player.position.X - player.velocity.X * 2f, player.position.Y - 2f - player.velocity.Y * 2f), player.width, player.height, DustID.Glass, 0f, 0f, 100, default(Color), 2f);
 					Main.dust[index].noGravity = true;
 					Main.dust[index].noLight = true;
 					Dust dust = Main.dust[index];
@@ -70,7 +71,7 @@ namespace TremorMod.Content.Items.Armor.Brutallisk;
 			recipe.AddIngredient(ModContent.ItemType<EvershinyBar>(), 6);
 			recipe.AddIngredient(ModContent.ItemType<SteelBar>(), 3);
 			recipe.AddIngredient(ModContent.ItemType<Phantaplasm>(), 2);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

@@ -17,7 +17,7 @@ namespace TremorMod.Content.Items.Weapons.Ranged.Ammo;
 			Item.consumable = true;
 			Item.knockBack = 1.5f;
 			Item.value = 10;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.shoot = ModContent.ProjectileType<IceBulletPro>();
 			Item.shootSpeed = 8f;
 			Item.ammo = AmmoID.Bullet;
@@ -34,7 +34,7 @@ namespace TremorMod.Content.Items.Weapons.Ranged.Ammo;
 			Recipe recipe = CreateRecipe(100);
 			recipe.AddIngredient(ItemID.MusketBall, 100);
 			recipe.AddIngredient(ItemID.IceBlock, 30);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

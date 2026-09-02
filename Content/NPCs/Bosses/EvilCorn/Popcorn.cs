@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.NPCs.Bosses.EvilCorn;
@@ -13,7 +14,7 @@ public class Popcorn : ModItem
         Item.maxStack = 0;
         Item.width = 22;
         Item.height = 22;
-        Item.rare = -1;
+        Item.rare = ItemRarityID.Gray;
     }
 
     public override void SetStaticDefaults()

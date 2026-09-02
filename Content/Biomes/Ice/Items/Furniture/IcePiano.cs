@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Biomes.Ice.Items.Furniture;
@@ -19,8 +20,8 @@ namespace TremorMod.Content.Biomes.Ice.Items.Furniture;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 15;
-			Item.useStyle = 1;
-			Item.rare = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
+			Item.rare = ItemRarityID.Blue;
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.createTile = ModContent.TileType<IcePianoTile>();
@@ -29,11 +30,11 @@ namespace TremorMod.Content.Biomes.Ice.Items.Furniture;
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(154, 4);
+			recipe.AddIngredient(ItemID.Bone, 4);
 			recipe.AddIngredient(ModContent.ItemType<GlacierWood>(), 15);
-			recipe.AddIngredient(149);
+			recipe.AddIngredient(ItemID.Book);
 			//recipe.SetResult(this);
-			recipe.AddTile(106);
+			recipe.AddTile(TileID.Sawmill);
 			recipe.Register();
 		}
 	}

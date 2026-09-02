@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items.HeaterOfWorldsItems;
@@ -13,7 +14,7 @@ namespace TremorMod.Content.Items.HeaterOfWorldsItems;
 			Item.height = 28;
 			Item.maxStack = 9999;
 			Item.value = 1000;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 		}
 
 		/*public override void SetStaticDefaults()

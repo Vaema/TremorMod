@@ -12,7 +12,7 @@ namespace TremorMod.Content.Items.Materials;
 			Item.height = 28;
 			Item.maxStack = 9999;
 			Item.value = 1000;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			ItemID.Sets.ItemNoGravity[Item.type] = true;
     }
 

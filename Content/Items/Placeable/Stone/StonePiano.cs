@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles.Stone;
 
@@ -16,8 +17,8 @@ namespace TremorMod.Content.Items.Placeable.Stone;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 15;
-			Item.useStyle = 1;
-			Item.rare = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
+			Item.rare = ItemRarityID.Blue;
 			Item.consumable = true;
 			Item.value = 0;
 			Item.createTile = ModContent.TileType<StonePianoTile>();
@@ -32,11 +33,11 @@ namespace TremorMod.Content.Items.Placeable.Stone;
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(154, 4);
-			recipe.AddIngredient(3, 15);
-			recipe.AddIngredient(149);
+			recipe.AddIngredient(ItemID.Bone, 4);
+			recipe.AddIngredient(ItemID.StoneBlock, 15);
+			recipe.AddIngredient(ItemID.Book);
 			//recipe.SetResult(this);
-			recipe.AddTile(17);
+			recipe.AddTile(TileID.Furnaces);
 			recipe.Register();
 		}
 	}

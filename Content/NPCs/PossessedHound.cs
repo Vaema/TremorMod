@@ -26,8 +26,8 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.1f;
 			NPC.width = 46;
 			NPC.height = 30;
-			AnimationType = 329;
-			NPC.aiStyle = 26;
+			AnimationType = NPCID.Hellhound;
+			NPC.aiStyle = NPCAIStyleID.Unicorn;
 			NPC.npcSlots = 0.3f;
 			NPC.HitSound = SoundID.NPCHit2;
 			NPC.DeathSound = SoundID.NPCDeath5;
@@ -55,7 +55,7 @@ namespace TremorMod.Content.NPCs;
         if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 5, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("HoundGore3").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("HoundGore1").Type, 1f);

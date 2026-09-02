@@ -17,8 +17,8 @@ namespace TremorMod.Content.Items.CraftingStations;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.rare = 7;
-			Item.useStyle = 1;
+			Item.rare = ItemRarityID.Lime;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.value = 300000;
 			Item.createTile = ModContent.TileType<AlchematorTile>();
@@ -41,7 +41,7 @@ namespace TremorMod.Content.Items.CraftingStations;
 			recipe.AddIngredient(ModContent.ItemType<Opal>(), 1);
 			recipe.AddIngredient(ItemID.Glass, 25);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

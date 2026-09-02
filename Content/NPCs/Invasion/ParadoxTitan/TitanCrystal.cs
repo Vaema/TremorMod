@@ -17,7 +17,7 @@ namespace TremorMod.Content.NPCs.Invasion.ParadoxTitan;
 
 		public override void SetDefaults()
 		{
-			AnimationType = 523;
+			AnimationType = NPCID.AncientDoom;
 			NPC.npcSlots = 0.3f;
 			NPC.damage = 150;
 			NPC.width = 36;

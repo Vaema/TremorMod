@@ -18,12 +18,12 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.useTime = 25;
 			Item.mana = 10;
 			Item.useAnimation = 25;
-			Item.useStyle = 5;
-			Item.shoot = 645;
+			Item.useStyle = ItemUseStyleID.Shoot;
+			Item.shoot = ProjectileID.LunarFlare;
 			Item.shootSpeed = 40f;
 			Item.knockBack = 6;
 			Item.value = Item.buyPrice(0, 30, 0, 0);
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.UseSound = SoundID.Item77;
 			Item.autoReuse = true;
 		}
@@ -50,8 +50,8 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.SpellTome, 1);
 			recipe.AddIngredient(ModContent.ItemType<LunarRoot>(), 6);
-			recipe.AddIngredient(3467, 30);
-			recipe.AddTile(412);
+			recipe.AddIngredient(ItemID.LunarBar, 30);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			//recipe.SetResult(this);
 			recipe.Register();
 		}

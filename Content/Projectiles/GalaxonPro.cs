@@ -15,7 +15,7 @@ namespace TremorMod.Content.Projectiles;
 			Projectile.width = 10;
 			Projectile.height = 10;
 			Projectile.friendly = true;
-			Projectile.aiStyle = 1;
+			Projectile.aiStyle = ProjAIStyleID.Arrow;
 			Projectile.penetrate = -1;
 			Projectile.extraUpdates = 5;
 			Projectile.tileCollide = false;
@@ -40,7 +40,7 @@ namespace TremorMod.Content.Projectiles;
 				return;
 			}
 			bool flag5 = WorldGen.SolidTile(Framing.GetTileSafely((int)Projectile.position.X / 16, (int)Projectile.position.Y / 16));
-			Dust dust6 = Main.dust[Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 59, 0f, 0f, 0, default(Color), 1f)];
+			Dust dust6 = Main.dust[Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.BlueTorch, 0f, 0f, 0, default(Color), 1f)];
 			dust6.position = Projectile.Center;
 			dust6.velocity = Vector2.Zero;
 			dust6.noGravity = true;
@@ -106,18 +106,18 @@ namespace TremorMod.Content.Projectiles;
 			bool flag = WorldGen.SolidTile(Framing.GetTileSafely((int)Projectile.position.X / 16, (int)Projectile.position.Y / 16));
 			for (int m = 0; m < 4; m++)
 			{
-				Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 59, 0f, 0f, 100, default(Color), 1.5f);
+				Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.BlueTorch, 0f, 0f, 100, default(Color), 1.5f);
 			}
 			for (int n = 0; n < 4; n++)
 			{
-				int num10 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 57, 0f, 0f, 0, default(Color), 2.5f);
+				int num10 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Enchanted_Gold, 0f, 0f, 0, default(Color), 2.5f);
 				Main.dust[num10].noGravity = true;
 				Main.dust[num10].velocity *= 3f;
 				if (flag)
 				{
 					Main.dust[num10].noLight = true;
 				}
-				num10 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 54, 0f, 0f, 100, default(Color), 1.5f);
+				num10 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Wraith, 0f, 0f, 100, default(Color), 1.5f);
 				Main.dust[num10].velocity *= 2f;
 				Main.dust[num10].noGravity = true;
 				if (flag)

@@ -16,7 +16,7 @@ namespace TremorMod.Content.Items.Armor.Bone;
 			Item.height = 18;
 
 			Item.value = 25000;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.defense = 9;
 		}
 
@@ -36,13 +36,13 @@ namespace TremorMod.Content.Items.Armor.Bone;
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(152, 1);
-			recipe.AddIngredient(3375, 1);
+			recipe.AddIngredient(ItemID.NecroBreastplate, 1);
+			recipe.AddIngredient(ItemID.FossilShirt, 1);
 			recipe.AddIngredient(ModContent.ItemType<CursedSoul>(), 1);
 			recipe.AddIngredient(ItemID.SoulofNight, 3);
 			recipe.AddIngredient(ModContent.ItemType<SharpenedTooth>(), 3);
 			recipe.AddIngredient(ModContent.ItemType<TheRib>(), 3);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

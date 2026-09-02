@@ -12,9 +12,9 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.width = 30;
 			Item.height = 10;
 			Item.value = Item.sellPrice(2, 0, 0, 0);
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.noMelee = true;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useAnimation = 40;
 			Item.useTime = 40;
 			Item.knockBack = 7.5F;
@@ -42,7 +42,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			recipe.AddIngredient(ItemID.TheMeatball, 1);
 			recipe.AddIngredient(ItemID.BlueMoon, 1);
 			//recipe.SetResult(this);
-			recipe.AddTile(26);
+			recipe.AddTile(TileID.DemonAltar);
 			recipe.Register();
 		}
 	}

@@ -22,9 +22,9 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.1f;
 			NPC.width = 34;
 			NPC.height = 46;
-			AnimationType = 143;
-			NPC.aiStyle = 38;
-			AIType = 143;
+			AnimationType = NPCID.SnowmanGangsta;
+			NPC.aiStyle = NPCAIStyleID.Snowman;
+			AIType = NPCID.SnowmanGangsta;
 			NPC.npcSlots = 0.3f;
 			NPC.HitSound = SoundID.NPCHit11;
 			NPC.DeathSound = SoundID.NPCDeath15;
@@ -41,11 +41,11 @@ namespace TremorMod.Content.NPCs;
         if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 76, 2.5f * hitDirection, -2.5f, 0, default(Color), 1f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Snow, 2.5f * hitDirection, -2.5f, 0, default(Color), 1f);
 
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 76, 2.5f * hitDirection, -2.5f, 0, default(Color), 3f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 76, 2.5f * hitDirection, -2.5f, 0, default(Color), 2f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 76, 2.5f * hitDirection, -2.5f, 0, default(Color), 3f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Snow, 2.5f * hitDirection, -2.5f, 0, default(Color), 3f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Snow, 2.5f * hitDirection, -2.5f, 0, default(Color), 2f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Snow, 2.5f * hitDirection, -2.5f, 0, default(Color), 3f);
 			}
 		}
 

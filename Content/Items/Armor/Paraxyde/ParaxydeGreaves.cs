@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Tiles;
@@ -14,7 +15,7 @@ namespace TremorMod.Content.Items.Armor.Paraxyde;
 			Item.width = 38;
 			Item.height = 22;
 			Item.value = 10000;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.defense = 17;
 		}
 

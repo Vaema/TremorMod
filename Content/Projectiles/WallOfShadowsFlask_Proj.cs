@@ -16,7 +16,7 @@ namespace TremorMod.Content.Projectiles;
 			Projectile.width = 26;
 			Projectile.height = 30;
 			Projectile.friendly = true;
-			Projectile.aiStyle = 2;
+			Projectile.aiStyle = ProjAIStyleID.ThrownProjectile;
 			Projectile.timeLeft = 1200;
 		}
 

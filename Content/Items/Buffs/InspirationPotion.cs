@@ -13,10 +13,10 @@ namespace TremorMod.Content.Items.Buffs;
 			Item.width = 38;
 			Item.height = 32;
 			Item.maxStack = 20;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.useAnimation = 15;
 			Item.useTime = 15;
-			Item.useStyle = 2;
+			Item.useStyle = ItemUseStyleID.EatFood;
 			Item.UseSound = SoundID.Item3;
 			Item.consumable = true;
         Item.buffType = ModContent.BuffType<MaximumCharge>();
@@ -38,10 +38,10 @@ namespace TremorMod.Content.Items.Buffs;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.BottledWater, 1);
-			recipe.AddIngredient(314, 1);
-			recipe.AddIngredient(313, 1);
+			recipe.AddIngredient(ItemID.Moonglow, 1);
+			recipe.AddIngredient(ItemID.Daybloom, 1);
 			recipe.AddIngredient(ModContent.ItemType<ManaFruit>(), 6);
-			recipe.AddTile(13);
+			recipe.AddTile(TileID.Bottles);
 			//recipe.SetResult(this);
 			recipe.Register();
 		}

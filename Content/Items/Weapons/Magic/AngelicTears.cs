@@ -21,10 +21,10 @@ namespace TremorMod.Content.Items.Weapons.Magic;
         Item.shoot = ModContent.ProjectileType<AngelTearsPro>();
         Item.shootSpeed = 16f;
 			Item.mana = 6;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 3;
 			Item.value = 90000;
-			Item.rare = 0;
+			Item.rare = ItemRarityID.White;
 			Item.UseSound = SoundID.Item21;
 			Item.autoReuse = true;
 		}
@@ -54,7 +54,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
         recipe.AddIngredient(ModContent.ItemType<HuskofDusk>(), 8);          
 			recipe.AddIngredient(ItemID.FallenStar, 10);
 			//recipe.SetResult(this);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
         recipe.Register();
     }
 	}

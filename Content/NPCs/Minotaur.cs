@@ -25,7 +25,7 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0f;
 			NPC.width = 48;
 			NPC.height = 40;
-			NPC.aiStyle = 87;
+			NPC.aiStyle = NPCAIStyleID.BiomeMimic;
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath42;
 			NPC.value = Item.buyPrice(0, 3, 0, 0);
@@ -54,7 +54,7 @@ namespace TremorMod.Content.NPCs;
         if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SeaSnail, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("MinotaurGore1").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("MinotaurGore2").Type, 1f);

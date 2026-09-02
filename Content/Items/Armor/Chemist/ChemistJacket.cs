@@ -4,6 +4,7 @@ using TremorMod.Content.Items.Armor.Chain;
 using TremorMod.Content.Items.Armor.Leather;
 using TremorMod.Content.Items.Accessories;
 using TremorMod.Utilities;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.Armor.Chemist;
 
@@ -18,7 +19,7 @@ namespace TremorMod.Content.Items.Armor.Chemist;
 			Item.height = 18;
 			Item.value = 10000;
 
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.defense = 3;
 		}
 
@@ -39,7 +40,7 @@ namespace TremorMod.Content.Items.Armor.Chemist;
 			recipe.AddIngredient(ModContent.ItemType<LeatherShirt>(), 1);
 			recipe.AddIngredient(ModContent.ItemType<Chainmail>(), 1);
 			recipe.AddIngredient(ModContent.ItemType<HazardousChemicals>(), 1);
-			recipe.AddTile(18);
+			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
 		}
 	}

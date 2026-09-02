@@ -49,7 +49,7 @@ namespace TremorMod.Content.Projectiles.Minions;
                     int damage = 30;
                     Vector2 position = Projectile.Center;
                     Vector2 velocity = new Vector2(shootToX, shootToY);
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), position, velocity, 374, damage, 0, Main.myPlayer);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), position, velocity, ProjectileID.HornetStinger, damage, 0, Main.myPlayer);
                     Projectile.ai[0] = 0f;
                 }
             }

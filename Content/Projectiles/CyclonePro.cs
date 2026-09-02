@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Projectiles;
@@ -36,7 +37,7 @@ namespace TremorMod.Content.Projectiles;
 					Vector2 vector65 = Vector2.Normalize(Projectile.velocity) * new Vector2(Projectile.width, Projectile.height) / 2f;
 					vector65 = vector65.RotatedBy((num817 - (num816 / 2 - 1)) * 3.1415926535897931 / num816, default(Vector2)) + Projectile.Center;
 					Vector2 value24 = ((float)(Main.rand.NextDouble() * 3.1415927410125732) - 1.57079637f).ToRotationVector2() * Main.rand.Next(3, 8);
-					int num818 = Dust.NewDust(vector65 + value24, 0, 0, 61, value24.X * 2f, value24.Y * 2f, 100, default(Color), 1.4f);
+					int num818 = Dust.NewDust(vector65 + value24, 0, 0, DustID.GreenTorch, value24.X * 2f, value24.Y * 2f, 100, default(Color), 1.4f);
 					Main.dust[num818].noGravity = true;
 					Main.dust[num818].noLight = true;
 					Main.dust[num818].velocity /= 4f;

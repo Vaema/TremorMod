@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Enums;
 using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Projectiles;
@@ -199,7 +200,7 @@ namespace TremorMod.Content.Projectiles;
 				float num1 = Projectile.velocity.ToRotation() + (Main.rand.NextBool(2) ? -1.0f : 1.0f) * 1.57f;
 				float num2 = (float)(Main.rand.NextDouble() * 0.8f + 1.0f);
 				Vector2 dustVel = new Vector2((float)Math.Cos(num1) * num2, (float)Math.Sin(num1) * num2);
-				Dust dust = Main.dust[Dust.NewDust(dustPos, 0, 0, 64, dustVel.X, dustVel.Y, 0, new Color(), 1f)];
+				Dust dust = Main.dust[Dust.NewDust(dustPos, 0, 0, DustID.YellowTorch, dustVel.X, dustVel.Y, 0, new Color(), 1f)];
 				dust.noGravity = true;
 				dust.scale = 1.2f;
 				// At this part, I was messing with the dusts going across the laser beam very fast, but only really works properly horizontally now

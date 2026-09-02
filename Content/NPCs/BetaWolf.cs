@@ -26,8 +26,8 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.6f;
 			NPC.width = 68;
 			NPC.height = 33;
-        AnimationType = 525;
-        NPC.aiStyle = 26;
+        AnimationType = NPCID.DesertGhoulCorruption;
+        NPC.aiStyle = NPCAIStyleID.Unicorn;
 			NPC.npcSlots = 0.4f;
 			NPC.HitSound = SoundID.NPCHit6;
 			NPC.DeathSound = SoundID.NPCDeath5;
@@ -50,7 +50,7 @@ namespace TremorMod.Content.NPCs;
         if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SeaSnail, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
 				for (int i = 0; i < 2; ++i)
 				{

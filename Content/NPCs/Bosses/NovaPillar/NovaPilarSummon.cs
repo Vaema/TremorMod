@@ -54,33 +54,33 @@ public class NovaPilarSummon : ModItem
     public override void AddRecipes()
     {
         Recipe recipe = CreateRecipe();
-        recipe.AddIngredient(3456, 10);
-        recipe.AddIngredient(3457, 10);
-        recipe.AddIngredient(3458, 10);
+        recipe.AddIngredient(ItemID.FragmentVortex, 10);
+        recipe.AddIngredient(ItemID.FragmentNebula, 10);
+        recipe.AddIngredient(ItemID.FragmentSolar, 10);
         //recipe.AddIngredient(3459, 1);
         //recipe.SetResult(this);
-        recipe.AddTile(412);
+        recipe.AddTile(TileID.LunarCraftingStation);
         recipe.Register();
 
         Recipe recipe1 = CreateRecipe();
-        recipe1.AddIngredient(3456, 10);
-        recipe1.AddIngredient(3457, 10);
-        recipe1.AddIngredient(3459, 10);
-        recipe1.AddTile(412);
+        recipe1.AddIngredient(ItemID.FragmentVortex, 10);
+        recipe1.AddIngredient(ItemID.FragmentNebula, 10);
+        recipe1.AddIngredient(ItemID.FragmentStardust, 10);
+        recipe1.AddTile(TileID.LunarCraftingStation);
         recipe1.Register();
 
         Recipe recipe2 = CreateRecipe();
-        recipe2.AddIngredient(3456, 10);
-        recipe2.AddIngredient(3459, 10);
-        recipe2.AddIngredient(3458, 10);
-        recipe2.AddTile(412);
+        recipe2.AddIngredient(ItemID.FragmentVortex, 10);
+        recipe2.AddIngredient(ItemID.FragmentStardust, 10);
+        recipe2.AddIngredient(ItemID.FragmentSolar, 10);
+        recipe2.AddTile(TileID.LunarCraftingStation);
         recipe2.Register();
 
         Recipe recipe3 = CreateRecipe();
-        recipe3.AddIngredient(3459, 10);
-        recipe3.AddIngredient(3457, 10);
-        recipe3.AddIngredient(3458, 10);
-        recipe3.AddTile(412);
+        recipe3.AddIngredient(ItemID.FragmentStardust, 10);
+        recipe3.AddIngredient(ItemID.FragmentNebula, 10);
+        recipe3.AddIngredient(ItemID.FragmentSolar, 10);
+        recipe3.AddTile(TileID.LunarCraftingStation);
         recipe3.Register();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items.Weapons.Magic;
@@ -15,13 +16,13 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.useTime = 20;
 			Item.useAnimation = 20;
 			Item.mana = 6;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			//item.shoot = mod.ProjectileType("BurningTome");
-			Item.shoot = 376;
+			Item.shoot = ProjectileID.ImpFireball;
 			Item.shootSpeed = 26f;
 			Item.knockBack = 4;
 			Item.value = 12000;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			//item.UseSound = SoundID.Item9;
 			Item.autoReuse = true;
 		}

@@ -14,7 +14,7 @@ public class ParaxydeKnifePro : ModProjectile
     {
         Projectile.width = 14;
         Projectile.height = 22;
-        Projectile.aiStyle = 1;
+        Projectile.aiStyle = ProjAIStyleID.Arrow;
         Projectile.friendly = true;
         Projectile.penetrate = -2;
         Projectile.tileCollide = false;
@@ -38,7 +38,7 @@ public class ParaxydeKnifePro : ModProjectile
 
         for (int num158 = 0; num158 < 20; num158++)
         {
-            int num159 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 27, Projectile.velocity.X * 0.1f, Projectile.velocity.Y * 0.1f, 0, default(Color), 0.5f);
+            int num159 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Shadowflame, Projectile.velocity.X * 0.1f, Projectile.velocity.Y * 0.1f, 0, default(Color), 0.5f);
             if (Main.rand.NextBool(3))
             {
                 Main.dust[num159].fadeIn = 1.1f + Main.rand.Next(-10, 11) * 0.01f;
@@ -70,7 +70,7 @@ public class ParaxydeKnifePro : ModProjectile
                 source,
                 Projectile.oldPosition + new Vector2(Projectile.width / 2, Projectile.height / 2),
                 value12,
-                400,
+                ProjectileID.MolotovFire,
                 (int)(Projectile.damage * 0.8f),
                 Projectile.knockBack * 0.8f,
                 Projectile.owner,

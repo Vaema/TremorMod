@@ -11,7 +11,7 @@ namespace TremorMod.Content.Items.Vanity;
 		{
 			Item.width = 26;
 			Item.height = 24;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 		}
 
 		public override void SetStaticDefaults()
@@ -25,7 +25,7 @@ namespace TremorMod.Content.Items.Vanity;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Silk, 8);
 			//recipe.SetResult(this);
-			recipe.AddTile(86);
+			recipe.AddTile(TileID.Loom);
 			recipe.Register();
 		}
 	}

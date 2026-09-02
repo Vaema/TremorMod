@@ -17,10 +17,10 @@ namespace TremorMod.Content.Items.Buffs;
 			Item.height = 32;
 			Item.maxStack = 20;
 
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.useAnimation = 15;
 			Item.useTime = 15;
-			Item.useStyle = 2;
+			Item.useStyle = ItemUseStyleID.EatFood;
 			Item.UseSound = SoundID.Item3;
 			Item.consumable = true;
         Item.buffType = ModContent.BuffType<DayHunting>();

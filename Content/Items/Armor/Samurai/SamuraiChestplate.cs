@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items.Armor.Samurai;
@@ -12,7 +13,7 @@ namespace TremorMod.Content.Items.Armor.Samurai;
 			Item.width = 30;
 			Item.height = 18;
 			Item.value = 100000;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.defense = 14;
 		}
 

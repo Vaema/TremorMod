@@ -19,10 +19,10 @@ namespace TremorMod.Content.Items.Placeable.Bottled;
 			Item.useAnimation = 15;
 
 			Item.useTime = 10;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.value = 150;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.createTile = ModContent.TileType<BottledSoulOfMindTile>();
 			Item.accessory = true;
 		}
@@ -39,7 +39,7 @@ namespace TremorMod.Content.Items.Placeable.Bottled;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<SoulofMind>(), 5);
 			recipe.AddIngredient(ItemID.Bottle, 1);
-			recipe.AddTile(114);
+			recipe.AddTile(TileID.TinkerersWorkbench);
 			recipe.Register();
 		}
 

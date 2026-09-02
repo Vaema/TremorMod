@@ -20,12 +20,12 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.useTime = 20;
 			Item.mana = 10;
 			Item.useAnimation = 20;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.shootSpeed = 10f;
 			Item.staff[Item.type] = true;
 			Item.knockBack = 3;
 			Item.value = 15000;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item43;
 			Item.autoReuse = true;
 		}
@@ -57,7 +57,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 		{
 			if (Main.rand.NextBool(2))
 			{
-				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 27);
+				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.Shadowflame);
 			}
 		}
 	}

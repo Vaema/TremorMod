@@ -20,10 +20,10 @@ namespace TremorMod.Content.Items.Weapons.Melee;
         Item.shoot = ModContent.ProjectileType<BrassGlaivePro>();
         Item.shootSpeed = 19f;
 			Item.useAnimation = 30;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 6;
 			Item.value = 1000;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item71;
 			Item.autoReuse = false;
 		}

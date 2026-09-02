@@ -40,7 +40,7 @@ public class CogLordGun : ModNPC
         NPC.knockBackResist = 0f;
         NPC.width = 88;
         NPC.height = 46;
-        NPC.aiStyle = 12;
+        NPC.aiStyle = NPCAIStyleID.SkeletronHand;
         NPC.noGravity = true;
         NPC.noTileCollide = true;
         NPC.HitSound = SoundID.NPCHit4;

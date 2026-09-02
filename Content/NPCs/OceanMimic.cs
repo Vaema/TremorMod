@@ -21,7 +21,7 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0f;
 			NPC.width = 48;
 			NPC.height = 40;
-			NPC.aiStyle = 87;
+			NPC.aiStyle = NPCAIStyleID.BiomeMimic;
 			NPC.npcSlots = 0.5f;
 			NPC.HitSound = SoundID.NPCHit4;
 			NPC.DeathSound = SoundID.NPCDeath6;

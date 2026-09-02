@@ -25,9 +25,9 @@ namespace TremorMod.Content.NPCs.Invasion;
 			NPC.knockBackResist = 0f;
 			NPC.width = 34;
 			NPC.height = 40;
-			AnimationType = 3;
-			NPC.aiStyle = 3;
-			AIType = 77;
+			AnimationType = NPCID.Zombie;
+			NPC.aiStyle = NPCAIStyleID.Fighter;
+			AIType = NPCID.ArmoredSkeleton;
 			NPC.npcSlots = 0.5f;
 			NPC.HitSound = SoundID.NPCHit55;
 			NPC.DeathSound = SoundID.NPCDeath51;
@@ -83,7 +83,7 @@ namespace TremorMod.Content.NPCs.Invasion;
 
     public override void ModifyNPCLoot(NPCLoot npcLoot)
     {
-        if (Main.netMode != 1)
+        if (Main.netMode != NetmodeID.MultiplayerClient)
         {
             int centerX = (int)(NPC.position.X + NPC.width / 2) / 16;
             int centerY = (int)(NPC.position.Y + NPC.height / 2) / 16;

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items.Weapons.Magic;
@@ -12,20 +13,20 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 
 			Item.mana = 6;
 			Item.noMelee = true;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.damage = 362;
 			Item.autoReuse = true;
 			Item.useAnimation = 12;
 			Item.useTime = 12;
 			Item.width = 40;
 			Item.height = 40;
-			Item.shoot = 76;
+			Item.shoot = ProjectileID.QuarterNote;
 			Item.shootSpeed = 6f;
 			Item.knockBack = 6f;
 			Item.value = Item.sellPrice(0, 40, 0, 0);
 			Item.DamageType = DamageClass.Magic;
 			Item.noMelee = true;
-			Item.rare = 0;
+			Item.rare = ItemRarityID.White;
 		}
 
 		public override void SetStaticDefaults()

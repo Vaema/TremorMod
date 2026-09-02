@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -15,7 +16,7 @@ public class ChristmasFireplaceTile : ModTile
         TileObjectData.newTile.StyleHorizontal = true;
         TileObjectData.newTile.StyleWrapLimit = 36;
         TileObjectData.addTile(Type);
-        DustType = 7;
+        DustType = DustID.WoodFurniture;
         AddMapEntry(new Color(120, 85, 60), CreateMapEntryName());
     }
 
@@ -26,7 +27,7 @@ public class ChristmasFireplaceTile : ModTile
             Player player = Main.player[Main.myPlayer];
             int style = Main.tile[i, j].TileFrameX / 15;
             //string type;
-            player.AddBuff(87, 60, true);
+            player.AddBuff(BuffID.Campfire, 60, true);
         }
     }
 }

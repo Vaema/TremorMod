@@ -11,10 +11,10 @@ namespace TremorMod.Content.Items.Buffs;
 			Item.width = 20;
 			Item.height = 30;
 			Item.maxStack = 20;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.useAnimation = 15;
 			Item.useTime = 15;
-			Item.useStyle = 2;
+			Item.useStyle = ItemUseStyleID.EatFood;
 			Item.UseSound = SoundID.Item2;
 			Item.consumable = true;
 		}

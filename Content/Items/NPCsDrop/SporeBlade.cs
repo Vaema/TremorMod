@@ -14,12 +14,12 @@ namespace TremorMod.Content.Items.NPCsDrop;
 			Item.height = 55;
 			Item.useTime = 35;
 			Item.useAnimation = 25;
-			Item.useStyle = 1;
-			Item.shoot = 228;
+			Item.useStyle = ItemUseStyleID.Swing;
+			Item.shoot = ProjectileID.SporeCloud;
 			Item.shootSpeed = 20f;
 			Item.knockBack = 4;
 			Item.value = 50000;
-			Item.rare = 6;
+			Item.rare = ItemRarityID.LightPurple;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
 		}

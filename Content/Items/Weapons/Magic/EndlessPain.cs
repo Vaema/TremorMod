@@ -22,11 +22,11 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.shootSpeed = 4f;
 			Item.useAnimation = 18;
 			Item.noMelee = true;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noUseGraphic = true;
 			Item.knockBack = 5;
 			Item.value = 250000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.UseSound = SoundID.Item44;
 			Item.autoReuse = false;
 			ItemID.Sets.ItemNoGravity[Item.type] = true;
@@ -47,7 +47,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			recipe.AddIngredient(ModContent.ItemType<PhantomSoul>(), 20);
 			recipe.AddIngredient(ModContent.ItemType<TimeTissue>(), 10);
 			recipe.AddIngredient(ModContent.ItemType<NightmareBar>(), 5);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

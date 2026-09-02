@@ -28,11 +28,11 @@ namespace TremorMod.Content.NPCs.Invasion;
 			NPC.knockBackResist = 0f;
 			NPC.width = 28;
 			NPC.height = 30;
-			NPC.aiStyle = 87;
+			NPC.aiStyle = NPCAIStyleID.BiomeMimic;
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath42;
 			NPC.value = Item.buyPrice(0, 3, 0, 0);
-			AnimationType = 3;
+			AnimationType = NPCID.Zombie;
 		}
 
 		public override void OnKill()

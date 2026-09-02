@@ -24,11 +24,11 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.3f;
 			NPC.width = 34;
 			NPC.height = 54;
-			AnimationType = 460;
-			NPC.aiStyle = 3;
+			AnimationType = NPCID.Butcher;
+			NPC.aiStyle = NPCAIStyleID.Fighter;
 			NPC.npcSlots = 0.5f;
 			NPC.HitSound = SoundID.NPCHit1;
-			AIType = 604;
+			AIType = NPCID.LadyBug;
 			NPC.DeathSound = SoundID.NPCDeath52;
 			NPC.value = Item.buyPrice(0, 3, 1, 0);
         Banner = NPC.type;
@@ -47,7 +47,7 @@ namespace TremorMod.Content.NPCs;
 
         if (NPC.life <= 0)
 			{
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 5, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
 
             //Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TheAxemanGore1").Type, 1f);
             //Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TheAxemanGore2").Type, 1f);
@@ -56,7 +56,7 @@ namespace TremorMod.Content.NPCs;
             //Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TheAxemanGore3").Type, 1f);
 
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 5, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
 			}
 		}
 

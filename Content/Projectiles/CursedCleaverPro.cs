@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Projectiles;
@@ -11,7 +12,7 @@ namespace TremorMod.Content.Projectiles;
 			Projectile.CloneDefaults(595);
 			Projectile.width = 100;
 			Projectile.height = 70;
-			AIType = 595;
+			AIType = ProjectileID.Arkhalis;
 			Main.projFrames[Projectile.type] = 28;
 		}
 
@@ -24,7 +25,7 @@ namespace TremorMod.Content.Projectiles;
 		{
 			if (Main.rand.NextBool(6))
 			{
-				target.AddBuff(39, 500, false);
+				target.AddBuff(BuffID.CursedInferno, 500, false);
 			}
 		}
 	}

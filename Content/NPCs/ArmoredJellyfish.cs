@@ -40,7 +40,7 @@ namespace TremorMod.Content.NPCs;
         NPC.height = 46;
 			AnimationType = NPCID.BloodJelly;
         AIType = NPCID.BloodJelly;
-        NPC.aiStyle = 18;
+        NPC.aiStyle = NPCAIStyleID.Jellyfish;
         NPC.value = 60f;
         NPC.HitSound = SoundID.NPCHit47;
 			NPC.DeathSound = SoundID.NPCDeath23;
@@ -56,7 +56,7 @@ namespace TremorMod.Content.NPCs;
         {
             for (int k = 0; k < 20; k++)
             {
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitInfo.HitDirection, -2.5f, 0, default(Color), 0.7f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SeaSnail, 2.5f * hitInfo.HitDirection, -2.5f, 0, default(Color), 0.7f);
             }
 
             // Ñïàâí gore ïðè ñìåðòè

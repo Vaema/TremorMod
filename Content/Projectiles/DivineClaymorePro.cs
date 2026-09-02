@@ -14,7 +14,7 @@ namespace TremorMod.Content.Projectiles;
 
 			Projectile.width = 45;
 			Projectile.height = 45;
-			Projectile.aiStyle = 27;
+			Projectile.aiStyle = ProjAIStyleID.Beam;
 			Projectile.friendly = true;
 			Projectile.DamageType = DamageClass.Ranged;
 			Projectile.penetrate = 5;
@@ -45,7 +45,7 @@ namespace TremorMod.Content.Projectiles;
                 Projectile.position,
                 Projectile.width,
                 Projectile.height,
-                226,
+                DustID.Electric,
                 Projectile.velocity.X * 0.1f,
                 Projectile.velocity.Y * 0.1f,
                 0,

@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles;
 
@@ -16,8 +17,8 @@ namespace TremorMod.Content.Items.Placeable;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 7;
-			Item.useStyle = 1;
-			Item.rare = 7;
+			Item.useStyle = ItemUseStyleID.Swing;
+			Item.rare = ItemRarityID.Lime;
 			Item.consumable = true;
 			Item.createWall = ModContent.WallType<DoombrickWallTile>();
 		}
@@ -32,7 +33,7 @@ namespace TremorMod.Content.Items.Placeable;
 		{
 			Recipe recipe = CreateRecipe(4);
 			recipe.AddIngredient(ModContent.ItemType<Doombrick>(), 1);
-			recipe.AddTile(17);
+			recipe.AddTile(TileID.Furnaces);
 			recipe.Register();
 		}
 	}

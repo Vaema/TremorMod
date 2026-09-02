@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items.BossLoot.TikiTotem;
@@ -11,7 +12,7 @@ namespace TremorMod.Content.Items.BossLoot.TikiTotem;
 		{
 			Item.width = 36;
 			Item.height = 24;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.vanity = true;
 		}
 

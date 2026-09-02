@@ -17,14 +17,14 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.height = 30;
 			Item.useTime = 35;
 			Item.useAnimation = 35;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.noMelee = true;
 			Item.knockBack = 3;
 			Item.value = 13800;
-			Item.rare = 10;
+			Item.rare = ItemRarityID.Red;
 			Item.UseSound = SoundID.Item43;
 			Item.autoReuse = false;
-			Item.shoot = 645;
+			Item.shoot = ProjectileID.LunarFlare;
 			Item.shootSpeed = 12f;
 		}
 
@@ -51,12 +51,12 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<ScourgeofFlames>(), 1);
-			recipe.AddIngredient(3467, 15);
+			recipe.AddIngredient(ItemID.LunarBar, 15);
 			recipe.AddIngredient(ModContent.ItemType<NightmareBar>(), 11);
 			recipe.AddIngredient(ItemID.PlatinumBar, 9);
 			recipe.AddIngredient(ItemID.GoldBar, 9);
 			//recipe.SetResult(this);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

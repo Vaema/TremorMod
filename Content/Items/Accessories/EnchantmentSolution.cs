@@ -27,7 +27,7 @@ public class EnchantmentSolution : ModItem
         Item.width = 26;
         Item.height = 30;
         Item.value = 250000;
-        Item.rare = 5;
+        Item.rare = ItemRarityID.Pink;
         Item.accessory = true;
     }
 

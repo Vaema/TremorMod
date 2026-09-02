@@ -25,7 +25,7 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.3f;
 			NPC.width = 42;
 			NPC.height = 56;
-			AnimationType = 29;
+			AnimationType = NPCID.GoblinSorcerer;
 			NPC.aiStyle = -1;
 			NPC.npcSlots = 15f;
 			NPC.HitSound = SoundID.NPCHit1;
@@ -45,7 +45,7 @@ namespace TremorMod.Content.NPCs;
 		public void Teleport()
 		{
 			for (int i = 0; i < 10; i++)
-				Main.dust[Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, 68, NPC.velocity.X + Main.rand.Next(-10, 10), NPC.velocity.Y + Main.rand.Next(-10, 10), 5, NPC.color, 2.6f)].noGravity = true;
+				Main.dust[Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, DustID.BlueCrystalShard, NPC.velocity.X + Main.rand.Next(-10, 10), NPC.velocity.Y + Main.rand.Next(-10, 10), 5, NPC.color, 2.6f)].noGravity = true;
 
 			NPC.position.X = (Main.player[NPC.target].position.X - 500) + Main.rand.Next(1000);
 			NPC.position.Y = (Main.player[NPC.target].position.Y - 500) + Main.rand.Next(1000);
@@ -53,7 +53,7 @@ namespace TremorMod.Content.NPCs;
 
 		public void DoAI()
 		{
-			if (Main.netMode == 1) return;
+			if (Main.netMode == NetmodeID.MultiplayerClient) return;
 
 			float SpeedX = Main.LocalPlayer.Center.X - NPC.Center.X;
 			float SpeedY = Main.LocalPlayer.Center.Y - NPC.Center.Y;
@@ -83,10 +83,10 @@ namespace TremorMod.Content.NPCs;
 				Main.invasionSize -= 1;
 				if (Main.invasionSize < 0)
 					Main.invasionSize = 0;
-				if (Main.netMode != 1)
+				if (Main.netMode != NetmodeID.MultiplayerClient)
 					Main.ReportInvasionProgress(Main.invasionSizeStart - Main.invasionSize, Main.invasionSizeStart, InvasionID.GoblinArmy + 3, 0);
-				if (Main.netMode == 2)
-					NetMessage.SendData(78, -1, -1, null, Main.invasionProgress, Main.invasionProgressMax, Main.invasionProgressIcon, 0f, 0, 0, 0);
+				if (Main.netMode == NetmodeID.Server)
+					NetMessage.SendData(MessageID.InvasionProgressReport, -1, -1, null, Main.invasionProgress, Main.invasionProgressMax, Main.invasionProgressIcon, 0f, 0, 0, 0);
 			}
         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MagusTome>(), 50));
     }

@@ -15,7 +15,7 @@ namespace TremorMod.Content.Biomes.Ice;
 			Main.tileMergeDirt[Type] = true;
 			Main.tileBlockLight[Type] = false;
 			Main.tileLighted[Type] = false;
-			DustType = 80;
+			DustType = DustID.Ice;
         HitSound = SoundID.Item21;
         AddMapEntry(new Color(84, 166, 229), CreateMapEntryName());
 			Main.tileMerge[Type][ModContent.TileType<IceOre>()] = true;

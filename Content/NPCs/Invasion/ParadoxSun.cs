@@ -26,7 +26,7 @@ namespace TremorMod.Content.NPCs.Invasion;
 			NPC.knockBackResist = 0f;
 			NPC.width = 34;
 			NPC.height = 40;
-			AnimationType = 3;
+			AnimationType = NPCID.Zombie;
 			NPC.aiStyle = -1;
 			NPC.npcSlots = 0.5f;
 			NPC.HitSound = SoundID.NPCHit1;
@@ -243,7 +243,7 @@ namespace TremorMod.Content.NPCs.Invasion;
                 //Main.tile[num32 + NPC.direction, num33 + 1] = new Tile();
             }
 
-            if (Main.tile[num32, num33 - 1].HasTile && Main.tile[num32, num33 - 1].TileType == 10 && flag3)
+            if (Main.tile[num32, num33 - 1].HasTile && Main.tile[num32, num33 - 1].TileType == TileID.ClosedDoor && flag3)
             {
                 NPC.ai[2] += 1f;
                 NPC.ai[3] = 0f;
@@ -333,7 +333,7 @@ namespace TremorMod.Content.NPCs.Invasion;
 
     public override void ModifyNPCLoot(NPCLoot npcLoot)
     {
-        if (Main.netMode != 1)
+        if (Main.netMode != NetmodeID.MultiplayerClient)
         {
             int centerX = (int)(NPC.position.X + NPC.width / 2) / 16;
             int centerY = (int)(NPC.position.Y + NPC.height / 2) / 16;

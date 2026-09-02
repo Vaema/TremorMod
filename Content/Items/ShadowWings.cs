@@ -15,7 +15,7 @@ namespace TremorMod.Content.Items;
 			Item.width = 22;
 			Item.height = 20;
 			Item.value = 100000;
-			Item.rare = 7;
+			Item.rare = ItemRarityID.Lime;
 			Item.accessory = true;
 		}
 
@@ -53,7 +53,7 @@ namespace TremorMod.Content.Items;
 			recipe.AddIngredient(ItemID.SoulofNight, 11);
 			recipe.AddIngredient(ModContent.ItemType<DarknessCloth>(), 6);
 			recipe.AddIngredient(ItemID.SoulofFlight, 20);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			//recipe.SetResult(this);
 			recipe.Register();
 		}

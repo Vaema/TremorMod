@@ -15,10 +15,10 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.height = 66;
 			Item.useTime = 45;
 			Item.useAnimation = 45;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 25;
 			Item.value = 12500;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.UseSound = SoundID.Item71;
 			Item.autoReuse = false;
 			Item.useTurn = false;
@@ -32,18 +32,18 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 
     public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
     {
-        player.AddBuff(39, 120);
+        player.AddBuff(BuffID.CursedInferno, 120);
     }
 
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<NightCore>(), 1);
-			recipe.AddIngredient(3467, 6);
+			recipe.AddIngredient(ItemID.LunarBar, 6);
 			recipe.AddIngredient(ModContent.ItemType<MultidimensionalFragment>(), 8);
 			recipe.AddIngredient(ModContent.ItemType<ConcentratedEther>(), 20);
 			//recipe.SetResult(this);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

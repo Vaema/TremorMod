@@ -2,6 +2,7 @@
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles;
 using TremorMod.Content.Items.Placeable;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.Materials;
 
@@ -18,8 +19,8 @@ namespace TremorMod.Content.Items.Materials;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.rare = 3;
-			Item.useStyle = 1;
+			Item.rare = ItemRarityID.Orange;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
         Item.createTile = ModContent.TileType<GloomstoneTile>();
     }
@@ -35,7 +36,7 @@ namespace TremorMod.Content.Items.Materials;
         Recipe recipe = CreateRecipe();
         recipe.AddIngredient(ModContent.ItemType<GloomstoneWallItem>(), 4);
 			//recipe.SetResult(this, 1);
-			recipe.AddTile(17);
+			recipe.AddTile(TileID.Furnaces);
         recipe.Register();
     }
 	}

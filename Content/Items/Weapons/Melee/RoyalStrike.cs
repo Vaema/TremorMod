@@ -16,12 +16,12 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.height = 38;
 			Item.useTime = 26;
 			Item.useAnimation = 26;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 7;
-			Item.shoot = 160;
+			Item.shoot = ProjectileID.GoldCoin;
 			Item.shootSpeed = 14f;
 			Item.value = 150000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 		}
@@ -40,7 +40,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			recipe.AddIngredient(ModContent.ItemType<SteelBar>(), 6);
 			recipe.AddIngredient(ModContent.ItemType<EvershinyBar>(), 12);
 			//recipe.SetResult(this);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

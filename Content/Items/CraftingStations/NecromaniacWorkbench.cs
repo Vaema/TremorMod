@@ -4,6 +4,7 @@ using TremorMod.Content.Items.Materials.OreAndBar;
 using TremorMod.Content.Items.Weapons.Magic;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Tiles;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.CraftingStations;
 
@@ -19,8 +20,8 @@ namespace TremorMod.Content.Items.CraftingStations;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 15;
-			Item.useStyle = 1;
-			Item.rare = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
+			Item.rare = ItemRarityID.Blue;
 			Item.consumable = true;
 			Item.value = 200;
 			Item.createTile = ModContent.TileType<NecromaniacWorkbenchTile>();

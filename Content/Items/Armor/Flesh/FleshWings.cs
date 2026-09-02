@@ -15,7 +15,7 @@ namespace TremorMod.Content.Items.Armor.Flesh;
 			Item.width = 22;
 			Item.height = 20;
 			Item.value = 100000;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.accessory = true;
 		}
 
@@ -52,7 +52,7 @@ namespace TremorMod.Content.Items.Armor.Flesh;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<PieceofFlesh>(), 6);
 			recipe.AddIngredient(ItemID.SoulofFlight, 20);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			//recipe.SetResult(this);
 			recipe.Register();
 		}

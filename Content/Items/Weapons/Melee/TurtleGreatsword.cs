@@ -15,10 +15,10 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.height = 94;
 			Item.useTime = 45;
 			Item.useAnimation = 45;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 8;
 			Item.value = 50000;
-			Item.rare = 8;
+			Item.rare = ItemRarityID.Yellow;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
 		}
@@ -31,7 +31,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 
 		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			target.AddBuff(36, 300);
+			target.AddBuff(BuffID.BrokenArmor, 300);
 		}
 
 		public override void AddRecipes()
@@ -40,7 +40,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			recipe.AddIngredient(ItemID.TurtleShell);
 			recipe.AddIngredient(ItemID.ChlorophyteBar, 20);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

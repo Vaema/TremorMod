@@ -22,10 +22,10 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			Item.useAnimation = 20;
 			Item.shoot = ModContent.ProjectileType<TwilightKnifePro>();
 			Item.shootSpeed = 22f;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;
 			Item.value = 7;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 		}
@@ -52,7 +52,7 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			Recipe recipe = CreateRecipe(125);
 			recipe.AddIngredient(ModContent.ItemType<PurpleQuartz>(), 1);
 			recipe.AddIngredient(ModContent.ItemType<NightmareBar>(), 1);
-			recipe.AddTile(14);
+			recipe.AddTile(TileID.Tables);
 			recipe.Register();
 		}
 	}

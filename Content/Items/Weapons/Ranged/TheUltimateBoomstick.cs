@@ -17,14 +17,14 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			Item.height = 22;
 			Item.useTime = 45;
 			Item.useAnimation = 45;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true;
 			Item.knockBack = 3;
 			Item.value = 13800;
-			Item.rare = 10;
+			Item.rare = ItemRarityID.Red;
 			Item.UseSound = SoundID.Item36;
 			Item.autoReuse = false;
-			Item.shoot = 10;
+			Item.shoot = ProjectileID.PurificationPowder;
 			Item.shootSpeed = 5f;
 			Item.useAmmo = AmmoID.Bullet;
 		}
@@ -66,11 +66,11 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<VoidBar>(), 5);
-			recipe.AddIngredient(3467, 5);
+			recipe.AddIngredient(ItemID.LunarBar, 5);
 			recipe.AddIngredient(ModContent.ItemType<MultidimensionalFragment>(), 10);
 			recipe.AddIngredient(ModContent.ItemType<ConcentratedEther>(), 15);
 			//recipe.SetResult(this);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

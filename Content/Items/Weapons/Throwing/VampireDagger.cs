@@ -18,12 +18,12 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			Item.height = 30;
 			Item.useTime = 15;
 			Item.useAnimation = 20;
-			Item.shoot = 304;
+			Item.shoot = ProjectileID.VampireKnife;
 			Item.shootSpeed = 15f;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;
 			Item.value = 7;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
 		}
@@ -38,7 +38,7 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 		{
 			Recipe recipe = CreateRecipe(100);
 			recipe.AddIngredient(ModContent.ItemType<SkullTeeth>());
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

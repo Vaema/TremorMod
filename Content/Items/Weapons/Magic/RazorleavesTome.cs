@@ -14,13 +14,13 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.height = 30;
 			Item.useTime = 12;
 			Item.useAnimation = 12;
-			Item.shoot = 206;
+			Item.shoot = ProjectileID.Leaf;
 			Item.shootSpeed = 11f;
 			Item.mana = 6;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 3;
 			Item.value = 10000;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
 		}

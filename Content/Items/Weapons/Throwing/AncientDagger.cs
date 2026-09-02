@@ -22,10 +22,10 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			Item.useAnimation = 20;
 			Item.shoot = ModContent.ProjectileType<AncientDaggerPro>();
 			Item.shootSpeed = 22f;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;
 			Item.value = 7;
-			Item.rare = 10;
+			Item.rare = ItemRarityID.Red;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
 
@@ -42,7 +42,7 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			Recipe recipe = CreateRecipe(25);
 			recipe.AddIngredient(ModContent.ItemType<AncientTablet>());
 			recipe.AddIngredient(ItemID.ThrowingKnife, 25);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

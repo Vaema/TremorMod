@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
@@ -14,7 +15,7 @@ namespace TremorMod.Content.Items.Armor.Afterlife;
 			Item.width = 38;
 			Item.height = 22;
 			Item.value = 10000;
-			Item.rare = 6;
+			Item.rare = ItemRarityID.LightPurple;
 			Item.defense = 9;
 		}
 
@@ -37,7 +38,7 @@ namespace TremorMod.Content.Items.Armor.Afterlife;
 			recipe.AddIngredient(ModContent.ItemType<SkullTeeth>(), 8);
         recipe.AddIngredient(ModContent.ItemType<SteelBar>(), 16);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 

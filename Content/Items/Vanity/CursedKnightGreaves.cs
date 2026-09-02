@@ -1,4 +1,5 @@
-﻿using Terraria.ModLoader;
+﻿using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items.Vanity;
 
@@ -13,7 +14,7 @@ namespace TremorMod.Content.Items.Vanity;
 			Item.height = 18;
 			Item.value = 30000;
 
-			Item.rare = 9;
+			Item.rare = ItemRarityID.Cyan;
 		}
 
 		public override void SetStaticDefaults()

@@ -16,13 +16,13 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			Item.height = 32;
 			Item.useTime = 18;
 			Item.useAnimation = 18;
-			Item.shoot = 134;
+			Item.shoot = ProjectileID.RocketI;
 			Item.shootSpeed = 10f;
 			Item.useAmmo = AmmoID.Rocket;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 4;
 			Item.value = 60000;
-			Item.rare = 8;
+			Item.rare = ItemRarityID.Yellow;
 			Item.UseSound = SoundID.Item11;
 			Item.autoReuse = true;
 		}
@@ -48,7 +48,7 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.ShroomiteBar, 16);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

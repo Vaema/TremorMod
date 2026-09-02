@@ -26,10 +26,10 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			Item.channel = true;
 			Item.noUseGraphic = true;
 			Item.noMelee = true;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 6;
 			Item.value = Item.buyPrice(15, 00);
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			//item.UseSound = SoundID.Item23;
 			Item.autoReuse = true;
 			Item.shoot = ModContent.ProjectileType<VindicatorProj>();
@@ -46,7 +46,7 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			recipe.AddIngredient(ItemID.SoulofNight, 8);
 			recipe.AddIngredient(ModContent.ItemType<MultidimensionalFragment>(), 9);
 			//recipe.SetResult(this);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 

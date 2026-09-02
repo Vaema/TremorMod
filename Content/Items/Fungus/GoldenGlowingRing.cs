@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Buffs;
 
@@ -11,7 +12,7 @@ namespace TremorMod.Content.Items.Fungus;
 			Item.width = 22;
 			Item.height = 44;
 			Item.value = 10000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.expert = true;
 			Item.accessory = true;
 		}

@@ -20,10 +20,10 @@ namespace TremorMod.Content.Items.Placeable;
 			Item.useAnimation = 15;
 
 			Item.useTime = 10;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.value = 50000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.createTile = ModContent.TileType<AncientBannerTile>();
 		}
 
@@ -35,7 +35,7 @@ namespace TremorMod.Content.Items.Placeable;
 			recipe.AddIngredient(ModContent.ItemType<Gloomstone>(), 10);
 			recipe.AddIngredient(ModContent.ItemType<UnstableCrystal>(), 2);
 			recipe.AddIngredient(ItemID.AncientCloth, 25);
-			recipe.AddTile(106);
+			recipe.AddTile(TileID.Sawmill);
 			recipe.Register();
 		}
 	}

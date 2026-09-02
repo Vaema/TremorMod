@@ -28,10 +28,10 @@ namespace TremorMod.Content.NPCs;
 			NPC.DeathSound = SoundID.NPCDeath44;
 			NPC.value = Item.buyPrice(0, 0, 2, 7);
 			NPC.knockBackResist = 0.4f;
-			NPC.aiStyle = 3;
-			AIType = 258;
+			NPC.aiStyle = NPCAIStyleID.Fighter;
+			AIType = NPCID.MushiLadybug;
 			//npc.noGravity = false;
-			AnimationType = 258;
+			AnimationType = NPCID.MushiLadybug;
 			NPC.buffImmune[20] = true;
 			NPC.buffImmune[31] = false;
 			NPC.buffImmune[24] = true;
@@ -53,7 +53,7 @@ namespace TremorMod.Content.NPCs;
         if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 31, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Smoke, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("GBeetleGore1").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("GBeetleGore2").Type, 1f);

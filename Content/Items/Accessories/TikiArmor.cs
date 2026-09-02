@@ -14,7 +14,7 @@ namespace TremorMod.Content.Items.Accessories;
 			Item.width = 34;
 			Item.height = 34;
 			Item.value = 150000;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.defense = 4;
 			Item.accessory = true;
 		}
@@ -36,7 +36,7 @@ namespace TremorMod.Content.Items.Accessories;
 			recipe.AddIngredient(ModContent.ItemType<WoodenFrame>(), 1);
 			recipe.AddIngredient(ItemID.Vine, 5);
 			recipe.AddIngredient(ItemID.JungleSpores, 15);
-			recipe.AddTile(114);
+			recipe.AddTile(TileID.TinkerersWorkbench);
 			//recipe.SetResult(this);
 			recipe.Register();
 		}

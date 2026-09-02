@@ -2,6 +2,7 @@
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 using TremorMod.Content.Items.Materials;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.Armor.RedSteel;
 
@@ -14,7 +15,7 @@ namespace TremorMod.Content.Items.Armor.RedSteel;
 			Item.height = 18;
 			Item.value = 200;
 
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.defense = 8;
 		}
 
@@ -34,7 +35,7 @@ namespace TremorMod.Content.Items.Armor.RedSteel;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<RedSteelArmorPiece>(), 5);
 			recipe.AddIngredient(ModContent.ItemType<RedSteelBar>(), 8);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

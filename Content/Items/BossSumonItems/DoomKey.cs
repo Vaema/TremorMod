@@ -15,11 +15,11 @@ namespace TremorMod.Content.Items.BossSumonItems;
 			Item.height = 30;
 			Item.maxStack = 1;
 
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.maxStack = 20;
 			Item.useAnimation = 45;
 			Item.useTime = 45;
-			Item.useStyle = 4;
+			Item.useStyle = ItemUseStyleID.HoldUp;
 			Item.UseSound = SoundID.Item44;
 			Item.consumable = true;
 		}
@@ -47,7 +47,7 @@ namespace TremorMod.Content.Items.BossSumonItems;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<CursedSoul>(), 1);
 			recipe.AddIngredient(ItemID.Bone, 25);
-			recipe.AddTile(26);
+			recipe.AddTile(TileID.DemonAltar);
 			recipe.Register();
 		}
 

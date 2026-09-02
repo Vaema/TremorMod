@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
@@ -13,7 +14,7 @@ namespace TremorMod.Content.Items.Armor.Guardian;
 			Item.width = 22;
 			Item.height = 18;
 			Item.value = 25000;
-			Item.rare = 10;
+			Item.rare = ItemRarityID.Red;
 		}
 
 		public override void SetStaticDefaults()
@@ -28,7 +29,7 @@ namespace TremorMod.Content.Items.Armor.Guardian;
 			recipe.AddIngredient(ModContent.ItemType<AncientArmorPlate>(), 16);
 			recipe.AddIngredient(ModContent.ItemType<Squorb>(), 1);
 			//recipe.SetResult(this);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

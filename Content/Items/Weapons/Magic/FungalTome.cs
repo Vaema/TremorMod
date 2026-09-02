@@ -17,12 +17,12 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.useTime = 15;
 			Item.mana = 7;
 			Item.useAnimation = 15;
-			Item.useStyle = 5;
-			Item.shoot = 131;
+			Item.useStyle = ItemUseStyleID.Shoot;
+			Item.shoot = ProjectileID.Mushroom;
 			Item.shootSpeed = 20f;
 			Item.knockBack = 4;
 			Item.value = 50000;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 		}

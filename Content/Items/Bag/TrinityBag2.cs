@@ -5,6 +5,7 @@ using TremorMod.Content.Items.Weapons.Melee;
 using TremorMod.Content.Items.Weapons.Magic;
 using TremorMod.Content.Items.Vanity;
 using TremorMod.Content.Items.Materials;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.Bag;
 
@@ -16,7 +17,7 @@ public class TrinityBag2 : ModItem
         Item.consumable = true;
         Item.width = 24;
         Item.height = 24;
-        Item.rare = 9;
+        Item.rare = ItemRarityID.Cyan;
         Item.expert = true;
     }
 

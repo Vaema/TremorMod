@@ -15,12 +15,12 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.height = 72;
 			Item.useTime = 38;
 			Item.useAnimation = 38;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.shootSpeed = 12f;
 			Item.shoot = ModContent.ProjectileType<TyphoonPro>();
 			Item.knockBack = 3;
 			Item.value = 33000;
-			Item.rare = 10;
+			Item.rare = ItemRarityID.Red;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 		}

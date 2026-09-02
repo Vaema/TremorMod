@@ -25,11 +25,11 @@ namespace TremorMod.Content.Items.Weapons.Alchemical;
 			Item.useAnimation = 40;
 			Item.shoot = ModContent.ProjectileType<BoomFlaskPro>();
 			Item.shootSpeed = 10f;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 1;
 			Item.UseSound = SoundID.Item106;
 			Item.value = 145;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.autoReuse = false;
 		}
 
@@ -73,7 +73,7 @@ namespace TremorMod.Content.Items.Weapons.Alchemical;
 		{
 			Recipe recipe = CreateRecipe(20);
 			recipe.AddIngredient(ModContent.ItemType<BoomFlask>(), 25);
-			recipe.AddIngredient(1347, 1);
+			recipe.AddIngredient(ItemID.ExplosivePowder, 1);
 			recipe.AddIngredient(ItemID.SoulofNight, 1);
 			recipe.AddIngredient(ModContent.ItemType<GelCube>(), 1);
 			//recipe.SetResult(this, 20);

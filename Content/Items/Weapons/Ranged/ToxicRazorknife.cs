@@ -18,10 +18,10 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			Item.shoot = ModContent.ProjectileType<ToxicRazorknifePro>();
 			Item.shootSpeed = 12f;
 			Item.useAnimation = 25;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 5;
 			Item.value = 100000;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.UseSound = SoundID.Item10;
 			Item.autoReuse = true;
 		}

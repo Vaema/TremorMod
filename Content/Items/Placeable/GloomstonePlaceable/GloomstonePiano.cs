@@ -2,6 +2,7 @@
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles.GloomstoneTiles;
 using TremorMod.Content.Items.Materials;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.Placeable.GloomstonePlaceable;
 
@@ -16,8 +17,8 @@ namespace TremorMod.Content.Items.Placeable.GloomstonePlaceable;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 15;
-			Item.useStyle = 1;
-			Item.rare = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
+			Item.rare = ItemRarityID.Blue;
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.createTile = ModContent.TileType<GloomstonePianoTile>();
@@ -32,11 +33,11 @@ namespace TremorMod.Content.Items.Placeable.GloomstonePlaceable;
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(154, 4);
+			recipe.AddIngredient(ItemID.Bone, 4);
 			recipe.AddIngredient(ModContent.ItemType<Gloomstone>(), 15);
-			recipe.AddIngredient(149);
+			recipe.AddIngredient(ItemID.Book);
 			//recipe.SetResult(this);
-			recipe.AddTile(17);
+			recipe.AddTile(TileID.Furnaces);
 			recipe.Register();
 		}
 	}

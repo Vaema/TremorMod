@@ -11,10 +11,10 @@ namespace TremorMod.Content.Items.Buffs;
 			Item.width = 20;
 			Item.height = 30;
 			Item.maxStack = 20;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.useAnimation = 15;
 			Item.useTime = 15;
-			Item.useStyle = 2;
+			Item.useStyle = ItemUseStyleID.EatFood;
 			Item.UseSound = SoundID.Item3;
 			Item.consumable = true;
 		}
@@ -41,7 +41,7 @@ namespace TremorMod.Content.Items.Buffs;
 			recipe.AddIngredient(ModContent.ItemType<SpiderMeat>(), 1);
 			recipe.AddIngredient(ItemID.VileMushroom, 2);
 			//recipe.SetResult(this);
-			recipe.AddTile(96);
+			recipe.AddTile(TileID.CookingPots);
 			recipe.Register();
 
 			Recipe recipe1 = CreateRecipe();
@@ -49,7 +49,7 @@ namespace TremorMod.Content.Items.Buffs;
 			recipe1.AddIngredient(ModContent.ItemType<SpiderMeat>(), 1);
 			recipe1.AddIngredient(ItemID.ViciousMushroom, 2);
 			//recipe1.SetResult(this);
-			recipe1.AddTile(96);
+			recipe1.AddTile(TileID.CookingPots);
 			recipe1.Register();
 		}
 	}

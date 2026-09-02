@@ -40,7 +40,7 @@ namespace TremorMod.Content.Projectiles;
 			}
 			for (int num457 = 0; num457 < 10; num457++)
 			{
-				int num458 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 44, 0f, 0f, 100, default(Color), 1.2f);
+				int num458 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.JungleSpore, 0f, 0f, 100, default(Color), 1.2f);
 				Main.dust[num458].noGravity = true;
 				Main.dust[num458].velocity *= 0.5f;
 				Main.dust[num458].velocity += Projectile.velocity * 0.1f;

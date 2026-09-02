@@ -4,6 +4,7 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using TremorMod.Content.Buffs;
 using TremorMod.Utilities;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.Armor.DesertExplorer;
 
@@ -17,7 +18,7 @@ namespace TremorMod.Content.Items.Armor.DesertExplorer;
 			Item.width = 30;
 			Item.height = 22;
 			Item.value = 15000;
-			Item.rare = 8;
+			Item.rare = ItemRarityID.Yellow;
 			Item.defense = 11;
 		}
 

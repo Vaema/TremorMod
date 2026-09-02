@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 
@@ -17,7 +18,7 @@ namespace TremorMod.Content.Items.Weapons.Ranged.Ammo;
 
 			Item.consumable = true;
 			Item.knockBack = 1.5f;
-			Item.rare = 0;
+			Item.rare = ItemRarityID.White;
 			Item.shoot = ModContent.ProjectileType<CarrotPro>();
 			Item.ammo = Item.type;
 			Item.value = 15;

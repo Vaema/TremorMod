@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 using TremorMod.Content.Tiles;
@@ -16,7 +17,7 @@ namespace TremorMod.Content.Items.Armor.WhiteGold;
 			Item.height = 22;
 
 			Item.value = 10000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.defense = 35;
 		}
 

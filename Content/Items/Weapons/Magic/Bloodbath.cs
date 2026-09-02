@@ -15,13 +15,13 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.height = 30;
 			Item.useTime = 14;
 			Item.useAnimation = 14;
-			Item.shoot = 524;
+			Item.shoot = ProjectileID.IchorSplash;
 			Item.shootSpeed = 6f;
 			Item.mana = 6;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 3;
 			Item.value = 122355;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item21;
 			Item.autoReuse = true;
 		}
@@ -38,7 +38,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			recipe.AddIngredient(ItemID.GoldenShower, 1);
 			recipe.AddIngredient(ModContent.ItemType<NightmareBar>(), 10);
 			recipe.AddIngredient(ModContent.ItemType<ConcentratedEther>(), 8);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			//recipe.SetResult(this);
 			recipe.Register();
 		}

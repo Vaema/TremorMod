@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Projectiles;
@@ -10,7 +11,7 @@ public class CogLordGunBullet : ModProjectile
        
         Projectile.width = 10; 
         Projectile.height = 10; 
-        Projectile.aiStyle = 14;
+        Projectile.aiStyle = ProjAIStyleID.GroundProjectile;
         Projectile.friendly = false; 
         Projectile.hostile = true; 
         Projectile.timeLeft = 300; 

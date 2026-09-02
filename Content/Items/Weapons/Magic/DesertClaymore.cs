@@ -12,7 +12,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 
 			Item.width = 30;
 			Item.height = 60;
-			Item.rare = 9;
+			Item.rare = ItemRarityID.Cyan;
 			Item.expert = true;
 			Item.damage = 23;
 			Item.DamageType = DamageClass.Magic;
@@ -20,7 +20,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 
 			Item.useTime = 8;
 			Item.useAnimation = 8;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true;
 			Item.knockBack = 1;
 			Item.value = 270000;
@@ -43,7 +43,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			{
 				if (Main.projectile[i].type == ModContent.ProjectileType<DesertClaymorePro>() && Main.projectile[i].owner == Item.playerIndexTheItemIsReservedFor && Main.projectile[i].active)
 				{
-					Main.projectile[i].aiStyle = 3;
+					Main.projectile[i].aiStyle = ProjAIStyleID.Boomerang;
 					return false;
 				}
 			}

@@ -11,7 +11,7 @@ namespace TremorMod.Content.Items.Materials;
 		{
 			Item.Size = new Vector2(38);
 			Item.value = 100000;
-			Item.rare = 8;
+			Item.rare = ItemRarityID.Yellow;
 			ItemID.Sets.ItemNoGravity[Item.type] = true;
 			ItemID.Sets.ItemIconPulse[Item.type] = true;
 		}

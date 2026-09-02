@@ -15,13 +15,13 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.height = 30;
 			Item.useTime = 14;
 			Item.useAnimation = 14;
-			Item.shoot = 27;
+			Item.shoot = ProjectileID.WaterBolt;
 			Item.shootSpeed = 26f;
 			Item.mana = 6;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 3;
 			Item.value = 99999;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item21;
 			Item.autoReuse = true;
 		}
@@ -39,7 +39,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			recipe.AddIngredient(ItemID.SpellTome, 1);
 			recipe.AddIngredient(ItemID.SoulofLight, 15);
 			//recipe.SetResult(this);
-			recipe.AddTile(101);
+			recipe.AddTile(TileID.Bookcases);
 			recipe.Register();
 		}
 	}

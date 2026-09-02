@@ -21,9 +21,9 @@ namespace TremorMod.Content.NPCs.Bosses.WallofShadows;
 			NPC.knockBackResist = 0f;
 			NPC.width = 50;
 			NPC.height = 78;
-			AnimationType = 6;
-			AIType = 6;
-			NPC.aiStyle = 5;
+			AnimationType = NPCID.EaterofSouls;
+			AIType = NPCID.EaterofSouls;
+			NPC.aiStyle = NPCAIStyleID.Flying;
 			NPC.npcSlots = 0.5f;
 			NPC.noTileCollide = true;
 			NPC.HitSound = SoundID.NPCHit31;
@@ -35,7 +35,7 @@ namespace TremorMod.Content.NPCs.Bosses.WallofShadows;
 		public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
 		{
 			if (Main.expertMode)
-				target.AddBuff(153, 120);
+				target.AddBuff(BuffID.ShadowFlame, 120);
 		}
 
     private int GetActiveShadowSteedCount()

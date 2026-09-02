@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items.SpaceWhaleItems;
@@ -11,7 +12,7 @@ namespace TremorMod.Content.Items.SpaceWhaleItems;
 		{
 			Item.width = 22;
 			Item.height = 20;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.vanity = true;
 		}
 

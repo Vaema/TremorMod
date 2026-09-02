@@ -18,10 +18,10 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.shoot = ModContent.ProjectileType<LeadSpearPro>();
 			Item.shootSpeed = 3f;
 			Item.useAnimation = 30;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 4;
 			Item.value = 1000;
-			Item.rare = 0;
+			Item.rare = ItemRarityID.White;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
 		}
@@ -36,7 +36,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.LeadBar, 9);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			//recipe.SetResult(this);
 			recipe.Register();
 		}

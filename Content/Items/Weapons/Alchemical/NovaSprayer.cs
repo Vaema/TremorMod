@@ -18,11 +18,11 @@ namespace TremorMod.Content.Items.Weapons.Alchemical;
 			Item.height = 32;
 			Item.useTime = 6;
 			Item.useAnimation = 30;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true;
 			Item.knockBack = 5;
 			Item.value = 100000;
-			Item.rare = 10;
+			Item.rare = ItemRarityID.Red;
 			Item.UseSound = SoundID.Item11;
 			Item.autoReuse = false;
 			Item.shoot = Mod.Find<ModProjectile>("NovaFlask_ProjBall").Type;
@@ -78,12 +78,12 @@ namespace TremorMod.Content.Items.Weapons.Alchemical;
             {
                 if (player.FindBuffIndex(Mod.Find<ModBuff>("BottledSpiritBuffs").Type) != -1)
                 {
-                    Projectile.NewProjectile(source, position, velocity + new Vector2(2, 2), 297, damage, knockback, Main.myPlayer);
+                    Projectile.NewProjectile(source, position, velocity + new Vector2(2, 2), ProjectileID.LostSoulFriendly, damage, knockback, Main.myPlayer);
                 }
                 if (player.FindBuffIndex(Mod.Find<ModBuff>("BigBottledSpiritBuffs").Type) != -1)
                 {
-                    Projectile.NewProjectile(source, position, velocity + new Vector2(3, 3), 297, damage, knockback, Main.myPlayer);
-                    Projectile.NewProjectile(source, position, velocity + new Vector2(2, 2), 297, damage, knockback, Main.myPlayer);
+                    Projectile.NewProjectile(source, position, velocity + new Vector2(3, 3), ProjectileID.LostSoulFriendly, damage, knockback, Main.myPlayer);
+                    Projectile.NewProjectile(source, position, velocity + new Vector2(2, 2), ProjectileID.LostSoulFriendly, damage, knockback, Main.myPlayer);
                 }
                 Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), type, damage, knockback, Main.myPlayer);
                 Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), type, damage, knockback, Main.myPlayer);
@@ -96,7 +96,7 @@ namespace TremorMod.Content.Items.Weapons.Alchemical;
         {
             for (int i = 0; i < 1; ++i)
             {
-                Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), 297, damage, knockback, Main.myPlayer);
+                Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), ProjectileID.LostSoulFriendly, damage, knockback, Main.myPlayer);
                 int k = Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer);
                 Main.projectile[k].friendly = true;
             }
@@ -106,8 +106,8 @@ namespace TremorMod.Content.Items.Weapons.Alchemical;
         {
             for (int i = 0; i < 1; ++i)
             {
-                Projectile.NewProjectile(source, position, velocity + new Vector2(2, 2), 297, damage, knockback, Main.myPlayer);
-                Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), 297, damage, knockback, Main.myPlayer);
+                Projectile.NewProjectile(source, position, velocity + new Vector2(2, 2), ProjectileID.LostSoulFriendly, damage, knockback, Main.myPlayer);
+                Projectile.NewProjectile(source, position, velocity + new Vector2(1, 1), ProjectileID.LostSoulFriendly, damage, knockback, Main.myPlayer);
                 int k = Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer);
                 Main.projectile[k].friendly = true;
             }
@@ -120,7 +120,7 @@ namespace TremorMod.Content.Items.Weapons.Alchemical;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<NovaFragment>(), 18);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

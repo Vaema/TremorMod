@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Armor.Chain;
 using TremorMod.Content.Items.Armor.Leather;
@@ -14,7 +15,7 @@ namespace TremorMod.Content.Items.Armor.Chemist;
 			Item.width = 38;
 			Item.height = 22;
 			Item.value = 10000;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.defense = 2;
 		}
 
@@ -35,7 +36,7 @@ namespace TremorMod.Content.Items.Armor.Chemist;
 			recipe.AddIngredient(ModContent.ItemType<ChainGreaves>(), 1);
 			recipe.AddIngredient(ModContent.ItemType<LeatherGreaves>(), 1);
 			//recipe.SetResult(this);
-			recipe.AddTile(18);
+			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
 		}
 

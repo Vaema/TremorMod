@@ -21,14 +21,14 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 
 			Item.useTime = 4;
 			Item.useAnimation = 12;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true;
 			Item.knockBack = 4f;
 			Item.value = Item.sellPrice(0, 20, 0, 0);
-			Item.rare = 10;
+			Item.rare = ItemRarityID.Red;
 			Item.UseSound = SoundID.Item40;
 			Item.autoReuse = false;
-			Item.shoot = 10;
+			Item.shoot = ProjectileID.PurificationPowder;
 			Item.shootSpeed = 15f;
 			Item.useAmmo = AmmoID.Bullet;
 		}
@@ -62,7 +62,7 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			recipe.AddIngredient(ItemID.SoulofNight, 20);
 			recipe.AddIngredient(ModContent.ItemType<CarbonSteel>(), 8);
 			recipe.AddIngredient(ModContent.ItemType<CandyBar>(), 12);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

@@ -20,11 +20,11 @@ namespace TremorMod.Content.Biomes.Ice.Items;
 			Item.useAnimation = 20;
 			Item.shoot = ModContent.ProjectileType<FrostLiquidFlaskPro>();
 			Item.shootSpeed = 8f;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 1;
 			Item.UseSound = SoundID.Item106;
 			Item.value = 30;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.autoReuse = false;
 			Item.crit = 4;
 		}

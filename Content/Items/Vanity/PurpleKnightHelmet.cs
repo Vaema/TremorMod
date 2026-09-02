@@ -12,7 +12,7 @@ namespace TremorMod.Content.Items.Vanity;
 			Item.width = 18;
 			Item.height = 22;
 			Item.value = 10000;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.vanity = true;
 		}
 
@@ -28,7 +28,7 @@ namespace TremorMod.Content.Items.Vanity;
 			recipe.AddIngredient(ModContent.ItemType<GrayKnightHelmet>(), 3);
 			recipe.AddIngredient(ItemID.Amethyst, 1);
 			//recipe.SetResult(this);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

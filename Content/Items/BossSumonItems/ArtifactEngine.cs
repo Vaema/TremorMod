@@ -19,10 +19,10 @@ public class ArtifactEngine : ModItem
         Item.height = 28;
         Item.maxStack = 20;
         Item.value = 100;
-        Item.rare = 5;
+        Item.rare = ItemRarityID.Pink;
         Item.useAnimation = 15;
         Item.useTime = 15;
-        Item.useStyle = 4;
+        Item.useStyle = ItemUseStyleID.HoldUp;
         Item.consumable = true;
     }
 
@@ -41,13 +41,13 @@ public class ArtifactEngine : ModItem
     public override void AddRecipes()
     {
         Recipe recipe = CreateRecipe();
-        recipe.AddIngredient(575, 30);
+        recipe.AddIngredient(ItemID.SoulofFlight, 30);
         recipe.AddIngredient(ItemID.HallowedBar, 6);
         recipe.AddIngredient(ItemID.Cog, 25);
         recipe.AddIngredient(ItemID.Wire, 20);
         recipe.AddIngredient(ModContent.ItemType<GolemCore>(), 1);
         //recipe.SetResult(this);
-        recipe.AddTile(134);
+        recipe.AddTile(TileID.MythrilAnvil);
         recipe.Register();
     }
 

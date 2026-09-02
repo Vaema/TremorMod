@@ -13,13 +13,13 @@ namespace TremorMod.Content.Items.Materials;
 			Item.height = 24;
 			Item.maxStack = 9999;
 			Item.value = 100;
-			Item.rare = 10;
+			Item.rare = ItemRarityID.Red;
 			Item.createTile = ModContent.TileType<StarBarTile>();
 			Item.useTurn = true;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 		}
 
@@ -33,7 +33,7 @@ namespace TremorMod.Content.Items.Materials;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<NightmareOre>(), 1);
-			recipe.AddIngredient(116, 1);
+			recipe.AddIngredient(ItemID.Meteorite, 1);
 			recipe.AddIngredient(ItemID.FallenStar, 3);
 			//recipe.SetResult(this);
 			recipe.AddTile(ModContent.TileType<StarvilTile>());

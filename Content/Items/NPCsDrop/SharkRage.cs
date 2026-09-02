@@ -15,15 +15,15 @@ namespace TremorMod.Content.Items.NPCsDrop;
 			Item.height = 54;
 			Item.useTime = 26;
 			Item.useAnimation = 26;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true;
 			Item.knockBack = 3;
 			Item.value = 40000;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item43;
 			Item.autoReuse = true;
 			Item.staff[Item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
-			Item.shoot = 408;
+			Item.shoot = ProjectileID.MiniSharkron;
 			Item.shootSpeed = 15f;
 		}
 

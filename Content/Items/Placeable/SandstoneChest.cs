@@ -16,8 +16,8 @@ namespace TremorMod.Content.Items.Placeable;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 15;
-			Item.useStyle = 1;
-			Item.rare = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
+			Item.rare = ItemRarityID.Blue;
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.createTile = ModContent.TileType<SandstoneChestTile>();
@@ -32,17 +32,17 @@ namespace TremorMod.Content.Items.Placeable;
 		public override void AddRecipes()
 		{
 			Recipe recipe1 = CreateRecipe();
-			recipe1.AddIngredient(607, 8);
+			recipe1.AddIngredient(ItemID.SandstoneBrick, 8);
 			recipe1.AddIngredient(ItemID.IronBar, 2);
 			//recipe.SetResult(this);
-			recipe1.AddTile(17);
+			recipe1.AddTile(TileID.Furnaces);
 			recipe1.Register();
 
 			Recipe recipe2 = CreateRecipe();
-			recipe2.AddIngredient(607, 8);
+			recipe2.AddIngredient(ItemID.SandstoneBrick, 8);
 			recipe2.AddIngredient(ItemID.LeadBar, 2);
 			//recipe.SetResult(this);
-			recipe2.AddTile(17);
+			recipe2.AddTile(TileID.Furnaces);
 			recipe2.Register();
 		}
 	}

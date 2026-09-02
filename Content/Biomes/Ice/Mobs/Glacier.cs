@@ -24,8 +24,8 @@ namespace TremorMod.Content.Biomes.Ice.Mobs;
 			NPC.width = 68;
 			NPC.height = 78;
 			//animationType = 156;
-			NPC.aiStyle = 2;
-			AIType = 180;
+			NPC.aiStyle = NPCAIStyleID.DemonEye;
+			AIType = NPCID.PigronCrimson;
 			NPC.npcSlots = 15f;
 			NPC.noTileCollide = true;
 			NPC.noGravity = true;
@@ -54,7 +54,7 @@ namespace TremorMod.Content.Biomes.Ice.Mobs;
 
     public override void AI()
 		{
-			Dust.NewDust(NPC.position, NPC.width, NPC.height, 80, 0, -1f, 0, default(Color), 0.7f);
+			Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Ice, 0, -1f, 0, default(Color), 0.7f);
 		}
 
 		public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
@@ -85,7 +85,7 @@ namespace TremorMod.Content.Biomes.Ice.Mobs;
         {
             for (int k = 0; k < 20; k++)
             {
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitInfo.HitDirection, -2.5f, 0, default(Color), 0.7f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SeaSnail, 2.5f * hitInfo.HitDirection, -2.5f, 0, default(Color), 0.7f);
             }
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("GlacierGore").Type, 1f);
         }

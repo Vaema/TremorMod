@@ -39,7 +39,7 @@ namespace TremorMod.Content.NPCs.TownNPCs;
 			NPC.friendly = true;
 			NPC.width = 32;
 			NPC.height = 54;
-			NPC.aiStyle = 7;
+			NPC.aiStyle = NPCAIStyleID.Passive;
 			NPC.damage = 10;
 			NPC.defense = 15;
 			NPC.lifeMax = 250;
@@ -149,7 +149,7 @@ namespace TremorMod.Content.NPCs.TownNPCs;
 			if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SeaSnail, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
 				//for (int i = 0; i < 3; i++)
 				//Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("WitchGore1").Type, 1f);

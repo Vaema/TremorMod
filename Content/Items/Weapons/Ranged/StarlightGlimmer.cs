@@ -12,20 +12,20 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 		public override void SetDefaults()
 		{
 			Item.autoReuse = true;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useAnimation = 12;
 			Item.useTime = 12;
 
 			Item.width = 50;
 			Item.height = 18;
-			Item.shoot = 12;
+			Item.shoot = ProjectileID.FallingStar;
 			Item.useAmmo = AmmoID.FallenStar;
 			Item.UseSound = SoundID.Item9;
 			Item.damage = 228;
 			Item.shootSpeed = 14f;
 			Item.noMelee = true;
 			Item.value = 1000000;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 
 			Item.DamageType = DamageClass.Ranged;
 		}
@@ -52,12 +52,12 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.StarCannon, 1);
 			recipe.AddIngredient(ModContent.ItemType<Doomstone>(), 16);
-			recipe.AddIngredient(3467, 20);
+			recipe.AddIngredient(ItemID.LunarBar, 20);
 			recipe.AddIngredient(ItemID.MeteoriteBar, 20);
 			recipe.AddIngredient(ItemID.FallenStar, 25);
 			recipe.AddIngredient(ModContent.ItemType<ConcentratedEther>(), 28);
 			//recipe.SetResult(this);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

@@ -15,7 +15,7 @@ namespace TremorMod.Content.NPCs.Bosses.Alchemaster;
 			Projectile.width = 18;
 			Projectile.height = 28;
 			Projectile.hostile = true;
-			Projectile.aiStyle = 2;
+			Projectile.aiStyle = ProjAIStyleID.ThrownProjectile;
 			Projectile.timeLeft = 1200;
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
 			ProjectileID.Sets.TrailingMode[Projectile.type] = 2;

@@ -22,10 +22,10 @@ namespace TremorMod.Content.Items.Tools;
 			Item.noMelee = true;
 			Item.pick = 150;
 			Item.tileBoost++;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 6;
 			Item.value = Item.buyPrice(0, 1, 50, 0);
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item23;
 			Item.autoReuse = true;
 			Item.shoot = ModContent.ProjectileType<CrystalDrillPro>();
@@ -44,7 +44,7 @@ namespace TremorMod.Content.Items.Tools;
 			recipe.AddIngredient(ModContent.ItemType<ChaosBar>(), 15);
 			recipe.AddIngredient(ItemID.CrystalShard, 22);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

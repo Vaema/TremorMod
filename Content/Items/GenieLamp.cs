@@ -14,9 +14,9 @@ namespace TremorMod.Content.Items;
 			Item.height = 20;
 			Item.useTime = 20;
 			Item.useAnimation = 20;
-			Item.useStyle = 4;
+			Item.useStyle = ItemUseStyleID.HoldUp;
 			Item.value = 40000;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.UseSound = SoundID.Item8;
 			Item.autoReuse = false;
 		}

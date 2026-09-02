@@ -18,7 +18,7 @@ namespace TremorMod.Content.Items.Weapons.Ranged.Ammo;
 			Item.consumable = true;
 			Item.knockBack = 1.5f;
 			Item.value = 10;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.shoot = ModContent.ProjectileType<NightmareBulletPro>();
 			Item.shootSpeed = 10f;
 			Item.ammo = AmmoID.Bullet;
@@ -35,7 +35,7 @@ namespace TremorMod.Content.Items.Weapons.Ranged.Ammo;
 			Recipe recipe = CreateRecipe(50);
 			recipe.AddIngredient(ItemID.EmptyBullet, 50);
 			recipe.AddIngredient(ModContent.ItemType<NightmareBar>(), 1);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			//recipe.SetResult(this, 50);
 			recipe.Register();
 		}

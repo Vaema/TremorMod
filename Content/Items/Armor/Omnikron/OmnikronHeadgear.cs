@@ -6,6 +6,7 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Buffs;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.Armor.Omnikron;
 	
@@ -19,7 +20,7 @@ namespace TremorMod.Content.Items.Armor.Omnikron;
 			Item.width = 38;
 			Item.height = 22;
 			Item.value = 0;
-			Item.rare = 0;
+			Item.rare = ItemRarityID.White;
 			Item.defense = 22;
 		}
 
@@ -55,7 +56,7 @@ namespace TremorMod.Content.Items.Armor.Omnikron;
 			{
 				for (int k = 0; k < 2; k++)
 				{
-					int index = Dust.NewDust(new Vector2(player.position.X - player.velocity.X * 2f, player.position.Y - 2f - player.velocity.Y * 2f), player.width, player.height, 60, 0f, 0f, 100, default(Color), 2f);
+					int index = Dust.NewDust(new Vector2(player.position.X - player.velocity.X * 2f, player.position.Y - 2f - player.velocity.Y * 2f), player.width, player.height, DustID.RedTorch, 0f, 0f, 100, default(Color), 2f);
 					Main.dust[index].noGravity = true;
 					Main.dust[index].noLight = true;
 					Dust dust = Main.dust[index];
@@ -81,7 +82,7 @@ namespace TremorMod.Content.Items.Armor.Omnikron;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<OmnikronBar>(), 15);
 			//recipe.SetResult(this);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

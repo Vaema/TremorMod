@@ -20,7 +20,7 @@ namespace TremorMod.Content.Items.Armor.Plague;
 			Item.height = 22;
 
 			Item.value = 25000;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.defense = 4;
 		}
 
@@ -54,7 +54,7 @@ namespace TremorMod.Content.Items.Armor.Plague;
         recipe.AddIngredient(ItemID.Silk, 12);
         recipe.AddIngredient(ModContent.ItemType<PhantomSoul>(), 4);
         recipe.AddIngredient(ModContent.ItemType<TearsofDeath>(), 8);
-        recipe.AddTile(16);
+        recipe.AddTile(TileID.Anvils);
         recipe.Register();
     }
 }

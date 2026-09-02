@@ -13,7 +13,7 @@ namespace TremorMod.Content.Items.Accessories;
 			Item.width = 22;
 			Item.height = 44;
 			Item.value = 30000;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.maxStack = 1;
 			Item.accessory = true;
 		}
@@ -37,7 +37,7 @@ namespace TremorMod.Content.Items.Accessories;
 			recipe.AddIngredient(ModContent.ItemType<CursedSoul>(), 1);
 			recipe.AddIngredient(ModContent.ItemType<TearsofDeath>(), 15);
 			//recipe.SetResult(this);
-			recipe.AddTile(13);
+			recipe.AddTile(TileID.Bottles);
 			recipe.Register();
 		}
 	}

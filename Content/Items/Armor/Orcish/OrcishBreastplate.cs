@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items.Armor.Orcish;
@@ -12,7 +13,7 @@ namespace TremorMod.Content.Items.Armor.Orcish;
 			Item.width = 26;
 			Item.height = 18;
 			Item.value = 600;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.defense = 4;
 		}
 

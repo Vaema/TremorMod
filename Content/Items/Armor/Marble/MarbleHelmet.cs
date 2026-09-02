@@ -16,7 +16,7 @@ namespace TremorMod.Content.Items.Armor.Marble;
 			Item.width = 26;
 			Item.height = 32;
 			Item.value = 2500;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 		}
 
 		public override void SetStaticDefaults()
@@ -45,7 +45,7 @@ namespace TremorMod.Content.Items.Armor.Marble;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.MarbleBlock, 25);
 			recipe.AddIngredient(ModContent.ItemType<StoneofLife>(), 1);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

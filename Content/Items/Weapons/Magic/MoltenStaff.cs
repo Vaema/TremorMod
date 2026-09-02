@@ -17,15 +17,15 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.height = 48;
 			Item.useTime = 25;
 			Item.useAnimation = 25;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.staff[Item.type] = true;
 			//Item.noMelee = true;
 			Item.knockBack = 5;
 			Item.value = 17500;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
-			Item.shoot = 85;
+			Item.shoot = ProjectileID.Flames;
 			Item.shootSpeed = 6f;
 		}
 
@@ -41,7 +41,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			recipe.AddIngredient(ModContent.ItemType<FireFragment>(), 15);
 			recipe.AddIngredient(ModContent.ItemType<MoltenParts>(), 1);
 			//recipe.SetResult(this);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

@@ -10,7 +10,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 		public override void SetDefaults()
 		{
 
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useAnimation = 28;
 			Item.useTime = 28;
 			Item.knockBack = 5.75f;
@@ -19,9 +19,9 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.damage = 165;
 			Item.scale = 1.125f;
 			Item.shootSpeed = 15f;
-			Item.shoot = 524;
+			Item.shoot = ProjectileID.IchorSplash;
 			Item.UseSound = SoundID.Item1;
-			Item.rare = 9;
+			Item.rare = ItemRarityID.Cyan;
 			Item.autoReuse = true;
 			Item.value = Item.sellPrice(0, 5, 0, 0);
 			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
@@ -42,7 +42,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			recipe.AddIngredient(ModContent.ItemType<Doomstone>(), 6);
 			recipe.AddIngredient(ModContent.ItemType<Phantaplasm>(), 10);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

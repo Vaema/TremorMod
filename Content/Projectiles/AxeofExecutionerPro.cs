@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Projectiles;
@@ -15,7 +16,7 @@ namespace TremorMod.Content.Projectiles;
         Projectile.height = 29;
 
         // Óêàçûâàåì AIType (ñíàðÿä, íà êîòîðûé îðèåíòèðóåòñÿ ëîãèêà ïîâåäåíèÿ)
-        AIType = 182; // Óáåäèòåñü, ÷òî 182 — ýòî ñóùåñòâóþùèé ID ñíàðÿäà, ñ êîòîðûì âû õîòèòå ñðàâíÿòüñÿ
+        AIType = ProjectileID.PossessedHatchet; // Óáåäèòåñü, ÷òî 182 — ýòî ñóùåñòâóþùèé ID ñíàðÿäà, ñ êîòîðûì âû õîòèòå ñðàâíÿòüñÿ
     }
 
 

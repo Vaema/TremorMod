@@ -20,10 +20,10 @@ namespace TremorMod.Content.Items.BossLoot.TheDarkEmperor;
 			Item.shoot = ModContent.ProjectileType<NastyJavelinPro>();
 			Item.shootSpeed = 20f;
 			Item.useAnimation = 22;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;
 			Item.value = 10000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.UseSound = SoundID.Item5;
 			Item.autoReuse = true;
 		}

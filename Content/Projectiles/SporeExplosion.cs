@@ -84,7 +84,7 @@ namespace TremorMod.Content.Projectiles;
 				num466 = num465 / num466;
 				num463 *= num466;
 				num464 *= num466;
-				int num467 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 44, 0f, 0f, 100, default(Color), 2.5f);
+				int num467 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.JungleSpore, 0f, 0f, 100, default(Color), 2.5f);
 				Main.dust[num467].noGravity = true;
 				Main.dust[num467].position.X = Projectile.Center.X;
 				Main.dust[num467].position.Y = Projectile.Center.Y;

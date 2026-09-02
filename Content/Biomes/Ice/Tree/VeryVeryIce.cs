@@ -21,7 +21,7 @@ public class VeryVeryIce : ModTile
         Main.tileMerge[Type][147] = true;
         Main.tileMergeDirt[Type] = true;
         Main.tileBlockLight[Type] = false;
-        DustType = 80;
+        DustType = DustID.Ice;
         HitSound = SoundID.Dig;
         Main.tileLighted[Type] = true;
 

@@ -12,7 +12,7 @@ namespace TremorMod.Content.Projectiles;
 		{
 			Projectile.width = 4;
 			Projectile.height = 4;
-			Projectile.aiStyle = 1;
+			Projectile.aiStyle = ProjAIStyleID.Arrow;
 			Projectile.friendly = true;
 			Projectile.ignoreWater = true;
 			Projectile.DamageType = DamageClass.Ranged;
@@ -39,7 +39,7 @@ namespace TremorMod.Content.Projectiles;
 			}
 			for (int num121 = 0; num121 < 5; num121++)
 			{
-				Dust dust4 = Main.dust[Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 172, Projectile.velocity.X, Projectile.velocity.Y, 100, default(Color), 1f)];
+				Dust dust4 = Main.dust[Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.DungeonWater, Projectile.velocity.X, Projectile.velocity.Y, 100, default(Color), 1f)];
 				dust4.velocity = Vector2.Zero;
 				dust4.position -= Projectile.velocity / 5f * num121;
 				dust4.noGravity = true;

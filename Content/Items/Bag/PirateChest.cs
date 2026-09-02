@@ -15,7 +15,7 @@ namespace TremorMod.Content.Items.Bag;
 			Item.width = 34;
 			Item.height = 34;
 			Item.value = 20000;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 		}
 
 		public override void SetStaticDefaults()

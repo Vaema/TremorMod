@@ -14,7 +14,7 @@ namespace TremorMod.Content.Items;
 			Item.width = 22;
 			Item.height = 20;
 			Item.value = 500000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.accessory = true;
 		}
 

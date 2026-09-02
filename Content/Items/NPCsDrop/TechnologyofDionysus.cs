@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items.NPCsDrop;
@@ -11,7 +12,7 @@ namespace TremorMod.Content.Items.NPCsDrop;
 			Item.width = 24;
 			Item.height = 28;
 			Item.value = 100000;
-			Item.rare = 6;
+			Item.rare = ItemRarityID.LightPurple;
 			Item.accessory = true;
 			Item.defense = 3;
 		}

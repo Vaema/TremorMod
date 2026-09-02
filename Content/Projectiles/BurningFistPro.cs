@@ -14,7 +14,7 @@ public class BurningFistPro : ModProjectile
         Projectile.CloneDefaults(668);
         Projectile.width = 28;
         Projectile.height = 38;
-        AIType = 668;
+        AIType = ProjectileID.DD2FlameBurstTowerT3Shot;
         Projectile.timeLeft = 400;
         Projectile.penetrate = 1;
         Projectile.friendly = true;
@@ -36,7 +36,7 @@ public class BurningFistPro : ModProjectile
                 Vector2 value17 = new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101));
                 value17.Normalize();
                 value17 *= Main.rand.Next(10, 201) * 0.01f;
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, value17.X, value17.Y, 15, Projectile.damage, 1f, Projectile.owner, 0f, Main.rand.Next(-45, 1));
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, value17.X, value17.Y, ProjectileID.BallofFire, Projectile.damage, 1f, Projectile.owner, 0f, Main.rand.Next(-45, 1));
             }
         }
 
@@ -49,7 +49,7 @@ public class BurningFistPro : ModProjectile
         Projectile.position.Y = Projectile.position.Y - Projectile.height / 2;
         for (int num628 = 0; num628 < 40; num628++)
         {
-            int num629 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 31, 0f, 0f, 100, default(Color), 2f);
+            int num629 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Smoke, 0f, 0f, 100, default(Color), 2f);
             Main.dust[num629].velocity *= 3f;
             if (Main.rand.NextBool(2))
             {
@@ -59,10 +59,10 @@ public class BurningFistPro : ModProjectile
         }
         for (int num630 = 0; num630 < 70; num630++)
         {
-            int num631 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 6, 0f, 0f, 100, default(Color), 3f);
+            int num631 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, default(Color), 3f);
             Main.dust[num631].noGravity = true;
             Main.dust[num631].velocity *= 5f;
-            num631 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 6, 0f, 0f, 100, default(Color), 2f);
+            num631 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, default(Color), 2f);
             Main.dust[num631].velocity *= 2f;
         }
         for (int num632 = 0; num632 < 3; num632++)

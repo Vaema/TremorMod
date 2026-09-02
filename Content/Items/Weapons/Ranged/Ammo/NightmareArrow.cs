@@ -20,7 +20,7 @@ namespace TremorMod.Content.Items.Weapons.Ranged.Ammo;
 			Item.shootSpeed = 22f;
 			Item.knockBack = 4;
 			Item.value = 10;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.ammo = AmmoID.Arrow;
 		}
 
@@ -35,7 +35,7 @@ namespace TremorMod.Content.Items.Weapons.Ranged.Ammo;
 			Recipe recipe = CreateRecipe(150);
 			recipe.AddIngredient(ModContent.ItemType<NightmareBar>(), 1);
 			recipe.AddIngredient(ItemID.WoodenArrow, 150);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

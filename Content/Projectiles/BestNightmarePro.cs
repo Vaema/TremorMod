@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Projectiles;
@@ -13,7 +14,7 @@ public class BestNightmarePro : ModProjectile
     public override void SetDefaults()
     {
         Projectile.CloneDefaults(106);
-        AIType = 106;
+        AIType = ProjectileID.LightDisc;
         Projectile.width = 54;
         Projectile.height = 54;
     }
@@ -40,15 +41,15 @@ public class BestNightmarePro : ModProjectile
         Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
         if (Main.rand.NextBool())
         {
-            Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 62, Projectile.velocity.X * 0.9f, Projectile.velocity.Y * 0.9f);
+            Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.PurpleTorch, Projectile.velocity.X * 0.9f, Projectile.velocity.Y * 0.9f);
         }
         if (Main.rand.NextBool(2))
         {
-            Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 59, Projectile.velocity.X * 0.9f, Projectile.velocity.Y * 0.9f);
+            Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.BlueTorch, Projectile.velocity.X * 0.9f, Projectile.velocity.Y * 0.9f);
         }
         if (Main.rand.NextBool(2))
         {
-            Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 61, Projectile.velocity.X * 0.9f, Projectile.velocity.Y * 0.9f);
+            Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.GreenTorch, Projectile.velocity.X * 0.9f, Projectile.velocity.Y * 0.9f);
         }
         Vector2 vector63 = Main.player[Projectile.owner].Center - Projectile.Center;
         if (Main.player[Projectile.owner].dead)

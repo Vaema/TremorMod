@@ -20,8 +20,8 @@ namespace TremorMod.Content.Biomes.Ice.Items.Furniture;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 15;
-			Item.useStyle = 1;
-			Item.rare = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
+			Item.rare = ItemRarityID.Blue;
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.createTile = ModContent.TileType<IceLampTile>();
@@ -33,7 +33,7 @@ namespace TremorMod.Content.Biomes.Ice.Items.Furniture;
 			recipe.AddIngredient(ModContent.ItemType<GlacierWood>(), 3);
 			recipe.AddIngredient(ItemID.Torch, 1);
 			//recipe.SetResult(this);
-			recipe.AddTile(18);
+			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
 		}
 	}

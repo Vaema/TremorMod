@@ -17,7 +17,7 @@ namespace TremorMod.Content.Items.Armor.Magmonium;
 			Item.width = 26;
 			Item.height = 32;
 			Item.value = 40000;
-			Item.rare = 8;
+			Item.rare = ItemRarityID.Yellow;
 		}
 
 		public override void SetStaticDefaults()
@@ -55,7 +55,7 @@ namespace TremorMod.Content.Items.Armor.Magmonium;
         Recipe recipe = CreateRecipe();
         recipe.AddIngredient(ModContent.ItemType<MagmoniumBar>(), 15);
         //recipe.SetResult(this);
-        recipe.AddTile(134);
+        recipe.AddTile(TileID.MythrilAnvil);
         recipe.Register();
     }
 	}

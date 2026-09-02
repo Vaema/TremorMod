@@ -20,8 +20,8 @@ namespace TremorMod.Content.Biomes.Ice.Items.Furniture;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 15;
-			Item.useStyle = 1;
-			Item.rare = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
+			Item.rare = ItemRarityID.Blue;
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.createTile = ModContent.TileType<IceGrandfatherClockTile>();
@@ -34,7 +34,7 @@ namespace TremorMod.Content.Biomes.Ice.Items.Furniture;
 			recipe.AddIngredient(ItemID.Glass, 6);
 			recipe.AddIngredient(ModContent.ItemType<GlacierWood>(), 10);
 			//recipe.SetResult(this);
-			recipe.AddTile(106);
+			recipe.AddTile(TileID.Sawmill);
 			recipe.Register();
 
 			Recipe recipe1 = CreateRecipe();
@@ -42,7 +42,7 @@ namespace TremorMod.Content.Biomes.Ice.Items.Furniture;
 			recipe1.AddIngredient(ItemID.Glass, 6);
 			recipe1.AddIngredient(ModContent.ItemType<GlacierWood>(), 10);
 			//recipe1.SetResult(this);
-			recipe1.AddTile(106);
+			recipe1.AddTile(TileID.Sawmill);
 			recipe1.Register();
 		}
 	}

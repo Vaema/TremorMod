@@ -16,7 +16,7 @@ namespace TremorMod.Content.Items;
 			Item.width = 22;
 			Item.height = 20;
 			Item.value = 10000;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.accessory = true;
 		}
 
@@ -53,7 +53,7 @@ namespace TremorMod.Content.Items;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<VultureFeather>(), 1);
 			recipe.AddIngredient(ItemID.SoulofFlight, 20);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			//recipe.SetResult(this);
 			recipe.Register();
 		}

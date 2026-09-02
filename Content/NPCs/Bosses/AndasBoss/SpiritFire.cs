@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.NPCs.Bosses.AndasBoss;
@@ -49,7 +50,7 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss;
 				{
 					for (int num298 = 0; num298 < 1; num298++)
 					{
-						int num299 = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 6, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
+						int num299 = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.Torch, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
 						if ((num297 == 6 && Main.rand.NextBool(3)))
 						{
 							Main.dust[num299].noGravity = true;

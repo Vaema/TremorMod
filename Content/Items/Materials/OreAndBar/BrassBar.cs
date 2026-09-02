@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.CogLordItems;
 using TremorMod.Content.Tiles;
@@ -14,13 +15,13 @@ namespace TremorMod.Content.Items.Materials.OreAndBar;
 			Item.height = 24;
 			Item.maxStack = 9999;
 			Item.value = 300;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.createTile = ModContent.TileType<BrassBarTile>();
 			Item.useTurn = true;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 		}
 

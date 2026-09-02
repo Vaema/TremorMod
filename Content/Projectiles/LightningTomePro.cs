@@ -15,7 +15,7 @@ namespace TremorMod.Content.Projectiles;
 
 			Projectile.width = 24;
 			Projectile.height = 32;
-			Projectile.aiStyle = 8;
+			Projectile.aiStyle = ProjAIStyleID.Bounce;
 			Projectile.friendly = true;
 			Projectile.DamageType = DamageClass.Magic;
 			Projectile.penetrate = 5;
@@ -36,7 +36,7 @@ namespace TremorMod.Content.Projectiles;
 		{
 			for (int k = 0; k < 40; k++)
 			{
-				int dust = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 6, Projectile.oldVelocity.X * 0.7f, Projectile.oldVelocity.Y * 0.7f);
+				int dust = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.Torch, Projectile.oldVelocity.X * 0.7f, Projectile.oldVelocity.Y * 0.7f);
 			}
 			SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
 		}

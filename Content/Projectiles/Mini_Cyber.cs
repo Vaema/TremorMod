@@ -26,7 +26,7 @@ namespace TremorMod.Content.Projectiles;
 		{
 			Projectile.netImportant = true;
 			Projectile.CloneDefaults(388);
-			AIType = 388;
+			AIType = ProjectileID.Spazmamini;
 			Projectile.light = 2f;
 			Projectile.width = 26;
 			Projectile.height = 30;

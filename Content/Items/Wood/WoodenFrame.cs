@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items.Wood;
@@ -10,7 +11,7 @@ namespace TremorMod.Content.Items.Wood;
 			Item.width = 34;
 			Item.height = 34;
 			Item.value = 120000;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.defense = 3;
 			Item.accessory = true;
 		}

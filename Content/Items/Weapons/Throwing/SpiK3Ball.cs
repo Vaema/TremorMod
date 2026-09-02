@@ -19,10 +19,10 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			Item.useAnimation = 12;
 			Item.shoot = ModContent.ProjectileType<SpiK3BallPro>();
 			Item.shootSpeed = 7f;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 3;
 			Item.value = 155;
-			Item.rare = 8;
+			Item.rare = ItemRarityID.Yellow;
 			Item.consumable = true;
 			Item.UseSound = SoundID.Item1;
 		}

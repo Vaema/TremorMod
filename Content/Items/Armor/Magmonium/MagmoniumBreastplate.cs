@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 using TremorMod.Utilities;
@@ -15,7 +16,7 @@ namespace TremorMod.Content.Items.Armor.Magmonium;
 			Item.width = 22;
 			Item.height = 30;
 			Item.value = 60000;
-			Item.rare = 8;
+			Item.rare = ItemRarityID.Yellow;
 		}
 
 		/*public override void SetStaticDefaults()
@@ -39,7 +40,7 @@ namespace TremorMod.Content.Items.Armor.Magmonium;
         Recipe recipe = CreateRecipe();
         recipe.AddIngredient(ModContent.ItemType<MagmoniumBar>(), 25);
         //recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
         recipe.Register();
     }
 	}

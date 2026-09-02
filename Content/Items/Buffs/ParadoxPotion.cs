@@ -16,10 +16,10 @@ namespace TremorMod.Content.Items.Buffs;
 			Item.height = 32;
 			Item.maxStack = 20;
         Item.potion = true;
-        Item.rare = 11;
+        Item.rare = ItemRarityID.Purple;
 			Item.useAnimation = 15;
 			Item.useTime = 15;
-			Item.useStyle = 2;
+			Item.useStyle = ItemUseStyleID.EatFood;
 			Item.UseSound = SoundID.Item3;
 			Item.consumable = true;
         Item.healLife = 300;
@@ -57,7 +57,7 @@ namespace TremorMod.Content.Items.Buffs;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<ParadoxElement>(), 2);
 			recipe.AddIngredient(ItemID.BottledWater);
-			recipe.AddTile(13);
+			recipe.AddTile(TileID.Bottles);
 			recipe.Register();
 		}
 	}

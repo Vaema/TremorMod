@@ -21,8 +21,8 @@ public class FlyingLeech : ModNPC
         NPC.knockBackResist = 0.5f;
         NPC.width = 74;
         NPC.height = 42;
-        AnimationType = 2;
-        NPC.aiStyle = 2;
+        AnimationType = NPCID.DemonEye;
+        NPC.aiStyle = NPCAIStyleID.DemonEye;
         NPC.noGravity = true;
         NPC.npcSlots = 1f;
         NPC.HitSound = SoundID.NPCHit1;

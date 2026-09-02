@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -14,7 +14,7 @@ public class SolarBand : ModItem
 	{
 		Item.CloneDefaults(ItemID.Carrot);
 
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.value = 380000;
 		Item.useTime = 25;
 		Item.useAnimation = 25;
@@ -41,8 +41,8 @@ public class SolarBand : ModItem
 	{
 		Recipe recipe = CreateRecipe(this.Type);
 		recipe.AddIngredient(ModContent.ItemType<UnchargedBand>());
-		recipe.AddIngredient(3458, 10);
-		recipe.AddTile(412);
+		recipe.AddIngredient(ItemID.FragmentSolar, 10);
+		recipe.AddTile(TileID.LunarCraftingStation);
 		recipe.Register();
 	}
 }

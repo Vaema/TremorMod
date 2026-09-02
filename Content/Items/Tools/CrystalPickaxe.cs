@@ -17,11 +17,11 @@ namespace TremorMod.Content.Items.Tools;
 			Item.useTime = 10;
 			Item.useAnimation = 10;
 			Item.pick = 150;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.tileBoost++;
 			Item.knockBack = 6;
 			Item.value = 15000;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 		}
@@ -38,7 +38,7 @@ namespace TremorMod.Content.Items.Tools;
 			recipe.AddIngredient(ModContent.ItemType<ChaosBar>(), 15);
 			recipe.AddIngredient(ItemID.CrystalShard, 22);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 
@@ -46,7 +46,7 @@ namespace TremorMod.Content.Items.Tools;
 		{
 			if (Main.rand.NextBool(3))
 			{
-				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 71);
+				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.UndergroundHallowedEnemies);
 			}
 		}
 

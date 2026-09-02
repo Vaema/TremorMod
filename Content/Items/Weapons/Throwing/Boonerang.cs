@@ -17,11 +17,11 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			Item.useTime = 14;
 			Item.shootSpeed = 12f;
 			Item.useAnimation = 14;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 3f;
 			Item.shoot = ModContent.ProjectileType<BoonerangPro>();
 			Item.value = 27600;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.noUseGraphic = true;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
@@ -51,7 +51,7 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			recipe.AddIngredient(ItemID.Bone, 45);
 			recipe.AddIngredient(ModContent.ItemType<CursedSoul>(), 1);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

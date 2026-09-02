@@ -23,9 +23,9 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.0f;
 			NPC.width = 80;
 			NPC.height = 80;
-			AnimationType = 82;
-			NPC.aiStyle = 97;
-			AIType = 420;
+			AnimationType = NPCID.Wraith;
+			NPC.aiStyle = NPCAIStyleID.NebulaFloater;
+			AIType = NPCID.NebulaBrain;
 			NPC.npcSlots = 0.4f;
 			NPC.noTileCollide = true;
 			NPC.HitSound = SoundID.NPCHit4;
@@ -41,12 +41,12 @@ namespace TremorMod.Content.NPCs;
         int hitDirection = hit.HitDirection;
 
         if (NPC.life > 0)
-				Main.dust[Dust.NewDust(NPC.position, NPC.width, NPC.height, 71, 0f, 0f, 200)].velocity *= 1.5F;
+				Main.dust[Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.UndergroundHallowedEnemies, 0f, 0f, 200)].velocity *= 1.5F;
 			else
 			{
 				for (int i = 0; i < 50; i++)
 				{
-					Main.dust[Dust.NewDust(NPC.position, NPC.width, NPC.height, 71, hitDirection, 0f, 200)].velocity *= 1.5f;
+					Main.dust[Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.UndergroundHallowedEnemies, hitDirection, 0f, 200)].velocity *= 1.5f;
 
                 Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AvengerGore1").Type, 1f);
                 Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AvengerGore1").Type, 1f);

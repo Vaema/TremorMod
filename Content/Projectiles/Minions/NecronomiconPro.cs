@@ -12,7 +12,7 @@ namespace TremorMod.Content.Projectiles.Minions;
 		{
 			Projectile.netImportant = true;
 			Projectile.CloneDefaults(317);
-			AIType = 317;
+			AIType = ProjectileID.Raven;
 
 			Projectile.width = 20;
 			Projectile.height = 30;

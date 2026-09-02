@@ -12,11 +12,11 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 		public override void SetDefaults()
 		{
 			Item.value = 100000;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useAnimation = 25;
 			Item.useTime = 25;
 			Item.autoReuse = true;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.width = 42;
 			Item.height = 42;
 			Item.UseSound = SoundID.Item8;

@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.NPCs.Bosses.Alchemaster;
@@ -12,7 +13,7 @@ namespace TremorMod.Content.NPCs.Bosses.Alchemaster;
 			Projectile.height = 40;
 			Projectile.DamageType = DamageClass.Magic;
 			Projectile.penetrate = 8;
-			Projectile.aiStyle = 92;
+			Projectile.aiStyle = ProjAIStyleID.ToxicCloud;
 			Projectile.hostile = true;
 			Projectile.timeLeft = 600;
 			Projectile.light = 1.0f;
@@ -28,7 +29,7 @@ namespace TremorMod.Content.NPCs.Bosses.Alchemaster;
 		{
 			if (Main.rand.NextBool())
 			{
-				target.AddBuff(20, 180, false);
+				target.AddBuff(BuffID.Poisoned, 180, false);
 			}
 		}
 

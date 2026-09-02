@@ -12,9 +12,9 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.width = 30;
 			Item.height = 10;
 			Item.value = Item.sellPrice(0, 0, 25, 0);
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			//Item.noMelee = true;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useAnimation = 40;
 			Item.useTime = 40;
 			Item.knockBack = 7.5F;
@@ -40,7 +40,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			recipe.AddIngredient(ItemID.RichMahogany, 15);
 			recipe.AddIngredient(ItemID.Vine, 1);
 			recipe.AddIngredient(ItemID.Stinger, 3);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

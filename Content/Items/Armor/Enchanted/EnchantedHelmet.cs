@@ -2,6 +2,7 @@
 using Terraria.ModLoader;
 using Terraria.Localization;
 using TremorMod.Content.Buffs;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.Armor.Enchanted;
 
@@ -15,7 +16,7 @@ namespace TremorMod.Content.Items.Armor.Enchanted;
 			Item.width = 24;
 			Item.height = 24;
 			Item.value = 10000;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.defense = 5;
 		}
 

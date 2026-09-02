@@ -16,10 +16,10 @@ namespace TremorMod.Content.Items.Tools;
 			Item.useTime = 12;
 			Item.useAnimation = 15;
 			Item.pick = 200;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 2;
 			Item.value = 600;
-			Item.rare = 8;
+			Item.rare = ItemRarityID.Yellow;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 		}
@@ -35,7 +35,7 @@ namespace TremorMod.Content.Items.Tools;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<MagmoniumBar>(), 15);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

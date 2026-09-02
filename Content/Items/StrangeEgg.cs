@@ -14,7 +14,7 @@ namespace TremorMod.Content.Items;
 			Item.CloneDefaults(ItemID.Carrot);
 			Item.useTime = 25;
 			Item.useAnimation = 25;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.shoot = ModContent.ProjectileType<Brutty>();
 			Item.buffType = ModContent.BuffType<BruttyBuff>();
 		}

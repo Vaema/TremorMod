@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Dusts;
 
@@ -12,7 +13,7 @@ namespace TremorMod.Content.Projectiles;
 		{
 			Projectile.width = 22;
 			Projectile.height = 40;
-			Projectile.aiStyle = 20;
+			Projectile.aiStyle = ProjAIStyleID.Drill;
 			Projectile.friendly = true;
 			Projectile.penetrate = -1;
 			Projectile.tileCollide = false;

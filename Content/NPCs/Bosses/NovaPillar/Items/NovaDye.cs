@@ -12,7 +12,7 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Items;
 			Item.height = 24;
 			Item.maxStack = 99;
 			Item.value = Item.sellPrice(0, 2, 50, 0);
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 		}
 
 		/*public override void SetStaticDefaults()

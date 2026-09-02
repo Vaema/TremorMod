@@ -40,8 +40,8 @@ namespace TremorMod.Content.NPCs;
         NPC.knockBackResist = 0.6f;
         NPC.width = 34;
         NPC.height = 48;
-			AnimationType = 82;
-        NPC.aiStyle = 22;
+			AnimationType = NPCID.Wraith;
+        NPC.aiStyle = NPCAIStyleID.HoveringFighter;
         NPC.value = 40f;
         NPC.noTileCollide = true;
         NPC.HitSound = SoundID.NPCHit31;
@@ -62,7 +62,7 @@ namespace TremorMod.Content.NPCs;
 
             // Ñîçäà¸ì ÷àñòèöû ïðè ñìåðòè
             for (int k = 0; k < 20; k++)
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SeaSnail, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
             // Ñîçäà¸ì ãîëåìû (ïîæèðàåìûå îáúåêòû) ïðè ñìåðòè
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AtisGore1").Type, 1f);

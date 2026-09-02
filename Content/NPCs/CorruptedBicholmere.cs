@@ -23,8 +23,8 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.3f;
 			NPC.width = 62;
 			NPC.height = 46;
-			AnimationType = 244;
-			NPC.aiStyle = 1;
+			AnimationType = NPCID.RainbowSlime;
+			NPC.aiStyle = NPCAIStyleID.Slime;
 			NPC.npcSlots = 0.9f;
 			NPC.HitSound = SoundID.NPCHit47;
 			NPC.DeathSound = SoundID.NPCDeath23;
@@ -41,7 +41,7 @@ namespace TremorMod.Content.NPCs;
             int hitDirection = NPC.direction;
 
             for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SeaSnail, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("CorruptedBicholmereGore1").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("CorruptedBicholmereGore2").Type, 1f);

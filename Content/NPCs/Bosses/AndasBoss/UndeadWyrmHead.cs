@@ -38,7 +38,7 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss;
         NPC.knockBackResist = 0f;
         NPC.width = 74;
         NPC.height = 82;
-        NPC.aiStyle = 6;
+        NPC.aiStyle = NPCAIStyleID.Worm;
         NPC.npcSlots = 1f;
         NPC.noTileCollide = true;
         NPC.behindTiles = true;

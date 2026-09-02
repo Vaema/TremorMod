@@ -23,8 +23,8 @@ namespace TremorMod.Content.NPCs;
 			NPC.width = 64;
 			NPC.height = 48;
 			NPC.lavaImmune = true;
-			AnimationType = 153;
-			NPC.aiStyle = 39;
+			AnimationType = NPCID.GiantTortoise;
+			NPC.aiStyle = NPCAIStyleID.GiantTortoise;
 			NPC.npcSlots = 2f;
 			NPC.HitSound = SoundID.NPCHit2;
 			NPC.DeathSound = SoundID.NPCDeath2;
@@ -42,7 +42,7 @@ namespace TremorMod.Content.NPCs;
 
             for (int k = 0; k < 20; k++)
             {
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, 5, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
             }
 
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DevilishTortoiseGore").Type, 1f);
@@ -51,7 +51,7 @@ namespace TremorMod.Content.NPCs;
         {
             for (int k = 0; k < hit.Damage / NPC.lifeMax * 50; k++)
             {
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, 5, hit.HitDirection, -1f, 0, default(Color), 0.7f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, hit.HitDirection, -1f, 0, default(Color), 0.7f);
             }
         }
     }

@@ -13,7 +13,7 @@ namespace TremorMod.Content.Items.Accessories;
 			Item.width = 24;
 			Item.height = 24;
 			Item.value = 110;
-			Item.rare = 0;
+			Item.rare = ItemRarityID.White;
 			Item.accessory = true;
 			Item.defense = 1;
 		}
@@ -28,7 +28,7 @@ namespace TremorMod.Content.Items.Accessories;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Wood, 15);
-			recipe.AddTile(18);
+			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
 		}
 	}

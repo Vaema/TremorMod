@@ -23,8 +23,8 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.3f;
 			NPC.width = 40;
 			NPC.height = 40;
-			AnimationType = 156;
-			NPC.aiStyle = 22;
+			AnimationType = NPCID.RedDevil;
+			NPC.aiStyle = NPCAIStyleID.HoveringFighter;
 			NPC.npcSlots = 15f;
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath2;
@@ -38,7 +38,7 @@ namespace TremorMod.Content.NPCs;
 		{
 			NPC.ai[0]++;
 
-			if (Main.netMode != 1 && (NPC.ai[0] == 20f || NPC.ai[0] == 40f || NPC.ai[0] == 60f || NPC.ai[0] == 80f))
+			if (Main.netMode != NetmodeID.MultiplayerClient && (NPC.ai[0] == 20f || NPC.ai[0] == 40f || NPC.ai[0] == 60f || NPC.ai[0] == 80f))
 			{
 				Player target = Main.player[NPC.target];
 				if (Collision.CanHit(NPC.position, NPC.width, NPC.height, target.position, target.width, target.height))
@@ -67,7 +67,7 @@ namespace TremorMod.Content.NPCs;
         if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 5, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.2f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.2f);
 
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("GSGore1").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("GSGore1").Type, 1f);

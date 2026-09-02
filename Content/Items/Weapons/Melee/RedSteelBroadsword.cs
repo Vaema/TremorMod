@@ -16,11 +16,11 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.height = 36;
 			Item.useTime = 20;
 			Item.useAnimation = 20;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 5;
 
 			Item.value = 600;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 		}
@@ -35,7 +35,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 		{
 			if (Main.rand.NextBool(4))
 			{
-				target.AddBuff(31, 600);
+				target.AddBuff(BuffID.Confused, 600);
 			}
 		}
 
@@ -44,7 +44,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<ChippyRedSteelSword>(), 1);
 			recipe.AddIngredient(ModContent.ItemType<RedSteelBar>(), 11);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

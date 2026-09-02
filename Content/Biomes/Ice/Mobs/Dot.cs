@@ -26,7 +26,7 @@ namespace TremorMod.Content.Biomes.Ice.Mobs;
 			NPC.width = 78;
 			NPC.height = 54;
 			//animationType = 3;
-			NPC.aiStyle = 0;
+			NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
 			NPC.npcSlots = 1f;
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath1;

@@ -22,7 +22,7 @@ namespace TremorMod.Content.NPCs;
 			NPC.lifeMax = 12000;
 			NPC.damage = 160;
 			NPC.defense = 135;
-			AnimationType = 82;
+			AnimationType = NPCID.Wraith;
 			NPC.knockBackResist = 0f;
 			NPC.width = 130;
 			NPC.height = 140;
@@ -70,7 +70,7 @@ namespace TremorMod.Content.NPCs;
 			if (NPC.ai[0]++ >= 70f)
 			{
 				NPC.ai[0] = 0f;
-				if (Main.netMode != 1)
+				if (Main.netMode != NetmodeID.MultiplayerClient)
 				{
 					Vector2 randomProjectileVelocity = Vector2.Zero;
 					while (Math.Abs(randomProjectileVelocity.X) < 1.5f)

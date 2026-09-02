@@ -18,7 +18,7 @@ namespace TremorMod.Content.Tiles.GloomstoneTiles;
         TileObjectData.newTile.StyleHorizontal = true;
         TileObjectData.newTile.StyleWrapLimit = 36;
         TileObjectData.addTile(Type);
-        DustType = 7;
+        DustType = DustID.WoodFurniture;
         Main.tileLighted[Type] = true; 
         AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
 	        AddMapEntry(new Color(8, 91, 146), CreateMapEntryName());

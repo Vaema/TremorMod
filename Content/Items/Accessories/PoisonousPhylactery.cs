@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
 
@@ -25,7 +26,7 @@ namespace TremorMod.Content.Items.Accessories;
 			Item.width = 28;
 			Item.height = 36;
 			Item.value = 2500;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 
 			Item.accessory = true;
 		}
@@ -40,7 +41,7 @@ namespace TremorMod.Content.Items.Accessories;
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-			player.AddBuff(79, 60, true);
+			player.AddBuff(BuffID.WeaponImbuePoison, 60, true);
 			if (--TimeToShoot <= 0)
 			{
 				TimeToShoot = ShootRate;

@@ -250,7 +250,7 @@ namespace TremorMod.Content.NPCs.Bosses.EvilCorn;
 							NPC.defense = defense2;
 							NPC.noGravity = true;
 							NPC.noTileCollide = true;
-							NPC.aiStyle = 5;
+							NPC.aiStyle = NPCAIStyleID.Flying;
 							State = 2;
 							stateTime = normalAttackStateTime;
 							NextStady = -1;
@@ -310,7 +310,7 @@ namespace TremorMod.Content.NPCs.Bosses.EvilCorn;
 								NPC.defense = defense2;
 								NPC.noGravity = true;
 								NPC.noTileCollide = true;
-								NPC.aiStyle = 5;
+								NPC.aiStyle = NPCAIStyleID.Flying;
 								State = 2;
 								stateTime = normalAttackStateTime;
 								NeedPrepere = true;
@@ -428,7 +428,7 @@ namespace TremorMod.Content.NPCs.Bosses.EvilCorn;
 							{
 								NPC.noGravity = true;
 								NPC.noTileCollide = true;
-								NPC.aiStyle = 5;
+								NPC.aiStyle = NPCAIStyleID.Flying;
 								NPC.damage = damage2;
 								NPC.defense = defense2;
 								State = 2;
@@ -665,7 +665,7 @@ namespace TremorMod.Content.NPCs.Bosses.EvilCorn;
 			{
 				for (int k = 0; k < 20; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hit.HitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SeaSnail, 2.5f * hit.HitDirection, -2.5f, 0, default(Color), 0.7f);
 				}
 				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("CornGore1").Type, 1f);
 				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("CornGore2").Type, 1f);

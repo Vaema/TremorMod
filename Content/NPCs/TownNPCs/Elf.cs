@@ -37,7 +37,7 @@ namespace TremorMod.Content.NPCs.TownNPCs;
 			NPC.friendly = true;
 			NPC.width = 36;
 			NPC.height = 44;
-			NPC.aiStyle = 7;
+			NPC.aiStyle = NPCAIStyleID.Passive;
 			NPC.damage = 20;
 			NPC.defense = 15;
 			NPC.lifeMax = 250;

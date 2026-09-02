@@ -14,7 +14,7 @@ namespace TremorMod.Content.Projectiles.Minions;
 		{
 			Projectile.netImportant = true;
 			Projectile.CloneDefaults(388);
-			AIType = 388;
+			AIType = ProjectileID.Spazmamini;
 
 			Projectile.width = 36;
 			Projectile.height = 26;
@@ -57,7 +57,7 @@ namespace TremorMod.Content.Projectiles.Minions;
 			    TremorPlayer modPlayer = Main.player[Projectile.owner].GetModPlayer<TremorPlayer>();
             if(modPlayer.shadowArmSF && Main.rand.NextBool(3))
 			    {
-                  target.AddBuff(153, 180, false);
+                  target.AddBuff(BuffID.ShadowFlame, 180, false);
 			    }
     }		
 

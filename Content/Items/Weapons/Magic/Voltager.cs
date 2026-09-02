@@ -20,10 +20,10 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.shoot = ModContent.ProjectileType<LightningBoltPro>();
 			Item.shootSpeed = 7f;
 			Item.mana = 6;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 3;
 			Item.value = 122355;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item117;
 			Item.autoReuse = false;
 		}
@@ -38,11 +38,11 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<NightmareBar>(), 10);
-			recipe.AddIngredient(3467, 10);
+			recipe.AddIngredient(ItemID.LunarBar, 10);
 			recipe.AddIngredient(ModContent.ItemType<Doomstone>(), 9);
 			recipe.AddIngredient(ModContent.ItemType<Phantaplasm>(), 12);
 			recipe.AddIngredient(ModContent.ItemType<ConcentratedEther>(), 8);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			//recipe.SetResult(this);
 			recipe.Register();
 		}

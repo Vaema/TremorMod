@@ -35,7 +35,7 @@ namespace TremorMod.Content.NPCs.Bosses.TheDarkEmperor;
 			NPC.lifeMax = 95000;
 			NPC.damage = 180;
 			NPC.defense = 220;
-			AnimationType = 345;
+			AnimationType = NPCID.IceQueen;
 			NPC.knockBackResist = 0f;
 			NPC.width = 130;
 			NPC.height = 140;
@@ -173,7 +173,7 @@ namespace TremorMod.Content.NPCs.Bosses.TheDarkEmperor;
 					{
 						NPC.ai[3] = -(float)num1324;
 					}
-                if (NPC.ai[3] == 0f && Main.netMode != 1)
+                if (NPC.ai[3] == 0f && Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     Vector2 vector159 = new Vector2(NPC.Center.X, NPC.Center.Y);
                     vector159.X += NPC.velocity.X * 7f;
@@ -203,7 +203,7 @@ namespace TremorMod.Content.NPCs.Bosses.TheDarkEmperor;
 				{
 					NPC.ai[3] += 1f;
 				}
-				if (Main.netMode != 1)
+				if (Main.netMode != NetmodeID.MultiplayerClient)
 				{
 					NPC.ai[1] += Main.rand.Next(1, 4);
 					if (NPC.ai[1] > 800f && num1320 < 600f)
@@ -272,7 +272,7 @@ namespace TremorMod.Content.NPCs.Bosses.TheDarkEmperor;
 					NPC.velocity.Y = -6f;
 				}
 				NPC.rotation = NPC.velocity.X * 0.01f;
-				if (Main.netMode != 1)
+				if (Main.netMode != NetmodeID.MultiplayerClient)
 				{
 					NPC.ai[3] += 1f;
 					int num1332 = 15;
@@ -312,7 +312,7 @@ namespace TremorMod.Content.NPCs.Bosses.TheDarkEmperor;
                     }
                 }
             }
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
 				{
 					NPC.ai[1] += Main.rand.Next(1, 4);
 					if (NPC.ai[1] > 600f)
@@ -361,7 +361,7 @@ namespace TremorMod.Content.NPCs.Bosses.TheDarkEmperor;
                 // Corrected call to Projectile.NewProjectile
                 Projectile.NewProjectile(NPC.GetSource_FromAI(), vector161.X, vector161.Y, num1334, num1335, ModContent.ProjectileType<DarkBubblePro>(), 40, 0f, Main.myPlayer, 0f, 0f);
             }
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 NPC.ai[1] += Main.rand.Next(1, 4);
                 if (NPC.ai[1] > 500f)

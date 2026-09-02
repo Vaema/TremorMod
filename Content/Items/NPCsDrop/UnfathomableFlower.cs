@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items.NPCsDrop;
@@ -15,13 +16,13 @@ namespace TremorMod.Content.Items.NPCsDrop;
 			Item.height = 20;
 			Item.useTime = 12;
 			Item.useAnimation = 12;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true;
 			Item.knockBack = 6;
 			Item.value = 60000;
-			Item.rare = 6;
+			Item.rare = ItemRarityID.LightPurple;
 			Item.autoReuse = true;
-			Item.shoot = 248;
+			Item.shoot = ProjectileID.FlowerPowPetal;
 			Item.shootSpeed = 12f;
 		}
 

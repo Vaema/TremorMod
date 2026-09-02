@@ -28,7 +28,7 @@ public class projSteampunkProbe : ModProjectile
         Projectile.height = 32;
         Projectile.timeLeft = 6;
         Projectile.tileCollide = false;
-        Projectile.aiStyle = 54;
+        Projectile.aiStyle = ProjAIStyleID.Raven;
     }
 
     /*public override void SetStaticDefaults()

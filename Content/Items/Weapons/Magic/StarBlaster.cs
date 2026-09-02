@@ -18,12 +18,12 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.useTime = 6;
 			Item.useAnimation = 30;
 			Item.mana = 5;
-			Item.shoot = 503;
+			Item.shoot = ProjectileID.StarWrath;
 			Item.shootSpeed = 12f;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 4;
 			Item.value = 300000;
-			Item.rare = 10;
+			Item.rare = ItemRarityID.Red;
 			Item.UseSound = SoundID.Item114;
 			Item.autoReuse = false;
 		}
@@ -47,7 +47,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			recipe.AddIngredient(ModContent.ItemType<CarbonSteel>(), 6);
 			recipe.AddIngredient(ItemID.MartianConduitPlating, 50);
 			//recipe.SetResult(this);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

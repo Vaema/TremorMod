@@ -24,11 +24,11 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.6f;
 			NPC.width = 45;
 			NPC.height = 75;
-			AnimationType = 169;
+			AnimationType = NPCID.IceElemental;
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
-			NPC.aiStyle = 22;
-			AIType = 169;
+			NPC.aiStyle = NPCAIStyleID.HoveringFighter;
+			AIType = NPCID.IceElemental;
 			NPC.npcSlots = 5f;
 			NPC.HitSound = SoundID.NPCHit5;
 			NPC.DeathSound = SoundID.NPCDeath7;
@@ -58,17 +58,17 @@ namespace TremorMod.Content.NPCs;
 			{
 				for (int k = 0; k < 60; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 92, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 92, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 92, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Frost, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Frost, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Frost, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				}
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 92, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Frost, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 			}
 			else
 			{
 				for (int k = 0; k < hit.Damage / NPC.lifeMax * 50.0; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 92, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Frost, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 			}
 		}
 

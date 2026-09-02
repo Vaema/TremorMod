@@ -26,9 +26,9 @@ public class PossessedHornet2 : ModNPC
         NPC.knockBackResist = 0.05f;
         NPC.width = 32;
         NPC.height = 40;
-        AnimationType = 176;
-        NPC.aiStyle = 5;
-        AIType = 176;
+        AnimationType = NPCID.MossHornet;
+        NPC.aiStyle = NPCAIStyleID.Flying;
+        AIType = NPCID.MossHornet;
         NPC.npcSlots = 0.5f;
         NPC.HitSound = SoundID.NPCHit1;
         NPC.DeathSound = SoundID.NPCDeath44;

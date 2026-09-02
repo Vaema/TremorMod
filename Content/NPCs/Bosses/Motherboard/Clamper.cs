@@ -31,12 +31,12 @@ namespace TremorMod.Content.NPCs.Bosses.Motherboard;
 			NPC.aiStyle = -1; //5
 			NPC.HitSound = SoundID.NPCHit4;
 			NPC.DeathSound = SoundID.NPCDeath14;
-			AnimationType = 2;
+			AnimationType = NPCID.DemonEye;
 		}
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{
-			if (Main.netMode != 1 && NPC.life <= 0)
+			if (Main.netMode != NetmodeID.MultiplayerClient && NPC.life <= 0)
 				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<Clamper2>());
 		}
 
@@ -55,7 +55,7 @@ namespace TremorMod.Content.NPCs.Bosses.Motherboard;
 			CheckDead();
 
 			// sp/server only, update ais
-			if (Main.netMode != 1)
+			if (Main.netMode != NetmodeID.MultiplayerClient)
 			{
 				--NPC.localAI[0];
 				if (NPC.localAI[0] <= 0.0)

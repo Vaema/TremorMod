@@ -24,7 +24,7 @@ namespace TremorMod.Content.Items.Armor.Adamantite;
 			Item.width = 22;
 			Item.height = 24;
 			Item.value = 400;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.defense = 8;
 		}
 
@@ -41,7 +41,7 @@ namespace TremorMod.Content.Items.Armor.Adamantite;
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == 403 && legs.type == 404;
+			return body.type == ItemID.AdamantiteBreastplate && legs.type == ItemID.AdamantiteLeggings;
 		}
 
 		public override void UpdateArmorSet(Player player)
@@ -56,7 +56,7 @@ namespace TremorMod.Content.Items.Armor.Adamantite;
         Recipe recipe = CreateRecipe();
         recipe.AddIngredient(ItemID.AdamantiteBar, 10);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
         recipe.Register();
     }
 	}

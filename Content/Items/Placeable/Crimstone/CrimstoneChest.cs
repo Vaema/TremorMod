@@ -16,8 +16,8 @@ namespace TremorMod.Content.Items.Placeable.Crimstone;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 15;
-			Item.useStyle = 1;
-			Item.rare = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
+			Item.rare = ItemRarityID.Blue;
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.createTile = ModContent.TileType<CrimstoneChestTile>();
@@ -32,17 +32,17 @@ namespace TremorMod.Content.Items.Placeable.Crimstone;
 		public override void AddRecipes()
 		{
 			Recipe recipe1 = CreateRecipe();
-			recipe1.AddIngredient(836, 8);
-			recipe1.AddIngredient(1257, 1);
+			recipe1.AddIngredient(ItemID.CrimstoneBlock, 8);
+			recipe1.AddIngredient(ItemID.CrimtaneBar, 1);
 			recipe1.AddIngredient(ItemID.IronBar, 2);
-			recipe1.AddTile(17);
+			recipe1.AddTile(TileID.Furnaces);
 			recipe1.Register();
 
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(836, 8);
-			recipe.AddIngredient(1257, 1);
+			recipe.AddIngredient(ItemID.CrimstoneBlock, 8);
+			recipe.AddIngredient(ItemID.CrimtaneBar, 1);
 			recipe.AddIngredient(ItemID.LeadBar, 2);
-			recipe.AddTile(17);
+			recipe.AddTile(TileID.Furnaces);
 			recipe.Register();
 		}
 	}

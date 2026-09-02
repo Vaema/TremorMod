@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
 using TremorMod.Content.Items.Materials.OreAndBar;
 using TremorMod.Content.Items.Materials;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.Bag;
 
@@ -14,7 +15,7 @@ public class SuspiciousBag : ModItem
         Item.consumable = true;
         Item.width = 24;
         Item.height = 24;
-        Item.rare = 11;
+        Item.rare = ItemRarityID.Purple;
     }
 
     public override bool CanRightClick()

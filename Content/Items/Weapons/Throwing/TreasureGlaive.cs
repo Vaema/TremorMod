@@ -18,10 +18,10 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			Item.shoot = ModContent.ProjectileType<TreasureGlaivePro>();
 			Item.shootSpeed = 15f;
 			Item.useAnimation = 30;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;
 			Item.value = 1000000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 		}

@@ -23,9 +23,9 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.0f;
 			NPC.width = 46;
 			NPC.height = 32;
-			AIType = 417;
-			AnimationType = 417;
-			NPC.aiStyle = 39;
+			AIType = NPCID.SolarSroller;
+			AnimationType = NPCID.SolarSroller;
+			NPC.aiStyle = NPCAIStyleID.GiantTortoise;
 			NPC.npcSlots = 2f;
 			NPC.HitSound = SoundID.NPCHit7;
 			NPC.DeathSound = SoundID.NPCDeath5;
@@ -48,7 +48,7 @@ namespace TremorMod.Content.NPCs;
         if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 74, 2.5f * hitDirection, -2.5f, 0, default(Color), 1f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GreenFairy, 2.5f * hitDirection, -2.5f, 0, default(Color), 1f);
 
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("LuminionGore1").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("LuminionGore2").Type, 1f);

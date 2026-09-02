@@ -39,14 +39,14 @@ namespace TremorMod.Content.Projectiles;
         // Ñîçäàíèå ïðîåêòèëåé â ðàçíûõ íàïðàâëåíèÿõ
         int[] projectiles =
         [
-            Projectile.NewProjectile(source, startPosition, new Vector2(-ShootDirection, 0), 711, 50, 1f, Main.myPlayer),
-            Projectile.NewProjectile(source, startPosition, new Vector2(ShootDirection, 0), 711, 50, 1f, Main.myPlayer),
-            Projectile.NewProjectile(source, startPosition, new Vector2(0, ShootDirection), 711, 50, 1f, Main.myPlayer),
-            Projectile.NewProjectile(source, startPosition, new Vector2(0, -ShootDirection), 711, 50, 1f, Main.myPlayer),
-            Projectile.NewProjectile(source, startPosition, new Vector2(-ShootDirection, -ShootDirection), 711, 50, 1f, Main.myPlayer),
-            Projectile.NewProjectile(source, startPosition, new Vector2(ShootDirection, -ShootDirection), 711, 50, 1f, Main.myPlayer),
-            Projectile.NewProjectile(source, startPosition, new Vector2(-ShootDirection, ShootDirection), 711, 50, 1f, Main.myPlayer),
-            Projectile.NewProjectile(source, startPosition, new Vector2(ShootDirection, ShootDirection), 711, 50, 1f, Main.myPlayer),
+            Projectile.NewProjectile(source, startPosition, new Vector2(-ShootDirection, 0), ProjectileID.ApprenticeStaffT3Shot, 50, 1f, Main.myPlayer),
+            Projectile.NewProjectile(source, startPosition, new Vector2(ShootDirection, 0), ProjectileID.ApprenticeStaffT3Shot, 50, 1f, Main.myPlayer),
+            Projectile.NewProjectile(source, startPosition, new Vector2(0, ShootDirection), ProjectileID.ApprenticeStaffT3Shot, 50, 1f, Main.myPlayer),
+            Projectile.NewProjectile(source, startPosition, new Vector2(0, -ShootDirection), ProjectileID.ApprenticeStaffT3Shot, 50, 1f, Main.myPlayer),
+            Projectile.NewProjectile(source, startPosition, new Vector2(-ShootDirection, -ShootDirection), ProjectileID.ApprenticeStaffT3Shot, 50, 1f, Main.myPlayer),
+            Projectile.NewProjectile(source, startPosition, new Vector2(ShootDirection, -ShootDirection), ProjectileID.ApprenticeStaffT3Shot, 50, 1f, Main.myPlayer),
+            Projectile.NewProjectile(source, startPosition, new Vector2(-ShootDirection, ShootDirection), ProjectileID.ApprenticeStaffT3Shot, 50, 1f, Main.myPlayer),
+            Projectile.NewProjectile(source, startPosition, new Vector2(ShootDirection, ShootDirection), ProjectileID.ApprenticeStaffT3Shot, 50, 1f, Main.myPlayer),
         ];
 
         // Íàñòðîéêà ñîçäàííûõ ïðîåêòèëåé

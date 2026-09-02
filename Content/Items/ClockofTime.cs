@@ -13,10 +13,10 @@ namespace TremorMod.Content.Items;
 			Item.height = 16;
 
 			Item.value = 00001000;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.useTurn = true;
 			Item.autoReuse = false;
-			Item.useStyle = 4;
+			Item.useStyle = ItemUseStyleID.HoldUp;
 			Item.useAnimation = 15;
 			Item.useTime = 15;
 			Item.maxStack = 1;
@@ -37,7 +37,7 @@ namespace TremorMod.Content.Items;
 				Main.bloodMoon = true;
 				return true;
 			}
-			if (Main.netMode != 1)
+			if (Main.netMode != NetmodeID.MultiplayerClient)
 			{
 				Main.dayTime = !Main.dayTime;
 				Main.time = (Main.dayTime ? 10000f : 0f);

@@ -20,7 +20,7 @@ namespace TremorMod.Content.Items.Materials;
 		{
 			Item.width = 22;
 			Item.height = 22;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.value = Item.buyPrice(silver: 1);
 		}
 	}

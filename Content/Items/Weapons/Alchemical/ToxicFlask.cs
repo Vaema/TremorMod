@@ -22,12 +22,12 @@ namespace TremorMod.Content.Items.Weapons.Alchemical;
 			Item.useAnimation = 28;
 			Item.shoot = ModContent.ProjectileType<ToxicFlaskPro>();
 			Item.shootSpeed = 9f;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;
 			Item.noMelee = true;
 			Item.UseSound = SoundID.Item106;
 			Item.value = Item.sellPrice(0, 2, 0, 0);
-			Item.rare = 8;
+			Item.rare = ItemRarityID.Yellow;
 			Item.autoReuse = false;
 			Item.crit = 4;
 		}

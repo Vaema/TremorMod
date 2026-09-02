@@ -21,8 +21,8 @@ namespace TremorMod.Content.NPCs.Bosses.Brutallisk;
 			NPC.knockBackResist = 1f;
 			NPC.width = 32;
 			NPC.height = 62;
-			AnimationType = 62;
-			NPC.aiStyle = 14;
+			AnimationType = NPCID.Demon;
+			NPC.aiStyle = NPCAIStyleID.Bat;
 			//aiType = 226;
 			NPC.npcSlots = 1f;
 			NPC.HitSound = SoundID.NPCHit7;
@@ -38,7 +38,7 @@ namespace TremorMod.Content.NPCs.Bosses.Brutallisk;
         if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SeaSnail, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("QGore1").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("QGore2").Type, 1f);
@@ -48,7 +48,7 @@ namespace TremorMod.Content.NPCs.Bosses.Brutallisk;
 			else
 			{
 				for (int k = 0; k < hit.Damage / NPC.lifeMax * 50; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 59, hitDirection, -1f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.BlueTorch, hitDirection, -1f, 0, default(Color), 0.7f);
 			}
 		}
 	}

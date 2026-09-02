@@ -20,7 +20,7 @@ public class BulbTorch : ModItem
         Item.autoReuse = true;
         Item.useAnimation = 15;
         Item.useTime = 10;
-        Item.useStyle = 1;
+        Item.useStyle = ItemUseStyleID.Swing;
         Item.consumable = true;
         Item.createTile = ModContent.TileType<BulbTorchTile>();
         Item.flame = true;
@@ -38,7 +38,7 @@ public class BulbTorch : ModItem
     {
         if (Main.rand.Next(player.itemAnimation > 0 ? 40 : 80) == 0)
         {
-            Dust.NewDust(new Vector2(player.itemLocation.X + 16f * player.direction, player.itemLocation.Y - 14f * player.gravDir), 4, 4, 44);
+            Dust.NewDust(new Vector2(player.itemLocation.X + 16f * player.direction, player.itemLocation.Y - 14f * player.gravDir), 4, 4, DustID.JungleSpore);
         }
         Vector2 position = player.RotatedRelativePoint(new Vector2(player.itemLocation.X + 12f * player.direction + player.velocity.X, player.itemLocation.Y - 14f + player.velocity.Y), true);
         Lighting.AddLight(position, 1f, 1f, 1f);

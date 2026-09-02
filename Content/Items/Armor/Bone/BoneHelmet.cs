@@ -20,7 +20,7 @@ namespace TremorMod.Content.Items.Armor.Bone;
 			Item.width = 26;
 			Item.height = 22;
 			Item.value = 2500;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 		}
 
 		public override void SetStaticDefaults()
@@ -51,7 +51,7 @@ namespace TremorMod.Content.Items.Armor.Bone;
 			{
 				for (int k = 0; k < 2; k++)
 				{
-					int index = Dust.NewDust(new Vector2(player.position.X - player.velocity.X * 2f, player.position.Y - 2f - player.velocity.Y * 2f), player.width, player.height, 26, 0f, 0f, 100, default(Color), 2f);
+					int index = Dust.NewDust(new Vector2(player.position.X - player.velocity.X * 2f, player.position.Y - 2f - player.velocity.Y * 2f), player.width, player.height, DustID.Bone, 0f, 0f, 100, default(Color), 2f);
 					Main.dust[index].noGravity = true;
 					Main.dust[index].noLight = true;
 					Dust dust = Main.dust[index];
@@ -64,13 +64,13 @@ namespace TremorMod.Content.Items.Armor.Bone;
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(151, 1);
-			recipe.AddIngredient(3374, 1);
+			recipe.AddIngredient(ItemID.NecroHelmet, 1);
+			recipe.AddIngredient(ItemID.FossilHelm, 1);
 			recipe.AddIngredient(ModContent.ItemType<CursedSoul>(), 1);
 			recipe.AddIngredient(ItemID.SoulofNight, 3);
 			recipe.AddIngredient(ModContent.ItemType<SharpenedTooth>(), 3);
 			recipe.AddIngredient(ModContent.ItemType<TheRib>(), 3);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

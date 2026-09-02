@@ -34,9 +34,9 @@ namespace TremorMod.Content.NPCs.Bosses.TikiTotem;
 			NPC.knockBackResist = 0.02f;
 			NPC.width = 86;
 			NPC.height = 162;
-			AnimationType = 325;
+			AnimationType = NPCID.MourningWood;
 			Music = 39;
-			AIType = 77;
+			AIType = NPCID.ArmoredSkeleton;
 			NPC.aiStyle = -1;
 			NPC.npcSlots = 15f;
         Music = MusicLoader.GetMusicSlot("TremorMod/Content/Music/TikiTotem");
@@ -96,7 +96,7 @@ namespace TremorMod.Content.NPCs.Bosses.TikiTotem;
 			}
 			if (_firstState)
 			{
-				NPC.aiStyle = 3;
+				NPC.aiStyle = NPCAIStyleID.Fighter;
 			}
 			else
 			{
@@ -139,10 +139,10 @@ namespace TremorMod.Content.NPCs.Bosses.TikiTotem;
 					{
 						NPC.ai[1] += 1f;
 					}
-					if (NPC.ai[1] >= 300f && Main.netMode != 1)
+					if (NPC.ai[1] >= 300f && Main.netMode != NetmodeID.MultiplayerClient)
 					{
 						NPC.ai[1] = 0f;
-						if (NPC.life < NPC.lifeMax * 0.25 && NPC.type != 344)
+						if (NPC.life < NPC.lifeMax * 0.25 && NPC.type != NPCID.Everscream)
 						{
 							NPC.ai[0] = Main.rand.Next(3, 5);
 						}
@@ -155,7 +155,7 @@ namespace TremorMod.Content.NPCs.Bosses.TikiTotem;
 				}
 				else if (NPC.ai[0] == 1f)
 				{
-					if (NPC.type == 344)
+					if (NPC.type == NPCID.Everscream)
 					{
 						flag116 = true;
 						NPC.ai[1] += 1f;
@@ -217,7 +217,7 @@ namespace TremorMod.Content.NPCs.Bosses.TikiTotem;
 				}
 				else if (NPC.ai[0] == 2f)
 				{
-					if (NPC.type == 344)
+					if (NPC.type == NPCID.Everscream)
 					{
 						flag116 = true;
 						NPC.ai[1] += 1f;
@@ -274,7 +274,7 @@ namespace TremorMod.Content.NPCs.Bosses.TikiTotem;
                         num1277 *= 1f + Main.rand.Next(-30, 31) * 0.01f;
                         num1278 *= 1f + Main.rand.Next(-30, 31) * 0.01f;
                         Projectile.NewProjectile(NPC.GetSource_FromAI(), vector149, new Vector2(num1277, num1278),
-                                                 81, 23, 0f, Main.myPlayer);
+                                                 ProjectileID.WoodenArrowHostile, 23, 0f, Main.myPlayer);
                     }
 
                     if (NPC.ai[1] >= 300f)
@@ -335,7 +335,7 @@ namespace TremorMod.Content.NPCs.Bosses.TikiTotem;
 						num1285 *= 1f + Main.rand.Next(-30, 31) * 0.005f;
 						num1286 *= 1f + Main.rand.Next(-30, 31) * 0.005f;
                     Projectile.NewProjectile(NPC.GetSource_FromAI(), vector151, new Vector2(num1285, num1286),
-                    81, 23, 0f, Main.myPlayer);
+                    ProjectileID.WoodenArrowHostile, 23, 0f, Main.myPlayer);
 
                 }
 					if (NPC.ai[1] >= 240f)

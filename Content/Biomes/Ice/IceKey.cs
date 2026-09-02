@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Biomes.Ice;
@@ -11,7 +12,7 @@ namespace TremorMod.Content.Biomes.Ice;
 			Item.height = 20;
 			Item.maxStack = 999;
 			Item.value = 100000;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.consumable = true;
 		}
 

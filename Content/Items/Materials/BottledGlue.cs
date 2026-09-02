@@ -11,7 +11,7 @@ namespace TremorMod.Content.Items.Materials;
 			Item.width = 14;
 			Item.height = 22;
 			Item.maxStack = 9999;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.value = Item.buyPrice(0, 0, 5, 0);
 		}
 

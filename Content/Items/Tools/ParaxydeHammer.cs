@@ -18,10 +18,10 @@ namespace TremorMod.Content.Items.Tools;
 			Item.useTime = 16;
 			Item.useAnimation = 16;
 			Item.hammer = 90;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 5;
 			Item.value = 216000;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.tileBoost++;
 			Item.scale = 1.25f;
 			Item.UseSound = SoundID.Item1;
@@ -47,7 +47,7 @@ namespace TremorMod.Content.Items.Tools;
 		{
 			if (Main.rand.NextBool(2))
 			{
-				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 27);
+				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.Shadowflame);
 			}
 		}
 	}

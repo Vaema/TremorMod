@@ -12,7 +12,7 @@ namespace TremorMod.Content.Items.Accessories;
 			Item.width = 26;
 			Item.height = 26;
 			Item.value = 110;
-			Item.rare = 0;
+			Item.rare = ItemRarityID.White;
 			Item.accessory = true;
 			Item.defense = 4;
 		}
@@ -32,7 +32,7 @@ namespace TremorMod.Content.Items.Accessories;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.GoldBar, 15);
 			//recipe.SetResult(this);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

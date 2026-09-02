@@ -15,7 +15,7 @@ namespace TremorMod.Content.Biomes.Ice.Dungeon;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 7;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.createWall = ModContent.WallType<DungeonWall>();
 			ItemID.Sets.ExtractinatorMode[Item.type] = Item.type;
@@ -32,7 +32,7 @@ namespace TremorMod.Content.Biomes.Ice.Dungeon;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<DungeonBlockItem>());
 			//recipe.SetResult(this, 4);
-			recipe.AddTile(18);
+			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
 		}
 	}

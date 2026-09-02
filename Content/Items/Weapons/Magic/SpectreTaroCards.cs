@@ -18,11 +18,11 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.useTime = 20;
 			Item.useAnimation = 20;
 			Item.noUseGraphic = true;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true;
 			Item.knockBack = 6;
 			Item.value = 30000;
-			Item.rare = 6;
+			Item.rare = ItemRarityID.LightPurple;
 			Item.UseSound = SoundID.Item8;
 			Item.autoReuse = true;
 			Item.shoot = ModContent.ProjectileType<SpectreTaroCard>();
@@ -51,7 +51,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.SpectreBar, 15);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

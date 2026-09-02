@@ -19,7 +19,7 @@ public class CrystalWhirlwind : ModItem
         Item.useTime = 7;
         Item.mana = 20;
         Item.useAnimation = 25;
-        Item.useStyle = 5;
+        Item.useStyle = ItemUseStyleID.Shoot;
         Item.shootSpeed = 30f;
         Item.knockBack = 3;
         Item.value = 30000;

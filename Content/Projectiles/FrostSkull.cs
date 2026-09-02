@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Projectiles;
@@ -26,7 +27,7 @@ namespace TremorMod.Content.Projectiles;
 		{
 			if (Main.rand.NextBool(2))
 			{
-				target.AddBuff(44, 180, false);
+				target.AddBuff(BuffID.Frostburn, 180, false);
 			}
 		}
 		public override void AI()

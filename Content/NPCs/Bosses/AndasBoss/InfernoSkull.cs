@@ -67,7 +67,7 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss;
 
 			Projectile.rotation = Projectile.velocity.ToRotation() + 1.57F;
 
-			if (Projectile.ai[0] == 0 && Main.netMode != 1)
+			if (Projectile.ai[0] == 0 && Main.netMode != NetmodeID.MultiplayerClient)
 			{
 				target = -1;
 				float distance = 2000f;
@@ -94,7 +94,7 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss;
 			Vector2 direction = targetPlayer.Center - Projectile.Center;
 			direction.Normalize();
 			Projectile.velocity *= 0.98f;
-			int dust2 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 6);
+			int dust2 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Torch);
 			Main.dust[dust2].noGravity = true;
 			Main.dust[dust2].velocity *= 0f;
 			Main.dust[dust2].velocity *= 0f;

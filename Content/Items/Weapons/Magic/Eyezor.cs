@@ -15,16 +15,16 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.height = 12;
 			Item.useTime = 6;
 			Item.useAnimation = 20;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 6;
 			Item.value = Item.buyPrice(0, 5, 0, 0);
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.mana = 7;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.UseSound = SoundID.Item20;
 			Item.noMelee = true;
 			Item.autoReuse = true;
-			Item.shoot = 606;
+			Item.shoot = ProjectileID.ScutlixLaser;
 			Item.shootSpeed = 30f;
 		}
 

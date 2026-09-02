@@ -35,7 +35,7 @@ public class BulbTorchTile : ModTile
         TileObjectData.addTile(Type);
         AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
         AddMapEntry(new Color(200, 200, 200), CreateMapEntryName());
-        DustType = 44;
+        DustType = DustID.JungleSpore;
         AdjTiles = [TileID.Torches];
     }
 

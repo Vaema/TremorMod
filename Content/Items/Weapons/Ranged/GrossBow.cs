@@ -16,14 +16,14 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			Item.height = 56;
 			Item.DamageType = DamageClass.Ranged;
 			Item.useTime = 30;
-			Item.shoot = 1;
+			Item.shoot = ProjectileID.WoodenArrowFriendly;
 			Item.shootSpeed = 12f;
 			Item.useAnimation = 30;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 5;
 			Item.value = 25000;
 			Item.useAmmo = AmmoID.Arrow;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item5;
 			Item.autoReuse = true;
 		}
@@ -46,14 +46,14 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			recipe.AddIngredient(ItemID.DemoniteBar, 5);
 			recipe.AddIngredient(ModContent.ItemType<DrippingRoot>(), 12);
 			recipe.AddIngredient(ItemID.Lens, 6);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 
 			Recipe recipe1 = CreateRecipe();
 			recipe1.AddIngredient(ItemID.CrimtaneBar, 5);
 			recipe1.AddIngredient(ModContent.ItemType<DrippingRoot>(), 12);
 			recipe1.AddIngredient(ItemID.Lens, 6);
-			recipe1.AddTile(16);
+			recipe1.AddTile(TileID.Anvils);
 			//recipe1.SetResult(this);
 			recipe1.Register();
 		}

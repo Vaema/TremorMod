@@ -26,11 +26,11 @@ namespace TremorMod.Content.Items.Weapons.Alchemical;
 			Item.useAnimation = 20;
         Item.shoot = ModContent.ProjectileType<MoonDustFlaskPro>();
 			Item.shootSpeed = 8f;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 1;
 			Item.UseSound = SoundID.Item106;
 			Item.value = 30;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.autoReuse = false;
 
 		}
@@ -75,7 +75,7 @@ namespace TremorMod.Content.Items.Weapons.Alchemical;
 		{
 			Recipe recipe = CreateRecipe(15);
 			recipe.AddIngredient(ItemID.Bottle, 1);
-			recipe.AddIngredient(3460, 3);
+			recipe.AddIngredient(ItemID.LunarOre, 3);
 			recipe.AddIngredient(ModContent.ItemType<GelCube>(), 1);
 			recipe.Register();
 		}

@@ -12,10 +12,10 @@ namespace TremorMod.Content.Items.BossSumonItems;
 			Item.width = 38;
 			Item.height = 32;
 			Item.maxStack = 20;
-			Item.rare = 6;
+			Item.rare = ItemRarityID.LightPurple;
 			Item.useAnimation = 15;
 			Item.useTime = 15;
-			Item.useStyle = 2;
+			Item.useStyle = ItemUseStyleID.EatFood;
 			Item.UseSound = SoundID.Item3;
 			Item.consumable = true;
 		}
@@ -43,10 +43,10 @@ namespace TremorMod.Content.Items.BossSumonItems;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Bottle, 1);
-			recipe.AddIngredient(520, 1);
-			recipe.AddIngredient(521, 1);
+			recipe.AddIngredient(ItemID.SoulofLight, 1);
+			recipe.AddIngredient(ItemID.SoulofNight, 1);
 			recipe.AddIngredient(ModContent.ItemType<SkullTeeth>(), 1);
-			recipe.AddTile(13);
+			recipe.AddTile(TileID.Bottles);
 			//recipe.SetResult(this);
 			recipe.Register();
 		}

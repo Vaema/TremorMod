@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
@@ -13,7 +14,7 @@ namespace TremorMod.Content.Items.Accessories;
 			Item.width = 26;
 			Item.height = 26;
 			Item.value = 34600;
-			Item.rare = 9;
+			Item.rare = ItemRarityID.Cyan;
 			Item.accessory = true;
 			Item.defense = 15;
 		}
@@ -63,7 +64,7 @@ namespace TremorMod.Content.Items.Accessories;
 			recipe.AddIngredient(ModContent.ItemType<HeroShield>(), 1);
 			recipe.AddIngredient(ModContent.ItemType<NightmareBar>(), 18);
 			//recipe.SetResult(this);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

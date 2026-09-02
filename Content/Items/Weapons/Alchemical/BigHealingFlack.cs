@@ -24,11 +24,11 @@ public class BigHealingFlack : ModItem
         Item.useAnimation = 20;
         Item.shoot = ModContent.ProjectileType<BigHealingFlackPro>();
         Item.shootSpeed = 8f;
-        Item.useStyle = 1;
+        Item.useStyle = ItemUseStyleID.Swing;
         Item.knockBack = 1;
         Item.UseSound = SoundID.Item106;
         Item.value = 200;
-        Item.rare = 4;
+        Item.rare = ItemRarityID.LightRed;
         Item.autoReuse = false;
         //Item.useAmmo = ModContent.ItemType<BoomFlask>();
     }

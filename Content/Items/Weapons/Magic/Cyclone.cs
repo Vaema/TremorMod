@@ -19,10 +19,10 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.useAnimation = 12;
 			Item.shoot = ModContent.ProjectileType<CyclonePro>();
 			Item.shootSpeed = 4f;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 4;
 			Item.value = 230000;
-			Item.rare = 10;
+			Item.rare = ItemRarityID.Red;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
 		}
@@ -37,10 +37,10 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<AncientTechnology>(), 1);
-			recipe.AddIngredient(3457, 30);
+			recipe.AddIngredient(ItemID.FragmentNebula, 30);
 			recipe.AddIngredient(ModContent.ItemType<SeaFragment>(), 25);
 			//recipe.SetResult(this);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials.OreAndBar;
 
@@ -13,7 +14,7 @@ namespace TremorMod.Content.Items.Armor.Nano;
 			Item.width = 26;
 			Item.height = 18;
 			Item.value = 60000;
-			Item.rare = 6;
+			Item.rare = ItemRarityID.LightPurple;
 			Item.defense = 17;
 		}
 
@@ -39,7 +40,7 @@ namespace TremorMod.Content.Items.Armor.Nano;
         Recipe recipe = CreateRecipe();
         recipe.AddIngredient(ModContent.ItemType<NanoBar>(), 20);
         //recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
         recipe.Register();
     }
 	}

@@ -32,7 +32,7 @@ namespace TremorMod.Content.Items.Armor.WhiteGold;
 			Item.height = 22;
 
 			Item.value = 10000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.defense = 30;
 		}
 

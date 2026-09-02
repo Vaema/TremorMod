@@ -17,15 +17,15 @@ namespace TremorMod.Content.Items.NPCsDrop;
 			Item.height = 22;
 			Item.useTime = 15;
 			Item.useAnimation = 15;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true;
 			Item.knockBack = 6;
 			Item.value = 50000;
 
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item11;
 			Item.autoReuse = true;
-			Item.shoot = 27;
+			Item.shoot = ProjectileID.WaterBolt;
 			Item.shootSpeed = 26f;
 			Item.useAmmo = AmmoID.Bullet;
 		}

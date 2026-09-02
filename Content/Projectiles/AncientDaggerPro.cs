@@ -12,7 +12,7 @@ namespace TremorMod.Content.Projectiles;
 		{
 
 			Projectile.friendly = true;
-			Projectile.aiStyle = 1;
+			Projectile.aiStyle = ProjAIStyleID.Arrow;
 			Projectile.timeLeft = 1200;
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
 			ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
@@ -35,7 +35,7 @@ namespace TremorMod.Content.Projectiles;
 			Projectile.position.Y = Projectile.position.Y - Projectile.height / 2;
 			for (int num628 = 0; num628 < 40; num628++)
 			{
-				int num629 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 31, 0f, 0f, 100, default(Color), 2f);
+				int num629 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Smoke, 0f, 0f, 100, default(Color), 2f);
 				Main.dust[num629].velocity *= 3f;
 				if (Main.rand.NextBool(2))
 				{
@@ -45,10 +45,10 @@ namespace TremorMod.Content.Projectiles;
 			}
 			for (int num630 = 0; num630 < 70; num630++)
 			{
-				int num631 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 6, 0f, 0f, 100, default(Color), 3f);
+				int num631 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, default(Color), 3f);
 				Main.dust[num631].noGravity = true;
 				Main.dust[num631].velocity *= 5f;
-				num631 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 6, 0f, 0f, 100, default(Color), 2f);
+				num631 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, default(Color), 2f);
 				Main.dust[num631].velocity *= 2f;
 			}
 			for (int num632 = 0; num632 < 3; num632++)

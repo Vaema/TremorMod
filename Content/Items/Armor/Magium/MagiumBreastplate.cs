@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Materials.OreAndBar;
@@ -14,7 +15,7 @@ namespace TremorMod.Content.Items.Armor.Magium;
 			Item.width = 38;
 			Item.height = 22;
 			Item.value = 18000;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.defense = 9;
 		}
 
@@ -37,7 +38,7 @@ namespace TremorMod.Content.Items.Armor.Magium;
 			recipe.AddIngredient(ModContent.ItemType<RuneBar>(), 12);
 			recipe.AddIngredient(ModContent.ItemType<MagiumShard>(), 10);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 

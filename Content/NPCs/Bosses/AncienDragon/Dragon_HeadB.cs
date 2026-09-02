@@ -35,7 +35,7 @@ namespace TremorMod.Content.NPCs.Bosses.AncienDragon;
 			NPC.height = 132;
 			NPC.defense = 12;
 			NPC.lifeMax = 3100;
-			NPC.aiStyle = 6;
+			NPC.aiStyle = NPCAIStyleID.Worm;
 			NPC.npcSlots = 1f;
 			NPC.knockBackResist = 0f;
 

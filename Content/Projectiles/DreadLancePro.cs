@@ -60,7 +60,7 @@ public class DreadLancePro : ModProjectile
     {
         if (Main.rand.NextBool())
         {
-            target.AddBuff(39, 180, false);
+            target.AddBuff(BuffID.CursedInferno, 180, false);
         }
     }
 }

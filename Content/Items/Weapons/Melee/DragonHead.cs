@@ -11,8 +11,8 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 		{
 			Item.width = 30;
 			Item.height = 10;
-			Item.rare = 2;
-			Item.useStyle = 5;
+			Item.rare = ItemRarityID.Green;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useAnimation = 40;
 			Item.useTime = 40;
 			Item.knockBack = 7.5F;

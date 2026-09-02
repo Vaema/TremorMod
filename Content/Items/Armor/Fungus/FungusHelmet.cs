@@ -17,7 +17,7 @@ namespace TremorMod.Content.Items.Armor.Fungus;
 			Item.width = 18;
 			Item.height = 18;
 			Item.value = 40000;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.defense = 7;
 		}
 
@@ -42,7 +42,7 @@ namespace TremorMod.Content.Items.Armor.Fungus;
         player.setBonus = SetBonusText.Value;
         //SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs("Increases maximum health by 25 and grants Nature's Blessing");
 			player.statLifeMax2 += 25;
-			player.AddBuff(165, 2);
+			player.AddBuff(BuffID.DryadsWard, 2);
 		}
 
 		public override void ArmorSetShadows(Player player)
@@ -58,7 +58,7 @@ namespace TremorMod.Content.Items.Armor.Fungus;
         recipe1.AddIngredient(ItemID.GlowingMushroom, 14);
         recipe1.AddIngredient(ItemID.GoldHelmet, 1);
         //recipe1.SetResult(this);
-        recipe1.AddTile(16);
+        recipe1.AddTile(TileID.Anvils);
         recipe1.Register();
 
         Recipe recipe2 = CreateRecipe();
@@ -66,7 +66,7 @@ namespace TremorMod.Content.Items.Armor.Fungus;
         recipe2.AddIngredient(ItemID.GlowingMushroom, 14);
         recipe2.AddIngredient(ItemID.PlatinumHelmet, 1);
         //recipe2.SetResult(this);
-        recipe2.AddTile(16);
+        recipe2.AddTile(TileID.Anvils);
         recipe2.Register();
     }
 	}

@@ -14,13 +14,13 @@ namespace TremorMod.Content.Items.SpaceWhaleItems;
 			Item.height = 40;
 			Item.useTime = 30;
 			Item.useAnimation = 30;
-			Item.shoot = 135;
+			Item.shoot = ProjectileID.ProximityMineI;
 			Item.shootSpeed = 25f;
 			Item.useAmmo = AmmoID.Rocket;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 4;
 			Item.value = 60000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.UseSound = SoundID.Item11;
 			Item.autoReuse = true;
 		}

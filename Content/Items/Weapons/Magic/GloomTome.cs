@@ -18,10 +18,10 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.shoot = ModContent.ProjectileType<GloomSphere>();
 			Item.shootSpeed = 16f;
 			Item.mana = 12;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 3;
 			Item.value = 5025;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item21;
 			Item.autoReuse = true;
 		}

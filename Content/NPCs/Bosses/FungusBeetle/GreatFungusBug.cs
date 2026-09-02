@@ -21,11 +21,11 @@ namespace TremorMod.Content.NPCs.Bosses.FungusBeetle;
 			NPC.knockBackResist = 0.2f;
 			NPC.width = 33;
 			NPC.height = 33;
-			AnimationType = 34;
+			AnimationType = NPCID.CursedSkull;
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
-			NPC.aiStyle = 14;
-			AIType = 34;
+			NPC.aiStyle = NPCAIStyleID.Bat;
+			AIType = NPCID.CursedSkull;
 			NPC.npcSlots = 5f;
 			NPC.HitSound = SoundID.NPCHit35;
 			NPC.DeathSound = SoundID.NPCDeath57;
@@ -42,14 +42,14 @@ namespace TremorMod.Content.NPCs.Bosses.FungusBeetle;
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FungalBugGore2").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FungalBugGore3").Type, 1f);
 				for (int k = 0; k < 60; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 67, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.IceRod, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 67, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.IceRod, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 			}
 			else
 			{
 				for (int k = 0; k < hit.Damage / NPC.lifeMax * 50; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 67, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.IceRod, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 			}
 		}
 	}

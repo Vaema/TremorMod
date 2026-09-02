@@ -15,7 +15,7 @@ namespace TremorMod.Content.Items.Armor.Frostbite;
 			Item.width = 32;
 			Item.height = 26;
 			Item.value = 100;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.defense = 1;
 		}
 
@@ -51,7 +51,7 @@ namespace TremorMod.Content.Items.Armor.Frostbite;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.IceBlock, 45);
 			//recipe.SetResult(this);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

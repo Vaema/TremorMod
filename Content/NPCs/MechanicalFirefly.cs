@@ -23,10 +23,10 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.1f;
 			NPC.width = 58;
 			NPC.height = 36;
-			AnimationType = 509;
-			NPC.aiStyle = 44;
+			AnimationType = NPCID.GiantFlyingAntlion;
+			NPC.aiStyle = NPCAIStyleID.FlyingFish;
 			NPC.noGravity = true;
-			AIType = 509;
+			AIType = NPCID.GiantFlyingAntlion;
 			NPC.npcSlots = 0.4f;
 			NPC.HitSound = SoundID.NPCHit4;
 			NPC.DeathSound = SoundID.NPCDeath6;
@@ -43,7 +43,7 @@ namespace TremorMod.Content.NPCs;
         if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 6, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 61, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 61, 1f);

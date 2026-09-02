@@ -24,10 +24,10 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.3f;
 			NPC.width = 100;
 			NPC.height = 100;
-			NPC.aiStyle = 2;
-			AIType = 180;
-			AnimationType = 48;
-			NPC.aiStyle = 2;
+			NPC.aiStyle = NPCAIStyleID.DemonEye;
+			AIType = NPCID.PigronCrimson;
+			AnimationType = NPCID.Harpy;
+			NPC.aiStyle = NPCAIStyleID.DemonEye;
 			NPC.npcSlots = 0.5f;
 			NPC.noTileCollide = true;
 			NPC.buffImmune[20] = true;
@@ -47,7 +47,7 @@ namespace TremorMod.Content.NPCs;
         if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 44, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.JungleSpore, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("BarmadilloGore1").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("BarmadilloGore2").Type, 1f);
@@ -62,7 +62,7 @@ namespace TremorMod.Content.NPCs;
 			else
 			{
 				for (int k = 0; k < hit.Damage / NPC.lifeMax * 50; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 44, hitDirection, -1f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.JungleSpore, hitDirection, -1f, 0, default(Color), 0.7f);
 			}
 		}
 

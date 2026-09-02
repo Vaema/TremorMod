@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Projectiles;
@@ -113,6 +114,6 @@ namespace TremorMod.Content.Projectiles;
 
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			target.AddBuff(153, 500);
+			target.AddBuff(BuffID.ShadowFlame, 500);
 		}
 	}

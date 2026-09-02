@@ -8,6 +8,7 @@ using TremorMod.Content.Items.Weapons.Melee;
 using TremorMod.Content.Items.Weapons.Ranged;
 using TremorMod.Content.Items.Weapons.Magic;
 using TremorMod.Content.Items.Vanity;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.Bag;
 
@@ -19,7 +20,7 @@ namespace TremorMod.Content.Items.Bag;
 			Item.consumable = true;
 			Item.width = 24;
 			Item.height = 24;
-			Item.rare = 9;
+			Item.rare = ItemRarityID.Cyan;
 			Item.expert = true;
 		}
 

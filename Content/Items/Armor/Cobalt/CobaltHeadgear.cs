@@ -17,7 +17,7 @@ namespace TremorMod.Content.Items.Armor.Cobalt;
 			Item.height = 26;
 
 			Item.value = 400;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.defense = 3;
 		}
 
@@ -35,7 +35,7 @@ namespace TremorMod.Content.Items.Armor.Cobalt;
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == 374 && legs.type == 375;
+			return body.type == ItemID.CobaltBreastplate && legs.type == ItemID.CobaltLeggings;
 		}
 
 		public override void UpdateArmorSet(Player player)
@@ -53,7 +53,7 @@ namespace TremorMod.Content.Items.Armor.Cobalt;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.CobaltBar, 12);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

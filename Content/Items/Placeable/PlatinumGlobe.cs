@@ -13,13 +13,13 @@ namespace TremorMod.Content.Items.Placeable;
 			Item.height = 48;
 			Item.maxStack = 9999;
 			Item.value = 100;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.createTile = ModContent.TileType<PlatinumGlobeTile>();
 			Item.useTurn = true;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 		}
 
@@ -35,7 +35,7 @@ namespace TremorMod.Content.Items.Placeable;
 			recipe.AddIngredient(ItemID.Wood, 15);
 			recipe.AddIngredient(ItemID.PlatinumBar, 5);
 			//recipe.SetResult(this);
-			recipe.AddTile(106);
+			recipe.AddTile(TileID.Sawmill);
 			recipe.Register();
 		}
 	}

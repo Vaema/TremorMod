@@ -1,5 +1,6 @@
 ﻿using Terraria;
 using Terraria.DataStructures;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
@@ -21,7 +22,7 @@ namespace TremorMod.Content.Items.Accessories.Sparks;
 			Item.height = 22;
 			Item.accessory = true;
 			Item.defense = 2;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.value = Item.buyPrice(silver: 1);
 		}
 

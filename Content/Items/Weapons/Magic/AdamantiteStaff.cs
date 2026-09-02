@@ -17,11 +17,11 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.height = 40;
 			Item.useTime = 28;
 			Item.useAnimation = 28;
-        Item.useStyle = 5;
+        Item.useStyle = ItemUseStyleID.Shoot;
         Item.noMelee = true;
 			Item.knockBack = 3;
 			Item.value = 13800;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.UseSound = SoundID.Item43;
 			Item.autoReuse = false;
 			Item.staff[Type] = true; //this makes the useStyle animate as a staff instead of as a gun
@@ -40,7 +40,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
         Recipe recipe = CreateRecipe();
         recipe.AddIngredient(ItemID.AdamantiteBar, 12);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
         recipe.Register();
     }
 	}

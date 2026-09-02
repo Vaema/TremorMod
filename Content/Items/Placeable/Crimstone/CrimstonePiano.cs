@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles.Crimstone;
 
@@ -16,8 +17,8 @@ namespace TremorMod.Content.Items.Placeable.Crimstone;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 15;
-			Item.useStyle = 1;
-			Item.rare = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
+			Item.rare = ItemRarityID.Blue;
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.createTile = ModContent.TileType<CrimstonePianoTile>();
@@ -32,10 +33,10 @@ namespace TremorMod.Content.Items.Placeable.Crimstone;
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(836, 15);
-			recipe.AddIngredient(154, 15);
-			recipe.AddIngredient(1257, 1);
-			recipe.AddTile(17);
+			recipe.AddIngredient(ItemID.CrimstoneBlock, 15);
+			recipe.AddIngredient(ItemID.Bone, 15);
+			recipe.AddIngredient(ItemID.CrimtaneBar, 1);
+			recipe.AddTile(TileID.Furnaces);
 			recipe.Register();
 		}
 	}

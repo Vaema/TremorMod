@@ -22,10 +22,10 @@ public class BasicSprayer : ModItem
         Item.noMelee = true;
         Item.knockBack = 4;
         Item.value = 10000;
-        Item.rare = 2;
+        Item.rare = ItemRarityID.Green;
         Item.UseSound = SoundID.Item20;
         Item.autoReuse = false;
-        Item.shoot = 10;
+        Item.shoot = ProjectileID.PurificationPowder;
         Item.shootSpeed = 6f;
         Item.crit = 4;
         Item.useAmmo = ModContent.ItemType<BoomFlask>(); // Óáåäèòåñü, ÷òî îðóæèå èñïîëüçóåò ïðàâèëüíûé òèï áîåïðèïàñîâ
@@ -119,12 +119,12 @@ public class BasicSprayer : ModItem
             {
                 if (player.FindBuffIndex(Mod.Find<ModBuff>("BottledSpiritBuffs").Type) != -1)
                 {
-                    Projectile.NewProjectile(source, position.X, position.Y, speedX + 2, speedY + 2, 297, damage, knockback, Main.myPlayer);
+                    Projectile.NewProjectile(source, position.X, position.Y, speedX + 2, speedY + 2, ProjectileID.LostSoulFriendly, damage, knockback, Main.myPlayer);
                 }
                 if (player.FindBuffIndex(Mod.Find<ModBuff>("BigBottledSpiritBuffs").Type) != -1)
                 {
-                    Projectile.NewProjectile(source, position.X, position.Y, speedX + 3, speedY + 3, 297, damage, knockback, Main.myPlayer);
-                    Projectile.NewProjectile(source, position.X, position.Y, speedX + 2, speedY + 2, 297, damage, knockback, Main.myPlayer);
+                    Projectile.NewProjectile(source, position.X, position.Y, speedX + 3, speedY + 3, ProjectileID.LostSoulFriendly, damage, knockback, Main.myPlayer);
+                    Projectile.NewProjectile(source, position.X, position.Y, speedX + 2, speedY + 2, ProjectileID.LostSoulFriendly, damage, knockback, Main.myPlayer);
                 }
                 Projectile.NewProjectile(source, position.X, position.Y, speedX + 1, speedY + 1, type, damage, knockback, Main.myPlayer);
                 Projectile.NewProjectile(source, position.X, position.Y, speedX + 1, speedY + 1, type, damage, knockback, Main.myPlayer);
@@ -137,7 +137,7 @@ public class BasicSprayer : ModItem
         {
             for (int i = 0; i < 1; ++i)
             {
-                Projectile.NewProjectile(source, position.X, position.Y, speedX + 1, speedY + 1, 297, damage, knockback, Main.myPlayer);
+                Projectile.NewProjectile(source, position.X, position.Y, speedX + 1, speedY + 1, ProjectileID.LostSoulFriendly, damage, knockback, Main.myPlayer);
                 int k = Projectile.NewProjectile(source, position.X, position.Y, speedX, speedY, type, damage, knockback, Main.myPlayer);
                 Main.projectile[k].friendly = true;
             }
@@ -147,8 +147,8 @@ public class BasicSprayer : ModItem
         {
             for (int i = 0; i < 1; ++i)
             {
-                Projectile.NewProjectile(source, position.X, position.Y, speedX + 2, speedY + 2, 297, damage, knockback, Main.myPlayer);
-                Projectile.NewProjectile(source, position.X, position.Y, speedX + 1, speedY + 1, 297, damage, knockback, Main.myPlayer);
+                Projectile.NewProjectile(source, position.X, position.Y, speedX + 2, speedY + 2, ProjectileID.LostSoulFriendly, damage, knockback, Main.myPlayer);
+                Projectile.NewProjectile(source, position.X, position.Y, speedX + 1, speedY + 1, ProjectileID.LostSoulFriendly, damage, knockback, Main.myPlayer);
                 int k = Projectile.NewProjectile(source, position.X, position.Y, speedX, speedY, type, damage, knockback, Main.myPlayer);
                 Main.projectile[k].friendly = true;
             }

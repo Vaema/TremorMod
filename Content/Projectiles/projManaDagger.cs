@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Projectiles;
@@ -16,7 +17,7 @@ namespace TremorMod.Content.Projectiles;
 
 			Projectile.width = 14;
 			Projectile.height = 28;
-			Projectile.aiStyle = 1;
+			Projectile.aiStyle = ProjAIStyleID.Arrow;
 			Projectile.friendly = true;
 			Projectile.DamageType = DamageClass.Magic;
 			Projectile.penetrate = -1;
@@ -35,7 +36,7 @@ namespace TremorMod.Content.Projectiles;
 			Lighting.AddLight(Projectile.Center, new Vector3(0.0f, Light, Light));
 			if (Projectile.Distance(Main.player[Projectile.owner].Center) > 1000f)
 				ReturnToPlayer();
-			if (Projectile.Distance(Main.player[Projectile.owner].Center) < 25f && NeedAddMana && Projectile.aiStyle == 3)
+			if (Projectile.Distance(Main.player[Projectile.owner].Center) < 25f && NeedAddMana && Projectile.aiStyle == ProjAIStyleID.Boomerang)
 			{
 				NeedAddMana = false;
 				Main.player[Projectile.owner].statMana += Mana;
@@ -76,6 +77,6 @@ namespace TremorMod.Content.Projectiles;
 		{
 			Projectile.tileCollide = false;
 			Projectile.damage /= 2;
-			Projectile.aiStyle = 3;
+			Projectile.aiStyle = ProjAIStyleID.Boomerang;
 		}
 	}

@@ -20,10 +20,10 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.shoot = ModContent.ProjectileType<StarNestPro>();
 			Item.shootSpeed = 8f;
 			Item.useAnimation = 30;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 4;
 			Item.value = 210000;
-			Item.rare = 10;
+			Item.rare = ItemRarityID.Red;
 			Item.UseSound = SoundID.Item11;
 			Item.autoReuse = true;
 		}
@@ -38,10 +38,10 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<AncientTechnology>(), 1);
-			recipe.AddIngredient(3459, 30);
+			recipe.AddIngredient(ItemID.FragmentStardust, 30);
 			recipe.AddIngredient(ModContent.ItemType<EarthFragment>(), 25);
 			//recipe.SetResult(this);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

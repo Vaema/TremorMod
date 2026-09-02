@@ -19,10 +19,10 @@ namespace TremorMod.Content.Items.NPCsDrop;
 			Item.shoot = ModContent.ProjectileType<TrueTridentProjectile>();
 			Item.shootSpeed = 3f;
 			Item.useAnimation = 30;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 15;
 			Item.value = 40000;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
 		}

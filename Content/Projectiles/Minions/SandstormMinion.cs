@@ -32,7 +32,7 @@ public class SandstormMinion : ModProjectile
         Projectile.width = 40;
         Projectile.height = 38;
         Projectile.timeLeft = 5;
-        Projectile.aiStyle = 62;
+        Projectile.aiStyle = ProjAIStyleID.Hornet;
         Projectile.penetrate = -1;
         Projectile.tileCollide = false;
         Projectile.ignoreWater = true;

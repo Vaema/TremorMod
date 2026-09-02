@@ -28,9 +28,9 @@ namespace TremorMod.Content.NPCs;
 			NPC.npcSlots = 0.2f;
 			NPC.HitSound = SoundID.NPCHit2;
 			NPC.DeathSound = SoundID.NPCDeath6;
-			NPC.aiStyle = 3;
-			AIType = 111;
-			AnimationType = 111;
+			NPC.aiStyle = NPCAIStyleID.Fighter;
+			AIType = NPCID.GoblinArcher;
+			AnimationType = NPCID.GoblinArcher;
 			NPC.value = Item.buyPrice(0, 0, 6, 9);
         Banner = NPC.type;
         BannerItem = ModContent.ItemType<BoneArcherBanner>();
@@ -52,7 +52,7 @@ namespace TremorMod.Content.NPCs;
         if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SeaSnail, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("UndeadGore1").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("UndeadGore2").Type, 1f);

@@ -10,12 +10,12 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 	{
 		public override void SetDefaults()
 		{
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useAnimation = 16;
 			Item.useTime = 16;
 			Item.width = 24;
 			Item.height = 28;
-			Item.shoot = 14;
+			Item.shoot = ProjectileID.Bullet;
 			Item.useAmmo = AmmoID.Bullet;
 			Item.UseSound = SoundID.Item11;
 			Item.damage = 450;
@@ -23,7 +23,7 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			Item.noMelee = true;
 			Item.value = 500000;
 			Item.scale = 0.9f;
-			Item.rare = 0;
+			Item.rare = ItemRarityID.White;
 			Item.DamageType = DamageClass.Ranged;
 		}
 

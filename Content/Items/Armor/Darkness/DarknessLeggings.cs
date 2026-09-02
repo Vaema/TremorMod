@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.BossLoot.TheDarkEmperor;
 using TremorMod.Content.Items.Materials;
@@ -16,7 +17,7 @@ namespace TremorMod.Content.Items.Armor.Darkness;
 			Item.height = 18;
 			Item.value = 600000;
 
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.defense = 25;
 		}
 
@@ -37,7 +38,7 @@ namespace TremorMod.Content.Items.Armor.Darkness;
         recipe.AddIngredient(ModContent.ItemType<DarkGel>(), 45);
         recipe.AddIngredient(ModContent.ItemType<DarkMatter>(), 45);
         recipe.AddIngredient(ModContent.ItemType<DarkMass>(), 1);
-        recipe.AddTile(247);
+        recipe.AddTile(TileID.Autohammer);
         recipe.Register();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items.Accessories;
@@ -11,7 +12,7 @@ namespace TremorMod.Content.Items.Accessories;
 			Item.width = 26;
 			Item.height = 20;
 			Item.value = 11000;
-			Item.rare = 9;
+			Item.rare = ItemRarityID.Cyan;
 			Item.accessory = true;
 		}
 
@@ -65,7 +66,7 @@ namespace TremorMod.Content.Items.Accessories;
 			recipe.AddIngredient(ModContent.ItemType<ShroomiteMechanicalBoots>(), 1);
 			recipe.AddIngredient(ModContent.ItemType<SpectreNecklace>(), 1);
 			//recipe.SetResult(this);
-			recipe.AddTile(114);
+			recipe.AddTile(TileID.TinkerersWorkbench);
 			recipe.Register();
 		}
 	}

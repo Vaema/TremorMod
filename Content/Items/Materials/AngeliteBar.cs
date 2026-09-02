@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles;
 
@@ -13,13 +14,13 @@ namespace TremorMod.Content.Items.Materials;
 			Item.height = 24;
 			Item.maxStack = 9999;
 			Item.value = 17500;
-			Item.rare = 0;
+			Item.rare = ItemRarityID.White;
         Item.createTile = ModContent.TileType<AngeliteBarTile>();
         Item.useTurn = true;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 		}
 
@@ -34,7 +35,7 @@ namespace TremorMod.Content.Items.Materials;
         Recipe recipe = CreateRecipe();
         recipe.AddIngredient(ModContent.ItemType<AngeliteOre>(), 6);
         //recipe.SetResult(this);
-        recipe.AddTile(412);
+        recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

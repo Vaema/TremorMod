@@ -18,10 +18,10 @@ namespace TremorMod.Content.Items.Weapons;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.value = 50000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.createTile = ModContent.TileType<TatteredBannerTile>();
 		}
 
@@ -38,7 +38,7 @@ namespace TremorMod.Content.Items.Weapons;
 			recipe.AddIngredient(ModContent.ItemType<UnstableCrystal>(), 2);
 			recipe.AddIngredient(ItemID.TatteredCloth, 25);
 			//recipe.SetResult(this);
-			recipe.AddTile(106);
+			recipe.AddTile(TileID.Sawmill);
 			recipe.Register();
 		}
 	}

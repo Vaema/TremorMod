@@ -14,13 +14,13 @@ namespace TremorMod.Content.Items.Placeable;
 			Item.height = 64;
 			Item.maxStack = 9999;
 			Item.value = 100;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.createTile = ModContent.TileType<BoneThroneTile>();
 			Item.useTurn = true;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 		}
 
@@ -35,7 +35,7 @@ namespace TremorMod.Content.Items.Placeable;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Bone, 75);
 			recipe.AddIngredient(ItemID.Silk, 15);
-			recipe.AddTile(106);
+			recipe.AddTile(TileID.Sawmill);
 			recipe.Register();
 		}
 	}

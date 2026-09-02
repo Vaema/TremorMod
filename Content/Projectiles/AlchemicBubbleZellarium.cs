@@ -13,7 +13,7 @@ namespace TremorMod.Content.Projectiles;
 		public override void SetDefaults()
 		{
 			Projectile.CloneDefaults(405);
-			AIType = 405;
+			AIType = ProjectileID.FlaironBubble;
 			Projectile.friendly = true;
 			Projectile.timeLeft = 150;
 			Projectile.light = 0.8f;

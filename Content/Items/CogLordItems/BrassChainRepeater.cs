@@ -18,11 +18,11 @@ public class BrassChainRepeater : ModItem
         Item.shoot = ProjectileID.WoodenArrowFriendly; // Óñòàíàâëèâàåì ñíàðÿä
         Item.useAmmo = AmmoID.Arrow;
         Item.shootSpeed = 30f;
-        Item.useStyle = 5; // Ñòèëü èñïîëüçîâàíèÿ, êàê ó îðóæèÿ äàëüíåãî áîÿ
+        Item.useStyle = ItemUseStyleID.Shoot; // Ñòèëü èñïîëüçîâàíèÿ, êàê ó îðóæèÿ äàëüíåãî áîÿ
         Item.damage = 30;
         Item.knockBack = 4;
         Item.value = 30000;
-        Item.rare = 5;
+        Item.rare = ItemRarityID.Pink;
         Item.UseSound = SoundID.Item5;
         Item.autoReuse = true;
     }

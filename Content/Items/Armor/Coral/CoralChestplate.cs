@@ -13,7 +13,7 @@ namespace TremorMod.Content.Items.Armor.Coral;
 			Item.width = 26;
 			Item.height = 18;
 			Item.value = 100;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.defense = 3;
 		}
 
@@ -28,7 +28,7 @@ namespace TremorMod.Content.Items.Armor.Coral;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Coral, 12);
 			recipe.AddIngredient(ItemID.Seashell, 4);
-			recipe.AddTile(18);
+			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
 		}
 	}

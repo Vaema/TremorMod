@@ -12,13 +12,13 @@ namespace TremorMod.Content.Items.Buffs;
 		{
 			Item.useAnimation = 15;
 			Item.useTime = 15;
-			Item.useStyle = 4;
+			Item.useStyle = ItemUseStyleID.HoldUp;
 			Item.width = 22;
 			Item.UseSound = SoundID.Item43;
 			Item.height = 18;
 			Item.buffType = ModContent.BuffType<ManaBoosterBuff>();
 			Item.value = 5160000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 		}
 
 		public override void SetStaticDefaults()

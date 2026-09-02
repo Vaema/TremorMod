@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Projectiles;
@@ -11,7 +12,7 @@ namespace TremorMod.Content.Projectiles;
 			Projectile.width = 122;
 			Projectile.height = 122;
 			Projectile.scale = 1.1f;
-			Projectile.aiStyle = 19;
+			Projectile.aiStyle = ProjAIStyleID.Spear;
 			Projectile.timeLeft = 90;
 			Projectile.friendly = true;
 			Projectile.hostile = false;
@@ -76,7 +77,7 @@ namespace TremorMod.Content.Projectiles;
                         source,
                         Projectile.Center,
                         Projectile.velocity * 1.5f,
-                        706, // Òèï íîâîãî ïðîåêòèëÿ
+                        ProjectileID.DD2PhoenixBowShot, // Òèï íîâîãî ïðîåêòèëÿ
                         Projectile.damage,
                         Projectile.knockBack * 0.85f,
                         Projectile.owner

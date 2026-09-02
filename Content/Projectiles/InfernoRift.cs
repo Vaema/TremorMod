@@ -57,7 +57,7 @@ namespace TremorMod.Content.Projectiles;
     {
         for (int k = 0; k < 5; k++)
         {
-            int dust = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 6, Projectile.oldVelocity.X * 0.1f, Projectile.oldVelocity.Y * 0.1f);
+            int dust = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.Torch, Projectile.oldVelocity.X * 0.1f, Projectile.oldVelocity.Y * 0.1f);
         }
         SoundEngine.PlaySound(SoundID.Item109, Projectile.position); // Çàìåíåíî Main.PlaySound
     }
@@ -102,9 +102,9 @@ namespace TremorMod.Content.Projectiles;
 			Projectile.ai[1] = 1;
 			base.AI();
 			Projectile.light = 0.9f;
-			int DustID1 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 6, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 120, default(Color), 1.75f);
-			int DustID2 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 6, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 120, default(Color), 1.75f);
-			int DustID3 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 6, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 120, default(Color), 1.75f);
+			int DustID1 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Torch, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 120, default(Color), 1.75f);
+			int DustID2 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Torch, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 120, default(Color), 1.75f);
+			int DustID3 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Torch, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 120, default(Color), 1.75f);
 			Main.dust[DustID1].noGravity = true;
 			Main.dust[DustID2].noGravity = true;
 			Main.dust[DustID3].noGravity = true;

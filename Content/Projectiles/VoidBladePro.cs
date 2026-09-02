@@ -15,7 +15,7 @@ namespace TremorMod.Content.Projectiles;
 
 			Projectile.width = 54;
 			Projectile.height = 54;
-			Projectile.aiStyle = 27;
+			Projectile.aiStyle = ProjAIStyleID.Beam;
 			Projectile.friendly = true;
 			Projectile.DamageType = DamageClass.Ranged;
 			Projectile.penetrate = 5;
@@ -37,7 +37,7 @@ namespace TremorMod.Content.Projectiles;
 		{
 			for (int num158 = 0; num158 < 20; num158++)
 			{
-				int num159 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 226, Projectile.velocity.X * 0.1f, Projectile.velocity.Y * 0.1f, 0, default(Color), 1.5f);
+				int num159 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Electric, Projectile.velocity.X * 0.1f, Projectile.velocity.Y * 0.1f, 0, default(Color), 1.5f);
 				if (Main.rand.NextBool(3))
 				{
 					Main.dust[num159].fadeIn = 1.1f + Main.rand.Next(-10, 11) * 0.01f;
@@ -66,7 +66,7 @@ namespace TremorMod.Content.Projectiles;
                 value12.Normalize();
                 value12 *= Main.rand.Next(70, 101) * 0.1f;
                 Vector2 position = Projectile.oldPosition + new Vector2(Projectile.width / 2, Projectile.height / 2);
-                Projectile.NewProjectile(source, position, value12, 400, (int)(Projectile.damage * 0.8), Projectile.knockBack * 2.8f, Projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(source, position, value12, ProjectileID.MolotovFire, (int)(Projectile.damage * 0.8), Projectile.knockBack * 2.8f, Projectile.owner, 0f, 0f);
             }
         }
     }

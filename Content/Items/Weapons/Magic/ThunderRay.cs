@@ -14,13 +14,13 @@ public class ThunderRay : ModItem
         Item.DamageType = DamageClass.Magic;  
         Item.mana = 9;
         Item.useTime = 26;
-        Item.shoot = 255;
+        Item.shoot = ProjectileID.MagnetSphereBolt;
         Item.shootSpeed = 8f;
         Item.useAnimation = 26;
-        Item.useStyle = 5;
+        Item.useStyle = ItemUseStyleID.Shoot;
         Item.knockBack = 0;
         Item.value = 2100;
-        Item.rare = 2;
+        Item.rare = ItemRarityID.Green;
         Item.UseSound = SoundID.Item114;
         Item.autoReuse = true;
     }

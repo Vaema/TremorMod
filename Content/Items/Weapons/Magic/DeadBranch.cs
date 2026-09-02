@@ -16,17 +16,17 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.height = 20;
 			Item.useTime = 15;
 			Item.useAnimation = 15;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.DamageType = DamageClass.Magic;
 			Item.mana = 7;
 			Item.noMelee = true;
 
 			Item.knockBack = 6;
 			Item.value = 10000;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item43;
 			Item.autoReuse = true;
-			Item.shoot = 10;
+			Item.shoot = ProjectileID.PurificationPowder;
 			Item.shootSpeed = 20f;
 			Item.staff[Item.type] = true;
 		}
@@ -39,7 +39,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
-			int proj = Projectile.NewProjectile(Item.GetSource_FromThis(), position.X, position.Y, velocity.X, velocity.Y, 671, damage, Main.myPlayer);
+			int proj = Projectile.NewProjectile(Item.GetSource_FromThis(), position.X, position.Y, velocity.X, velocity.Y, ProjectileID.DD2DrakinShot, damage, Main.myPlayer);
 			Main.projectile[proj].hostile = false;
 			Main.projectile[proj].friendly = true;
 			return false;

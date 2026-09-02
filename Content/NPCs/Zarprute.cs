@@ -23,8 +23,8 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.3f;
 			NPC.width = 92;
 			NPC.height = 54;
-			AnimationType = 75;
-			NPC.aiStyle = 14;
+			AnimationType = NPCID.Pixie;
+			NPC.aiStyle = NPCAIStyleID.Bat;
 			NPC.npcSlots = 0.5f;
 			NPC.HitSound = SoundID.NPCHit35;
 			NPC.noGravity = true;
@@ -42,7 +42,7 @@ namespace TremorMod.Content.NPCs;
         if (NPC.life <= 0)
         {
             for (int k = 0; k < 20; k++)
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SeaSnail, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ZarpruteGore1").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ZarpruteGore2").Type, 1f);

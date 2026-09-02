@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items.CogLordItems;
@@ -11,7 +12,7 @@ namespace TremorMod.Content.Items.CogLordItems;
 			Item.height = 16;
 			Item.maxStack = 9999;
 			Item.value = 300;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 		}
 
 		/*public override void SetStaticDefaults()

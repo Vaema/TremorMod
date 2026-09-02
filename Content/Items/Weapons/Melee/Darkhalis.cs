@@ -35,7 +35,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			recipe.AddIngredient(ModContent.ItemType<NightmareBar>(), 22);
 			recipe.AddIngredient(ModContent.ItemType<Doomstone>(), 15);
 			recipe.AddIngredient(ModContent.ItemType<Phantaplasm>(), 12);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

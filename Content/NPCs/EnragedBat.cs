@@ -22,8 +22,8 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.3f;
 			NPC.width = 56;
 			NPC.height = 48;
-			AnimationType = 93;
-			NPC.aiStyle = 14;
+			AnimationType = NPCID.GiantBat;
+			NPC.aiStyle = NPCAIStyleID.Bat;
 			NPC.npcSlots = 0.2f;
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.noGravity = true;
@@ -40,7 +40,7 @@ namespace TremorMod.Content.NPCs;
         if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 27, 2.5f * hitDirection, -2.5f, 0, default(Color), 1f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Shadowflame, 2.5f * hitDirection, -2.5f, 0, default(Color), 1f);
 
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("EnragedGore1").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("EnragedGore1").Type, 1f);

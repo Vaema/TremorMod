@@ -24,8 +24,8 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 1f;
 			NPC.width = 46;
 			NPC.height = 50;
-			AnimationType = 21;
-			NPC.aiStyle = 26;
+			AnimationType = NPCID.Skeleton;
+			NPC.aiStyle = NPCAIStyleID.Unicorn;
 			NPC.npcSlots = 0.5f;
 			NPC.HitSound = SoundID.NPCHit47;
 			NPC.DeathSound = SoundID.NPCDeath23;
@@ -46,7 +46,7 @@ namespace TremorMod.Content.NPCs;
         if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SeaSnail, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
             //Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SpiderManGore1").Type, 1f);
             //Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SpiderManGore2").Type, 1f);

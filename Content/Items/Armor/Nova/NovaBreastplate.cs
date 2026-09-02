@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.NPCs.Bosses.NovaPillar.Items;
 using TremorMod.Utilities;
@@ -12,7 +13,7 @@ namespace TremorMod.Content.Items.Armor.Nova;
 		{
 			Item.width = 36;
 			Item.height = 24;
-			Item.rare = 10;
+			Item.rare = ItemRarityID.Red;
 			Item.defense = 22;
 		}
 
@@ -36,8 +37,8 @@ namespace TremorMod.Content.Items.Armor.Nova;
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<NovaFragment>(), 20);
-			recipe.AddIngredient(3467, 16);
-			recipe.AddTile(412);
+			recipe.AddIngredient(ItemID.LunarBar, 16);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			//recipe.SetResult(this, 1);
 			recipe.Register();
 		}

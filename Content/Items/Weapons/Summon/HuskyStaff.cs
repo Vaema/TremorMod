@@ -20,11 +20,11 @@ namespace TremorMod.Content.Items.Weapons.Summon;
 			Item.height = 28;
 			Item.useTime = 25;
 			Item.useAnimation = 25;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			//Item.noMelee = true;
 			Item.knockBack = 4;
 			Item.value = 8000;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.UseSound = SoundID.Item44;
 			Item.shoot = ModContent.ProjectileType<HuskyStaffPro>();
 			Item.shootSpeed = 1f;
@@ -55,7 +55,7 @@ namespace TremorMod.Content.Items.Weapons.Summon;
 			recipe.AddIngredient(ModContent.ItemType<WolfPelt>(), 7);
 			recipe.AddIngredient(ModContent.ItemType<AlphaClaw>(), 2);
 			//recipe.SetResult(this);
-			recipe.AddTile(18);
+			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
 		}
 	}

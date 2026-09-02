@@ -17,7 +17,7 @@ public class AngeliteOreTile : ModTile
         Main.tileLighted[Type] = true;
 
         // Çàäà¸ì òèï ïûëè, êîòîðàÿ áóäåò ãåíåðèðîâàòüñÿ ïðè ðàçðóøåíèè ïëèòêè
-        DustType = 57;
+        DustType = DustID.Enchanted_Gold;
 
         // Çàäà¸ì çâóê äëÿ ðàçðóøåíèÿ ïëèòêè
         HitSound = SoundID.Tink;  // Óñòàíîâèì çâóê ðàçðóøåíèÿ

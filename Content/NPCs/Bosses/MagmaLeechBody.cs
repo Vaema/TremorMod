@@ -23,7 +23,7 @@ namespace TremorMod.Content.NPCs.Bosses;
         NPC.behindTiles = true;
         NPC.friendly = false;
         NPC.noGravity = true;
-        NPC.aiStyle = 6;
+        NPC.aiStyle = NPCAIStyleID.Worm;
         NPC.HitSound = SoundID.NPCHit2;
         NPC.buffImmune[24] = true;
         NPC.buffImmune[67] = true;
@@ -43,8 +43,8 @@ namespace TremorMod.Content.NPCs.Bosses;
 		{
 			if (Main.rand.NextBool(3))
 			{
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 6, 0f, 0f, 200, NPC.color, 1f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 6, 0f, 0f, 200, NPC.color, 1f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, 0f, 0f, 200, NPC.color, 1f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, 0f, 0f, 200, NPC.color, 1f);
 			}
 
 			if (!Main.npc[(int)NPC.ai[1]].active)

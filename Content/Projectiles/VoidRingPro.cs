@@ -13,7 +13,7 @@ namespace TremorMod.Content.Projectiles;
 		{
 			Projectile.CloneDefaults(405);
 
-			AIType = 405;
+			AIType = ProjectileID.FlaironBubble;
 			Projectile.friendly = true;
 			Projectile.timeLeft = 150;
 			Projectile.light = 0.8f;
@@ -44,7 +44,7 @@ namespace TremorMod.Content.Projectiles;
 		{
 			for (int num158 = 0; num158 < 20; num158++)
 			{
-				int num159 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 226, Projectile.velocity.X * 0.1f, Projectile.velocity.Y * 0.1f, 0, default(Color), 0.3f);
+				int num159 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Electric, Projectile.velocity.X * 0.1f, Projectile.velocity.Y * 0.1f, 0, default(Color), 0.3f);
 				if (Main.rand.NextBool(3))
 				{
 					Main.dust[num159].fadeIn = 1.1f + Main.rand.Next(-10, 11) * 0.01f;
@@ -76,8 +76,8 @@ namespace TremorMod.Content.Projectiles;
                 Projectile.NewProjectile(
                     source,
                     position,
-                    value12, 
-                    400, 
+                    value12,
+                    ProjectileID.MolotovFire, 
                     (int)(Projectile.damage * 0.8), 
                     Projectile.knockBack * 2.8f, 
                     Projectile.owner, 

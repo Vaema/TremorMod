@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Armor.Leather;
 using TremorMod.Content.Items.Materials;
@@ -16,7 +17,7 @@ namespace TremorMod.Content.Items.Armor.Steel;
 			Item.height = 18;
 			Item.value = 500;
 
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.defense = 4;
 		}
 
@@ -35,7 +36,7 @@ namespace TremorMod.Content.Items.Armor.Steel;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<SteelBar>(), 15);
 			recipe.AddIngredient(ModContent.ItemType<LeatherGreaves>(), 1);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

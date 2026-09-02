@@ -31,7 +31,7 @@ namespace TremorMod.Content.Projectiles;
 
         for (int i = 0; i < 40; i++)
         {
-            int dustIndex = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 31, 0f, 0f, 100, default(Color), 2f);
+            int dustIndex = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Smoke, 0f, 0f, 100, default(Color), 2f);
             Main.dust[dustIndex].velocity *= 3f;
             if (Main.rand.NextBool(2))
             {
@@ -42,7 +42,7 @@ namespace TremorMod.Content.Projectiles;
 
         for (int i = 0; i < 70; i++)
         {
-            int dustIndex = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 6, 0f, 0f, 100, default(Color), 3f);
+            int dustIndex = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, default(Color), 3f);
             Main.dust[dustIndex].noGravity = true;
             Main.dust[dustIndex].velocity *= 5f;
         }

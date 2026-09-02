@@ -58,7 +58,7 @@ namespace TremorMod.Content.NPCs.Bosses;
                 NPC.GetSource_FromAI(),      // Source
                 NPC.Center,                  // Position (Vector2)
                 velocity,                    // Speed (Vector2)
-                326,                         // Projectile Type
+                ProjectileID.GreekFire1,                         // Projectile Type
                 10,                          // Damage
                 1f,                          // Knockback
                 Main.myPlayer                // Owner (player ID)
@@ -74,7 +74,7 @@ namespace TremorMod.Content.NPCs.Bosses;
 			{
 				for (int i = 0; i < 2; i++)
 				{
-					Dust dust = Dust.NewDustPerfect(NPC.position, 6, Alpha: 200);
+					Dust dust = Dust.NewDustPerfect(NPC.position, DustID.Torch, Alpha: 200);
 					dust.noGravity = true;
 				}
 			}

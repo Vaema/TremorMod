@@ -14,14 +14,14 @@ namespace TremorMod.Content.Projectiles.Minions;
 			Projectile.netImportant = true;
 			Projectile.friendly = true;
 			Projectile.minionSlots = 1;
-			Projectile.aiStyle = 26;
+			Projectile.aiStyle = ProjAIStyleID.Pet;
 			Projectile.timeLeft = 18000;
 			Main.projFrames[Projectile.type] = 1;
 			ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
 			Projectile.penetrate = -1;
 			Projectile.timeLeft *= 5;
 			Projectile.minion = true;
-			AIType = 266;
+			AIType = ProjectileID.BabySlime;
 			Projectile.tileCollide = false;
 			ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 		}

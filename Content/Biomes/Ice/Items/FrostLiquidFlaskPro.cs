@@ -13,7 +13,7 @@ namespace TremorMod.Content.Biomes.Ice.Items;
 			Projectile.width = 18;
 			Projectile.height = 28;
 			Projectile.friendly = true;
-			Projectile.aiStyle = 2;
+			Projectile.aiStyle = ProjAIStyleID.ThrownProjectile;
 			Projectile.timeLeft = 1200;
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
 			ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
@@ -44,7 +44,7 @@ namespace TremorMod.Content.Biomes.Ice.Items;
                     Projectile.GetSource_FromThis(),
                     Projectile.position,
                     value17,
-                    118,
+                    ProjectileID.IceBolt,
                     Projectile.damage,
                     1f,
                     Projectile.owner,

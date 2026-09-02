@@ -43,7 +43,7 @@ internal class AdamantiteHat : ModItem
 
     public override bool IsArmorSet(Item head, Item body, Item legs)
     {
-        return body.type == 403 && legs.type == 404;
+        return body.type == ItemID.AdamantiteBreastplate && legs.type == ItemID.AdamantiteLeggings;
     }
 
     public override void ArmorSetShadows(Player player)
@@ -55,7 +55,7 @@ internal class AdamantiteHat : ModItem
     {
         Recipe recipe = CreateRecipe();
         recipe.AddIngredient(ItemID.AdamantiteBar, 12);
-        recipe.AddTile(134);
+        recipe.AddTile(TileID.MythrilAnvil);
         recipe.Register();
     }
 }

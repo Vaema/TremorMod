@@ -63,8 +63,8 @@ namespace TremorMod.Content.NPCs.Bosses.Brutallisk;
 			NPC.knockBackResist = 0f;
 			NPC.width = 276;
 			NPC.height = 366;
-			AnimationType = 82;
-			NPC.aiStyle = 2;
+			AnimationType = NPCID.Wraith;
+			NPC.aiStyle = NPCAIStyleID.DemonEye;
 			NPC.npcSlots = 1f;
 			//npc.soundHit = 7;
 			//npc.soundKilled = 10;
@@ -90,7 +90,7 @@ namespace TremorMod.Content.NPCs.Bosses.Brutallisk;
 			{
 				for (int k = 0; k < 20; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SeaSnail, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				}
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("BrutalliskGore1").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("BrutalliskGore2").Type, 1f);
@@ -103,7 +103,7 @@ namespace TremorMod.Content.NPCs.Bosses.Brutallisk;
 			{
 				for (int k = 0; k < hit.Damage / NPC.lifeMax * 50.0; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 59, hitDirection, -1f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.BlueTorch, hitDirection, -1f, 0, default(Color), 0.7f);
 				}
 			}
 		}
@@ -308,7 +308,7 @@ namespace TremorMod.Content.NPCs.Bosses.Brutallisk;
 					}
 				}
 
-				if (Main.time % 2 == 0 && Main.netMode == 2 && NPC.whoAmI < 200)
+				if (Main.time % 2 == 0 && Main.netMode == NetmodeID.Server && NPC.whoAmI < 200)
 				{
 					//NetMessage.SendData(23, -1, -1, "", npc.whoAmI, 0f, 0f, 0f, 0);
 				}
@@ -468,14 +468,14 @@ namespace TremorMod.Content.NPCs.Bosses.Brutallisk;
 
 				if ((int)(Main.time % 120) == 0)
 				{
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position.X + 40, NPC.position.Y + 40, -7, 0, 686, NPC.damage, 0, Main.myPlayer, 0f, 0f);
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position.X + 40, NPC.position.Y + 40, 7, 0, 467, NPC.damage, 0, Main.myPlayer, 0f, 0f);
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position.X + 40, NPC.position.Y + 40, 0, 7, 467, NPC.damage, 0, Main.myPlayer, 0f, 0f);
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position.X + 40, NPC.position.Y + 40, 0, -7, 467, NPC.damage, 0, Main.myPlayer, 0f, 0f);
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position.X + 40, NPC.position.Y + 40, -7, -7, 686, NPC.damage, 0, Main.myPlayer, 0f, 0f);
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position.X + 40, NPC.position.Y + 40, 7, -7, 467, NPC.damage, 0, Main.myPlayer, 0f, 0f);
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position.X + 40, NPC.position.Y + 40, -7, 7, 467, NPC.damage, 0, Main.myPlayer, 0f, 0f);
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position.X + 40, NPC.position.Y + 40, 7, 7, 686, NPC.damage, 0, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position.X + 40, NPC.position.Y + 40, -7, 0, ProjectileID.DD2BetsyFireball, NPC.damage, 0, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position.X + 40, NPC.position.Y + 40, 7, 0, ProjectileID.CultistBossFireBall, NPC.damage, 0, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position.X + 40, NPC.position.Y + 40, 0, 7, ProjectileID.CultistBossFireBall, NPC.damage, 0, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position.X + 40, NPC.position.Y + 40, 0, -7, ProjectileID.CultistBossFireBall, NPC.damage, 0, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position.X + 40, NPC.position.Y + 40, -7, -7, ProjectileID.DD2BetsyFireball, NPC.damage, 0, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position.X + 40, NPC.position.Y + 40, 7, -7, ProjectileID.CultistBossFireBall, NPC.damage, 0, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position.X + 40, NPC.position.Y + 40, -7, 7, ProjectileID.CultistBossFireBall, NPC.damage, 0, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position.X + 40, NPC.position.Y + 40, 7, 7, ProjectileID.DD2BetsyFireball, NPC.damage, 0, Main.myPlayer, 0f, 0f);
 				}
 
 			}

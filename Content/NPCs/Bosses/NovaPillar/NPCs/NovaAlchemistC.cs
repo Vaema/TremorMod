@@ -29,7 +29,7 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.NPCs;
 			NPC.knockBackResist = 0.4f;
 			NPC.width = 34;
 			NPC.height = 56;
-			NPC.aiStyle = 3;
+			NPC.aiStyle = NPCAIStyleID.Fighter;
 			AIType = NPCID.AngryBones;
 			NPC.npcSlots = 0.5f;
 			NPC.HitSound = SoundID.NPCHit55;

@@ -9,16 +9,16 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 	{
 		public override void SetDefaults()
 		{
-			Item.rare = 10;
+			Item.rare = ItemRarityID.Red;
 			Item.UseSound = SoundID.Item1;
 
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.damage = 196;
 			Item.useAnimation = 16;
 			Item.useTime = 14;
 			Item.width = 84;
 			Item.height = 84;
-			Item.shoot = 132;
+			Item.shoot = ProjectileID.TerraBeam;
 			Item.scale = 1.1f;
 			Item.shootSpeed = 15f;
 			Item.knockBack = 6.5f;
@@ -42,7 +42,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			recipe.AddIngredient(ModContent.ItemType<EarthFragment>(), 30);
 			recipe.AddIngredient(ModContent.ItemType<FireFragment>(), 30);
 			recipe.AddIngredient(ModContent.ItemType<AirFragment>(), 30);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			//recipe.SetResult(this);
 			recipe.Register();
 		}

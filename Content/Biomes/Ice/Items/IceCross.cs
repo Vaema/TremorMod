@@ -17,9 +17,9 @@ namespace TremorMod.Content.Biomes.Ice.Items;
 			Item.shoot = ModContent.ProjectileType<Icoj>();
 			Item.shootSpeed = 0f;
 			Item.useAnimation = 35;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.value = 1000;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.UseSound = SoundID.Item43;
 			Item.autoReuse = false;
 		}

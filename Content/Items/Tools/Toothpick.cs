@@ -22,10 +22,10 @@ namespace TremorMod.Content.Items.Tools;
 			Item.noMelee = true;
 			Item.pick = 65;
 			Item.tileBoost++;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 6;
 			Item.value = Item.buyPrice(0, 1, 50, 0);
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item23;
 			Item.autoReuse = true;
 			Item.shoot = ModContent.ProjectileType<ToothpickPro>();
@@ -44,14 +44,14 @@ namespace TremorMod.Content.Items.Tools;
 			recipe.AddIngredient(ItemID.CrimtaneBar, 10);
 			recipe.AddIngredient(ModContent.ItemType<SharpenedTooth>(), 5);
 			//recipe.SetResult(this);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 
 			Recipe recipe1 = CreateRecipe();
 			recipe1.AddIngredient(ItemID.DemoniteBar, 10);
 			recipe1.AddIngredient(ModContent.ItemType<SharpenedTooth>(), 5);
 			//recipe.SetResult(this);
-			recipe1.AddTile(16);
+			recipe1.AddTile(TileID.Anvils);
 			recipe1.Register();
 		}
 	}

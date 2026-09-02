@@ -17,10 +17,10 @@ namespace TremorMod.Content.Items.Tools;
 			Item.height = 48;
 			Item.useTime = 18;
 			Item.useAnimation = 18;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 5;
 			Item.value = 20000;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.axe = 6;
 			Item.hammer = 66;
 			Item.UseSound = SoundID.Item1;
@@ -38,7 +38,7 @@ namespace TremorMod.Content.Items.Tools;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<ArgiteBar>(), 12);
 			//recipe.SetResult(this);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 
@@ -46,7 +46,7 @@ namespace TremorMod.Content.Items.Tools;
 		{
 			if (Main.rand.NextBool(3))
 			{
-				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 61);
+				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.GreenTorch);
 			}
 		}
 	}

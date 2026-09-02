@@ -25,9 +25,9 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.4f;
 			NPC.width = 56;
 			NPC.height = 48;
-			AIType = 429;
-			AnimationType = 429;
-			NPC.aiStyle = 3;
+			AIType = NPCID.VortexSoldier;
+			AnimationType = NPCID.VortexSoldier;
+			NPC.aiStyle = NPCAIStyleID.Fighter;
 			NPC.npcSlots = 0.2f;
 			NPC.HitSound = SoundID.NPCHit37;
 			NPC.DeathSound = SoundID.NPCDeath57;
@@ -51,8 +51,8 @@ namespace TremorMod.Content.NPCs;
 			{
 				for (int k = 0; k < 20; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 80, 2.5f * hitDirection, -2.5f, 0, default(Color), 1f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 80, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.8f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Ice, 2.5f * hitDirection, -2.5f, 0, default(Color), 1f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Ice, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.8f);
 				}
 
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PolarisGore1").Type, 1f);
@@ -61,9 +61,9 @@ namespace TremorMod.Content.NPCs;
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PolarisGore3").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PolarisGore3").Type, 1f);
 
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 80, 2.5f * hitDirection, -2.5f, 0, default(Color), 1f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 80, 2.5f * hitDirection, -2.5f, 0, default(Color), 2f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 80, 2.5f * hitDirection, -2.5f, 0, default(Color), 1f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Ice, 2.5f * hitDirection, -2.5f, 0, default(Color), 1f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Ice, 2.5f * hitDirection, -2.5f, 0, default(Color), 2f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Ice, 2.5f * hitDirection, -2.5f, 0, default(Color), 1f);
 
 			}
 		}

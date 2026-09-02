@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Mounts;
@@ -8,7 +9,7 @@ public class Wolf : ModMount
 		public override void SetStaticDefaults()
 		{
 			MountData.spawnDust = 57;
-			MountData.buff = 118;
+			MountData.buff = BuffID.MinecartLeft;
 			MountData.heightBoost = 20;
 			MountData.fallDamage = 0.5f;
 			MountData.runSpeed = 11f;
@@ -50,7 +51,7 @@ public class Wolf : ModMount
 			MountData.swimFrameCount = MountData.inAirFrameCount;
 			MountData.swimFrameDelay = MountData.inAirFrameDelay;
 			MountData.swimFrameStart = MountData.inAirFrameStart;
-        if (Main.netMode != 2)
+        if (Main.netMode != NetmodeID.Server)
         {
             MountData.textureWidth = MountData.backTexture.Value.Width;
             MountData.textureHeight = MountData.backTexture.Value.Height;

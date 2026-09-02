@@ -13,7 +13,7 @@ namespace TremorMod.Content.Tiles;
         Main.tileMergeDirt[Type] = true;
         Main.tileBlockLight[Type] = true;
         Main.tileLighted[Type] = true;
-        DustType = 44;
+        DustType = DustID.JungleSpore;
         HitSound = SoundID.Tink;
         MineResist = 15f;
         MinPick = 65; 

@@ -15,13 +15,13 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.height = 52;
 			Item.useTime = 45;
 			Item.useAnimation = 15;
-			Item.useStyle = 1;
-			Item.shoot = 116;
+			Item.useStyle = ItemUseStyleID.Swing;
+			Item.shoot = ProjectileID.SwordBeam;
 			Item.shootSpeed = 15f;
 			Item.knockBack = 8;
 
 			Item.value = 750000;
-			Item.rare = 6;
+			Item.rare = ItemRarityID.LightPurple;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
 		}
@@ -40,7 +40,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			recipe.AddIngredient(ModContent.ItemType<MagiumShard>(), 25);
 			recipe.AddIngredient(ItemID.BrokenHeroSword, 1);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

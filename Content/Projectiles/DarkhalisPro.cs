@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Projectiles;
@@ -10,7 +11,7 @@ namespace TremorMod.Content.Projectiles;
         Projectile.CloneDefaults(595);
         Projectile.width = 100;
         Projectile.height = 70;
-        AIType = 595;
+        AIType = ProjectileID.Arkhalis;
         Main.projFrames[Projectile.type] = 28;
     }
 

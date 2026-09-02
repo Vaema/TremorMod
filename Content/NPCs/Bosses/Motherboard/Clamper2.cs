@@ -23,10 +23,10 @@ namespace TremorMod.Content.NPCs.Bosses.Motherboard;
 			NPC.knockBackResist = 0f;
 			NPC.width = 36;
 			NPC.height = 33;
-			NPC.aiStyle = 2;
+			NPC.aiStyle = NPCAIStyleID.DemonEye;
 			NPC.HitSound = SoundID.NPCHit4;
 			NPC.DeathSound = SoundID.NPCDeath14;
-			AnimationType = 2;
+			AnimationType = NPCID.DemonEye;
 		}
 
 		public override void AI()

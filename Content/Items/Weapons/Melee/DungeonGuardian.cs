@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 
@@ -14,14 +15,14 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 
 		public override void SetDefaults()
 		{
-			Item.CloneDefaults(3279);
+			Item.CloneDefaults(ItemID.CorruptYoyo);
 			Item.width = 30;
 			Item.height = 26;
 			Item.shoot = ModContent.ProjectileType<DungeonGuardianPro>();
 			Item.knockBack = 4;
 			Item.DamageType = DamageClass.Melee;
         Item.value = 10000;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			if (!NPC.downedBoss1)
 			{
 				Item.damage = 15;

@@ -9,6 +9,7 @@ using Terraria.Utilities;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ID;
 
 namespace TremorMod;
 
@@ -433,14 +434,14 @@ public static class TremorUtils // ?
     public static void DrawItemGlowMask(Texture2D texture, PlayerDrawSet info)
     {
         Item item = info.drawPlayer.HeldItem;
-        if (info.shadow != 0f || info.drawPlayer.frozen || ((info.drawPlayer.itemAnimation <= 0 || item.useStyle == 0) && (item.holdStyle <= 0 || info.drawPlayer.pulley))/*||item.type<=0*/|| info.drawPlayer.dead || item.noUseGraphic || (info.drawPlayer.wet && item.noWet))
+        if (info.shadow != 0f || info.drawPlayer.frozen || ((info.drawPlayer.itemAnimation <= 0 || item.useStyle == ItemUseStyleID.None) && (item.holdStyle <= 0 || info.drawPlayer.pulley))/*||item.type<=0*/|| info.drawPlayer.dead || item.noUseGraphic || (info.drawPlayer.wet && item.noWet))
         {
             return;
         }
         Vector2 offset = new Vector2();
         float rotOffset = 0;
         Vector2 origin = new Vector2();
-        if (item.useStyle == 5)
+        if (item.useStyle == ItemUseStyleID.Shoot)
         {
             if (Item.staff[item.type])
             {

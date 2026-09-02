@@ -20,10 +20,10 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			Item.useAnimation = 25;
 			Item.shoot = ModContent.ProjectileType<RockminePro>();
 			Item.shootSpeed = 11f;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;
 			Item.value = 7;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 		}
@@ -39,7 +39,7 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			Recipe recipe = CreateRecipe(25);
 			recipe.AddIngredient(ItemID.StoneBlock, 15);
 			recipe.AddIngredient(ModContent.ItemType<RockHorn>(), 3);
-			recipe.AddTile(14);
+			recipe.AddTile(TileID.Tables);
 			recipe.Register();
 		}
 	}

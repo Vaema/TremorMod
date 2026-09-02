@@ -23,8 +23,8 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.3f;
 			NPC.width = 62;
 			NPC.height = 46;
-			AnimationType = 241;
-			NPC.aiStyle = 16;
+			AnimationType = NPCID.BloodFeeder;
+			NPC.aiStyle = NPCAIStyleID.Piranha;
 			NPC.npcSlots = 1f;
 			NPC.HitSound = SoundID.NPCHit47;
 			NPC.DeathSound = SoundID.NPCDeath23;
@@ -40,7 +40,7 @@ namespace TremorMod.Content.NPCs;
 
         if (NPC.life <= 0)
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SeaSnail, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 		}
 
 		public override void OnKill()

@@ -12,7 +12,7 @@ namespace TremorMod.Content.Items.Armor.Leather;
 			Item.width = 30;
 			Item.height = 18;
 			Item.value = 200;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.defense = 1;
 		}
 

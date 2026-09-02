@@ -65,7 +65,7 @@ public class GrassGlaviePro : ModProjectile
     {
         if (Main.rand.NextBool(2))
         {
-            target.AddBuff(20, 180, false);
+            target.AddBuff(BuffID.Poisoned, 180, false);
         }
 
     }

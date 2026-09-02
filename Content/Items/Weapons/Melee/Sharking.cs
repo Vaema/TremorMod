@@ -15,12 +15,12 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.height = 48;
 			Item.useTime = 45;
 			Item.useAnimation = 35;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 7;
-			Item.shoot = 408;
+			Item.shoot = ProjectileID.MiniSharkron;
 			Item.shootSpeed = 14f;
 			Item.value = 13570;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
 		}

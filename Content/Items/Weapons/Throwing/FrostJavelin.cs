@@ -19,12 +19,12 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			Item.shoot = ModContent.ProjectileType<FrostJavelinPro>();
 			Item.shootSpeed = 15f;
 			Item.useAnimation = 30;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;
 			Item.maxStack = 999;
 			Item.consumable = true;
 			Item.value = 10;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.UseSound = SoundID.Item5;
 			Item.autoReuse = false;
 		}
@@ -40,7 +40,7 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<FrostCore>(), 1);
 			//recipe.SetResult(this, 25);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

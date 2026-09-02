@@ -16,10 +16,10 @@ namespace TremorMod.Content.Items;
 
 			Item.useTime = 20;
 			Item.useAnimation = 20;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 6;
 			Item.value = 30000;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.UseSound = SoundID.Item79;
 			Item.noMelee = true;
 			Item.mountType = ModContent.MountType<Spider>();
@@ -38,7 +38,7 @@ namespace TremorMod.Content.Items;
 			recipe.AddIngredient(ModContent.ItemType<SpiderMeat>(), 15);
 			recipe.AddIngredient(ItemID.Cobweb, 100);
 			//recipe.SetResult(this);
-			recipe.AddTile(17);
+			recipe.AddTile(TileID.Furnaces);
 			recipe.Register();
 		}
 	}

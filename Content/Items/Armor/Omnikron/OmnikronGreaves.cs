@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Utilities;
@@ -16,7 +17,7 @@ namespace TremorMod.Content.Items.Armor.Omnikron;
 			Item.width = 38;
 			Item.height = 22;
 			Item.value = 0;
-			Item.rare = 0;
+			Item.rare = ItemRarityID.White;
 			Item.defense = 24;
 		}
 
@@ -50,7 +51,7 @@ namespace TremorMod.Content.Items.Armor.Omnikron;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<OmnikronBar>(), 18);
 			//recipe.SetResult(this);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 

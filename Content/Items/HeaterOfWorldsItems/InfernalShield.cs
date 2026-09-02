@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
 
@@ -24,7 +25,7 @@ public class InfernalShield : ModItem
         Item.width = 36;
         Item.height = 36;
         Item.value = 45000;
-        Item.rare = 9;
+        Item.rare = ItemRarityID.Cyan;
         Item.expert = true;
         Item.accessory = true;
     }

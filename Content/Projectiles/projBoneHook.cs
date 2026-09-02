@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
 
@@ -21,7 +22,7 @@ namespace TremorMod.Content.Projectiles;
 			Projectile.height = 38;
 			Projectile.timeLeft = 36000;
 			Projectile.DamageType = DamageClass.Melee;
-			Projectile.aiStyle = 13;
+			Projectile.aiStyle = ProjAIStyleID.Harpoon;
 			Projectile.penetrate = -1;
 		}
 
@@ -62,7 +63,7 @@ namespace TremorMod.Content.Projectiles;
 
     public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
     {
-        if (NPC == -1 && !target.boss && !target.friendly && target.lifeMax > 5 && target.aiStyle != 6)
+        if (NPC == -1 && !target.boss && !target.friendly && target.lifeMax > 5 && target.aiStyle != NPCAIStyleID.Worm)
             NPC = target.whoAmI;
         TimeToHook = 1;
     }

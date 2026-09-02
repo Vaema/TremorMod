@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Biomes.Ice.Items;
@@ -17,7 +18,7 @@ namespace TremorMod.Content.Biomes.Ice.Items;
 			Projectile.tileCollide = true;
 			Projectile.hostile = false;
 			Projectile.timeLeft = 1000;
-			Projectile.aiStyle = 2;
+			Projectile.aiStyle = ProjAIStyleID.ThrownProjectile;
 		}
 
 		public override void SetStaticDefaults()

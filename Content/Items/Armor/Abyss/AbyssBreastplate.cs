@@ -15,7 +15,7 @@ namespace TremorMod.Content.Items.Armor.Abyss;
 			Item.height = 22;
 
 			Item.value = 18000;
-			Item.rare = 7;
+			Item.rare = ItemRarityID.Lime;
 			Item.defense = 22;
 		}
 
@@ -40,7 +40,7 @@ namespace TremorMod.Content.Items.Armor.Abyss;
 			recipe.AddIngredient(ItemID.Amethyst, 8);
 			recipe.AddIngredient(ModContent.ItemType<PhantomSoul>(), 5);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 

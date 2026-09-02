@@ -22,10 +22,10 @@ namespace TremorMod.Content.Items.Weapons.Summon;
 
 			Item.useTime = 15;
 			Item.useAnimation = 15;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.noMelee = true;
 			Item.value = Item.buyPrice(0, 2, 0, 0);
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.UseSound = SoundID.Item44;
 			Item.shoot = ModContent.ProjectileType<Mini_Cyber>();
 			Item.shootSpeed = 1f;

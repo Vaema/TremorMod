@@ -14,10 +14,10 @@ namespace TremorMod.Content.Items.BossSumonItems;
 			Item.height = 18;
 			Item.maxStack = 20;
 
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.useAnimation = 45;
 			Item.useTime = 45;
-			Item.useStyle = 4;
+			Item.useStyle = ItemUseStyleID.HoldUp;
 			Item.consumable = true;
 		}
 
@@ -46,7 +46,7 @@ namespace TremorMod.Content.Items.BossSumonItems;
 			recipe.AddIngredient(ItemID.Vertebrae, 6);
 			recipe.AddIngredient(ItemID.IronBar, 6);
 			recipe.AddIngredient(ItemID.SoulofNight, 6);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

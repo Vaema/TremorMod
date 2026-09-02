@@ -17,16 +17,16 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.DamageType = DamageClass.Magic;
 			Item.useTime = 27;
 			Item.useAnimation = 27;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 6;
 			Item.value = Item.buyPrice(0, 6, 0, 0);
-			Item.rare = 8;
+			Item.rare = ItemRarityID.Yellow;
 			Item.crit = 3;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.UseSound = SoundID.Item36;
 			//Item.noMelee = true;
 			Item.autoReuse = true;
-			Item.shoot = 260;
+			Item.shoot = ProjectileID.HeatRay;
 			Item.shootSpeed = 10f;
 		}
 
@@ -61,7 +61,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			recipe.AddIngredient(ItemID.SoulofFright, 16);
 			recipe.AddIngredient(ItemID.SoulofSight, 16);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 
 			Recipe recipe1 = CreateRecipe();
@@ -71,7 +71,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			recipe1.AddIngredient(ItemID.SoulofFright, 16);
 			recipe1.AddIngredient(ItemID.SoulofSight, 16);
 			//recipe.SetResult(this);
-			recipe1.AddTile(134);
+			recipe1.AddTile(TileID.MythrilAnvil);
 			recipe1.Register();
 		}
 	}

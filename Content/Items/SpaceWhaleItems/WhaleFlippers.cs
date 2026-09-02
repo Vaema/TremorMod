@@ -14,7 +14,7 @@ namespace TremorMod.Content.Items.SpaceWhaleItems;
 			Item.width = 22;
 			Item.height = 20;
 			Item.value = 80000;
-			Item.rare = 8;
+			Item.rare = ItemRarityID.Yellow;
 			Item.accessory = true;
 		}
 

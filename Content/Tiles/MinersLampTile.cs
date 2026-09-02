@@ -17,7 +17,7 @@ namespace TremorMod.Content.Tiles;
         //TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.Table, TileObjectData.newTile.Width, 0);
         TileObjectData.newTile.StyleWrapLimit = 36;
         TileObjectData.addTile(Type);
-        DustType = 7;
+        DustType = DustID.WoodFurniture;
         Main.tileLighted[Type] = true; 
         AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
 	        AddMapEntry(new Color(82, 82, 82), CreateMapEntryName());
@@ -37,7 +37,7 @@ namespace TremorMod.Content.Tiles;
             Player player = Main.player[Main.myPlayer];
             int style = Main.tile[i, j].TileFrameX / 15;
             //string type;
-            player.AddBuff(12, 60, true);
+            player.AddBuff(BuffID.NightOwl, 60, true);
         }
     }
 }

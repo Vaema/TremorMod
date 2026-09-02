@@ -52,7 +52,7 @@ namespace TremorMod.Content.NPCs.Bosses.Trinity;
 			NPC.knockBackResist = 0f;
 			NPC.width = 180;
 			NPC.height = 266;
-			NPC.aiStyle = 5;
+			NPC.aiStyle = NPCAIStyleID.Flying;
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
 			NPC.HitSound = SoundID.NPCHit37;
@@ -77,7 +77,7 @@ namespace TremorMod.Content.NPCs.Bosses.Trinity;
 			{
 				for (int i = 0; i < 50; i++)
 				{
-					int dust = Dust.NewDust(NPC.position, NPC.width, NPC.height, 5);
+					int dust = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood);
 					Main.dust[dust].scale = 1.5f;
 					Main.dust[dust].noGravity = true;
 					Main.dust[dust].velocity *= 0f;
@@ -96,7 +96,7 @@ namespace TremorMod.Content.NPCs.Bosses.Trinity;
 				float num1245 = (float)Math.Sqrt(num1243 * num1243 + num1244 * num1244);
 				if (NPC.ai[1] == 0f)
 				{
-					if (Main.netMode != 1)
+					if (Main.netMode != NetmodeID.MultiplayerClient)
 					{
 						NPC.localAI[1] += 1f;
 						if (NPC.localAI[1] >= 120 + Main.rand.Next(200))
@@ -156,10 +156,10 @@ namespace TremorMod.Content.NPCs.Bosses.Trinity;
 
 			if (Main.expertMode && Main.rand.Next(7500) == 0)
 			{
-				NPC.NewNPC(Entity.GetSource_FromThis(), (int)NPC.position.X - 150, (int)NPC.position.Y - 150, 421);
-				NPC.NewNPC(Entity.GetSource_FromThis(), (int)NPC.position.X + 150, (int)NPC.position.Y - 150, 421);
-				NPC.NewNPC(Entity.GetSource_FromThis(), (int)NPC.position.X - 150, (int)NPC.position.Y + 150, 421);
-				NPC.NewNPC(Entity.GetSource_FromThis(), (int)NPC.position.X + 150, (int)NPC.position.Y + 150, 421);
+				NPC.NewNPC(Entity.GetSource_FromThis(), (int)NPC.position.X - 150, (int)NPC.position.Y - 150, NPCID.NebulaHeadcrab);
+				NPC.NewNPC(Entity.GetSource_FromThis(), (int)NPC.position.X + 150, (int)NPC.position.Y - 150, NPCID.NebulaHeadcrab);
+				NPC.NewNPC(Entity.GetSource_FromThis(), (int)NPC.position.X - 150, (int)NPC.position.Y + 150, NPCID.NebulaHeadcrab);
+				NPC.NewNPC(Entity.GetSource_FromThis(), (int)NPC.position.X + 150, (int)NPC.position.Y + 150, NPCID.NebulaHeadcrab);
 			}
 
 			if (NPC.target != -1 && !RunAway)
@@ -183,7 +183,7 @@ namespace TremorMod.Content.NPCs.Bosses.Trinity;
 				if (Main.npc[(int)NPC.ai[3]].type == ModContent.NPCType<SoulofTrust>() && Main.npc[(int)NPC.ai[3]].active)
 					Main.npc[(int)NPC.ai[3]].localAI[3] = 1;
 				NPC.life += 11;
-				NPC.aiStyle = 0;
+				NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
 				NPC.rotation = 0;
 				NPC.velocity = Helper.VelocityFPTP(NPC.Center, new Vector2(NPC.Center.X, NPC.Center.Y - 4815162342), 30.0f);
 				CreateDust();
@@ -211,7 +211,7 @@ namespace TremorMod.Content.NPCs.Bosses.Trinity;
 		void CreateDust()
 		{
 			if (Main.rand.NextBool(3))
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 59);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.BlueTorch);
 		}
 
 		void SetRotation()
@@ -285,7 +285,7 @@ namespace TremorMod.Content.NPCs.Bosses.Trinity;
 			{
 				for (int k = 0; k < 20; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 5, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				}
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TruthGore1").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TruthGore2").Type, 1f);

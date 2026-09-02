@@ -16,7 +16,7 @@ namespace TremorMod.Content.Items.Accessories.Sparks;
 			Item.width = 22;
 			Item.height = 22;
 
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.accessory = true;
 			Item.value = 100000;
 		}

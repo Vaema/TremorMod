@@ -16,11 +16,11 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.height = 40;
 			Item.useTime = 21;
 			Item.useAnimation = 21;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true;
 			Item.knockBack = 6;
 			Item.value = 3000;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.UseSound = SoundID.Item43;
 			Item.autoReuse = true;
 			Item.staff[Item.type] = true; //this makes the useStyle animate as a staff instead of as a gun

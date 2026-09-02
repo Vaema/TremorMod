@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Buffs;
 
@@ -50,7 +51,7 @@ namespace TremorMod.Content.Mounts;
 			MountData.swimFrameCount = MountData.inAirFrameCount;
 			MountData.swimFrameDelay = MountData.inAirFrameDelay;
 			MountData.swimFrameStart = MountData.inAirFrameStart;
-        if (Main.netMode != 2)
+        if (Main.netMode != NetmodeID.Server)
         {
             MountData.textureWidth = MountData.backTexture.Value.Width;
             MountData.textureHeight = MountData.backTexture.Value.Height;

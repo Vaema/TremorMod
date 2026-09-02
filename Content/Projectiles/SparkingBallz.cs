@@ -16,7 +16,7 @@ namespace TremorMod.Content.Projectiles;
 
 		public override void SetDefaults()
 		{
-			Projectile.aiStyle = 1;
+			Projectile.aiStyle = ProjAIStyleID.Arrow;
 			Projectile.width = 54;
 			Projectile.height = 54;
 			Projectile.friendly = true;

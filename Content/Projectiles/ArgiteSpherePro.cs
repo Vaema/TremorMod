@@ -12,7 +12,7 @@ namespace TremorMod.Content.Projectiles;
 		{
 			Projectile.width = 36;
 			Projectile.height = 36;
-			Projectile.aiStyle = 14;
+			Projectile.aiStyle = ProjAIStyleID.GroundProjectile;
 			Projectile.friendly = true;
 			Projectile.DamageType = DamageClass.Magic;
 			Projectile.penetrate = 5;
@@ -52,7 +52,7 @@ namespace TremorMod.Content.Projectiles;
     {
         if (Main.rand.NextBool(3))
         {
-            Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 44, Projectile.velocity.X * 0.6f, Projectile.velocity.Y * 0.6f);
+            Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.JungleSpore, Projectile.velocity.X * 0.6f, Projectile.velocity.Y * 0.6f);
         }
     }
     public override void OnKill(int timeLeft)
@@ -60,7 +60,7 @@ namespace TremorMod.Content.Projectiles;
         SoundEngine.PlaySound(SoundID.Item20, Projectile.position);
         for (int num158 = 0; num158 < 20; num158++)
         {
-            int num159 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 44, Projectile.velocity.X * 0.1f, Projectile.velocity.Y * 0.1f, 0, default(Color), 0.5f);
+            int num159 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.JungleSpore, Projectile.velocity.X * 0.1f, Projectile.velocity.Y * 0.1f, 0, default(Color), 0.5f);
             if (Main.rand.NextBool(3))
             {
                 Main.dust[num159].fadeIn = 1.1f + Main.rand.Next(-10, 11) * 0.01f;
@@ -95,7 +95,7 @@ namespace TremorMod.Content.Projectiles;
                     Projectile.oldPosition.Y + Projectile.height / 2,
                     value12.X,
                     value12.Y,
-                    400,
+                    ProjectileID.MolotovFire,
                     (int)(Projectile.damage * 0.8),
                     Projectile.knockBack * 0.8f,
                     Projectile.owner);

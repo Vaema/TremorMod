@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items.Armor.Hummer;
@@ -10,7 +11,7 @@ namespace TremorMod.Content.Items.Armor.Hummer;
 		{
 			Item.width = 24;
 			Item.height = 26;
-			Item.rare = 9;
+			Item.rare = ItemRarityID.Cyan;
 		}
 
 		public override void SetStaticDefaults()

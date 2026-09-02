@@ -20,8 +20,8 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0f;
 			NPC.width = 34;
 			NPC.height = 34;
-			AnimationType = 0;
-			NPC.aiStyle = 63;
+			AnimationType = NPCID.None;
+			NPC.aiStyle = NPCAIStyleID.Flocko;
 			NPC.noGravity = true;
 			NPC.npcSlots = 15f;
 			NPC.HitSound = SoundID.NPCHit1;
@@ -35,7 +35,7 @@ namespace TremorMod.Content.NPCs;
         if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 6, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 			}
 		}
 	}

@@ -11,20 +11,20 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 	{
 		public override void SetDefaults()
 		{
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.autoReuse = true;
 			Item.useAnimation = 4;
 			Item.useTime = 4;
 			Item.width = 50;
 			Item.height = 18;
-			Item.shoot = 10;
+			Item.shoot = ProjectileID.PurificationPowder;
 			Item.useAmmo = AmmoID.Bullet;
 			Item.UseSound = SoundID.Item41;
 			Item.damage = 73;
 			Item.shootSpeed = 14f;
 			Item.noMelee = true;
 			Item.value = Item.sellPrice(0, 5, 0, 0);
-			Item.rare = 10;
+			Item.rare = ItemRarityID.Red;
 			Item.knockBack = 1.75f;
 			Item.DamageType = DamageClass.Ranged;
 		}
@@ -64,7 +64,7 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			recipe.AddIngredient(ModContent.ItemType<NightmareBar>(), 20);
 			recipe.AddIngredient(ModContent.ItemType<CarbonSteel>(), 10);
 			recipe.AddIngredient(ModContent.ItemType<DeadTissue>(), 5);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			//recipe.SetResult(this);
 			recipe.Register();
 		}

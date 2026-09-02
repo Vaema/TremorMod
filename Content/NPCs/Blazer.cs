@@ -22,8 +22,8 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.5f;
 			NPC.width = 40;
 			NPC.height = 40;
-			AnimationType = 121;
-			NPC.aiStyle = 14;
+			AnimationType = NPCID.Slimer;
+			NPC.aiStyle = NPCAIStyleID.Bat;
 			NPC.noGravity = true;
 			NPC.npcSlots = 1f;
 			NPC.HitSound = SoundID.NPCHit1;
@@ -39,7 +39,7 @@ namespace TremorMod.Content.NPCs;
         if (NPC.life <= 0)
         {
             for (int k = 0; k < 20; k++)
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, 6, 2.5f * hit.HitDirection, -2.5f, 0, default(Color), 0.7f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, 2.5f * hit.HitDirection, -2.5f, 0, default(Color), 0.7f);
 
             if (Main.netMode != NetmodeID.MultiplayerClient)
                 NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y - 48, NPCID.LavaSlime);

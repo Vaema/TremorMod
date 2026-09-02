@@ -13,7 +13,7 @@ namespace TremorMod.Content.Tiles;
 			Main.tileMergeDirt[Type] = true;
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = true;
-			DustType = 27;
+			DustType = DustID.Shadowflame;
         HitSound = SoundID.Tink;
         AddMapEntry(new Color(255, 20, 147), CreateMapEntryName());
 			MineResist = 12f;
@@ -39,7 +39,7 @@ namespace TremorMod.Content.Tiles;
             Player player = Main.player[Main.myPlayer];
             int style = Main.tile[i, j].TileFrameX / 100; // Èñïîëüçóåì TileFrameX âìåñòî frameX
             //string type;
-            player.AddBuff(44, 60, true);
+            player.AddBuff(BuffID.Frostburn, 60, true);
         }
     }
 }

@@ -21,15 +21,15 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.height = 40;
 			Item.useTime = 16;
 			Item.useAnimation = 16;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true;
 			Item.knockBack = 3;
 			Item.value = 13800;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.UseSound = SoundID.Item43;
 			Item.autoReuse = false;
 			Item.staff[Item.type] = true;
-			Item.shoot = 682;
+			Item.shoot = ProjectileID.DD2LightningBugZap;
 			Item.shootSpeed = 15f;
 		}
 

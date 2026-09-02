@@ -22,8 +22,8 @@ namespace TremorMod.Content.NPCs.ZombieEvent;
 			NPC.knockBackResist = 0.3f;
 			NPC.width = 34;
 			NPC.height = 46;
-			AnimationType = 3;
-			NPC.aiStyle = 3;
+			AnimationType = NPCID.Zombie;
+			NPC.aiStyle = NPCAIStyleID.Fighter;
 			NPC.npcSlots = 2f;
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath2;
@@ -42,7 +42,7 @@ namespace TremorMod.Content.NPCs.ZombieEvent;
 		{
 			if (Main.rand.NextBool(4))
 			{
-				int num706 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 6, 0f, 0f, 200, NPC.color, 1f);
+				int num706 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, 0f, 0f, 200, NPC.color, 1f);
 				Main.dust[num706].velocity *= 0.3f;
 			}
 		}
@@ -54,7 +54,7 @@ namespace TremorMod.Content.NPCs.ZombieEvent;
 			{
 				for (int k = 0; k < 20; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 151, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SeaSnail, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				}
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DeadlingHead1").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DeadlingLeg").Type, 1f);
@@ -74,7 +74,7 @@ namespace TremorMod.Content.NPCs.ZombieEvent;
 
     public override void ModifyNPCLoot(NPCLoot npcLoot)
     {
-			if (Main.netMode != 1)
+			if (Main.netMode != NetmodeID.MultiplayerClient)
 			{
 				int centerX = (int)(NPC.position.X + NPC.width / 2) / 16;
 				int centerY = (int)(NPC.position.Y + NPC.height / 2) / 16;

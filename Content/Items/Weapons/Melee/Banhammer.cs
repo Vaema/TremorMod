@@ -11,7 +11,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 		public override void SetDefaults()
 		{
 			Item.autoReuse = true;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTurn = true;
 			Item.useAnimation = 37;
 			Item.useTime = 25;
@@ -19,7 +19,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 			Item.width = 24;
 			Item.height = 28;
 			Item.damage = 485;
-			Item.rare = 0;
+			Item.rare = ItemRarityID.White;
 			Item.knockBack = 5.5f;
 			Item.scale = 1.2f;
 			Item.UseSound = SoundID.Item1;
@@ -49,7 +49,7 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 		{
 			if (Main.rand.NextBool(2))
 			{
-				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 226);
+				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.Electric);
 			}
 		}
 	}

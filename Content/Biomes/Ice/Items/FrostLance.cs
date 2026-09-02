@@ -17,10 +17,10 @@ namespace TremorMod.Content.Biomes.Ice.Items;
 			Item.shoot = ModContent.ProjectileType<FrostLancePro>();
 			Item.shootSpeed = 3f;
 			Item.useAnimation = 35;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 9;
 			Item.value = 1000;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
 		}
@@ -33,6 +33,6 @@ namespace TremorMod.Content.Biomes.Ice.Items;
 
     public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
     {
-        player.AddBuff(44, 60);
+        player.AddBuff(BuffID.Frostburn, 60);
     }
 }

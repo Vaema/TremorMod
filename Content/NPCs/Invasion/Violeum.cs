@@ -28,13 +28,13 @@ namespace TremorMod.Content.NPCs.Invasion;
 			NPC.lifeMax = 18000;
 			NPC.width = 78;
 			NPC.height = 88;
-			AnimationType = 82;
+			AnimationType = NPCID.Wraith;
 			NPC.damage = 250;
 			NPC.defense = 70;
 			NPC.knockBackResist = 0f;
 			NPC.width = 70;
 			NPC.height = 86;
-			NPC.aiStyle = 14;
+			NPC.aiStyle = NPCAIStyleID.Bat;
 			NPC.npcSlots = 0.5f;
 			NPC.HitSound = SoundID.NPCHit35;
 			NPC.noGravity = true;
@@ -44,7 +44,7 @@ namespace TremorMod.Content.NPCs.Invasion;
 
     public override void ModifyNPCLoot(NPCLoot npcLoot)
     {
-        if (Main.netMode != 1)
+        if (Main.netMode != NetmodeID.MultiplayerClient)
         {
             int centerX = (int)(NPC.position.X + NPC.width / 2) / 16;
             int centerY = (int)(NPC.position.Y + NPC.height / 2) / 16;

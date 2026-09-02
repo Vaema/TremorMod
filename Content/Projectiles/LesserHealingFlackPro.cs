@@ -23,7 +23,7 @@ namespace TremorMod.Content.Projectiles;
 			Projectile.width = 18;
 			Projectile.height = 28;
 			Projectile.friendly = true;
-			Projectile.aiStyle = 2;
+			Projectile.aiStyle = ProjAIStyleID.ThrownProjectile;
 			Projectile.timeLeft = 1200;
 			Projectile.penetrate = 1;
     }
@@ -178,7 +178,7 @@ namespace TremorMod.Content.Projectiles;
                     source,
                     spawnPosition,
                     velocity,
-                    134, 
+                    ProjectileID.RocketI, 
                     Projectile.damage,
                     1f,  
                     Projectile.owner

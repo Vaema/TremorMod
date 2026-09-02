@@ -17,8 +17,8 @@ namespace TremorMod.Content.Items.Placeable;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.useStyle = 1;
-			Item.rare = 0;
+			Item.useStyle = ItemUseStyleID.Swing;
+			Item.rare = ItemRarityID.White;
 			Item.consumable = true;
 			Item.createTile = ModContent.TileType<NovaBlock>();
 		}

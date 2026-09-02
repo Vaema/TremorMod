@@ -35,7 +35,7 @@ namespace TremorMod.Content.NPCs.Bosses.SpaceWhale;
 			NPC.noGravity = true;
 			Music = 39;
 			NPC.aiStyle = -1;
-			AnimationType = 370;
+			AnimationType = NPCID.DukeFishron;
 			//bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("SpaceWhaleTreasureBag").Type;
 		}
 
@@ -45,9 +45,9 @@ namespace TremorMod.Content.NPCs.Bosses.SpaceWhale;
         {
             for (int k = 0; k < 60; k++)
             {
-                Dust.NewDust(NPC.Center, NPC.width, NPC.height, 6, 2.5f * hitInfo.HitDirection, -2.5f, 0, default(Color), 0.7f);
-                Dust.NewDust(NPC.Center, NPC.width, NPC.height, 6, 2.5f * hitInfo.HitDirection, -2.5f, 0, default(Color), 0.7f);
-                Dust.NewDust(NPC.Center, NPC.width, NPC.height, 6, 2.5f * hitInfo.HitDirection, -2.5f, 0, default(Color), 0.7f);
+                Dust.NewDust(NPC.Center, NPC.width, NPC.height, DustID.Torch, 2.5f * hitInfo.HitDirection, -2.5f, 0, default(Color), 0.7f);
+                Dust.NewDust(NPC.Center, NPC.width, NPC.height, DustID.Torch, 2.5f * hitInfo.HitDirection, -2.5f, 0, default(Color), 0.7f);
+                Dust.NewDust(NPC.Center, NPC.width, NPC.height, DustID.Torch, 2.5f * hitInfo.HitDirection, -2.5f, 0, default(Color), 0.7f);
             }
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SWGore1").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SWGore2").Type, 1f);
@@ -60,8 +60,8 @@ namespace TremorMod.Content.NPCs.Bosses.SpaceWhale;
         {
             for (int k = 0; k < hitInfo.Damage / (float)NPC.lifeMax * 20.0f; k++)
             {
-                Dust.NewDust(NPC.Center, NPC.width, NPC.height, 226, hitInfo.HitDirection, -2f, 0, default(Color), 0.7f);
-                Dust.NewDust(NPC.Center, NPC.width, NPC.height, 27, hitInfo.HitDirection, -1f, 0, default(Color), 0.7f);
+                Dust.NewDust(NPC.Center, NPC.width, NPC.height, DustID.Electric, hitInfo.HitDirection, -2f, 0, default(Color), 0.7f);
+                Dust.NewDust(NPC.Center, NPC.width, NPC.height, DustID.Shadowflame, hitInfo.HitDirection, -1f, 0, default(Color), 0.7f);
             }
         }
     }
@@ -145,7 +145,7 @@ namespace TremorMod.Content.NPCs.Bosses.SpaceWhale;
 				NPC.localAI[0] = 1f;
 				NPC.alpha = 255;
 				NPC.rotation = 0f;
-				if (Main.netMode != 1)
+				if (Main.netMode != NetmodeID.MultiplayerClient)
 				{
 					NPC.ai[0] = -1f;
 					NPC.netUpdate = true;
@@ -294,7 +294,7 @@ namespace TremorMod.Content.NPCs.Bosses.SpaceWhale;
 						Vector2 vector135 = Vector2.Normalize(NPC.velocity) * new Vector2(NPC.width / 2f, NPC.height) * 0.75f * 0.5f;
 						vector135 = vector135.RotatedBy((num1092 - (num1091 / 2 - 1)) * 6.28318548f / num1091, default(Vector2)) + NPC.Center;
 						Vector2 value2 = vector135 - NPC.Center;
-						int num1093 = Dust.NewDust(vector135 + value2, 0, 0, 172, value2.X * 2f, value2.Y * 2f, 100, default(Color), 1.4f);
+						int num1093 = Dust.NewDust(vector135 + value2, 0, 0, DustID.DungeonWater, value2.X * 2f, value2.Y * 2f, 100, default(Color), 1.4f);
 						Main.dust[num1093].noGravity = true;
 						Main.dust[num1093].noLight = true;
 						Main.dust[num1093].velocity = Vector2.Normalize(value2) * 3f;
@@ -441,7 +441,7 @@ namespace TremorMod.Content.NPCs.Bosses.SpaceWhale;
 					Vector2 vector137 = Vector2.Normalize(NPC.velocity) * new Vector2((NPC.width + 50) / 2f, NPC.height) * 0.75f;
 					vector137 = vector137.RotatedBy((num1097 - (num1096 / 2 - 1)) * 3.1415926535897931 / num1096, default(Vector2)) + vector134;
 					Vector2 value4 = ((float)(Main.rand.NextDouble() * 3.1415927410125732) - 1.57079637f).ToRotationVector2() * Main.rand.Next(3, 8);
-					int num1098 = Dust.NewDust(vector137 + value4, 0, 0, 172, value4.X * 2f, value4.Y * 2f, 100, default(Color), 1.4f);
+					int num1098 = Dust.NewDust(vector137 + value4, 0, 0, DustID.DungeonWater, value4.X * 2f, value4.Y * 2f, 100, default(Color), 1.4f);
 					Main.dust[num1098].noGravity = true;
 					Main.dust[num1098].noLight = true;
 					Main.dust[num1098].velocity /= 4f;
@@ -506,7 +506,7 @@ namespace TremorMod.Content.NPCs.Bosses.SpaceWhale;
                 // Ensure SoundID.NPCDeath19 is a string or convert it to the appropriate type
                 //SoundEngine.PlaySound(SoundID.NPCDeath19.ToString(), new EntitySource_Misc(NPC), NPC.Center);
 
-                if (Main.netMode != 1)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     Vector2 vector139 = Vector2.Normalize(player2.Center - vector134) * (NPC.width + 20) / 2f + vector134;
                     NPC.NewNPC(NPC.GetSource_FromThis(), (int)vector139.X, (int)vector139.Y + 45, Mod.Find<ModNPC>("SpaceWhaleMinion").Type, 0);
@@ -539,26 +539,26 @@ namespace TremorMod.Content.NPCs.Bosses.SpaceWhale;
 				{
 					SoundEngine.PlaySound(SoundID.Zombie95, vector134);
 				}
-            if (Main.netMode != 1 && NPC.ai[2] == num1082 - 30)
+            if (Main.netMode != NetmodeID.MultiplayerClient && NPC.ai[2] == num1082 - 30)
             {
                 Vector2 vector140 = NPC.rotation.ToRotationVector2() * (Vector2.UnitX * NPC.direction) * (NPC.width + 20) / 2f + vector134;
 
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(NPC.direction * 2, 8f), 467, 0, 0, Main.myPlayer);
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(NPC.direction * 3, 8f), 467, 0, 0, Main.myPlayer);
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(NPC.direction * 4, 8f), 467, 0, 0, Main.myPlayer);
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(NPC.direction * 5, 8f), 467, 0, 0, Main.myPlayer);
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(NPC.direction * 6, 8f), 467, 0, 0, Main.myPlayer);
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(NPC.direction * 7, 8f), 467, 0, 0, Main.myPlayer);
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(NPC.direction * 8, 8f), 467, 0, 0, Main.myPlayer);
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(NPC.direction * 9, 8f), 467, 0, 0, Main.myPlayer);
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(-(float)NPC.direction * 2, 8f), 467, 0, 0, Main.myPlayer);
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(-(float)NPC.direction * 3, 8f), 467, 0, 0, Main.myPlayer);
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(-(float)NPC.direction * 4, 8f), 467, 0, 0, Main.myPlayer);
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(-(float)NPC.direction * 5, 8f), 467, 0, 0, Main.myPlayer);
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(-(float)NPC.direction * 6, 8f), 467, 0, 0, Main.myPlayer);
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(-(float)NPC.direction * 7, 8f), 467, 0, 0, Main.myPlayer);
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(-(float)NPC.direction * 8, 8f), 467, 0, 0, Main.myPlayer);
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(-(float)NPC.direction * 9, 8f), 467, 0, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(NPC.direction * 2, 8f), ProjectileID.CultistBossFireBall, 0, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(NPC.direction * 3, 8f), ProjectileID.CultistBossFireBall, 0, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(NPC.direction * 4, 8f), ProjectileID.CultistBossFireBall, 0, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(NPC.direction * 5, 8f), ProjectileID.CultistBossFireBall, 0, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(NPC.direction * 6, 8f), ProjectileID.CultistBossFireBall, 0, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(NPC.direction * 7, 8f), ProjectileID.CultistBossFireBall, 0, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(NPC.direction * 8, 8f), ProjectileID.CultistBossFireBall, 0, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(NPC.direction * 9, 8f), ProjectileID.CultistBossFireBall, 0, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(-(float)NPC.direction * 2, 8f), ProjectileID.CultistBossFireBall, 0, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(-(float)NPC.direction * 3, 8f), ProjectileID.CultistBossFireBall, 0, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(-(float)NPC.direction * 4, 8f), ProjectileID.CultistBossFireBall, 0, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(-(float)NPC.direction * 5, 8f), ProjectileID.CultistBossFireBall, 0, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(-(float)NPC.direction * 6, 8f), ProjectileID.CultistBossFireBall, 0, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(-(float)NPC.direction * 7, 8f), ProjectileID.CultistBossFireBall, 0, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(-(float)NPC.direction * 8, 8f), ProjectileID.CultistBossFireBall, 0, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(vector140.X, vector140.Y), new Vector2(-(float)NPC.direction * 9, 8f), ProjectileID.CultistBossFireBall, 0, 0, Main.myPlayer);
             }
             NPC.ai[2] += 1f;
 				if (NPC.ai[2] >= num1082)
@@ -715,7 +715,7 @@ namespace TremorMod.Content.NPCs.Bosses.SpaceWhale;
 					Vector2 vector142 = Vector2.Normalize(NPC.velocity) * new Vector2((NPC.width + 50) / 2f, NPC.height) * 0.75f;
 					vector142 = vector142.RotatedBy((num1103 - (num1102 / 2 - 1)) * 3.1415926535897931 / num1102, default(Vector2)) + vector134;
 					Vector2 value7 = ((float)(Main.rand.NextDouble() * 3.1415927410125732) - 1.57079637f).ToRotationVector2() * Main.rand.Next(3, 8);
-					int num1104 = Dust.NewDust(vector142 + value7, 0, 0, 172, value7.X * 2f, value7.Y * 2f, 100, default(Color), 1.4f);
+					int num1104 = Dust.NewDust(vector142 + value7, 0, 0, DustID.DungeonWater, value7.X * 2f, value7.Y * 2f, 100, default(Color), 1.4f);
 					Main.dust[num1104].noGravity = true;
 					Main.dust[num1104].noLight = true;
 					Main.dust[num1104].velocity /= 4f;
@@ -740,7 +740,7 @@ namespace TremorMod.Content.NPCs.Bosses.SpaceWhale;
             if (NPC.ai[2] % num1085 == 0f)
             {
                 //SoundEngine.PlaySound(SoundID.NPCDeath19, new EntitySource_Misc(NPC), NPC.Center);
-                if (Main.netMode != 1)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     Vector2 vector143 = Vector2.Normalize(NPC.velocity) * (NPC.width + 20) / 2f + vector134;
                     int num1105 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)vector143.X, (int)vector143.Y + 45, Mod.Find<ModNPC>("SpaceWhaleMinion").Type);
@@ -769,7 +769,7 @@ namespace TremorMod.Content.NPCs.Bosses.SpaceWhale;
             {
                 //SoundEngine.PlaySound(SoundID.Zombie94, NPC.GetSource_FromThis(), vector134);
             }
-            if (Main.netMode != 1 && NPC.ai[2] == num1082 - 30)
+            if (Main.netMode != NetmodeID.MultiplayerClient && NPC.ai[2] == num1082 - 30)
             {
                 Projectile.NewProjectile(NPC.GetSource_FromThis(), vector134.X, vector134.Y, 0f, 0f, Mod.Find<ModProjectile>("VulcanBladeRing").Type, 0, 0f, Main.myPlayer, 1f, NPC.target + 1);
             }
@@ -786,7 +786,7 @@ namespace TremorMod.Content.NPCs.Bosses.SpaceWhale;
 		public override void OnKill()
 		{
         TremorSpawnEnemys.downedSpaceWhale = true;
-        if (Main.netMode != 1)
+        if (Main.netMode != NetmodeID.MultiplayerClient)
 			{
 				int CenterX = (int)(NPC.Center.X + NPC.width / 2) / 16;
 				int CenterY = (int)(NPC.Center.Y + NPC.height / 2) / 16;

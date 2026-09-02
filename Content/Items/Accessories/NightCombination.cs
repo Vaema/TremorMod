@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items.Accessories;
@@ -10,7 +11,7 @@ namespace TremorMod.Content.Items.Accessories;
 			Item.width = 24;
 			Item.height = 28;
 			Item.value = 50000;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.accessory = true;
 		}
 
@@ -26,8 +27,8 @@ namespace TremorMod.Content.Items.Accessories;
 		{
 			if (!Main.dayTime)
 			{
-				player.AddBuff(11, 10);
-				player.AddBuff(12, 10);
+				player.AddBuff(BuffID.Shine, 10);
+				player.AddBuff(BuffID.NightOwl, 10);
 				player.lifeRegen += 1;
 				player.GetDamage(DamageClass.Generic) += 0.1f;
 			}
@@ -40,7 +41,7 @@ namespace TremorMod.Content.Items.Accessories;
 			recipe.AddIngredient(ModContent.ItemType<DragonGem>());
 			recipe.AddIngredient(ModContent.ItemType<TwilightHorns>());
 			//recipe.SetResult(this);
-			recipe.AddTile(114);
+			recipe.AddTile(TileID.TinkerersWorkbench);
 			recipe.Register();
 		}
 	}

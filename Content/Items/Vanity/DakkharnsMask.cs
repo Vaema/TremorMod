@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Buffs;
 
@@ -12,7 +13,7 @@ namespace TremorMod.Content.Items.Vanity;
 			Item.width = 38;
 			Item.height = 22;
 			Item.value = 1000000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.defense = 50;
 		}
 

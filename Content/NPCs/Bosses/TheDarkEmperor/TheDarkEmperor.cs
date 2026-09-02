@@ -28,9 +28,9 @@ namespace TremorMod.Content.NPCs.Bosses.TheDarkEmperor;
 			NPC.value = 80000f;
 			NPC.knockBackResist = 0.0f;
 			Music = 17;
-			NPC.aiStyle = 87;
-			AIType = 475;
-			AnimationType = 473;
+			NPC.aiStyle = NPCAIStyleID.BiomeMimic;
+			AIType = NPCID.BigMimicHallow;
+			AnimationType = NPCID.BigMimicCorruption;
 			NPC.npcSlots = 10f;
 			NPC.buffImmune[20] = true;
 			NPC.buffImmune[24] = true;
@@ -64,9 +64,9 @@ namespace TremorMod.Content.NPCs.Bosses.TheDarkEmperor;
         {
             for (int k = 0; k < 60; k++)
             {
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, 191, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, 191, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, 191, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SpookyWood, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SpookyWood, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SpookyWood, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
             }
             SoundEngine.PlaySound(SoundID.WormDig);
 
@@ -81,8 +81,8 @@ namespace TremorMod.Content.NPCs.Bosses.TheDarkEmperor;
         {
             for (int k = 0; k < (int)(hit.Damage / NPC.lifeMax * 50.0); k++) 
             {
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, 191, hitDirection, -2f, 0, default(Color), 0.7f);
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, 191, hitDirection, -1f, 0, default(Color), 0.7f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SpookyWood, hitDirection, -2f, 0, default(Color), 0.7f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SpookyWood, hitDirection, -1f, 0, default(Color), 0.7f);
             }
         }
     }

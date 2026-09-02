@@ -19,10 +19,10 @@ namespace TremorMod.Content.Items.BossSumonItems;
 			Item.height = 28;
 			Item.maxStack = 20;
 			Item.value = 100;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.useAnimation = 15;
 			Item.useTime = 15;
-			Item.useStyle = 4;
+			Item.useStyle = ItemUseStyleID.HoldUp;
 			Item.consumable = true;
 
 		}
@@ -47,7 +47,7 @@ namespace TremorMod.Content.Items.BossSumonItems;
 			Main.NewText("Paradox Cohort is striking from nowhere!", 39, 86, 134);
 			//SoundEngine.PlaySound(ModContent.GetSoundSlot(SoundType.Music, "Sounds/Music/Wrath1"), (int)player.position.X, (int)player.position.Y, 0);
 			SoundEngine.PlaySound(SoundID.Roar, player.position);
-			if (Main.netMode != 1)
+			if (Main.netMode != NetmodeID.MultiplayerClient)
 			{
 				NPC.NewNPC(Item.GetSource_FromThis(), (int)player.Center.X, (int)player.Center.Y - 200, ModContent.NPCType<Titan_>());
 			}

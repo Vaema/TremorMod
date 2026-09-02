@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 
@@ -12,7 +13,7 @@ namespace TremorMod.Content.Items.Accessories;
 		{
 			Item.width = 28;
 			Item.height = 36;
-			Item.rare = 9;
+			Item.rare = ItemRarityID.Cyan;
 			Item.accessory = true;
 			Item.value = 30000;
 			Item.expert = true;

@@ -21,7 +21,7 @@ namespace TremorMod.Content.Tiles;
 			TileObjectData.newTile.CoordinateHeights = [16, 16, 18];
 			TileObjectData.addTile(Type);
 			AddMapEntry(new Color(75, 139, 166), CreateMapEntryName());
-			DustType = 1;
+			DustType = DustID.Stone;
 			AnimationFrameHeight = 56;
 			//disableSmartCursor = true;
 			AdjTiles = [TileID.LunarMonolith];

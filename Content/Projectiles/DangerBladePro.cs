@@ -15,7 +15,7 @@ namespace TremorMod.Content.Projectiles;
 
 			Projectile.width = 14;
 			Projectile.height = 42;
-			Projectile.aiStyle = 1;
+			Projectile.aiStyle = ProjAIStyleID.Arrow;
 			Projectile.friendly = true;
 			Projectile.penetrate = -2;
 			Projectile.tileCollide = true;
@@ -45,7 +45,7 @@ namespace TremorMod.Content.Projectiles;
                 new Vector2(Projectile.position.X, Projectile.position.Y),
                 Projectile.width,
                 Projectile.height,
-                60,
+                DustID.RedTorch,
                 Projectile.velocity.X * 0.1f,
                 Projectile.velocity.Y * 0.1f,
                 0,
@@ -90,7 +90,7 @@ namespace TremorMod.Content.Projectiles;
                     source,
                     spawnPosition,
                     value12,
-                    400,
+                    ProjectileID.MolotovFire,
                     (int)(Projectile.damage * 0.8f),
                     Projectile.knockBack * 0.8f,
                     Projectile.owner,

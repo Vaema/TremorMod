@@ -23,9 +23,9 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.05f;
 			NPC.width = 32;
 			NPC.height = 50;
-			AnimationType = 21;
-			NPC.aiStyle = 3;
-			AIType = 273;
+			AnimationType = NPCID.Skeleton;
+			NPC.aiStyle = NPCAIStyleID.Fighter;
+			AIType = NPCID.BlueArmoredBones;
 			NPC.npcSlots = 0.5f;
 			NPC.HitSound = SoundID.NPCHit4;
 			NPC.DeathSound = SoundID.NPCDeath2;
@@ -50,7 +50,7 @@ namespace TremorMod.Content.NPCs;
         if (NPC.life <= 0)
         {
             for (int k = 0; k < 20; k++)
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, 5, 2.5f * hitDirection, -2.5f, 0, default(Color), 1f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, 2.5f * hitDirection, -2.5f, 0, default(Color), 1f);
 
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("UndeadGore1").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("UndeadGore1").Type, 1f);

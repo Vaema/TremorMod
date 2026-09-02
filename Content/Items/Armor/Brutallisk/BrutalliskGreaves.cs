@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 
@@ -14,7 +15,7 @@ namespace TremorMod.Content.Items.Armor.Brutallisk;
 			Item.width = 38;
 			Item.height = 22;
 			Item.value = 150000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.defense = 20;
 		}
 
@@ -43,7 +44,7 @@ namespace TremorMod.Content.Items.Armor.Brutallisk;
 			recipe.AddIngredient(ModContent.ItemType<NightmareBar>(), 5);
 			recipe.AddIngredient(ModContent.ItemType<SteelBar>(), 5);
 			recipe.AddIngredient(ModContent.ItemType<Phantaplasm>(), 3);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

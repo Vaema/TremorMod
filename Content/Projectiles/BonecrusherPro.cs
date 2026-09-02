@@ -1,4 +1,5 @@
-﻿using Terraria.ModLoader;
+﻿using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace TremorMod.Content.Projectiles;
 
@@ -10,7 +11,7 @@ namespace TremorMod.Content.Projectiles;
 
 			Projectile.width = 29;
 			Projectile.height = 29;
-			AIType = 182;
+			AIType = ProjectileID.PossessedHatchet;
 		}
 
 		public override void SetStaticDefaults()

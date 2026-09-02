@@ -8,15 +8,15 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 	{
 		public override void SetDefaults()
 		{
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.shootSpeed = 7f;
-			Item.shoot = 166;
+			Item.shoot = ProjectileID.SnowBallFriendly;
 			Item.damage = 8;
 			Item.width = 18;
 			Item.height = 20;
 			Item.maxStack = 1;
 			Item.ammo = 949;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.consumable = false;
 			Item.UseSound = SoundID.Item1;
 			Item.useAnimation = 19;
@@ -38,7 +38,7 @@ namespace TremorMod.Content.Items.Weapons.Throwing;
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Snowball, 3996);
 			//recipe.SetResult(this);
-			recipe.AddTile(125);
+			recipe.AddTile(TileID.CrystalBall);
 			recipe.Register();
 		}
 	}

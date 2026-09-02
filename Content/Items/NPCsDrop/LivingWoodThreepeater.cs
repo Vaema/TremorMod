@@ -16,14 +16,14 @@ namespace TremorMod.Content.Items.NPCsDrop;
 			Item.height = 20;
 			Item.useTime = 29;
 			Item.useAnimation = 29;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true;
 			Item.knockBack = 6;
 			Item.value = 30000;
-			Item.rare = 6;
+			Item.rare = ItemRarityID.LightPurple;
 			Item.UseSound = SoundID.Item5;
 			Item.autoReuse = true;
-			Item.shoot = 1;
+			Item.shoot = ProjectileID.WoodenArrowFriendly;
 			Item.shootSpeed = 12f;
 			Item.useAmmo = AmmoID.Arrow;
 		}

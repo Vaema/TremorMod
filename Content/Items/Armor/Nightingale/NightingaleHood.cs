@@ -2,6 +2,7 @@
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using Terraria.Localization;
+using Terraria.ID;
 
 namespace TremorMod.Content.Items.Armor.Nightingale;
 
@@ -16,7 +17,7 @@ namespace TremorMod.Content.Items.Armor.Nightingale;
 			Item.width = 26;
 			Item.height = 32;
 			Item.value = 2000;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 		}
 
 		public override void SetStaticDefaults()
@@ -39,7 +40,7 @@ namespace TremorMod.Content.Items.Armor.Nightingale;
 		public override void UpdateArmorSet(Player player)
 		{
         player.setBonus = SetBonusText.Value;
-			player.AddBuff(106, 300, true);
+			player.AddBuff(BuffID.Calm, 300, true);
 		}
 
 		public override void ArmorSetShadows(Player player)
@@ -53,7 +54,7 @@ namespace TremorMod.Content.Items.Armor.Nightingale;
         recipe.AddIngredient(ModContent.ItemType<SteelBar>(), 5);
         recipe.AddIngredient(ModContent.ItemType<PhantomSoul>(), 3);
         //recipe.SetResult(this);
-        recipe.AddTile(16);
+        recipe.AddTile(TileID.Anvils);
         recipe.Register();
     }
 	}

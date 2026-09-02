@@ -18,7 +18,7 @@ namespace TremorMod.Content.Projectiles;
 
 			Projectile.width = 18;
 			Projectile.height = 32;
-			AIType = 481;
+			AIType = ProjectileID.ChainGuillotine;
 		}
 
 		public override void SetStaticDefaults()

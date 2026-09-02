@@ -27,10 +27,10 @@ namespace TremorMod.Content.NPCs;
 			NPC.DeathSound = SoundID.NPCDeath1;
 			NPC.value = Item.buyPrice(0, 0, 3, 7);
 			NPC.knockBackResist = 0.5f;
-			NPC.aiStyle = 3;
-			AIType = 73;
-			NPC.aiStyle = 3;
-			AnimationType = 166;
+			NPC.aiStyle = NPCAIStyleID.Fighter;
+			AIType = NPCID.GoblinScout;
+			NPC.aiStyle = NPCAIStyleID.Fighter;
+			AnimationType = NPCID.SwampThing;
         Banner = NPC.type;
         BannerItem = ModContent.ItemType<SandThingBanner>();
         ItemID.Sets.KillsToBanner[BannerItem] = 50;
@@ -50,14 +50,14 @@ namespace TremorMod.Content.NPCs;
 			{
 				for (int k = 0; k < 20; k++)
 				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 19, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 19, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Sunflower, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Sunflower, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				}
 
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 19, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 19, 2.5f * hitDirection, -2.5f, 0, default(Color), 2.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 19, 2.5f * hitDirection, -2.5f, 0, default(Color), 2.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 19, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Sunflower, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Sunflower, 2.5f * hitDirection, -2.5f, 0, default(Color), 2.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Sunflower, 2.5f * hitDirection, -2.5f, 0, default(Color), 2.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Sunflower, 2.5f * hitDirection, -2.5f, 0, default(Color), 1.7f);
 
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 220, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 221, 1f);

@@ -14,11 +14,11 @@ namespace TremorMod.Content.Items.BossSumonItems;
 			Item.width = 38;
 			Item.height = 38;
 			Item.maxStack = 20;
-			Item.rare = 6;
+			Item.rare = ItemRarityID.LightPurple;
 			Item.value = 25000;
 			Item.useAnimation = 45;
 			Item.useTime = 45;
-			Item.useStyle = 4;
+			Item.useStyle = ItemUseStyleID.HoldUp;
 			Item.consumable = true;
 		}
 
@@ -50,7 +50,7 @@ namespace TremorMod.Content.Items.BossSumonItems;
 			recipe.AddIngredient(ItemID.SoulofLight, 18);
 			recipe.AddIngredient(ModContent.ItemType<FrostCore>(), 25);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

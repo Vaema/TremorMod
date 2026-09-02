@@ -78,7 +78,7 @@ namespace TremorMod.Content.NPCs.Bosses.Rukh;
 			NPC.knockBackResist = 0f;
 			NPC.width = 160;
 			NPC.height = 210;
-			NPC.aiStyle = 2;
+			NPC.aiStyle = NPCAIStyleID.DemonEye;
 			NPC.noGravity = true;
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath1;
@@ -121,7 +121,7 @@ namespace TremorMod.Content.NPCs.Bosses.Rukh;
 		{
 			if (runAway)
 			{
-				NPC.aiStyle = 0;
+				NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
 				if (NPC.velocity.Y >= 0)
 					NPC.velocity.Y = -1f;
 				NPC.velocity.Y *= 1.01f;

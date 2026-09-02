@@ -16,10 +16,10 @@ namespace TremorMod.Content.Items.Tools;
 			Item.useTime = 20;
 			Item.useAnimation = 20;
 			Item.hammer = 95;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 7;
 			Item.value = 1040;
-			Item.rare = 9;
+			Item.rare = ItemRarityID.Cyan;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 		}

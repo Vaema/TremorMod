@@ -15,7 +15,7 @@ namespace TremorMod.Content.Items.Armor.Harpy;
 			Item.width = 24;
 			Item.height = 26;
 			Item.value = 100;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.defense = 3;
 		}
 
@@ -48,7 +48,7 @@ namespace TremorMod.Content.Items.Armor.Harpy;
         recipe.AddIngredient(ItemID.Silk, 8);
 			recipe.AddIngredient(ItemID.Feather, 4);
 			//recipe.SetResult(this);
-			recipe.AddTile(18);
+			recipe.AddTile(TileID.WorkBenches);
         recipe.Register();
     }
 

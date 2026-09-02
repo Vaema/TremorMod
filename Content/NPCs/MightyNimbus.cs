@@ -23,9 +23,9 @@ namespace TremorMod.Content.NPCs;
 			NPC.knockBackResist = 0.1f;
 			NPC.width = 70;
 			NPC.height = 50;
-			AnimationType = 250;
-			NPC.aiStyle = 49;
-			AIType = 250;
+			AnimationType = NPCID.AngryNimbus;
+			NPC.aiStyle = NPCAIStyleID.AngryNimbus;
+			AIType = NPCID.AngryNimbus;
 			NPC.noGravity = true;
 			NPC.npcSlots = 0.5f;
 			NPC.HitSound = SoundID.NPCHit30;
@@ -46,10 +46,10 @@ namespace TremorMod.Content.NPCs;
 
         if (NPC.life <= 0)
 			{
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 54, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 54, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 54, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 54, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Wraith, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Wraith, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Wraith, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Wraith, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 99, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 99, 1f);
@@ -59,8 +59,8 @@ namespace TremorMod.Content.NPCs;
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 99, 1f);
 
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 76, 0f, 0f, 200, NPC.color, 1f);
-            if (Main.netMode != 1)
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Snow, 0f, 0f, 200, NPC.color, 1f);
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {

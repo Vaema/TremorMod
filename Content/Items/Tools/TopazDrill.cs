@@ -19,10 +19,10 @@ namespace TremorMod.Content.Items.Tools;
 			Item.noUseGraphic = true;
 			Item.noMelee = true;
 			Item.pick = 85;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 6;
 			Item.value = Item.buyPrice(0, 0, 50, 0);
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.UseSound = SoundID.Item23;
 			Item.autoReuse = true;
 			Item.shoot = ModContent.ProjectileType<TopazDrillPro>();
@@ -42,7 +42,7 @@ namespace TremorMod.Content.Items.Tools;
 			recipe.AddIngredient(ItemID.MeteoriteBar, 16);
 			recipe.AddIngredient(ItemID.Topaz, 12);
 			//recipe.SetResult(this);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

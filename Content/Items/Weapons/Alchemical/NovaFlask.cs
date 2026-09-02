@@ -23,11 +23,11 @@ namespace TremorMod.Content.Items.Weapons.Alchemical;
 			Item.useAnimation = 11;
 			Item.shoot = ModContent.ProjectileType<NovaFlask_Proj>();
 			Item.shootSpeed = 13f;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 1;
 			Item.UseSound = SoundID.Item106;
 			Item.value = 30;
-			Item.rare = 10;
+			Item.rare = ItemRarityID.Red;
 			Item.crit = 12;
 			Item.autoReuse = false;
 			Item.consumable = true;
@@ -77,7 +77,7 @@ namespace TremorMod.Content.Items.Weapons.Alchemical;
 			recipe.AddIngredient(ModContent.ItemType<NovaFragment>(), 3);
 			recipe.AddIngredient(ModContent.ItemType<BasicFlask>(), 1);
 			//recipe.SetResult(this, 111);
-			recipe.AddTile(412);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

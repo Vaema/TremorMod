@@ -14,15 +14,15 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			Item.height = 20;
 			Item.DamageType = DamageClass.Ranged;
 			Item.useTime = 30;
-			Item.shoot = 666;
+			Item.shoot = ProjectileID.DD2FlameBurstTowerT2Shot;
 
 			Item.shootSpeed = 20f;
 			Item.useAnimation = 30;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 5;
 			Item.value = 450000;
 			Item.useAmmo = AmmoID.Bullet;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.crit = 7;
 			Item.UseSound = SoundID.Item11;
 			Item.autoReuse = true;

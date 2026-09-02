@@ -29,7 +29,7 @@ namespace TremorMod.Content.NPCs.Invasion;
 			NPC.knockBackResist = 0f;
 			NPC.width = 34;
 			NPC.height = 20;
-			AnimationType = 75;
+			AnimationType = NPCID.Pixie;
 			NPC.aiStyle = -1;
 			NPC.npcSlots = 0.5f;
 			NPC.HitSound = SoundID.NPCHit55;
@@ -108,7 +108,7 @@ namespace TremorMod.Content.NPCs.Invasion;
 
     public override void ModifyNPCLoot(NPCLoot npcLoot)
     {
-        if (Main.netMode != 1)
+        if (Main.netMode != NetmodeID.MultiplayerClient)
         {
             int centerX = (int)(NPC.position.X + NPC.width / 2) / 16;
             int centerY = (int)(NPC.position.Y + NPC.height / 2) / 16;
@@ -377,7 +377,7 @@ namespace TremorMod.Content.NPCs.Invasion;
 						if (Collision.CanHit(NPC.position, NPC.width, NPC.height, Main.player[NPC.target].position, Main.player[NPC.target].width, Main.player[NPC.target].height))
 						{
 							NPC.localAI[2] += 1f; // ???
-							if (Main.netMode != 1) // is server
+							if (Main.netMode != NetmodeID.MultiplayerClient) // is server
 							{ // localAI[1] grows faster the less life left
 								NPC.localAI[1] += 1f;
 

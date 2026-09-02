@@ -28,9 +28,9 @@ namespace TremorMod.Content.NPCs;
 			NPC.DeathSound = SoundID.NPCDeath44;
 			NPC.value = Item.buyPrice(0, 0, 3, 7);
 			NPC.knockBackResist = 0.2f;
-			NPC.aiStyle = 3;
-			AIType = 111;
-			AnimationType = 110;
+			NPC.aiStyle = NPCAIStyleID.Fighter;
+			AIType = NPCID.GoblinArcher;
+			AnimationType = NPCID.SkeletonArcher;
 			NPC.buffImmune[20] = true;
 			NPC.buffImmune[31] = false;
 			NPC.buffImmune[24] = true;
@@ -52,7 +52,7 @@ namespace TremorMod.Content.NPCs;
         if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 31, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Smoke, 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("GBGore1").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("GBGore2").Type, 1f);

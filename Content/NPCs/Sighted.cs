@@ -24,8 +24,8 @@ namespace TremorMod.Content.NPCs;
 			NPC.width = 34;
 			NPC.height = 46;
 			NPC.noTileCollide = true;
-			AnimationType = 4;
-			NPC.aiStyle = 4;
+			AnimationType = NPCID.EyeofCthulhu;
+			NPC.aiStyle = NPCAIStyleID.EyeOfCthulhu;
 			NPC.noGravity = true;
 			NPC.npcSlots = 6f;
 			NPC.HitSound = SoundID.NPCHit1;
@@ -43,14 +43,14 @@ namespace TremorMod.Content.NPCs;
         if (NPC.life <= 0)
 			{
 				for (int k = 0; k < 20; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 6, 2.5f * hitDirection, -2.5f, 0, default(Color), 1f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, 2.5f * hitDirection, -2.5f, 0, default(Color), 1f);
 
 				for(int i = 0; i < 3; ++i)
 					//Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot($"Gores/SightedGore{i+1}"), 1f);
 
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 6, 2.5f * hitDirection, -2.5f, 0, default(Color), 3f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 6, 2.5f * hitDirection, -2.5f, 0, default(Color), 2f);
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, 6, 2.5f * hitDirection, -2.5f, 0, default(Color), 3f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, 2.5f * hitDirection, -2.5f, 0, default(Color), 3f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, 2.5f * hitDirection, -2.5f, 0, default(Color), 2f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, 2.5f * hitDirection, -2.5f, 0, default(Color), 3f);
 			}
 		}
 

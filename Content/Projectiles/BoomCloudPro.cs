@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TremorMod.Content.Projectiles;
@@ -11,7 +12,7 @@ namespace TremorMod.Content.Projectiles;
 			Projectile.height = 40;
         Projectile.DamageType = DamageClass.Magic;
         Projectile.penetrate = 8;
-			Projectile.aiStyle = 92;
+			Projectile.aiStyle = ProjAIStyleID.ToxicCloud;
 			Projectile.friendly = true;
 			Projectile.timeLeft = 600;
 		}

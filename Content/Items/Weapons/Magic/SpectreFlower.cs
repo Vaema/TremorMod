@@ -17,11 +17,11 @@ namespace TremorMod.Content.Items.Weapons.Magic;
 			Item.mana = 15;
 			Item.useTime = 30;
 			Item.useAnimation = 30;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.noMelee = true;
 			Item.knockBack = 6;
 			Item.value = 30000;
-			Item.rare = 8;
+			Item.rare = ItemRarityID.Yellow;
 			Item.UseSound = SoundID.Item43;
 			Item.autoReuse = true;
 			Item.shoot = ModContent.ProjectileType<SpectreFlowerPro>();
@@ -39,7 +39,7 @@ namespace TremorMod.Content.Items.Weapons.Magic;
         Recipe recipe = CreateRecipe();
         recipe.AddIngredient(ItemID.SpectreBar, 17);
 			//recipe.SetResult(this);
-			recipe.AddTile(134);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

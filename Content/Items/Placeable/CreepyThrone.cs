@@ -14,13 +14,13 @@ namespace TremorMod.Content.Items.Placeable;
 			Item.height = 64;
 			Item.maxStack = 9999;
 			Item.value = 100;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.createTile = ModContent.TileType<CreepyThroneTile>();
 			Item.useTurn = true;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 		}
 
@@ -37,7 +37,7 @@ namespace TremorMod.Content.Items.Placeable;
 			recipe.AddIngredient(ModContent.ItemType<MinotaurHorn>(), 2);
 			recipe.AddIngredient(ItemID.Silk, 15);
 			//recipe.SetResult(this);
-			recipe.AddTile(106);
+			recipe.AddTile(TileID.Sawmill);
 			recipe.Register();
 
 			Recipe recipe1 = CreateRecipe();
@@ -45,7 +45,7 @@ namespace TremorMod.Content.Items.Placeable;
 			recipe1.AddIngredient(ModContent.ItemType<MinotaurHorn>(), 2);
 			recipe1.AddIngredient(ItemID.Silk, 15);
 			//recipe.SetResult(this);
-			recipe1.AddTile(106);
+			recipe1.AddTile(TileID.Sawmill);
 			recipe1.Register();
 		}
 	}

@@ -27,7 +27,7 @@ namespace TremorMod.Content.Items.Accessories;
 			Item.width = 22;
 			Item.height = 44;
 			Item.value = 300000;
-			Item.rare = 6;
+			Item.rare = ItemRarityID.LightPurple;
 			Item.accessory = true;
 		}
 
@@ -45,7 +45,7 @@ namespace TremorMod.Content.Items.Accessories;
 			recipe.AddIngredient(ItemID.HellstoneBar, 25);
 			recipe.AddIngredient(ItemID.SoulofMight, 3);
 			//recipe.SetResult(this);
-			recipe.AddTile(114);
+			recipe.AddTile(TileID.TinkerersWorkbench);
 			recipe.Register();
 
 			Recipe recipe1 = CreateRecipe();
@@ -54,7 +54,7 @@ namespace TremorMod.Content.Items.Accessories;
 			recipe1.AddIngredient(ItemID.HellstoneBar, 25);
 			recipe1.AddIngredient(ModContent.ItemType<SoulofMind>(), 3);
 			//recipe.SetResult(this);
-			recipe1.AddTile(114);
+			recipe1.AddTile(TileID.TinkerersWorkbench);
 			recipe1.Register();
 		}
 

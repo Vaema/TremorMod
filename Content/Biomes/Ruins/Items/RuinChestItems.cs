@@ -13,5 +13,4 @@ public class RuinChestItems : ModItem
         Item.height = 22;
         Item.value = 500;
     }
-    
 }

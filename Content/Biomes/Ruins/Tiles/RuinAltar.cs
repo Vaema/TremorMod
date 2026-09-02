@@ -7,7 +7,7 @@ using Terraria.ObjectData;
 
 namespace TremorMod.Content.Biomes.Ruins.Tiles;
 
-	public class RuinAltar : ModTile
+public class RuinAltar : ModTile
 {
     public override void SetStaticDefaults()
     {
@@ -30,20 +30,14 @@ namespace TremorMod.Content.Biomes.Ruins.Tiles;
         AddMapEntry(Color.White);
     }
 
-    public override bool CanKillTile(int i, int j, ref bool blockDamaged)
-    {
-        return false;
-    }
+    public override bool CanKillTile(int i, int j, ref bool blockDamaged) => false;
 
     public override void NearbyEffects(int i, int j, bool closer)
     {
         if (closer)
         {
             Player player = Main.LocalPlayer;
-            int style = Main.tile[i, j].TileFrameX / 15;
-            //string type;
             player.AddBuff(ModContent.BuffType<RuinAltarBuff>(), 60, true);
         }
     }
-
 }

@@ -13,5 +13,4 @@ public class RuinAltarr : ModItem
         Item.height = 22;
         Item.value = 500;
     }
-
 }

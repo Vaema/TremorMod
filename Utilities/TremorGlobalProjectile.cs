@@ -21,19 +21,19 @@ public class TremorGlobalProjectile : GlobalProjectile
         {
             if (modPlayer.VortexLightningF)
             {
-                projectile.friendly = true;  
+                projectile.friendly = true;
                 projectile.hostile = false;
             }
             else
             {
-                projectile.friendly = false; 
-                projectile.hostile = true;  
+                projectile.friendly = false;
+                projectile.hostile = true;
             }
         }
 
         if (projectile.type == ProjectileID.ShadowFlame)
         {
-            if (Romert.romertActive) 
+            if (Romert.romertActive)
             {
                 projectile.friendly = false;
                 projectile.hostile = true;
@@ -63,8 +63,6 @@ public class TremorGlobalProjectile : GlobalProjectile
     public override void OnHitPlayer(Projectile projectile, Player target, Player.HurtInfo info)
     {
         if (projectile.type == ProjectileID.ShadowFlame)
-        {
             target.AddBuff(BuffID.ShadowFlame, 180);
-        }
     }
 }

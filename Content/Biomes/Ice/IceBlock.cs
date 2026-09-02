@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Terraria.Audio;
 using Terraria.ModLoader;
 using TremorMod.Content.Biomes.Ice.Tree;
 using TremorMod.Content.Biomes.Ice.Dungeon;

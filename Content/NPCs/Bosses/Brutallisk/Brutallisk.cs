@@ -16,7 +16,6 @@ using TremorMod.Content.Items.Weapons.Summon;
 using TremorMod.Content.Items.Vanity;
 using TremorMod.Content.Items;
 using TremorMod.Utilities;
-using TremorMod;
 
 namespace TremorMod.Content.NPCs.Bosses.Brutallisk;
 

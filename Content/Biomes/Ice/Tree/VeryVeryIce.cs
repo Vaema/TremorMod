@@ -1,12 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using TremorMod.Content.Biomes.Ice;
 using TremorMod.Content.Biomes.Ice.Items;
-using Terraria.GameContent.Generation;
 using Terraria.DataStructures;
 
 namespace TremorMod.Content.Biomes.Ice.Tree;

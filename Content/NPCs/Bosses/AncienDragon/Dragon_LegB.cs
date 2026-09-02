@@ -4,7 +4,6 @@ using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.DataStructures;
 
 namespace TremorMod.Content.NPCs.Bosses.AncienDragon;
 

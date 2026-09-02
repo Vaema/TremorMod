@@ -5,7 +5,6 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.GameContent;
-using TremorMod;
 using TremorMod.Utilities;
 
 namespace TremorMod.Content.Projectiles.Minions;

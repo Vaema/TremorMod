@@ -1,22 +1,9 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.DataStructures;
-using Terraria.GameContent.ItemDropRules;
-using TremorMod.Content.Items.Weapons.Magic;
-using TremorMod.Content.Items.Weapons.Ranged;
-using TremorMod.Content.Items.Weapons.Melee;
-using TremorMod.Content.Items.Vanity;
-using TremorMod.Content.Items.Placeable;
-using TremorMod.Content.Items.Materials;
-using TremorMod.Content.Items.Bag;
-using TremorMod.Content.Tiles;
-using TremorMod;
-using TremorMod.Utilities;
 
 namespace TremorMod.Content.NPCs.Bosses.WallofShadows;
 

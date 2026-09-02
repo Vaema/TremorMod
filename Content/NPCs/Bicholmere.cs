@@ -2,13 +2,9 @@
 using TremorMod.Content.Items.Placeable.Banners;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.GameContent.Bestiary;
 using Microsoft.Xna.Framework;
-using Terraria.ModLoader.Utilities;
 using TremorMod.Content.Items.Weapons.Throwing;
-using TremorMod.Content.Items.Materials;
 using Terraria.GameContent.ItemDropRules;
-using System.IO;
 
 namespace TremorMod.Content.NPCs;
 

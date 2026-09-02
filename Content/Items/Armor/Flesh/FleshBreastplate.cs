@@ -1,7 +1,6 @@
 ﻿using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
-using TremorMod.Content.Items.Materials;	
+using TremorMod.Content.Items.Materials;
 
 namespace TremorMod.Content.Items.Armor.Flesh;
 

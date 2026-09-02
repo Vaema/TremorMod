@@ -1,7 +1,5 @@
 ﻿using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
-using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Tiles;
 
 namespace TremorMod.Content.Items.Materials.OreAndBar;

@@ -1,7 +1,6 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.Graphics.Shaders;
-using Terraria.ModLoader.Utilities;
 
 namespace TremorMod.Content.NPCs.Bosses.NovaPillar;
 

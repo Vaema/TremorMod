@@ -1,20 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
-using ReLogic.Utilities;
 using Terraria;
-using Terraria.Audio;
-using Terraria.DataStructures;
 using Terraria.GameContent;
-using Terraria.GameContent.Bestiary;
-using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
-using Filters = Terraria.Graphics.Effects.Filters;
 
 namespace TremorMod.Content.Projectiles;
 

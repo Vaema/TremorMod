@@ -1,13 +1,5 @@
 ﻿using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
-using TremorMod;
-using TremorMod.Content.Biomes.Ice;
-using TremorMod.Content.Biomes.Ice.Dungeon;
-using TremorMod.Content.Biomes.Ice.Items;
-using TremorMod.Content.Biomes.Ice.Items.Furniture;
-using Terraria.GameContent;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace TremorMod.Utilities;
 

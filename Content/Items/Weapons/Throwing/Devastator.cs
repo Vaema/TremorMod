@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Terraria.DataStructures;
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 using TremorMod.Content.Items.Materials;

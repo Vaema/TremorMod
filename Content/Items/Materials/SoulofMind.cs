@@ -4,7 +4,6 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles;
-using TremorMod.Content.Items;
 
 
 namespace TremorMod.Content.Items.Materials;

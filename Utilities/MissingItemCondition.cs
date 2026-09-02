@@ -1,5 +1,4 @@
 ﻿using Terraria.GameContent.ItemDropRules;
-using Terraria.ModLoader;
 
 namespace TremorMod.Utilities;
 

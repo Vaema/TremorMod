@@ -1,13 +1,8 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
-using TremorMod.Content.Items.Placeable;
-using TremorMod.Content.Items.Materials.OreAndBar;
-using TremorMod.Content.Items.Accessories;
-using TremorMod.Content.Items.Weapons.Melee;
 using TremorMod.Content.Items.Weapons.Ranged;
 using TremorMod.Content.Items.Weapons.Magic;
-using TremorMod.Content.Items.Weapons.Throwing;
 using TremorMod.Content.Items.Vanity;
 using TremorMod.Content.Items.Materials;
 

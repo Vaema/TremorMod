@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
@@ -9,7 +8,6 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
 using TremorMod.Content.NPCs;
-using TremorMod.Content.Items.Placeable.Banners;
 
 namespace TremorMod.Content.Tiles.Banners;
 

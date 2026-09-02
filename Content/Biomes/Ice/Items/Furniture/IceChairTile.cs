@@ -6,7 +6,6 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.GameContent;
 using Terraria.GameContent.ObjectInteractions;
-using Terraria.Localization;
 using Terraria.DataStructures;
 
 namespace TremorMod.Content.Biomes.Ice.Items.Furniture;

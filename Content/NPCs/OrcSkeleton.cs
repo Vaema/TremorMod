@@ -2,11 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
-using Terraria.GameContent.ItemDropRules;
-using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Placeable.Banners;
-using TremorMod.Content.Items.Accessories;
-using TremorMod.Content.Items.Weapons.Melee;
 using TremorMod.Utilities;
 
 namespace TremorMod.Content.NPCs;

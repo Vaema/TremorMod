@@ -1,10 +1,6 @@
-﻿using System.Collections.Generic;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
+﻿using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
-using TremorMod.Content.NPCs.Invasion.ParadoxTitan;
-using TremorMod.Content.NPCs.Invasion;
 
 namespace TremorMod.Content.Event;
 

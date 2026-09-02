@@ -6,8 +6,6 @@ using TremorMod.Content.Items.Placeable;
 using TremorMod.Content.Items.Weapons.Alchemical;
 using TremorMod.Content.Items.Weapons.Melee;
 using TremorMod.Content.Items.Accessories;
-using TremorMod.Content.Items.Bag;
-using TremorMod.Content.Items;
 
 namespace TremorMod.Content.Items.Bag;
 

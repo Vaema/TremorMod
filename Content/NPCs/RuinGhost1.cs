@@ -1,17 +1,8 @@
-﻿using System.Linq;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using TremorMod;
 using TremorMod.Content.Biomes.Ruins.Items;
-using TremorMod.Content.Biomes.Ruins.Tiles;
 using TremorMod.Utilities;
-using System;
-using Microsoft.Xna.Framework;
-using Terraria.Audio;
-using Terraria.DataStructures;
-using Terraria.ModLoader.IO;
-using ReLogic.Content;
 
 namespace TremorMod.Content.NPCs;
 

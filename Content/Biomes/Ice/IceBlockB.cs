@@ -1,5 +1,4 @@
 ﻿using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Biomes.Ice.Tree;
 

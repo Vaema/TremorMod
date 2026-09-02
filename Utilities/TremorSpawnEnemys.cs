@@ -1,15 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.GameContent.ItemDropRules;
-using TremorMod.Content.NPCs;
-using TremorMod.Content.NPCs.Bosses.TikiTotem;
-using TremorMod.Content.Items;
-using TremorMod.Content.Tiles;
-using Terraria.Localization;
+﻿using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
-using TremorMod.Content.NPCs.Bosses.SpaceWhale;
 
 namespace TremorMod.Utilities;
 

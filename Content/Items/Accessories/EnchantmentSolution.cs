@@ -1,7 +1,6 @@
 ﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using TremorMod;
 using TremorMod.Content.Buffs;
 using TremorMod.Content.Items.Weapons.Alchemical;
 using TremorMod.Utilities;

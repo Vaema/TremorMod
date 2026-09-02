@@ -1,9 +1,7 @@
 ﻿using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using Terraria.Localization;
-using Terraria.GameContent.Creative;
 
 namespace TremorMod.Content.Items.Armor.Afterlife;
 

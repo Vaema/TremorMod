@@ -1,6 +1,4 @@
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.IO;
+﻿using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 
 public class TremorModSystem : ModSystem

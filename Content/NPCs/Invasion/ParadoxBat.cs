@@ -1,19 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
-using Terraria.DataStructures;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Projectiles;
 using TremorMod.Content.Dusts;
 using TremorMod.Content.Event;
-using TremorMod.Content.Items.Vanity;
-using TremorMod.Content.Items.Weapons.Melee;
-using TremorMod.Content.NPCs.Invasion.ParadoxTitan;
 using TremorMod.Content.Items.Accessories;
 
 namespace TremorMod.Content.NPCs.Invasion;

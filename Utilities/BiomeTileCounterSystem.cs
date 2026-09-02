@@ -1,11 +1,6 @@
 ﻿using System;
-using TremorMod;
 using TremorMod.Content.Biomes.Ruins.Tiles;
-using TremorMod.Content.Biomes.Ice.Dungeon;
 using TremorMod.Content.Biomes.Ice;
-using TremorMod.Content.Biomes.Ice.Items;
-using TremorMod.Content.Biomes.Ice.Items.Furniture;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace TremorMod.Utilities;

@@ -1,5 +1,4 @@
 ﻿using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
 using Terraria.ID;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;

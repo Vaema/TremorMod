@@ -1,8 +1,6 @@
 ﻿using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Utilities;
-using TremorMod.Content.Items.HeaterOfWorldsItems;
 using TremorMod.Content.Buffs;
 
 namespace TremorMod.Content.Items.Accessories;

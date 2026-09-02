@@ -1,8 +1,6 @@
 ﻿using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
-using static Terraria.ModLoader.ModContent;
 
 namespace TremorMod.Content.Items.Fungus;
 

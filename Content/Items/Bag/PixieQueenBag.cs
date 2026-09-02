@@ -1,7 +1,6 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
-using TremorMod.Content.Items.Placeable;
 using TremorMod.Content.Items.Materials.OreAndBar;
 using TremorMod.Content.Items.Accessories;
 using TremorMod.Content.Items.Weapons.Melee;

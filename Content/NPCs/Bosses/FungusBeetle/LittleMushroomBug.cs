@@ -1,14 +1,7 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.DataStructures;
-using Terraria.GameContent.ItemDropRules;
-using TremorMod.Content.Items.Bag;
-using TremorMod.Content.Items.Materials;
-using TremorMod.Content.Items.Vanity;
-using TremorMod.Content.Items.Placeable;
 
 namespace TremorMod.Content.NPCs.Bosses.FungusBeetle;
 

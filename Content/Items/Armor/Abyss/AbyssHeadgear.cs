@@ -5,7 +5,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Utilities;
-using TremorMod;
 using Terraria.Localization;
 
 namespace TremorMod.Content.Items.Armor.Abyss;

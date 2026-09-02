@@ -7,9 +7,7 @@ using TremorMod.Content.Items.Accessories;
 using TremorMod.Content.Items.Weapons.Melee;
 using TremorMod.Content.Items.Weapons.Ranged;
 using TremorMod.Content.Items.Weapons.Magic;
-using TremorMod.Content.Items.Weapons.Throwing;
 using TremorMod.Content.Items.Vanity;
-using TremorMod.Content.Items.Materials;
 
 namespace TremorMod.Content.Items.Bag;
 

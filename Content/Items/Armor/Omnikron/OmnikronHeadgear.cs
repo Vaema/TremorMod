@@ -5,7 +5,6 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using TremorMod.Content.Items.Materials;
-using TremorMod.Utilities;
 using TremorMod.Content.Buffs;
 
 namespace TremorMod.Content.Items.Armor.Omnikron;

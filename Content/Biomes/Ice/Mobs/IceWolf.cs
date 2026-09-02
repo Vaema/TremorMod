@@ -1,8 +1,6 @@
-﻿using System.Linq;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Terraria.DataStructures;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ModLoader;
 using TremorMod.Content.Biomes.Ice.Items;

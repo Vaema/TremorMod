@@ -1,8 +1,6 @@
 ﻿using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
-using Terraria.GameContent.Creative;
 using TremorMod.Content.Buffs;
 using TremorMod.Content.Items.Materials;
 

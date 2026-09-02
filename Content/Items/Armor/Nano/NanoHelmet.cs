@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using Terraria.ID;
 using Terraria.Localization;
 using TremorMod.Content.Items.Materials.OreAndBar;
 using TremorMod.Content.Buffs;

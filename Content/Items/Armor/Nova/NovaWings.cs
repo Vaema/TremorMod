@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using System.Linq;
 using Terraria.ID;
 using Terraria.DataStructures;
 using TremorMod.Content.NPCs.Bosses.NovaPillar.Items;

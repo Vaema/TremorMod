@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using Terraria.DataStructures;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
@@ -11,7 +10,6 @@ using TremorMod.Content.Items.Armor.Magmonium;
 using TremorMod.Content.Items.AndasItems;
 using TremorMod.Content.Tiles;
 using TremorMod.Content.Buffs;
-using TremorMod.Utilities;
 
 namespace TremorMod.Content.Items.Armor.Hades;
 

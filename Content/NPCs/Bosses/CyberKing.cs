@@ -4,8 +4,6 @@ using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
 using TremorMod.Content.Projectiles;
-using Terraria.DataStructures;
-using TremorMod.Content.NPCs.Bosses;
 using Terraria.GameContent.ItemDropRules;
 using TremorMod.Content.Items.CyberKing;
 using TremorMod.Utilities;

@@ -13,7 +13,6 @@ using TremorMod.Content.Items.Materials.OreAndBar;
 using TremorMod.Content.Items.Accessories;
 using TremorMod.Content.Items.Weapons.Magic;
 using TremorMod.Content.Items.Vanity;
-using TremorMod.Content.NPCs;
 using TremorMod.Utilities;
 using TremorMod;
 

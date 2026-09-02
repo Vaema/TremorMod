@@ -1,5 +1,4 @@
 ﻿using Terraria;
-using System.Linq;
 using Terraria.ID;
 using TremorMod.Content.Items.Materials.OreAndBar;
 using Terraria.ModLoader;

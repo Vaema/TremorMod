@@ -4,10 +4,9 @@ using Terraria;
 using Terraria.ID;
 using Terraria.Audio;
 using Terraria.ModLoader;
-using Terraria.DataStructures;
 using TremorMod.Content.Tiles;
 using TremorMod.Content.NPCs.Bosses.AndasBoss;
-using TremorMod.Content.Items.Materials;	
+using TremorMod.Content.Items.Materials;
 
 namespace TremorMod.Content.Items.BossSumonItems;
 

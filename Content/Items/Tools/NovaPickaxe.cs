@@ -1,9 +1,7 @@
 ﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using TremorMod;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics; 
+using Microsoft.Xna.Framework.Graphics;
 using TremorMod.Content.NPCs.Bosses.NovaPillar.Items;
 
 namespace TremorMod.Content.Items.Tools;

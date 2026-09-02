@@ -4,7 +4,6 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using TremorMod.Content.Projectiles;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Tiles;
 

@@ -3,9 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using TremorMod.Content;
-using TremorMod.Content.NPCs.Bosses.CogLord;
-using Terraria.DataStructures;
 using Terraria.GameContent;
 
 namespace TremorMod.Content.NPCs.Bosses.CogLord;

@@ -1,11 +1,8 @@
 ﻿using Terraria;
 using Terraria.ID;
-using Terraria.DataStructures;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using TremorMod.Content.Items.Placeable.Banners;
-using TremorMod.Content.Items.Materials;
-using TremorMod.Utilities;
 
 namespace TremorMod.Content.NPCs;
 

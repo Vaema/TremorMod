@@ -1,5 +1,4 @@
 ﻿using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Armor.Leather;
 using TremorMod.Content.Items.Materials;

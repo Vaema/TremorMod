@@ -1,13 +1,9 @@
-﻿using System.Linq;
-using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.DataStructures;
-using TremorMod;
-using TremorMod.Content.NPCs.Bosses.NovaPillar.NPCs;
 
 namespace TremorMod.Content.NPCs.Bosses.NovaPillar;
 

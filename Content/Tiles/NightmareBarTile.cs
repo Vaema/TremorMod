@@ -1,9 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using TremorMod.Content.Dusts;
 
 namespace TremorMod.Content.Tiles;
 

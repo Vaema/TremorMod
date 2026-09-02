@@ -1,5 +1,4 @@
-﻿using System;
-using Terraria;
+﻿using Terraria;
 using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Terraria.ModLoader;

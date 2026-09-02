@@ -1,9 +1,7 @@
 ﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using TremorMod.Utilities;
 using Microsoft.Xna.Framework;
-using TremorMod.Content.Dusts;
 using Terraria.GameContent.ItemDropRules;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Placeable.Banners;

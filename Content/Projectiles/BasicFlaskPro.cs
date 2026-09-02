@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Linq;
-using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
-using TremorMod;
 using TremorMod.Content.Buffs;
 using TremorMod.Utilities;
-using Utils = Terraria.Utils;
 
 namespace TremorMod.Content.Projectiles;
 

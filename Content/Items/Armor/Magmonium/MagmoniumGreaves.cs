@@ -1,6 +1,5 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
-using Terraria.ID;
 using TremorMod.Content.Items.Materials.OreAndBar;
 
 namespace TremorMod.Content.Items.Armor.Magmonium;

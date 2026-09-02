@@ -5,8 +5,6 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using TremorMod.Content.Items.Materials;
 using Terraria.GameContent.ItemDropRules;
-using TremorMod.Content.Items.NPCsDrop;
-using TremorMod.Content.Items.Crystal;
 using TremorMod.Content.Tiles;
 
 namespace TremorMod.Content.NPCs;

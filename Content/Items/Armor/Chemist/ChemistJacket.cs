@@ -1,10 +1,8 @@
 ﻿using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Armor.Chain;
 using TremorMod.Content.Items.Armor.Leather;
 using TremorMod.Content.Items.Accessories;
-using TremorMod.Content.Items.Materials;
 using TremorMod.Utilities;
 
 namespace TremorMod.Content.Items.Armor.Chemist;

@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using Terraria;
 using Terraria.ID;
-using Terraria.DataStructures;
 using Terraria.ModLoader;
-using TremorMod;
-using TremorMod.Content.Items;
 using TremorMod.Content.Items.Armor.Afterlife;
 using TremorMod.Content.Items.Armor.Argite;
 using TremorMod.Content.Items.Armor.Berserker;

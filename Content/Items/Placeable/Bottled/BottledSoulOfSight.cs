@@ -2,7 +2,6 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Tiles.Bottled;
-using TremorMod.Content.Items.Materials;
 
 namespace TremorMod.Content.Items.Placeable.Bottled;
 

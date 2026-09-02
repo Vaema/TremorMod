@@ -2,8 +2,6 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ObjectData;
-using System.Collections.Generic;  // Äîáàâëÿåì ýòó ñòðîêó äëÿ ðàáîòû ñ List<T>
 
 namespace TremorMod.Content.Tiles;
 

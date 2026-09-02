@@ -1,10 +1,6 @@
 ﻿using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
-using TremorMod.Content.NPCs.Bosses.CogLord;
-using static Terraria.ModLoader.ModContent;
-using TremorMod.Content.Items.CogLordItems;
 
 namespace TremorMod.Content.Items.CogLordItems;
 

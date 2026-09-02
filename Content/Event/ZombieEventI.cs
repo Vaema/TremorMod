@@ -1,11 +1,5 @@
-﻿using System.Collections.Generic;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.DataStructures;
+﻿using Terraria;
 using Terraria.ModLoader;
-using TremorMod.Content.NPCs.ZombieEvent;
-using TremorMod.Utilities;
-using TremorMod;
 //using Terraria.Content.Fonts;
 
 namespace TremorMod.Content.Event;

@@ -1,12 +1,10 @@
 ﻿using System;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.BossLoot.TheDarkEmperor;
 using TremorMod.Content.Items.Armor.Nova;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Utilities;
-using TremorMod;
 
 namespace TremorMod.Content.Items.Armor.WhiteMaster;
 

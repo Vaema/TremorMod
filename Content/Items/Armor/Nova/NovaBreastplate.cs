@@ -1,8 +1,6 @@
 ﻿using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.NPCs.Bosses.NovaPillar.Items;
-using TremorMod;
 using TremorMod.Utilities;
 
 namespace TremorMod.Content.Items.Armor.Nova;

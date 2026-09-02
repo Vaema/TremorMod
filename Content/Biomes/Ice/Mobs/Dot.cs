@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Linq;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Audio;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria.DataStructures;
-using Terraria.GameContent.ItemDropRules;
-using TremorMod.Content.Biomes.Ice.Items;
 using TremorMod.Utilities;
 
 namespace TremorMod.Content.Biomes.Ice.Mobs;

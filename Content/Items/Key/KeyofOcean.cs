@@ -2,7 +2,6 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
-using TremorMod.Content.Items.NPCsDrop;
 
 namespace TremorMod.Content.Items.Key;
 

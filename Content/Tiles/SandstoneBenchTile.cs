@@ -3,8 +3,6 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using Terraria.Localization;
-using TremorMod.Content.Items.Placeable;
 
 namespace TremorMod.Content.Tiles;
 

@@ -1,9 +1,6 @@
 ﻿using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
 using TremorMod.Content.Items.CogLordItems;
-using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Tiles;
 
 namespace TremorMod.Content.Items.Materials.OreAndBar;

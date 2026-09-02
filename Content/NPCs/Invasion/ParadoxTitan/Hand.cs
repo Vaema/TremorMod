@@ -1,12 +1,6 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.Audio;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using TremorMod.Content.Items.Materials;
-using TremorMod.Content.Projectiles;
-using TremorMod.Content.Dusts;
 
 namespace TremorMod.Content.NPCs.Invasion.ParadoxTitan;
 

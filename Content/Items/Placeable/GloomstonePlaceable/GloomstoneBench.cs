@@ -1,5 +1,4 @@
 ﻿using Terraria.ModLoader;
-using Terraria.ID;
 using Terraria;
 using TremorMod.Content.Tiles.GloomstoneTiles;
 using TremorMod.Content.Items.Materials;

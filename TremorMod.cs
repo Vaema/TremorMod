@@ -1,34 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TremorMod.Content.Tiles;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
+﻿using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.Audio;
-using Terraria.GameContent;
-using Terraria.GameContent.Dyes;
-using Terraria.GameContent.Liquid;
-using Terraria.Graphics.Effects;
-using Terraria.Graphics.Shaders;
-using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ModLoader.Config;
-using TremorMod.Content.Biomes.Ice;
 using TremorMod.Content.Biomes.Ice.Dungeon;
-using TremorMod.Content.Biomes.Ice.Items;
 using TremorMod.Content.Biomes.Ice.Items.Furniture;
-using TremorMod.Utilities;
 using TremorMod.Content.Event;
+using TremorMod.Content.Tiles;
+using TremorMod.Utilities;
 
 namespace TremorMod;
 
 public class TremorMod : Mod
 {
-
     public static DamageClass alchemicalDamage;
 
     public static Texture2D Ice3;
@@ -38,35 +20,24 @@ public class TremorMod : Mod
     public static bool DungeonBlock;
     public static bool IceChest;
 
-
-
     public override void Load()
     {
         if (!Main.dedServ)
-        {
             ModContent.GetInstance<CyberWrathUISystem>().Load();
-        }
+
         ModContent.TileType<LunarRootTile>();
         ModContent.TileType<CometiteOreTile>();
         ModContent.TileType<HardCometiteOreTile>();
         ModContent.TileType<DungeonBlock>();
         ModContent.TileType<IceChest>();
 
-        // Èíèöèàëèçàöèÿ ôëàãîâ
         HasGeneratedLunarRootTile = false;
         HasGeneratedCometiteOre = false;
         alchemicalDamage = ModContent.GetInstance<AlchemicalClass>();
     }
 
-
     public TremorMod()
     {
-        Instance = this; // Ïðèñâàèâàåì òåêóùèé ýêçåìïëÿð ìîäà
-    }
-
-    private void LoadClient()
-    {
-        Ice3 = ModContent.Request<Texture2D>("TremorMod/Utilities/Ice3", AssetRequestMode.ImmediateLoad).Value;
+        Instance = this;
     }
 }
-// Please read https://github.com/tModLoader/tModLoader/wiki/Basic-tModLoader-Modding-Guide#mod-skeleton-contents for more information about the various files in a mod.

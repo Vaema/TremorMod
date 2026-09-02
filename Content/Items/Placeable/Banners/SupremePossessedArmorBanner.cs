@@ -1,8 +1,7 @@
 ﻿using TremorMod.Content.Tiles.Banners;
-using Terraria.Enums; 
+using Terraria.Enums;
 using Terraria.ModLoader;
 using Terraria;
-using Terraria.ObjectData;
 
 namespace TremorMod.Content.Items.Placeable.Banners;
 

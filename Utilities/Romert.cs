@@ -1,7 +1,4 @@
-﻿using Terraria;
-using Terraria.ModLoader;
-using Terraria.IO;
-using Terraria.ModLoader.IO;
+﻿using Terraria.ModLoader;
 
 public class Romert : ModSystem
 {

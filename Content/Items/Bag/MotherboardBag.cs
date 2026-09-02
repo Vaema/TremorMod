@@ -2,10 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
-using TremorMod.Content.Items.Accessories;
 using TremorMod.Content.Items.Materials;
-using TremorMod.Content.Items.Placeable;
-using TremorMod.Content.Items.Vanity;
 
 namespace TremorMod.Content.Items.Bag;
 

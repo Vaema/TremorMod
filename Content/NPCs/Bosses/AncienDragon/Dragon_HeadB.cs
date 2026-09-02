@@ -1,5 +1,4 @@
 ﻿using System;
-using Terraria.DataStructures;
 using TremorMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

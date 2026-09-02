@@ -1,24 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
-using ReLogic.Utilities;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
-using Terraria.GameContent;
-using Terraria.GameContent.Bestiary;
-using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using TremorMod.Utilities;
-using Terraria.Localization;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
-using Filters = Terraria.Graphics.Effects.Filters;
 using TremorMod.Content.Buffs;
-using TremorMod;
 
 namespace TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles;
 

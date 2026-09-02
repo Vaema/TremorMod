@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,7 +7,6 @@ using TremorMod.Content.Tiles;
 using TremorMod.Content.Event;
 using TremorMod.Content.Items.BossLoot.TheDarkEmperor;
 using TremorMod.Content.NPCs.Invasion.ParadoxTitan;
-using TremorMod.Content.NPCs.Invasion;
 
 namespace TremorMod.Content.Items.BossSumonItems;
 

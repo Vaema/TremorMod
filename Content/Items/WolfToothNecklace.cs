@@ -1,7 +1,6 @@
 ﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using TremorMod.Content.Items.Buffs;
 using TremorMod.Content.Mounts;
 
 namespace TremorMod.Content.Items;

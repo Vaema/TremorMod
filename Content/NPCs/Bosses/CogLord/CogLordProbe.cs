@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using TremorMod.Content;
 using TremorMod.Content.Projectiles;
 using TremorMod.Utilities;
 

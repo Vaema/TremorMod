@@ -1,7 +1,6 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
-using TremorMod.Content.Items.Bag;
 using TremorMod.Content.Items.Placeable;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Weapons.Magic;
@@ -11,8 +10,6 @@ using TremorMod.Content.Items.Weapons.Throwing;
 using TremorMod.Content.Items.Weapons.Summon;
 using TremorMod.Content.Items.Vanity;
 using TremorMod.Content.Items.Crystal;
-using TremorMod.Content.Items;
-using TremorMod;
 
 namespace TremorMod.Content.Items.Bag;
 

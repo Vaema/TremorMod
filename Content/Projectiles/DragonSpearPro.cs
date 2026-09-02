@@ -2,7 +2,6 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using TremorMod.Content.Dusts;
 
 namespace TremorMod.Content.Projectiles;
 

@@ -5,7 +5,6 @@ using TremorMod.Content.Buffs;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Projectiles;
 using TremorMod.Utilities;
-using TremorMod;
 
 namespace TremorMod.Content.Items.Weapons.Alchemical;
 

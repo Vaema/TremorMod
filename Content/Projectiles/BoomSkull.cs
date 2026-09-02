@@ -4,7 +4,6 @@ using Terraria;
 using Terraria.ID;
 using Terraria.Audio;
 using Terraria.ModLoader;
-using TremorMod.Content.Projectiles;
 
 namespace TremorMod.Content.Projectiles;
 

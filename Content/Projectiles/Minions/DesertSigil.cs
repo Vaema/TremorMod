@@ -3,9 +3,6 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using TremorMod.Content;
-using TremorMod;
-using TremorMod.Content.Buffs;
 using TremorMod.Utilities;
 
 namespace TremorMod.Content.Projectiles.Minions;

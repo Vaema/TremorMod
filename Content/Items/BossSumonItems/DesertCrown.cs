@@ -1,11 +1,9 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.NPCs.Bosses.Rukh;
-using TremorMod.Content.NPCs.Bosses.Rukh.Romert;
 
 namespace TremorMod.Content.Items.BossSumonItems;
 

@@ -2,11 +2,9 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Audio;
-using System.Collections.Generic;
 using Terraria.DataStructures;
 using TremorMod.Content.NPCs.Bosses.CogLord;
 using TremorMod.Content.Items.Materials;
-using TremorMod.Content.NPCs.Bosses.AndasBoss;
 
 namespace TremorMod.Content.Items.BossSumonItems;
 

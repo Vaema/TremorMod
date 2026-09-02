@@ -1,16 +1,11 @@
-﻿using System;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.GameContent;
 using Terraria.Audio;
 using Terraria.ModLoader;
-using Terraria.DataStructures;
-using Terraria.GameContent.Bestiary;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader.Utilities;
 using Terraria.GameContent.ItemDropRules;
-using TremorMod.Content.Items.Weapons.Magic;
 using TremorMod.Content.Items.Placeable.Banners;
 
 namespace TremorMod.Content.NPCs;

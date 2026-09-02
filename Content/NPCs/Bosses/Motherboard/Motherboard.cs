@@ -15,7 +15,6 @@ using TremorMod.Content.Items.Placeable;
 using TremorMod.Content.Items.Vanity;
 using TremorMod.Content.Items.Bag;
 using TremorMod.Utilities;
-using TremorMod.Content.Projectiles;
 
 namespace TremorMod.Content.NPCs.Bosses.Motherboard;
 

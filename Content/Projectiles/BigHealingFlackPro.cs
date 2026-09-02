@@ -1,14 +1,10 @@
 ﻿using System;
 using Terraria.Audio;
-using System.Linq;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
-using TremorMod;
-using TremorMod.Content;
 using TremorMod.Content.Buffs;
 using TremorMod.Utilities;
 

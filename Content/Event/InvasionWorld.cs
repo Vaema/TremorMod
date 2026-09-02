@@ -1,9 +1,6 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using Terraria;
+﻿using System.IO;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
-using Terraria.WorldBuilding;
 
 namespace TremorMod.Content.Event;
 

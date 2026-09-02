@@ -2,7 +2,6 @@
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using TremorMod.Utilities;
 
 namespace TremorMod.Content.Items.Armor.Hallowed;
 

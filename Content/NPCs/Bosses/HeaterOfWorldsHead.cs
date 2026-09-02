@@ -1,21 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using ReLogic.Content;
-using ReLogic.Utilities;
-using Terraria.Audio;
-using Terraria.GameContent;
-using Terraria.GameContent.Bestiary;
-using Terraria.Localization;
-using Filters = Terraria.Graphics.Effects.Filters;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ModLoader;
-using TremorMod.Content.Items;
 using TremorMod.Content.Items.HeaterOfWorldsItems;
 using TremorMod.Utilities;
 

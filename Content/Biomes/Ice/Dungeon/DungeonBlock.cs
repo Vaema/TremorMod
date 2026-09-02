@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using TremorMod.Content.Biomes.Ice;
 using TremorMod.Content.Dusts;
 
 namespace TremorMod.Content.Biomes.Ice.Dungeon;

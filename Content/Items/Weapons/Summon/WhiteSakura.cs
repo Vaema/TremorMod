@@ -7,7 +7,6 @@ using TremorMod.Content.Projectiles.Minions;
 using TremorMod.Content.Buffs;
 using TremorMod.Content.Tiles;
 using TremorMod.Content.Items.Materials.OreAndBar;
-using TremorMod.Content.Items.Materials;
 
 namespace TremorMod.Content.Items.Weapons.Summon;
 

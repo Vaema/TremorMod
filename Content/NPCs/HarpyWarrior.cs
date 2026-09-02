@@ -1,13 +1,9 @@
 ﻿using Terraria;
-using System.IO;
 using Terraria.ID;
-using Terraria.GameContent.ItemDropRules;
 using Terraria.ModLoader;
 using Terraria.GameContent.Bestiary;
-using Terraria.ModLoader.Utilities;
 using Microsoft.Xna.Framework;
 using TremorMod.Content.Items.Placeable.Banners;
-using TremorMod.Utilities;
 
 namespace TremorMod.Content.NPCs;
 

@@ -3,7 +3,6 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
-using Terraria.DataStructures;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.BossLoot.TheDarkEmperor;
 using TremorMod.Content.Projectiles;

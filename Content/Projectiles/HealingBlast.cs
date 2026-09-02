@@ -1,8 +1,6 @@
-﻿using System.Linq;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using TremorMod.Content.Buffs;
 
 namespace TremorMod.Content.Projectiles;
 

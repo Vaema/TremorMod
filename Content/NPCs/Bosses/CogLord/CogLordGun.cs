@@ -4,8 +4,6 @@ using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.DataStructures;
-using TremorMod.Content.Projectiles;
 using TremorMod.Utilities;
 
 namespace TremorMod.Content.NPCs.Bosses.CogLord;

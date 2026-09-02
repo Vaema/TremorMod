@@ -2,8 +2,6 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Audio;
-using System.Collections.Generic;
-using Terraria.DataStructures;
 using TremorMod.Content.NPCs.Bosses;
 using TremorMod.Content.Items.Materials;
 

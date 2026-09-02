@@ -1,11 +1,8 @@
 ﻿using Terraria;
-using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
-using Terraria.GameContent.ItemDropRules;
 using TremorMod.Content.Items.Weapons.Melee;
-using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Placeable.Banners;
 using TremorMod.Utilities;
 

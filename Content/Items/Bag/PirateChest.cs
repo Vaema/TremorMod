@@ -3,7 +3,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
 using TremorMod.Content.Items.Weapons.Ranged;
-using TremorMod.Content.Items;
 
 namespace TremorMod.Content.Items.Bag;
 

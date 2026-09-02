@@ -1,8 +1,6 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
 using TremorMod.Content.Projectiles.Minions;
-using TremorMod;
 
 namespace TremorMod.Content.Buffs;
 

@@ -1,20 +1,11 @@
 ﻿using System;
-using System.Linq;
-using System.Reflection;
 using System.Globalization;
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ID;
-using Terraria.Audio;
-using Terraria.Utilities;
 using Terraria.DataStructures;
 using Terraria.GameContent;
-using Terraria.GameContent.ItemDropRules;
 using Terraria.ModLoader;
-using Terraria.Localization;
-using TremorMod.Content.NPCs;
 
 
 namespace TremorMod.Utilities;

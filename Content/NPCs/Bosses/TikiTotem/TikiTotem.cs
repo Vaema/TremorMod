@@ -13,12 +13,6 @@ using TremorMod.Content.Items.BossLoot.TikiTotem;
 using TremorMod.Content.Items.Vanity;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Utilities;
-using System.Linq;
-using Terraria.Audio;
-using Terraria.DataStructures;
-using Terraria.ModLoader.IO;
-using TremorMod;
-using ReLogic.Content; 
 
 namespace TremorMod.Content.NPCs.Bosses.TikiTotem;
 

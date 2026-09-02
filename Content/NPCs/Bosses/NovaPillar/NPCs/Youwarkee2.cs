@@ -1,11 +1,8 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using TremorMod.Content.Projectiles;
-using TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles;
 
 namespace TremorMod.Content.NPCs.Bosses.NovaPillar.NPCs;
 

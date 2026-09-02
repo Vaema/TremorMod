@@ -3,7 +3,6 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
-using Terraria.DataStructures;
 using TremorMod.Content.Items.Materials.OreAndBar;
 using TremorMod.Content.Projectiles;
 using TremorMod.Content.Tiles;

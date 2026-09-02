@@ -1,6 +1,8 @@
-using System;
+﻿using System;
 using System.Linq;
 using System.Reflection;
+
+namespace TremorMod;
 
 public static class ExtensionMethods
 {

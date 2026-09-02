@@ -3,11 +3,8 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using TremorMod.Content;
-using TremorMod;
 using TremorMod.Utilities;
 using TremorMod.Content.Buffs;
-using TremorMod.Content.Projectiles;
 
 namespace TremorMod.Content.Items.Weapons.Alchemical;
 

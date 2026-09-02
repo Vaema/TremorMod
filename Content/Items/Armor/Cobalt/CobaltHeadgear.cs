@@ -2,7 +2,6 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
-using TremorMod.Utilities;
 
 namespace TremorMod.Content.Items.Armor.Cobalt;
 

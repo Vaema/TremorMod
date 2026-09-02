@@ -2,7 +2,6 @@
 using Terraria.ModLoader;
 using TremorMod.Content.Projectiles;
 using Microsoft.Xna.Framework;
-using Terraria.DataStructures;
 
 namespace TremorMod.Content.Buffs;
 

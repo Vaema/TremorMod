@@ -1,26 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
 using Terraria.ID;
-using TremorMod;
-using TremorMod.Content.Items;
-using TremorMod.Content.NPCs;
-using Terraria.GameContent.Generation;
-using Terraria.ModLoader.IO;
 using Terraria.DataStructures;
-using static Terraria.ModLoader.ModContent;
 using TremorMod.Utilities;
-using Terraria.GameInput;
-using Terraria.GameContent.Events;
-using Terraria.GameContent;
-using Terraria.Audio;
-using Terraria.Graphics.Effects;
 using TremorMod.Content.NPCs.Bosses.NovaPillar.Items;
 
 namespace TremorMod.Content.Items.Weapons.Alchemical;

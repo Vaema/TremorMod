@@ -14,8 +14,6 @@ using TremorMod.Content.Items.Vanity;
 using TremorMod.Content.Items.Placeable;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Bag;
-using TremorMod.Content.Tiles;
-using TremorMod;
 using TremorMod.Utilities;
 
 // wallBottom = Wall of Flesh bottom

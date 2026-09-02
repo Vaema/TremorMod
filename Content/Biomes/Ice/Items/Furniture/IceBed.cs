@@ -1,7 +1,6 @@
 ﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using TremorMod.Content.Biomes.Ice.Items.Furniture;
 
 namespace TremorMod.Content.Biomes.Ice.Items.Furniture;
 

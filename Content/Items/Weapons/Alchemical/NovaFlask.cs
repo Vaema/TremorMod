@@ -1,11 +1,8 @@
 ﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using TremorMod;
 using TremorMod.Utilities;
-using TremorMod.Content;
 using TremorMod.Content.Buffs;
-using TremorMod.Content.Items;
 using TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles;
 using TremorMod.Content.NPCs.Bosses.NovaPillar.Items;
 

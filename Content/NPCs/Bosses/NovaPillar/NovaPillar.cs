@@ -3,21 +3,15 @@ using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.Audio;
 using Terraria.DataStructures;
-using Terraria.GameContent;
-using Terraria.Graphics;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
-using TremorMod;
-using TremorMod.Content;
 using TremorMod.Content.NPCs.Bosses.NovaPillar.NPCs;
 using TremorMod.Content.NPCs.Bosses.NovaPillar.Projectiles;
 using TremorMod.Content.NPCs.Bosses.NovaPillar.Items;
-using ReLogic.Content; // Для использования ModContent.Request
 
 namespace TremorMod.Content.NPCs.Bosses.NovaPillar;
 

@@ -5,7 +5,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Buffs;
 using TremorMod.Content.Projectiles.Minions;
-using TremorMod.Content.Items.Materials;
 
 namespace TremorMod.Content.Items.Weapons.Summon;
 

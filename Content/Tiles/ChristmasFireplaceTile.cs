@@ -24,7 +24,7 @@ public class ChristmasFireplaceTile : ModTile
     {
         if (closer)
         {
-            Player player = Main.player[Main.myPlayer];
+            Player player = Main.LocalPlayer;
             int style = Main.tile[i, j].TileFrameX / 15;
             //string type;
             player.AddBuff(BuffID.Campfire, 60, true);

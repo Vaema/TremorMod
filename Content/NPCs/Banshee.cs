@@ -67,11 +67,11 @@ public class Banshee : ModNPC
 
     public override void AI()
     {
-        if (Main.rand.Next(500) == 0)
+        if (Utils.NextBool(Main.rand, 500))
             SoundEngine.PlaySound(SoundID.Item1, NPC.position); 
-        if (Main.rand.Next(500) == 0)
+        if (Utils.NextBool(Main.rand, 500))
             SoundEngine.PlaySound(SoundID.Item2, NPC.position);  
-        if (Main.rand.Next(500) == 0)
+        if (Utils.NextBool(Main.rand, 500))
             SoundEngine.PlaySound(SoundID.Item3, NPC.position); 
 
         for (int i = NPC.oldPos.Length - 1; i > 0; i--)

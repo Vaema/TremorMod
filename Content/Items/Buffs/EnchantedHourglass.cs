@@ -32,7 +32,7 @@ namespace TremorMod.Content.Items.Buffs;
 
 		public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
 		{
-			if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].FindBuffIndex(ModContent.BuffType<HealthRecharging>()) != -1)
+			if (Main.LocalPlayer.active && Main.LocalPlayer.FindBuffIndex(ModContent.BuffType<HealthRecharging>()) != -1)
 			{
 				Item.mana = 0;
 				Item.healLife = 0;

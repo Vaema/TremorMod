@@ -65,7 +65,7 @@ public class FungusYellowSword : ModProjectile
         hitTimer = 0;
 
         // Ваши эффекты удара
-        if (Main.rand.Next(10) == 0)
+        if (Utils.NextBool(Main.rand, 10))
         {
             target.AddBuff(BuffID.Midas, 180); // Эффект "Мидас"
         }

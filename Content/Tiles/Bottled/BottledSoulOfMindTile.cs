@@ -25,7 +25,7 @@ namespace TremorMod.Content.Tiles.Bottled;
     {
         if(closer)
         {
-            Player player = Main.player[Main.myPlayer];
+            Player player = Main.LocalPlayer;
             int style = Main.tile[i, j].TileFrameX / 15;
             //string type;
             player.AddBuff(ModContent.BuffType<BottledSoulOfMindBuff>(), 60, true);

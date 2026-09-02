@@ -28,7 +28,7 @@ namespace TremorMod.Content.Projectiles;
 
     public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
     {
-        Player player = Main.player[Main.myPlayer];
+        Player player = Main.LocalPlayer;
         if (Main.rand.NextBool(2))
 			{
 				player.AddBuff(ModContent.BuffType<Light>(), 300);
@@ -55,9 +55,9 @@ namespace TremorMod.Content.Projectiles;
 					int num92 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height, ModContent.DustType<CyberDust>(), Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.1f, 100, default(Color), 0.4f);
 					Main.dust[num92].noGravity = true;
 					Dust expr_46AC_cp_0 = Main.dust[num92];
-					expr_46AC_cp_0.velocity.X = expr_46AC_cp_0.velocity.X * 0.3f;
+					expr_46AC_cp_0.velocity.X *= 0.3f;
 					Dust expr_46CA_cp_0 = Main.dust[num92];
-					expr_46CA_cp_0.velocity.Y = expr_46CA_cp_0.velocity.Y * 0.3f;
+					expr_46CA_cp_0.velocity.Y *= 0.3f;
 					Main.dust[num92].noLight = true;
 				}
 				if (Projectile.wet && !Projectile.lavaWet)

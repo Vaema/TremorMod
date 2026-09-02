@@ -62,9 +62,9 @@ namespace TremorMod.Content.Projectiles;
 		}
 
 		//////////////////////////////////////////////////////////////////////////////////
-		List<Vector2> OldPositionsLeft = new List<Vector2>();
-		List<Vector2> OldPositionsRight = new List<Vector2>();
-		List<float> OldRotations = new List<float>();
+		List<Vector2> OldPositionsLeft = [];
+		List<Vector2> OldPositionsRight = [];
+		List<float> OldRotations = [];
 		const int SavePosRate = 1;
 		int TimeToSavePos;
 		void TestDrawing()
@@ -72,20 +72,20 @@ namespace TremorMod.Content.Projectiles;
 			if (--TimeToSavePos <= 0)
 			{
 				TimeToSavePos = SavePosRate;
-				List<Vector2> newOldPositions = new List<Vector2>();
-				newOldPositions.Add(Helper.PolarPos(Projectile.position, Distanse, AngleLeft, 0, 0) - Main.screenPosition);
+				List<Vector2> newOldPositions = [Helper.PolarPos(Projectile.position, Distanse, AngleLeft, 0, 0) - Main.screenPosition];
 				for (int i = 0; i < OldPositionsLeft.Count && i < DrawCount - 1; i++)
 					newOldPositions.Add(OldPositionsLeft[i]);
 				OldPositionsLeft = newOldPositions;
 
-				newOldPositions = new List<Vector2>();
-				newOldPositions.Add(Helper.PolarPos(Projectile.position, Distanse, AngleRight, 0, 0) - Main.screenPosition - Projectile.Size / 2);
+				newOldPositions =
+                [
+                    Helper.PolarPos(Projectile.position, Distanse, AngleRight, 0, 0) - Main.screenPosition - Projectile.Size / 2,
+                ];
 				for (int i = 0; i < OldPositionsRight.Count && i < DrawCount - 1; i++)
 					newOldPositions.Add(OldPositionsRight[i]);
 				OldPositionsRight = newOldPositions;
 
-				List<float> newOldRotations = new List<float>();
-				newOldRotations.Add(Projectile.rotation);
+				List<float> newOldRotations = [Projectile.rotation];
 				for (int i = 0; i < OldRotations.Count && i < DrawCount - 1; i++)
 					newOldRotations.Add(OldRotations[i]);
 				OldRotations = newOldRotations;

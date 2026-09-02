@@ -23,7 +23,7 @@ namespace TremorMod.Content.Tiles;
 
 		public override void MouseOver(int i, int j)
 		{
-			Player player = Main.player[Main.myPlayer];
+			Player player = Main.LocalPlayer;
 			player.noThrow = 2;
 			//player.showItemIcon = true;
 			//player.showItemIcon2 = ModContent.ItemType<CogLordMusicBox>();

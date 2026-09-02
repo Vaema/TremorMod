@@ -80,7 +80,7 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
 			{
 				num146++;
 			}
-			if (Main.rand.Next(16) == 0)
+			if (Utils.NextBool(Main.rand, 16))
 			{
 				num146++;
 			}

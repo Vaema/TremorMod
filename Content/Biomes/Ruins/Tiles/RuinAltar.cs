@@ -39,7 +39,7 @@ namespace TremorMod.Content.Biomes.Ruins.Tiles;
     {
         if (closer)
         {
-            Player player = Main.player[Main.myPlayer];
+            Player player = Main.LocalPlayer;
             int style = Main.tile[i, j].TileFrameX / 15;
             //string type;
             player.AddBuff(ModContent.BuffType<RuinAltarBuff>(), 60, true);

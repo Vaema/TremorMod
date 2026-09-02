@@ -41,9 +41,9 @@ namespace TremorMod.Content.NPCs.Bosses.TikiTotem;
 					int num450 = Dust.NewDust(vector34, 1, 1, DustID.PurpleTorch, 0f, 0f, 0, default(Color), 1f);
 					Main.dust[num450].position = vector34;
 					Dust expr_13F6C_cp_0 = Main.dust[num450];
-					expr_13F6C_cp_0.position.X = expr_13F6C_cp_0.position.X + Projectile.width / 2;
+					expr_13F6C_cp_0.position.X += Projectile.width / 2;
 					Dust expr_13F90_cp_0 = Main.dust[num450];
-					expr_13F90_cp_0.position.Y = expr_13F90_cp_0.position.Y + Projectile.height / 2;
+					expr_13F90_cp_0.position.Y += Projectile.height / 2;
 					Main.dust[num450].scale = Main.rand.Next(70, 110) * 0.013f;
 					Main.dust[num450].velocity *= 0.2f;
 				}

@@ -185,20 +185,20 @@ public static class Helper
         }
         projectile.tileCollide = false;
         projectile.alpha = 255;
-        projectile.position.X = projectile.position.X + projectile.width / 2;
-        projectile.position.Y = projectile.position.Y + projectile.height / 2;
+        projectile.position.X += projectile.width / 2;
+        projectile.position.Y += projectile.height / 2;
         projectile.width = sizeX;
         projectile.height = sizeY;
-        projectile.position.X = projectile.position.X - projectile.width / 2;
-        projectile.position.Y = projectile.position.Y - projectile.height / 2;
+        projectile.position.X -= projectile.width / 2;
+        projectile.position.Y -= projectile.height / 2;
         projectile.Damage();
         Main.projectileIdentity[projectile.owner, projectile.identity] = -1;
-        projectile.position.X = projectile.position.X + projectile.width / 2;
-        projectile.position.Y = projectile.position.Y + projectile.height / 2;
+        projectile.position.X += projectile.width / 2;
+        projectile.position.Y += projectile.height / 2;
         projectile.width = (int)(sizeX / 5.8f);
         projectile.height = (int)(sizeY / 5.8f);
-        projectile.position.X = projectile.position.X - projectile.width / 2;
-        projectile.position.Y = projectile.position.Y - projectile.height / 2;
+        projectile.position.X -= projectile.width / 2;
+        projectile.position.Y -= projectile.height / 2;
         if (visualAction == null)
         {
             for (int i = 0; i < 30; i++)

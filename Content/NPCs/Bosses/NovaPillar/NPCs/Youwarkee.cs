@@ -60,8 +60,8 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.NPCs;
 			float DirectionY = player.position.Y + (player.height / 2) - 120 - StartPosition.Y;
 			float Length = (float)Math.Sqrt(DirectionX * DirectionX + DirectionY * DirectionY);
 			float Num = Speed / Length;
-			DirectionX = DirectionX * Num;
-			DirectionY = DirectionY * Num;
+			DirectionX *= Num;
+			DirectionY *= Num;
 			if (NPC.velocity.X < DirectionX)
 			{
 				NPC.velocity.X = NPC.velocity.X + Acceleration;
@@ -86,7 +86,7 @@ namespace TremorMod.Content.NPCs.Bosses.NovaPillar.NPCs;
 				if (NPC.velocity.Y > 0 && DirectionY < 0)
 					NPC.velocity.Y = NPC.velocity.Y - Acceleration;
 			}
-			if (Main.rand.Next(46) == 1)
+			if (Utils.NextBool(Main.rand, 46))
 			{
 				Vector2 StartPosition2 = new Vector2(NPC.position.X + (NPC.width * 0.5f), NPC.position.Y + (NPC.height / 2));
 				float AndasRotation = (float)Math.Atan2(StartPosition2.Y - (player.position.Y + (player.height * 0.5f)), StartPosition2.X - (player.position.X + (player.width * 0.5f)));

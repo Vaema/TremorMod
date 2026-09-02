@@ -98,7 +98,7 @@ public class NovaAlchemist : ModNPC
             return;
         }
         NPC.spriteDirection = NPC.direction;
-        if (Main.rand.Next(800) == 0)
+        if (Utils.NextBool(Main.rand, 800))
         {
             SoundEngine.PlaySound(SoundID.NPCDeath51, NPC.Center);
         }

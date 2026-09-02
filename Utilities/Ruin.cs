@@ -10,7 +10,7 @@ namespace TremorMod.Utilities;
 
 public class Ruin : ModSystem
 {
-    private List<Point16> placedRuins = new();
+    private List<Point16> placedRuins = [];
 
     public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight)
     {

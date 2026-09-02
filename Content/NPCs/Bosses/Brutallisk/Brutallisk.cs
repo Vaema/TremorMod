@@ -127,7 +127,7 @@ namespace TremorMod.Content.NPCs.Bosses.Brutallisk;
 			// Boss Minion spawning.
 			int XOffset = 1200;
 			int YOffset = 1200;
-			if (Main.rand.Next(190) == 0)
+			if (Utils.NextBool(Main.rand, 190))
 				NPC.NewNPC(Entity.GetSource_FromThis(), (int)player.Center.X + XOffset, (int)player.Center.Y - YOffset, ModContent.NPCType<Quetzalcoatl>());
 
 			timer++;
@@ -480,7 +480,7 @@ namespace TremorMod.Content.NPCs.Bosses.Brutallisk;
 
 			}
 
-			if (!Main.expertMode && Main.rand.Next(320) == 0)
+			if (!Main.expertMode && Utils.NextBool(Main.rand, 320))
 			{
 				SoundEngine.PlaySound(SoundID.Zombie97, NPC.position);
 
@@ -493,7 +493,7 @@ namespace TremorMod.Content.NPCs.Bosses.Brutallisk;
 				}
 			}
 
-			if (Main.expertMode && Main.rand.Next(310) == 0)
+			if (Main.expertMode && Utils.NextBool(Main.rand, 310))
 			{
 				SoundEngine.PlaySound(SoundID.Zombie97, NPC.position);
 
@@ -506,12 +506,12 @@ namespace TremorMod.Content.NPCs.Bosses.Brutallisk;
 				}
 			}
 
-			if (Main.rand.Next(380) == 0)
+			if (Utils.NextBool(Main.rand, 380))
 			{
 				NPC.NewNPC(Entity.GetSource_FromThis(), (int)NPC.position.X - 50, (int)NPC.position.Y, ModContent.NPCType<Naga>());
         }
 
-			if (Main.rand.Next(380) == 0)
+			if (Utils.NextBool(Main.rand, 380))
 			{
 				NPC.NewNPC(Entity.GetSource_FromThis(), (int)NPC.position.Y + 100, (int)NPC.position.Y, ModContent.NPCType<Quetzalcoatl>());
 			}

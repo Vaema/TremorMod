@@ -48,9 +48,7 @@ public class DragonShieldPlayer : ModPlayer
             DashDelay--;
 
         if (DashTimer > 0)
-        {
             DashTimer--;
-        }
     }
 
     private bool CanUseDash()

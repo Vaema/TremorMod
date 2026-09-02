@@ -36,7 +36,7 @@ namespace TremorMod.Content.Tiles;
     {
         if (closer)
         {
-            Player player = Main.player[Main.myPlayer];
+            Player player = Main.LocalPlayer;
             int style = Main.tile[i, j].TileFrameX / 100; // Èñïîëüçóåì TileFrameX âìåñòî frameX
             //string type;
             player.AddBuff(BuffID.Frostburn, 60, true);

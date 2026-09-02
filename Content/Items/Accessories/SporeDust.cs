@@ -36,8 +36,8 @@ namespace TremorMod.Content.Items.Accessories;
 					Main.dust[index].noGravity = true;
 					Main.dust[index].noLight = true;
 					Dust dust = Main.dust[index];
-					dust.velocity.X = dust.velocity.X - player.velocity.X * 0.5f;
-					dust.velocity.Y = dust.velocity.Y - player.velocity.Y * 0.5f;
+					dust.velocity.X -= player.velocity.X * 0.5f;
+					dust.velocity.Y -= player.velocity.Y * 0.5f;
 				}
 			}
 		}

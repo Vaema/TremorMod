@@ -96,8 +96,8 @@ namespace TremorMod.Content.Items.Armor.WhiteGold;
         Vector2 velocity = Helper.VelocityToPoint(Main.player[Item.playerIndexTheItemIsReservedFor].Center, Main.npc[Target].Center, ShootSpeed);
         for (int l = 0; l < ShootCount; l++)
         {
-            velocity.X = velocity.X + Main.rand.Next(-spread, spread + 1) * spreadMult;
-            velocity.Y = velocity.Y + Main.rand.Next(-spread, spread + 1) * spreadMult;
+            velocity.X += Main.rand.Next(-spread, spread + 1) * spreadMult;
+            velocity.Y += Main.rand.Next(-spread, spread + 1) * spreadMult;
             int i = Projectile.NewProjectile(Main.player[Item.playerIndexTheItemIsReservedFor].GetSource_FromThis(), Main.player[Item.playerIndexTheItemIsReservedFor].Center.X, Main.player[Item.playerIndexTheItemIsReservedFor].Center.Y, velocity.X, velocity.Y, ModContent.ProjectileType<WhiteGoldKnife>(), 100, ShootKN, Item.playerIndexTheItemIsReservedFor);
         }
     }

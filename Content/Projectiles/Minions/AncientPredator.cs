@@ -28,7 +28,7 @@ namespace TremorMod.Content.Projectiles.Minions;
 
     public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
     {
-        if (Main.rand.Next(10) == 0)
+        if (Utils.NextBool(Main.rand, 10))
         {
             target.AddBuff(BuffID.Poisoned, 80);
             target.AddBuff(BuffID.CursedInferno, 80); 

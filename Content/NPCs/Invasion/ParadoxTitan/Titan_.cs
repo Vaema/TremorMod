@@ -66,13 +66,13 @@ namespace TremorMod.Content.NPCs.Invasion.ParadoxTitan;
 
 		public override void AI()
 		{
-			Player player = Main.player[Main.myPlayer];
+			Player player = Main.LocalPlayer;
 			if (NPC.Distance(Main.player[NPC.target].position) > 5000)
 			{
 				player.position = NPC.Center;
 			}
 			Animation();
-			CyberWrathInvasion modPlayer = Main.player[Main.myPlayer].GetModPlayer<CyberWrathInvasion>();
+			CyberWrathInvasion modPlayer = Main.LocalPlayer.GetModPlayer<CyberWrathInvasion>();
 			if (InvasionWorld.CyberWrath && InvasionWorld.CyberWrathPoints1 == 97)
 			{
 				NPC.dontTakeDamage = false;

@@ -17,7 +17,7 @@ namespace TremorMod.Content.NPCs.Invasion;
 		}
 
 		int num;
-		public readonly IList<int> targets = new List<int>();
+		public readonly IList<int> targets = [];
 		public static readonly int arenaWidth = (int)(1.3f * NPC.sWidth);
 		public static readonly int arenaHeight = (int)(1.3f * NPC.sHeight);
 		public override void SetDefaults()
@@ -64,7 +64,7 @@ namespace TremorMod.Content.NPCs.Invasion;
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<CyberDust>(), 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				}
 
-				CyberWrathInvasion modPlayer = Main.player[Main.myPlayer].GetModPlayer<CyberWrathInvasion>();
+				CyberWrathInvasion modPlayer = Main.LocalPlayer.GetModPlayer<CyberWrathInvasion>();
 				if (InvasionWorld.CyberWrath && Main.rand.NextBool(4))
 				{
 					InvasionWorld.CyberWrathPoints1 += 1;

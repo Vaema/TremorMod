@@ -66,8 +66,8 @@ namespace TremorMod.Content.Projectiles;
 					Dust dust = Main.dust[dustIndex];
 					dust.noGravity = true;
 					dust.scale *= 1f;
-					dust.velocity.X = dust.velocity.X * 2f;
-					dust.velocity.Y = dust.velocity.Y * 2f;
+					dust.velocity.X *= 2f;
+					dust.velocity.Y *= 2f;
 					dust.scale *= dustScale;
 				}
 			}

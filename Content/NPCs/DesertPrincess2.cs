@@ -478,7 +478,7 @@ public class DesertPrincess2 : ModNPC
 									NPC.ai[1] = 0f;
 									NPC.ai[2] = 0f;
 									NPC.ai[3] = 0f;
-									if (NPC.CountNPCS(ModContent.NPCType<DesertPrincess2>()) < num1305 && Main.rand.Next(3) != 0)
+									if (NPC.CountNPCS(ModContent.NPCType<DesertPrincess2>()) < num1305 && Utils.NextBool(Main.rand, 3))
 									{
 										NPC.ai[0] = 4f;
 									}

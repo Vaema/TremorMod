@@ -40,12 +40,12 @@ namespace TremorMod.Content.NPCs;
 
 		public override void AI()
 		{
-			if (Main.netMode != NetmodeID.MultiplayerClient && Main.rand.Next(160) == 0)
+			if (Main.netMode != NetmodeID.MultiplayerClient && Utils.NextBool(Main.rand, 160))
 				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X - 50, (int)NPC.position.Y, ModContent.NPCType<DarkDruidMinion>());
 
-			if (Main.rand.Next(1000) == 0)
+			if (Utils.NextBool(Main.rand, 1000))
 				SoundEngine.PlaySound(SoundID.Roar, NPC.position);
-			if (Main.rand.Next(1000) == 0)
+			if (Utils.NextBool(Main.rand, 1000))
 				SoundEngine.PlaySound(SoundID.Roar, NPC.position);
 		}
 

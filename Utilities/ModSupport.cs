@@ -76,8 +76,8 @@ public class ModSupport : ModSystem
 
         int spawnItem = ModContent.ItemType<AncientMosaic>();
 
-        List<int> collectibles = new List<int>()
-        {
+        List<int> collectibles =
+        [
             ModContent.ItemType<TheGlorch>(),
             ModContent.ItemType<LongFuse>(),
             ModContent.ItemType<PlagueFlask>(),
@@ -85,7 +85,7 @@ public class ModSupport : ModSystem
             ModContent.ItemType<BadApple>(),
             ModContent.ItemType<AlchemasterTreasureBag>(),
             ModContent.ItemType<AlchemasterTrophy>()
-        };
+        ];
 
         // By default, it draws the first frame of the boss, omit if you don't need custom drawing
         // But we want to draw the bestiary texture instead, so we create the code for that to draw centered on the intended location
@@ -126,15 +126,15 @@ public class ModSupport : ModSystem
 
         int spawnItemAncientDragon = ModContent.ItemType<RustyLantern>();
 
-        List<int> collectiblesAncientDragon = new List<int>()
-        {
+        List<int> collectiblesAncientDragon =
+        [
             ModContent.ItemType<AncientDragonTrophy>(),
             ModContent.ItemType<AncientDragonMask>(),
             ModContent.ItemType<Swordstorm>(),
             ModContent.ItemType<DragonHead>(),
             ModContent.ItemType<AncientTimesEdge>(),
             ModContent.ItemType<AncientDragonBag>(),
-        };
+        ];
 
         //var customPortrait = (SpriteBatch sb, Rectangle rect, Color color) => {
         //    Texture2D texture = ModContent.Request<Texture2D>("ExampleMod/Assets/Textures/Bestiary/MinionBoss_Preview").Value;
@@ -173,15 +173,15 @@ public class ModSupport : ModSystem
 
         int spawnItemCyberKing = ModContent.ItemType<AdvancedCircuit>();
 
-        List<int> collectiblesCyberKing = new List<int>()
-        {
+        List<int> collectiblesCyberKing =
+        [
             ModContent.ItemType<CyberKingTrophy>(),
             ModContent.ItemType<CyberKingMask>(),
             ModContent.ItemType<RedStorm>(),
             ModContent.ItemType<ShockwaveClaymore>(),
             ModContent.ItemType<CyberCutter>(),
             ModContent.ItemType<CyberKingBag>(),
-        };
+        ];
 
         bossChecklistMod.Call(
             "LogBoss",
@@ -212,8 +212,8 @@ public class ModSupport : ModSystem
 
         int spawnItemTitan = ModContent.ItemType<AncientWatch>();
 
-        List<int> collectiblesTitan = new List<int>()
-        {
+        List<int> collectiblesTitan =
+        [
             ModContent.ItemType<ParadoxTitanMask>(),
             ModContent.ItemType<TimeTissue>(),
             ModContent.ItemType<RocketWand>(),
@@ -222,7 +222,7 @@ public class ModSupport : ModSystem
             ModContent.ItemType<ParadoxTitanTrophy>(),
             ModContent.ItemType<ParadoxTitanBag>(),
             ModContent.ItemType<VioleumWings>()
-        };
+        ];
 
         bossChecklistMod.Call(
             "LogBoss",
@@ -255,8 +255,8 @@ public class ModSupport : ModSystem
 
         int spawnItemCogLord = ModContent.ItemType<ArtifactEngine>();
 
-        List<int> collectiblesCogLord = new List<int>()
-        {
+        List<int> collectiblesCogLord =
+        [
             ModContent.ItemType<CogLordTrophy>(),
             ModContent.ItemType<CogLordMask>(),
             ModContent.ItemType<BrassChip>(),
@@ -265,7 +265,7 @@ public class ModSupport : ModSystem
             ModContent.ItemType<BrassChainRepeater>(),
             ModContent.ItemType<BrassStave>(),
             ModContent.ItemType<CogLordBag>()
-        };
+        ];
 
         bossChecklistMod.Call(
             "LogBoss",
@@ -298,8 +298,8 @@ public class ModSupport : ModSystem
 
         int spawnItemSpaceWhale = ModContent.ItemType<CosmicKrill>();
 
-        List<int> collectiblesSpaceWhale = new List<int>()
-        {
+        List<int> collectiblesSpaceWhale =
+        [
             ModContent.ItemType<SpaceWhaleTrophy>(),
             ModContent.ItemType<CosmicFuel>(),
             ModContent.ItemType<StarLantern>(),
@@ -309,7 +309,7 @@ public class ModSupport : ModSystem
             ModContent.ItemType<SDL>(),
             ModContent.ItemType<SpaceWhaleTreasureBag>(),
             ModContent.ItemType<WhaleFlippers>()
-        };
+        ];
 
 
         bossChecklistMod.Call(
@@ -343,8 +343,8 @@ public class ModSupport : ModSystem
 
         int spawnItemEvilCorn = ModContent.ItemType<CursedPopcorn>();
 
-        List<int> collectiblesEvilCorn = new List<int>()
-        {
+        List<int> collectiblesEvilCorn =
+        [
             ModContent.ItemType<EvilCornTrophy>(),
             ModContent.ItemType<EvilCornMask>(),
             ModContent.ItemType<GrayKnightHelmet>(),
@@ -355,7 +355,7 @@ public class ModSupport : ModSystem
             ModContent.ItemType<CornJavelin>(),
             ModContent.ItemType<FarmerShovel>(),
             ModContent.ItemType<EvilCornBag>()
-        };
+        ];
 
 
         bossChecklistMod.Call(
@@ -389,8 +389,8 @@ public class ModSupport : ModSystem
 
         int spawnItemRukh = ModContent.ItemType<DesertCrown>(); 
 
-        List<int> collectiblesRukh = new List<int>()
-        {
+        List<int> collectiblesRukh =
+        [
             ModContent.ItemType<VultureKingMask>(),
             ModContent.ItemType<VultureFeather>(),
             ModContent.ItemType<SandKnife>(),
@@ -398,7 +398,7 @@ public class ModSupport : ModSystem
             ModContent.ItemType<SandstoneBar>(),
             ModContent.ItemType<VultureKingTrophy>(),
             ModContent.ItemType<VultureKingBag>()
-        };
+        ];
 
 
         bossChecklistMod.Call(
@@ -432,8 +432,8 @@ public class ModSupport : ModSystem
 
         int spawnItemDarkE = ModContent.ItemType<EmperorCrown>();
 
-        List<int> collectiblesDarkE = new List<int>()
-        {
+        List<int> collectiblesDarkE =
+        [
             ModContent.ItemType<DarkEmperorMask>(),
             ModContent.ItemType<DarkEmperorTrophy>(),
             ModContent.ItemType<DrippingScythe>(),
@@ -442,7 +442,7 @@ public class ModSupport : ModSystem
             ModContent.ItemType<DarkGel>(),
             ModContent.ItemType<DarkEmperorBag>(),
             ModContent.ItemType<SoulofFight>()
-        };
+        ];
 
 
         bossChecklistMod.Call(
@@ -476,13 +476,13 @@ public class ModSupport : ModSystem
 
         int spawnItemFrostK = ModContent.ItemType<FrostCrown>();
 
-        List<int> collectiblesFrostK = new List<int>()
-        {
+        List<int> collectiblesFrostK =
+        [
             ModContent.ItemType<FrostKingTrophy>(),
             ModContent.ItemType<FrostKingMask>(),
             ModContent.ItemType<FrostoneOre>(),
             ModContent.ItemType<FrostKingBag>()
-        };
+        ];
 
         bossChecklistMod.Call(
             "LogBoss",
@@ -515,8 +515,8 @@ public class ModSupport : ModSystem
 
         int spawnItemAndas = ModContent.ItemType<InfernoSkulll>();
 
-        List<int> collectiblesAndas = new List<int>()
-        {
+        List<int> collectiblesAndas =
+        [
             ModContent.ItemType<AndasTrophy>(),
             ModContent.ItemType<AndasMask>(),
             ModContent.ItemType<GehennaStaff>(),
@@ -526,7 +526,7 @@ public class ModSupport : ModSystem
             ModContent.ItemType<Inferno>(),
             ModContent.ItemType<Pandemonium>(),
             ModContent.ItemType<AndasBag>()
-        };
+        ];
 
         bossChecklistMod.Call(
             "LogBoss",
@@ -559,8 +559,8 @@ public class ModSupport : ModSystem
 
         int spawnItemMotherboard = ModContent.ItemType<MechanicalBrain>();
 
-        List<int> collectiblesMotherboard = new List<int>()
-        {
+        List<int> collectiblesMotherboard =
+        [
             ModContent.ItemType<MotherboardMask>(),
             ModContent.ItemType<MotherboardTrophy>(),
             ModContent.ItemType<FlaskCore>(),
@@ -568,7 +568,7 @@ public class ModSupport : ModSystem
             ModContent.ItemType<CarbonSteel>(),
             ModContent.ItemType<BenderLegs>(),
             ModContent.ItemType<MotherboardBag>()
-        };
+        ];
 
         bossChecklistMod.Call(
             "LogBoss",
@@ -601,13 +601,13 @@ public class ModSupport : ModSystem
 
         int spawnItemHOWH = ModContent.ItemType<MoltenHeart>();
 
-        List<int> collectiblesHOWH = new List<int>()
-        {
+        List<int> collectiblesHOWH =
+        [
             ModContent.ItemType<MoltenParts>(),
             ModContent.ItemType<HeaterOfWorldsTrophy>(),
             ModContent.ItemType<HeaterOfWorldsMask>(),
             ModContent.ItemType<HeaterOfWorldsBag>()
-        };
+        ];
 
         bossChecklistMod.Call(
             "LogBoss",
@@ -640,13 +640,13 @@ public class ModSupport : ModSystem
 
         int spawnItemFungusB = ModContent.ItemType<MushroomCrystal>();
 
-        List<int> collectiblesFungusB = new List<int>()
-        {
+        List<int> collectiblesFungusB =
+        [
             ModContent.ItemType<FungusBeetleMask>(),
             ModContent.ItemType<FungusElement>(),
             ModContent.ItemType<FungusBeetleTrophy>(),
             ModContent.ItemType<FungusBeetleBag>()
-        };
+        ];
 
         bossChecklistMod.Call(
             "LogBoss",
@@ -680,8 +680,8 @@ public class ModSupport : ModSystem
 
         int spawnItemTikiTotem = ModContent.ItemType<MysteriousDrum>();
 
-        List<int> collectiblesTikiTotem = new List<int>()
-        {
+        List<int> collectiblesTikiTotem =
+        [
             ModContent.ItemType<ToxicBlade>(),
             ModContent.ItemType<JungleAlloy>(),
             ModContent.ItemType<PickaxeofBloom>(),
@@ -690,7 +690,7 @@ public class ModSupport : ModSystem
             ModContent.ItemType<IndifferentTotemMask>(),
             ModContent.ItemType<TikiTotemBag>(),
             ModContent.ItemType<ToxicHilt>()
-        };
+        ];
 
         bossChecklistMod.Call(
             "LogBoss",
@@ -723,8 +723,8 @@ public class ModSupport : ModSystem
 
         int spawnItemPixieQueen = ModContent.ItemType<PixieinaJar>();
 
-        List<int> collectiblesPixieQueen = new List<int>()
-        {
+        List<int> collectiblesPixieQueen =
+        [
             ModContent.ItemType<PixieQueenMask>(),
             ModContent.ItemType<EtherealFeather>(),
             ModContent.ItemType<PixiePulse>(),
@@ -732,7 +732,7 @@ public class ModSupport : ModSystem
             ModContent.ItemType<PixieQueenTrophy>(),
             ModContent.ItemType<ChaosBar>(),
             ModContent.ItemType<PixieQueenBag>()
-        };
+        ];
 
         bossChecklistMod.Call(
             "LogBoss",
@@ -765,8 +765,8 @@ public class ModSupport : ModSystem
 
         int spawnItemBrutallisk = ModContent.ItemType<RoyalEgg>();
 
-        List<int> collectiblesBrutallisk = new List<int>()
-        {
+        List<int> collectiblesBrutallisk =
+        [
             ModContent.ItemType<BrutalliskMask>(),
             ModContent.ItemType<LightningStaff>(),
             ModContent.ItemType<Awakening>(),
@@ -779,7 +779,7 @@ public class ModSupport : ModSystem
             ModContent.ItemType<BrutalliskTrophy>(),
             ModContent.ItemType<Aquamarine>(),
             ModContent.ItemType<BrutalliskBag>()
-        };
+        ];
 
         bossChecklistMod.Call(
             "LogBoss",
@@ -828,8 +828,8 @@ public class ModSupport : ModSystem
 
         int spawnItemWOF = ModContent.ItemType<ShadowRelic>();
 
-        List<int> collectiblesWOF = new List<int>()
-        {
+        List<int> collectiblesWOF =
+        [
             ModContent.ItemType<WallofShadowTrophy>(),
             ModContent.ItemType<WallofShadowMask>(),
             ModContent.ItemType<DarknessCloth>(),
@@ -837,7 +837,7 @@ public class ModSupport : ModSystem
             ModContent.ItemType<HeavyBeamCannon>(),
             ModContent.ItemType<Bolter>(),
             ModContent.ItemType<StrikerBlade>()
-        };
+        ];
 
         bossChecklistMod.Call(
             "LogBoss",
@@ -870,8 +870,8 @@ public class ModSupport : ModSystem
 
         int spawnItemTrinity = ModContent.ItemType<StoneofKnowledge>();
 
-        List<int> collectiblesTrinity = new List<int>()
-        {
+        List<int> collectiblesTrinity =
+        [
             ModContent.ItemType<HopeMask>(),
             ModContent.ItemType<Banhammer>(),
             ModContent.ItemType<BestNightmare>(),
@@ -882,7 +882,7 @@ public class ModSupport : ModSystem
             ModContent.ItemType<TrebleClef>(),
             ModContent.ItemType<Revolwar>(),
             ModContent.ItemType<TrinityBag3>()
-        };
+        ];
 
         bossChecklistMod.Call(
             "LogBoss",
@@ -915,8 +915,8 @@ public class ModSupport : ModSystem
 
         int spawnItemSJ = ModContent.ItemType<StormJelly>();
 
-        List<int> collectiblesSJ = new List<int>()
-        {
+        List<int> collectiblesSJ =
+        [
             ModContent.ItemType<StormJellyfishMask>(),
             ModContent.ItemType<StormBlade>(),
             ModContent.ItemType<Poseidon>(),
@@ -924,7 +924,7 @@ public class ModSupport : ModSystem
             ModContent.ItemType<BoltTome>(),
             ModContent.ItemType<StormJellyfishTrophy>(),
             ModContent.ItemType<StormJellyfishBag>()
-        };
+        ];
 
         bossChecklistMod.Call(
             "LogBoss",

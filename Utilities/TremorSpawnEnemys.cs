@@ -30,11 +30,10 @@ public partial class TremorSpawnEnemys : ModSystem
     public static bool spawnedAngelite = false;
     public static int TrinityKillCount = 0;
 
-
     public override void OnWorldLoad()
     {
-        downedTikiTotem = false; // Èçíà÷àëüíî áîññ íå óáèò
-        downedAncienDragon = false; 
+        downedTikiTotem = false;
+        downedAncienDragon = false;
         downedTrinity = false;
         downedRukh = false;
         downedSpaceWhale = false;
@@ -56,13 +55,13 @@ public partial class TremorSpawnEnemys : ModSystem
         spawnedOreAlready = false;
         spawnedCollapsium = false;
         spawnedAngelite = false;
-        TrinityKillCount = 0; 
+        TrinityKillCount = 0;
     }
 
     public override void SaveWorldData(TagCompound tag)
     {
-        tag["downedTikiTotem"] = downedTikiTotem; // Ñîõðàíÿåì ñîñòîÿíèå â ìèðå
-        tag["downedAncienDragon"] = downedAncienDragon; 
+        tag["downedTikiTotem"] = downedTikiTotem;
+        tag["downedAncienDragon"] = downedAncienDragon;
         tag["downedTrinity"] = downedTrinity;
         tag["spawnedAngeliteLast"] = spawnedAngeliteLast;
         tag["downedAlchemaster"] = downedAlchemaster;
@@ -89,7 +88,7 @@ public partial class TremorSpawnEnemys : ModSystem
 
     public override void LoadWorldData(TagCompound tag)
     {
-        downedTikiTotem = tag.GetBool("downedTikiTotem"); // Çàãðóæàåì ñîñòîÿíèå èç ìèðà
+        downedTikiTotem = tag.GetBool("downedTikiTotem");
         downedTrinity = tag.GetBool("downedTrinity");
         downedAncienDragon = tag.GetBool("downedAncienDragon");
         spawnedAngeliteLast = tag.GetBool("spawnedAngeliteLast");
@@ -113,6 +112,5 @@ public partial class TremorSpawnEnemys : ModSystem
         spawnedCollapsium = tag.GetBool("spawnedCollapsium");
         spawnedAngelite = tag.GetBool("spawnedAngelite");
         TrinityKillCount = tag.GetInt("TrinityKillCount");
-
     }
 }

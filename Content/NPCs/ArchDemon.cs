@@ -20,37 +20,37 @@ public class ArchDemon : ModNPC
         NPC.knockBackResist = 0.3f;
         NPC.width = 66;
         NPC.height = 58;
-        AnimationType = NPCID.RedDevil;
         NPC.aiStyle = NPCAIStyleID.Bat;
-        NPC.npcSlots = 15f;
+        NPC.npcSlots = 2f;
         NPC.HitSound = SoundID.NPCHit1;
         NPC.DeathSound = SoundID.NPCDeath2;
         NPC.value = Item.buyPrice(0, 0, 2, 50);
-        Banner = NPC.type;
+        Banner = Type;
         BannerItem = ModContent.ItemType<ArchDemonBanner>();
         ItemID.Sets.KillsToBanner[BannerItem] = 50;
     }
 
     public override void AI()
     {
-        if (Main.netMode != NetmodeID.MultiplayerClient && Main.rand.Next(125) == 0)
+        if (Main.netMode != NetmodeID.MultiplayerClient && Utils.NextBool(Main.rand, 125))
             NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X - 50, (int)NPC.position.Y, ModContent.NPCType<FlamingReaper>());
     }
 
     public override void HitEffect(NPC.HitInfo hit)
     {
-        int hitDirection = hit.HitDirection;
-
         if (NPC.life <= 0)
         {
             for (int k = 0; k < 20; k++)
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SeaSnail, 2.5f * hitDirection, -2.5f, 0, default, 0.7f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SeaSnail, 2.5f * hit.HitDirection, -2.5f, 0, default, 0.7f);
 
-            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ArchdemonGore1").Type, 1f);
-            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ArchdemonGore1").Type, 1f);
-            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ArchdemonGore2").Type, 1f);
-            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ArchdemonGore2").Type, 1f);
-            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ArchdemonGore3").Type, 1f);
+            if (!Main.dedServ)
+            {
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ArchdemonGore1").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ArchdemonGore1").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ArchdemonGore2").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ArchdemonGore2").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ArchdemonGore3").Type, 1f);
+            }
         }
     }
 }

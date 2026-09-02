@@ -34,7 +34,7 @@ namespace TremorMod.Content.Projectiles;
 
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			if (Main.rand.Next(10) == 0)
+			if (Utils.NextBool(Main.rand, 10))
 			{
 				target.AddBuff(BuffID.Frostburn, 60, false);
 			}

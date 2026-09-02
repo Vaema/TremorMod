@@ -31,7 +31,7 @@ namespace TremorMod.Content.Event;
 				float x = 0f;
 				if (CalIndex != -1)
 				{
-					x = Vector2.Distance(Main.player[Main.myPlayer].Center, Main.npc[CalIndex].Center);
+					x = Vector2.Distance(Main.LocalPlayer.Center, Main.npc[CalIndex].Center);
 				}
 				return 1f - Utils.SmoothStep(3000f, 6000f, x);
 			}

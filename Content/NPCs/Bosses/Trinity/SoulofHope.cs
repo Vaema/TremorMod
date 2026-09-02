@@ -74,7 +74,7 @@ namespace TremorMod.Content.NPCs.Bosses.Trinity;
 		public override void AI()
 		{
 			NPC.position += NPC.velocity * 1.7f;
-			if (Main.rand.Next(500) == 0 && Main.expertMode)
+			if (Utils.NextBool(Main.rand, 500) && Main.expertMode)
 			{
 				for (int i = 0; i < 50; i++)
 				{
@@ -88,7 +88,7 @@ namespace TremorMod.Content.NPCs.Bosses.Trinity;
 				NPC.position.Y = (Main.player[NPC.target].position.Y - 250) + Main.rand.Next(500);
 			}
 
-			if (Main.rand.Next(500) == 0 && !Main.expertMode)
+			if (Utils.NextBool(Main.rand, 500) && !Main.expertMode)
 			{
 				NPC.TargetClosest(true);
 				Vector2 vector142 = new Vector2(NPC.Center.X, NPC.Center.Y);
@@ -155,7 +155,7 @@ namespace TremorMod.Content.NPCs.Bosses.Trinity;
 				}
 			}
 
-			if (Main.rand.Next(2500) == 0)
+			if (Utils.NextBool(Main.rand, 2500))
 			{
 				NPC.NewNPC(Entity.GetSource_FromThis(), (int)NPC.position.X - 150, (int)NPC.position.Y - 50, NPCID.NebulaBrain);
 				NPC.NewNPC(Entity.GetSource_FromThis(), (int)NPC.position.X + 150, (int)NPC.position.Y - 50, NPCID.NebulaBrain);

@@ -116,8 +116,8 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss;
 				float DirectionY = Main.player[NPC.target].position.Y + (Main.player[NPC.target].height / 2) - 120 - StartPosition.Y;
 				float Length = (float)Math.Sqrt(DirectionX * DirectionX + DirectionY * DirectionY);
 				float Num = Speed / Length;
-				DirectionX = DirectionX * Num;
-				DirectionY = DirectionY * Num;
+				DirectionX *= Num;
+				DirectionY *= Num;
 				if (NPC.velocity.X < DirectionX)
 				{
 					NPC.velocity.X = NPC.velocity.X + Acceleration;
@@ -142,7 +142,7 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss;
 					if (NPC.velocity.Y > 0 && DirectionY < 0)
 						NPC.velocity.Y = NPC.velocity.Y - Acceleration;
 				}
-				if (Main.rand.Next(36) == 1)
+				if (Utils.NextBool(Main.rand, 36))
 				{
 					Vector2 StartPosition2 = new Vector2(NPC.position.X + (NPC.width * 0.5f), NPC.position.Y + (NPC.height / 2));
 					float AndasRotation = (float)Math.Atan2(StartPosition2.Y - (Main.player[NPC.target].position.Y + (Main.player[NPC.target].height * 0.5f)), StartPosition2.X - (Main.player[NPC.target].position.X + (Main.player[NPC.target].width * 0.5f)));

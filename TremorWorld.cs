@@ -55,7 +55,7 @@ public class TremorWorld : ModSystem
     {
         if (downedBoss == null)
         {
-            downedBoss = new Dictionary<Boss, bool>();
+            downedBoss = [];
         }
         foreach (Boss boss in Enum.GetValues(typeof(Boss)).Cast<Boss>())
         {
@@ -513,7 +513,7 @@ public class TremorWorld : ModSystem
 
     public override void ResetNearbyTileEffects()
     {
-        TremorPlayer modPlayer = Main.player[Main.myPlayer].GetModPlayer<TremorPlayer>();
+        TremorPlayer modPlayer = Main.LocalPlayer.GetModPlayer<TremorPlayer>();
         modPlayer.NovaMonolith = false;
     }
 

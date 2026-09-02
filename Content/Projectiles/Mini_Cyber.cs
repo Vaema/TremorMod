@@ -75,7 +75,7 @@ namespace TremorMod.Content.Projectiles;
 			if (Main.mouseLeft)
 				if ((int)(Main.time % 60) == 0)
 				{
-					Player player = Main.player[Main.myPlayer];
+					Player player = Main.LocalPlayer;
 					Vector2 Velocity = Helper.VelocityToPoint(Projectile.Center, Main.npc[NearestNPC].Center, ShootSpeed);
 					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, Velocity.X, Velocity.Y, ModContent.ProjectileType<CyberLaser>(), ShootDamage, ShootKnockback, Projectile.owner);
 				}

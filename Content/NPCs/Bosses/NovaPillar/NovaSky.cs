@@ -16,7 +16,7 @@ public class NovaSky : CustomSky
 
     public override void OnLoad()
     {
-        stars = new List<Star>();
+        stars = [];
         GenerateStars();
     }
 

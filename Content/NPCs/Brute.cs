@@ -65,7 +65,7 @@ namespace TremorMod.Content.NPCs;
 
 		public override void AI()
 		{
-			if (Main.rand.Next(1000) == 0)
+			if (Utils.NextBool(Main.rand, 1000))
 				SoundEngine.PlaySound(SoundID.Unlock, NPC.position);
 		}
 

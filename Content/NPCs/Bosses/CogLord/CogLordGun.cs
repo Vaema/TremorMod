@@ -107,8 +107,8 @@ public class CogLordGun : ModNPC
             Vector2 velocity = Helper.VelocityToPoint(NPC.Center, Main.player[Main.npc[(int)NPC.ai[1]].target].Center, ShootSpeed);
             for (int l = 0; l < 2; l++)
             {
-                velocity.X = velocity.X + Main.rand.Next(-Spread, Spread + 1) * SpreadMult;
-                velocity.Y = velocity.Y + Main.rand.Next(-Spread, Spread + 1) * SpreadMult;
+                velocity.X += Main.rand.Next(-Spread, Spread + 1) * SpreadMult;
+                velocity.Y += Main.rand.Next(-Spread, Spread + 1) * SpreadMult;
                 int i = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, velocity.X, velocity.Y, ShootType, ShootDamage, ShootKn);
                 Main.projectile[i].hostile = true;
                 Main.projectile[i].friendly = false;

@@ -39,11 +39,11 @@ namespace TremorMod.Content.NPCs.Bosses.TheDarkEmperor;
 
     public override void AI()
     {
-        if (Main.rand.Next(500) == 0)
+        if (Utils.NextBool(Main.rand, 500))
         {
             NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<DarkServant>());
         }
-        if (Main.rand.Next(150) == 0)
+        if (Utils.NextBool(Main.rand, 150))
         {
             NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<DarkSlime>());
         }

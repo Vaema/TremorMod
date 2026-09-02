@@ -7,12 +7,12 @@ public class TremorModSystem : ModSystem
 
     public override void OnWorldLoad()
     {
-        HasGeneratedCometiteOre = false; 
+        HasGeneratedCometiteOre = false;
     }
 
     public override void OnWorldUnload()
     {
-        HasGeneratedCometiteOre = false; 
+        HasGeneratedCometiteOre = false;
     }
 
     public override void SaveWorldData(TagCompound tag)

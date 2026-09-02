@@ -60,8 +60,8 @@ public class Alchemist : ModNPC
         return false;
     }
 
-    public override List<string> SetNPCNameList() => new List<string>()
-    {
+    public override List<string> SetNPCNameList() =>
+    [
         this.GetLocalizedValue("Name.Rizo"),
         this.GetLocalizedValue("Name.Albert"),
         this.GetLocalizedValue("Name.Bernando"),
@@ -69,7 +69,7 @@ public class Alchemist : ModNPC
         this.GetLocalizedValue("Name.Raymond"),
         this.GetLocalizedValue("Name.Paracelsus"),
         this.GetLocalizedValue("Name.Nerxius")
-    };
+    ];
 
     public override string GetChat()
     {

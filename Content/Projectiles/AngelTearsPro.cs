@@ -38,9 +38,9 @@ namespace TremorMod.Content.Projectiles;
 				Main.dust[num96].velocity *= 0.1f;
 				Main.dust[num96].velocity += Projectile.velocity * 0.1f;
 				Dust expr_47FA_cp_0 = Main.dust[num96];
-				expr_47FA_cp_0.position.X = expr_47FA_cp_0.position.X - num93;
+				expr_47FA_cp_0.position.X -= num93;
 				Dust expr_4815_cp_0 = Main.dust[num96];
-				expr_4815_cp_0.position.Y = expr_4815_cp_0.position.Y - num94;
+				expr_4815_cp_0.position.Y -= num94;
 			}
 			if (Main.rand.NextBool(5))
 			{

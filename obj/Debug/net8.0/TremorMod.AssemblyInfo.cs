@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TremorMod")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e651747638b8408566a3b0c8b8394eddb339beaa")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+97cd74bb0cd3d09a223b547d5a56433cf219b028")]
 [assembly: System.Reflection.AssemblyProductAttribute("TremorMod")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TremorMod")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -47,7 +47,7 @@ public class TremorSapling : ModTile
 
     public override void RandomUpdate(int i, int j)
     {
-        if (WorldGen.genRand.Next(20) == 0)
+        if (Utils.NextBool(WorldGen.genRand, 20))
         {
             bool isPlayerNear = WorldGen.PlayerLOS(i, j);
             bool success = WorldGen.GrowTree(i, j);

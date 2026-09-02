@@ -1,22 +1,22 @@
 ﻿using System.Linq;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
-using TremorMod.Content.Items.Armor.Heaven;
-using TremorMod.Content.Items.Buffs;
-using TremorMod.Content.Items.Armor.Paladin;
 using Terraria.ModLoader;
+using TremorMod.Content.Items;
+using TremorMod.Content.Items.Accessories;
+using TremorMod.Content.Items.Armor.Heaven;
+using TremorMod.Content.Items.Armor.Meteor;
+using TremorMod.Content.Items.Armor.Paladin;
 using TremorMod.Content.Items.Bag;
 using TremorMod.Content.Items.BossLoot.TikiTotem;
-using TremorMod.Content.Items.Armor.Meteor;
-using Terraria.GameContent.ItemDropRules;
-using TremorMod.Content.Items.Weapons.Alchemical;
-using TremorMod.Content.Items.Accessories;
 using TremorMod.Content.Items.BossSumonItems;
-using TremorMod.Content.Items;
+using TremorMod.Content.Items.Buffs;
 using TremorMod.Content.Items.Crystal;
 using TremorMod.Content.Items.Materials;
 using TremorMod.Content.Items.Tools;
 using TremorMod.Content.Items.Vanity;
+using TremorMod.Content.Items.Weapons.Alchemical;
 using TremorMod.Content.Items.Weapons.Magic;
 using TremorMod.Content.Items.Weapons.Melee;
 using TremorMod.Content.Items.Weapons.Ranged;
@@ -27,7 +27,6 @@ namespace TremorMod.Utilities;
 
 public class TremorNPC : GlobalNPC
 {
-
     public override void OnKill(NPC npc)
     {
         int[] moonlordNpcTypes = [147, 150, 154, 155, 161, 167, 168, 169, 184, 185, 197, 206, 431];
@@ -45,18 +44,14 @@ public class TremorNPC : GlobalNPC
 
         if (NPC.downedMoonlord)
         {
-            if (Main.player[Main.myPlayer].ZoneDungeon)
+            if (Main.LocalPlayer.ZoneDungeon)
             {
                 if (Main.rand.NextFloat() < 0.4f)
                 {
                     if (npc.lifeMax > 200 && !Main.expertMode)
-                    {
                         Item.NewItem(npc.GetSource_Loot(), npc.position, ModContent.ItemType<Phantaplasm>());
-                    }
                     if (npc.lifeMax > 400 && Main.expertMode)
-                    {
                         Item.NewItem(npc.GetSource_Loot(), npc.position, ModContent.ItemType<Phantaplasm>());
-                    }
                 }
             }
 
@@ -70,9 +65,9 @@ public class TremorNPC : GlobalNPC
 
             if (npc.type == NPCID.Retinazer || npc.type == NPCID.Spazmatism || npc.type == NPCID.SkeletronPrime || npc.type == NPCID.TheDestroyer)
             {
-                if (Main.rand.NextFloat() < 0.12f) 
+                if (Main.rand.NextFloat() < 0.12f)
                 {
-                    int amount = Main.rand.Next(1, 7); 
+                    int amount = Main.rand.Next(1, 7);
                     Item.NewItem(npc.GetSource_Loot(), npc.position, ModContent.ItemType<CarbonSteel>(), amount);
                 }
             }
@@ -140,7 +135,7 @@ public class TremorNPC : GlobalNPC
 
         if (moonlordNpcTypes.Contains(npc.type))
         {
-           npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<IceSoul>(), 7000));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<IceSoul>(), 7000));
         }
 
 
@@ -434,14 +429,14 @@ public class TremorNPC : GlobalNPC
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CreeperStaff>(), 20));
         }
 
-        if (Main.xMas && !Main.player[Main.myPlayer].HasItem(ModContent.ItemType<SuspiciousLookingPresent>()))
+        if (Main.xMas && !Main.LocalPlayer.HasItem(ModContent.ItemType<SuspiciousLookingPresent>()))
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SuspiciousLookingPresent>(), 250));
         }
 
         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SuspiciousBag>(), 10000));
 
-        if (Main.player[Main.myPlayer].ZoneDungeon)
+        if (Main.LocalPlayer.ZoneDungeon)
         {
             if (npc.lifeMax > 200 && !Main.expertMode)
             {
@@ -794,12 +789,8 @@ public class TremorNPC : GlobalNPC
 
         if (NPC.downedMoonlord && npc.boss == false && npc.townNPC == false && npc.type >= NPCID.None && npc.type <= NPCID.BartenderUnconscious)
         {
-            npc.lifeMax = npc.lifeMax * 2;
-            npc.defense = npc.defense * 2;
+            npc.lifeMax *= 2;
+            npc.defense *= 2;
         }
-
-
-
     }
-
 }

@@ -1,15 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.Utilities;
 using Terraria.DataStructures;
-using Terraria.ModLoader;
-using Terraria.Localization;
 using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
+using Terraria.Utilities;
 
 namespace TremorMod;
 
@@ -33,28 +33,28 @@ public static class TremorUtilities
     {
         string message = Language.GetTextValue(key);
         Main.NewText(message, messageColor);
-    }      
-} 
+    }
+}
 
 /// <summary>
-	/// Defines a weighted object, stores the object and the weight (double)
-	/// Default weight: 1
-	/// </summary>
-	public class WeightedObject<T>
+/// Defines a weighted object, stores the object and the weight (double)
+/// Default weight: 1
+/// </summary>
+public class WeightedObject<T>
 {
     public T Obj;
     public double Weight;
 
     public static Tuple<T, double> Tuple(T obj, double weight = 1d)
-        => new Tuple<T, double>(obj, weight);
+        => new(obj, weight);
 
     public Tuple<T, double> Tuple()
         => Tuple(Obj, Weight);
 
     public WeightedObject(T obj, double weight = 1d)
     {
-        this.Obj = obj;
-        this.Weight = weight;
+        Obj = obj;
+        Weight = weight;
     }
 }
 
@@ -62,21 +62,21 @@ public static class TremorUtilities
 /// Houses a number of utility functions used throughout the code
 /// Utility functions are often used in multiple places, thus it is more efficient to define them once
 /// </summary>
-public static class TremorUtils // ?
+public static class TremorUtils
 {
     /// <summary>
     /// Tries finding name from constant value: FindNameByConstant(typeof(ItemID), type) => name
     /// Also caches values, taken from Mirsario so credit where due. The caching is a nice feature
     /// </summary>
-    private static readonly Dictionary<Type, Dictionary<int, string>> NameFromConstCache = new Dictionary<Type, Dictionary<int, string>>();
+    private static readonly Dictionary<Type, Dictionary<int, string>> NameFromConstCache = [];
     private static readonly Type[] IntTypes = [typeof(byte), typeof(sbyte), typeof(ushort), typeof(short), typeof(uint), typeof(int), typeof(ulong), typeof(long)];
     public static string FindNameByConstant(this Type classType, int id)
     {
         Dictionary<int, string> cache;
         if (!NameFromConstCache.ContainsKey(classType))
         {
-            FieldInfo[] fields = classType.GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy).Where(f => f.IsLiteral && !f.IsInitOnly && IntTypes.Contains(f.FieldType)).ToArray();
-            cache = new Dictionary<int, string>();
+            FieldInfo[] fields = [.. classType.GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy).Where(f => f.IsLiteral && !f.IsInitOnly && IntTypes.Contains(f.FieldType))];
+            cache = [];
             for (int i = 0; i < fields.Length; i++)
             {
                 int val = Convert.ToInt32(fields[i].GetRawConstantValue());
@@ -106,7 +106,7 @@ public static class TremorUtils // ?
     public static IEnumerable<TSource> DistinctBy<TSource, TKey>
         (this IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
     {
-        HashSet<TKey> knownKeys = new HashSet<TKey>();
+        HashSet<TKey> knownKeys = [];
         foreach (TSource element in source)
         {
             if (knownKeys.Add(keySelector(element)))
@@ -121,10 +121,7 @@ public static class TremorUtils // ?
     /// </summary>
     public static void TryAdd<T1, T2>(this Dictionary<T1, T2> dict, T1 key, T2 value)
     {
-        if (!dict.ContainsKey(key))
-        {
-            dict.Add(key, value);
-        }
+        dict.TryAdd(key, value);
     }
 
     /// <summary>
@@ -192,7 +189,7 @@ public static class TremorUtils // ?
     /// Transforms the given collection of Weighted string Objects to a WeightedRandom
     /// </summary>
     public static WeightedRandom<string> ToWeightedCollection(this WeightedObject<string>[] strings)
-        => new WeightedRandom<string>(strings.Select(x => new Tuple<string, double>(x.Obj, x.Weight)).ToArray());
+        => new([.. strings.Select(x => new Tuple<string, double>(x.Obj, x.Weight))]);
 
     /// <summary>
     /// Transforms the given string collection to a WeightedRandom
@@ -217,7 +214,7 @@ public static class TremorUtils // ?
     /// The weight defaults to 1 and is not modifiable in this utility function
     /// </summary>
     public static WeightedRandom<string> ToWeightedCollection(this string[] strings)
-        => new WeightedRandom<string>(strings.Select(x => x.ToWeightedTuple()).ToArray());
+        => new([.. strings.Select(x => x.ToWeightedTuple())]);
 
     /// <summary>
     /// Transforms the given string to a WeightedTuple, holding the string and its weight
@@ -265,7 +262,6 @@ public static class TremorUtils // ?
         return Main.npc[npcIndex];
     }
 
-
     /// <summary>
     /// Spawns a new NPC on the given Entity's position, and returns the instance
     /// </summary>
@@ -277,8 +273,6 @@ public static class TremorUtils // ?
         return Main.npc[npcIndex];
     }
 
-
-
     /// <summary>
     /// Spawns an item on the given Entity's position, and returns the instance
     /// </summary>
@@ -286,8 +280,8 @@ public static class TremorUtils // ?
     {
         return Main.item[Item.NewItem(
             source,
-            new Vector2(entity.position.X, entity.position.Y), // Ïîçèöèÿ
-            new Vector2(entity.width, entity.height),          // Ðàçìåð
+            new Vector2(entity.position.X, entity.position.Y),
+            new Vector2(entity.width, entity.height),
             type,
             stack
         )];
@@ -300,8 +294,8 @@ public static class TremorUtils // ?
     {
         return Main.item[Item.NewItem(
             source,
-            position,  // Ïîçèöèÿ
-            size,      // Ðàçìåð
+            position,
+            size,
             type,
             stack
         )];
@@ -324,9 +318,8 @@ public static class TremorUtils // ?
                 return index;
             index++;
         }
-        return -1; // Âåðíóòü -1, åñëè çâóê íå íàéäåí
+        return -1;
     }*/
-
 
     /// <summary>
     /// Returns if the next random value is equal to 0
@@ -374,8 +367,10 @@ public static class TremorUtils // ?
                             1f,
                             info.playerEffect,
                             0
-                        );
-                        drawData.shader = info.cHead;
+                        )
+                        {
+                            shader = info.cHead
+                        };
                         info.DrawDataCache.Add(drawData);
                     }
                     break;
@@ -397,8 +392,10 @@ public static class TremorUtils // ?
                             1f,
                             info.playerEffect,
                             0
-                        );
-                        drawData.shader = info.cBody;
+                        )
+                        {
+                            shader = info.cBody
+                        };
                         info.DrawDataCache.Add(drawData);
                     }
                     break;
@@ -418,8 +415,10 @@ public static class TremorUtils // ?
                             1f,
                             info.playerEffect,
                             0
-                        );
-                        drawData.shader = info.cLegs;
+                        )
+                        {
+                            shader = info.cLegs
+                        };
                         info.DrawDataCache.Add(drawData);
                     }
                     break;
@@ -505,7 +504,6 @@ public static class TremorUtils // ?
             0f
         );
     }
-
 
     // DO NOT remove this method
     // The trick here is to reference System.Core is some way, in any class

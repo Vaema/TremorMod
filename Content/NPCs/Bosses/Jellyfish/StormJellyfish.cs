@@ -70,7 +70,7 @@ namespace TremorMod.Content.NPCs.Bosses.Jellyfish;
 			if (--TimeToShoot <= 0 && NPC.target != -1) Shoot(); // Â ýòîé ñòðîêå èç ïåðåìåííîé TimeToShot îòíèìàåòñÿ 1, è åñëè TimeToShot < èëè = 0, òî âûçûâàåòñÿ ìåòîä Shoot()
 			if (--TimeToShoot2 <= 0 && NPC.target != -1) Shoot2(); // Â ýòîé ñòðîêå èç ïåðåìåííîé TimeToShot îòíèìàåòñÿ 1, è åñëè TimeToShot < èëè = 0, òî âûçûâàåòñÿ ìåòîä Shoot()
 
-			if (Main.rand.Next(400) == 0)
+			if (Utils.NextBool(Main.rand, 400))
 			{
 				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<FlyingJelly>());
 			}

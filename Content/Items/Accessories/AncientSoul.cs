@@ -29,7 +29,7 @@ namespace TremorMod.Content.Items.Accessories;
 
     public override void UpdateAccessory(Player player, bool hideVisual)
     {
-        if (Main.rand.Next(250) == 0)
+        if (Utils.NextBool(Main.rand, 250))
         {
             if (player.ownedProjectileCounts[ModContent.ProjectileType<AncientShield>()] <= 4)
             {

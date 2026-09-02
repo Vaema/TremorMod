@@ -101,10 +101,10 @@ namespace TremorMod.Content.NPCs.Bosses.AndasBoss;
 			Main.dust[dust2].scale = 0.9f;
 			if (Math.Sqrt((Projectile.velocity.X * Projectile.velocity.X) + (Projectile.velocity.Y * Projectile.velocity.Y)) < 14f)
 			{
-				if (Main.rand.Next(24) == 1)
+				if (Utils.NextBool(Main.rand, 24))
 				{
-					direction.X = direction.X * Main.rand.Next(20, 24);
-					direction.Y = direction.Y * Main.rand.Next(20, 24);
+					direction.X *= Main.rand.Next(20, 24);
+					direction.Y *= Main.rand.Next(20, 24);
 					Projectile.velocity.X = direction.X;
 					Projectile.velocity.Y = direction.Y;
 				}

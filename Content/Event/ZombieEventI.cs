@@ -101,110 +101,110 @@ namespace TremorMod.Content.Event;
         if (ZWorld.ZInvasion)
         {
             //Always
-            if (Main.rand.Next(3000) == 1)
+            if (Utils.NextBool(Main.rand, 3000))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X + XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("Arsonist").Type);
-            if (Main.rand.Next(700) == 1)
+            if (Utils.NextBool(Main.rand, 700))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X + XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("Deadling1").Type);
-            if (Main.rand.Next(700) == 1)
+            if (Utils.NextBool(Main.rand, 700))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X + XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("Deadling2").Type);
-            if (Main.rand.Next(700) == 1)
+            if (Utils.NextBool(Main.rand, 700))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X + XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("Deadling3").Type);
-            if (Main.rand.Next(2250) == 1)
+            if (Utils.NextBool(Main.rand, 2250))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X + XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("FatSack").Type);
 
-            if (Main.rand.Next(3000) == 1)
+            if (Utils.NextBool(Main.rand, 3000))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X - XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("Arsonist").Type);
-            if (Main.rand.Next(700) == 1)
+            if (Utils.NextBool(Main.rand, 700))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X - XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("Deadling1").Type);
-            if (Main.rand.Next(700) == 1)
+            if (Utils.NextBool(Main.rand, 700))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X - XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("Deadling2").Type);
-            if (Main.rand.Next(700) == 1)
+            if (Utils.NextBool(Main.rand, 700))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X - XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("Deadling3").Type);
-            if (Main.rand.Next(2250) == 1)
+            if (Utils.NextBool(Main.rand, 2250))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X - XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("FatSack").Type);
             //EoC defeated
-            if (NPC.downedBoss1 && Main.rand.Next(4000) == 1)
+            if (NPC.downedBoss1 && Utils.NextBool(Main.rand, 4000))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X + XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("FarmerZombie").Type);
 
-            if (NPC.downedBoss1 && Main.rand.Next(4000) == 1)
+            if (NPC.downedBoss1 && Utils.NextBool(Main.rand, 4000))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X - XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("FarmerZombie").Type);
             //EoW/BoC defeated
-            if (NPC.downedBoss2 && Main.rand.Next(3000) == 1)
+            if (NPC.downedBoss2 && Utils.NextBool(Main.rand, 3000))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X + XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("Zombat").Type);
-            if (NPC.downedBoss2 && Main.rand.Next(8000) == 1)
+            if (NPC.downedBoss2 && Utils.NextBool(Main.rand, 8000))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X + XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("DiceZombie").Type);
-            if (NPC.downedBoss2 && Main.rand.Next(5000) == 1)
+            if (NPC.downedBoss2 && Utils.NextBool(Main.rand, 5000))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X + XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("Zombeast").Type);
-            if (NPC.downedBoss2 && Main.rand.Next(1000) == 1)
+            if (NPC.downedBoss2 && Utils.NextBool(Main.rand, 1000))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X + XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("PetrifiedZombie1").Type);
-            if (NPC.downedBoss2 && Main.rand.Next(1000) == 1)
+            if (NPC.downedBoss2 && Utils.NextBool(Main.rand, 1000))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X + XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("PetrifiedZombie2").Type);
-            if (NPC.downedBoss2 && Main.rand.Next(1000) == 1)
+            if (NPC.downedBoss2 && Utils.NextBool(Main.rand, 1000))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X + XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("PetrifiedZombie3").Type);
 
-            if (NPC.downedBoss2 && Main.rand.Next(3000) == 1)
+            if (NPC.downedBoss2 && Utils.NextBool(Main.rand, 3000))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X - XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("Zombat").Type);
-            if (NPC.downedBoss2 && Main.rand.Next(8000) == 1)
+            if (NPC.downedBoss2 && Utils.NextBool(Main.rand, 8000))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X - XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("DiceZombie").Type);
-            if (NPC.downedBoss2 && Main.rand.Next(5000) == 1)
+            if (NPC.downedBoss2 && Utils.NextBool(Main.rand, 5000))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X - XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("Zombeast").Type);
-            if (NPC.downedBoss2 && Main.rand.Next(1000) == 1)
+            if (NPC.downedBoss2 && Utils.NextBool(Main.rand, 1000))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X - XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("PetrifiedZombie1").Type);
-            if (NPC.downedBoss2 && Main.rand.Next(1000) == 1)
+            if (NPC.downedBoss2 && Utils.NextBool(Main.rand, 1000))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X - XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("PetrifiedZombie2").Type);
-            if (NPC.downedBoss2 && Main.rand.Next(1000) == 1)
+            if (NPC.downedBoss2 && Utils.NextBool(Main.rand, 1000))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X - XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("PetrifiedZombie3").Type);
             //Skeletron defeated
-            if (NPC.downedBoss3 && Main.rand.Next(10000) == 1)
+            if (NPC.downedBoss3 && Utils.NextBool(Main.rand, 10000))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X + XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("Painmaker").Type);
-            if (NPC.downedBoss3 && Main.rand.Next(6000) == 1)
+            if (NPC.downedBoss3 && Utils.NextBool(Main.rand, 6000))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X + XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("SpearZombie").Type);
-            if (NPC.downedBoss3 && Main.rand.Next(6000) == 1)
+            if (NPC.downedBoss3 && Utils.NextBool(Main.rand, 6000))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X + XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("Zombomber").Type);
 
-            if (NPC.downedBoss3 && Main.rand.Next(10000) == 1)
+            if (NPC.downedBoss3 && Utils.NextBool(Main.rand, 10000))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X - XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("Painmaker").Type);
-            if (NPC.downedBoss3 && Main.rand.Next(6000) == 1)
+            if (NPC.downedBoss3 && Utils.NextBool(Main.rand, 6000))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X - XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("SpearZombie").Type);
-            if (NPC.downedBoss3 && Main.rand.Next(6000) == 1)
+            if (NPC.downedBoss3 && Utils.NextBool(Main.rand, 6000))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X - XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("Zombomber").Type);
             //Hardmode
-            if (NPC.downedMechBossAny && Main.rand.Next(20000) == 1)
+            if (NPC.downedMechBossAny && Utils.NextBool(Main.rand, 20000))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X + XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("Almagron").Type);
-            if (Main.hardMode && Main.rand.Next(15000) == 1)
+            if (Main.hardMode && Utils.NextBool(Main.rand, 15000))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X + XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("Cryptomage").Type);
-            if (Main.hardMode && Main.rand.Next(12500) == 1)
+            if (Main.hardMode && Utils.NextBool(Main.rand, 12500))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X + XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("Dapperblook").Type);
-            if (Main.hardMode && Main.rand.Next(10000) == 1)
+            if (Main.hardMode && Utils.NextBool(Main.rand, 10000))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X + XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("Scourge").Type);
-            if (Main.hardMode && Main.rand.Next(8550) == 1)
+            if (Main.hardMode && Utils.NextBool(Main.rand, 8550))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X + XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("Bonecing").Type);
-            if (Main.hardMode && Main.rand.Next(6000) == 1)
+            if (Main.hardMode && Utils.NextBool(Main.rand, 6000))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X + XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("TheHaunt").Type);
-            if (Main.hardMode && Main.rand.Next(4375) == 1)
+            if (Main.hardMode && Utils.NextBool(Main.rand, 4375))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X + XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("GhoulOfficer").Type);
-            if (Main.hardMode && Main.rand.Next(1055) == 1)
+            if (Main.hardMode && Utils.NextBool(Main.rand, 1055))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X + XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("Corpse1").Type);
-            if (Main.hardMode && Main.rand.Next(1055) == 1)
+            if (Main.hardMode && Utils.NextBool(Main.rand, 1055))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X + XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("Corpse2").Type);
 
-            if (NPC.downedMechBossAny && Main.rand.Next(20000) == 1)
+            if (NPC.downedMechBossAny && Utils.NextBool(Main.rand, 20000))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X - XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("Almagron").Type);
-            if (Main.hardMode && Main.rand.Next(15000) == 1)
+            if (Main.hardMode && Utils.NextBool(Main.rand, 15000))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X - XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("Cryptomage").Type);
-            if (Main.hardMode && Main.rand.Next(12500) == 1)
+            if (Main.hardMode && Utils.NextBool(Main.rand, 12500))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X - XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("Dapperblook").Type);
-            if (Main.hardMode && Main.rand.Next(10000) == 1)
+            if (Main.hardMode && Utils.NextBool(Main.rand, 10000))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X - XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("Scourge").Type);
-            if (Main.hardMode && Main.rand.Next(8550) == 1)
+            if (Main.hardMode && Utils.NextBool(Main.rand, 8550))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X - XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("Bonecing").Type);
-            if (Main.hardMode && Main.rand.Next(6000) == 1)
+            if (Main.hardMode && Utils.NextBool(Main.rand, 6000))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X - XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("TheHaunt").Type);
-            if (Main.hardMode && Main.rand.Next(4375) == 1)
+            if (Main.hardMode && Utils.NextBool(Main.rand, 4375))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X - XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("GhoulOfficer").Type);
-            if (Main.hardMode && Main.rand.Next(1055) == 1)
+            if (Main.hardMode && Utils.NextBool(Main.rand, 1055))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X - XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("Corpse1").Type);
-            if (Main.hardMode && Main.rand.Next(1055) == 1)
+            if (Main.hardMode && Utils.NextBool(Main.rand, 1055))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X - XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("Corpse2").Type);
         }
 

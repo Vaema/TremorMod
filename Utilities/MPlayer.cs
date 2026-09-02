@@ -266,8 +266,8 @@ public class MPlayer : ModPlayer
                 var recipes = Main.recipe.Where(x => x.createItem.type == piece);
                 foreach (Recipe recipe in recipes)
                 {
-                    reqItems = reqItems.Concat(recipe.requiredItem).ToList();
-                    reqTiles = reqTiles.Concat(recipe.requiredTile).ToList();
+                    reqItems = [.. reqItems, .. recipe.requiredItem];
+                    reqTiles = [.. reqTiles, .. recipe.requiredTile];
                 }
             }
 
@@ -283,11 +283,11 @@ public class MPlayer : ModPlayer
                 }
             }
             reqItems = new List<Item>(combItems);
-            reqTiles = reqTiles.Distinct().ToList();
+            reqTiles = [.. reqTiles.Distinct()];
 
             // get non empty entries
-            reqItems = reqItems.Where(x => !x.IsAir).ToList();
-            reqTileNames = reqTiles.Where(x => x > 0).Select(x => typeof(TileID).FindNameByConstant((ushort)x)).ToList();
+            reqItems = [.. reqItems.Where(x => !x.IsAir)];
+            reqTileNames = [.. reqTiles.Where(x => x > 0).Select(x => typeof(TileID).FindNameByConstant((ushort)x))];
             int i = reqTileNames.IndexOf("Anvils");
             if (i != -1)
             {

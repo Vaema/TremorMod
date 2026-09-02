@@ -337,23 +337,23 @@ namespace TremorMod.Content.NPCs;
 					}
 					Gore gore = Main.gore[Gore.NewGore(NPC.GetSource_Death(), new Vector2(NPC.position.X + NPC.width / 2 - 24f, NPC.position.Y + NPC.height / 2 - 24f), default(Vector2), Main.rand.Next(61, 64))];
 					gore.velocity *= scaleFactor10;
-					gore.velocity.X = gore.velocity.X + 1f;
-					gore.velocity.Y = gore.velocity.Y + 1f;
+					gore.velocity.X++;
+					gore.velocity.Y++;
 
 					gore = Main.gore[Gore.NewGore(NPC.GetSource_Death(), new Vector2(NPC.position.X + NPC.width / 2 - 24f, NPC.position.Y + NPC.height / 2 - 24f), default(Vector2), Main.rand.Next(61, 64), 2f)];
 					gore.velocity *= scaleFactor10;
-					gore.velocity.X = gore.velocity.X - 1f;
-					gore.velocity.Y = gore.velocity.Y + 1f;
+					gore.velocity.X--;
+					gore.velocity.Y++;
 
 					gore = Main.gore[Gore.NewGore(NPC.GetSource_Death(), new Vector2(NPC.position.X + NPC.width / 2 - 24f, NPC.position.Y + NPC.height / 2 - 24f), default(Vector2), Main.rand.Next(61, 64))];
 					gore.velocity *= scaleFactor10;
-					gore.velocity.X = gore.velocity.X + 1f;
-					gore.velocity.Y = gore.velocity.Y - 1f;
+					gore.velocity.X++;
+					gore.velocity.Y--;
 
 					gore = Main.gore[Gore.NewGore(NPC.GetSource_Death(), new Vector2(NPC.position.X + NPC.width / 2 - 24f, NPC.position.Y + NPC.height / 2 - 24f), default(Vector2), Main.rand.Next(61, 64))];
 					gore.velocity *= scaleFactor10;
-					gore.velocity.X = gore.velocity.X - 1f;
-					gore.velocity.Y = gore.velocity.Y - 1f;
+					gore.velocity.X--;
+					gore.velocity.Y--;
 				}
 				NPC.position.X = NPC.position.X + NPC.width / 2;
 				NPC.position.Y = NPC.position.Y + NPC.height / 2;

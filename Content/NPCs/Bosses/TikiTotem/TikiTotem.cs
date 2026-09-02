@@ -62,7 +62,7 @@ namespace TremorMod.Content.NPCs.Bosses.TikiTotem;
 		bool _flag1 = true;
 		bool _flag2 = true;
 		bool _flag3 = true;
-		List<int> _tikiSouls = new List<int>();
+		List<int> _tikiSouls = [];
 
 		// todo: rework the fuck out of this, lol
 		public override void AI()
@@ -102,13 +102,13 @@ namespace TremorMod.Content.NPCs.Bosses.TikiTotem;
 			{
 				NPC.aiStyle = -1;
 				NPC.dontTakeDamage = false;
-				if (Main.rand.Next(280) == 0 && NPC.CountNPCS(ModContent.NPCType<TikiWarrior>()) < 7)
+				if (Utils.NextBool(Main.rand, 280) && NPC.CountNPCS(ModContent.NPCType<TikiWarrior>()) < 7)
 				{
                 NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<TikiWarrior>());
 
 				}
 
-				if (Main.rand.Next(180) == 0 && NPC.CountNPCS(ModContent.NPCType<TikiWarrior>()) < 4)
+				if (Utils.NextBool(Main.rand, 180) && NPC.CountNPCS(ModContent.NPCType<TikiWarrior>()) < 4)
 				{
                 NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<TikiWarrior>());
 				}

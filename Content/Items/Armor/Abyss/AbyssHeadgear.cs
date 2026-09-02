@@ -82,8 +82,8 @@ namespace TremorMod.Content.Items.Armor.Abyss;
 					Main.dust[index].noGravity = true;
 					Main.dust[index].noLight = true;
 					Dust dust = Main.dust[index];
-					dust.velocity.X = dust.velocity.X - player.velocity.X * 0.5f;
-					dust.velocity.Y = dust.velocity.Y - player.velocity.Y * 0.5f;
+					dust.velocity.X -= player.velocity.X * 0.5f;
+					dust.velocity.Y -= player.velocity.Y * 0.5f;
 				}
 			}
 		}
@@ -121,8 +121,8 @@ namespace TremorMod.Content.Items.Armor.Abyss;
 			Vector2 velocity = Helper.VelocityToPoint(Main.player[Item.playerIndexTheItemIsReservedFor].Center, Main.npc[Target].Center, ShootSpeed);
 			for (int l = 0; l < ShootCount; l++)
 			{
-				velocity.X = velocity.X + Main.rand.Next(-spread, spread + 1) * spreadMult;
-				velocity.Y = velocity.Y + Main.rand.Next(-spread, spread + 1) * spreadMult;
+				velocity.X += Main.rand.Next(-spread, spread + 1) * spreadMult;
+				velocity.Y += Main.rand.Next(-spread, spread + 1) * spreadMult;
 				int i = Projectile.NewProjectile(Main.player[Item.playerIndexTheItemIsReservedFor].GetSource_FromThis(), Main.player[Item.playerIndexTheItemIsReservedFor].Center.X, Main.player[Item.playerIndexTheItemIsReservedFor].Center.Y, velocity.X, velocity.Y, ShootType, Damage, ShootKN, Item.playerIndexTheItemIsReservedFor);
 			}
 		}

@@ -211,7 +211,7 @@ public class CogLord : ModNPC
             {
                 for (int k = 0; k < ((Main.expertMode) ? 2 : 1); k++)
                 {
-                    Vector2 velocity = Helper.VelocityToPoint(NPC.Center, Helper.RandomPointInArea(new Vector2(Main.player[Main.myPlayer].Center.X - 10, Main.player[Main.myPlayer].Center.Y - 10), new Vector2(Main.player[Main.myPlayer].Center.X + 20, Main.player[Main.myPlayer].Center.Y + 20)), 20);
+                    Vector2 velocity = Helper.VelocityToPoint(NPC.Center, Helper.RandomPointInArea(new Vector2(Main.LocalPlayer.Center.X - 10, Main.LocalPlayer.Center.Y - 10), new Vector2(Main.LocalPlayer.Center.X + 20, Main.LocalPlayer.Center.Y + 20)), 20);
                     int i = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, velocity.X, velocity.Y, ProjectileID.RocketI, GetLaserDamage * ((Main.expertMode) ? 3 : 2), 1f);
                     Main.projectile[i].hostile = true;
                     Main.projectile[i].tileCollide = true;

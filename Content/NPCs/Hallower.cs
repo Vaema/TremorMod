@@ -68,7 +68,7 @@ namespace TremorMod.Content.NPCs;
 		{
 			if (Main.rand.NextBool(6))
 				Main.dust[Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Pixie, 0f, 0f, 200, NPC.color)].velocity *= 0.3f;
-			if (Main.rand.Next(40) == 0)
+			if (Utils.NextBool(Main.rand, 40))
 				SoundEngine.PlaySound(SoundID.Pixie, NPC.position);
 		}
 

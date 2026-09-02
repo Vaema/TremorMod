@@ -65,8 +65,8 @@ namespace TremorMod.Content.NPCs.TownNPCs;
         return false;
     }
 
-    public override List<string> SetNPCNameList() => new List<string>()
-    {
+    public override List<string> SetNPCNameList() =>
+    [
         this.GetLocalizedValue("Name.Richard"),
         this.GetLocalizedValue("Name.Oliver"),
         this.GetLocalizedValue("Name.Alan"),
@@ -75,7 +75,7 @@ namespace TremorMod.Content.NPCs.TownNPCs;
         this.GetLocalizedValue("Name.Anthony"),
         this.GetLocalizedValue("Name.Jerome"),
         this.GetLocalizedValue("Name.Liam")
-    };
+    ];
 
     public override string GetChat()
     {

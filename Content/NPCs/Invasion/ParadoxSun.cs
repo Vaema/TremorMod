@@ -36,7 +36,7 @@ namespace TremorMod.Content.NPCs.Invasion;
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
-			CyberWrathInvasion modPlayer = Main.player[Main.myPlayer].GetModPlayer<CyberWrathInvasion>();
+			CyberWrathInvasion modPlayer = Main.LocalPlayer.GetModPlayer<CyberWrathInvasion>();
 			//float spawn = 20f;
 			if (InvasionWorld.CyberWrath)
 				return 10000f;
@@ -59,7 +59,7 @@ namespace TremorMod.Content.NPCs.Invasion;
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<CyberDust>(), 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				}
 
-				CyberWrathInvasion modPlayer = Main.player[Main.myPlayer].GetModPlayer<CyberWrathInvasion>();
+				CyberWrathInvasion modPlayer = Main.LocalPlayer.GetModPlayer<CyberWrathInvasion>();
 				if (InvasionWorld.CyberWrath && Main.rand.NextBool(2))
 				{
 					InvasionWorld.CyberWrathPoints1 += 2;
@@ -89,7 +89,7 @@ namespace TremorMod.Content.NPCs.Invasion;
 
     public override void AI()
 		{
-			if (Main.rand.Next(320) == 5)
+			if (Utils.NextBool(Main.rand, 320))
 			{
 				do
 				{

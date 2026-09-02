@@ -36,7 +36,7 @@ namespace TremorMod.Content.Projectiles;
 			float num615 = 1f;
 			int num616 = 150;
 			int num617 = 42;
-			if (Main.rand.Next(15) == 0)
+			if (Utils.NextBool(Main.rand, 15))
 			{
 				Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.DungeonWater, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
 			}

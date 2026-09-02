@@ -73,7 +73,7 @@ namespace TremorMod.Content.NPCs.Bosses.Trinity;
 		public override void AI()
 		{
 			NPC.position += NPC.velocity * 1.7f;
-			if (Main.rand.Next(500) == 0 && Main.expertMode)
+			if (Utils.NextBool(Main.rand, 500) && Main.expertMode)
 			{
 				for (int i = 0; i < 50; i++)
 				{
@@ -87,7 +87,7 @@ namespace TremorMod.Content.NPCs.Bosses.Trinity;
 				NPC.position.Y = (Main.player[NPC.target].position.Y - 250) + Main.rand.Next(500);
 			}
 
-			if (Main.rand.Next(500) == 0 && !Main.expertMode)
+			if (Utils.NextBool(Main.rand, 500) && !Main.expertMode)
 			{
 				NPC.TargetClosest(true);
 				Vector2 vector142 = new Vector2(NPC.Center.X, NPC.Center.Y);
@@ -154,7 +154,7 @@ namespace TremorMod.Content.NPCs.Bosses.Trinity;
 				}
 			}
 
-			if (Main.expertMode && Main.rand.Next(7500) == 0)
+			if (Main.expertMode && Utils.NextBool(Main.rand, 7500))
 			{
 				NPC.NewNPC(Entity.GetSource_FromThis(), (int)NPC.position.X - 150, (int)NPC.position.Y - 150, NPCID.NebulaHeadcrab);
 				NPC.NewNPC(Entity.GetSource_FromThis(), (int)NPC.position.X + 150, (int)NPC.position.Y - 150, NPCID.NebulaHeadcrab);
@@ -261,8 +261,8 @@ namespace TremorMod.Content.NPCs.Bosses.Trinity;
 				float spreadMult = 0.05f;
 				for (int l = 0; l < 2; l++)
 				{
-					velocity.X = velocity.X + Main.rand.Next(-spread, spread + 1) * spreadMult;
-					velocity.Y = velocity.Y + Main.rand.Next(-spread, spread + 1) * spreadMult;
+					velocity.X += Main.rand.Next(-spread, spread + 1) * spreadMult;
+					velocity.Y += Main.rand.Next(-spread, spread + 1) * spreadMult;
                 int i = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y + 20, velocity.X, velocity.Y, ShootType, PowerLaserDamage, PowerLaserKB);
 					Main.projectile[i].hostile = true;
 					Main.projectile[i].friendly = false;

@@ -66,8 +66,8 @@ namespace TremorMod.Content.Projectiles;
 					Dust dust = Main.dust[dustIndex];
 					dust.noGravity = true;
 					dust.scale *= 1f;
-					dust.velocity.X = dust.velocity.X * 2f;
-					dust.velocity.Y = dust.velocity.Y * 2f;
+					dust.velocity.X *= 2f;
+					dust.velocity.Y *= 2f;
 					dust.scale *= dustScale;
 				}
 			}
@@ -80,7 +80,7 @@ namespace TremorMod.Content.Projectiles;
 
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			if (Main.rand.Next(10) == 0)
+			if (Utils.NextBool(Main.rand, 10))
 			{
 				target.AddBuff(BuffID.CursedInferno, 500, false);
 			}

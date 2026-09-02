@@ -49,7 +49,7 @@ namespace TremorMod.Content.NPCs;
 				TimeToShoot = 0;
 			}
 
-			if (Main.netMode != NetmodeID.MultiplayerClient && Main.rand.Next(210) == 0)
+			if (Main.netMode != NetmodeID.MultiplayerClient && Utils.NextBool(Main.rand, 210))
 				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + 50, (int)NPC.position.Y, NPCID.CursedSkull);
 
 			for (int i = NPC.oldPos.Length - 1; i > 0; i--)

@@ -65,7 +65,7 @@ namespace TremorMod.Content.NPCs.Bosses.AncienDragon;
             }
         }
 
-        if (NPC.life < NPC.lifeMax / 2 && Main.netMode != NetmodeID.MultiplayerClient && time == 0 && Main.rand.Next(9000) == 0)
+        if (NPC.life < NPC.lifeMax / 2 && Main.netMode != NetmodeID.MultiplayerClient && time == 0 && Utils.NextBool(Main.rand, 9000))
         {
             time = 1;
 

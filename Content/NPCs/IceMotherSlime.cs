@@ -35,7 +35,7 @@ namespace TremorMod.Content.NPCs;
 
 		public override void AI()
 		{
-			if (Main.rand.Next(10) == 0)
+			if (Utils.NextBool(Main.rand, 10))
 				Main.dust[Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Ice, 0f, 0f, 200, NPC.color)].velocity *= 0.3f;
 		}
 

@@ -59,15 +59,15 @@ namespace TremorMod.Content.NPCs.TownNPCs;
         return false;
     }
 
-    public override List<string> SetNPCNameList() => new List<string>()
-    {
+    public override List<string> SetNPCNameList() =>
+    [
         this.GetLocalizedValue("Name.Azazel"),
         this.GetLocalizedValue("Name.Baphomet"),
         this.GetLocalizedValue("Name.Vaal"),
         this.GetLocalizedValue("Name.Dis"),
         this.GetLocalizedValue("Name.Nisroke"),
         this.GetLocalizedValue("Name.Sabnak")
-    };
+    ];
 
     public override string GetChat()
     {

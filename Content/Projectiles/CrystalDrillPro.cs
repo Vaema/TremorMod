@@ -33,7 +33,7 @@ public class CrystalDrillPro : ModProjectile
 
     public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
     {
-        if (Main.rand.Next(10) == 0)
+        if (Utils.NextBool(Main.rand, 10))
         {
             target.AddBuff(BuffID.OnFire, 60); // Ïðèìåíÿåò ýôôåêò "Ãîðåíèå" íà 60 êàäðîâ.
         }
@@ -41,7 +41,7 @@ public class CrystalDrillPro : ModProjectile
 
     public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
     {
-        if (Main.rand.Next(10) == 0)
+        if (Utils.NextBool(Main.rand, 10))
         {
             target.AddBuff(BuffID.OnFire, 60); // Ïðèìåíÿåò ýôôåêò "Ãîðåíèå" íà 60 êàäðîâ.
         }

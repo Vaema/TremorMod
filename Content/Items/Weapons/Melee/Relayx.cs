@@ -69,8 +69,10 @@ namespace TremorMod.Content.Items.Weapons.Melee;
 
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
-			TooltipLine tip = new TooltipLine(Mod, "TremorMod:Tooltip", "-Donator Items-");
-			tip.OverrideColor = new Color(119, 200, 203);
-			tooltips.Insert(3, tip);
+        TooltipLine tip = new TooltipLine(Mod, "TremorMod:Tooltip", "-Donator Items-")
+        {
+            OverrideColor = new Color(119, 200, 203)
+        };
+        tooltips.Insert(3, tip);
 		}
 	}

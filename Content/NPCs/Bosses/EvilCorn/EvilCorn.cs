@@ -208,7 +208,7 @@ namespace TremorMod.Content.NPCs.Bosses.EvilCorn;
 		#endregion
 
 		bool NeedPrepere = true;
-		List<int> Stadyes = new List<int> { 0, 1, 2, 3 };
+		List<int> Stadyes = [0, 1, 2, 3];
 		int NextStady = -1;
 		void RechangeStage()
 		{
@@ -216,7 +216,7 @@ namespace TremorMod.Content.NPCs.Bosses.EvilCorn;
 			{
 				if (Stadyes.Contains(State))
 					Stadyes.Remove(State);
-				if (Stadyes.Count <= 0) { Stadyes = new List<int> { 0, 1, 2, 3 }; Stadyes.Remove(State); }
+				if (Stadyes.Count <= 0) { Stadyes = [0, 1, 2, 3]; Stadyes.Remove(State); }
 				int ID = Main.rand.Next(0, Stadyes.Count);
 				NextStady = Stadyes[ID];
 				Stadyes.RemoveAt(ID);

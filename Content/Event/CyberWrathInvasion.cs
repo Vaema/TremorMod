@@ -36,19 +36,19 @@ namespace TremorMod.Content.Event;
         if (InvasionWorld.CyberWrath)
         {
             //Main.spriteBatch.Draw(Main.blackTileTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), new Color(200, 200, 200) * 0.5f);
-            if (Main.rand.Next(700) == 1)
+            if (Utils.NextBool(Main.rand, 700))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X + XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("InvisibleSoul").Type);
-            if (Main.rand.Next(700) == 1)
+            if (Utils.NextBool(Main.rand, 700))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X - XOffset, (int)Player.Center.Y, Mod.Find<ModNPC>("InvisibleSoul").Type);
 
-            if (Main.rand.Next(150) == 1)
+            if (Utils.NextBool(Main.rand, 150))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X + XOffset, (int)Player.Center.Y + YOffset, Mod.Find<ModNPC>("ParadoxBat").Type);
-            if (Main.rand.Next(150) == 1)
+            if (Utils.NextBool(Main.rand, 150))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X - XOffset, (int)Player.Center.Y - YOffset, Mod.Find<ModNPC>("ParadoxBat").Type);
 
-            if (Main.rand.Next(500) == 1)
+            if (Utils.NextBool(Main.rand, 500))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X + XOffset, (int)Player.Center.Y + YOffset, Mod.Find<ModNPC>("ParadoxSun").Type);
-            if (Main.rand.Next(500) == 1)
+            if (Utils.NextBool(Main.rand, 500))
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)Player.Center.X - XOffset, (int)Player.Center.Y + YOffset, Mod.Find<ModNPC>("ParadoxSun").Type);
         }
 

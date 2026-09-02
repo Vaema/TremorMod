@@ -40,7 +40,7 @@ namespace TremorMod.Content.NPCs.Invasion;
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
-			CyberWrathInvasion modPlayer = Main.player[Main.myPlayer].GetModPlayer<CyberWrathInvasion>();
+			CyberWrathInvasion modPlayer = Main.LocalPlayer.GetModPlayer<CyberWrathInvasion>();
 			//float spawn = 20f;
 			if (InvasionWorld.CyberWrath)
 				return 1000f;
@@ -63,7 +63,7 @@ namespace TremorMod.Content.NPCs.Invasion;
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<CyberDust>(), 2.5f * hitDirection, -2.5f, 0, default(Color), 0.7f);
 				}
 
-				CyberWrathInvasion modPlayer = Main.player[Main.myPlayer].GetModPlayer<CyberWrathInvasion>();
+				CyberWrathInvasion modPlayer = Main.LocalPlayer.GetModPlayer<CyberWrathInvasion>();
 				if (InvasionWorld.CyberWrath && Main.rand.NextBool(2))
 				{
 					InvasionWorld.CyberWrathPoints1 += 1;
@@ -135,7 +135,7 @@ namespace TremorMod.Content.NPCs.Invasion;
 				SecondState = true;
 			}
 
-			if (Main.rand.Next(150) == 0)
+			if (Utils.NextBool(Main.rand, 150))
 			{
 				for (int num36 = 0; num36 < 25; num36++)
 				{
@@ -211,7 +211,7 @@ namespace TremorMod.Content.NPCs.Invasion;
 
 				customAi1 += (Main.rand.Next(2, 5) * 0.1f) * NPC.scale;
 				if (customAi1 >= 4f)
-					if (Main.rand.Next(120) == 1)
+					if (Utils.NextBool(Main.rand, 120))
 					{
 						SoundEngine.PlaySound(SoundID.DoubleJump, NPC.position);
 						float Angle = (float)Math.Atan2(NPos.Y - PTC.Y, NPos.X - PTC.X);
@@ -257,7 +257,7 @@ namespace TremorMod.Content.NPCs.Invasion;
 			{
 				Vector2 PTC = Main.player[NPC.target].position + new Vector2(NPC.width / 2, NPC.height / 2);
 				Vector2 NPos = NPC.position + new Vector2(NPC.width / 2, NPC.height / 2);
-				if (Main.rand.Next(70) == 1)
+				if (Utils.NextBool(Main.rand, 70))
 				{
 					SoundEngine.PlaySound(SoundID.DoubleJump, NPC.position);
 					float Angle = (float)Math.Atan2(NPos.Y - PTC.Y, NPos.X - PTC.X);

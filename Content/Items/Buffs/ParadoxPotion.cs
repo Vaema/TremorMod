@@ -47,7 +47,7 @@ namespace TremorMod.Content.Items.Buffs;
 		public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
 		{
 			SoundEngine.PlaySound(SoundID.Item3, player.position);
-			Main.player[Main.myPlayer].HealEffect(300);
+        Main.LocalPlayer.HealEffect(300);
 			player.statLife += 300;
 			return true;
 		}

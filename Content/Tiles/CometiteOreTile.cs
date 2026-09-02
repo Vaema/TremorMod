@@ -23,7 +23,7 @@ namespace TremorMod.Content.Tiles;
 
     public override void KillMultiTile(int i, int j, int frameX, int frameY)
     {
-        if (Main.rand.Next(10) == 0)
+        if (Utils.NextBool(Main.rand, 10))
         {
             // Ñîçäàéòå èñòî÷íèê äëÿ ñîáûòèÿ (ðàçðóøåíèå ïëèòêè)
             IEntitySource source = new EntitySource_TileBreak(i, j);

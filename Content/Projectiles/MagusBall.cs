@@ -76,9 +76,9 @@ namespace TremorMod.Content.Projectiles;
 					int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.BlueCrystalShard, 0f, -2f, 0, default(Color), 2f);
 					Main.dust[num].noGravity = true;
 					Dust expr_62_cp_0 = Main.dust[num];
-					expr_62_cp_0.position.X = expr_62_cp_0.position.X + (Main.rand.Next(-50, 51) / 20 - 1.5f);
+					expr_62_cp_0.position.X += (Main.rand.Next(-50, 51) / 20 - 1.5f);
 					Dust expr_92_cp_0 = Main.dust[num];
-					expr_92_cp_0.position.Y = expr_92_cp_0.position.Y + (Main.rand.Next(-50, 51) / 20 - 1.5f);
+					expr_92_cp_0.position.Y += (Main.rand.Next(-50, 51) / 20 - 1.5f);
 					if (Main.dust[num].position != Projectile.Center)
 					{
 						Main.dust[num].velocity = Projectile.DirectionTo(Main.dust[num].position) * 6f;

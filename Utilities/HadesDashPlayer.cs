@@ -48,9 +48,7 @@ public class HadesDashPlayer : ModPlayer
             DashDelay--;
 
         if (DashTimer > 0)
-        {
             DashTimer--;
-        }
     }
 
     private bool CanUseDash()

@@ -73,7 +73,7 @@ public class NovaHandler : ModSystem
         int spawnX = Main.spawnTileX; // Координата X точки спавна игрока
         int spawnY = Main.spawnTileY; // Координата Y точки спавна игрока
         int offset = 100; // Расстояние от спавна в блоках
-        int x = spawnX + (Main.rand.Next(2) == 0 ? offset : -offset); // Случайное смещение на 100 блоков вправо или влево
+        int x = spawnX + (Utils.NextBool(Main.rand, 2) ? offset : -offset); // Случайное смещение на 100 блоков вправо или влево
 
         Vector2 spawnPos = new Vector2(x * 16, spawnY * 16);
 

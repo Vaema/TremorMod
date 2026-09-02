@@ -38,7 +38,7 @@ namespace TremorMod.Content.NPCs;
 		{
 			Lighting.AddLight(NPC.position, 1f, 0.3f, 0.3f);
 
-			if (Main.netMode != NetmodeID.MultiplayerClient && Main.rand.Next(750) == 0)
+			if (Main.netMode != NetmodeID.MultiplayerClient && Utils.NextBool(Main.rand, 750))
 				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, NPCID.GiantTortoise);
 		}
 

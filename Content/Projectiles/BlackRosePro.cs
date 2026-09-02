@@ -31,7 +31,7 @@ namespace TremorMod.Content.Projectiles;
 
     public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
     {
-        if (Main.rand.Next(10) == 0)
+        if (Utils.NextBool(Main.rand, 10))
         {
             target.AddBuff(BuffID.OnFire, 180); // Ïðèìåíÿåò ýôôåêò "Ãîðåíèå" íà 60 êàäðîâ.
         }

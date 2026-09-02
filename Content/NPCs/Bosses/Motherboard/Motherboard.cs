@@ -92,7 +92,7 @@ namespace TremorMod.Content.NPCs.Bosses.Motherboard;
 	{
 		public Stage1(int followPlayerTime, int disappearingTime, int appearingTime) : base(followPlayerTime, disappearingTime, appearingTime) { }
 
-		private List<int> _signalDrones = new List<int>(); // ID of Signal Drones
+		private List<int> _signalDrones = []; // ID of Signal Drones
 
 		private const int DroneSpawnAreaX = 300; // Area size in which Drone can spawn by X value
 		private const int DroneSpawnAreaY = 300; // Area size in which Drone can spawn by Y value
@@ -115,11 +115,11 @@ namespace TremorMod.Content.NPCs.Bosses.Motherboard;
 		{
 			int lastKnownDrone = _lastSignalDrone != -1 ? _signalDrones[_lastSignalDrone] : -1;
 
-			_signalDrones = _signalDrones.Where(x =>
+			_signalDrones = [.. _signalDrones.Where(x =>
 				{
 					NPC npc = Main.npc[x];
 					return npc.active && npc.type == ModContent.NPCType<SignalDrone>();
-				}).ToList();
+				})];
 
 			_lastSignalDrone = _signalDrones.FindIndex(x => x == lastKnownDrone);
 		}
@@ -263,7 +263,7 @@ namespace TremorMod.Content.NPCs.Bosses.Motherboard;
 	{
 		public Stage2(int followPlayerTime, int disappearingTime, int appearingTime) : base(followPlayerTime, disappearingTime, appearingTime) { }
 
-		private List<int> _clampers = new List<int>(); // Clampers list
+		private List<int> _clampers = []; // Clampers list
 
 		public override int FrameOffset => 3;
 
@@ -274,13 +274,13 @@ namespace TremorMod.Content.NPCs.Bosses.Motherboard;
 
     public override void Start(Motherboard boss)
 		{
-			_clampers = new List<int>
-			{
-				NPC.NewNPC(boss.NPC.GetSource_FromThis(),(int) boss.NPC.Center.X - 15, (int) boss.NPC.Center.Y + 25, boss.Mod.Find<ModNPC>("Clamper").Type, 0, 0, 0, 0, boss.NPC.whoAmI),
+			_clampers =
+            [
+                NPC.NewNPC(boss.NPC.GetSource_FromThis(),(int) boss.NPC.Center.X - 15, (int) boss.NPC.Center.Y + 25, boss.Mod.Find<ModNPC>("Clamper").Type, 0, 0, 0, 0, boss.NPC.whoAmI),
 				NPC.NewNPC(boss.NPC.GetSource_FromThis(),(int) boss.NPC.Center.X - 10, (int) boss.NPC.Center.Y + 25, boss.Mod.Find<ModNPC>("Clamper").Type, 0, 0, 0, 0, boss.NPC.whoAmI),
 				NPC.NewNPC(boss.NPC.GetSource_FromThis(),(int) boss.NPC.Center.X + 10, (int) boss.NPC.Center.Y + 25, boss.Mod.Find<ModNPC>("Clamper").Type, 0, 0, 0, 0, boss.NPC.whoAmI),
 				NPC.NewNPC(boss.NPC.GetSource_FromThis(),(int) boss.NPC.Center.X + 15, (int) boss.NPC.Center.Y + 25, boss.Mod.Find<ModNPC>("Clamper").Type, 0, 0, 0, 0, boss.NPC.whoAmI)
-			};
+			];
 
 			for (int i = 0; i <= 3; i++)
 			{
@@ -296,11 +296,11 @@ namespace TremorMod.Content.NPCs.Bosses.Motherboard;
 
 		private void CheckClampers(Motherboard boss)
 		{
-			_clampers = _clampers.Where(x =>
+			_clampers = [.. _clampers.Where(x =>
 			{
 				NPC npc = Main.npc[x];
 				return npc.active && npc.type == boss.Mod.Find<ModNPC>("Clamper").Type;
-			}).ToList();
+			})];
 
 			// Spawn clamper strings (laser)
 			if (Main.netMode != NetmodeID.MultiplayerClient)

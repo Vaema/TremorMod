@@ -148,7 +148,7 @@ namespace TremorMod.Content.NPCs.Bosses.PixieQueen;
 				{
 					phase3 = true;
 				}
-				if (Main.rand.Next(300) == 0)
+				if (Utils.NextBool(Main.rand, 300))
 				{
 					SoundEngine.PlaySound(SoundID.Zombie35, NPC.position);
 				}
@@ -583,7 +583,7 @@ namespace TremorMod.Content.NPCs.Bosses.PixieQueen;
 				NPC.ai[1]++;
 				if (NPC.ai[1] >= 100 && NPC.ai[1] < 200)
 				{
-					if (Main.rand.Next(10) == 0)
+					if (Utils.NextBool(Main.rand, 10))
 					{
 						NPC.velocity.X *= 5.00f;
 						NPC.velocity.Y *= 5.00f;
@@ -621,7 +621,7 @@ namespace TremorMod.Content.NPCs.Bosses.PixieQueen;
             NPC.velocity.Y = 0;
             NPC.velocity.X = 0;
             NPC.rotation = 0f;
-            if (Main.rand.Next(70) == 0)
+            if (Utils.NextBool(Main.rand, 70))
             {
                 NPC.NewNPC(Entity.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<PixieQueenGuardian>());
             }

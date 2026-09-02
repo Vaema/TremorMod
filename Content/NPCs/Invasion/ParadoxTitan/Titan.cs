@@ -121,12 +121,12 @@ namespace TremorMod.Content.NPCs.Invasion.ParadoxTitan;
 			Animation();
 			Vector2 PTC = Main.player[NPC.target].position + new Vector2(NPC.width / 2, NPC.height / 2);
 			Vector2 NPos = NPC.position + new Vector2(NPC.width / 2, NPC.height / 2);
-			if (Main.rand.Next(150) == 0)
+			if (Utils.NextBool(Main.rand, 150))
 			{
 				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, Mod.Find<ModNPC>("TitanCrystal").Type);
 			}
 
-			if (Main.rand.Next(150) == 1)
+			if (Utils.NextBool(Main.rand, 150))
 			{
 				Vector2 vector8 = new Vector2(NPC.position.X + (NPC.width * 0.5f), NPC.position.Y + (NPC.height / 2));
 				float rotation = (float)Math.Atan2(vector8.Y - (Main.player[NPC.target].position.Y + (Main.player[NPC.target].height * 0.5f)), vector8.X - (Main.player[NPC.target].position.X + (Main.player[NPC.target].width * 0.5f)));
@@ -135,7 +135,7 @@ namespace TremorMod.Content.NPCs.Invasion.ParadoxTitan;
 				NPC.netUpdate = true;
 			}
 
-			if (Main.rand.Next(250) == 1)
+			if (Utils.NextBool(Main.rand, 250))
 			{
 				Vector2 vector8 = new Vector2(NPC.position.X + (NPC.width * 0.5f), NPC.position.Y + (NPC.height / 2));
 				float rotation = (float)Math.Atan2(vector8.Y - (Main.player[NPC.target].position.Y + (Main.player[NPC.target].height * 0.5f)), vector8.X - (Main.player[NPC.target].position.X + (Main.player[NPC.target].width * 0.5f)));
@@ -144,7 +144,7 @@ namespace TremorMod.Content.NPCs.Invasion.ParadoxTitan;
 				NPC.netUpdate = true;
 			}
 
-			if (Main.rand.Next(350) == 1) //6 комбо
+			if (Utils.NextBool(Main.rand, 350)) //6 комбо
 			{
 				Vector2 vector8 = new Vector2(NPC.position.X + (NPC.width * 0.5f), NPC.position.Y + (NPC.height / 2));
 				float rotation = (float)Math.Atan2(vector8.Y - (Main.player[NPC.target].position.Y + (Main.player[NPC.target].height * 0.5f)), vector8.X - (Main.player[NPC.target].position.X + (Main.player[NPC.target].width * 0.5f)));

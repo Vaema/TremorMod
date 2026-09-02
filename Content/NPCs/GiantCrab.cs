@@ -55,7 +55,7 @@ namespace TremorMod.Content.NPCs;
 
 		public override void OnKill()
 		{
-			if (Main.rand.Next(25) == 0)
+			if (Utils.NextBool(Main.rand, 25))
 			{
 				Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<CrabClaw>());
 			}

@@ -169,22 +169,22 @@ namespace TremorMod.Content.NPCs.Bosses.FungusBeetle;
 				NPC.rotation = NPC.velocity.X * 0.05f;
 			}
 
-			if (Main.rand.Next(120) == 0 && !Main.expertMode)
+			if (Utils.NextBool(Main.rand, 120) && !Main.expertMode)
 			{
 				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X - 70, (int)NPC.Center.Y, NPCID.FungiSpore);
 			}
 
-			if (Main.rand.Next(110) == 0 && Main.expertMode)
+			if (Utils.NextBool(Main.rand, 110) && Main.expertMode)
 			{
 				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X - 70, (int)NPC.Center.Y, NPCID.FungiSpore);
 			}
 
-			if (Main.rand.Next(200) == 0)
+			if (Utils.NextBool(Main.rand, 200))
 			{
 				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X - 70, (int)NPC.Center.Y, ModContent.NPCType<LittleMushroomBug>());
 			}
 
-			if (Main.rand.Next(500) == 0)
+			if (Utils.NextBool(Main.rand, 500))
 			{
 				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X - 70, (int)NPC.Center.Y, ModContent.NPCType<GreatFungusBug>());
 			}
@@ -222,7 +222,7 @@ namespace TremorMod.Content.NPCs.Bosses.FungusBeetle;
 				if (NPC.ai[1] >= 10f)
 				{
 					NPC.TargetClosest(true);
-					if (Main.rand.Next(60) == 0)
+					if (Utils.NextBool(Main.rand, 60))
 					{
 						Vector2 vector8 = new Vector2(NPC.position.X + (NPC.width * 0.5f), NPC.position.Y + (NPC.height / 2));
 						float rotation = (float)Math.Atan2(vector8.Y - (Main.player[NPC.target].position.Y + (Main.player[NPC.target].height * 0.5f)), vector8.X - (Main.player[NPC.target].position.X + (Main.player[NPC.target].width * 0.5f)));

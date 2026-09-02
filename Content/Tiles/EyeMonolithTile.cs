@@ -26,7 +26,7 @@ namespace TremorMod.Content.Tiles;
     {
         if(closer)
         {
-            Player player = Main.player[Main.myPlayer];
+            Player player = Main.LocalPlayer;
             int style = Main.tile[i, j].TileFrameX / 15;
             //string type;
             player.AddBuff(ModContent.BuffType<EyeMonolithBuff>(), 60, true);

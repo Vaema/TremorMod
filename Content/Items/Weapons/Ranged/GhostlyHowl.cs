@@ -75,7 +75,7 @@ namespace TremorMod.Content.Items.Weapons.Ranged;
         if (Main.rand.NextBool(2)) num146++;
         if (Main.rand.NextBool(4)) num146++;
         if (Main.rand.NextBool(8)) num146++;
-        if (Main.rand.Next(16) == 0) num146++;
+        if (Utils.NextBool(Main.rand, 16)) num146++;
 
         for (int num147 = 0; num147 < num146; num147++)
         {

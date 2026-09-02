@@ -214,9 +214,9 @@ namespace TremorMod;
 						{
 							int num23 = Dust.NewDust(new Vector2(Player.position.X, Player.position.Y), Player.width, Player.height, DustID.BlueTorch, 0f, 0f, 100, default(Color), 2f);
 							Dust dust3 = Main.dust[num23];
-							dust3.position.X = dust3.position.X + Main.rand.Next(-5, 6);
+							dust3.position.X += Main.rand.Next(-5, 6);
 							Dust dust4 = Main.dust[num23];
-							dust4.position.Y = dust4.position.Y + Main.rand.Next(-5, 6);
+							dust4.position.Y += Main.rand.Next(-5, 6);
 							Main.dust[num23].velocity *= 0.2f;
 							Main.dust[num23].scale *= 1f + Main.rand.Next(20) * 0.01f;
 							Main.dust[num23].shader = GameShaders.Armor.GetSecondaryShader(Player.shield, Player);
@@ -271,7 +271,7 @@ namespace TremorMod;
 		}
     public override void ModifyHurt(ref Player.HurtModifiers modifiers)
     {
-        if (zellariumBody && Main.rand.Next(10) == 0)
+        if (zellariumBody && Utils.NextBool(Main.rand, 10))
         {
             // Åñëè zellariumBody àêòèâåí, òî ïðîñòî çàâåðøàåì ìåòîä áåç èçìåíåíèé
             return;
@@ -390,10 +390,10 @@ namespace TremorMod;
 			}
 			if (ZoneComet)
 			{
-				Player player = Main.player[Main.myPlayer]; // Ïîëó÷àåì òåêóùåãî èãðîêà
+				Player player = Main.LocalPlayer; // Ïîëó÷àåì òåêóùåãî èãðîêà
 				IEntitySource source = player.GetSource_FromThis(); // Èñòî÷íèê ïîÿâëåíèÿ NPC
 
-				if (Main.rand.Next(310) == 0)
+				if (Utils.NextBool(Main.rand, 310))
 				{
 					switch (Main.rand.Next(0, 4))
 					{
@@ -408,7 +408,7 @@ namespace TremorMod;
 					}
 				}
 
-				if (Main.rand.Next(700) == 0)
+				if (Utils.NextBool(Main.rand, 700))
 				{
 					switch (Main.rand.Next(0, 4))
 					{
@@ -423,7 +423,7 @@ namespace TremorMod;
 					}
 				}
 
-				if (Main.rand.Next(860) == 0)
+				if (Utils.NextBool(Main.rand, 860))
 				{
 					switch (Main.rand.Next(0, 4))
 					{

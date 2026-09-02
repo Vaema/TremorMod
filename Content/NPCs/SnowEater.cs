@@ -130,9 +130,9 @@ namespace TremorMod.Content.NPCs;
 					{
 						int num690 = Dust.NewDust(new Vector2(NPC.position.X - 4f, NPC.position.Y + NPC.height - 8f), NPC.width + 8, 24, DustID.Ice, 0f, NPC.velocity.Y / 2f, 0, default(Color), 1f);
 						Dust expr_28A1C_cp_0 = Main.dust[num690];
-						expr_28A1C_cp_0.velocity.X = expr_28A1C_cp_0.velocity.X * 0.4f;
+						expr_28A1C_cp_0.velocity.X *= 0.4f;
 						Dust expr_28A3C_cp_0 = Main.dust[num690];
-						expr_28A3C_cp_0.velocity.Y = expr_28A3C_cp_0.velocity.Y * -1f;
+						expr_28A3C_cp_0.velocity.Y *= -1f;
 						if (Main.rand.NextBool(2))
 						{
 							Main.dust[num690].noGravity = true;

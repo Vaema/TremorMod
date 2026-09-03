@@ -4,48 +4,37 @@ using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items;
 
-	public class WarpPad : ModItem
-	{
+public class WarpPad : ModItem
+{
+    public override void SetDefaults()
+    {
+        Item.UseSound = SoundID.Item6;
+        Item.useStyle = ItemUseStyleID.HoldUp;
+        Item.useAnimation = 30;
+        Item.useTime = 30;
+        Item.width = Item.height = 32;
+        Item.value = 60000;
+        Item.rare = ItemRarityID.Yellow;
+        Item.mana = 10;
+    }
 
-		public override void SetDefaults()
-		{
+    public override bool? UseItem(Player player)
+    {
+        if (player.lastDeathPostion != player.position && player.showLastDeath)
+        {
+            player.Teleport(player.lastDeathPostion, 1, 0);
+            NetMessage.SendData(MessageID.TeleportEntity, -1, -1, null, 0, player.whoAmI, player.lastDeathPostion.X, player.lastDeathPostion.Y, 1, 0, 0);
+            player.showLastDeath = false;
+            return true;
+        }
+        return null;
+    }
 
-			Item.UseSound = SoundID.Item6;
-			Item.useStyle = ItemUseStyleID.HoldUp;
-			Item.useAnimation = 30;
-			Item.useTime = 30;
-			Item.width = 32;
-			Item.height = 32;
+    public override bool CanUseItem(Player player)
+    {
+        if (!player.showLastDeath)
+            return false;
 
-			Item.value = 60000;
-			Item.rare = ItemRarityID.Yellow;
-			Item.mana = 10;
-		}
-
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Warp Pad");
-			// Tooltip.SetDefault("Teleports you to your last death point upon use");
-		}
-
-		public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
-		{
-			if (player.lastDeathPostion != player.position && player.showLastDeath)
-			{
-				player.Teleport(player.lastDeathPostion, 1, 0);
-				//NetMessage.SendData(65, -1, -1, "", 0, player.whoAmI, player.lastDeathPostion.X, player.lastDeathPostion.Y, 1, 0, 0);
-				player.showLastDeath = false;
-				return true;
-			}
-			return false;
-		}
-
-		public override bool CanUseItem(Player player)
-		{
-			if (!player.showLastDeath)
-			{
-				return false;
-			}
-			return true;
-		}
-	}
+        return true;
+    }
+}

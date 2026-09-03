@@ -1,81 +1,68 @@
 ﻿using System;
 using System.Collections.Generic;
 using Terraria.ModLoader;
-using TremorMod.Content.Items.CyberKing;
-using TremorMod.Content.NPCs.Bosses;
-using TremorMod.Content.Items.Materials.OreAndBar;
-using TremorMod.Content.NPCs.Bosses.AncienDragon;
-using TremorMod.Content.NPCs.Bosses.Alchemaster;
-using TremorMod.Content.Items.BossSumonItems;
-using TremorMod.Content.Items.Vanity;
-using TremorMod.Content.Items.Placeable;
-using TremorMod.Content.Items.Weapons.Alchemical;
-using TremorMod.Content.Items.Weapons.Melee;
-using TremorMod.Content.Items.Accessories;
-using TremorMod.Content.Items.Bag;
 using TremorMod.Content.Items;
-using TremorMod.Content.Items.Weapons.Magic;
-using TremorMod.Content.NPCs.Invasion.ParadoxTitan;
+using TremorMod.Content.Items.Accessories;
+using TremorMod.Content.Items.AndasItems;
+using TremorMod.Content.Items.Bag;
+using TremorMod.Content.Items.BossLoot.TheDarkEmperor;
+using TremorMod.Content.Items.BossLoot.TikiTotem;
+using TremorMod.Content.Items.BossSumonItems;
+using TremorMod.Content.Items.CogLordItems;
+using TremorMod.Content.Items.CyberKing;
+using TremorMod.Content.Items.EvilCornItems;
+using TremorMod.Content.Items.Fungus;
+using TremorMod.Content.Items.HeaterOfWorldsItems;
 using TremorMod.Content.Items.Materials;
+using TremorMod.Content.Items.Materials.OreAndBar;
+using TremorMod.Content.Items.Placeable;
+using TremorMod.Content.Items.SpaceWhaleItems;
+using TremorMod.Content.Items.Vanity;
+using TremorMod.Content.Items.Weapons.Alchemical;
+using TremorMod.Content.Items.Weapons.Magic;
+using TremorMod.Content.Items.Weapons.Melee;
 using TremorMod.Content.Items.Weapons.Ranged;
 using TremorMod.Content.Items.Weapons.Summon;
 using TremorMod.Content.Items.Weapons.Throwing;
-using TremorMod.Content.NPCs.Bosses.CogLord;
-using TremorMod.Content.Items.CogLordItems;
-using TremorMod.Content.NPCs.Bosses.SpaceWhale;
-using TremorMod.Content.Items.SpaceWhaleItems;
-using TremorMod.Content.Items.EvilCornItems;
-using TremorMod.Content.NPCs.Bosses.EvilCorn;
-using TremorMod.Content.NPCs.Bosses.Rukh;
-using TremorMod.Content.NPCs.Bosses.TheDarkEmperor;
-using TremorMod.Content.Items.BossLoot.TheDarkEmperor;
-using TremorMod.Content.NPCs.Bosses.FrostKing;
+using TremorMod.Content.NPCs.Bosses;
+using TremorMod.Content.NPCs.Bosses.Alchemaster;
+using TremorMod.Content.NPCs.Bosses.AncienDragon;
 using TremorMod.Content.NPCs.Bosses.AndasBoss;
-using TremorMod.Content.Items.AndasItems;
-using TremorMod.Content.NPCs.Bosses.Motherboard;
-using TremorMod.Content.NPCs.Bosses.FungusBeetle;
-using TremorMod.Content.Items.Fungus;
-using TremorMod.Content.Items.HeaterOfWorldsItems;
-using TremorMod.Content.NPCs.Bosses.TikiTotem;
-using TremorMod.Content.NPCs.Bosses.PixieQueen;
-using TremorMod.Content.Items.BossLoot.TikiTotem;
 using TremorMod.Content.NPCs.Bosses.Brutallisk;
-using TremorMod.Content.NPCs.Bosses.WallofShadows;
-using TremorMod.Content.NPCs.Bosses.Trinity;
+using TremorMod.Content.NPCs.Bosses.CogLord;
+using TremorMod.Content.NPCs.Bosses.EvilCorn;
+using TremorMod.Content.NPCs.Bosses.FrostKing;
+using TremorMod.Content.NPCs.Bosses.FungusBeetle;
 using TremorMod.Content.NPCs.Bosses.Jellyfish;
+using TremorMod.Content.NPCs.Bosses.Motherboard;
+using TremorMod.Content.NPCs.Bosses.PixieQueen;
+using TremorMod.Content.NPCs.Bosses.Rukh;
+using TremorMod.Content.NPCs.Bosses.SpaceWhale;
+using TremorMod.Content.NPCs.Bosses.TheDarkEmperor;
+using TremorMod.Content.NPCs.Bosses.TikiTotem;
+using TremorMod.Content.NPCs.Bosses.Trinity;
+using TremorMod.Content.NPCs.Bosses.WallofShadows;
+using TremorMod.Content.NPCs.Invasion.ParadoxTitan;
 
 namespace TremorMod.Utilities;
 
 public class ModSupport : ModSystem
 {
-    public override void PostSetupContent()
-    {
+    public override void PostSetupContent() =>
         DoBossChecklistIntegration();
-    }
 
     private void DoBossChecklistIntegration()
     {
-
         if (!ModLoader.TryGetMod("BossChecklist", out Mod bossChecklistMod))
-        {
             return;
-        }
-
         if (bossChecklistMod.Version < new Version(1, 6))
-        {
             return;
-        }
 
         string internalName = "Alchemaster";
-
         float weight = 7.3f;
-
         Func<bool> downed = () => !TremorSpawnEnemys.downedAlchemaster;
-
         int bossType = ModContent.NPCType<Alchemaster>();
-
         int spawnItem = ModContent.ItemType<AncientMosaic>();
-
         List<int> collectibles =
         [
             ModContent.ItemType<TheGlorch>(),
@@ -87,8 +74,8 @@ public class ModSupport : ModSystem
             ModContent.ItemType<AlchemasterTrophy>()
         ];
 
-        // By default, it draws the first frame of the boss, omit if you don't need custom drawing
-        // But we want to draw the bestiary texture instead, so we create the code for that to draw centered on the intended location
+        // By default, it draws the first frame of the boss, omit if you don't need custom drawing.
+        // We want to draw the bestiary texture instead, so we create the code for that to draw centered on the intended location.
         //var customPortrait = (SpriteBatch sb, Rectangle rect, Color color) => {
         //    Texture2D texture = ModContent.Request<Texture2D>("ExampleMod/Assets/Textures/Bestiary/MinionBoss_Preview").Value;
         //    Vector2 centered = new Vector2(rect.X + (rect.Width / 2) - (texture.Width / 2), rect.Y + (rect.Height / 2) - (texture.Height / 2));
@@ -107,25 +94,15 @@ public class ModSupport : ModSystem
                 ["spawnItems"] = spawnItem,
                 ["collectibles"] = collectibles,
                 //["customPortrait"] = customPortrait
-                // Other optional arguments as needed are inferred from the wiki
+                // Other optional arguments as needed are inferred from the wiki.
             }
         );
 
-        if (bossChecklistMod.Version < new Version(1, 6))
-        {
-            return;
-        }
-
         string internalNameAncientDragon = "AncientDragon";
-
         float weightAncientDragon = 5.7f;
-
         Func<bool> downedAncientDragon = () => !TremorSpawnEnemys.downedAncienDragon;
-
         int bossTypeAncientDragon = ModContent.NPCType<Dragon_HeadB>();
-
         int spawnItemAncientDragon = ModContent.ItemType<RustyLantern>();
-
         List<int> collectiblesAncientDragon =
         [
             ModContent.ItemType<AncientDragonTrophy>(),
@@ -158,21 +135,11 @@ public class ModSupport : ModSystem
             }
         );
 
-        if (bossChecklistMod.Version < new Version(1, 6))
-        {
-            return;
-        }
-
         string internalNameCyberKing = "CyberKing";
-
         float weightCyberKing = 13.6f;
-
         Func<bool> downedCyberKing = () => !TremorSpawnEnemys.downedCyberKing;
-
         int bossTypeCyberKing = ModContent.NPCType<CyberKing>();
-
         int spawnItemCyberKing = ModContent.ItemType<AdvancedCircuit>();
-
         List<int> collectiblesCyberKing =
         [
             ModContent.ItemType<CyberKingTrophy>(),
@@ -197,21 +164,11 @@ public class ModSupport : ModSystem
             }
         );
 
-        if (bossChecklistMod.Version < new Version(1, 6))
-        {
-            return;
-        }
-
         string internalNameTitan = "Titan";
-
         float weightTitan = 18.6f;
-
         Func<bool> downedTitan = () => !TremorSpawnEnemys.downedTitan;
-
         int bossTypeTitan = ModContent.NPCType<Titan>();
-
         int spawnItemTitan = ModContent.ItemType<AncientWatch>();
-
         List<int> collectiblesTitan =
         [
             ModContent.ItemType<ParadoxTitanMask>(),
@@ -240,21 +197,11 @@ public class ModSupport : ModSystem
             }
         );
 
-        if (bossChecklistMod.Version < new Version(1, 6))
-        {
-            return;
-        }
-
         string internalNameCogLord = "CogLord";
-
         float weightCogLord = 13.3f;
-
         Func<bool> downedCogLord = () => !TremorSpawnEnemys.downedCogLord;
-
         int bossTypeCogLord = ModContent.NPCType<CogLord>();
-
         int spawnItemCogLord = ModContent.ItemType<ArtifactEngine>();
-
         List<int> collectiblesCogLord =
         [
             ModContent.ItemType<CogLordTrophy>(),
@@ -283,21 +230,11 @@ public class ModSupport : ModSystem
             }
         );
 
-        if (bossChecklistMod.Version < new Version(1, 6))
-        {
-            return;
-        }
-
         string internalNameSpaceWhale = "SpaceWhale";
-
         float weightSpaceWhale = 18.4f;
-
         Func<bool> downedSpaceWhale = () => !TremorSpawnEnemys.downedSpaceWhale;
-
         int bossTypeSpaceWhale = ModContent.NPCType<SpaceWhale>();
-
         int spawnItemSpaceWhale = ModContent.ItemType<CosmicKrill>();
-
         List<int> collectiblesSpaceWhale =
         [
             ModContent.ItemType<SpaceWhaleTrophy>(),
@@ -310,7 +247,6 @@ public class ModSupport : ModSystem
             ModContent.ItemType<SpaceWhaleTreasureBag>(),
             ModContent.ItemType<WhaleFlippers>()
         ];
-
 
         bossChecklistMod.Call(
             "LogBoss",
@@ -328,21 +264,11 @@ public class ModSupport : ModSystem
             }
         );
 
-        if (bossChecklistMod.Version < new Version(1, 6))
-        {
-            return;
-        }
-
         string internalNameEvilCorn = "EvilCorn";
-
         float weightEvilCorn = 4.6f;
-
         Func<bool> downedEvilCorn = () => !TremorSpawnEnemys.downedEvilCorn;
-
         int bossTypeEvilCorn = ModContent.NPCType<EvilCorn>();
-
         int spawnItemEvilCorn = ModContent.ItemType<CursedPopcorn>();
-
         List<int> collectiblesEvilCorn =
         [
             ModContent.ItemType<EvilCornTrophy>(),
@@ -356,7 +282,6 @@ public class ModSupport : ModSystem
             ModContent.ItemType<FarmerShovel>(),
             ModContent.ItemType<EvilCornBag>()
         ];
-
 
         bossChecklistMod.Call(
             "LogBoss",
@@ -374,21 +299,11 @@ public class ModSupport : ModSystem
             }
         );
 
-        if (bossChecklistMod.Version < new Version(1, 6))
-        {
-            return;
-        }
-
         string internalNameRukh = "Rukh";
-
         float weightRukh = 2.2f;
-
         Func<bool> downedRukh = () => !TremorSpawnEnemys.downedRukh;
-
         int bossTypeRukh = ModContent.NPCType<npcVultureKing>();
-
-        int spawnItemRukh = ModContent.ItemType<DesertCrown>(); 
-
+        int spawnItemRukh = ModContent.ItemType<DesertCrown>();
         List<int> collectiblesRukh =
         [
             ModContent.ItemType<VultureKingMask>(),
@@ -399,7 +314,6 @@ public class ModSupport : ModSystem
             ModContent.ItemType<VultureKingTrophy>(),
             ModContent.ItemType<VultureKingBag>()
         ];
-
 
         bossChecklistMod.Call(
             "LogBoss",
@@ -417,21 +331,11 @@ public class ModSupport : ModSystem
             }
         );
 
-        if (bossChecklistMod.Version < new Version(1, 6))
-        {
-            return;
-        }
-
         string internalNameDarkE = "TheDarkEmperor";
-
         float weightDarkE = 18.2f;
-
         Func<bool> downedDarkE = () => !TremorSpawnEnemys.downedTheDarkEmperor;
-
         int bossTypeDarkE = ModContent.NPCType<TheDarkEmperor>();
-
         int spawnItemDarkE = ModContent.ItemType<EmperorCrown>();
-
         List<int> collectiblesDarkE =
         [
             ModContent.ItemType<DarkEmperorMask>(),
@@ -443,7 +347,6 @@ public class ModSupport : ModSystem
             ModContent.ItemType<DarkEmperorBag>(),
             ModContent.ItemType<SoulofFight>()
         ];
-
 
         bossChecklistMod.Call(
             "LogBoss",
@@ -461,21 +364,11 @@ public class ModSupport : ModSystem
             }
         );
 
-        if (bossChecklistMod.Version < new Version(1, 6))
-        {
-            return;
-        }
-
         string internalNameFrostK = "FrostKing";
-
         float weightFrostK = 14.2f;
-
         Func<bool> downedFrostK = () => !TremorSpawnEnemys.downedFrostKing;
-
         int bossTypeFrostK = ModContent.NPCType<FrostKing>();
-
         int spawnItemFrostK = ModContent.ItemType<FrostCrown>();
-
         List<int> collectiblesFrostK =
         [
             ModContent.ItemType<FrostKingTrophy>(),
@@ -500,21 +393,11 @@ public class ModSupport : ModSystem
             }
         );
 
-        if (bossChecklistMod.Version < new Version(1, 6))
-        {
-            return;
-        }
-
         string internalNameAndas = "TrueAndas";
-
         float weightAndas = 18.7f;
-
         Func<bool> downedAndas = () => !TremorSpawnEnemys.downedFrostKing;
-
         int bossTypeAndas = ModContent.NPCType<TrueAndas>();
-
         int spawnItemAndas = ModContent.ItemType<InfernoSkulll>();
-
         List<int> collectiblesAndas =
         [
             ModContent.ItemType<AndasTrophy>(),
@@ -544,21 +427,11 @@ public class ModSupport : ModSystem
             }
         );
 
-        if (bossChecklistMod.Version < new Version(1, 6))
-        {
-            return;
-        }
-
         string internalNameMotherboard = "Motherboard";
-
         float weightMotherboard = 13.7f;
-
         Func<bool> downedMotherboard = () => !TremorSpawnEnemys.downedMotherboard;
-
         int bossTypeMotherboard = ModContent.NPCType<Motherboard>();
-
         int spawnItemMotherboard = ModContent.ItemType<MechanicalBrain>();
-
         List<int> collectiblesMotherboard =
         [
             ModContent.ItemType<MotherboardMask>(),
@@ -586,21 +459,11 @@ public class ModSupport : ModSystem
             }
         );
 
-        if (bossChecklistMod.Version < new Version(1, 6))
-        {
-            return;
-        }
-
         string internalNameHOWH = "HeaterOfWorldsHead";
-
         float weightHOWH = 6.6f;
-
-        Func<bool> downedHOWH = () => !TremorSpawnEnemys.downedHeaterOfWorldsHead; 
-
+        Func<bool> downedHOWH = () => !TremorSpawnEnemys.downedHeaterOfWorldsHead;
         int bossTypeHOWHd = ModContent.NPCType<HeaterOfWorldsHead>();
-
         int spawnItemHOWH = ModContent.ItemType<MoltenHeart>();
-
         List<int> collectiblesHOWH =
         [
             ModContent.ItemType<MoltenParts>(),
@@ -625,21 +488,11 @@ public class ModSupport : ModSystem
             }
         );
 
-        if (bossChecklistMod.Version < new Version(1, 6))
-        {
-            return;
-        }
-
         string internalNameFungusB = "FungusBeetle";
-
         float weightFungusB = 5.6f;
-
         Func<bool> downedFungusB = () => !TremorSpawnEnemys.downedFungusBeetle;
-
         int bossTypeFungusB = ModContent.NPCType<FungusBeetle>();
-
         int spawnItemFungusB = ModContent.ItemType<MushroomCrystal>();
-
         List<int> collectiblesFungusB =
         [
             ModContent.ItemType<FungusBeetleMask>(),
@@ -664,22 +517,11 @@ public class ModSupport : ModSystem
             }
         );
 
-
-        if (bossChecklistMod.Version < new Version(1, 6))
-        {
-            return;
-        }
-
         string internalNameTikiTotem = "TikiTotem";
-
         float weightTikiTotem = 5.2f;
-
         Func<bool> downedTikiTotem = () => !TremorSpawnEnemys.downedTikiTotem;
-
         int bossTypeTikiTotem = ModContent.NPCType<TikiTotem>();
-
         int spawnItemTikiTotem = ModContent.ItemType<MysteriousDrum>();
-
         List<int> collectiblesTikiTotem =
         [
             ModContent.ItemType<ToxicBlade>(),
@@ -708,21 +550,11 @@ public class ModSupport : ModSystem
             }
         );
 
-        if (bossChecklistMod.Version < new Version(1, 6))
-        {
-            return;
-        }
-
         string internalNamePixieQueen = "PixieQueen";
-
         float weightPixieQueen = 14.8f;
-
         Func<bool> downedPixieQueen = () => !TremorSpawnEnemys.downedPixieQueen;
-
         int bossTypePixieQueen = ModContent.NPCType<PixieQueen>();
-
         int spawnItemPixieQueen = ModContent.ItemType<PixieinaJar>();
-
         List<int> collectiblesPixieQueen =
         [
             ModContent.ItemType<PixieQueenMask>(),
@@ -750,21 +582,11 @@ public class ModSupport : ModSystem
             }
         );
 
-        if (bossChecklistMod.Version < new Version(1, 6))
-        {
-            return;
-        }
-
         string internalNameBrutallisk = "Brutallisk";
-
         float weightBrutallisk = 18.3f;
-
         Func<bool> downedBrutalliskn = () => !TremorSpawnEnemys.downedBrutallisk;
-
         int bossTypeBrutallisk = ModContent.NPCType<Brutallisk>();
-
         int spawnItemBrutallisk = ModContent.ItemType<RoyalEgg>();
-
         List<int> collectiblesBrutallisk =
         [
             ModContent.ItemType<BrutalliskMask>(),
@@ -813,21 +635,11 @@ public class ModSupport : ModSystem
             }
         );
 
-        if (bossChecklistMod.Version < new Version(1, 6))
-        {
-            return;
-        }
-
         string internalNameWOF = "WallofShadow";
-
         float weightWOF = 14.9f;
-
         Func<bool> downedWOF = () => !TremorSpawnEnemys.downedWallOfShadow;
-
         int bossTypeWOF = ModContent.NPCType<WallOfShadow>();
-
         int spawnItemWOF = ModContent.ItemType<ShadowRelic>();
-
         List<int> collectiblesWOF =
         [
             ModContent.ItemType<WallofShadowTrophy>(),
@@ -855,21 +667,11 @@ public class ModSupport : ModSystem
             }
         );
 
-        if (bossChecklistMod.Version < new Version(1, 6))
-        {
-            return;
-        }
-
         string internalNameTrinity = "Trinity";
-
         float weightTrinity = 18.5f;
-
         Func<bool> downedTrinity = () => !TremorSpawnEnemys.downedTrinity;
-
         int bossTypeTrinity = ModContent.NPCType<SoulofHope>();
-
         int spawnItemTrinity = ModContent.ItemType<StoneofKnowledge>();
-
         List<int> collectiblesTrinity =
         [
             ModContent.ItemType<HopeMask>(),
@@ -900,21 +702,11 @@ public class ModSupport : ModSystem
             }
         );
 
-        if (bossChecklistMod.Version < new Version(1, 6))
-        {
-            return;
-        }
-
         string internalNameSJ = "StormJelly";
-
         float weightSJ = 4.5f;
-
         Func<bool> downedSJ = () => !TremorSpawnEnemys.downedBrutallisk;
-
         int bossTypeSJ = ModContent.NPCType<StormJellyfish>();
-
         int spawnItemSJ = ModContent.ItemType<StormJelly>();
-
         List<int> collectiblesSJ =
         [
             ModContent.ItemType<StormJellyfishMask>(),
@@ -942,4 +734,4 @@ public class ModSupport : ModSystem
             }
         );
     }
-}       
+}

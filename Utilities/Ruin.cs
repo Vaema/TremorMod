@@ -10,16 +10,13 @@ namespace TremorMod.Utilities;
 
 public class Ruin : ModSystem
 {
-    private List<Point16> placedRuins = [];
+    private readonly List<Point16> placedRuins = [];
 
     public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight)
     {
         int ShiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Shinies"));
         if (ShiniesIndex == -1)
-        {
-            // Shinies pass removed by some other mod.
             return;
-        }
         tasks.Insert(ShiniesIndex + 1, new PassLegacy("Generating dungeon", (progress, configuration) =>
         {
             progress.Message = "Generating ruins...";
@@ -32,21 +29,12 @@ public class Ruin : ModSystem
     {
         int worldWidth = Main.maxTilesX;
         int worldHeight = Main.maxTilesY;
-
         for (int i = 0; i < 4; i++)
-        {
             PlaceRuin("Structures/Ruin3", worldWidth, worldHeight, 1000);
-        }
-
         for (int i = 0; i < 10; i++)
-        {
             PlaceRuin("Structures/Ruin2", worldWidth, worldHeight, 650);
-        }
-
         for (int i = 0; i < 15; i++)
-        {
             PlaceRuin("Structures/Ruin1", worldWidth, worldHeight, 500);
-        }
     }
 
     private void PlaceRuin(string structurePath, int worldWidth, int worldHeight, int minDistance)
@@ -74,6 +62,7 @@ public class Ruin : ModSystem
                 placedRuins.Add(newRuin);
                 break;
             }
+
             attempts++;
         }
     }

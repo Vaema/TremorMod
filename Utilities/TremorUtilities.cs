@@ -15,10 +15,8 @@ namespace TremorMod;
 
 public static class TremorUtilities
 {
-    public static bool NextBool(Random rand, int chance)
-    {
-        return rand.Next(chance) == 0;
-    }
+    public static bool NextBool(Random rand, int chance) =>
+        rand.Next(chance) == 0;
 
     public static IEnumerable<T> DistinctBy<T, TKey>(this IEnumerable<T> source, Func<T, TKey> keySelector)
     {
@@ -29,6 +27,7 @@ public static class TremorUtilities
                 yield return element;
         }
     }
+
     public static void DisplayLocalizedText(string key, Color messageColor)
     {
         string message = Language.GetTextValue(key);
@@ -103,8 +102,7 @@ public static class TremorUtils
     /// <summary>
     /// MoreLINQ distinct by: .DistinctBy( x => x.prop )
     /// </summary>
-    public static IEnumerable<TSource> DistinctBy<TSource, TKey>
-        (this IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
+    public static IEnumerable<TSource> DistinctBy<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
     {
         HashSet<TKey> knownKeys = [];
         foreach (TSource element in source)
@@ -119,10 +117,8 @@ public static class TremorUtils
     /// <summary>
     /// Adds to dict if not present
     /// </summary>
-    public static void TryAdd<T1, T2>(this Dictionary<T1, T2> dict, T1 key, T2 value)
-    {
+    public static void TryAdd<T1, T2>(this Dictionary<T1, T2> dict, T1 key, T2 value) =>
         dict.TryAdd(key, value);
-    }
 
     /// <summary>
     ///  Does player have buff?  Usable in SetDefaults because of the hacks

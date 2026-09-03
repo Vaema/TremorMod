@@ -15,18 +15,8 @@ public static partial class TownNPCsUtilities
         return shop.Add(item, conditions);
     }
 
-    public static NPCShop AddWithCustomValue<T>(this NPCShop shop, int customValue, params Condition[] conditions) where T : ModItem
-    {
-        return shop.AddWithCustomValue(ItemType<T>(), customValue, conditions);
-    }
-}
-
-public class NPCUtil : ModSystem
-{     
-    public override void Load()
-    {
-
-    }
+    public static NPCShop AddWithCustomValue<T>(this NPCShop shop, int customValue, params Condition[] conditions) where T : ModItem =>
+        shop.AddWithCustomValue(ItemType<T>(), customValue, conditions);
 }
 
 public static class PlayerExtensions
@@ -36,9 +26,7 @@ public static class PlayerExtensions
         foreach (Item item in player.inventory)
         {
             if (item.type == itemType)
-            {
                 return true;
-            }
         }
         return false;
     }

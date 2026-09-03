@@ -1,12 +1,12 @@
-﻿using Terraria;
+﻿using System.Linq;
+using Terraria;
 using Terraria.ID;
-using System.Linq;
-using TremorMod.Content.NPCs.Bosses.NovaPillar.Items;
 using Terraria.ModLoader;
-using TremorMod.Content.Items.Weapons.Alchemical;
 using TremorMod.Content.Items.Accessories;
 using TremorMod.Content.Items.Materials;
+using TremorMod.Content.Items.Weapons.Alchemical;
 using TremorMod.Content.Items.Weapons.Melee;
+using TremorMod.Content.NPCs.Bosses.NovaPillar.Items;
 using TremorMod.Content.Tiles;
 
 namespace TremorMod.Utilities;
@@ -17,26 +17,17 @@ public class RecipeSystem : ModSystem
     {
         TremorConfig config = ModContent.GetInstance<TremorConfig>();
 
-        // Ïðîâåðÿåì, ðàçðåøåíî ëè èçìåíÿòü ðåöåïò Çåíèòà
         if (!config.AllowZenithRecipeChange)
-        {
             return;
-        }
-        // Îòêëþ÷åíèÿ âàíèëüíîãî ðåöåïòà äëÿ Çåíèòà
+
         foreach (var recipe in Main.recipe.ToList())
         {
             if (recipe.createItem.type == ItemID.Zenith)
-            {
                 recipe.DisableRecipe();
-            }
-
             if (recipe.createItem.type == ItemID.CelestialSigil)
-            {
                 recipe.DisableRecipe();
-            }
         }
 
-        // Èçìåí¸ííûé ðåöåïò äëÿ Çåíèòà
         Recipe newRecipe = Recipe.Create(ItemID.Zenith);
         newRecipe.AddIngredient(ItemID.Meowmere);
         newRecipe.AddIngredient(ItemID.StarWrath);
@@ -62,9 +53,9 @@ public class RecipeSystem : ModSystem
         newRecipe1.Register();
     }
 
-    public override void AddRecipes() 
+    public override void AddRecipes()
     {
-        Recipe newRecipe = Recipe.Create(ItemID.AvengerEmblem); // Íîâûé ðåöåïò äëÿ AvengerEmblem
+        Recipe newRecipe = Recipe.Create(ItemID.AvengerEmblem);
         newRecipe.AddIngredient(ModContent.ItemType<ThrowerEmblem>());
         newRecipe.AddIngredient(ItemID.SoulofMight, 5);
         newRecipe.AddIngredient(ItemID.SoulofSight, 5);
@@ -72,11 +63,11 @@ public class RecipeSystem : ModSystem
         newRecipe.AddTile(TileID.TinkerersWorkbench);
         newRecipe.Register();
 
-        Recipe newRecipe1 = Recipe.Create(ItemID.ToxicFlask);  // Íîâûé ðåöåïò äëÿ ToxicFlask
+        Recipe newRecipe1 = Recipe.Create(ItemID.ToxicFlask);
         newRecipe1.AddIngredient(ModContent.ItemType<ToxicFlask>());
         newRecipe1.Register();
 
-        Recipe newRecipe3 = Recipe.Create(ItemID.AvengerEmblem); // Íîâûé ðåöåïò äëÿ AvengerEmblem
+        Recipe newRecipe3 = Recipe.Create(ItemID.AvengerEmblem);
         newRecipe3.AddIngredient(ModContent.ItemType<AlchemistEmblem>());
         newRecipe3.AddIngredient(ItemID.SoulofMight, 5);
         newRecipe3.AddIngredient(ItemID.SoulofSight, 5);
@@ -84,7 +75,7 @@ public class RecipeSystem : ModSystem
         newRecipe3.AddTile(TileID.TinkerersWorkbench);
         newRecipe3.Register();
 
-        Recipe newRecipe4 = Recipe.Create(ItemID.MagicMirror);  // Íîâûé ðåöåïò äëÿ MagicMirror
+        Recipe newRecipe4 = Recipe.Create(ItemID.MagicMirror);
         newRecipe4.AddIngredient(ItemID.SilverBar, 15);
         newRecipe4.AddIngredient(ItemID.Glass, 5);
         newRecipe4.AddIngredient(ItemID.ManaCrystal, 2);
@@ -93,7 +84,7 @@ public class RecipeSystem : ModSystem
         Recipe goldChestRecipe = Recipe.Create(ItemID.GoldChest);
         goldChestRecipe.AddIngredient(ItemID.Wood, 8);
         goldChestRecipe.AddIngredient(ItemID.GoldBar, 2);
-        goldChestRecipe.AddTile(TileID.WorkBenches); 
+        goldChestRecipe.AddTile(TileID.WorkBenches);
         goldChestRecipe.Register();
 
         Recipe bandManaRecipe = Recipe.Create(ItemID.BandofStarpower);
@@ -231,7 +222,7 @@ public class RecipeSystem : ModSystem
         woodenChairRecipe.Register();
 
 
-        Recipe newRecipe5 = Recipe.Create(ItemID.LunarTabletFragment); 
+        Recipe newRecipe5 = Recipe.Create(ItemID.LunarTabletFragment);
         newRecipe5.AddIngredient(ItemID.StyngerBolt, 75);
         newRecipe5.AddTile(TileID.MythrilAnvil);
         newRecipe5.Register();

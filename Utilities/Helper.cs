@@ -14,9 +14,8 @@ namespace TremorMod.Utilities;
 public delegate void ExtraAction();
 
 public static class Helper
-{   
-
-    #region Spawn helpers
+{
+    #region Spawn Helpers
     public static bool NoInvasion(NPCSpawnInfo spawnInfo)
     {
         return !spawnInfo.Invasion && ((!Main.pumpkinMoon && !Main.snowMoon) || spawnInfo.SpawnTileY > Main.worldSurface || Main.dayTime) && (!Main.eclipse || spawnInfo.SpawnTileY > Main.worldSurface || !Main.dayTime);
@@ -59,15 +58,6 @@ public static class Helper
     }
     #endregion
 
-    /// <summary>
-    /// *Âû÷èñëåíèå ïîçèöè òî÷êè ñ ïîëÿðíûì ñìåùåíèåì îò äðóãîé*
-    /// </summary>
-    /// <param name="Point">Íà÷àëüíàÿ òî÷êà</param>
-    /// <param name="Distance">Äèñòàíöèÿ ñìåùåíèÿ</param>
-    /// <param name="Angle">Óãîë ñìåùåíèÿ â ðàäèàíàõ</param>
-    /// <param name="XOffset">Ñìåùåíèå ïî X</param>
-    /// <param name="YOffset">Ñìåùåíèå ïî Y</param>
-    /// <returns>Âîçâðàùÿåò òî÷êó ñìåù¸ííóþ ïî çàäàíûì ïàðàìåòðàì</returns>
     public static Vector2 PolarPos(Vector2 Point, float Distance, float Angle, int XOffset = 0, int YOffset = 0)
     {
         Vector2 returnedValue = new Vector2
@@ -78,35 +68,17 @@ public static class Helper
         return returnedValue;
     }
 
-    /// <summary>
-    /// *Èñïîëüçóåòñÿ äëÿ âû÷èñëèåíèÿ èíåðöèè îò òî÷êè äî òî÷êè ñ çàäàíîé ñêîðîñòüþ*
-    /// </summary>
-    /// <param name="A">Òî÷êà À</param>
-    /// <param name="B">Òî÷êà Â</param>
-    /// <param name="Speed">Ñêîðîñòü</param>
-    /// <returns>Âîçâðàùÿåò èíåðöèþ</returns>
     public static Vector2 VelocityToPointM(Vector2 A, Vector2 B, float Speed)
     {
         Vector2 Move = (B - A);
         return Move * (Speed / (float)Math.Sqrt(Move.X * Move.X + Move.Y * Move.Y));
     }
 
-    /// <summary>
-		/// *Âû÷åñëåíèå ñëó÷àéíîé òî÷êè â ïðÿìîóãîëüíèêå*
-		/// </summary>
-		/// <param name="A">Òî÷êà ïðÿìîóãîëüíèêà A</param>
-		/// <param name="B">Òî÷êà ïðÿìîóãîëüíèêà B</param>
-		/// <returns>Ñëó÷àéíóþ òî÷êó â ïðÿìîóãîëüíèêå èç çàäàíûõ òî÷åê</returns>
-		public static Vector2 RandomPointInArea(Vector2 A, Vector2 B)
+    public static Vector2 RandomPointInArea(Vector2 A, Vector2 B)
     {
         return new Vector2(Main.rand.Next((int)A.X, (int)B.X) + 1, Main.rand.Next((int)A.Y, (int)B.Y) + 1);
     }
 
-    /// <summary>
-    /// *Âû÷åñëåíèå ñëó÷àéíîé òî÷êè â ïðÿìîóãîëüíèêå*
-    /// </summary>
-    /// <param name="Area">Ïðÿìîóãîëüíèê</param>
-    /// <returns>Ñëó÷àéíóþ òî÷êó â çàäàíîì ïðÿìîóãîëüíèêå</returns>
     public static Vector2 RandomPointInArea(Rectangle Area)
     {
         return new Vector2(Main.rand.Next(Area.X, Area.X + Area.Width), Main.rand.Next(Area.Y, Area.Y + Area.Height));
@@ -142,6 +114,7 @@ public static class Helper
         {
             if (Alive && (!player.active || player.dead))
                 continue;
+
             if (NearestPlayerDist == -1 || player.Distance(Point) < NearestPlayerDist)
             {
                 NearestPlayerDist = player.Distance(Point);
@@ -180,9 +153,8 @@ public static class Helper
     {
         Projectile projectile = Main.projectile[index];
         if (!projectile.active)
-        {
             return;
-        }
+
         projectile.tileCollide = false;
         projectile.alpha = 255;
         projectile.position.X += projectile.width / 2;
@@ -203,15 +175,15 @@ public static class Helper
         {
             for (int i = 0; i < 30; i++)
             {
-                int num = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, DustID.Smoke, 0f, 0f, 100, default(Color), 1.5f);
+                int num = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, DustID.Smoke, 0f, 0f, 100, default, 1.5f);
                 Main.dust[num].velocity *= 1.4f;
             }
             for (int j = 0; j < 20; j++)
             {
-                int num2 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, DustID.Torch, 0f, 0f, 100, default(Color), 3.5f);
+                int num2 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, DustID.Torch, 0f, 0f, 100, default, 3.5f);
                 Main.dust[num2].noGravity = true;
                 Main.dust[num2].velocity *= 7f;
-                num2 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, DustID.Torch, 0f, 0f, 100, default(Color), 1.5f);
+                num2 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, DustID.Torch, 0f, 0f, 100, default, 1.5f);
                 Main.dust[num2].velocity *= 3f;
             }
             for (int k = 0; k < 2; k++)
@@ -254,19 +226,16 @@ public static class Helper
         Main.spriteBatch.Draw(texture2D, projectile.Center - Main.screenPosition, texture2D.Frame(1, Main.projFrames[projectile.type], 0, projectile.frame), lightColor, projectile.rotation, origin, projectile.scale, effects, 0f);
     }
 
-    // Ôóíêöèÿ äëÿ íàõîæäåíèÿ ñðåäíåé òî÷êè ìåæäó äâóìÿ âåêòîðàìè
     public static Vector2 CenterPoint(Vector2 point1, Vector2 point2)
     {
         return (point1 + point2) / 2;
     }
 
-    // Ôóíêöèÿ äëÿ íàõîæäåíèÿ óãëà ìåæäó äâóìÿ òî÷êàìè
     public static float RotateBetween2Points(Vector2 point1, Vector2 point2)
     {
         return (point2 - point1).ToRotation();
     }
 
-    // Ôóíêöèÿ äëÿ âû÷èñëåíèÿ ñêîðîñòè äëÿ äîñòèæåíèÿ òî÷êè
     public static Vector2 VelocityToPoint(Vector2 from, Vector2 to, float speed)
     {
         Vector2 direction = to - from;
@@ -291,8 +260,7 @@ public static class Helper
         return Float + ((Main.rand.Next(0, (int)DistortNumber + 1) / (float)(Math.Pow(10, Counter))) * ((Main.rand.NextBool(2)) ? -1 : 1));
     }
 
-    // Ôóíêöèÿ äëÿ íàõîæäåíèÿ áëèæàéøåãî èãðîêà
-    public static int GetNearestPlayerT(Vector2 position, bool aliveCheck = false) // çàìåíèòü 
+    public static int GetNearestPlayerT(Vector2 position, bool aliveCheck = false)
     {
         int nearestPlayer = -1;
         float nearestDistance = float.MaxValue;

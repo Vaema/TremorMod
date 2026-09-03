@@ -1,15 +1,15 @@
 ﻿using Microsoft.Xna.Framework;
-using Terraria.DataStructures;
 using Terraria;
+using Terraria.DataStructures;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TremorMod.Content.Buffs;
 using TremorMod.Content.Items.Weapons.Alchemical;
-using Terraria.ID;
 
 namespace TremorMod.Utilities;
 
-	public class AlchemistGlobalItem : GlobalItem
-	{
+public class AlchemistGlobalItem : GlobalItem
+{
     public override bool ConsumeItem(Item item, Player player)
     {
         MPlayer modPlayer = MPlayer.GetModPlayer(player);

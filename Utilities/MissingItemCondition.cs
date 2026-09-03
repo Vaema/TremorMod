@@ -25,13 +25,7 @@ public class MissingItemCondition : IItemDropRuleCondition
         return true;
     }
 
-    public bool CanShowItemDropInUI()
-    {
-        return true;
-    }
+    public bool CanShowItemDropInUI() => true;
 
-    public string GetConditionDescription()
-    {
-        return null;
-    }
+    public string GetConditionDescription() => null;
 }

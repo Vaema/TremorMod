@@ -25,4 +25,3 @@ public class TremorModSystem : ModSystem
         HasGeneratedCometiteOre = tag.GetBool("HasGeneratedCometiteOre");
     }
 }
-

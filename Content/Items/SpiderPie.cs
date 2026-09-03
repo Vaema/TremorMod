@@ -6,39 +6,29 @@ using TremorMod.Content.Mounts;
 
 namespace TremorMod.Content.Items;
 
-	public class SpiderPie : ModItem
-	{
-		public override void SetDefaults()
-		{
+public class SpiderPie : ModItem
+{
+    public override void SetDefaults()
+    {
+        Item.width = 28;
+        Item.height = 30;
+        Item.useTime = Item.useAnimation = 20;
+        Item.useStyle = ItemUseStyleID.Swing;
+        Item.knockBack = 6;
+        Item.value = 30000;
+        Item.rare = ItemRarityID.Green;
+        Item.UseSound = SoundID.Item79;
+        Item.noMelee = true;
+        Item.mountType = ModContent.MountType<Spider>();
+    }
 
-			Item.width = 28;
-			Item.height = 30;
-
-			Item.useTime = 20;
-			Item.useAnimation = 20;
-			Item.useStyle = ItemUseStyleID.Swing;
-			Item.knockBack = 6;
-			Item.value = 30000;
-			Item.rare = ItemRarityID.Green;
-			Item.UseSound = SoundID.Item79;
-			Item.noMelee = true;
-			Item.mountType = ModContent.MountType<Spider>();
-		}
-
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Spider Pie");
-			// Tooltip.SetDefault("Summons a rideable Fat Spider mount");
-		}
-
-		public override void AddRecipes()
-		{
-			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.Bowl, 1);
-			recipe.AddIngredient(ModContent.ItemType<SpiderMeat>(), 15);
-			recipe.AddIngredient(ItemID.Cobweb, 100);
-			//recipe.SetResult(this);
-			recipe.AddTile(TileID.Furnaces);
-			recipe.Register();
-		}
-	}
+    public override void AddRecipes()
+    {
+        CreateRecipe().
+            AddIngredient(ItemID.Bowl).
+            AddIngredient(ModContent.ItemType<SpiderMeat>(), 15).
+            AddIngredient(ItemID.Cobweb, 100).
+            AddTile(TileID.Furnaces).
+            Register();
+    }
+}

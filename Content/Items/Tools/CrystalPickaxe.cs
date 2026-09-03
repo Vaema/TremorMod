@@ -6,52 +6,41 @@ using TremorMod.Content.Items.Materials.OreAndBar;
 
 namespace TremorMod.Content.Items.Tools;
 
-	public class CrystalPickaxe : ModItem
-	{
-		public override void SetDefaults()
-		{
-			Item.damage = 20;
-			Item.DamageType = DamageClass.Melee;
-			Item.width = 40;
-			Item.height = 40;
-			Item.useTime = 10;
-			Item.useAnimation = 10;
-			Item.pick = 150;
-			Item.useStyle = ItemUseStyleID.Swing;
-			Item.tileBoost++;
-			Item.knockBack = 6;
-			Item.value = 15000;
-			Item.rare = ItemRarityID.Pink;
-			Item.UseSound = SoundID.Item1;
-			Item.autoReuse = true;
-		}
-
-		/*public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("Crystal Pickaxe");
-			Tooltip.SetDefault("");
-		}*/
-
-		public override void AddRecipes()
-		{
-			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<ChaosBar>(), 15);
-			recipe.AddIngredient(ItemID.CrystalShard, 22);
-			//recipe.SetResult(this);
-			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.Register();
-		}
-
-		public override void MeleeEffects(Player player, Rectangle hitbox)
-		{
-			if (Main.rand.NextBool(3))
-			{
-				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.UndergroundHallowedEnemies);
-			}
-		}
-
-		public override void ModifyHitNPC(Player player, NPC target, ref NPC.HitModifiers modifiers)
+public class CrystalPickaxe : ModItem
+{
+    public override void SetDefaults()
     {
-        target.AddBuff(BuffID.OnFire, 60); // Ïðèìåð: äîáàâëÿåì ýôôåêò ãîðåíèÿ íà 60 êàäðîâ
+        Item.damage = 20;
+        Item.DamageType = DamageClass.Melee;
+        Item.width = 40;
+        Item.height = 40;
+        Item.useTime = 10;
+        Item.useAnimation = 10;
+        Item.pick = 150;
+        Item.useStyle = ItemUseStyleID.Swing;
+        Item.tileBoost++;
+        Item.knockBack = 6;
+        Item.value = 15000;
+        Item.rare = ItemRarityID.Pink;
+        Item.UseSound = SoundID.Item1;
+        Item.autoReuse = true;
     }
+
+    public override void AddRecipes()
+    {
+        Recipe recipe = CreateRecipe();
+        recipe.AddIngredient(ModContent.ItemType<ChaosBar>(), 15);
+        recipe.AddIngredient(ItemID.CrystalShard, 22);
+        recipe.AddTile(TileID.MythrilAnvil);
+        recipe.Register();
+    }
+
+    public override void MeleeEffects(Player player, Rectangle hitbox)
+    {
+        if (Main.rand.NextBool(3))
+            Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.UndergroundHallowedEnemies);
+    }
+
+    public override void ModifyHitNPC(Player player, NPC target, ref NPC.HitModifiers modifiers) =>
+        target.AddBuff(BuffID.OnFire, 60);
 }

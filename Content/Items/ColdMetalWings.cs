@@ -1,62 +1,52 @@
 ﻿using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.DataStructures;
 using TremorMod.Content.Items.Materials;
 
 namespace TremorMod.Content.Items;
 
-	[AutoloadEquip(EquipType.Wings)]
-	public class ColdMetalWings : ModItem
-	{
-
-		public override void SetDefaults()
-		{
-			Item.width = 22;
-			Item.height = 20;
-			Item.value = 125000;
-			Item.rare = ItemRarityID.Purple;
-			Item.accessory = true;
-		}
-
-		public override void SetStaticDefaults()
-		{
-        //DisplayName.SetDefault("Frosteel Wings");
-        //Tooltip.SetDefault("Allows flight and slow fall");
-        ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(200, 15f, 1f);
+[AutoloadEquip(EquipType.Wings)]
+public class ColdMetalWings : ModItem
+{
+    public override void SetDefaults()
+    {
+        Item.width = 22;
+        Item.height = 20;
+        Item.value = 125000;
+        Item.rare = ItemRarityID.Purple;
+        Item.accessory = true;
     }
 
-		public override void UpdateAccessory(Player player, bool hideVisual)
-		{
-			player.wingTimeMax = 200;
-		}
+    public override void SetStaticDefaults() =>
+        ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(200, 15f, 1f);
 
-		public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
-			ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
-		{
+    public override void UpdateAccessory(Player player, bool hideVisual) =>
+        player.wingTimeMax = 200;
 
-			ascentWhenFalling = 0.85f;
-			ascentWhenRising = 0.15f;
-			maxCanAscendMultiplier = 1f;
-			maxAscentMultiplier = 3f;
-			constantAscend = 0.155f;
-		}
+    public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
+        ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
+    {
+        ascentWhenFalling = 0.85f;
+        ascentWhenRising = 0.15f;
+        maxCanAscendMultiplier = 1f;
+        maxAscentMultiplier = 3f;
+        constantAscend = 0.155f;
+    }
 
-		public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
-		{
-			speed = 15f;
-			acceleration *= 2.5f;
-		}
+    public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
+    {
+        speed = 15f;
+        acceleration *= 2.5f;
+    }
 
-		public override void AddRecipes()
-		{
-			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<FrostoneBar>(), 5);
-			recipe.AddIngredient(ModContent.ItemType<IceSoul>(), 5);
-			recipe.AddIngredient(ItemID.SoulofFlight, 20);
-			//recipe.SetResult(this);
-			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.Register();
-		}
-
-	}
+    public override void AddRecipes()
+    {
+        CreateRecipe().
+            AddIngredient(ModContent.ItemType<FrostoneBar>(), 5).
+            AddIngredient(ModContent.ItemType<IceSoul>(), 5).
+            AddIngredient(ItemID.SoulofFlight, 20).
+            AddTile(TileID.MythrilAnvil).
+            Register();
+    }
+}

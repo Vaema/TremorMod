@@ -1,7 +1,7 @@
 ﻿using System;
-using TremorMod.Content.Biomes.Ruins.Tiles;
-using TremorMod.Content.Biomes.Ice;
 using Terraria.ModLoader;
+using TremorMod.Content.Biomes.Ice;
+using TremorMod.Content.Biomes.Ruins.Tiles;
 
 namespace TremorMod.Utilities;
 
@@ -12,8 +12,8 @@ public class BiomeTileCounterSystem : ModSystem
 
     public override void ResetNearbyTileEffects()
     {
-        RuinAltar = 0;            
-        IceBlock = 0;            
+        RuinAltar = 0;
+        IceBlock = 0;
     }
 
     public override void TileCountsAvailable(ReadOnlySpan<int> tileCounts)

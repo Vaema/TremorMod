@@ -30,15 +30,12 @@ public class TremorNPC : GlobalNPC
     public override void OnKill(NPC npc)
     {
         int[] moonlordNpcTypes = [147, 150, 154, 155, 161, 167, 168, 169, 184, 185, 197, 206, 431];
-
         if (NPC.downedMechBossAny)
         {
             if ((npc.type == NPCID.TheDestroyer || npc.type == NPCID.Retinazer || npc.type == NPCID.Spazmatism || npc.type == NPCID.SkeletronPrime))
             {
                 if (Main.rand.NextFloat() < 0.10f)
-                {
                     Item.NewItem(npc.GetSource_Loot(), npc.position, ModContent.ItemType<FlaskCore>());
-                }
             }
         }
 
@@ -58,9 +55,7 @@ public class TremorNPC : GlobalNPC
             if (Main.eclipse)
             {
                 if (Main.rand.NextFloat() < 0.10f)
-                {
                     Item.NewItem(npc.GetSource_Loot(), npc.position, ModContent.ItemType<ToothofAbraxas>());
-                }
             }
 
             if (npc.type == NPCID.Retinazer || npc.type == NPCID.Spazmatism || npc.type == NPCID.SkeletronPrime || npc.type == NPCID.TheDestroyer)
@@ -75,9 +70,7 @@ public class TremorNPC : GlobalNPC
             if (Main.rand.NextFloat() < 0.060f)
             {
                 if ((npc.aiStyle == NPCAIStyleID.Slime))
-                {
                     Item.NewItem(npc.GetSource_Loot(), npc.position, ModContent.ItemType<DarkMass>());
-                }
             }
 
             if (npc.type == NPCID.Paladin)
@@ -103,9 +96,7 @@ public class TremorNPC : GlobalNPC
             if ((npc.type == NPCID.Pixie || npc.type == NPCID.Unicorn || npc.type == NPCID.RainbowSlime || npc.type == NPCID.Gastropod || npc.type == NPCID.LightMummy || npc.type == NPCID.DesertGhoulHallow))
             {
                 if (Main.rand.NextFloat() < 0.50f)
-                {
                     Item.NewItem(npc.GetSource_Loot(), npc.position, ModContent.ItemType<UnstableCrystal>());
-                }
             }
 
             if ((npc.type == NPCID.AngryTrapper || npc.type == NPCID.Moth || npc.type == NPCID.FlyingSnake))
@@ -118,40 +109,28 @@ public class TremorNPC : GlobalNPC
             }
 
             if (Main.rand.NextFloat() < 0.010f)
-            {
                 Item.NewItem(npc.GetSource_Loot(), npc.position, ModContent.ItemType<SuspiciousBag>());
-            }
 
             if (moonlordNpcTypes.Contains(npc.type))
-            {
                 Item.NewItem(npc.GetSource_Loot(), npc.position, ModContent.ItemType<IceSoul>());
-            }
         }
     }
 
     public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
     {
         int[] moonlordNpcTypes = [147, 150, 154, 155, 161, 167, 168, 169, 184, 185, 197, 206, 431];
-
         if (moonlordNpcTypes.Contains(npc.type))
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<IceSoul>(), 7000));
         }
 
-
         int[] ribNpcTypes = [77, 110];
-
         if (ribNpcTypes.Contains(npc.type))
-        {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TheRib>(), 3));
-        }
 
         int[] StoneofLNpcTypes = [481, 483];
-
         if (StoneofLNpcTypes.Contains(npc.type))
-        {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<StoneofLife>(), 4));
-        }
 
         if (npc.type == NPCID.PossessedArmor)
         {
@@ -505,7 +484,6 @@ public class TremorNPC : GlobalNPC
         }
 
         int[] RedSteelNPCs = [21, 449, 450, 451, 452, 322, 323, 324, 294, 295, 296, 201, 202, 20];
-
         if (WorldGen.shadowOrbSmashed && RedSteelNPCs.Contains(npc.type))
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RedSteelArmorPiece>(), 8));
@@ -565,7 +543,6 @@ public class TremorNPC : GlobalNPC
         }
 
         int[] FrostCoreNpcTypes = [169, 431, 161];
-
         if (FrostCoreNpcTypes.Contains(npc.type))
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FrostCore>(), 5, 1, 3));
@@ -682,9 +659,7 @@ public class TremorNPC : GlobalNPC
         if (!Main.expertMode && Main.rand.NextBool(6))
         {
             if ((npc.type == NPCID.Spazmatism && !NPC.AnyNPCs(125)) || (npc.type == NPCID.Retinazer && !NPC.AnyNPCs(126)))
-            {
                 npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MechaSprayer>(), 1));
-            }
         }
 
         if (npc.type == NPCID.MartianSaucerCore)
@@ -716,78 +691,21 @@ public class TremorNPC : GlobalNPC
     public override void ModifyShop(NPCShop shop)
     {
         if (shop.NpcType == NPCID.Merchant && Main.bloodMoon)
-        {
             shop.Add(ModContent.ItemType<RedPuzzleFragment>());
-        }
     }
+
     public override void SetDefaults(NPC npc)
     {
-        if (npc.type == NPCID.Bunny)
-        {
-            npc.lifeMax = 10;
-        }
-
-        if (npc.type == NPCID.PossessedArmor)
-        {
-            npc.lifeMax = 280;
-        }
-
-        if (npc.type == NPCID.Wraith)
-        {
-            npc.lifeMax = 200;
-        }
-
-        if (npc.type == NPCID.ToxicSludge)
-        {
-            npc.lifeMax = 175;
-        }
-
-        if (npc.type == NPCID.Tim)
-        {
-            npc.lifeMax = 250;
-        }
-
-        if (npc.type == NPCID.Piranha)
-        {
-            npc.lifeMax = 35;
-        }
-
-        if (npc.type == NPCID.CaveBat)
-        {
-            npc.lifeMax = 22;
-        }
-
-        if (npc.type == NPCID.GiantBat)
-        {
-            npc.lifeMax = 150;
-        }
-
-        if (npc.type == NPCID.ArmoredSkeleton)
-        {
-            npc.lifeMax = 300;
-        }
-
-        if (npc.type == NPCID.SkeletonArcher)
-        {
-            npc.lifeMax = 250;
-        }
-
+        // Allow jellyfish enemies to be captured with a bug net.
         if (npc.type == NPCID.BlueJellyfish && Main.hardMode)
-        {
             npc.catchItem = 2436;
-        }
-
         if (npc.type == NPCID.GreenJellyfish && Main.hardMode)
-        {
             npc.catchItem = 2437;
-        }
-
         if (npc.type == NPCID.PinkJellyfish && Main.hardMode)
-        {
             npc.catchItem = 2438;
-        }
 
-        if (NPC.downedMoonlord && npc.boss == false && npc.townNPC == false && npc.type >= NPCID.None && npc.type <= NPCID.BartenderUnconscious)
+        // Tremode stat changes.
+        if (NPC.downedMoonlord && !npc.boss && !npc.townNPC && npc.type >= NPCID.None && npc.type <= NPCID.BartenderUnconscious)
         {
             npc.lifeMax *= 2;
             npc.defense *= 2;

@@ -1,60 +1,52 @@
 ﻿using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.DataStructures;
 using TremorMod.Content.Items.Materials;
 
 namespace TremorMod.Content.Items;
 
-	[AutoloadEquip(EquipType.Wings)]
-	public class ShadowWings : ModItem
-	{
-
-		public override void SetDefaults()
-		{
-			Item.width = 22;
-			Item.height = 20;
-			Item.value = 100000;
-			Item.rare = ItemRarityID.Lime;
-			Item.accessory = true;
-		}
-
-		public override void SetStaticDefaults()
-		{
-        //DisplayName.SetDefault("Shadow Wings");
-        //Tooltip.SetDefault("The wings of shadow.");
-        ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(180, 6f, 1f);
+[AutoloadEquip(EquipType.Wings)]
+public class ShadowWings : ModItem
+{
+    public override void SetDefaults()
+    {
+        Item.width = 22;
+        Item.height = 20;
+        Item.value = 100000;
+        Item.rare = ItemRarityID.Lime;
+        Item.accessory = true;
     }
 
-		public override void UpdateAccessory(Player player, bool hideVisual)
-		{
-			player.wingTimeMax = 180;
-		}
+    public override void SetStaticDefaults() =>
+        ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(180, 6f, 1f);
 
-		public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
-			ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
-		{
-			ascentWhenFalling = 0.85f;
-			ascentWhenRising = 0.15f;
-			maxCanAscendMultiplier = 1f;
-			maxAscentMultiplier = 3f;
-			constantAscend = 0.135f;
-		}
+    public override void UpdateAccessory(Player player, bool hideVisual) =>
+        player.wingTimeMax = 180;
 
-		public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
-		{
-			speed = 6f;
-			acceleration *= 2.5f;
-		}
+    public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
+        ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
+    {
+        ascentWhenFalling = 0.85f;
+        ascentWhenRising = 0.15f;
+        maxCanAscendMultiplier = 1f;
+        maxAscentMultiplier = 3f;
+        constantAscend = 0.135f;
+    }
 
-		public override void AddRecipes()
-		{
-			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.SoulofNight, 11);
-			recipe.AddIngredient(ModContent.ItemType<DarknessCloth>(), 6);
-			recipe.AddIngredient(ItemID.SoulofFlight, 20);
-			recipe.AddTile(TileID.MythrilAnvil);
-			//recipe.SetResult(this);
-			recipe.Register();
-		}
-	}
+    public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
+    {
+        speed = 6f;
+        acceleration *= 2.5f;
+    }
+
+    public override void AddRecipes()
+    {
+        CreateRecipe().
+            AddIngredient(ItemID.SoulofNight, 11).
+            AddIngredient(ModContent.ItemType<DarknessCloth>(), 6).
+            AddIngredient(ItemID.SoulofFlight, 20).
+            AddTile(TileID.MythrilAnvil).
+            Register();
+    }
+}

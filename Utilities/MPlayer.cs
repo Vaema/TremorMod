@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -17,10 +18,9 @@ using TremorMod.Content.Items.Armor.Invar;
 using TremorMod.Content.Items.Armor.Magmonium;
 using TremorMod.Content.Items.Armor.Nano;
 using TremorMod.Content.Items.Armor.Nightingale;
+using TremorMod.Content.Items.Armor.Nova;
 using TremorMod.Content.Items.Armor.Orcish;
 using TremorMod.Content.Items.Armor.Sandstone;
-using TremorMod.Content.Items.Armor.Nova;
-using Microsoft.Xna.Framework;
 using TremorMod.Content.Projectiles;
 
 namespace TremorMod.Utilities;
@@ -45,9 +45,9 @@ public class MPlayer : ModPlayer
     float meleeMultiplier = 0.4f; // Множитель для Melee
     float magicMultiplier = 0.6f; // Множитель для Magic
     public bool paraxydeSetBonusActive;
-    private int tickCounter; 
+    private int tickCounter;
     private const int CooldownTicks = 5;
-    private const int MaxProjectiles = 50; 
+    private const int MaxProjectiles = 50;
     public bool fragileCondition = false;
     public float alchemicalDamage;
     public float alchemicalKbAddition;

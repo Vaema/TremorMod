@@ -4,50 +4,41 @@ using Terraria.ModLoader;
 
 namespace TremorMod.Content.Items;
 
-	public class ClockofTime : ModItem
-	{
-		public override void SetDefaults()
-		{
+public class ClockofTime : ModItem
+{
+    public override void SetDefaults()
+    {
+        Item.width = 16;
+        Item.height = 16;
+        Item.value = 1000;
+        Item.rare = ItemRarityID.Pink;
+        Item.useTurn = true;
+        Item.autoReuse = false;
+        Item.useStyle = ItemUseStyleID.HoldUp;
+        Item.useAnimation = 15;
+        Item.useTime = 15;
+        Item.maxStack = 1;
+        Item.mana = 100;
+        Item.UseSound = SoundID.Item8;
+    }
 
-			Item.width = 16;
-			Item.height = 16;
+    public override bool? UseItem(Player player)
+    {
+        if (player.altFunctionUse == 2)
+        {
+            Main.bloodMoon = true;
+            return true;
+        }
 
-			Item.value = 00001000;
-			Item.rare = ItemRarityID.Pink;
-			Item.useTurn = true;
-			Item.autoReuse = false;
-			Item.useStyle = ItemUseStyleID.HoldUp;
-			Item.useAnimation = 15;
-			Item.useTime = 15;
-			Item.maxStack = 1;
-			Item.mana = 100;
-			Item.UseSound = SoundID.Item8;
-		}
+        if (Main.netMode != NetmodeID.MultiplayerClient)
+        {
+            Main.dayTime = !Main.dayTime;
+            Main.time = (Main.dayTime ? 10000f : 0f);
+            return true;
+        }
 
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Paradox Clock");
-			// Tooltip.SetDefault("Allows you to control the time");
-		}
+        return true;
+    }
 
-		public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
-		{
-			if (player.altFunctionUse == 2)
-			{
-				Main.bloodMoon = true;
-				return true;
-			}
-			if (Main.netMode != NetmodeID.MultiplayerClient)
-			{
-				Main.dayTime = !Main.dayTime;
-				Main.time = (Main.dayTime ? 10000f : 0f);
-				return true;
-			}
-			return true;
-		}
-
-		public override bool AltFunctionUse(Player player)
-		{
-			return true;
-		}
-	}
+    public override bool AltFunctionUse(Player player) => true;
+}

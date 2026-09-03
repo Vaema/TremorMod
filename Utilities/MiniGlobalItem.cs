@@ -8,20 +8,18 @@ public class MiniGlobalItem : GlobalItem
 {
     public override void SetDefaults(Item item)
     {
-        if (item.type == ItemID.Bone) 
+        if (item.type == ItemID.Bone)
         {
-            item.ammo = ItemID.Bone; 
-            item.consumable = true;  
+            item.ammo = ItemID.Bone;
+            item.consumable = true;
         }
     }
 
     public override bool CanRightClick(Item item)
     {
         if (item.type == ItemID.DefenderMedal)
-        {
-            return true; // Ðàçðåøàåì êëàñòü â Piggy Bank
-        }
+            return true;
+
         return base.CanRightClick(item);
     }
-
 }

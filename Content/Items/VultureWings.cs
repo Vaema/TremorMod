@@ -1,60 +1,51 @@
 ﻿using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.DataStructures;
 using TremorMod.Content.Items.Accessories;
 
 namespace TremorMod.Content.Items;
 
-	[AutoloadEquip(EquipType.Wings)]
-	public class VultureWings : ModItem
-	{
-
-		public override void SetDefaults()
-		{
-
-			Item.width = 22;
-			Item.height = 20;
-			Item.value = 10000;
-			Item.rare = ItemRarityID.Pink;
-			Item.accessory = true;
-		}
-
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Vulture Wings");
-			// Tooltip.SetDefault("");
-        ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(100, 8f, 1f);
+[AutoloadEquip(EquipType.Wings)]
+public class VultureWings : ModItem
+{
+    public override void SetDefaults()
+    {
+        Item.width = 22;
+        Item.height = 20;
+        Item.value = 10000;
+        Item.rare = ItemRarityID.Pink;
+        Item.accessory = true;
     }
 
-		public override void UpdateAccessory(Player player, bool hideVisual)
-		{
-			player.wingTimeMax = 100;
-		}
+    public override void SetStaticDefaults() =>
+        ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(100, 8f, 1f);
 
-		public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
-			ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
-		{
-			ascentWhenFalling = 0.75f;
-			ascentWhenRising = 0.15f;
-			maxCanAscendMultiplier = 1f;
-			maxAscentMultiplier = 3f;
-			constantAscend = 0.125f;
-		}
+    public override void UpdateAccessory(Player player, bool hideVisual) =>
+        player.wingTimeMax = 100;
 
-		public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
-		{
-			speed = 8f;
-			acceleration *= 2.5f;
-		}
+    public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
+        ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
+    {
+        ascentWhenFalling = 0.75f;
+        ascentWhenRising = 0.15f;
+        maxCanAscendMultiplier = 1f;
+        maxAscentMultiplier = 3f;
+        constantAscend = 0.125f;
+    }
 
-		public override void AddRecipes()
-		{
-			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<VultureFeather>(), 1);
-			recipe.AddIngredient(ItemID.SoulofFlight, 20);
-			recipe.AddTile(TileID.MythrilAnvil);
-			//recipe.SetResult(this);
-			recipe.Register();
-		}
-	}
+    public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
+    {
+        speed = 8f;
+        acceleration *= 2.5f;
+    }
+
+    public override void AddRecipes()
+    {
+        CreateRecipe().
+            AddIngredient(ModContent.ItemType<VultureFeather>(), 1).
+            AddIngredient(ItemID.SoulofFlight, 20).
+            AddTile(TileID.MythrilAnvil).
+            Register();
+    }
+}
